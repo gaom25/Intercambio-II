@@ -4,27 +4,459 @@
           "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
           "http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
 
-
 <struts-config>
+
     <form-beans>
-    
+        <form-bean name="Usuario" type="Clases.Usuario"/>
+        <form-bean name="Anuncio" type="Clases.Anuncio"/>
+        <form-bean name="Contacto" type="Clases.Correo"/>
+        <form-bean name="PlanillaUSB" type="Clases.PlanillaUSB"/>
+        <form-bean name="PlanillaExt" type="Clases.PlanillaExt"/>
+        <form-bean name="EstUSB" type="Clases.EstudianteUSB"/>
+        <form-bean name="EstInter" type="Clases.EstudianteInternacional"/>
+        <form-bean name="Postulante" type="Clases.Postulante"/>
+        <form-bean name="fileUploadForm" type="Clases.FileUploadForm"/>
+        <form-bean name="Idiomas" type="Clases.Idiomas"/>
+        <form-bean name="PlanDeEstudio" type ="Clases.PlanDeEstudio"/>
     </form-beans>
-    
-    <global-exceptions>
-    
-    </global-exceptions>
+       
+    <global-exceptions></global-exceptions>
 
     <global-forwards>
-        <forward name="welcome"  path="/Welcome.do"/>
+        <forward name="welcome" path="/Welcome.do"/>
     </global-forwards>
 
     <action-mappings>
-        <action path="/Welcome" forward="/welcomeStruts.jsp"/>
+        
+    <!-- Acciones de direccionamiento -->
+        <!-- Desde un public -->
+        <action path="/Welcome"
+            type="org.apache.struts.actions.ForwardAction"
+            scope="request"
+            validate="false"
+            parameter="inicSesion"/>
+        
+        <action path="/faq"
+            type="org.apache.struts.actions.ForwardAction"
+            scope="request"
+            validate="false"
+            parameter="faq"/>
+        
+        <action path="/englishWelcome"
+            type="org.apache.struts.actions.ForwardAction"
+            scope="request"
+            validate="false"
+            parameter="inicSesionEn"/>
+        
+        <action path="/englishWelcome"
+            type="org.apache.struts.actions.ForwardAction"
+            scope="request"
+            validate="false"
+            parameter="inicSesionEn"/>
+        
+        <action path="/preRegistro"
+            type="org.apache.struts.actions.ForwardAction"
+            scope="request"
+            validate="false"
+            parameter="preRegistro"/>
+        
+        <action path="/reccontra"
+            type="org.apache.struts.actions.ForwardAction"
+            scope="request"
+            validate="false"
+            parameter="reccontra"/>
+        
+<!--        <action path="/recConEnviada"
+            type="org.apache.struts.actions.ForwardAction"
+            scope="request"
+            validate="false"
+            parameter="recConEnviada"/> -->
+            
+        <action path="/agregUsuario"
+            type="org.apache.struts.actions.ForwardAction"
+            scope="request"
+            validate="false"
+            parameter="agregUsuario"/>
+        
+        <action path="/agregPostulante"
+            type="org.apache.struts.actions.ForwardAction"
+            scope="request"
+            validate="false"
+            parameter="agregPostulante"/>
+        
+        <action path="/contacto"
+            type="org.apache.struts.actions.ForwardAction"
+            scope="request"
+            validate="false"
+            parameter="contacto"/>
+        
+<!--        <action path="/salida"
+            type="org.apache.struts.actions.ForwardAction"
+            scope="request"
+            validate="false"
+        parameter="salida"/> -->
+        
+        
+        <!-- desde admin -->
+        <action path="/accionesAdmin"
+            type="org.apache.struts.actions.ForwardAction"
+            scope="request"
+            validate="false"
+            parameter="accionesAdmin"/>
+        
+        <action path="/modPerfilAdm"
+            type="org.apache.struts.actions.ForwardAction"
+            scope="request"
+            validate="false"
+            parameter="modPerfilAdm"/>
+        
+        <action path="/cuentaAdmin"
+            type="org.apache.struts.actions.ForwardAction"
+            scope="request"
+            validate="false"
+            parameter="cuentaAdmin"/>
+        
+        
+        <!-- desde estudiante usb -->
+        <action path="/accionesEstUSB"
+            type="org.apache.struts.actions.ForwardAction"
+            scope="request"
+            validate="false"
+            parameter="accionesEstUSB"/>
+        
+        <action path="/formSolicUSB"
+            type="org.apache.struts.actions.ForwardAction"
+            scope="request"
+            validate="false"
+            parameter="formSolicUSB"/>
+        
+        <action path="/cuentaEstUSB"
+            type="org.apache.struts.actions.ForwardAction"
+            scope="request"
+            validate="false"
+            parameter="cuentaEstUSB"/>
+        
+        <action path="/modificarperUSB"
+            type="org.apache.struts.actions.ForwardAction"
+            scope="request"
+            validate="false"
+            parameter="modificarperUSB"/>
+        
+        <action path="/contactoEstUSB"
+            type="org.apache.struts.actions.ForwardAction"
+            scope="request"
+            validate="false"
+            parameter="contactoEstUSB"/>
+        
+         <!-- desde Coordinacion usb -->
+        <action path="/accionesPostulante"
+            type="org.apache.struts.actions.ForwardAction"
+            scope="request"
+            validate="false"
+            parameter="accionesPostulante"/>
+        
+        <action path="/contactoCoord"
+            type="org.apache.struts.actions.ForwardAction"
+            scope="request"
+            validate="false"
+            parameter="contactoCoord"/>
+        
+        <!-- desde gestor usb -->
+        <action path="/accionesGestor"
+            type="org.apache.struts.actions.ForwardAction"
+            scope="request"
+            validate="false"
+            parameter="accionesGestor"/>
+        
+        <action path="/contactoGestor"
+            type="org.apache.struts.actions.ForwardAction"
+            scope="request"
+            validate="false"
+            parameter="contactoGestor"/>
+              
+        
+        <!-- Acciones en public -->
+        
+        <action path="/Login" type="Actions.Login" name="Usuario">
+            <forward name="failure" path="datosErrados"/>
+            <forward name="administrador" path="accionesAdmin" />
+            <forward name="gestor" path="accionesGestor" />
+            <forward name="coordinacion" path="accionesPostulante" />
+            <forward name="univExt" path="welcomeCoord" />
+            <forward name="estUSB" path="accionesEstUSB" />
+            <forward name="estExt" path="accionesEstUSB" />
+            <forward name="error" path = "datosErrados"/>
+        </action> 
+               
+        <action name="Usuario" path="/PreRegistroUsuario" scope="session" type="Actions.PreRegistroUsuario">
+            <forward name="failure" path="preRegFallo"/>
+            <forward name="success" path="preRegExito" />
+            <forward name="error" path="preRegistro"/>
+        </action> 
+        
+        <action path="/EnviarCorreo" type="Actions.EnviarCorreo" name="Contacto">
+            <forward name="failure" path="inicSesion"/>
+            <forward name="success" path="accExitoPublico"/>
+            <forward name="error" path="contacto"/>
+        </action>
+        
+        
+        
+        
+        <!-- Acciones en usuario general -->
+        
+        
+        
+        
+        
+        
+        
+        <!-- Acciones en admin -->
+
+       <action name="Usuario" path="/ModificarUsuario" scope="session" type="Actions.ModificarUsuario">
+            <forward name="failure" path="modUsuarioFallo"/>
+            <forward name="success" path="accExito" />
+            <forward name= "error" path = "modificarUsuario"/>
+       </action>
+       
+       <action name="Usuario" path="/EliminarUsuario" scope="session" type="Actions.EliminarUsuario">
+            <forward name="failure" path="listarUsuarios"/>
+            <forward name="success" path="elimExito" />
+       </action>
+       
+       <action name="Usuario" path="/recContrasena" scope="session" type="Actions.recContrasena">
+            <forward name="failure" path="recConFallo"/>
+            <forward name="success" path="recConEnviada"/>
+            <forward name="error" path="recConFallo"/>
+       </action>        
+       
+       <action name="Usuario" path="/EliminarPreregistro" scope="session" type="Actions.EliminarPreregistro">
+            <forward name="failure" path="accFallo"/>
+            <forward name="success" path="accExito" />
+       </action>
+       
+       
+       <action name="Usuario" path="/ListarUsuarios" scope="session" type="Actions.ListarUsuarios">
+           <forward name="failure" path="listarUsuarios"/>
+           <forward name="success" path="listarUsuarios" />
+       </action>
+       
+       <action name="Usuario" path="/ListarPreregistro" scope="session" type="Actions.ListarPreregistro">
+           <forward name="failure" path="accFallo"/>
+           <forward name="success" path="listarPreregistro" />
+       </action>
+       
+       <action name="Usuario" path="/AccionAgregarUsuario" scope="request" type="Actions.AccionAgregarUsuario">
+            <forward name="failure" path="accFallo"/>
+            <forward name="success" path="accExito" />
+            <forward name="error" path="agregUsuario"/>
+            <forward name="postulante" path="agregPostulante" />
+            <forward name="estudiante" path="agregEstudiante" />
+       </action>
+
+       <action name="Postulante" path="/AgregarPostulante" scope="request" type="Actions.AgregarPostulante">
+            <forward name="failure" path="accFallo"/>
+            <forward name="success" path="accExito" />
+            <forward name="error" path="agregPostulante"/>
+       </action>
+       
+       <action name="Usuario" path="/AgregarUsuarios" scope="session" type="Actions.AgregarUsuarios">
+            <forward name="success" path="agregUsuario" />
+       </action>
+       
+       <action name="Usuario" path="/AceptarPreregistro" scope="request" type="Actions.AceptarPreregistro">
+            <forward name="failure" path="accFallo"/>
+            <forward name="success" path="accExito" />
+            <forward name="error" path="agregUsuario"/>
+       </action>
+              
+
+       
+       <action name="Usuario" path="/ModificarPerfil" scope="session" type="Actions.ModificarPerfil">
+           <forward name="failure" path="accFallo"/>
+           <forward name="success" path="accionesAdmin" />
+           <forward name="error" path="modPerfilAdm"/>
+       </action>       
+       
+       <action name="Usuario" path="/ModificarPerUSB" scope="session" type="Actions.ModificarPerUSB">
+           <forward name="failure" path="accFallo"/>
+           <forward name="success" path="accionesEstUSB" />
+           <forward name="error" path="modificarperUSB"/>
+       </action> 
+       
+       <action name="Usuario" path="/ObtenerDatos" scope="session" type="Actions.ObtenerDatos">
+            <forward name="failure" path="accFallo"/>
+            <forward name="success" path="cargarDatosMod" />
+       </action>
+       
+       <action name="Usuario" path="/ConsultarUsuario2" scope="session" type="Actions.ConsultarUsuario2">
+            <forward name="failure" path="accFallo"/>
+            <forward name="success" path="mostrarUsuario" />
+       </action>       
+       
+       <action name="Usuario" path="/ConsultarPreregistro" scope="session" type="Actions.ConsultarPreregistro">
+            <forward name="failure" path="accFallo"/>
+            <forward name="success" path="mostrarPreRegistro" />
+       </action>     
+       
+     <!-- Acciones en Estudiante USB -->
+     <action path="/EnviarCorreoEstUSB" type="Actions.EnviarCorreo" name="Contacto">
+            <forward name="failure" path="contactoEstUSB"/>
+            <forward name="success" path="exitoContactoEstUSB"/>
+            <forward name="error" path="contactoEstUSB"/>
+     </action>
+       
+     <!-- Acciones en Gestor -->
+     
+       <action input="/" name="EstUSB" path="/AccionAgregarEstudiante" scope="session" type="Actions.AccionAgregarEstudiante">
+            <forward name="success" path = "exitoAgregEst" />
+            <forward name ="fail" path = "falloAgregEst" />
+            <forward name="error" path = "agregEstudiantes" />          
+       </action>
+                  
+       <action name="EstUSB" path="/AgregarEstudiantes" scope="session" type="Actions.AgregarEstudiantes">
+            <forward name="success" path="agregEstudiante" />
+       </action>
+       
+       <action name="Usuario" path="/ListarEstudiantes" scope="session" type="Actions.ListarEstudiantes">
+           <forward name="failure" path="listarEstudiantes"/>
+           <forward name="success" path="listarEstudiantes" />
+       </action>
+           
+       <action input="/" name="Usuario" path="/CambiarEstadoPostulacion" scope="session" type="Actions.CambiarEstadoPostulacion">
+           <forward name="success" path="accionesGestor" />
+           <forward name="failure" path="accFallo" />
+       </action>
+       
+       <action path="/EnviarCorreoGestor" type="Actions.EnviarCorreo" name="Contacto">
+            <forward name="failure" path="contactoGestor"/>
+            <forward name="success" path="exitoContactoGestor"/>
+            <forward name="error" path="contactoGestor"/>
+       </action>
+       
+       
+     <!-- Acciones en Coordinacion -->
+     
+     <action path="/EnviarCorreoCoord" type="Actions.EnviarCorreo" name="Contacto">
+            <forward name="failure" path="contactoCoord"/>
+            <forward name="success" path="exitoContactoCoord"/>
+            <forward name="error" path="contactoCoord"/>
+     </action>
+       
+     <action name="Usuario" path="/EliminarUsuarioCoord" scope="session" type="Actions.EliminarUsuario">
+            <forward name="failure" path="listarEstudiantes"/>
+            <forward name="success" path="elimExitoCoord" />
+     </action>
+  
+      
+        <!-- -->
+        
+<!--       <action name="Anuncio" path="/PublicarAnuncio" scope="session" type="Actions.PublicarAnuncio">
+            <forward name="failure" path="/public/accionFallo.jsp"/>
+            <forward name="success" path="/public/accionExitosa.jsp" />
+            <forward name="error" path="/enviarAnuncio.jsp"/>
+       </action> -->  
+                 
+       <action input="/" name="Usuario" path="/CerrarSesion" scope="session" type="Actions.CerrarSesion">
+           <forward name="success" path="inicSesion" />
+       </action>
+       
+<!--       <action input="/" name="Usuario" path="/Acciones" scope="session" type="Actions.Acciones">
+            <forward name="success" path="/admin/acciones.jsp" />
+       </action> -->
+       
+       <action input="/" name="Usuario" path="/GenerarPlanilla_EstUSB" scope="session" type="Actions.GenerarPlanilla_EstUSB">
+            <forward name="success" path="accionesEstUSB" />
+            <forward name="incompleta" path="formularioUSB" />
+       </action>
+       
+       <action input="/" name="PlanillaExt" path="/GenerarPlanilla_EstExt" scope="session" type="Actions.GenerarPlanilla_EstExt">
+            <forward name="success" path="accionesEstUSB" />
+       </action>
+       
+       <action name="PlanillaUSB" path="/CargarLlenarPlanillaUSB" scope="session" type="Actions.CargarLlenarPlanillaUSB">
+            <forward name="success" path="formularioUSB" />
+            <forward name="modificar" path="modificarPlanillaUSB" />
+       </action>
+       
+       <action name="PlanillaUSB" path="/LlenarPlanilla_EstUSB" scope="session" type="Actions.LlenarPlanilla_EstUSB">
+            <forward name="success" path="cargacorrecta" />
+            <forward name ="fail" path = "cargaincorrecta" />
+            <forward name="error" path="cargaincorrecta" />
+       </action>
+       
+        <action name = "Usuario" path="/ObtenerDatos2" scope="session" type="Actions.ObtenerDatos2">
+            <forward name ="success" path="modificarPlanillaUSB" />
+       </action>
+       
+       <action name="PlanillaUSB" path="/ModificarPlanilla_EstUSB" scope="session" type="Actions.ModificarPlanilla_EstUSB">
+            <forward name="success" path="accionesEstUSB" />
+            <forward name ="fail" path = "formularioUSB" />
+            <forward name="error" path="formularioUSB" />
+       </action>
+       
+       
+       <action input="/" name="Usuario" path="/VerificarPlanillaUSB" scope="session" type="Actions.VerificarPlanillaUSB">
+           <forward name="success" path="creacionplanillacorrecta" />
+           <forward name="error" path="planillaIncompleta" />
+       </action>
+
+
+       <action input="/" path="/CargarIdioma" type="Actions.CargarIdioma" scope="request" name="Idiomas" >
+           <forward name ="success" path="cargaidioma" />
+       </action>
+       
+       
+       <action input="/" path="/AccionPlanDeEstudio" type="Actions.AccionPlanDeEstudio" scope="request" name="PlanDeEstudio" >
+           <forward name ="success" path="cargaplancorrecta" />
+       </action>
+
+
+       <action input="/" name="Usuario" path="/VerificarPlanillaGestor" scope="session" type="Actions.VerificarPlanillaGestor">
+           <forward name="success" path="creacionplanillacorrecta" />
+           <forward name="error" path="planillaIncompleta" />
+       </action>      
+
+
+       <action input="/" name="PlanillaUSB" path="/LlenarSolicitud" scope="session" type="Actions.LlenarSolicitud"/>
+       
+       <action input="/" name="EstUSB" path="/ConsultarSolicitud" scope="session" type="Actions.ConsultarSolictud"/>
+       
+       <action input="/" name="EstUSB" path="/ConsultarEstado" scope="session" type="Actions.ConsultarEstado"/>
+        
+      <action path="/FileUploadAction"
+               type="Actions.FileUploadAction"
+               name="fileUploadForm"
+               input="/upload.jsp"
+               validate = "true"
+               scope="request">
+            <forward name="success" path="cargaarchivoscorrecta"/>
+            <forward name="error" path="errortam"/>
+       </action>
+       
+      <action input="/" name="Usuario" path="/ListarEstudiantesPostulados" scope="session" type="Actions.ListarEstudiantesPostulados">
+          <forward name="success" path="listarEstudiantesPostulados"/>
+      </action>
+      
+      <action input="/" name="Usuario" path="/ObtenerEstadoSolicitud" scope="session" type="Actions.ObtenerEstadoSolicitud">
+          <forward name="success" path="estadoSolicitud"/>
+      </action>
+      <action input="/" name="Usuario" path="/ListarDocumentos" scope="session" type="Actions.ListarDocumentos">
+             <forward name="success" path="listarDocumentos" />
+       </action>
+    
+      <action path="/Descarga" type="Actions.Descarga" parameter="images/descarga.png" />
+      
+      <action input="/" name="EstUSB" path="/ListarSolicitudes" scope="session" type="Actions.ListarSolicitudes"/>
+       
+
+
     </action-mappings>
     
     <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>
 
     <message-resources parameter="com/myapp/struts/ApplicationResource"/>    
+    
     
     <!-- ========================= Tiles plugin ===============================-->
     <!--
@@ -60,9 +492,8 @@
     
     <!-- ========================= Validator plugin ================================= -->
     <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
-        <set-property
+        <set-property 
             property="pathnames"
             value="/WEB-INF/validator-rules.xml,/WEB-INF/validation.xml"/>
-    </plug-in>
-  
+    </plug-in> 
 </struts-config>
