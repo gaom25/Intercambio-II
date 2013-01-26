@@ -1,0 +1,224 @@
+
+
+body {
+    margin-left: auto;
+    margin-right: auto;
+    font-family: sans-serif;
+    font-size: medium;
+    color: #555;
+    background-color: white;
+}
+
+h1 {
+    letter-spacing: 3px;
+    font-size: 1.4em;
+    color: #369;
+    font-weight: bold;
+}
+
+h2 {
+    letter-spacing: 3px;
+    font-size: 1.2em;
+    color: #369;
+    font-weight: normal;
+}
+
+h4 {
+    letter-spacing: 3px;
+    font-size: 1.2em;
+    color: #369;
+    font-weight: normal;
+    text-align: center;
+}
+
+h5 {
+    letter-spacing: 1px;
+    font-weight: normal;
+    text-align: center;
+}
+
+h6 {
+    letter-spacing: 1px;
+    font-weight: normal;
+    text-align: center;
+    font-size: 0.875em;
+    color:#B22222;
+}
+
+table {
+    background-color: #00000;
+    border: background;
+    color: black;
+    margin-left: auto;
+    margin-right: auto;
+    alignment-adjust: auto;
+}
+
+td {
+    border: #00000;
+    margin-left: auto;
+    margin-right: auto;
+    color: black;
+}
+
+tr{
+    border: #00000;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Links */
+a {
+    color: #126598;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #198a15;
+    text-decoration: underline;
+}
+
+
+/********************
+      ESTRUCTURA
+*********************/
+
+#body-content {
+    margin: auto;
+    background-color: white;
+    width: 1100px;
+}
+
+#banner{
+    margin-left: auto;
+    margin-right: auto;
+    height: 250px;
+    width: 1000px;
+}
+
+#top-menu{
+    background-color: white;
+    height: 24px;
+    padding-left: 4px;
+    padding-right: 4px;
+    
+}
+
+#top-menu nav a{
+    font-size: 0.9em;
+    color: #1C6EA0;
+}
+
+#top-menu nav a:hover{
+    color: white;
+    background-color: #42a142;
+    text-decoration: none;
+}
+
+.nav li a{
+    font-size: 0.8em;
+    color: #1C6EA0;
+}
+			
+.nav li a:hover{
+    color: white;
+    background-color: #42a142;
+    text-decoration: none
+}
+
+.nav > li{
+	float:left;	
+}
+
+#login-form{
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+    text-align: center;
+    padding: 3px;
+}
+
+#login-form table {
+    width: 100%;
+    color: white;
+}
+
+#sidebarR {
+    
+    width: 150px;
+    float: right;
+    margin-top: 50px;
+}
+
+#sidebarL {
+    
+    background-color: #191932;
+    width: 150px;
+    float: left;
+    margin-top: 50px;
+    text-align: left;
+    font-size: 0.9em;
+    font-weight: bold;
+}
+
+#sidebarL div a{
+    color: #F0F0F0;
+}
+
+.submenu {
+    background-color: #9a9ab5;
+}
+
+.submenu a{
+    color: #00000;
+}
+
+#footer{
+    width:760px;
+    margin:auto;
+    background-color: white;
+    color: #1C6EA0;
+    font-size: 0.8em;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.error{
+    border-color: red;
+}
+
+#Bienve{
+    float: left;
+    color:#369;
+    font-size: 0.8em;
+    /*top:280px;
+    left:150px;
+    position: absolute;*/
+}
+
+#Bienve h1{
+    letter-spacing: 1px;
+    font-weight: bold;
+    color:#369;
+    font-size: 1.2em;
+}
+
+#NombreUser{
+    letter-spacing: 1px;
+    font-weight: normal;
+    float: right;
+    width: 640px;
+    color:#369;
+    font-size: 0.8em;
+    /*top:280px;
+    left:250px;
+    position: absolute;*/
+}
+
+#NombreUser h1{
+    letter-spacing: 1px;
+    font-weight: normal;
+    color:#369;
+    font-size: 1.2em;
+}
