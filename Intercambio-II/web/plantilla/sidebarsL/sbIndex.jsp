@@ -13,7 +13,7 @@
 <html:html>
         <div>
             <html:link action="contacto">
-                <img width="150" height="50" src="/Intercambio/images/Contactenos.jpg">
+                <img width="150" height="50" src="/Intercambio-II/images/Contactenos.jpg">
             </html:link>
         </div>
 </html:html>

@@ -40,7 +40,7 @@ public class DBMS {
         try {
             Class.forName("org.postgresql.Driver");
             conexion = DriverManager.getConnection(
-                    "jdbc:postgresql://localhost:5432/tesseract",
+                    "jdbc:postgresql://localhost:5432/dycicle",
                     "postgres",
                     "postgres");
             return true;
@@ -52,7 +52,7 @@ public class DBMS {
 
     public Usuario consultarUsuario(Usuario u) {
 
-        String sqlquery = "SELECT * FROM \"Tesseract\".usuario"
+        String sqlquery = "SELECT * FROM \"dycicle\".usuario"
                 + " WHERE nombreusuario ='" + u.getNombreusuario() + "' " + " AND "
                 + "contrasena ='" + u.getContrasena() + "'";
         try {
@@ -79,7 +79,7 @@ public class DBMS {
 
     public Usuario consultarPreregistro(Usuario u) {
 
-        String sqlquery = "SELECT * FROM \"Tesseract\".preregistro"
+        String sqlquery = "SELECT * FROM \"dycicle\".preregistro"
                 + " WHERE nombreusuario ='" + u.getNombreusuario() + "'";
         try {
 
@@ -102,7 +102,7 @@ public class DBMS {
 
     public Boolean agregarUsuario(Usuario u) {
         try {
-            String sqlquery = "INSERT INTO \"Tesseract\".usuario VALUES ('" + u.getNombreusuario()
+            String sqlquery = "INSERT INTO \"dycicle\".usuario VALUES ('" + u.getNombreusuario()
                     + "', '" + u.getEmail() + "', '" + u.getPrivilegio()
                     + "', '" + u.getNombre() + "','" + u.getContrasena() + "');";
             Statement stmt = conexion.createStatement();
@@ -117,7 +117,7 @@ public class DBMS {
 
     public boolean agregarGestor(Gestor g) {
         try {
-            String sqlquery = "INSERT INTO \"Tesseract\".gestor VALUES ('" + g.getNombreusuario()
+            String sqlquery = "INSERT INTO \"dycicle\".gestor VALUES ('" + g.getNombreusuario()
                     + "', '" + g.getNombre() + "');";
             Statement stmt = conexion.createStatement();
             Integer i = stmt.executeUpdate(sqlquery);
@@ -130,7 +130,7 @@ public class DBMS {
 
     public boolean agregarCoordUSB(Postulante p) {
         try {
-            String sqlquery = "INSERT INTO \"Tesseract\".postulante VALUES ('" + p.getNombreusuario()
+            String sqlquery = "INSERT INTO \"dycicle\".postulante VALUES ('" + p.getNombreusuario()
                     + "', '" + p.getCodigo() + "', '" + p.getTipo() + "', 'null', '"
                     + p.getNombreCarrera() + "');";
             Statement stmt = conexion.createStatement();
@@ -145,7 +145,7 @@ public class DBMS {
 
     public boolean agregarUniExt(Postulante p) {
         try {
-            String sqlquery = "INSERT INTO \"Tesseract\".postulante VALUES ('" + p.getNombreusuario()
+            String sqlquery = "INSERT INTO \"dycicle\".postulante VALUES ('" + p.getNombreusuario()
                     + "', '" + p.getCodigo() + "', '" + p.getTipo() + "',  '" + p.getNombreUniExt()
                     + "', null');";
             Statement stmt = conexion.createStatement();
@@ -159,7 +159,7 @@ public class DBMS {
 
     public Boolean aceptarPreregistro(Usuario u) {
         try {
-            String sqlquery = "INSERT INTO \"Tesseract\".usuario SELECT * FROM \"Tesseract\".preregistro"
+            String sqlquery = "INSERT INTO \"dycicle\".usuario SELECT * FROM \"dycicle\".preregistro"
                     + " WHERE  (nombreusuario='" + u.getNombreusuario() + "');";
             Statement stmt = conexion.createStatement();
             System.out.println(sqlquery);
@@ -177,7 +177,7 @@ public class DBMS {
         try {
 
 
-            String confirmacion = "SELECT * FROM \"Tesseract\".usuario"
+            String confirmacion = "SELECT * FROM \"dycicle\".usuario"
                     + " WHERE nombreusuario ='" + u.getNombreusuario() + "';";
             Statement stmt = conexion.createStatement();
             ResultSet rs = stmt.executeQuery(confirmacion);
@@ -188,7 +188,7 @@ public class DBMS {
                 return false;
             } else {
 
-                String sqlquery = "INSERT INTO \"Tesseract\".preregistro VALUES ('" + u.getNombreusuario()
+                String sqlquery = "INSERT INTO \"dycicle\".preregistro VALUES ('" + u.getNombreusuario()
                         + "', '" + u.getEmail() + "', '" + u.getPrivilegio()
                         + "', '" + u.getNombre() + "','" + u.getContrasena() + "');";
                 stmt = conexion.createStatement();
@@ -208,7 +208,7 @@ public class DBMS {
         try {
 
             String nombreusuario = u.getNombreusuario();
-            String sqlquery = "SELECT privilegio FROM \"Tesseract\".usuario"
+            String sqlquery = "SELECT privilegio FROM \"dycicle\".usuario"
                     + " WHERE nombreusuario = '" + nombreusuario + "'";
 
             Statement stmt = conexion.createStatement();
@@ -218,13 +218,13 @@ public class DBMS {
             int privilegio = rs.getInt("privilegio");
 
             if (privilegio == 2) {
-                sqlquery = "DELETE FROM \"Tesseract\".gestor WHERE nombreusuario = '"
+                sqlquery = "DELETE FROM \"dycicle\".gestor WHERE nombreusuario = '"
                         + nombreusuario + "'";
             } else if (privilegio == 3 || privilegio == 4) {
-                sqlquery = "DELETE FROM \"Tesseract\".postulante WHERE nombreusuario = '"
+                sqlquery = "DELETE FROM \"dycicle\".postulante WHERE nombreusuario = '"
                         + nombreusuario + "'";
             } else if (privilegio == 5 || privilegio == 6) {
-                sqlquery = "DELETE FROM \"Tesseract\".estudiante WHERE nombreusuario = '"
+                sqlquery = "DELETE FROM \"dycicle\".estudiante WHERE nombreusuario = '"
                         + nombreusuario + "'";
                 System.out.println(sqlquery);
             }
@@ -232,7 +232,7 @@ public class DBMS {
             stmt = conexion.createStatement();
             Integer i = stmt.executeUpdate(sqlquery);
 
-            sqlquery = "DELETE FROM \"Tesseract\".usuario" + " WHERE nombreusuario = '"
+            sqlquery = "DELETE FROM \"dycicle\".usuario" + " WHERE nombreusuario = '"
                     + nombreusuario + "'";
             stmt = conexion.createStatement();
             i = stmt.executeUpdate(sqlquery);
@@ -247,7 +247,7 @@ public class DBMS {
 
     public Boolean eliminarPreregistro(Usuario u) {
         try {
-            String sqlquery = "DELETE FROM \"Tesseract\".preregistro" + " WHERE nombreusuario = '"
+            String sqlquery = "DELETE FROM \"dycicle\".preregistro" + " WHERE nombreusuario = '"
                     + u.getNombreusuario() + "'";
             Statement stmt = conexion.createStatement();
             System.out.println(sqlquery);
@@ -261,7 +261,7 @@ public class DBMS {
 
     public Boolean modificarUsuario(Usuario u) {
         try {
-            String sqlquery = "UPDATE \"Tesseract\".usuario SET email='" + u.getEmail()
+            String sqlquery = "UPDATE \"dycicle\".usuario SET email='" + u.getEmail()
                     + "', nombre='" + u.getNombre()
                     + "', privilegio='" + u.getPrivilegio()
                     + "' WHERE nombreusuario = '"
@@ -278,7 +278,7 @@ public class DBMS {
     public Usuario obtenerEstadoSolicitud(Usuario u) {
         try {
 
-            String sqlquery = "SELECT estadopostulacion FROM \"Tesseract\".PlanillaUSB SET WHERE"
+            String sqlquery = "SELECT estadopostulacion FROM \"dycicle\".PlanillaUSB SET WHERE"
                     + " nombreusuario = '" + u.getNombreusuario() + "'";
 
             Statement stmt = conexion.createStatement();
@@ -299,7 +299,7 @@ public class DBMS {
     public Boolean cambiarEstadoSolicitud(Usuario u) {
         try {
 
-            String sqlquery = "UPDATE \"Tesseract\".PlanillaUSB SET estadopostulacion ='"
+            String sqlquery = "UPDATE \"dycicle\".PlanillaUSB SET estadopostulacion ='"
                     + u.getConfirmar()
                     + "' WHERE nombreusuario = '"
                     + u.getNombreusuario() + "'";
@@ -315,7 +315,7 @@ public class DBMS {
 
     public Boolean modificarPerfil(Usuario u) {
         try {
-            String sqlquery = "UPDATE \"Tesseract\".usuario SET contrasena ='" + u.getConfirmar()
+            String sqlquery = "UPDATE \"dycicle\".usuario SET contrasena ='" + u.getConfirmar()
                     + "', email='" + u.getEmail()
                     + "', nombre='" + u.getNombre()
                     + "', privilegio='" + u.getPrivilegio()
@@ -335,7 +335,7 @@ public class DBMS {
         ArrayList<Usuario> usrs = new ArrayList<Usuario>(0);
 
         try {
-            String sqlquery = "SELECT * FROM \"Tesseract\".usuario";
+            String sqlquery = "SELECT * FROM \"dycicle\".usuario";
             Statement stmt = conexion.createStatement();
             System.out.println(sqlquery);
             ResultSet rs = stmt.executeQuery(sqlquery);
@@ -355,7 +355,7 @@ public class DBMS {
 
     public ArrayList<String> listarDocumentos(Usuario u) throws SQLException {
 
-        String sqlquery = "SELECT * FROM \"Tesseract\".archivosestudianteusb WHERE nombreusuario='"
+        String sqlquery = "SELECT * FROM \"dycicle\".archivosestudianteusb WHERE nombreusuario='"
                 + u.getNombreusuario() + "';";
 
         Statement stmt = conexion.createStatement();
@@ -389,7 +389,7 @@ public class DBMS {
         ArrayList<Usuario> usrs = new ArrayList<Usuario>(0);
 
         try {
-            String sqlquery = "SELECT * FROM \"Tesseract\".estudiante";
+            String sqlquery = "SELECT * FROM \"dycicle\".estudiante";
             Statement stmt = conexion.createStatement();
             System.out.println(sqlquery);
             ResultSet rs = stmt.executeQuery(sqlquery);
@@ -402,7 +402,7 @@ public class DBMS {
             }
 
 
-//            sqlquery = "SELECT * FROM \"Tesseract\".planillausb WHERE nombreusuario='"
+//            sqlquery = "SELECT * FROM \"dycicle\".planillausb WHERE nombreusuario='"
 //                    + u.getNombreusuario()+ "'";
 //
 //            stmt = conexion.createStatement();
@@ -432,7 +432,7 @@ public class DBMS {
 
 //            Acomodar Query para que me devuelva los estudiantes con la misma carrera
 //            que el que lo invoca
-            String sqlquery = "SELECT * FROM \"Tesseract\".estudiante WHERE "
+            String sqlquery = "SELECT * FROM \"dycicle\".estudiante WHERE "
                     + "carrera = '" + u.getNombreusuario() + "';";
 
             Statement stmt = conexion.createStatement();
@@ -456,7 +456,7 @@ public class DBMS {
         ArrayList<Usuario> usrs = new ArrayList<Usuario>(0);
 
         try {
-            String sqlquery = "SELECT * FROM \"Tesseract\".preregistro";
+            String sqlquery = "SELECT * FROM \"dycicle\".preregistro";
             Statement stmt = conexion.createStatement();
             System.out.println(sqlquery);
             ResultSet rs = stmt.executeQuery(sqlquery);
@@ -482,7 +482,7 @@ public class DBMS {
 
 //            Acomodar Query para que me devuelva los estudiantes con la misma carrera
 //            que el que lo invoca
-            String sqlquery = "SELECT * FROM \"Tesseract\".idiomas WHERE "
+            String sqlquery = "SELECT * FROM \"dycicle\".idiomas WHERE "
                     + "nombreusuario = '" + u.getNombreusuario() + "'";
 
             Statement stmt = conexion.createStatement();
@@ -510,7 +510,7 @@ public class DBMS {
         Usuario datos = new Usuario();
 
         try {
-            String sqlquery = "SELECT * FROM \"Tesseract\".usuario"
+            String sqlquery = "SELECT * FROM \"dycicle\".usuario"
                     + " WHERE nombreusuario ='" + u.getNombreusuario() + "'";
 
             Statement stmt = conexion.createStatement();
@@ -535,7 +535,7 @@ public class DBMS {
 
         try {
 
-            String sqlquery = "SELECT * FROM \"Tesseract\".planillaUSB"
+            String sqlquery = "SELECT * FROM \"dycicle\".planillaUSB"
                     + " WHERE nombreusuario ='" + u.getNombreusuario() + "';";
 
             Statement stmt = conexion.createStatement();
@@ -600,7 +600,7 @@ public class DBMS {
         try {
 
             Statement stmt = conexion.createStatement();
-            String sqlquery = "INSERT INTO \"Tesseract\".anuncio VALUES ('" + a.getTitulo()
+            String sqlquery = "INSERT INTO \"dycicle\".anuncio VALUES ('" + a.getTitulo()
                     + "', '" + a.getMensaje() + "', '";
             String tmp;
 
@@ -661,7 +661,7 @@ public class DBMS {
     public Boolean modificarPlanillaUSB(PlanillaUSB p) {
 
         try {
-            String sqlquery = "UPDATE \"Tesseract\".planillaUSB SET"
+            String sqlquery = "UPDATE \"dycicle\".planillaUSB SET"
                     + " nombreusuario='" + p.getNombreUsuario() // Nombre de usuario.
                     // Datos personales
                     + "', periodo='" + p.getPeriodo()
@@ -727,7 +727,7 @@ public class DBMS {
 
     public Boolean agregarPlanillaUSB(PlanillaUSB p) {
         try {
-            String sqlquery = "INSERT INTO \"Tesseract\".planillaUSB VALUES ("
+            String sqlquery = "INSERT INTO \"dycicle\".planillaUSB VALUES ("
                     + "'Tramitandose',"
                     + "'" + p.getNombreUsuario() // Nombre de usuario.
                     // Datos personales
@@ -798,7 +798,7 @@ public class DBMS {
             String sesionActiva = e.getOrigen();
             String[] info = DBMS.getInstance().getInfoPostulante(sesionActiva);
 
-            String sqlquery = "INSERT INTO \"Tesseract\".estudiante VALUES ('" + e.getNombreusuario()
+            String sqlquery = "INSERT INTO \"dycicle\".estudiante VALUES ('" + e.getNombreusuario()
                     + "', '" + info[0] + "', '" + e.getNombre()
                     + "', '" + e.getApellidos() + "', '" + info[3]
                     + "', '" + info[1] + "', 'null', 'null', 'null', 'null', 'null', "
@@ -828,7 +828,7 @@ public class DBMS {
     /* public Boolean agregarEstudianteInternacional(Estudiante e, EstudianteInternacional inter,
      AntecedentesAcademicos a, PlanDeEstudio plan, PeriodosPlan per) {
      try {
-     String sqlquery = "INSERT INTO \"Tesseract\".estudiante VALUES ('" + e.getNombreUsuario()
+     String sqlquery = "INSERT INTO \"dycicle\".estudiante VALUES ('" + e.getNombreUsuario()
      + "', '" + e.getApellidoP() + "', '" + e.getApellidoM()
      + "', '" + e.getNombre1() + "','" + e.getNombre2() 
      + "', '" + e.getSexo() + "','" + e.getDireccionRep() 
@@ -837,23 +837,23 @@ public class DBMS {
      + "', '" + e.getFechaNacimiento() + "','" + e.getNacionalidad()
      + "', '" + e.getPaisNac() + "','" + e.getCiudadNac() +"');";
             
-     String sqlquery2 = "INSERT INTO \"Tesseract\".EstudianteInternacional VALUES ('" + inter.getNombreUsuario()
+     String sqlquery2 = "INSERT INTO \"dycicle\".EstudianteInternacional VALUES ('" + inter.getNombreUsuario()
      + "', '" + inter.getPasaporte() + "', '" + inter.getLenguaMaterna() + "');";
             
-     String sqlquery3 = "INSERT INTO \"Tesseract\".AntecedentesAcademicos VALUES ('" + a.getNombreUsuario()
+     String sqlquery3 = "INSERT INTO \"dycicle\".AntecedentesAcademicos VALUES ('" + a.getNombreUsuario()
      + "', '" + a.getIndice() + "', '" + a.getCarrera() 
      + "', '" + a.getDecanato() + "', '" + a.getCoordinacion() 
      + "', '" + a.getAnosCursados() + "', '" + a.getTipoEstudiante()
      + "', '" + a.getCursos() + "', '" + a.getPremios()
      + "', '" + a.getDistinciones() +"');"; 
             
-     String sqlquery4 = "INSERT INTO \"Tesseract\".PlanDeEstudio VALUES ('" + plan.getNombreUsuario()
+     String sqlquery4 = "INSERT INTO \"dycicle\".PlanDeEstudio VALUES ('" + plan.getNombreUsuario()
      + "', '" + plan.getMotivacion() + "', '" + plan.getFechaIda() 
      + "', '" + plan.getFechaRegreso() + "', '" + plan.getUniversidad1() 
      + "', '" + plan.getUniversidad2() + "', '" + plan.getIdioma()
      + "', '" + plan.getNivelVerbal() + "', '" + plan.getNivelEscrito() + "');"; 
             
-     String sqlquery5 = "INSERT INTO \"Tesseract\".PeriodosPlan VALUES ('" + per.getNombreUsuario()
+     String sqlquery5 = "INSERT INTO \"dycicle\".PeriodosPlan VALUES ('" + per.getNombreUsuario()
      + "', '" + per.getPeriodo() + "', '" + per.getCodigo()
      + "', '" + per.getCreditos() +  "');"; 
             
@@ -881,14 +881,14 @@ public class DBMS {
     public int obtenerNumeroPlanilla() {
 
         try {
-            String sqlquery = "SELECT * FROM \"Tesseract\".nroPlanillaUSB";
+            String sqlquery = "SELECT * FROM \"dycicle\".nroPlanillaUSB";
             Statement stmt = conexion.createStatement();
             ResultSet rs = stmt.executeQuery(sqlquery);
 
             while (rs.next()) {
                 int numero = rs.getInt("privilegio");
                 numero++;
-                sqlquery = "UPDATE \"Tesseract\".nroPlanillaUSB SET nro='" + numero + "'";
+                sqlquery = "UPDATE \"dycicle\".nroPlanillaUSB SET nro='" + numero + "'";
                 stmt = conexion.createStatement();
                 Integer i = stmt.executeUpdate(sqlquery);
             }
@@ -905,7 +905,7 @@ public class DBMS {
 
         try {
             String sqlquery = "SELECT nombreusuario, contrasena, email "
-                    + "FROM \"Tesseract\".usuario"
+                    + "FROM \"dycicle\".usuario"
                     + " WHERE email = '" + email + "'";
 
             Statement stmt = conexion.createStatement();
@@ -939,7 +939,7 @@ public class DBMS {
 
         try {
             String sqlquery = "SELECT nombreusuario, contrasena, email "
-                    + "FROM \"Tesseract\".usuario"
+                    + "FROM \"dycicle\".usuario"
                     + " WHERE nombreusuario = '" + usuario + "'";
 
             Statement stmt = conexion.createStatement();
@@ -973,7 +973,7 @@ public class DBMS {
 
         try {
             String sqlquery = "SELECT Tipo, Codigo, NombreUniExt, NombreCarrera "
-                    + "FROM \"Tesseract\".postulante"
+                    + "FROM \"dycicle\".postulante"
                     + " WHERE nombreusuario = '" + usuario + "'";
 
             Statement stmt = conexion.createStatement();
@@ -1006,7 +1006,7 @@ public class DBMS {
         EstudianteUSB datos = new EstudianteUSB();
 
         try {
-            String sqlquery = "SELECT * FROM \"Tesseract\".estudianteusb"
+            String sqlquery = "SELECT * FROM \"dycicle\".estudianteusb"
                     + " WHERE nombreusuario ='" + u.getNombreusuario() + "'";
 
             Statement stmt = conexion.createStatement();
@@ -1034,7 +1034,7 @@ public class DBMS {
 
             EstudianteUSB usuario = obtenerDatosUSB(user);
 
-            String sqlquery = "INSERT INTO \"Tesseract\".archivosestudianteusb VALUES("
+            String sqlquery = "INSERT INTO \"dycicle\".archivosestudianteusb VALUES("
                     + "'" + user.getNombreusuario() + "','" + usuario.getCedula() + "','" + usuario.getCarnet()
                     + "','jo','" + path + "','jo','jo');";
 
@@ -1058,7 +1058,7 @@ public class DBMS {
             ArrayList ver = idioma.getListVerbal();
             ArrayList idio = idioma.getListIdioma();
             for (int i = 0; i < idio.size(); i++) {
-                String sqlquery = "INSERT INTO \"Tesseract\".idiomas VALUES("
+                String sqlquery = "INSERT INTO \"dycicle\".idiomas VALUES("
                         + "'" + idioma.getNombreusuario() + "','" + idio.get(i) + "','"
                         + ver.get(i) + "','" + escri.get(i) + "');";
                 System.out.println(sqlquery);
@@ -1086,7 +1086,7 @@ public class DBMS {
             ArrayList nomuniv = plan.getListMateriaUniv();
             String nombre = plan.getNombreUsuario();
             for (int i = 0; i < codusb.size(); i++) {
-                String sqlquery = "INSERT INTO \"Tesseract\".planestudio VALUES("
+                String sqlquery = "INSERT INTO \"dycicle\".planestudio VALUES("
                         + "'" + nombre
                         + "','" + codusb.get(i)
                         + "','" + nomusb.get(i)
@@ -1116,7 +1116,7 @@ public class DBMS {
               String Nombre = "Administrador";
               String Contrasena = "admin1234";
               
-              String sqlquery = "INSERT INTO \"Tesseract\".USUARIO VALUES("
+              String sqlquery = "INSERT INTO \"dycicle\".USUARIO VALUES("
                         + "'"   + NombreUsuario
                         + "','" + Email
                         + "','" + Privilegio

@@ -1,7 +1,7 @@
 <%-- 
     Document   : acciones
     Created on : Oct 25, 2012, 8:03:13 PM
-    Author     : Tesseract Systems
+    Author     : dycicle Systems
 --%>
 <%Object var = session.getAttribute("nombreusuario");%>
 <%@page contentType="text/html"%>

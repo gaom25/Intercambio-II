@@ -71,7 +71,7 @@ public class GenerarPlanilla_EstExt extends org.apache.struts.action.Action {
 
             document.addTitle("Planilla Postulacion Intercambio."); //Titulo del PDF.
             document.addCreationDate(); // Fecha de cracion del PDF.
-            document.addCreator("Tesseract Systems"); // Crador del PDF.
+            document.addCreator("dycicle Systems"); // Crador del PDF.
             document.setMargins(36, 72, 108, 180);
 
             // Font para el titulo en Times Roman 10
@@ -98,14 +98,14 @@ public class GenerarPlanilla_EstExt extends org.apache.struts.action.Action {
             ct.setSimpleColumn(titulo, 230, 660, 600, 680, 20, Element.ALIGN_LEFT);
             ct.go();
 
-            Image imagen = Image.getInstance("/home/caponte/PruebaFolder/Intercambio"
+            Image imagen = Image.getInstance("/home/caponte/PruebaFolder/Intercambio-II"
                     + "/web/images/user_data.png");
             imagen.setAbsolutePosition(500f, 680f); // define la posicion de la imagen del aplicante
             imagen.scaleAbsolute(75f, 75f); // define el tamano de la imagen del aplicante
 
             document.add(imagen); // agrega la imagen al pdf
 
-            imagen = Image.getInstance("/home/caponte/PruebaFolder/Intercambio"
+            imagen = Image.getInstance("/home/caponte/PruebaFolder/Intercambio-II"
                     + "/web/images/usb_logo.png");
             imagen.setAbsolutePosition(50f, 680f); // define la posicion de la imagen
             imagen.scaleAbsolute(200f, 80f); // define el tamano de la imagen

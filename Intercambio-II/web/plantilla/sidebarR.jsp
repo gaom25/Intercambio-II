@@ -14,13 +14,13 @@
     <div id="sidebarR" style="width:150px;">
         <div>
             <html:link href="http://www.usb.ve/">
-                <img width="150" height="50" src="/Intercambio/images/somosusb.gif">
+                <img width="150" height="50" src="/Intercambio-II/images/somosusb.gif">
             </html:link>
         </div>
         <div style="height:20px"></div>
         <div>
             <html:link href="http://www.internacionales.dsm.usb.ve/">
-                <img width="150" height="50" src="/Intercambio/images/DRIC.jpg">
+                <img width="150" height="50" src="/Intercambio-II/images/DRIC.jpg">
             </html:link>
         </div>
         <div style="height:20px"></div>

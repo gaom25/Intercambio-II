@@ -1,7 +1,7 @@
 <%-- 
     Document   : acciones
     Created on : Oct 17, 2012, 8:03:13 PM
-    Author     : Tesseract Systems
+    Author     : dycicle Systems
 --%>
 <%@page contentType="text/html"%>
 <%@page pageEncoding="UTF-8"%>

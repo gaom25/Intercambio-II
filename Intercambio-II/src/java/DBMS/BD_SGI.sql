@@ -1,11 +1,11 @@
-DROP SCHEMA "Tesseract" CASCADE;
+DROP SCHEMA "dycicle" CASCADE;
 
-CREATE SCHEMA "Tesseract"
+CREATE SCHEMA "dycicle"
   AUTHORIZATION postgres;
-GRANT ALL ON SCHEMA "Tesseract" TO postgres;
+GRANT ALL ON SCHEMA "dycicle" TO postgres;
 
 /* Entidad principal USUARIO necesaria para acceder al sistema */
-CREATE TABLE "Tesseract".USUARIO(
+CREATE TABLE "dycicle".USUARIO(
 	NombreUsuario	VARCHAR(20)	NOT NULL,
 	Email		VARCHAR(30)	NOT NULL,
 	Privilegio	NUMERIC(2)	NOT NULL,
@@ -20,7 +20,7 @@ OIDS = FALSE
 
 /* Registro previo que realiza un visitante, para que luego el
  * administrador  le  cree  una  cuenta  como  Usuario      */
-CREATE TABLE "Tesseract".PREREGISTRO(
+CREATE TABLE "dycicle".PREREGISTRO(
 	NombreUsuario	VARCHAR(20)	NOT NULL,
 	Email		VARCHAR(30)	NOT NULL,
 	Privilegio	NUMERIC(2)	NOT NULL,
@@ -36,7 +36,7 @@ OIDS = FALSE
 /* Entidad ESTUDIANTE la cual contiene todos los datos
  * correspondientes  a este tipo de usuario necesarios
  * para  postularse  a  un  intercambio             */
-CREATE TABLE "Tesseract".ESTUDIANTE(
+CREATE TABLE "dycicle".ESTUDIANTE(
 	NombreUsuario	VARCHAR(20)	NOT NULL,
         Origen          VARCHAR(50),
  	Nombres 	VARCHAR(30)	NOT NULL,
@@ -64,7 +64,7 @@ OIDS = FALSE
 
 /* En esta tabla se tienen todos los datos particulares
  * de  los  estudiantes  que  pertenecen  a  la  USB */
-CREATE TABLE "Tesseract".EstudianteUSB(
+CREATE TABLE "dycicle".EstudianteUSB(
 	NombreUsuario	VARCHAR(20)	NOT NULL,
 	Cedula		VARCHAR(10)	UNIQUE,
 	Carnet		VARCHAR(10)	UNIQUE,
@@ -75,7 +75,7 @@ CREATE TABLE "Tesseract".EstudianteUSB(
 
 /* En esta tabla se tienen todos los datos referentes
  * a  los  archivos  de  los  estudiantes  USB     */
-CREATE TABLE "Tesseract".ArchivosEstudianteUSB(
+CREATE TABLE "dycicle".ArchivosEstudianteUSB(
 	NombreUsuario	VARCHAR(20)	NOT NULL,
 	Cedula		VARCHAR(10)	NOT NULL,
 	Carnet		VARCHAR(10)	NOT NULL,
@@ -89,7 +89,7 @@ CREATE TABLE "Tesseract".ArchivosEstudianteUSB(
 
 /* En esta tabla se tienen todos los datos particulares
  * de  los  estudiantes  internacionales             */
-CREATE TABLE "Tesseract".EstudianteInternacional(
+CREATE TABLE "dycicle".EstudianteInternacional(
 	NombreUsuario	VARCHAR(20)	NOT NULL,
 	Pasaporte	VARCHAR(100)	NOT NULL,
 	LenguaMaterna	VARCHAR(40)	NOT NULL,
@@ -99,7 +99,7 @@ CREATE TABLE "Tesseract".EstudianteInternacional(
 
 /* En esta tabla se tienen todos los datos correspondientes
  * al  antecedente  academico  de  cada  estudiante      */
-CREATE TABLE "Tesseract".AntecedenteAcademico(
+CREATE TABLE "dycicle".AntecedenteAcademico(
 	NombreUsuario	VARCHAR(20)	NOT NULL,
 	Indice		NUMERIC(5,4),
         TipoEstudiante  VARCHAR(30),
@@ -112,7 +112,7 @@ CREATE TABLE "Tesseract".AntecedenteAcademico(
 
 /* En esta tabla se tienen todos los datos correspondientes
  * al  plan  de  estudios  de  cada  estudiante          */
-CREATE TABLE "Tesseract".PlanEstudio(
+CREATE TABLE "dycicle".PlanEstudio(
 	NombreUsuario	VARCHAR(20)	NOT NULL,
 	CodigoUSB	VARCHAR(10)	NOT NULL,
 	MateriaUSB	VARCHAR(50)	NOT NULL,
@@ -126,7 +126,7 @@ CREATE TABLE "Tesseract".PlanEstudio(
 
 /* En esta tabla se tienen todos los datos necesarios
  * para  la  planilla  del  estudiante  USB        */
-CREATE TABLE "Tesseract".PlanillaUSB(
+CREATE TABLE "dycicle".PlanillaUSB(
 
         -- Datos Personales
         EstadoPostulacion  VARCHAR(20)  NOT NULL,
@@ -189,7 +189,7 @@ CREATE TABLE "Tesseract".PlanillaUSB(
 /* En esta tabla se tienen todos los datos correspondientes
  * a  los  periodos  de  cada  materia del plan de estudios
  * de  cada  estudiante                                  */
-CREATE TABLE "Tesseract".PeriodosPlan(
+CREATE TABLE "dycicle".PeriodosPlan(
 	NombreUsuario	VARCHAR(20)	NOT NULL,
 	Periodo		VARCHAR(20),
 	DenominacionExt	VARCHAR(30)	NOT NULL,
@@ -205,7 +205,7 @@ CREATE TABLE "Tesseract".PeriodosPlan(
 
 /* En  esta  tabla  se  tienen  todos los datos necesarios
  * de los representantes de un estudiante en particular */
-CREATE TABLE "Tesseract".REPRESENTANTE(
+CREATE TABLE "dycicle".REPRESENTANTE(
         CI              VARCHAR(15)     NOT NULL,
 	apellidoNombres	VARCHAR(30)	NOT NULL,
 	Telefono	VARCHAR(30)	NOT NULL,
@@ -218,7 +218,7 @@ CREATE TABLE "Tesseract".REPRESENTANTE(
 
 /* Tabla que guarda las relaciones existentes entre los
  * estudiantes  y  sus  respectivos  representantes  */
-CREATE TABLE "Tesseract".esRepresentado(
+CREATE TABLE "dycicle".esRepresentado(
 	NombreUsuario	VARCHAR(20)	NOT NULL,
 	CI		VARCHAR(10)	NOT NULL,
 	CONSTRAINT	PK_esRepresentado
@@ -227,7 +227,7 @@ CREATE TABLE "Tesseract".esRepresentado(
 
 /* Tabla almacena las noticias publicadas por un 
  * gestor ,  asi  como  sus  modificaciones   */
-CREATE TABLE "Tesseract".NOTICIAS(
+CREATE TABLE "dycicle".NOTICIAS(
 	Nombre		VARCHAR(30)	NOT NULL,
 	Fecha		DATE		NOT NULL,
 	Informacion	TEXT		NOT NULL,
@@ -237,7 +237,7 @@ CREATE TABLE "Tesseract".NOTICIAS(
 
 /* Tabla que guarda las relaciones existentes entre los
  * gestores   y  las  noticias  que  han  gestionado */
-CREATE TABLE "Tesseract".Gestionar(
+CREATE TABLE "dycicle".Gestionar(
 	NombreUsuario	VARCHAR(20)	NOT NULL,
 	Nombre		VARCHAR(30)	NOT NULL,
 	Fecha		DATE		NOT NULL,
@@ -248,7 +248,7 @@ CREATE TABLE "Tesseract".Gestionar(
 /* Entidad POSTULANTE la cual comprende  las coordinaciones
  * y universidades extranjeras. En esta tabla se encuentran
  * todos  los  datos  pertenecientes  al  postulante     */
-CREATE TABLE "Tesseract".POSTULANTE(
+CREATE TABLE "dycicle".POSTULANTE(
 	NombreUsuario	VARCHAR(50)	NOT NULL,
 	Codigo		VARCHAR(50)	NOT NULL,
 	Tipo		VARCHAR(50)	NOT NULL,
@@ -264,7 +264,7 @@ OIDS = FALSE
 /* Entidad GESTOR la cual comprende la DRIC y decanatos
  * En  esta  tabla  se   encuentran  todos  los   datos
  * pertenecientes   al   gestor                      */
-CREATE TABLE "Tesseract".GESTOR(
+CREATE TABLE "dycicle".GESTOR(
 	NombreUsuario	VARCHAR(20)	NOT NULL,
         Nombre          VARCHAR(20)     NOT NULL,
 	CONSTRAINT	PK_GESTOR	PRIMARY KEY (NombreUsuario)
@@ -274,7 +274,7 @@ OIDS = FALSE
 );
 
 /* Un usuario puede enviarle una notificacion a otro usuario */
-CREATE TABLE "Tesseract".Notificar(
+CREATE TABLE "dycicle".Notificar(
 	Nom_Emisor	VARCHAR(20)	NOT NULL,
 	Nom_Dest	VARCHAR(20)	NOT NULL,
 	CONSTRAINT	PK_Notificar	PRIMARY KEY (Nom_Emisor, Nom_Dest)
@@ -284,7 +284,7 @@ OIDS = FALSE
 );
 
 /* Entidad POSTULACION identificada por un numero unico */
-CREATE TABLE "Tesseract".POSTULACION(
+CREATE TABLE "dycicle".POSTULACION(
 	Numero		NUMERIC(10)	NOT NULL,
 	Estado		VARCHAR(30)	NOT NULL,
         CarnetEst       VARCHAR(30)     NOT NULL,
@@ -301,7 +301,7 @@ OIDS = FALSE
 );
 
 /* Un estudiante puede consultar el estado de su postulacion */
-CREATE TABLE "Tesseract".Consulta(
+CREATE TABLE "dycicle".Consulta(
 	NombreUsuario	VARCHAR(20)	NOT NULL,
 	Numero		NUMERIC(10)	NOT NULL,
 	CONSTRAINT	PK_Consulta2	PRIMARY KEY (NombreUsuario, Numero)
@@ -311,7 +311,7 @@ OIDS = FALSE
 );
 
 /* Un postulante puede postular a un estudiante */
-CREATE TABLE "Tesseract".Postula(
+CREATE TABLE "dycicle".Postula(
 	NombreUsuarioPostulante	VARCHAR(20)	NOT NULL,
 	Codigo			VARCHAR(30)	NOT NULL,
 	NombreUsuarioEstudiante	VARCHAR(20)	NOT NULL,
@@ -323,7 +323,7 @@ OIDS = FALSE
 );
 
 /* Un gestor puede editar una postulacion */
-CREATE TABLE "Tesseract".Editar(
+CREATE TABLE "dycicle".Editar(
 	NombreUsuario	VARCHAR(20)	NOT NULL,
 	Numero		NUMERIC(10)	NOT NULL,
 	Cambio		VARCHAR(100)	NOT NULL,
@@ -334,7 +334,7 @@ OIDS = FALSE
 );
 
 /* Un usuario puede acceder al log de auditoria */
-CREATE TABLE "Tesseract".HISTORICO(
+CREATE TABLE "dycicle".HISTORICO(
         Hora		TIME		NOT NULL,
 	Accion		VARCHAR(100)	NOT NULL,
         Fecha   	timestamp with time zone NOT NULL default CURRENT_TIMESTAMP(2),
@@ -348,7 +348,7 @@ OIDS = FALSE
  * el log de auditoria. Es decir, cada interaccion que
  * un usuario tenga con el sistema, esto contara  como
  * una modificacion al log de auditoria             */
-CREATE TABLE "Tesseract".Modifica(
+CREATE TABLE "dycicle".Modifica(
 	NombreUsuario	VARCHAR(20)	NOT NULL,
 	Hora		TIME		NOT NULL,
 	Accion		VARCHAR(100)	NOT NULL,
@@ -362,7 +362,7 @@ OIDS = FALSE
 /* Entidad IDIOMAS la cual contiene, para cada idioma,
  * el nombre del idioma  y  su nivel tanto verbal como
  * escrito                                          */
-CREATE TABLE "Tesseract".IDIOMAS(
+CREATE TABLE "dycicle".IDIOMAS(
 	NombreUsuario	VARCHAR(20)	NOT NULL,
 	Idioma		VARCHAR(40)	NOT NULL,
 	NivelVerbal	VARCHAR(15)	NOT NULL,
@@ -377,193 +377,193 @@ OIDS = FALSE
 ----------------------RESTRICCIONES--------------------------
 
 /* Rango de los Privilegios */
-ALTER TABLE "Tesseract".USUARIO  ADD
+ALTER TABLE "dycicle".USUARIO  ADD
 	CHECK ((0 < Privilegio) AND (Privilegio < 7));
 
-ALTER TABLE "Tesseract".PREREGISTRO  ADD
+ALTER TABLE "dycicle".PREREGISTRO  ADD
 	CHECK ((0 < Privilegio) AND (Privilegio < 7));
 
 /* Longitud de contrasena mayor a 6 caracteres para un usuario*/
-ALTER TABLE "Tesseract".USUARIO ADD
+ALTER TABLE "dycicle".USUARIO ADD
 	CHECK (char_length(Contrasena) > 5);
 
 /* Longitud de contrasena mayor a 6 caracteres para el preregistro*/
-ALTER TABLE "Tesseract".PREREGISTRO ADD
+ALTER TABLE "dycicle".PREREGISTRO ADD
 	CHECK (char_length(Contrasena) > 6);
 
 /* El email de un usuario debe contener un @ */
-ALTER TABLE "Tesseract".USUARIO ADD
+ALTER TABLE "dycicle".USUARIO ADD
 	CHECK (Email ~~ '%@%');
 
 /* El sexo del estudiante puede ser Masculino o Femenino 
-ALTER TABLE "Tesseract".ESTUDIANTE ADD
+ALTER TABLE "dycicle".ESTUDIANTE ADD
 	CHECK ((Sexo = 'Masculino') OR (Sexo = 'Femenino')); */
 
 /* El tipo estudiante puede ser pregrado o postgrado */
-ALTER TABLE "Tesseract".AntecedenteAcademico ADD
+ALTER TABLE "dycicle".AntecedenteAcademico ADD
 	CHECK ((TipoEstudiante = 'Pregrado') OR (TipoEstudiante = 'Postgrado'));
 
 
 /* El indice debe estar entre 1 y 5 */
-ALTER TABLE "Tesseract".AntecedenteAcademico ADD
+ALTER TABLE "dycicle".AntecedenteAcademico ADD
 	CHECK ((1.0000 <= Indice) AND (Indice <= 5.0000));
 
 /* La fecha de ida debe ser anterior a la fecha de regreso */
-ALTER TABLE "Tesseract".PlanillaUSB ADD
+ALTER TABLE "dycicle".PlanillaUSB ADD
 	CHECK (FechaIda1 < FechaRegreso1);
 
 /* El nivel verbal de un idioma debe ser Bajo, Medio o Alto */
-ALTER TABLE "Tesseract".PlanillaUSB ADD
+ALTER TABLE "dycicle".PlanillaUSB ADD
 	CHECK ((NivelVerbal = 'Bajo') OR (NivelVerbal = 'Medio') OR (NivelVerbal = 'Alto'));
 
-ALTER TABLE "Tesseract".IDIOMAS ADD
+ALTER TABLE "dycicle".IDIOMAS ADD
 	CHECK ((NivelVerbal = 'Bajo') OR (NivelVerbal = 'Medio') OR (NivelVerbal = 'Alto'));
 
 /* El nivel escrito de un idioma debe ser Bajo, Medio o Alto */
-ALTER TABLE "Tesseract".PlanillaUSB ADD
+ALTER TABLE "dycicle".PlanillaUSB ADD
 	CHECK ((NivelEscrito = 'Bajo') OR (NivelEscrito = 'Medio') OR (NivelEscrito = 'Alto'));
 
-ALTER TABLE "Tesseract".IDIOMAS ADD
+ALTER TABLE "dycicle".IDIOMAS ADD
 	CHECK ((NivelEscrito = 'Bajo') OR (NivelEscrito = 'Medio') OR (NivelEscrito = 'Alto'));
 
 /* El email de un representante debe contener un @ */
-ALTER TABLE "Tesseract".REPRESENTANTE ADD
+ALTER TABLE "dycicle".REPRESENTANTE ADD
 	CHECK (Email ~~ '%@%');
 
 /* En POSTULANTE: Si Tipo=Coordinacion => NombreUniExt=NULL */
-ALTER TABLE "Tesseract".POSTULANTE ADD
+ALTER TABLE "dycicle".POSTULANTE ADD
     CHECK ((Tipo='Coordinacion' AND NombreUniExt=NULL) OR
            (Tipo='UnivExtranjera' AND NombreCarrera=NULL));
 
 -- Claves foraneas
 
 /* Claves foraneas de ESTUDIANTE */
-ALTER TABLE "Tesseract".ESTUDIANTE ADD
+ALTER TABLE "dycicle".ESTUDIANTE ADD
 	CONSTRAINT FK_Estudiante_Usuario FOREIGN KEY (NombreUsuario)
-		REFERENCES "Tesseract".USUARIO;
+		REFERENCES "dycicle".USUARIO;
 
 /* Claves foraneas de EstudianteUSB */
-ALTER TABLE "Tesseract".EstudianteUSB ADD
+ALTER TABLE "dycicle".EstudianteUSB ADD
 	CONSTRAINT FK_EstudianteUSB_Estudiante FOREIGN KEY (NombreUsuario)
-		REFERENCES "Tesseract".ESTUDIANTE;
+		REFERENCES "dycicle".ESTUDIANTE;
 
 /* Claves foraneas de ArchivosEstudianteUSB */
-ALTER TABLE "Tesseract".ArchivosEstudianteUSB ADD
+ALTER TABLE "dycicle".ArchivosEstudianteUSB ADD
 	CONSTRAINT FK_ArchivosEstudianteUSB_EstudianteUSB FOREIGN KEY (NombreUsuario, Cedula, Carnet)
-		REFERENCES "Tesseract".EstudianteUSB;
+		REFERENCES "dycicle".EstudianteUSB;
 
 /* Claves foraneas de EstudianteInternacional */
-ALTER TABLE "Tesseract".EstudianteInternacional ADD
+ALTER TABLE "dycicle".EstudianteInternacional ADD
 	CONSTRAINT FK_EstudianteInternacional_Estudiante FOREIGN KEY (NombreUsuario)
-		REFERENCES "Tesseract".Estudiante;
+		REFERENCES "dycicle".Estudiante;
 
 /* Claves foraneas de AntecedenteAcademico */
-ALTER TABLE "Tesseract".AntecedenteAcademico ADD
+ALTER TABLE "dycicle".AntecedenteAcademico ADD
 	CONSTRAINT FK_AntecedenteAcademico_Estudiante FOREIGN KEY (NombreUsuario)
-		REFERENCES "Tesseract".Estudiante;
+		REFERENCES "dycicle".Estudiante;
 
 /* Claves foraneas de PlanEstudio */
-ALTER TABLE "Tesseract".PlanEstudio ADD
+ALTER TABLE "dycicle".PlanEstudio ADD
 	CONSTRAINT FK_PlanEstudio_Estudiante FOREIGN KEY (NombreUsuario)
-		REFERENCES "Tesseract".Estudiante;
+		REFERENCES "dycicle".Estudiante;
 
 /* Claves foraneas de PeriodosPlan */
-ALTER TABLE "Tesseract".PeriodosPlan ADD
+ALTER TABLE "dycicle".PeriodosPlan ADD
 	CONSTRAINT FK_PeriodosPlan_PlanEstudio FOREIGN KEY (NombreUsuario,CodigoUSB)
-		REFERENCES "Tesseract".PlanEstudio;
+		REFERENCES "dycicle".PlanEstudio;
 
 /* Claves foraneas de esRepresentado */
-ALTER TABLE "Tesseract".esRepresentado ADD
+ALTER TABLE "dycicle".esRepresentado ADD
 	CONSTRAINT FK_esRepresentado_Estudiante FOREIGN KEY (NombreUsuario)
-		REFERENCES "Tesseract".Estudiante;
+		REFERENCES "dycicle".Estudiante;
 
-ALTER TABLE "Tesseract".esRepresentado ADD
+ALTER TABLE "dycicle".esRepresentado ADD
 	CONSTRAINT FK_esRepresentado_Representante FOREIGN KEY (CI)
-		REFERENCES "Tesseract".REPRESENTANTE;
+		REFERENCES "dycicle".REPRESENTANTE;
 
 /* Claves foraneas de Gestionar */
-ALTER TABLE "Tesseract".Gestionar ADD
+ALTER TABLE "dycicle".Gestionar ADD
 	CONSTRAINT FK_Gestionar_USUARIO FOREIGN KEY (NombreUsuario)
-		REFERENCES "Tesseract".USUARIO;
+		REFERENCES "dycicle".USUARIO;
 
-ALTER TABLE "Tesseract".Gestionar ADD
+ALTER TABLE "dycicle".Gestionar ADD
 	CONSTRAINT FK_Gestionar_NOTICIAS FOREIGN KEY (Nombre, Fecha)
-		REFERENCES "Tesseract".NOTICIAS;
+		REFERENCES "dycicle".NOTICIAS;
 
 /* Claves foraneas de POSTULANTE */
-ALTER TABLE "Tesseract".POSTULANTE ADD
+ALTER TABLE "dycicle".POSTULANTE ADD
 	CONSTRAINT FK_Postulante_Usuario FOREIGN KEY (NombreUsuario)
-		REFERENCES "Tesseract".USUARIO;
+		REFERENCES "dycicle".USUARIO;
 
 /* Claves foraneas de GESTOR */
-ALTER TABLE "Tesseract".GESTOR ADD
+ALTER TABLE "dycicle".GESTOR ADD
 	CONSTRAINT FK_GESTOR_Usuario FOREIGN KEY (NombreUsuario)
-		REFERENCES "Tesseract".USUARIO;
+		REFERENCES "dycicle".USUARIO;
 
 /* Claves foraneas de Notificar */
-ALTER TABLE "Tesseract".Notificar ADD
+ALTER TABLE "dycicle".Notificar ADD
 	CONSTRAINT FK_Notificar_Usuario1 FOREIGN KEY (Nom_Emisor)
-		REFERENCES "Tesseract".USUARIO (NombreUsuario);
+		REFERENCES "dycicle".USUARIO (NombreUsuario);
 
-ALTER TABLE "Tesseract".Notificar ADD
+ALTER TABLE "dycicle".Notificar ADD
 	CONSTRAINT FK_Notificar_Usuario2 FOREIGN KEY (Nom_Dest)
-		REFERENCES "Tesseract".USUARIO (NombreUsuario);
+		REFERENCES "dycicle".USUARIO (NombreUsuario);
 
 /* Claves foraneas de POSTULACION 
-ALTER TABLE "Tesseract".POSTULACION ADD
+ALTER TABLE "dycicle".POSTULACION ADD
 	CONSTRAINT FK_Postulacion_estudiante FOREIGN KEY (NomEst, CarnetEst)
-		REFERENCES "Tesseract".ESTUDIANTEUSB (NombreUsuario, Carnet);
+		REFERENCES "dycicle".ESTUDIANTEUSB (NombreUsuario, Carnet);
 
 
-ALTER TABLE "Tesseract".POSTULACION ADD
+ALTER TABLE "dycicle".POSTULACION ADD
 	CONSTRAINT FK_Postulacion_postulante FOREIGN KEY (NomPostulante, CodigoPost)
-		REFERENCES "Tesseract".POSTULANTE (NombreUsuario, Codigo);
+		REFERENCES "dycicle".POSTULANTE (NombreUsuario, Codigo);
 
 
 /* Claves foraneas de ComentarioPostulacion 
-ALTER TABLE "Tesseract".ComentarioPostulacion ADD
+ALTER TABLE "dycicle".ComentarioPostulacion ADD
 	CONSTRAINT FK_ComentarioPostulacion FOREIGN KEY (Numero)
-		REFERENCES "Tesseract".POSTULACION;
+		REFERENCES "dycicle".POSTULACION;
 */
 
 /* Claves foraneas de Consulta */
-ALTER TABLE "Tesseract".Consulta ADD
+ALTER TABLE "dycicle".Consulta ADD
 	CONSTRAINT FK_Consulta_Estudiante FOREIGN KEY (NombreUsuario)
-		REFERENCES "Tesseract".ESTUDIANTE;
+		REFERENCES "dycicle".ESTUDIANTE;
 
-ALTER TABLE "Tesseract".Consulta ADD
+ALTER TABLE "dycicle".Consulta ADD
 	CONSTRAINT FK_Consulta_Postulacion FOREIGN KEY (Numero)
-		REFERENCES "Tesseract".POSTULACION;
+		REFERENCES "dycicle".POSTULACION;
 
 /* Claves foraneas de Postula 
-ALTER TABLE "Tesseract".Postula ADD
+ALTER TABLE "dycicle".Postula ADD
 	CONSTRAINT FK_Postula_Estudiante FOREIGN KEY (NomEst, CarnetEst)
-		REFERENCES "Tesseract".ESTUDIANTE (NombreUsuario, Carnet);
+		REFERENCES "dycicle".ESTUDIANTE (NombreUsuario, Carnet);
 
 
-ALTER TABLE "Tesseract".Postula ADD
+ALTER TABLE "dycicle".Postula ADD
 	CONSTRAINT FK_Postula_Postulante FOREIGN KEY (NomPost, CodigoPost)
-		REFERENCES "Tesseract".POSTULANTE (NombreUsuario, Codigo);
+		REFERENCES "dycicle".POSTULANTE (NombreUsuario, Codigo);
 */
 
 /* Claves foraneas de Editar */
-ALTER TABLE "Tesseract".Editar ADD
+ALTER TABLE "dycicle".Editar ADD
 	CONSTRAINT FK_Editar_GESTOR FOREIGN KEY (NombreUsuario)
-		REFERENCES "Tesseract".GESTOR;
+		REFERENCES "dycicle".GESTOR;
 
-ALTER TABLE "Tesseract".Editar ADD
+ALTER TABLE "dycicle".Editar ADD
 	CONSTRAINT FK_Editar_Postulacion FOREIGN KEY (Numero)
-		REFERENCES "Tesseract".POSTULACION;
+		REFERENCES "dycicle".POSTULACION;
 
 /* Claves foraneas de Modifica */
-ALTER TABLE "Tesseract".Modifica ADD
+ALTER TABLE "dycicle".Modifica ADD
 	CONSTRAINT FK_Modifica_Historico FOREIGN KEY (Fecha, Hora, Accion)
-		REFERENCES "Tesseract".HISTORICO;
+		REFERENCES "dycicle".HISTORICO;
 
 /* Clave foranea de Idiomas*/
-ALTER TABLE "Tesseract".IDIOMAS ADD
+ALTER TABLE "dycicle".IDIOMAS ADD
 	CONSTRAINT FK_Idiomas_Usuario FOREIGN KEY (NombreUsuario)
-		REFERENCES "Tesseract".USUARIO;
+		REFERENCES "dycicle".USUARIO;
 
 /* INSERT de un usuario administrador por defecto */
-INSERT INTO "Tesseract".USUARIO VALUES ( 'admin','email@gmail.com', 1, 'Administrador', 'admin1234');
+INSERT INTO "dycicle".USUARIO VALUES ( 'admin','email@gmail.com', 1, 'Administrador', 'admin1234');
