@@ -18,6 +18,8 @@
         <form-bean name="fileUploadForm" type="Clases.FileUploadForm"/>
         <form-bean name="Idiomas" type="Clases.Idiomas"/>
         <form-bean name="PlanDeEstudio" type ="Clases.PlanDeEstudio"/>
+        <form-bean name="RegistrationForm" type="Clases.RegistrationForm"/>
+ 
     </form-beans>
        
     <global-exceptions></global-exceptions>
@@ -448,8 +450,33 @@
       <action path="/Descarga" type="Actions.Descarga" parameter="images/descarga.png" />
       
       <action input="/" name="EstUSB" path="/ListarSolicitudes" scope="session" type="Actions.ListarSolicitudes"/>
+      
+      
+      <!--Jcaptch-->
+      <action path="/SaveRegistration"
+                  type="com.octo.captcha.module.struts.VerifyCaptchaChallengeAction"
+                  name="RegistrationForm"
+                  scope="request"
+                  input="Registration"
+                  validate="false"
+                  >
+                  <forward name="success" path="/jcaptchaRegistration.do"/>
+      </action>
        
+      <action
+          path="/jcaptchaRegistration"
+          type="org.apache.struts.webapp.example.SaveRegistrationAction"
+          name="RegistrationForm"
+          scope="request"
+          input="Registration"
+      > 
+      </action>
 
+      <action
+          path="/jcaptcha"
+          type="com.octo.captcha.module.struts.image.RenderImageCaptchaAction"
+      > 
+      </action>
 
     </action-mappings>
     
@@ -496,4 +523,6 @@
             property="pathnames"
             value="/WEB-INF/validator-rules.xml,/WEB-INF/validation.xml"/>
     </plug-in> 
+    <!--    Jcaptcha-->
+    <plug-in className="com.octo.captcha.module.struts.CaptchaServicePlugin"/>"
 </struts-config>

@@ -11,7 +11,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html:html>
-    
+
     <script language="javascript">
         function show(target){
             document.getElementById(target).style.display = 'block';
@@ -21,55 +21,55 @@
             document.getElementById(target).style.display = 'none';
         }
     </script>
-    
+
     <div style="margin-top: 5px;padding-right:5px">
         <html:link action="/accionesEstUSB">
-            Inicio
+            <a style="color:#126598">Inicio</a>
         </html:link>
     </div>
-    
-     <div class="nav">
-           <a onclick="if (document.getElementById('GestionDeSolicitudes').style.display=='none') 
-            show('GestionDeSolicitudes'); else hide('GestionDeSolicitudes');">+ Gestion De Solicitudes</a>
-     </div>
-    
-    <div class="submenu" id="GestionDeSolicitudes" style="display: none; margin-left: 15px"> 
+
+    <div class="nav">
+       <a style="color:#126598" onclick="if (document.getElementById('GestionDeSolicitudes').style.display=='none') 
+               show('GestionDeSolicitudes'); else hide('GestionDeSolicitudes');">+ Gestion De Solicitudes</a>
+    </div>
+
+    <div class="submenu" id="GestionDeSolicitudes" style="background-color:#FFFFFF; display: none; margin-left: 15px"> 
         <div>
             <html:link action="/CargarLlenarPlanillaUSB">
-            Llenar Formulario
+                <a style="color: #126598">Llenar Formulario</a>
             </html:link>
         </div>
         <div>
             <html:link action="">
-            Modificar Formulario
+                <a style="color: #126598">Modificar Formulario</a>
             </html:link>
         </div>
         <div>
             <html:link action="">
-            Consultar Estado de Solicitud
+                <a style="color: #126598">Consultar Estado de Solicitud</a>
             </html:link>
         </div>
         <div>
             <html:link action="">
-            Generar Planilla
+                <a style="color: #126598">Generar Planilla</a>
             </html:link>
         </div>
     </div>
 
     <div style="margin-top: 5px;padding-right:5px">
         <html:link action="/modificarperUSB">
-            Modificar perfil
+            <a style="color: #126598">Modificar perfil</a>
         </html:link>
     </div>
     <div style="margin-top: 5px;padding-right:5px">
         <html:link action="/contactoEstUSB">
-            Contactenos
+            <a style="color: #126598">Contactenos </a>
         </html:link>
     </div>
     <div style="height:20px"></div>
     <div>
         <html:link action="/CerrarSesion">
-            Cerrar sesion
+            <a style="color: #126598">Cerrar sesion</a>
         </html:link>
     </div>
 </html:html>
