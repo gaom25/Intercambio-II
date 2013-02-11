@@ -523,6 +523,7 @@
             property="pathnames"
             value="/WEB-INF/validator-rules.xml,/WEB-INF/validation.xml"/>
     </plug-in> 
+    
     <!--    Jcaptcha-->
     <plug-in className="com.octo.captcha.module.struts.CaptchaServicePlugin"/>"
 </struts-config>
