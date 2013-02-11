@@ -7,6 +7,7 @@ import Clases.*;
 import DBMS.DBMS;
 import java.util.Properties;
 import java.util.ArrayList;
+import javax.servlet.http.HttpSession;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.struts.action.Action;
@@ -21,6 +22,7 @@ import javax.mail.internet.*;
 import javax.activation.*;
 import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionMessage;
+import nl.captcha.Captcha;
 
 /**
  *
@@ -55,12 +57,20 @@ public class recContrasena extends org.apache.struts.action.Action {
         
         Usuario u = (Usuario) form;
         ActionErrors error = new ActionErrors();
+        HttpSession session = request.getSession(true);
         boolean huboError = false;
         
         String nombreusuario = u.getNombreusuario();
         String email = u.getEmail();
         
         String [] datos = new String[3];
+        
+        Captcha captcha = (Captcha) session.getAttribute(Captcha.NAME);
+        request.setCharacterEncoding("UTF-8");
+        String answer = request.getParameter("answer");
+        if (!captcha.isCorrect(answer)) {
+            huboError = true;
+        }
         
         //Verifica si se introdujo un correo
         if (!email.equals("")) {

@@ -86,8 +86,6 @@ public class DBMS {
             Statement stmt = conexion.createStatement();
             ResultSet rs = stmt.executeQuery(sqlquery);
             while (rs.next()) {
-
-                u.setPrivilegio(rs.getInt("privilegio"));
                 u.setNombre(rs.getString("nombre"));
                 return u;
             }
@@ -159,13 +157,15 @@ public class DBMS {
 
     public Boolean aceptarPreregistro(Usuario u) {
         try {
-            String sqlquery = "INSERT INTO \"dycicle\".usuario SELECT * FROM \"dycicle\".preregistro"
-                    + " WHERE  (nombreusuario='" + u.getNombreusuario() + "');";
+            Usuario user = consultarPreregistro(u);
+            user.setPrivilegio(u.getPrivilegio());
+            String sqlquery = "INSERT INTO \"dycicle\".usuario VALUES ('" + user.getNombreusuario()
+                    + "','" + user.getEmail() + "','" + user.getPrivilegio() + "','" + user.getNombre()
+                    + "','" + user.getContrasena() + "'); ";
             Statement stmt = conexion.createStatement();
             System.out.println(sqlquery);
             Integer i = stmt.executeUpdate(sqlquery);
             eliminarPreregistro(u);
-            int tmp = i;
             return i > 0;
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -181,20 +181,15 @@ public class DBMS {
                     + " WHERE nombreusuario ='" + u.getNombreusuario() + "';";
             Statement stmt = conexion.createStatement();
             ResultSet rs = stmt.executeQuery(confirmacion);
-            System.out.println(rs);
-            ResultSet t = rs;
             if (rs.next()) {
-                System.out.println(rs);
                 return false;
             } else {
 
                 String sqlquery = "INSERT INTO \"dycicle\".preregistro VALUES ('" + u.getNombreusuario()
-                        + "', '" + u.getEmail() + "', '" + u.getPrivilegio()
-                        + "', '" + u.getNombre() + "','" + u.getContrasena() + "');";
+                        + "', '" + u.getEmail() + "', '"
+                        + u.getNombre() + "','" + u.getContrasena() + "');";
                 stmt = conexion.createStatement();
-                System.out.println(sqlquery);
                 Integer i = stmt.executeUpdate(sqlquery);
-                System.out.println(i);
                 return i > 0;
             }
 
@@ -226,7 +221,6 @@ public class DBMS {
             } else if (privilegio == 5 || privilegio == 6) {
                 sqlquery = "DELETE FROM \"dycicle\".estudiante WHERE nombreusuario = '"
                         + nombreusuario + "'";
-                System.out.println(sqlquery);
             }
 
             stmt = conexion.createStatement();
@@ -250,7 +244,6 @@ public class DBMS {
             String sqlquery = "DELETE FROM \"dycicle\".preregistro" + " WHERE nombreusuario = '"
                     + u.getNombreusuario() + "'";
             Statement stmt = conexion.createStatement();
-            System.out.println(sqlquery);
             Integer i = stmt.executeUpdate(sqlquery);
             return i > 0;
         } catch (SQLException ex) {
@@ -278,8 +271,9 @@ public class DBMS {
     public Usuario obtenerEstadoSolicitud(Usuario u) {
         try {
 
-            String sqlquery = "SELECT estadopostulacion FROM \"dycicle\".PlanillaUSB SET WHERE"
-                    + " nombreusuario = '" + u.getNombreusuario() + "'";
+            String sqlquery = "SELECT estadopostulacion" 
+                    +" FROM \"dycicle\".Consulta, \"dycicle\".POSTULACION SET"
+                    +" WHERE nombreusuario = '" + u.getNombreusuario() + "'";
 
             Statement stmt = conexion.createStatement();
             ResultSet rs = stmt.executeQuery(sqlquery);
@@ -299,14 +293,30 @@ public class DBMS {
     public Boolean cambiarEstadoSolicitud(Usuario u) {
         try {
 
-            String sqlquery = "UPDATE \"dycicle\".PlanillaUSB SET estadopostulacion ='"
-                    + u.getConfirmar()
-                    + "' WHERE nombreusuario = '"
-                    + u.getNombreusuario() + "'";
-
+            String sqlquery = "SELECT numero FROM \"dycicle\".Consulta"
+                    + " WHERE nombreusuario = '" + u.getNombreusuario() + "'";
+            
             Statement stmt = conexion.createStatement();
-            Integer i = stmt.executeUpdate(sqlquery);
-            return i > 0;
+            ResultSet rs = stmt.executeQuery(sqlquery);
+            
+            int numero = -1;
+            while (rs.next()){
+                numero = rs.getInt("numero");
+            }
+            
+            if (numero != -1){
+                sqlquery = "UPDATE \"dycicle\".POSTULACION SET estadopostulacion ='"
+                        + u.getConfirmar()
+                        + "' WHERE numero = '"
+                        + numero + "'";
+
+                stmt = conexion.createStatement();
+                Integer i = stmt.executeUpdate(sqlquery);
+                return i > 0;
+            }else{
+                return false;
+            }
+            
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
@@ -337,7 +347,6 @@ public class DBMS {
         try {
             String sqlquery = "SELECT * FROM \"dycicle\".usuario";
             Statement stmt = conexion.createStatement();
-            System.out.println(sqlquery);
             ResultSet rs = stmt.executeQuery(sqlquery);
             while (rs.next()) {
                 Usuario u = new Usuario();
@@ -355,11 +364,10 @@ public class DBMS {
 
     public ArrayList<String> listarDocumentos(Usuario u) throws SQLException {
 
-        String sqlquery = "SELECT * FROM \"dycicle\".archivosestudianteusb WHERE nombreusuario='"
+        String sqlquery = "SELECT * FROM \"dycicle\".archivosestudiante WHERE nombreusuario='"
                 + u.getNombreusuario() + "';";
 
         Statement stmt = conexion.createStatement();
-        System.out.println(sqlquery);
         ResultSet rs = stmt.executeQuery(sqlquery);
         String p = null;
 
@@ -391,7 +399,6 @@ public class DBMS {
         try {
             String sqlquery = "SELECT * FROM \"dycicle\".estudiante";
             Statement stmt = conexion.createStatement();
-            System.out.println(sqlquery);
             ResultSet rs = stmt.executeQuery(sqlquery);
 
             while (rs.next()) {
@@ -402,20 +409,17 @@ public class DBMS {
             }
 
 
-//            sqlquery = "SELECT * FROM \"dycicle\".planillausb WHERE nombreusuario='"
-//                    + u.getNombreusuario()+ "'";
-//
-//            stmt = conexion.createStatement();
-//            System.out.println(sqlquery);
-//            rs = stmt.executeQuery(sqlquery);
-//            while (rs.next()) {
-//                u.setNombreusuario(rs.getString("nombreusuario"));
-//                u.setConfirmar(rs.getString("estadoPostulacion"));
-//                usrs.add(u);
-//            }
+/*            sqlquery = "SELECT * FROM \"dycicle\".planillausb WHERE nombreusuario='"
+                    + u.getNombreusuario()+ "'";
 
-
-
+            stmt = conexion.createStatement();
+            System.out.println(sqlquery);
+            rs = stmt.executeQuery(sqlquery);
+            while (rs.next()) {
+                u.setNombreusuario(rs.getString("nombreusuario"));
+                u.setConfirmar(rs.getString("estadoPostulacion"));
+                usrs.add(u);
+            }*/
 
         } catch (SQLException ex) {
             System.out.println("EXCEPCION");
@@ -436,7 +440,6 @@ public class DBMS {
                     + "carrera = '" + u.getNombreusuario() + "';";
 
             Statement stmt = conexion.createStatement();
-            System.out.println(sqlquery);
             ResultSet rs = stmt.executeQuery(sqlquery);
             while (rs.next()) {
                 Usuario t = new Usuario();
@@ -458,7 +461,6 @@ public class DBMS {
         try {
             String sqlquery = "SELECT * FROM \"dycicle\".preregistro";
             Statement stmt = conexion.createStatement();
-            System.out.println(sqlquery);
             ResultSet rs = stmt.executeQuery(sqlquery);
             while (rs.next()) {
                 Usuario u = new Usuario();
@@ -482,16 +484,15 @@ public class DBMS {
 
 //            Acomodar Query para que me devuelva los estudiantes con la misma carrera
 //            que el que lo invoca
-            String sqlquery = "SELECT * FROM \"dycicle\".idiomas WHERE "
+            String sqlquery = "SELECT * FROM \"dycicle\".domina WHERE "
                     + "nombreusuario = '" + u.getNombreusuario() + "'";
 
             Statement stmt = conexion.createStatement();
-            System.out.println(sqlquery);
             ResultSet rs = stmt.executeQuery(sqlquery);
            
             while (rs.next()) {
                 Usuario t = new Usuario();
-                t.setNombre(rs.getString("idioma"));
+                t.setNombre(rs.getString("nombreidioma"));
                 t.setConfirmar(rs.getString("nivelverbal"));
                 t.setEmail(rs.getString("nivelescrito"));
 
@@ -547,7 +548,6 @@ public class DBMS {
                 datos.setPeriodo(rs.getString("Periodo"));
                 datos.setCedula(rs.getString("Cedula"));
                 datos.setCarnet(rs.getString("Carnet"));
-                datos.setPasaporte(rs.getString("Pasaporte"));
                 datos.setNombres(rs.getString("Nombre"));
                 datos.setSexo(rs.getString("Sexo"));
                 datos.setCiudad(rs.getString("Ciudad"));
@@ -600,7 +600,7 @@ public class DBMS {
         try {
 
             Statement stmt = conexion.createStatement();
-            String sqlquery = "INSERT INTO \"dycicle\".anuncio VALUES ('" + a.getTitulo()
+            String sqlquery = "INSERT INTO \"dycicle\".noticias VALUES ('" + a.getTitulo()
                     + "', '" + a.getMensaje() + "', '";
             String tmp;
 
@@ -609,7 +609,6 @@ public class DBMS {
                 insert++;
                 tmp = sqlquery + a.getDRIC() + "');";
                 stmt = conexion.createStatement();
-                System.out.println(tmp);
                 i = i + stmt.executeUpdate(tmp);
             }
 
@@ -618,7 +617,6 @@ public class DBMS {
                 insert++;
                 tmp = sqlquery + a.getDecanatos() + "');";
                 stmt = conexion.createStatement();
-                System.out.println(sqlquery);
                 i = i + stmt.executeUpdate(tmp);
             }
 
@@ -627,7 +625,6 @@ public class DBMS {
                 insert++;
                 tmp = sqlquery + a.getCoordinaciones() + "');";
                 stmt = conexion.createStatement();
-                System.out.println(sqlquery);
                 i = i + stmt.executeUpdate(tmp);
             }
 
@@ -636,7 +633,6 @@ public class DBMS {
                 insert++;
                 tmp = sqlquery + a.getEstExt() + "');";
                 stmt = conexion.createStatement();
-                System.out.println(sqlquery);
                 i = i + stmt.executeUpdate(tmp);
             }
 
@@ -645,7 +641,6 @@ public class DBMS {
                 insert++;
                 tmp = sqlquery + a.getEstUSB() + "');";
                 stmt = conexion.createStatement();
-                System.out.println(sqlquery);
                 i = i + stmt.executeUpdate(tmp);
             }
 
@@ -667,7 +662,6 @@ public class DBMS {
                     + "', periodo='" + p.getPeriodo()
                     + "', cedula='" + p.getCedula()
                     + "', carnet='" + p.getCarnet()
-                    + "', pasaporte='" + p.getPasaporte()
                     + "', nombre='" + p.getNombres()
                     + "', apellido='" + p.getApellidos()
                     + "', sexo='" + p.getSexo()
@@ -734,7 +728,6 @@ public class DBMS {
                     + "', '" + p.getPeriodo()
                     + "', '" + p.getCedula()
                     + "', '" + p.getCarnet()
-                    + "', '" + p.getPasaporte()
                     + "', '" + p.getNombres()
                     + "', '" + p.getApellidos()
                     + "', '" + p.getSexo()
@@ -792,38 +785,50 @@ public class DBMS {
         return false;
     }
 
+    
     public Boolean agregarEstudiante(EstudianteUSB e) {
         try {
 
             String sesionActiva = e.getOrigen();
             String[] info = DBMS.getInstance().getInfoPostulante(sesionActiva);
 
-            String sqlquery = "INSERT INTO \"dycicle\".estudiante VALUES ('" + e.getNombreusuario()
-                    + "', '" + info[0] + "', '" + e.getNombre()
-                    + "', '" + e.getApellidos() + "', '" + info[3]
-                    + "', '" + info[1] + "', 'null', 'null', 'null', 'null', 'null', "
+            // Insercion dentro de la tabla estudiante
+            String sqlquery1 = "INSERT INTO \"dycicle\".estudiante VALUES ('" + e.getNombreUsuario()
+                    + "', '" + info[0] + "', '" + e.getpNombre()
+                    + "', '" + e.getsNombre() + "', '" + e.getpApellido()
+                    + "', '" + e.getsApellido() + "', '" + info[3]
+                    + "', '" + info[1] + "', 'null','null', 'null',  'null', 'null', 'null', 'null', "
                     + " 'null', 'null', 'null', '" + e.getEmail() + "', '2012-11-27 23:43:11.080', 'null', "
-                    + "'/home/caponte/');";
+                    + "'/home/dreabalbas');";
+            
+            // la fecha de nacimiento colocada es temporal, se coloca para que no de error la insercion.
+            // La direccion de la foto tambien es temporal.
+            
+            //Insercion dentro de la tabla estudianteUSB
+            String sqlquery2 = "INSERT INTO \"dyclicle\".estudianteUSB VALUES('" + e.getNombreUsuario()
+                    + "',  'null'" + e.getCarnet() + ");";
+            
             Statement stmt = conexion.createStatement();
-            System.out.println(sqlquery);
-            Integer i = stmt.executeUpdate(sqlquery);
+            Integer i = stmt.executeUpdate(sqlquery1);
+            Integer j = stmt.executeUpdate(sqlquery2);
 
-            if (i > 0) {
+           /*
+            if (i > 0 && j > 0) {
                 PlanillaUSB p = new PlanillaUSB();
-                p.setNombreUsuario(e.getNombreusuario());
+                p.setNombreUsuario(e.getNombreUsuario());
                 p.setPeriodo("2013-2014");
                 Boolean res = DBMS.getInstance().agregarPlanillaUSB(p);
 
                 return res;
-            }
+            }*/
 
-            return i > 0;
+            return i > 0 && j > 0;
+            
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
         return false;
     }
-
 
     /* public Boolean agregarEstudianteInternacional(Estudiante e, EstudianteInternacional inter,
      AntecedentesAcademicos a, PlanDeEstudio plan, PeriodosPlan per) {
@@ -998,7 +1003,6 @@ public class DBMS {
         }
 
         return info;
-
     }
 
     public EstudianteUSB obtenerDatosUSB(Usuario u) {
@@ -1012,9 +1016,8 @@ public class DBMS {
             Statement stmt = conexion.createStatement();
             ResultSet rs = stmt.executeQuery(sqlquery);
             while (rs.next()) {
-                datos.setNombreusuario(rs.getString("nombreusuario"));
+                datos.setNombreUsuario(rs.getString("nombreusuario"));
                 datos.setCarnet(rs.getString("carnet"));
-                datos.setPasaporte(rs.getString("pasaporte"));
                 datos.setCedula(rs.getString("cedula"));
 
             }
@@ -1024,9 +1027,6 @@ public class DBMS {
             ex.printStackTrace();
         }
         return null;
-
-
-
     }
 
     public boolean InsertarPath(String path, Usuario user) {
@@ -1034,8 +1034,9 @@ public class DBMS {
 
             EstudianteUSB usuario = obtenerDatosUSB(user);
 
-            String sqlquery = "INSERT INTO \"dycicle\".archivosestudianteusb VALUES("
-                    + "'" + user.getNombreusuario() + "','" + usuario.getCedula() + "','" + usuario.getCarnet()
+            String sqlquery = "INSERT INTO \"dycicle\".archivosestudiante VALUES("
+                    + "'" + user.getNombreusuario() + "','" + usuario.getCedula()
+                    + "','" + usuario.getCarnet()
                     + "','jo','" + path + "','jo','jo');";
 
             Statement stmt = conexion.createStatement();
@@ -1133,4 +1134,3 @@ public class DBMS {
         return false;
      }
 }
-

@@ -27,7 +27,7 @@ public class AccionAgregarEstudiante extends org.apache.struts.action.Action {
 
     /* forward name="success" path="" */
     private static final String SUCCESS = "success";
-    private static final String FAIL = "failure";
+    private static final String FAIL = "fail";
     private static final String ERROR = "error";
     private Pattern patron;
     private Matcher match;
@@ -83,7 +83,7 @@ public class AccionAgregarEstudiante extends org.apache.struts.action.Action {
             huboError = true;
         }
 
-        if (e.getApellidos().equals("")) {
+        if (e.getpApellido().equals("")) {
             error.add("apellidos", new ActionMessage("error.apellidos.required"));
             saveErrors(request, error);
             huboError = true;
@@ -92,7 +92,7 @@ public class AccionAgregarEstudiante extends org.apache.struts.action.Action {
         System.out.println();
 
         String tmp = e.getNombre();
-        e.setNombre(e.getNombre() + " " + e.getApellidos());
+        e.setNombre(e.getpNombre() + " " + e.getpApellido());
         // Si hubo error lo notifica, si no, procede a agregar en la BD.
         if (huboError) {
             return mapping.findForward(ERROR);

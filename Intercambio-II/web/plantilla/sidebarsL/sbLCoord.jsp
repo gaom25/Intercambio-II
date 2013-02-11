@@ -23,8 +23,8 @@
     </script>
     
     <div style="margin-top: 5px;padding-right:5px">
-        <html:link action="/accionesPostulante">
-            <a style="color:#126598">Inicio</a>
+        <html:link style="color:#126598" action="/accionesPostulante">
+            Inicio
         </html:link>
     </div>
     
@@ -35,31 +35,31 @@
     
     <div class="submenu" id="GestionDeEstudiantes" style=" background-color:#FFFFFF; display: none; margin-left: 15px"> 
         <div>
-            <html:link action="/AgregarEstudiantes">
-                <a style="color: #126598">Agregar Estudiante</a>
+            <html:link style="color:#126598" action="/AgregarEstudiantes">
+                Agregar Estudiante
             </html:link>
         </div>
         <div>
-            <html:link action="/ListarEstudiantes">
-                <a style="color: #126598">Consultar Estudiantes</a>
+            <html:link style="color:#126598" action="/ListarEstudiantes">
+                Consultar Estudiantes
             </html:link>
         </div>
     </div>
 
     <div style="margin-top: 5px;padding-right:5px">
-        <html:link action="">
-            <a style="color: #126598">Modificar perfil</a>
+        <html:link style="color:#126598" action="">
+            Modificar perfil
         </html:link>
     </div>
     <div style="margin-top: 5px;padding-right:5px">
-        <html:link action="/contactoCoord">
-            <a style="color: #126598">Contactenos </a>
+        <html:link style="color:#126598" action="/contactoCoord">
+            Contactenos 
         </html:link>
     </div>
     <div style="height:20px"></div>
     <div>
-        <html:link action="/CerrarSesion">
-            <a style="color: #126598">Cerrar sesion</a>
+        <html:link style="color:#126598" action="/CerrarSesion">
+            Cerrar sesion
         </html:link>
     </div>
 </html:html>

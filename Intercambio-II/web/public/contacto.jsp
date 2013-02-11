@@ -58,13 +58,23 @@
                             <td style="color: black">Mensaje: </td>
                             <td><html:textarea name="Mensaje" property="mensaje"  value="" errorStyleClass="error"
                                            errorKey="org.apache.struts.action.ERROR" cols="30" rows="10"></html:textarea>
-                            </td>
-                             <td>
+                                </td>
+                                <td>
                                 <html:errors property="mensaje" />
                             </td>
                         </tr>
                     </tbody>
                 </table>
+
+                <div  style="position: relative; height: 120px; bottom: -10px;">
+                    <div id="Imagencita" style="height: 75px;">
+                        <img onloadstart="loadstart" src="/Intercambio-II/stickyImg"/>
+                    </div>
+                    <div>
+                        Captcha <input name="answer" />
+                    </div>
+                </div>
+
 
                 <p style="text-align: center">
                     <html:submit onclick="javascript: return confirm('¿Está seguro que los datos son correctos?')">

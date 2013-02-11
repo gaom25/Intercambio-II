@@ -22,8 +22,11 @@
     <h4>Lista de Usuarios Preregistrados en el Sistema:</h4>
     <table>
         <tr>
-            <td width="220px">
+            <td width="120px">
                 Nombre
+            </td>
+            <td width="190px"  align ="center">
+                Privilegio
             </td>
             <td width="150px" align="center">
                 Aceptar Usuario
@@ -32,7 +35,7 @@
                 Ver Preregistro
             </td>
             <td width="150px" align="center">
-                Eliminar Usuario
+                Eliminar Pre-Registro
             </td>
         </tr>
     </table>
@@ -40,15 +43,25 @@
         <table border="0">
             <tbody>
                 <tr>
-                    <td width="220px">
+                    <td width="140px">
                         <bean:write name="usuarios" property="nombreusuario" />
                     </td>
+                    <html:form action="/AceptarPreregistro" onsubmit="return(this)">
+                     <td width="160px"><html:select  property="privilegio">
+                            <html:option value="2">Decanato</html:option>
+                            <html:option value="2">DRIC</html:option>
+                            <html:option value="3">Coordinación</html:option>
+                            <html:option value="4">Universidad Extranjera</html:option>
+                            <html:option value="5">Estudiante USB</html:option>
+                            <html:option value="6">Estudiante Extranjero</html:option>
+                        </html:select>
+                    </td>
                     <td align="center" width="150px">
-                        <html:form action="/AceptarPreregistro" onsubmit="return(this)">
                             <html:hidden name = "usuarios" property="nombreusuario"/>
                             <html:image src="images/user_accept.png" style="width:32px;height:32px" styleClass="button" value="" property="" /> 
-                        </html:form>
+                        
                     </td>
+                    </html:form>
                     <td align="center" width="150px">
                         <html:form action="/ConsultarPreregistro" onsubmit="return(this)">
                             <html:hidden name = "usuarios" property="nombreusuario"/>

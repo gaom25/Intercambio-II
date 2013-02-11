@@ -37,7 +37,7 @@ public class ConsultarEstado extends org.apache.struts.action.Action {
         
         Estudiante e = (Estudiante) form;
         
-        e.getNombre1();
+        e.getpNombre();
         return mapping.findForward(SUCCESS);
     }
 }

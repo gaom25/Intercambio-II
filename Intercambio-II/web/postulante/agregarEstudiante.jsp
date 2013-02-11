@@ -61,7 +61,7 @@
                     </tr>
                     <tr>
                         <td style="color: black">Apellidos</td>       
-                        <td><html:text name="EstUSB" property="apellidos" maxlength="100" errorStyleClass="error" value=""
+                        <td><html:text name="EstUSB" property="pApellido" maxlength="100" errorStyleClass="error" value=""
                                    errorKey="org.apache.struts.action.ERROR"></html:text>
                         </td>
                         <td>

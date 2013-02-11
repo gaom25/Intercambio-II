@@ -23,8 +23,8 @@
     </script>
 
     <div style="margin-top: 5px;padding-right:5px">
-        <html:link action="/accionesAdmin">
-            <a style="color:#126598">Inicio</a>
+        <html:link style="color:#126598" action="/accionesAdmin">
+            Inicio
         </html:link>
     </div>
 
@@ -35,31 +35,31 @@
 
     <div class="submenu" id="GestionDeUsuarios" style=" background-color:#FFFFFF ;margin-left: 5px; padding-left: 3px"> 
         <div>
-            <html:link action="/agregUsuario">
-                <a style="color: #126598">Agregar Usuario</a>
+            <html:link style="color:#126598" action="/agregUsuario">
+                Agregar Usuario
             </html:link>
         </div>
         <div>
-            <html:link action="/ListarUsuarios">
-                <a style="color: #126598">Consultar Usuarios</a>
+            <html:link style="color:#126598" action="/ListarUsuarios">
+                Consultar Usuarios
             </html:link>
         </div>
         <div>
-            <html:link action="/ListarPreregistro">
-                <a style="color: #126598">Consultar PreRegistro</a>
+            <html:link style="color:#126598" action="/ListarPreregistro">
+                Consultar PreRegistro
             </html:link>
         </div>
     </div>
 
     <div style="margin-top: 5px;padding-right:5px">
-        <html:link action="/modPerfilAdm">
-            <a style="color: #126598">Modificar perfil</a>
+        <html:link style="color:#126598" action="/modPerfilAdm">
+            Modificar perfil
         </html:link>
     </div>
     <div style="height:20px"></div>
     <div>
-        <html:link action="/CerrarSesion">
-            <a style="color: #126598">Cerrar sesion</a>
+        <html:link style="color:#126598" action="/CerrarSesion">
+            Cerrar sesion
         </html:link>
     </div>
 </html:html>

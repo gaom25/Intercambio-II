@@ -15,6 +15,7 @@ import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionMessage;
 import DBMS.*;
+import nl.captcha.Captcha;
 
 /**
  *
@@ -52,6 +53,13 @@ public class Login extends org.apache.struts.action.Action {
         ActionErrors error = new ActionErrors();
         boolean huboError = false;
 
+        Captcha captcha = (Captcha) session.getAttribute(Captcha.NAME);
+        request.setCharacterEncoding("UTF-8");
+        String answer = request.getParameter("answer");
+        if (!captcha.isCorrect(answer)) {
+            huboError = true;
+        }
+
         if (u.getNombreusuario().equals("")) {
             error.add("nombreusuario", new ActionMessage("error.nombreusuario.required"));
             saveErrors(request, error);
@@ -74,33 +82,33 @@ public class Login extends org.apache.struts.action.Action {
 
                 if (tmp.getPrivilegio() == 1) {
                     request.setAttribute("usuario", tmp);
-                    session.setAttribute("nombre",tmp.getNombre());
-                    session.setAttribute("nombreusuario",tmp.getNombreusuario());
+                    session.setAttribute("nombre", tmp.getNombre());
+                    session.setAttribute("nombreusuario", tmp.getNombreusuario());
                     return mapping.findForward(ADMIN);
                 } else if (tmp.getPrivilegio() == 2) {
                     request.setAttribute("usuario", tmp);
-                    session.setAttribute("nombre",tmp.getNombre());
-                    session.setAttribute("nombreusuario",tmp.getNombreusuario());
+                    session.setAttribute("nombre", tmp.getNombre());
+                    session.setAttribute("nombreusuario", tmp.getNombreusuario());
                     return mapping.findForward(GESTOR);
                 } else if (tmp.getPrivilegio() == 3) {
                     request.setAttribute("usuario", tmp);
-                    session.setAttribute("nombre",tmp.getNombre());
-                    session.setAttribute("nombreusuario",tmp.getNombreusuario());
+                    session.setAttribute("nombre", tmp.getNombre());
+                    session.setAttribute("nombreusuario", tmp.getNombreusuario());
                     return mapping.findForward(COORD);
                 } else if (tmp.getPrivilegio() == 4) {
                     request.setAttribute("usuario", tmp);
-                    session.setAttribute("nombre",tmp.getNombre());
-                    session.setAttribute("nombreusuario",tmp.getNombreusuario());
+                    session.setAttribute("nombre", tmp.getNombre());
+                    session.setAttribute("nombreusuario", tmp.getNombreusuario());
                     return mapping.findForward(univExt);
                 } else if (tmp.getPrivilegio() == 5) {
                     request.setAttribute("usuario", tmp);
-                    session.setAttribute("nombre",tmp.getNombre());
-                    session.setAttribute("nombreusuario",tmp.getNombreusuario());
+                    session.setAttribute("nombre", tmp.getNombre());
+                    session.setAttribute("nombreusuario", tmp.getNombreusuario());
                     return mapping.findForward(estUSB);
                 } else if (tmp.getPrivilegio() == 6) {
                     request.setAttribute("usuario", tmp);
-                    session.setAttribute("nombre",tmp.getNombre());
-                    session.setAttribute("nombreusuario",tmp.getNombreusuario());
+                    session.setAttribute("nombre", tmp.getNombre());
+                    session.setAttribute("nombreusuario", tmp.getNombreusuario());
                     return mapping.findForward(estExt);
                 } else {
                     return mapping.findForward(FAIL);

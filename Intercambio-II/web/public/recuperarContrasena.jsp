@@ -24,26 +24,36 @@
                     <td> Usuario </td>
                     <td><html:text name="Usuario" property="nombreusuario" size="14"
                                errorStyleClass="error" errorKey="org.apache.struts.action.ERROR"></html:text>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="2"><html:errors property="nombreusuario"/></td>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><html:errors property="nombreusuario"/></td>
                 </tr>
 
                 <tr>
                     <td> E-mail</td>
                     <td><html:text name="Usuario" property="email" value="" size="14"
-                                   errorStyleClass="error" errorKey="org.apache.struts.action.ERROR" ></html:text>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="2"><html:errors property="email"/></td>
+                               errorStyleClass="error" errorKey="org.apache.struts.action.ERROR" ></html:text>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><html:errors property="email"/></td>
                 </tr>
             </table>
-                <html:submit value="Recuperar">Recuperar contraseña</html:submit>
+
+            <div  style="position: relative; height: 120px; bottom: -10px;">
+                <div id="Imagencita" style="height: 75px;">
+                    <img onloadstart="loadstart" src="/Intercambio-II/stickyImg"/>
+                </div>
+                <div>
+                    Captcha <input name="answer" />
+                </div>
+            </div>
+
+            <html:submit value="Recuperar">Recuperar contraseña</html:submit>
         </html:form>
-        
-        
+
+
 
     </div>
 

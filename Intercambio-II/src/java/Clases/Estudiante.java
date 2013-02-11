@@ -10,29 +10,27 @@ import java.sql.Date;
  *
  * @author karen
  */
-public class Estudiante extends org.apache.struts.validator.ValidatorForm {
-
+public class Estudiante extends Usuario {
+    
     private String nombreUsuario;
-    private String apellidoP;
-    private String apellidoM;
-    private String nombre1;
-    private String nombre2;
+    private String origen;
+    private String pApellido;
+    private String sApellido;
+    private String pNombre;
+    private String sNombre;
     private String sexo;
+    private String urb;
     private String calle;
+    private String edificio;
+    private String apartamento;
     private String ciudad;
     private String estado;
-    private String cp;
     private String telefonoCelular;
     private String telefonoCasa;
     private String telefonoFax;
     private String email;
     private Date   fechaNacimiento;
     private String nacionalidad;
-    private String apellidoNombresRep;
-    private String relacion;
-    private String direccionRep;
-    private String tlfRep;
-    private String emailRep;
 
     // falta la foto y no se como colocarla.
     public Estudiante() {
@@ -47,36 +45,44 @@ public class Estudiante extends org.apache.struts.validator.ValidatorForm {
         this.nombreUsuario = nombreUsuario;
     }
 
-    public String getApellidoP() {
-        return apellidoP;
+    public String getOrigen() {
+        return origen;
     }
 
-    public void setApellidoP(String apellidoP) {
-        this.apellidoP = apellidoP;
+    public void setOrigen(String origen) {
+        this.origen = origen;
     }
 
-    public String getApellidoM() {
-        return apellidoM;
+    public String getpApellido() {
+        return pApellido;
     }
 
-    public void setApellidoM(String apellidoM) {
-        this.apellidoM = apellidoM;
+    public void setpApellido(String pApellido) {
+        this.pApellido = pApellido;
     }
 
-    public String getNombre1() {
-        return nombre1;
+    public String getsApellido() {
+        return sApellido;
     }
 
-    public void setNombre1(String nombre1) {
-        this.nombre1 = nombre1;
+    public void setsApellido(String sApellido) {
+        this.sApellido = sApellido;
     }
 
-    public String getNombre2() {
-        return nombre2;
+    public String getpNombre() {
+        return pNombre;
     }
 
-    public void setNombre2(String nombre2) {
-        this.nombre2 = nombre2;
+    public void setpNombre(String pNombre) {
+        this.pNombre = pNombre;
+    }
+
+    public String getsNombre() {
+        return sNombre;
+    }
+
+    public void setsNombre(String sNombre) {
+        this.sNombre = sNombre;
     }
 
     public String getSexo() {
@@ -87,12 +93,37 @@ public class Estudiante extends org.apache.struts.validator.ValidatorForm {
         this.sexo = sexo;
     }
 
+    public String getUrb() {
+        return urb;
+    }
+
+    public void setUrb(String urb) {
+        this.urb = urb;
+    }
+
+        
     public String getCalle() {
         return calle;
     }
 
     public void setCalle(String calle) {
         this.calle = calle;
+    }
+    
+    public String getEdificio() {
+        return edificio;
+    }
+
+    public void setEdificio(String edificio) {
+        this.edificio = edificio;
+    }
+
+    public String getApartamento() {
+        return apartamento;
+    }
+
+    public void setApartamento(String apartamento) {
+        this.apartamento = apartamento;
     }
 
     public String getCiudad() {
@@ -109,14 +140,6 @@ public class Estudiante extends org.apache.struts.validator.ValidatorForm {
 
     public void setEstado(String estado) {
         this.estado = estado;
-    }
-
-    public String getCp() {
-        return cp;
-    }
-
-    public void setCp(String cp) {
-        this.cp = cp;
     }
 
     public String getTelefonoCelular() {
@@ -167,44 +190,4 @@ public class Estudiante extends org.apache.struts.validator.ValidatorForm {
         this.nacionalidad = nacionalidad;
     }
 
-
-    public String getApellidoNombresRep() {
-        return apellidoNombresRep;
-    }
-
-    public void setApellidoNombresRep(String apellidoNombresRep) {
-        this.apellidoNombresRep = apellidoNombresRep;
-    }
-
-    public String getRelacion() {
-        return relacion;
-    }
-
-    public void setRelacion(String relacion) {
-        this.relacion = relacion;
-    }
-
-    public String getDireccionRep() {
-        return direccionRep;
-    }
-
-    public void setDireccionRep(String direccionRep) {
-        this.direccionRep = direccionRep;
-    }
-
-    public String getTlfRep() {
-        return tlfRep;
-    }
-
-    public void setTlfRep(String tldRep) {
-        this.tlfRep = tldRep;
-    }
-
-    public String getEmailRep() {
-        return emailRep;
-    }
-
-    public void setEmailRep(String emailRep) {
-        this.emailRep = emailRep;
-    }
 }

@@ -58,6 +58,8 @@ public class AceptarPreregistro extends org.apache.struts.action.Action {
             throws Exception {
         
         Usuario u = (Usuario) form;
+        String pass = u.generarContrasena();
+        u.setContrasena(pass);
 
         if (DBMS.getInstance().aceptarPreregistro(u)) {
             

@@ -23,8 +23,8 @@
     </script>
 
     <div style="margin-top: 5px;padding-right:5px">
-        <html:link action="/accionesEstUSB">
-            <a style="color:#126598">Inicio</a>
+        <html:link style="color:#126598" action="/accionesEstUSB">
+            Inicio
         </html:link>
     </div>
 
@@ -35,41 +35,41 @@
 
     <div class="submenu" id="GestionDeSolicitudes" style="background-color:#FFFFFF; display: none; margin-left: 15px"> 
         <div>
-            <html:link action="/CargarLlenarPlanillaUSB">
-                <a style="color: #126598">Llenar Formulario</a>
+            <html:link style="color:#126598" action="/CargarLlenarPlanillaUSB">
+                Llenar Formulario
             </html:link>
         </div>
         <div>
-            <html:link action="">
-                <a style="color: #126598">Modificar Formulario</a>
+            <html:link style="color:#126598" action="">
+                Modificar Formulario
             </html:link>
         </div>
         <div>
-            <html:link action="">
-                <a style="color: #126598">Consultar Estado de Solicitud</a>
+            <html:link style="color:#126598" action="">
+                Consultar Estado de Solicitud
             </html:link>
         </div>
         <div>
-            <html:link action="">
-                <a style="color: #126598">Generar Planilla</a>
+            <html:link style="color:#126598" action="">
+                Generar Planilla
             </html:link>
         </div>
     </div>
 
     <div style="margin-top: 5px;padding-right:5px">
-        <html:link action="/modificarperUSB">
-            <a style="color: #126598">Modificar perfil</a>
+        <html:link style="color:#126598" action="/modificarperUSB">
+            Modificar perfil
         </html:link>
     </div>
     <div style="margin-top: 5px;padding-right:5px">
-        <html:link action="/contactoEstUSB">
-            <a style="color: #126598">Contactenos </a>
+        <html:link style="color:#126598" action="/contactoEstUSB">
+            Contactenos 
         </html:link>
     </div>
     <div style="height:20px"></div>
     <div>
-        <html:link action="/CerrarSesion">
-            <a style="color: #126598">Cerrar sesion</a>
+        <html:link style="color:#126598" action="/CerrarSesion">
+            Cerrar sesion
         </html:link>
     </div>
 </html:html>

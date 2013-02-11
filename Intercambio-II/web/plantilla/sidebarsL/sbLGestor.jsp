@@ -23,8 +23,8 @@
     </script>
 
     <div style="margin-top: 5px;padding-right:5px">
-        <html:link action="/accionesGestor">
-            <a style="color:#126598">Inicio</a>
+        <html:link style="color:#126598" action="/accionesGestor">
+            Inicio
         </html:link>
     </div>
 
@@ -36,41 +36,41 @@
 
     <div class="submenu" id="GestionDeUsuarios" style="background-color:#FFFFFF; display: none; margin-left: 15px"> 
         <div>
-            <html:link action="/AgregarUsuarios">
-                <a style="color: #126598">Agregar Usuario</a>
+            <html:link style="color:#126598" action="/AgregarUsuarios">
+                Agregar Usuario
             </html:link>
         </div>
         <div>
-            <html:link action="/ListarUsuarios">
-                <a style="color: #126598">Consultar Usuarios</a>
+            <html:link style="color:#126598" action="/ListarUsuarios">
+                Consultar Usuarios
             </html:link>
         </div>
         <div>
-            <html:link action="/ListarPreregistro">
-                <a style="color: #126598">Consultar PreRegistro</a>
+            <html:link style="color:#126598" action="/ListarPreregistro">
+                Consultar PreRegistro
             </html:link>
         </div>
     </div>
 
     <div style="margin-top: 5px;padding-right:5px">
-        <html:link action="/ListarEstudiantesPostulados">
-            <a style="color: #126598">Consultar Estudiantes Postulados</a>
+        <html:link style="color:#126598" action="/ListarEstudiantesPostulados">
+            Consultar Estudiantes Postulados
         </html:link>
     </div>
     <div style="margin-top: 5px;padding-right:5px">
-        <html:link action="">
-            <a style="color: #126598">Modificar perfil</a>
+        <html:link style="color:#126598" action="">
+            Modificar perfil
         </html:link>
     </div>
     <div style="margin-top: 5px;padding-right:5px">
-        <html:link action="/contactoGestor">
-            <a style="color: #126598">Contactenos </a>
+        <html:link style="color:#126598" action="/contactoGestor">
+            Contactenos 
         </html:link>
     </div>
     <div style="height:20px"></div>
     <div>
-        <html:link action="/CerrarSesion">
-            <a style="color: #126598">Cerrar sesion</a>
+        <html:link style="color:#126598" action="/CerrarSesion">
+            Cerrar sesion
         </html:link>
     </div>
 </html:html>

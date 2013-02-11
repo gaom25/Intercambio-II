@@ -16,6 +16,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import DBMS.*;
 import java.util.Random;
+import javax.servlet.http.HttpSession;
+import nl.captcha.Captcha;
 
 /**
  *
@@ -54,19 +56,28 @@ public class PreRegistroUsuario extends org.apache.struts.action.Action {
      * @throws java.lang.Exception
      * @return
      */
+    @Override
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
 
         Usuario u = (Usuario) form;
         ActionErrors error = new ActionErrors();
+        HttpSession session = request.getSession(true);
         boolean huboError = false;
         String pswd = u.generarContrasena();
         String mail = u.getEmail();
         u.setContrasena(pswd);
         u.setConfirmar(pswd);
 
-
+        Captcha captcha = (Captcha) session.getAttribute(Captcha.NAME);
+        request.setCharacterEncoding("UTF-8");
+        String answer = request.getParameter("answer");
+        if (!captcha.isCorrect(answer)) {
+            huboError = true;      
+        }
+        
+        
         //Verifica que el username no  sea vacio.
         if (u.getNombreusuario().equals("")) {
             error.add("nombreusuario", new ActionMessage("error.nombreusuario.required"));

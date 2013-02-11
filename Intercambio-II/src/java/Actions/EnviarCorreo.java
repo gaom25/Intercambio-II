@@ -19,8 +19,10 @@ import java.util.regex.Pattern;
 import javax.mail.*;
 import javax.mail.internet.*;
 import javax.activation.*;
+import javax.servlet.http.HttpSession;
 import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionMessage;
+import nl.captcha.Captcha;
 
 /**
  *
@@ -52,6 +54,7 @@ public class EnviarCorreo extends org.apache.struts.action.Action {
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
         Correo c = (Correo) form;
+        HttpSession session = request.getSession(true);
         ActionErrors error = new ActionErrors();
         boolean huboError = false;
         
@@ -59,6 +62,14 @@ public class EnviarCorreo extends org.apache.struts.action.Action {
         String mailR = c.getCorreoRemitente();
         String asunto = c.getAsunto();
         String mnsj = c.getMensaje();
+        
+        Captcha captcha = (Captcha) session.getAttribute(Captcha.NAME);
+        request.setCharacterEncoding("UTF-8");
+        String answer = request.getParameter("answer");
+        if (!captcha.isCorrect(answer)) {
+            huboError = true;
+        }
+        
         
         //Verifica que el nombre del remitente no sea vacio
         if (nombreR.equals("")) {
