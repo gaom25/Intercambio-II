@@ -2,6 +2,7 @@
     Document   : formularioSolicitudUSB
     Created on : Nov 13, 2012, 10:13:53 AM
     Author     : dreabalbas
+    Modified by: Katy
 --%>
 <%Object var = session.getAttribute("nombreusuario");%>
 
@@ -1081,73 +1082,11 @@
 
     <div class="nav" style="text-align: center;">
         <a href="#" onclick="if (document.getElementById('financiamiento').style.display=='none') 
-            hide('archivos'), hide('datosPersonales'), show('idiomas'), hide('financiamiento'), hide('academico'), hide('opcion'), hide('representante'); else hide('opcion');"> Idiomas </a>
-    </div>
-    <div id="idiomas" style="display: none">
-        <h6> Recuerde que debe cargar los idiomas antes de proseguir </h6>
-        <div style="width:auto;height:auto;border:6px solid #F0F0F0; background-color: #F0F0F0">
-            <div align=center>
-                <html:form action="/CargarIdioma" method="post" enctype="multipart/form-data">
-                    <br />
-                    <p hidden="true"><html:text name="Idiomas" property="nombreusuario" maxlength="20" errorStyleClass="error" value ="<%=var.toString()%>"
-                               errorKey="org.apache.struts.action.ERROR"></html:text></p>
-
-                    <table border="0"  align="center" style="margin-left: auto;margin-right: auto">
-                        <tbody id ="IdioBody">
-
-                            <tr>
-                                <td><INPUT type="checkbox" name="ch[]"/></td>
-                                <td> Idioma que maneja:</td>
-
-                                <td>
-                                    <html:text name="Idiomas" property="idiomaDest[0]" maxlength="45" errorStyleClass="error"
-                                               errorKey="org.apache.struts.action.ERROR">
-                                    </html:text>
-                                </td>
-
-                                <td>Nivel Verbal</td>
-
-                                <td>
-
-                                    <html:select property="nivelVerbal[0]" errorStyleClass="error" errorKey="org.apache.struts.action.ERROR">
-                                        <html:option value=""></html:option>
-                                        <html:option value="Basico">Basico</html:option>
-                                        <html:option value="Intermedio">Intermedio</html:option>
-                                        <html:option value="Avanzado">Avanzado</html:option>
-                                    </html:select>
-                                </td>
-
-                                <td>Nivel Escrito</td>
-
-                                <td>
-                                    <html:select property="nivelEscrito[0]" errorStyleClass="error" errorKey="org.apache.struts.action.ERROR">
-                                        <html:option value=""></html:option>
-                                        <html:option value="Basico">Basico</html:option>
-                                        <html:option value="Intermedio">Intermedio</html:option>
-                                        <html:option value="Avanzado">Avanzado</html:option>
-                                    </html:select>
-                                </td>
-
-                            </tr>
-
-                        </tbody>
-                    </table>
-                    <input type="button"  value="Especificar Otro Idioma" style="font-size:16px; padding:4px 6px;" onclick="addIdi('IdioBody')"/>
-                    <input type="button" value="Eliminar Seleccionados" style="font-size:16px; padding:4px 6px" onclick="deleteRow('IdioBody')"/>
-
-                </div>
-            </div>
-            <p align="center"><html:submit>Cargar Idiomas</html:submit><p>
-            </html:form>
-    </div>
-    <br />
-
-    <div class="nav" style="text-align: center;">
-        <a href="#" onclick="if (document.getElementById('financiamiento').style.display=='none') 
             hide('datosplanilla'), hide('datosPersonales'), show('archivos'), hide('financiamiento'), hide('academico'), hide('opcion'), hide('idiomas'), hide('representante'); else hide('opcion');"> Cargar Archivos Adjuntos </a>
     </div>
     <div id="archivos" style="display: none">
         <div style="width:auto;height:auto;border:6px solid #F0F0F0; background-color: #F0F0F0">
+            
             <div align=center>
                 <html:form action="/FileUploadAction" method="post" enctype="multipart/form-data">
                     <br />
@@ -1184,88 +1123,5 @@
     </div>
     <br />
 
-    <div class="nav" style="text-align: center;">
-        <a href="#" onclick="if (document.getElementById('financiamiento').style.display=='none') 
-            hide('datosplanilla'), hide('datosPersonales'), show('plan'), hide('archivos'), hide('financiamiento'), hide('academico'), hide('opcion'), hide('idiomas'), hide('representante'); else hide('opcion');"> Cargar Plan de Estudio </a>
-    </div>
-    <div id="plan" style="display: none">
-        <div style="width:auto;height:auto;border:6px solid #F0F0F0; background-color: #F0F0F0">
-            <div align="center">
-                <h6>Toda la informacion de esta tabla es sobre las materias</h6>
-                <html:form action="/AccionPlanDeEstudio" method="post" enctype="multipart/form-data">
-                    <br />
-                    <p hidden="true"><html:text name="PlanDeEstudio" property="nombreUsuario" maxlength="20" errorStyleClass="error" value ="<%=var.toString()%>"
-                               errorKey="org.apache.struts.action.ERROR"></html:text></p>
-
-                    <table border="0"  align="center" style="margin-left: auto;margin-right: auto">
-                        <tbody id ="MateBody">
-
-                            <tr>
-                                <td></td>
-                                <td> Codigo-USB</td>
-
-                                <td> Nombre-USB</td>
-
-                                <td> Creditos-USB</td>
-
-                                <td> Codigo-universidad de destino</td>
-
-                                <td> Nombre-universidad de destino</td>                                
-
-                                <td> Creditos-universidad de destino</td>
-
-                            </tr>
-
-                            <tr>
-                                <td> <input type="checkbox" name="c[]"></td>
-                                <td>
-                                    <html:text name="PlanDeEstudio" property="codigoUSB[0]" maxlength="45" errorStyleClass="error" value="" style="width:80%;"
-                                               errorKey="org.apache.struts.action.ERROR">
-                                    </html:text>
-                                </td>
-
-                                <td>
-                                    <html:text name="PlanDeEstudio" property="materiaUSB[0]" maxlength="45" errorStyleClass="error" value="" style="width:80%;"
-                                               errorKey="org.apache.struts.action.ERROR">
-                                    </html:text>
-                                </td>
-
-                                <td>
-                                    <html:text name="PlanDeEstudio" property="creditosUSB[0]" maxlength="45" errorStyleClass="error" value="" style="width:80%;"
-                                               errorKey="org.apache.struts.action.ERROR">
-                                    </html:text>
-                                </td>
-
-                                <td>
-                                    <html:text name="PlanDeEstudio" property="codigoUniv[0]" maxlength="45" errorStyleClass="error" value="" style="width:60%;"
-                                               errorKey="org.apache.struts.action.ERROR">
-                                    </html:text>
-                                </td>
-
-                                <td>
-                                    <html:text name="PlanDeEstudio" property="materiaUniv[0]" maxlength="45" errorStyleClass="error" value="" style="width:60%;"
-                                               errorKey="org.apache.struts.action.ERROR">
-                                    </html:text>
-                                </td>
-
-                                <td>
-                                    <html:text name="PlanDeEstudio" property="creditosUniv[0]" maxlength="45" errorStyleClass="error" value="" style="width:60%;"
-                                               errorKey="org.apache.struts.action.ERROR">
-                                    </html:text>
-                                </td>
-
-                            </tr>
-
-                        </tbody>
-                    </table>
-                    <input type="button"  value="Agregar Materia" style="font-size:16px; padding:4px 6px;" onclick="addMate('MateBody')"/>
-
-                    <input type="button" value="Eliminar Materia" style="font-size:16px; padding:4px 6px" onclick="deletePlan('MateBody')"/>
-                    <p><html:submit /><p>
-                    </html:form>
-            </div>
-        </div>
-
-    </div>
 
 </html:html>
