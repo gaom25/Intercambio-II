@@ -45,6 +45,7 @@
         </init-param>
     </servlet>
 
+
     <servlet-mapping>
         <servlet-name>SimpleCaptcha</servlet-name>
         <url-pattern>/stickyImg</url-pattern>
