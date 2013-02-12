@@ -452,7 +452,7 @@
       <action input="/" name="EstUSB" path="/ListarSolicitudes" scope="session" type="Actions.ListarSolicitudes"/>
       
       
-      <!--Jcaptch-->
+      <!--Jcaptch
       <action path="/SaveRegistration"
                   type="com.octo.captcha.module.struts.VerifyCaptchaChallengeAction"
                   name="RegistrationForm"
@@ -477,7 +477,8 @@
           type="com.octo.captcha.module.struts.image.RenderImageCaptchaAction"
       > 
       </action>
-
+      -->
+      
     </action-mappings>
     
     <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>
@@ -524,6 +525,8 @@
             value="/WEB-INF/validator-rules.xml,/WEB-INF/validation.xml"/>
     </plug-in> 
     
-    <!--    Jcaptcha-->
+    <!--    Jcaptcha
     <plug-in className="com.octo.captcha.module.struts.CaptchaServicePlugin"/>"
+    -->
+    
 </struts-config>

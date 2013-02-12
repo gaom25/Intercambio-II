@@ -1,0 +1,288 @@
+        <div style="width:auto;height:auto;border:6px solid #F0F0F0; background-color: #F0F0F0">
+            <div align=center>
+
+                <div id="datosPersonales" style="display: none">
+
+                    <html:form action="/LlenarPlanilla_EstUSB"  method="POST" enctype="multipart/form-data" onsubmit="return(this)">
+
+
+                        </div>
+
+                    </div>
+
+                    <div id="representante" style="display:none">
+
+                        <div style="width:auto;height:auto;border:6px solid #F0F0F0; background-color: #F0F0F0">
+                            <table border="0"  align="center">
+                                <tbody>
+                                    <tr>
+                                        <td> Apellidos y Nombres:</td>
+
+                                        <td>
+                                            <html:text name="PlanillaUSB" property="apellidoNombresRep" maxlength="30" errorStyleClass="error"
+
+                                                       errorKey="org.apache.struts.action.ERROR">
+                                            </html:text>
+                                        </td>
+
+                                        <td>
+                                            <html:errors property="apellidoNombresRep" />
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td> Parentesco:</td>
+
+                                        <td>
+                                            <html:text name="PlanillaUSB" property="relacion" maxlength="15" errorStyleClass="error"
+                                                       errorKey="org.apache.struts.action.ERROR">
+                                            </html:text>
+                                        </td>
+
+                                        <td>
+                                            <html:errors property="relacion" />
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td> Teléfono:</td>
+
+                                        <td>
+                                            <html:text name="PlanillaUSB" property="tlfRep" maxlength="15" errorStyleClass="error"
+                                                       errorKey="org.apache.struts.action.ERROR">
+                                            </html:text>
+                                        </td>
+
+                                        <td>
+                                            <html:errors property="tlfRep" />
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td style="color: black"> Dirección:</td>
+
+                                        <td>
+                                            <html:textarea name="PlanillaUSB" property="direccionRep"  errorStyleClass="error"
+                                                           errorKey="org.apache.struts.action.ERROR">
+                                            </html:textarea>
+                                        </td>
+
+                                        <td>
+                                            <html:errors property="direccionRep" />
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td> E-mail:</td>
+
+                                        <td>
+                                            <html:text name="PlanillaUSB" property="emailRep" maxlength="45" errorStyleClass="error"
+                                                       errorKey="org.apache.struts.action.ERROR">
+                                            </html:text>
+                                        </td>
+
+                                        <td>
+                                            <html:errors property="emailRep" />
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+
+                    <div id="academico" style="display: none">
+                        <div style="width:auto;height:auto;border:6px solid #F0F0F0; background-color: #F0F0F0">
+                            <table border="0"  align="center">
+                                <tbody>
+                                    <tr>
+                                        <td> Carrera que estudia en la USB:</td>
+                                        <td><html:select name="PlanillaUSB" property="carrera">
+                                                <html:option value="N/A"></html:option>
+                                                <html:option value="Licenciatura en Quimica"></html:option>
+                                                <html:option value="Licenciatura en Matematicas"></html:option>
+                                                <html:option value="Licenciatura en Fisica"></html:option>
+                                                <html:option value="Licenciatura en Biologia"></html:option>
+                                                <html:option value="Arquitectura"></html:option>
+                                                <html:option value="Urbanismo"></html:option>
+                                                <html:option value="Ingenieria Electrica"></html:option>
+                                                <html:option value="Ingenieria Mecanica"></html:option>
+                                                <html:option value="Ingenieria Quimica"></html:option>
+                                                <html:option value="Ingenieria Electrica"></html:option>
+                                                <html:option value="Ingenieria Mecanica"></html:option>
+                                                <html:option value="Ingenieria Electronica"></html:option>
+                                                <html:option value="Ingenieria de Computacion"></html:option>
+                                                <html:option value="Ingenieria Geofisica"></html:option>
+                                                <html:option value="Ingenieria de Materiales"></html:option>
+                                                <html:option value="Ingenieria de Produccion"></html:option>
+                                                <html:option value="Ingenieria de Telecomunicaciones"></html:option>
+                                                <html:option value="Ingenieria de Mantenimeinto"></html:option>
+                                                <html:option value="Licenciatura en Gestion de la Hospitalidad"></html:option>
+                                                <html:option value="Licenciatura en Comercio Internacion"></html:option>
+                                                <html:option value="Tecnología  Electrica"></html:option>
+                                                <html:option value="Tecnología  Electronica"></html:option>
+                                                <html:option value="Organizacion Empresarial"></html:option>
+                                                <html:option value="Tecnologia Mecanica"></html:option>
+                                                <html:option value="Mantenimiento Aeronautico"></html:option>
+                                                <html:option value="Administración del Turismo"></html:option>
+                                                <html:option value="Administración Hotelera"></html:option>
+                                                <html:option value="Administración del Transporte"></html:option>
+                                                <html:option value="Administración Aduanera"></html:option>
+                                            </html:select>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td> Número de créditos aprobados hasta la fecha</td>
+
+                                        <td>
+                                            <html:text name="PlanillaUSB" property="creditosApro" maxlength="60"  errorStyleClass="error"
+                                                       errorKey="org.apache.struts.action.ERROR">
+                                            </html:text>
+                                        </td>
+
+                                        <td>
+                                            <html:errors property="creditosApro" />
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td> Índice académico: </td>
+
+                                        <td>
+                                            <html:text name="PlanillaUSB" property="indice" maxlength="60"  errorStyleClass="error"
+                                                       errorKey="org.apache.struts.action.ERROR">
+                                            </html:text>
+                                        </td>
+
+                                        <td>
+                                            <html:errors property="indice" />
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <br />
+
+                    <div id="opcion" style="display: none">
+                        <div style="width:auto;height:auto;border:6px solid #F0F0F0; background-color: #F0F0F0">
+
+                        </div>
+                    </div>
+                    <br />
+
+                    <div id="financiamiento" style="display: none">
+                        <div style="width:auto;height:auto;border:6px solid #F0F0F0; background-color: #F0F0F0">
+                            <table border="0"  align="center">
+                                <tbody>
+
+                                    <tr>
+                                        <td> Fuente de Financiamiento:</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+
+                                            <html:checkbox name="PlanillaUSB" property="fuenteFinanciamiento" value="personal"> Personal/Familiar </html:checkbox>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <html:checkbox name="PlanillaUSB" property="fuenteFinanciamiento" value="prestamo"> Bec/Prestamo </html:checkbox>
+                                        </td>  
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <html:checkbox name="PlanillaUSB" property="fuenteFinanciamiento" value="otro">Otro (Especifique)</html:checkbox>
+                                        </td> 
+
+                                        <td>
+                                            <html:text name="PlanillaUSB" property="descripcion" maxlength="100"  errorStyleClass="error"
+                                                       errorKey="org.apache.struts.action.ERROR">
+                                            </html:text>
+                                        </td>
+                                    </tr>
+                                <td>
+                                    <html:errors property="fuenteFinanciamiento" />
+                                </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <br />
+
+                    <p style="text-align: center">
+                        <html:submit onclick="javascript: return confirm('¿Está seguro que los datos son correctos?')">
+                            Guardar Solicitud
+                        </html:submit>
+                    </p>
+                </html:form>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<tr>
+                                <td> País Destino:</td>
+                                <td>
+                                    <html:select  property="paisOpcion1">
+                                        <html:option value="N/A"></html:option>
+                                        <html:option value="Alemania"></html:option>
+                                        <html:option value="Argentina"></html:option>
+                                        <html:option value="Bélgica"></html:option>
+                                        <html:option value="Bogota"></html:option>
+                                        <html:option value="Brasil"></html:option>
+                                        <html:option value="Canada"></html:option>
+                                        <html:option value="Colombia"></html:option>
+                                        <html:option value="Chile"></html:option>
+                                        <html:option value="Costa Rica"></html:option>
+                                        <html:option value="España"></html:option>
+                                        <html:option value="Estados Unidos"></html:option>
+                                        <html:option value="Finlandia"></html:option>
+                                        <html:option value="Francia"></html:option>
+                                        <html:option value="Italia"></html:option>
+                                        <html:option value="Japón"></html:option>
+                                        <html:option value="México"></html:option>
+                                        <html:option value="Noruega"></html:option>
+                                        <html:option value="Perú"></html:option>
+                                        <html:option value="Panamá"></html:option>
+                                        <html:option value="Puerto Rico"></html:option>
+                                    </html:select>
+                                </td>
+                                <td>
+                                    <html:errors property="paisOpcion1" />
+                                </td>
+                            </tr>
+
+
+

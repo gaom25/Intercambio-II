@@ -582,6 +582,7 @@ public class DBMS {
                 datos.setNombreProg2(rs.getString("NombreProg2"));
                 datos.setFuenteFinanciamiento(rs.getString("Financiamiento"));
                 datos.setDescripcion(rs.getString("Descripcion"));
+                datos.setPaisOpcion1(rs.getString("Pais1"));
 
             }
 
