@@ -62,6 +62,8 @@ public class PlanillaUSB extends org.apache.struts.action.ActionForm {
     private String nivelEscrito;    //db
     private String nombreProg1;     //db
     private String nombreProg2;     //db
+    private String nombrePais1;
+    private String paisOpcion1;
     //Informacion Academica 
     private String carrera;         //db
     private String indice;          //db
@@ -297,6 +299,7 @@ public class PlanillaUSB extends org.apache.struts.action.ActionForm {
         this.nombreOpcion1 = nombreOpcion1;
     }
 
+    
     public String getFechaIni2() {
         return fechaIni2;
     }
@@ -316,11 +319,19 @@ public class PlanillaUSB extends org.apache.struts.action.ActionForm {
     public String getNombreOpcion2() {
         return nombreOpcion2;
     }
+    
+    public String getPaisOpcion1() {
+        return paisOpcion1;
+    }
 
     public void setNombreOpcion2(String nombreOpcion2) {
         this.nombreOpcion2 = nombreOpcion2;
     }
 
+    public void setPaisOpcion1(String paisOpcion1 ) {
+        this.paisOpcion1 = paisOpcion1;
+    }
+        
     public String getIdiomaDest() {
         return idiomaDest;
     }
