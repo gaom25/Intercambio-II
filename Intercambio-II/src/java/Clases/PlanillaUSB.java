@@ -78,7 +78,10 @@ public class PlanillaUSB extends org.apache.struts.action.ActionForm {
     private String paisOpcion1;
     //Informacion Academica 
     private String carrera;         //db
+    private String decanato;         //db
+    private String areaEstud;         //db    
     private String indice;          //db
+    private String indicePon; //db    
     private String opcion;          //db
     private int creditosApro;       //db
     private ArrayList<Materias> lista;
@@ -89,7 +92,9 @@ public class PlanillaUSB extends org.apache.struts.action.ActionForm {
 
     // Financiamiento
     private String fuenteFinanciamiento;
-    private String descripcion;
+    private String descripcion1;
+    private String descripcion2;    
+    private String ayudaEc;
     
     public PlanillaUSB() {
         super();
@@ -496,6 +501,30 @@ public class PlanillaUSB extends org.apache.struts.action.ActionForm {
         this.indice = indice;
     }
 
+    public String getIndicePon() {
+        return indicePon;
+    }
+
+    public void setIndicePon(String indicePon) {
+        this.indicePon = indicePon;
+    }
+
+    public String getAreaEstud() {
+        return areaEstud;
+    }
+
+    public void setAreaEstud(String areaEstud) {
+        this.areaEstud = areaEstud;
+    }
+
+    public String getDecanato() {
+        return decanato;
+    }
+
+    public void setDecanato(String decanato) {
+        this.decanato = decanato;
+    }
+    
     public String getOpcion() {
         return opcion;
     }
@@ -558,15 +587,30 @@ public class PlanillaUSB extends org.apache.struts.action.ActionForm {
         this.fuenteFinanciamiento = fuenteFinanciamiento;
     }
 
-    public String getDescripcion() {
-        return descripcion;
+    public String getDescripcion1() {
+        return descripcion1;
     }
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    public void setDescripcion1(String descripcion1) {
+        this.descripcion1 = descripcion1;
     }
 
+    public String getDescripcion2() {
+        return descripcion2;
+    }
 
+    public void setDescripcion2(String descripcion2) {
+        this.descripcion2 = descripcion2;
+    }
+    
+    public String getAyudaEc() {
+        return ayudaEc;
+    }
+
+    public void setAyudaEc(String ayudaEc) {
+        this.ayudaEc = ayudaEc;
+    }
+    
     //@Override
     //public String toString() {
 //        return "PlanillaUSB{" + "nombreUsuario=" + nombreUsuario + ", periodo=" + periodo + ", apellidos=" + apellidos + ", nombres=" + nombres + ", sexo=" + sexo + ", calle=" + calle + ", ciudad=" + ciudad + ", estado=" + estado + ", CodPostal=" + codPostal + ", telefonoCelular=" + telefonoCelular + ", telefonoCasa=" + telefonoCasa + ", Fax=" + fax + ", email=" + email + ", fechaNacimiento=" + fechaNacimiento + ", nacionalidad=" + nacionalidad + ", cedula=" + cedula + ", carnet=" + carnet + ", pasaporte=" + pasaporte + ", apellidoNombresRep=" + apellidoNombresRep + ", tlfRep=" + tlfRep + ", emailRep=" + emailRep + ", relacion=" + relacion + ", direccionRep=" + direccionRep + ", fechaIni1=" + fechaIni1 + ", fechaFin1=" + fechaFin1 + ", nombreOpcion1=" + nombreOpcion1 + ", fechaIni2=" + fechaIni2 + ", fechaFin2=" + fechaFin2 + ", nombreOpcion2=" + nombreOpcion2 + ", Idiomadest=" + idiomaDest + ", nivelVerbal=" + nivelVerbal + ", nivelEscrito=" + nivelEscrito + ", nombreProg1=" + nombreProg1 + ", nombreProg2=" + nombreProg2 + ", carrera=" + carrera + ", indice=" + indice + ", opcion=" + opcion + ", creditosApro=" + creditosApro + ", lista=" + lista + ", fechaSolicitud=" + fechaSolicitud + ", recomendacion=" + recomendacion + ", comentarioRecomendacion=" + comentarioRecomendacion + '}';

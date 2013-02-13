@@ -479,7 +479,7 @@ public class GeneradorPlanillas {
             campo = new Phrase("Fuente del financiamiento:  " + p.getFuenteFinanciamiento(), fontCampo);
             ct.setSimpleColumn(campo, 70, 265, 350, 280, 15, Element.ALIGN_LEFT);
             ct.go();
-            campo = new Phrase("Descripcion:  " + p.getDescripcion(), fontCampo);
+            campo = new Phrase("Descripcion:  " + p.getDescripcion1(), fontCampo);
             ct.setSimpleColumn(campo, 70, 245, 350, 260, 15, Element.ALIGN_LEFT);
             ct.go();
 

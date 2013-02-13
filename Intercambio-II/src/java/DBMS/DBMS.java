@@ -578,7 +578,7 @@ public class DBMS {
                 datos.setNivelEscrito(rs.getString("NivelEscrito"));
                 datos.setNombreProg1(rs.getString("NombreProg1"));
                 datos.setFuenteFinanciamiento(rs.getString("Financiamiento"));
-                datos.setDescripcion(rs.getString("Descripcion"));
+                datos.setDescripcion1(rs.getString("Descripcion1"));
                 datos.setPaisOpcion1(rs.getString("Pais1"));
                 datos.setPaisOpcion2(rs.getString("Pais2"));                
             }
@@ -698,7 +698,7 @@ public class DBMS {
                     + "', nombreprog1='" + p.getNombreProg1()
                     // Financiamiento
                     + "', financiamiento='" + p.getFuenteFinanciamiento()
-                    + "', descripcion='" + p.getDescripcion()
+                    + "', descripcion1='" + p.getDescripcion1()
                     + "'  WHERE nombreusuario='" + p.getNombreUsuario()
                     + "' AND periodo='" + p.getPeriodo() + "'";
 
@@ -761,7 +761,7 @@ public class DBMS {
                     + "', '" + p.getNombreProg1()
                     // Financiamiento
                     + "', '" + p.getFuenteFinanciamiento()
-                    + "', '" + p.getDescripcion()
+                    + "', '" + p.getDescripcion1()
                     + "');";
 
             Statement stmt = conexion.createStatement();

@@ -15,6 +15,218 @@
 
 <html:html lang="true">
 
+    <script language="javascript">
+        var fCount = 0;
+        var Count = 0;
+        var mCount = 0;
+        
+        function addMate(tableID) {
+            mCount++;
+
+            var fObject = document.getElementById(tableID);
+            var checkbox2 = "checkbox";
+            var nomUSB = "materiaUSB[" +  mCount +  "]";
+            var codUSB = "codigoUSB[" +  mCount +  "]";
+            var creUSB = "creditosUSB[" +  mCount +  "]";
+            var nomUniv = "materiaUniv[" +  mCount +  "]";
+            var codUniv = "codigoUniv[" +  mCount +  "]";
+            var creUniv = "creditosUniv[" +  mCount +  "]";
+            var arr2 = "c[]";
+            var type = "text";
+            
+            var style1 = "width:80%;";
+            var style2 = "width:60%;";
+            
+            var o2 = document.createElement("input");
+            var check2 = document.createElement("input");
+            var i1 = document.createElement("input");
+            var i2 = document.createElement("input");
+            var i3 = document.createElement("input");
+            var i4 = document.createElement("input");
+            var i5 = document.createElement("input");
+            var i6 = document.createElement("input");
+            var tr = document.createElement("tr");
+            var td = document.createElement("td");
+            var td2 = document.createElement("td");
+            var td4 = document.createElement("td");
+            var td6 = document.createElement("td");
+            var td8 = document.createElement("td");
+            var td10 = document.createElement("td");
+            var td12 = document.createElement("td");
+                
+            //Atributos para el checkbox
+            check2.setAttribute("type",checkbox2);
+            check2.setAttribute("name",arr2);
+            i1.setAttribute("type",type);
+            i1.setAttribute("name",codUSB);
+            i1.setAttribute("style",style1);
+            i2.setAttribute("type",type);
+            i2.setAttribute("name",nomUSB);
+            i2.setAttribute("style",style1);
+            i3.setAttribute("type",type);
+            i3.setAttribute("name",creUSB);
+            i3.setAttribute("style",style1);
+            i4.setAttribute("type",type);
+            i4.setAttribute("name",codUniv);
+            i4.setAttribute("style",style2);
+            i5.setAttribute("type",type);
+            i5.setAttribute("name",nomUniv);
+            i5.setAttribute("style",style2);
+            i6.setAttribute("type",type);
+            i6.setAttribute("name",creUniv);
+            i6.setAttribute("style",style2);
+            
+            td.appendChild(check2);
+            td2.appendChild(i1);
+            td4.appendChild(i2);
+            td6.appendChild(i3);
+            td8.appendChild(i4);
+            td10.appendChild(i5);
+            td12.appendChild(i6);
+            
+            tr.appendChild(td);
+            
+            tr.appendChild(td2);
+            
+            tr.appendChild(td4);
+            
+            tr.appendChild(td6);
+            
+            tr.appendChild(td8);
+            
+            tr.appendChild(td10);
+            
+            tr.appendChild(td12);
+            
+            fObject.appendChild(tr);
+                
+               
+        }
+        
+        
+        function addRow(tableID) {
+            fCount++;
+
+            var fObject = document.getElementById(tableID);
+            var checkbox = "checkbox";
+            var tag='<input type="file" name="theFile[' +  fCount +  ']" value="">';
+            var name = "theFile[" +  fCount +  "]";
+            var file = "file";
+            var valgin = "middle";
+            var value = "";
+            var id = "archivos";
+            var clas = "feed";
+            var arr = "chk[]"
+            var style = "position:relative;"
+            var o3 = document.createElement("br");
+            var o2 = document.createElement("input");
+            var check = document.createElement("input");
+            var tr = document.createElement("tr");
+            var td = document.createElement("td");
+            var div1 = document.createElement("div");
+            var div2 = document.createElement("div");
+                
+                
+               
+            //Atributos para div1
+            div1.setAttribute("id",id);
+            //fin de atributos para div1
+                
+            //Atributos para div2
+            div2.setAttribute("class",clas);
+            //fin de atributos para div2
+                
+            //Atributos para el checkbox
+            check.setAttribute("type",checkbox);
+            check.setAttribute("name",arr)
+            //Fin de atributos para checkbox
+            //Atributos para el archivo
+            o2.setAttribute("type", file);
+            o2.setAttribute("name", name );
+            o2.setAttribute("value", value);
+            o2.setAttribute("styame", name );
+            o2.setAttribute("valule",style);
+            //Fin Atributos para el archivo
+            var td2 = document.createElement("td").appendChild(div1).appendChild(div2).appendChild(o2);
+                
+            //Atributos para el td interno
+            td2.setAttribute("valgin",valgin);
+            //Fin atributos del td
+                                
+            fObject.appendChild(tr).appendChild(td).appendChild(check);
+                
+            var segundo_p = document.getElementById(tableID).getElementsByTagName('td');
+                
+                
+            fObject.appendChild(tr).insertBefore(td2, segundo_p);
+       
+        }
+ 
+        function deleteRow(tableID) {
+            try {
+
+                var table = document.getElementById(tableID);
+                var rowCount = table.rows.length;
+	
+                for(var i=0; i<rowCount; i++) {
+                    var row = table.rows[i];
+                    var chkbox = row.cells[0].childNodes[0];
+                    if(null != chkbox && true == chkbox.checked) {
+				
+                        if(rowCount <= 1) {
+                            alert("No puede borrar todas las opciones");
+                            break;
+                        }
+                        table.deleteRow(i);
+                        rowCount--;
+                        i--;
+                    }
+	
+                }
+		
+            } catch(e) {
+                alert(e);
+            }
+        }
+        
+        function deletePlan(tableID) {
+            try {
+
+                var table = document.getElementById(tableID);
+                var rowCount = table.rows.length;
+        
+                for(var i=0; i<rowCount; i++) {
+                    var row = table.rows[i];
+                    var chkbox = row.cells[0].childNodes[0];
+                    
+                    if(null != chkbox && true == chkbox.checked) {	
+                        if(rowCount <= 2) {
+                            alert("No puede borrar todas las opciones");
+                            break;
+                        }
+                       
+                        table.deleteRow(i);
+                        rowCount--;
+                        i--;
+                    }
+	
+                }
+		
+            } catch(e) {
+                alert(e);
+            }
+        }
+        
+        function show(target){
+            document.getElementById(target).style.display = 'block';
+        }
+
+        function hide(target){
+            document.getElementById(target).style.display = 'none';
+        }
+
+
+    </script>
 
     <title>Sistema de Gestión de Intercambio</title>
 
@@ -746,10 +958,218 @@
                                 <td>
                                     <html:errors property="duracionProgramaOpcion2" />
                                 </td>
-                            </tr>                              
+                            </tr> 
+                            <tr>
+                                <td> <br/> <strong>Información Académica</strong></td>
+                            </tr>                            
+                            <tr>
+                                <td> Decanato:</td>
+                                <td><html:select name="PlanillaUSB" property="decanato">
+                                        <html:option value="Seleccione"></html:option>
+                                        <html:option value="Dec. Estudios Profesionales"></html:option>
+                                    </html:select>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td> Área de Estudio:</td>
+                                <td><html:select name="PlanillaUSB" property="areaEstud">
+                                        <html:option value="Seleccione"></html:option>
+                                    </html:select>
+                                </td>
+                            </tr>
                             
+                            <tr>
+                                <td> Carrera:</td>
+                                <td><html:select name="PlanillaUSB" property="carrera">
+                                        <html:option value="Seleccione"></html:option>
+                                        <html:option value="Administración del Turismo"></html:option>
+                                        <html:option value="Administración Hotelera"></html:option>
+                                        <html:option value="Administración del Transporte"></html:option>
+                                        <html:option value="Administración Aduanera"></html:option>                                        
+                                        <html:option value="Arquitectura"></html:option>
+                                        <html:option value="Ingenieria Electrica"></html:option>
+                                        <html:option value="Ingenieria Mecanica"></html:option>
+                                        <html:option value="Ingenieria Quimica"></html:option>
+                                        <html:option value="Ingenieria Electrica"></html:option>
+                                        <html:option value="Ingenieria Mecanica"></html:option>
+                                        <html:option value="Ingenieria Electronica"></html:option>
+                                        <html:option value="Ingenieria de Computacion"></html:option>
+                                        <html:option value="Ingenieria Geofisica"></html:option>
+                                        <html:option value="Ingenieria de Materiales"></html:option>
+                                        <html:option value="Ingenieria de Produccion"></html:option>
+                                        <html:option value="Ingenieria de Telecomunicaciones"></html:option>
+                                        <html:option value="Ingenieria de Mantenimeinto"></html:option>
+                                        <html:option value="Licenciatura en Gestion de la Hospitalidad"></html:option>
+                                        <html:option value="Licenciatura en Comercio Internacion"></html:option>
+                                        <html:option value="Licenciatura en Quimica"></html:option>
+                                        <html:option value="Licenciatura en Matematicas"></html:option>
+                                        <html:option value="Licenciatura en Fisica"></html:option>
+                                        <html:option value="Licenciatura en Biologia"></html:option>                                        
+                                        <html:option value="Mantenimiento Aeronautico"></html:option>
+                                        <html:option value="Organizacion Empresarial"></html:option>                                        
+                                        <html:option value="Tecnología  Electrica"></html:option>
+                                        <html:option value="Tecnología  Electronica"></html:option>
+                                        <html:option value="Tecnologia Mecanica"></html:option>
+                                        <html:option value="Urbanismo"></html:option>                                        
+                                    </html:select>
+                                </td>
+                            </tr>                       
+                            <tr>
+                                <td> Número de Créditos Aprobados Hasta la Fecha</td>
+
+                                <td>
+                                    <html:text name="PlanillaUSB" property="creditosApro" maxlength="60"  errorStyleClass="error"
+                                               errorKey="org.apache.struts.action.ERROR">
+                                    </html:text>
+                                </td>
+
+                                <td>
+                                    <html:errors property="creditosApro" />
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td> Índice Académico: </td>
+
+                                <td>
+                                    <html:text name="PlanillaUSB" property="indice" maxlength="60"  errorStyleClass="error"
+                                               errorKey="org.apache.struts.action.ERROR">
+                                    </html:text>
+                                </td>
+
+                                <td>
+                                    <html:errors property="indice" />
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td> Índice Académico Ponderado: </td>
+
+                                <td>
+                                    <html:text name="PlanillaUSB" property="indicePon" maxlength="60"  errorStyleClass="error"
+                                               errorKey="org.apache.struts.action.ERROR">
+                                    </html:text>
+                                </td>
+
+                                <td>
+                                    <html:errors property="indicePon" />
+                                </td>
+                            </tr>
+
+                <tr>
+                <td> Plan de Estudio: </td>
+                <td>
+                <html:form action="/AccionPlanDeEstudio" method="post" enctype="multipart/form-data">
+                    <br />
+                    <p hidden="true"><html:text name="PlanDeEstudio" property="nombreUsuario" maxlength="20" errorStyleClass="error" value ="<%=var.toString()%>"
+                               errorKey="org.apache.struts.action.ERROR"></html:text></p>
+
+                    <table border="0"  align="center" style="margin-left: auto;margin-right: auto">
+                        <tbody id ="MateBody">
+                            <tr>
+                                <td></td>
+                                <td> Codigo-USB</td>
+
+                                <td> Nombre-USB</td>
+
+                                <td> Creditos-USB</td>
+
+                                <td> Codigo-Univ. Destino</td>
+
+                                <td> Nombre-Univ. Destino</td>                                
+
+                                <td> Creditos-Univ. Destino</td>
+
+                            </tr>
+
+                            <tr>
+                                <td> <input type="checkbox" name="c[]"></td>
+                                <td>
+                                    <html:text name="PlanDeEstudio" property="codigoUSB[0]" maxlength="45" errorStyleClass="error" value="" style="width:80%;"
+                                               errorKey="org.apache.struts.action.ERROR">
+                                    </html:text>
+                                </td>
+
+                                <td>
+                                    <html:text name="PlanDeEstudio" property="materiaUSB[0]" maxlength="45" errorStyleClass="error" value="" style="width:80%;"
+                                               errorKey="org.apache.struts.action.ERROR">
+                                    </html:text>
+                                </td>
+
+                                <td>
+                                    <html:text name="PlanDeEstudio" property="creditosUSB[0]" maxlength="45" errorStyleClass="error" value="" style="width:80%;"
+                                               errorKey="org.apache.struts.action.ERROR">
+                                    </html:text>
+                                </td>
+
+                                <td>
+                                    <html:text name="PlanDeEstudio" property="codigoUniv[0]" maxlength="45" errorStyleClass="error" value="" style="width:60%;"
+                                               errorKey="org.apache.struts.action.ERROR">
+                                    </html:text>
+                                </td>
+
+                                <td>
+                                    <html:text name="PlanDeEstudio" property="materiaUniv[0]" maxlength="45" errorStyleClass="error" value="" style="width:60%;"
+                                               errorKey="org.apache.struts.action.ERROR">
+                                    </html:text>
+                                </td>
+
+                                <td>
+                                    <html:text name="PlanDeEstudio" property="creditosUniv[0]" maxlength="45" errorStyleClass="error" value="" style="width:60%;"
+                                               errorKey="org.apache.struts.action.ERROR">
+                                    </html:text>
+                                </td>
+
+                            </tr>
+
                         </tbody>
-                    </table>                                    
+                    </table>
+                    <input type="button"  value="Agregar Materia" style="font-size:16px; padding:4px 6px;" onclick="addMate('MateBody')"/>
+                    <input type="button" value="Eliminar Materia" style="font-size:16px; padding:4px 6px" onclick="deletePlan('MateBody')"/>
+                    </html:form>
+                </td>
+                </tr>
+
+                <tr>
+                    <td> <br/> <strong>Fuente de Financiamiento</strong></td>
+                </tr> 
+                <tr>
+                <td> Principal Fuente de Ingresos: </td>
+                    <td><html:select name="PlanillaUSB" property="fuenteFinanciamiento">
+                            <html:option value="Seleccione"></html:option>
+                            <html:option value="Personal"></html:option>
+                            <html:option value="Familiar"></html:option>
+                            <html:option value="Otro"></html:option>
+                        </html:select>              
+                        Especifique:
+                        <html:text name="PlanillaUSB" property="descripcion1" maxlength="60"  errorStyleClass="error"
+                                   errorKey="org.apache.struts.action.ERROR">
+                        </html:text>     
+                    </td>
+                </tr>
+                <tr>
+                <td> ¿Recibe Algún Tipo de Ayuda Económica?: </td>
+                    <td><html:select name="PlanillaUSB" property="ayudaEc">
+                            <html:option value="Seleccione"></html:option>
+                            <html:option value="Si"></html:option>
+                            <html:option value="No"></html:option>
+                        </html:select>
+                        Especifique:
+                        <html:text name="PlanillaUSB" property="descripcion2" maxlength="60"  errorStyleClass="error"
+                                   errorKey="org.apache.struts.action.ERROR">
+                        </html:text> 
+                    </td>                    
+                </tr>
+                <tr>
+                    <td> <br/> <strong>Conocimiento de Idiomas</strong></td>
+                </tr>  
+
+                <tr>
+                    <td> <br/> <strong>Datos en Caso de Emergencia</strong></td>
+                </tr>                                                                      
+                </tbody>
+                </table>                                    
                 </html:form>
             </div>
         </div>
