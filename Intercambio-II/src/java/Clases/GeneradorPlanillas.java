@@ -211,9 +211,9 @@ public class GeneradorPlanillas {
             campo = new Phrase("Persona de Contacto en Caso de Emergencia:  ", fontCampo);
             ct.setSimpleColumn(campo, 70, 360, 300, 380, 10, Element.ALIGN_LEFT);
             ct.go();
-            campo = new Phrase("Apellidos y Nombres:  " + p.getApellidoNombresRep(), fontCampo);
-            ct.setSimpleColumn(campo, 90, 340, 300, 360, 10, Element.ALIGN_LEFT);
-            ct.go();
+//            campo = new Phrase("Apellidos y Nombres:  " + p.getApellidoNombresRep(), fontCampo);
+  //          ct.setSimpleColumn(campo, 90, 340, 300, 360, 10, Element.ALIGN_LEFT);
+    //        ct.go();
             campo = new Phrase("Parentesco con el estudiante: " + p.getRelacion(), fontCampo);
             ct.setSimpleColumn(campo, 90, 330, 300, 340, 10, Element.ALIGN_LEFT);
             ct.go();

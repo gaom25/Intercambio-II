@@ -1,8 +1,7 @@
 <%-- 
     Document   : formularioSolicitudUSB
     Created on : Nov 13, 2012, 10:13:53 AM
-    Author     : dreabalbas
-    Modified by: Katy
+    Author     : Katy
 --%>
 <%Object var = session.getAttribute("nombreusuario");%>
 
@@ -1162,14 +1161,119 @@
                     </td>                    
                 </tr>
                 <tr>
-                    <td> <br/> <strong>Conocimiento de Idiomas</strong></td>
+                    <td><br/> <strong>Conocimiento de Idiomas</strong></td>
                 </tr>  
-
+                    <tr>
+                        <td> Idioma a Emplear en Univ. Destino </td>
+                        <td>
+                            <html:text name="PlanillaUSB" property="idiomaDest" maxlength="60"  errorStyleClass="error"
+                                       errorKey="org.apache.struts.action.ERROR">
+                            </html:text>
+                        </td>
+                        <td>
+                            <html:errors property="idiomaDest" />
+                        </td>
+                    </tr>
+                <tr>
+                <td> Nivel Verbal: </td>
+                    <td><html:select name="PlanillaUSB" property="nivelVerbal">
+                            <html:option value="Seleccione"></html:option>
+                            <html:option value="Básico"></html:option>
+                            <html:option value="Medio"></html:option>
+                            <html:option value="Avanzado"></html:option>
+                        </html:select>              
+                    </td>
+                </tr>  
+                <tr>
+                <td> Nivel Escrito: </td>
+                    <td><html:select name="PlanillaUSB" property="nivelEscrito">
+                            <html:option value="Seleccione"></html:option>
+                            <html:option value="Básico"></html:option>
+                            <html:option value="Medio"></html:option>
+                            <html:option value="Avanzado"></html:option>
+                        </html:select>              
+                    </td>
+                </tr>                
                 <tr>
                     <td> <br/> <strong>Datos en Caso de Emergencia</strong></td>
-                </tr>                                                                      
-                </tbody>
-                </table>                                    
+                </tr>     
+                    <tr>
+                        <td> Primer Apellido: </td>
+                        <td>
+                            <html:text name="PlanillaUSB" property="apellidoRep1" maxlength="80"  errorStyleClass="error"
+                                       errorKey="org.apache.struts.action.ERROR">
+                            </html:text>
+                        </td>
+                    </tr>                     
+                    <tr>
+                        <td> Segundo Apellido: </td>
+                        <td>
+                            <html:text name="PlanillaUSB" property="apellidoRep2" maxlength="80"  errorStyleClass="error"
+                                       errorKey="org.apache.struts.action.ERROR">
+                            </html:text>
+                        </td>
+                    </tr>                                     
+                    <tr>
+                        <td> Primer Nombre: </td>
+                        <td>
+                            <html:text name="PlanillaUSB" property="nombreRep1" maxlength="80"  errorStyleClass="error"
+                                       errorKey="org.apache.struts.action.ERROR">
+                            </html:text>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td> Segundo Nombre: </td>
+                        <td>
+                            <html:text name="PlanillaUSB" property="nombreRep2" maxlength="80"  errorStyleClass="error"
+                                       errorKey="org.apache.struts.action.ERROR">
+                            </html:text>
+                        </td>
+                    </tr> 
+                    <tr>
+                        <td> Teléfono: </td>
+                        <td>
+                            <html:text name="PlanillaUSB" property="tlfRep" maxlength="80"  errorStyleClass="error"
+                                       errorKey="org.apache.struts.action.ERROR">
+                            </html:text>
+                        </td>
+                    </tr>                      
+                    <tr>
+                        <td> E-mail: </td>
+                        <td>
+                            <html:text name="PlanillaUSB" property="emailRep" maxlength="80"  errorStyleClass="error"
+                                       errorKey="org.apache.struts.action.ERROR">
+                            </html:text>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td> Relación con el Estudiante: </td>
+                        <td>
+                            <html:text name="PlanillaUSB" property="relacion" maxlength="80"  errorStyleClass="error"
+                                       errorKey="org.apache.struts.action.ERROR">
+                            </html:text>
+                        </td>
+                    </tr>    
+
+                    <tr>
+
+                        <td>Dirección: </td>
+
+                        <td>
+                            <html:textarea name="PlanillaUSB" property="direccionRep" cols="50" rows="5"  errorStyleClass="error"
+                                           errorKey="org.apache.struts.action.ERROR">
+                            </html:textarea >
+                        </td>
+
+                        <td>
+                            <html:errors property="direccionRep" />
+                        </td>
+                    </tr>
+                    
+                    </tbody>
+                </table>    
+                <p  align=center>
+                    <html:submit> Enviar Formulario </html:submit>
+                </p>                        
                 </html:form>
             </div>
         </div>

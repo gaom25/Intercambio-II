@@ -562,7 +562,6 @@ public class DBMS {
                 datos.setEmail(rs.getString("Email"));
                 datos.setFechaNacimiento(rs.getString("FechaNac"));
                 datos.setNacionalidad(rs.getString("Nacionalidad"));
-                datos.setApellidoNombresRep(rs.getString("apellidoNombres"));
                 datos.setTlfRep(rs.getString("Telefono"));
                 datos.setEmailRep(rs.getString("EmailRep"));
                 datos.setRelacion(rs.getString("TipoRelacion"));
@@ -679,7 +678,6 @@ public class DBMS {
                     // Falta la foto!!
                     //$$$$$$$$$$$$$$$$$
                     // Datos del representante
-                    + "', apellidonombres='" + p.getApellidoNombresRep()
                     + "', telefono='" + p.getTlfRep()
                     + "', emailrep='" + p.getEmailRep()
                     + "', tiporelacion='" + p.getRelacion()
@@ -742,7 +740,6 @@ public class DBMS {
                     // Falta la foto!!
                     //$$$$$$$$$$$$$$$$$
                     // Datos del representante
-                    + "', '" + p.getApellidoNombresRep()
                     + "', '" + p.getTlfRep()
                     + "', '" + p.getEmailRep()
                     + "', '" + p.getRelacion()

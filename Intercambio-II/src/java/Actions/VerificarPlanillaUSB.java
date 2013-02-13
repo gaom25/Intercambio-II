@@ -183,11 +183,11 @@ public class VerificarPlanillaUSB extends org.apache.struts.action.Action {
 //    private String relacion;            //db
 //    private String direccionRep;        //db
 
-        if (p.getApellidoNombresRep().equals("")) {
-            error.add("apellidoNombresRep", new ActionMessage("error.campo.required"));
-            saveErrors(request, error);
-            huboError = true;
-        }
+//        if (p.getApellidoNombresRep().equals("")) {
+  //          error.add("apellidoNombresRep", new ActionMessage("error.campo.required"));
+    //        saveErrors(request, error);
+      //      huboError = true;
+        //}
 
         if (p.getTlfRep().equals("")) {
             error.add("tlfRep", new ActionMessage("error.campo.required"));

@@ -54,12 +54,6 @@ public class PlanillaUSB extends org.apache.struts.action.ActionForm {
     private String nombreProgramaOpcion1;
     private String nombreProgramaOpcion2;    
     //Queda pendiente la foto
-    //Representantes
-    private String apellidoNombresRep;  //db
-    private String tlfRep;              //db
-    private String emailRep;            //db
-    private String relacion;            //db
-    private String direccionRep;        //db
     //Programa de Intercambio (Plan estudio)
     private String mesFechaIni1;       //db
     private String mesFechaFin1;       //db
@@ -89,13 +83,20 @@ public class PlanillaUSB extends org.apache.struts.action.ActionForm {
     private String fechaSolicitud;          //db      
     private String recomendacion;           //db
     private String comentarioRecomendacion; //db
-
     // Financiamiento
     private String fuenteFinanciamiento;
     private String descripcion1;
     private String descripcion2;    
     private String ayudaEc;
-    
+    //Representantes
+    private String apellidoRep1;  //db
+    private String apellidoRep2;  //db
+    private String nombreRep1;
+    private String nombreRep2;
+    private String tlfRep;              //db
+    private String emailRep;            //db
+    private String relacion;            //db
+    private String direccionRep;        //db    
     public PlanillaUSB() {
         super();
     }
@@ -315,15 +316,39 @@ public class PlanillaUSB extends org.apache.struts.action.ActionForm {
     public void setDuracionProgramaOpcion2(String duracionProgramaOpcion2) {
         this.duracionProgramaOpcion2 = duracionProgramaOpcion2;
     }    
+
+    public String getNombreRep1() {
+        return nombreRep1;
+    }
+
+    public void setNombreRep1(String nombreRep1) {
+        this.nombreRep1 = nombreRep1;
+    }
+
+    public String getNombreRep2() {
+        return nombreRep2;
+    }
+
+    public void setNombreRep2(String nombreRep2) {
+        this.nombreRep2 = nombreRep2;
+    }    
     
-    public String getApellidoNombresRep() {
-        return apellidoNombresRep;
+    public String getApellidoRep1() {
+        return apellidoRep1;
     }
 
-    public void setApellidoNombresRep(String apellidoNombresRep) {
-        this.apellidoNombresRep = apellidoNombresRep;
+    public void setApellidoRep1(String apellidoRep1) {
+        this.apellidoRep1 = apellidoRep1;
     }
 
+    public String getApellidoRep2() {
+        return apellidoRep2;
+    }
+
+    public void setApellidoRep2(String apellidoRep2) {
+        this.apellidoRep2 = apellidoRep2;
+    }
+    
     public String getTlfRep() {
         return tlfRep;
     }
