@@ -62,18 +62,18 @@ public class VerificarPlanillaUSB extends org.apache.struts.action.Action {
 
 //##### ##### ##### ##### VERIFICACION DATOS PERSONALES #### ##### ##### ##### 
 
-        if (p.getApellidos().equals("")) {
-            error.add("apellidos", new ActionMessage("error.apellidos.required"));
-            saveErrors(request, error);
-            huboError = true;
-        }
+//        if (p.getApellidos().equals("")) {
+  //          error.add("apellidos", new ActionMessage("error.apellidos.required"));
+    //        saveErrors(request, error);
+      //      huboError = true;
+       // }
 
         //Verifica que los nombres no  esten vacios.
-        if (p.getNombres().equals("")) {
-            error.add("nombres", new ActionMessage("error.nombres.required"));
-            saveErrors(request, error);
-            huboError = true;
-        }
+       // if (p.getNombres().equals("")) {
+         //   error.add("nombres", new ActionMessage("error.nombres.required"));
+           // saveErrors(request, error);
+            //huboError = true;
+        //}
 
         if (p.getSexo().equals("")) {
             error.add("sexo", new ActionMessage("error.sexo.required"));
@@ -226,31 +226,31 @@ public class VerificarPlanillaUSB extends org.apache.struts.action.Action {
             huboError = true;
         }
 
-        if (p.getFechaIni1().equals("")) {
-            error.add("fechaIni1", new ActionMessage("error.campo.required"));
-            saveErrors(request, error);
-            huboError = true;
-        }
+//        if (p.getFechaIni1().equals("")) {
+  //          error.add("fechaIni1", new ActionMessage("error.campo.required"));
+    //        saveErrors(request, error);
+      //      huboError = true;
+       // }
 
 
-        if (p.getFechaFin1().equals("")) {
-            error.add("fechaFin1", new ActionMessage("error.campo.required"));
-            saveErrors(request, error);
-            huboError = true;
-        }
+//        if (p.getFechaFin1().equals("")) {
+  //          error.add("fechaFin1", new ActionMessage("error.campo.required"));
+    //        saveErrors(request, error);
+      //      huboError = true;
+       // }
 
 
-        if (p.getFechaIni2().equals("")) {
-            error.add("fechaIni1", new ActionMessage("error.campo.required"));
-            saveErrors(request, error);
-            huboError = true;
-        }
+//        if (p.getFechaIni2().equals("")) {
+  //          error.add("fechaIni1", new ActionMessage("error.campo.required"));
+    //        saveErrors(request, error);
+      //      huboError = true;
+        //}
 
-        if (p.getFechaFin2().equals("")) {
-            error.add("fechaFin2", new ActionMessage("error.campo.required"));
-            saveErrors(request, error);
-            huboError = true;
-        }
+//        if (p.getFechaFin2().equals("")) {
+  //          error.add("fechaFin2", new ActionMessage("error.campo.required"));
+    //        saveErrors(request, error);
+      //      huboError = true;
+        //}
 
         if (p.getNombreOpcion2().equals("")) {
             error.add("nombreOpcion2", new ActionMessage("error.destino.required"));

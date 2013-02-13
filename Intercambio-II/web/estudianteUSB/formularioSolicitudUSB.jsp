@@ -43,30 +43,57 @@
                                 </tr>
                                 <br>
                                 <tr>
-                                    <td>Apellidos</td>
+                                    <td>Primer Apellido</td>
 
                                     <td>
-                                        <html:text name="PlanillaUSB" property="apellidos" maxlength="80" errorStyleClass="error"
+                                        <html:text name="PlanillaUSB" property="apellido1" maxlength="80" errorStyleClass="error"
                                                    errorKey="org.apache.struts.action.ERROR"></html:text>
                                     </td>
 
                                     <td>
-                                        <html:errors property="apellidos" />
+                                        <html:errors property="apellido1" />
                                     </td>
                                 </tr>
 
                                 <tr>
-                                    <td>Nombres</td>
+                                    <td>Segundo Apellido</td>
 
                                     <td>
-                                        <html:text name="PlanillaUSB" property="nombres" maxlength="80" errorStyleClass="error"
+                                        <html:text name="PlanillaUSB" property="apellido2" maxlength="80" errorStyleClass="error"
                                                    errorKey="org.apache.struts.action.ERROR"></html:text>
                                     </td>
 
                                     <td>
-                                        <html:errors property="nombres" />
+                                        <html:errors property="apellido2" />
                                     </td>
                                 </tr>
+                                
+                                <tr>
+                                    <td>Primer Nombre</td>
+
+                                    <td>
+                                        <html:text name="PlanillaUSB" property="nombre1" maxlength="80" errorStyleClass="error"
+                                                   errorKey="org.apache.struts.action.ERROR"></html:text>
+                                    </td>
+
+                                    <td>
+                                        <html:errors property="nombre1" />
+                                    </td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>Segundo Nombre</td>
+
+                                    <td>
+                                        <html:text name="PlanillaUSB" property="nombre2" maxlength="80" errorStyleClass="error"
+                                                   errorKey="org.apache.struts.action.ERROR"></html:text>
+                                    </td>
+
+                                    <td>
+                                        <html:errors property="nombre2" />
+                                    </td>
+                                
+                                </tr>                                
 
                                 <tr>
                                     <td>Fecha de Nacimiento</td>
@@ -256,6 +283,7 @@
                         </table>
                     <table border="0"  align="center">
                         <tbody>
+                        <br>
                             <tr>
                                 <td> <strong>Programa y Lapso de Estudio de Intercambio</strong></td>
                             </tr>
@@ -386,20 +414,340 @@
                             </tr>
 
                             <tr>
-                                <td></br> <strong> Fecha Tentativa de  Inicio y Fin, segun Universidad de Destino </strong></td>
+                                <td> Tipo de Programa: </td>
+                                <td>
+                                    <html:select  property="programaOpcion1">
+                                        <html:option value="Seleccione"></html:option>
+                                        <html:option value="Intercambio Académico (sólo Asignaturas)"></html:option>
+                                        <html:option value="Intercambio Académico + Pasantía Internacional"></html:option>
+                                        <html:option value="Intercambio Académico + Trabajo de Grado"></html:option>
+                                        <html:option value="Trabajo de Grado"></html:option>
+                                        <html:option value="Doble Titulación"></html:option>
+                                    </html:select>
+                                </td>
+                                <td>
+                                    <html:errors property="programaOpcion1" />
+                                </td>
+                            </tr>                            
+                            <tr>
+                                <td> Nombre de Programa: </td>
+                                <td>
+                                    <html:select  property="nombreProgramaOpcion1">
+                                        <html:option value="Seleccione"></html:option>
+                                        <html:option value="Convenios Bilaterales"></html:option>
+                                        <html:option value="Programa Red"></html:option>
+                                        <html:option value="Programa Movilidad Estudiantil (CINDA)"></html:option>
+                                    </html:select>
+                                </td>
+                                <td>
+                                    <html:errors property="nombreProgramaOpcion1" />
+                                </td>
+                            </tr>                            
+                            <tr>
+                                <td> Fecha Tentativa Inicio: </td>
+                                <td>
+                                    <html:select  property="mesFechaIni1">
+                                        <html:option value="Mes"></html:option>
+                                        <html:option value="Enero"></html:option>
+                                        <html:option value="Febrero"></html:option>
+                                        <html:option value="Marzo"></html:option>
+                                        <html:option value="Abril"></html:option>
+                                        <html:option value="Mayo"></html:option>
+                                        <html:option value="Junio"></html:option>
+                                        <html:option value="Julio"></html:option>
+                                        <html:option value="Agosto"></html:option>
+                                        <html:option value="Septiembre"></html:option>
+                                        <html:option value="Octubre"></html:option>
+                                        <html:option value="Noviembre"></html:option>
+                                        <html:option value="Diciembre"></html:option>
+                                    </html:select>
+                                    <html:select  property="anoFechaIni1">
+                                        <html:option value="Año"></html:option>
+                                        <html:option value="2014"></html:option>
+                                        <html:option value="2015"></html:option>
+                                        <html:option value="2016"></html:option>
+                                    </html:select>
+                                <td>
+                                    <html:errors property="mesFechaIni1" />
+                                    <html:errors property="anoFechaIni1" />
+                                </td>
+                            </tr>                        
+                            <tr>
+                                <td> Fecha Tentativa Fin: </td>
+                                <td>
+                                    <html:select  property="mesFechaFin1">
+                                        <html:option value="Mes"></html:option>
+                                        <html:option value="Enero"></html:option>
+                                        <html:option value="Febrero"></html:option>
+                                        <html:option value="Marzo"></html:option>
+                                        <html:option value="Abril"></html:option>
+                                        <html:option value="Mayo"></html:option>
+                                        <html:option value="Junio"></html:option>
+                                        <html:option value="Julio"></html:option>
+                                        <html:option value="Agosto"></html:option>
+                                        <html:option value="Septiembre"></html:option>
+                                        <html:option value="Octubre"></html:option>
+                                        <html:option value="Noviembre"></html:option>
+                                        <html:option value="Diciembre"></html:option>
+                                    </html:select>
+                                    <html:select  property="anoFechaFin1">
+                                        <html:option value="Año"></html:option>
+                                        <html:option value="2014"></html:option>
+                                        <html:option value="2015"></html:option>
+                                        <html:option value="2016"></html:option>
+                                    </html:select>
+                                <td>
+                                    <html:errors property="mesFechaFin1" />
+                                    <html:errors property="anoFechaFin1" />
+                                </td>
                             </tr>
                             <tr>
-                                <td>Inicio</td>
-
+                                <td> Duración: </td>
                                 <td>
-                                    <input type="date" name="fechaIni1" maxlength="80" errorStyleClass="error"
-                                           errorKey="org.apache.struts.action.ERROR" />
+                                    <html:select  property="duracionProgramaOpcion1">
+                                        <html:option value="Seleccione"></html:option>
+                                        <html:option value="Un Trimestre"></html:option>
+                                        <html:option value="Dos Trimestres"></html:option>
+                                        <html:option value="Año Académico"></html:option>
+                                    </html:select>
                                 </td>
-
                                 <td>
-                                    <html:errors name="fechaIni1" />
+                                    <html:errors property="duracionProgramaOpcion1" />
+                                </td>
+                            </tr>  
+
+                            <tr>
+                                <td>      </td>
+                            </tr>
+                            
+                            <tr>
+                                <td> Opción 2:</td>
+                            </tr>
+
+
+                            <tr>
+                                <td> País Destino:</td>
+                                <td>
+                                    <html:select  property="paisOpcion2">
+                                        <html:option value="Seleccione"></html:option>
+                                        <html:option value="Alemania"></html:option>
+                                        <html:option value="Argentina"></html:option>
+                                        <html:option value="Bélgica"></html:option>
+                                        <html:option value="Bogota"></html:option>
+                                        <html:option value="Brasil"></html:option>
+                                        <html:option value="Canada"></html:option>
+                                        <html:option value="Colombia"></html:option>
+                                        <html:option value="Chile"></html:option>
+                                        <html:option value="Costa Rica"></html:option>
+                                        <html:option value="España"></html:option>
+                                        <html:option value="Estados Unidos"></html:option>
+                                        <html:option value="Finlandia"></html:option>
+                                        <html:option value="Francia"></html:option>
+                                        <html:option value="Italia"></html:option>
+                                        <html:option value="Japón"></html:option>
+                                        <html:option value="México"></html:option>
+                                        <html:option value="Noruega"></html:option>
+                                        <html:option value="Perú"></html:option>
+                                        <html:option value="Panamá"></html:option>
+                                        <html:option value="Puerto Rico"></html:option>
+                                    </html:select>
+                                </td>
+                                <td>
+                                    <html:errors property="paisOpcion2" />
                                 </td>
                             </tr>
+                            <tr>
+                                <td> Nombre Universidad de Destino:</td>
+                                <td>
+                                    <html:select  property="nombreOpcion2">
+                                        <html:option value="Seleccione"></html:option>
+                                        <html:option value="ALE -- Universidad de Karlsruhe"></html:option>
+                                        <html:option value="ALE -- Universidad de Siegen"></html:option>
+                                        <html:option value="ALE -- Universidad de Stuttgart:"></html:option>
+                                        <html:option value="AR -- Universidad Nacional de Cuyo"></html:option>
+                                        <html:option value="AR -- Universidad Nacional de Quilmes"></html:option>
+                                        <html:option value="AR -- Universidad Nacional de San Martín"></html:option>
+                                        <html:option value="AU -- Universidad Tecnológica de Swinburne"></html:option>
+                                        <html:option value="BE -- Universidad Católica de Lovaina"></html:option>
+                                        <html:option value="BO -- Universidad Privada Santa Cruz de la Sierra"></html:option>
+                                        <html:option value="BR -- Universidad Federal de Río de Janeiro"></html:option>
+                                        <html:option value="BR -- Universidad de Sao Paulo"></html:option>
+                                        <html:option value="BR -- Universidad Estadual de Campinas"></html:option>
+                                        <html:option value="CA -- Instituto de Tecnología de Ontario"></html:option>
+                                        <html:option value="CO -- Universidad Externado"></html:option>
+                                        <html:option value="CO -- Pontificia Universidad Bolivariana"></html:option>
+                                        <html:option value="CO -- Pontificia Universidad Javeriana"></html:option>
+                                        <html:option value="CO -- Universidad de los Andes"></html:option>
+                                        <html:option value="CO -- Universidad del Norte"></html:option>
+                                        <html:option value="CO -- Universidad del Valle"></html:option>
+                                        <html:option value="CL -- Pontifica Universidad Católica de Chile"></html:option>
+                                        <html:option value="CL -- Pontificia Universidad Católica de Valparaíso"></html:option>
+                                        <html:option value="CL -- Universidad Austral de Chile"></html:option>
+                                        <html:option value="CL -- Universidad de Concepción"></html:option>
+                                        <html:option value="CL -- Universidad de Talca"></html:option>
+                                        <html:option value="CL -- Universidad de Tarapacá"></html:option>
+                                        <html:option value="CR -- Universidad de Costa Rica"></html:option>    
+                                        <html:option value="DO -- Pontificia Universidad Católica Madre y Maestra"></html:option> 
+                                        <html:option value="DO -- Instituto Tecnológico de Santo Domingo"></html:option> 
+                                        <html:option value="EC -- Escuela Superior Politécnica del Litoral"></html:option>    
+                                        <html:option value="ES -- Universidad de las Islas Baleares"></html:option>
+                                        <html:option value="ES -- UUniversidad de Santiago de Compostela"></html:option>
+                                        <html:option value="ES -- Universitat Oberta de Catalunya"></html:option>
+                                        <html:option value="ES -- Universidad de Barcelona"></html:option>
+                                        <html:option value="ES -- Universidad Carlos III de Madrid"></html:option>
+                                        <html:option value="ES -- Universidad de Granada"></html:option>
+                                        <html:option value="ES -- Universidad Politécnica de Madrid"></html:option>
+                                        <html:option value="ES -- Universidad Politécnica de Cataluña"></html:option>
+                                        <html:option value="ES -- Universidad Politécnica de Valencia"></html:option>
+                                        <html:option value="ES -- Universidad de Zaragoza"></html:option>
+                                        <html:option value="EEUU -- Universidad de Nuevo México"></html:option>
+                                        <html:option value="EEUU -- Universidad de Oklahoma"></html:option>
+                                        <html:option value="FI -- Universidad Abo Akademi"></html:option>
+                                        <html:option value="FR -- Arts et Metiers ParisTech"></html:option>
+                                        <html:option value="FR -- Escuela de Minas de Nantes"></html:option>
+                                        <html:option value="FR -- EPF Escuela de Ingenieros"></html:option>
+                                        <html:option value="FR -- INSA – Lyon"></html:option>
+                                        <html:option value="FR -- TELECOM – SudParis"></html:option>
+                                        <html:option value="FR -- Universidad Tecnológica de Compiegne"></html:option>
+                                        <html:option value="FR -- Universidad Paris Ouest Nanterre"></html:option>
+                                        <html:option value="FR -- Universidad Paris Est Marne la Valle"></html:option>
+                                        <html:option value="ITA -- Politécnico de Milano"></html:option>
+                                        <html:option value="ITA -- Politécnico de Torino"></html:option>
+                                        <html:option value="ITA -- Universidad Degli Studi Di Genova"></html:option>
+                                        <html:option value="ITA -- Universidad Degli Studi Di Siena"></html:option>
+                                        <html:option value="JPN -- Universidad Tecnológica de Nagaoka"></html:option>
+                                        <html:option value="JPN -- Universidad de Tohoku"></html:option>
+                                        <html:option value="MX -- ITESM Monterrey"></html:option>
+                                        <html:option value="MX -- Universidad Autónoma Metropolitana"></html:option>
+                                        <html:option value="MX -- Instituto Tecnológico Superior de Cajeme(ITESCA)"></html:option>
+                                        <html:option value="MX -- Universidad Veracruzana"></html:option>
+                                        <html:option value="NO -- NTNU-Trondheim"></html:option>
+                                        <html:option value="PE -- Universidad San Martín de Porres"></html:option>
+                                        <html:option value="PE -- Pontificia Universidad Católica del Perú"></html:option>
+                                        <html:option value="PE -- Universidad de Lima"></html:option>
+                                        <html:option value="PE -- Universidad del Pacífico"></html:option>
+                                        <html:option value="PE -- Universidad Peruana Cayetano Heredia"></html:option>
+                                        <html:option value="PA -- Universidad de Panamá"></html:option>
+                                        <html:option value="PY -- Universidad Católica de Nuestra Señora de la Asunción"></html:option>
+                                        <html:option value="PL -- AGH Universidad de Ciencias y Tecnología"></html:option>
+                                        <html:option value="PT -- Universidad Técnica de Lisboa"></html:option>
+                                        <html:option value="PRC -- Universidad de Puerto Rico"></html:option>
+                                        <html:option value="UK -- Universidad de Ulster"></html:option>
+                                        <html:option value="RCH -- Universidad Técnica Checa en Praga (CTU)"></html:option>
+                                        <html:option value="SE -- Real Instituto de Estocolmo KTH"></html:option>
+                                        <html:option value="SE -- Universidad de Lund"></html:option>
+                                        <html:option value="SE -- Universidad de Uppsala"></html:option>
+                                        <html:option value="VE -- Universidad Centroccidental Lisandro Alvarado"></html:option>
+                                    </html:select>
+                                </td>
+
+                                <td>
+                                    <html:errors property="nombreOpcion2" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td> Tipo de Programa: </td>
+                                <td>
+                                    <html:select  property="programaOpcion2">
+                                        <html:option value="Seleccione"></html:option>
+                                        <html:option value="Intercambio Académico (sólo Asignaturas)"></html:option>
+                                        <html:option value="Intercambio Académico + Pasantía Internacional"></html:option>
+                                        <html:option value="Intercambio Académico + Trabajo de Grado"></html:option>
+                                        <html:option value="Trabajo de Grado"></html:option>
+                                        <html:option value="Doble Titulación"></html:option>
+                                    </html:select>
+                                </td>
+                                <td>
+                                    <html:errors property="programaOpcion2" />
+                                </td>
+                            </tr>                            
+                            <tr>
+                                <td> Nombre de Programa: </td>
+                                <td>
+                                    <html:select  property="nombreProgramaOpcion2">
+                                        <html:option value="Seleccione"></html:option>
+                                        <html:option value="Convenios Bilaterales"></html:option>
+                                        <html:option value="Programa Red"></html:option>
+                                        <html:option value="Programa Movilidad Estudiantil (CINDA)"></html:option>
+                                    </html:select>
+                                </td>
+                                <td>
+                                    <html:errors property="nombreProgramaOpcion2" />
+                                </td>
+                            </tr>                            
+                            <tr>
+                                <td> Fecha Tentativa Inicio: </td>
+                                <td>
+                                    <html:select  property="mesFechaIni2">
+                                        <html:option value="Mes"></html:option>
+                                        <html:option value="Enero"></html:option>
+                                        <html:option value="Febrero"></html:option>
+                                        <html:option value="Marzo"></html:option>
+                                        <html:option value="Abril"></html:option>
+                                        <html:option value="Mayo"></html:option>
+                                        <html:option value="Junio"></html:option>
+                                        <html:option value="Julio"></html:option>
+                                        <html:option value="Agosto"></html:option>
+                                        <html:option value="Septiembre"></html:option>
+                                        <html:option value="Octubre"></html:option>
+                                        <html:option value="Noviembre"></html:option>
+                                        <html:option value="Diciembre"></html:option>
+                                    </html:select>
+                                    <html:select  property="anoFechaIni2">
+                                        <html:option value="Año"></html:option>
+                                        <html:option value="2014"></html:option>
+                                        <html:option value="2015"></html:option>
+                                        <html:option value="2016"></html:option>
+                                    </html:select>
+                                <td>
+                                    <html:errors property="mesFechaIni2" />
+                                    <html:errors property="anoFechaIni2" />
+                                </td>
+                            </tr>                        
+                            <tr>
+                                <td> Fecha Tentativa Fin: </td>
+                                <td>
+                                    <html:select  property="mesFechaFin2">
+                                        <html:option value="Mes"></html:option>
+                                        <html:option value="Enero"></html:option>
+                                        <html:option value="Febrero"></html:option>
+                                        <html:option value="Marzo"></html:option>
+                                        <html:option value="Abril"></html:option>
+                                        <html:option value="Mayo"></html:option>
+                                        <html:option value="Junio"></html:option>
+                                        <html:option value="Julio"></html:option>
+                                        <html:option value="Agosto"></html:option>
+                                        <html:option value="Septiembre"></html:option>
+                                        <html:option value="Octubre"></html:option>
+                                        <html:option value="Noviembre"></html:option>
+                                        <html:option value="Diciembre"></html:option>
+                                    </html:select>
+                                    <html:select  property="anoFechaFin2">
+                                        <html:option value="Año"></html:option>
+                                        <html:option value="2014"></html:option>
+                                        <html:option value="2015"></html:option>
+                                        <html:option value="2016"></html:option>
+                                    </html:select>
+                                <td>
+                                    <html:errors property="mesFechaFin2" />
+                                    <html:errors property="anoFechaFin2" />
+                                </td>
+                            </tr>      
+                            <tr>
+                                <td> Duración: </td>
+                                <td>
+                                    <html:select  property="duracionProgramaOpcion2">
+                                        <html:option value="Seleccione"></html:option>
+                                        <html:option value="Un Trimestre"></html:option>
+                                        <html:option value="Dos Trimestres"></html:option>
+                                        <html:option value="Año Académico"></html:option>
+                                    </html:select>
+                                </td>
+                                <td>
+                                    <html:errors property="duracionProgramaOpcion2" />
+                                </td>
+                            </tr>                              
+                            
                         </tbody>
                     </table>                                    
                 </html:form>

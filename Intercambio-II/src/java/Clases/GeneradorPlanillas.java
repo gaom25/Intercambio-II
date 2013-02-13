@@ -126,12 +126,12 @@ public class GeneradorPlanillas {
             canvas.restoreState();
 
             // Nombres y Apellidos
-            campo = new Phrase("Apellidos:  " + p.getApellidos(), fontCampo);
-            ct.setSimpleColumn(campo, 70, 610, 250, 620, 10, Element.ALIGN_LEFT);
-            ct.go();
-            campo = new Phrase("Nombres:  " + p.getNombres(), fontCampo);
-            ct.setSimpleColumn(campo, 320, 610, 560, 620, 10, Element.ALIGN_LEFT);
-            ct.go();
+//            campo = new Phrase("Apellidos:  " + p.getApellidos(), fontCampo);
+  //          ct.setSimpleColumn(campo, 70, 610, 250, 620, 10, Element.ALIGN_LEFT);
+    //        ct.go();
+      //      campo = new Phrase("Nombres:  " + p.getNombres(), fontCampo);
+        //    ct.setSimpleColumn(campo, 320, 610, 560, 620, 10, Element.ALIGN_LEFT);
+          //  ct.go();
 
             // Fecha de Nacimiento
             String s = p.getFechaNacimiento();
@@ -285,12 +285,12 @@ public class GeneradorPlanillas {
 
 
             //Fechas Inicio y Fin
-            String s1 = p.getFechaFin1();
-            s = p.getFechaIni1();
-            campo = new Phrase("Fechas tentativas de Inicio y Fin, según calendario de la Universidad de Destino:           "
-                    + "Inicio: " + s + "          Fin:  " + s1, fontCampo);
-            ct.setSimpleColumn(campo, 70, 115, 600, 125, 10, Element.ALIGN_LEFT);
-            ct.go();
+//            String s1 = p.getFechaFin1();
+  //          s = p.getFechaIni1();
+    //        campo = new Phrase("Fechas tentativas de Inicio y Fin, según calendario de la Universidad de Destino:           "
+      //              + "Inicio: " + s + "          Fin:  " + s1, fontCampo);
+        //    ct.setSimpleColumn(campo, 70, 115, 600, 125, 10, Element.ALIGN_LEFT);
+          //  ct.go();
 
             /* ###########################
              * #  Informacion Academica  #
@@ -457,12 +457,12 @@ public class GeneradorPlanillas {
             ct.go();
 
             //2da Opcion -- Fechas Inicio y Fin
-            s1 = p.getFechaFin2();
-            s = p.getFechaIni2();
-            campo = new Phrase("Fechas tentativas de Inicio y Fin, según calendario de la Universidad de Destino:           "
-                    + "Inicio: " + s + "          Fin:  " + s1, fontCampo);
-            ct.setSimpleColumn(campo, 70, 295, 800, 325, 10, Element.ALIGN_LEFT);
-            ct.go();
+//            s1 = p.getFechaFin2();
+  //          s = p.getFechaIni2();
+    //        campo = new Phrase("Fechas tentativas de Inicio y Fin, según calendario de la Universidad de Destino:           "
+      //              + "Inicio: " + s + "          Fin:  " + s1, fontCampo);
+        //    ct.setSimpleColumn(campo, 70, 295, 800, 325, 10, Element.ALIGN_LEFT);
+          //  ct.go();
 
 
             /* ###################

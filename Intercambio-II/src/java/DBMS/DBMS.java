@@ -544,11 +544,13 @@ public class DBMS {
 
             while (rs.next()) {
                 datos.setNombreUsuario(rs.getString("NombreUsuario"));
-                datos.setApellidos(rs.getString("Apellido"));
+                datos.setApellido1(rs.getString("Apellido1"));
+                datos.setApellido2(rs.getString("Apellido2"));
                 datos.setPeriodo(rs.getString("Periodo"));
                 datos.setCedula(rs.getString("Cedula"));
                 datos.setCarnet(rs.getString("Carnet"));
-                datos.setNombres(rs.getString("Nombre"));
+                datos.setNombre1(rs.getString("Nombre1"));
+                datos.setNombre2(rs.getString("Nombre2"));
                 datos.setSexo(rs.getString("Sexo"));
                 datos.setCiudad(rs.getString("Ciudad"));
                 datos.setCalle(rs.getString("Calle"));
@@ -569,21 +571,16 @@ public class DBMS {
                 datos.setCarrera(rs.getString("Carrera"));
                 datos.setOpcion(rs.getString("Opcion"));
                 datos.setCreditosApro(rs.getInt("CredAprob"));
-                datos.setFechaIni1(rs.getString("FechaIda1"));
-                datos.setFechaFin1(rs.getString("FechaRegreso1"));
                 datos.setNombreOpcion1(rs.getString("Universidad1"));
-                datos.setFechaIni2(rs.getString("FechaIda2"));
-                datos.setFechaFin2(rs.getString("FechaRegreso2"));
                 datos.setNombreOpcion2(rs.getString("Universidad2"));
                 datos.setIdiomaDest(rs.getString("Idioma"));
                 datos.setNivelVerbal(rs.getString("NivelVerbal"));
                 datos.setNivelEscrito(rs.getString("NivelEscrito"));
                 datos.setNombreProg1(rs.getString("NombreProg1"));
-                datos.setNombreProg2(rs.getString("NombreProg2"));
                 datos.setFuenteFinanciamiento(rs.getString("Financiamiento"));
                 datos.setDescripcion(rs.getString("Descripcion"));
                 datos.setPaisOpcion1(rs.getString("Pais1"));
-
+                datos.setPaisOpcion2(rs.getString("Pais2"));                
             }
 
         } catch (SQLException ex) {
@@ -663,8 +660,10 @@ public class DBMS {
                     + "', periodo='" + p.getPeriodo()
                     + "', cedula='" + p.getCedula()
                     + "', carnet='" + p.getCarnet()
-                    + "', nombre='" + p.getNombres()
-                    + "', apellido='" + p.getApellidos()
+                    + "', nombre1='" + p.getNombre1()
+                    + "', nombre2='" + p.getNombre2()
+                    + "', apellido1='" + p.getApellido1()
+                    + "', apellido2='" + p.getApellido2()
                     + "', sexo='" + p.getSexo()
                     + "', calle='" + p.getCalle()
                     + "', ciudad='" + p.getCiudad()
@@ -691,17 +690,12 @@ public class DBMS {
                     + "', opcion='" + p.getNombreOpcion2()
                     + "', credaprob='" + p.getCreditosApro()
                     // Plan de estudio"
-                    + "', fechaida1='" + p.getFechaIni1()
-                    + "', fecharegreso1='" + p.getFechaFin1()
                     + "', universidad1='" + p.getNombreOpcion1()
-                    + "', fechaida2='" + p.getFechaIni2()
-                    + "', fecharegreso2='" + p.getFechaFin2()
                     + "', universidad2='" + p.getNombreOpcion2()
                     + "', idioma='" + p.getIdiomaDest()
                     + "', nivelverbal='" + p.getNivelVerbal()
                     + "', nivelescrito='" + p.getNivelEscrito()
                     + "', nombreprog1='" + p.getNombreProg1()
-                    + "', nombreprog2='" + p.getNombreProg2()
                     // Financiamiento
                     + "', financiamiento='" + p.getFuenteFinanciamiento()
                     + "', descripcion='" + p.getDescripcion()
@@ -729,8 +723,10 @@ public class DBMS {
                     + "', '" + p.getPeriodo()
                     + "', '" + p.getCedula()
                     + "', '" + p.getCarnet()
-                    + "', '" + p.getNombres()
-                    + "', '" + p.getApellidos()
+                    + "', '" + p.getNombre1()
+                    + "', '" + p.getNombre2()
+                    + "', '" + p.getApellido1()
+                    + "', '" + p.getApellido2()
                     + "', '" + p.getSexo()
                     + "', '" + p.getCalle()
                     + "', '" + p.getCiudad()
@@ -757,17 +753,12 @@ public class DBMS {
                     + "', '" + p.getNombreOpcion2()
                     + "', '" + p.getCreditosApro()
                     // Plan de estudio"
-                    + "', '" + p.getFechaIni1()
-                    + "', '" + p.getFechaFin1()
                     + "', '" + p.getNombreOpcion1()
-                    + "', '" + p.getFechaIni2()
-                    + "', '" + p.getFechaFin2()
                     + "', '" + p.getNombreOpcion2()
                     + "', '" + p.getIdiomaDest()
                     + "', '" + p.getNivelVerbal()
                     + "', '" + p.getNivelEscrito()
                     + "', '" + p.getNombreProg1()
-                    + "', '" + p.getNombreProg2()
                     // Financiamiento
                     + "', '" + p.getFuenteFinanciamiento()
                     + "', '" + p.getDescripcion()

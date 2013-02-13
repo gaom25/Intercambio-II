@@ -27,8 +27,10 @@ public class PlanillaUSB extends org.apache.struts.action.ActionForm {
     private String estadoSolicitud;
     private String nombreUsuario;   //nombreUsuario db
     private String periodo;
-    private String apellidos;       //apellidos db
-    private String nombres;         //nombres db
+    private String apellido1;       //apellido1 db
+    private String apellido2;       //apellido1 db
+    private String nombre1;         //nombres db
+    private String nombre2;       //apellido1 db
     private String sexo;            //sexo db
     private String calle;           //db
     private String ciudad;          //db
@@ -43,6 +45,14 @@ public class PlanillaUSB extends org.apache.struts.action.ActionForm {
     private String cedula;          //db estudianteUSB
     private String carnet;          //db estudianteUSB
     private String pasaporte;       //db estudianteUSB
+    private String programaOpcion1;
+    private String duracionProgramaOpcion1;
+    private String duracionProgramaOpcion2;
+    private String programaOpcion2;
+    private String paisOpcion2;    
+    private String nombreOpcion2;    
+    private String nombreProgramaOpcion1;
+    private String nombreProgramaOpcion2;    
     //Queda pendiente la foto
     //Representantes
     private String apellidoNombresRep;  //db
@@ -51,17 +61,19 @@ public class PlanillaUSB extends org.apache.struts.action.ActionForm {
     private String relacion;            //db
     private String direccionRep;        //db
     //Programa de Intercambio (Plan estudio)
-    private String fechaIni1;       //db
-    private String fechaFin1;       //db
+    private String mesFechaIni1;       //db
+    private String mesFechaFin1;       //db
+    private String anoFechaIni1;       //db
+    private String anoFechaFin1;       //db   
+    private String mesFechaIni2;       //db
+    private String mesFechaFin2;       //db
+    private String anoFechaIni2;       //db
+    private String anoFechaFin2;       //db      
     private String nombreOpcion1;   //db
-    private String fechaIni2;       //db
-    private String fechaFin2;       //db
-    private String nombreOpcion2;   //db
     private String idiomaDest;      //db
     private String nivelVerbal;     //db
     private String nivelEscrito;    //db
     private String nombreProg1;     //db
-    private String nombreProg2;     //db
     private String nombrePais1;
     private String paisOpcion1;
     //Informacion Academica 
@@ -107,22 +119,38 @@ public class PlanillaUSB extends org.apache.struts.action.ActionForm {
         this.periodo = periodo;
     }
 
-    public String getApellidos() {
-        return apellidos;
+    public String getApellido1() {
+        return apellido1;
+    }
+    
+    public String getApellido2() {
+        return apellido2;
     }
 
-    public void setApellidos(String apellidos) {
-        this.apellidos = apellidos;
+    public void setApellido1(String apellido1) {
+        this.apellido1 = apellido1;
+    }
+    
+    public void setApellido2(String apellido2) {
+        this.apellido2 = apellido2;
     }
 
-    public String getNombres() {
-        return nombres;
+    public String getNombre1() {
+        return nombre1;
     }
 
-    public void setNombres(String nombres) {
-        this.nombres = nombres;
+   public String getNombre2() {
+        return nombre2;
     }
 
+   public void setNombre1(String nombre1) {
+        this.nombre1 = nombre1;
+    }
+
+    public void setNombre2(String nombre2) {
+        this.nombre2 = nombre2;
+    }
+    
     public String getSexo() {
         return sexo;
     }
@@ -235,6 +263,54 @@ public class PlanillaUSB extends org.apache.struts.action.ActionForm {
         this.pasaporte = pasaporte;
     }
 
+    public String getProgramaOpcion1() {
+        return programaOpcion1;
+    }
+
+    public void setProgramaOpcion1(String programaOpcion1) {
+        this.programaOpcion1 = programaOpcion1;
+    }
+    
+    public String getProgramaOpcion2() {
+        return programaOpcion2;
+    }
+
+    public void setProgramaOpcion2(String programaOpcion2) {
+        this.programaOpcion2 = programaOpcion2;
+    }
+
+    public String getNombreProgramaOpcion2() {
+        return nombreProgramaOpcion2;
+    }
+
+    public void setNombreProgramaOpcion2(String nombreProgramaOpcion2) {
+        this.nombreProgramaOpcion2 = nombreProgramaOpcion2;
+    }
+    
+    public String getNombreProgramaOpcion1() {
+        return nombreProgramaOpcion1;
+    }
+    
+    public void setNombreProgramaOpcion1(String nombreProgramaOpcion1) {
+        this.nombreProgramaOpcion1 = nombreProgramaOpcion1;
+    }
+
+    public String getDuracionProgramaOpcion1() {
+        return duracionProgramaOpcion1;
+    }
+
+    public void setDuracionProgramaOpcion1(String duracionProgramaOpcion1) {
+        this.duracionProgramaOpcion1 = duracionProgramaOpcion1;
+    }
+    
+    public String getDuracionProgramaOpcion2() {
+        return duracionProgramaOpcion2;
+    }
+
+    public void setDuracionProgramaOpcion2(String duracionProgramaOpcion2) {
+        this.duracionProgramaOpcion2 = duracionProgramaOpcion2;
+    }    
+    
     public String getApellidoNombresRep() {
         return apellidoNombresRep;
     }
@@ -275,22 +351,71 @@ public class PlanillaUSB extends org.apache.struts.action.ActionForm {
         this.direccionRep = direccionRep;
     }
 
-    public String getFechaIni1() {
-        return fechaIni1;
+    public String getMesFechaIni1() {
+        return mesFechaIni1;
     }
 
-    public void setFechaIni1(String fechaIni1) {
-        this.fechaIni1 = fechaIni1;
+    public void setMesFechaIni1(String mesFechaIni1) {
+        this.mesFechaIni1 = mesFechaIni1;
+    }
+    
+    public String getAnoFechaIni1() {
+        return anoFechaIni1;
     }
 
-    public String getFechaFin1() {
-        return fechaFin1;
+    public void setAnoFechaIni1(String anoFechaIni1) {
+        this.anoFechaIni1 = anoFechaIni1;
+    }    
+
+    public String getMesFechaFin1() {
+        return mesFechaFin1;
+    }
+    
+    public void setMesFechaFin1(String mesFechaFin1) {
+        this.mesFechaFin1 = mesFechaFin1;
+    }
+    
+    public String getAnoFechaFin1() {
+        return anoFechaFin1;
     }
 
-    public void setFechaFin1(String fechaFin1) {
-        this.fechaFin1 = fechaFin1;
+    public void setAnoFechaFin1(String anoFechaFin1) {
+        this.anoFechaFin1 = anoFechaFin1;
     }
 
+    public String getMesFechaIni2() {
+        return mesFechaIni2;
+    }
+
+    public void setMesFechaIni2(String mesFechaIni2) {
+        this.mesFechaIni2 = mesFechaIni2;
+    }
+    
+    public String getAnoFechaIni2() {
+        return anoFechaIni2;
+    }
+
+    public void setAnoFechaIni2(String anoFechaIni2) {
+        this.anoFechaIni2 = anoFechaIni2;
+    }    
+
+    public String getMesFechaFin2() {
+        return mesFechaFin2;
+    }
+    
+    public void setMesFechaFin2(String mesFechaFin2) {
+        this.mesFechaFin2 = mesFechaFin2;
+    }
+    
+    public String getAnoFechaFin2() {
+        return anoFechaFin2;
+    }
+
+    public void setAnoFechaFin2(String anoFechaFin2) {
+        this.anoFechaFin2 = anoFechaFin2;
+    }
+    
+    
     public String getNombreOpcion1() {
         return nombreOpcion1;
     }
@@ -299,39 +424,30 @@ public class PlanillaUSB extends org.apache.struts.action.ActionForm {
         this.nombreOpcion1 = nombreOpcion1;
     }
 
-    
-    public String getFechaIni2() {
-        return fechaIni2;
-    }
-
-    public void setFechaIni2(String fechaIni2) {
-        this.fechaIni2 = fechaIni2;
-    }
-
-    public String getFechaFin2() {
-        return fechaFin2;
-    }
-
-    public void setFechaFin2(String fechaFin2) {
-        this.fechaFin2 = fechaFin2;
-    }
-
     public String getNombreOpcion2() {
         return nombreOpcion2;
+    }
+
+    public void setNombreOpcion2(String nombreOpcion2) {
+        this.nombreOpcion2 = nombreOpcion2;
     }
     
     public String getPaisOpcion1() {
         return paisOpcion1;
     }
 
-    public void setNombreOpcion2(String nombreOpcion2) {
-        this.nombreOpcion2 = nombreOpcion2;
-    }
-
     public void setPaisOpcion1(String paisOpcion1 ) {
         this.paisOpcion1 = paisOpcion1;
     }
-        
+
+    public String getPaisOpcion2() {
+        return paisOpcion2;
+    }
+
+    public void setPaisOpcion2(String paisOpcion2 ) {
+        this.paisOpcion2 = paisOpcion2;
+    }
+    
     public String getIdiomaDest() {
         return idiomaDest;
     }
@@ -362,14 +478,6 @@ public class PlanillaUSB extends org.apache.struts.action.ActionForm {
 
     public void setNombreProg1(String nombreProg1) {
         this.nombreProg1 = nombreProg1;
-    }
-
-    public String getNombreProg2() {
-        return nombreProg2;
-    }
-
-    public void setNombreProg2(String nombreProg2) {
-        this.nombreProg2 = nombreProg2;
     }
 
     public String getCarrera() {
@@ -459,8 +567,8 @@ public class PlanillaUSB extends org.apache.struts.action.ActionForm {
     }
 
 
-    @Override
-    public String toString() {
-        return "PlanillaUSB{" + "nombreUsuario=" + nombreUsuario + ", periodo=" + periodo + ", apellidos=" + apellidos + ", nombres=" + nombres + ", sexo=" + sexo + ", calle=" + calle + ", ciudad=" + ciudad + ", estado=" + estado + ", CodPostal=" + codPostal + ", telefonoCelular=" + telefonoCelular + ", telefonoCasa=" + telefonoCasa + ", Fax=" + fax + ", email=" + email + ", fechaNacimiento=" + fechaNacimiento + ", nacionalidad=" + nacionalidad + ", cedula=" + cedula + ", carnet=" + carnet + ", pasaporte=" + pasaporte + ", apellidoNombresRep=" + apellidoNombresRep + ", tlfRep=" + tlfRep + ", emailRep=" + emailRep + ", relacion=" + relacion + ", direccionRep=" + direccionRep + ", fechaIni1=" + fechaIni1 + ", fechaFin1=" + fechaFin1 + ", nombreOpcion1=" + nombreOpcion1 + ", fechaIni2=" + fechaIni2 + ", fechaFin2=" + fechaFin2 + ", nombreOpcion2=" + nombreOpcion2 + ", Idiomadest=" + idiomaDest + ", nivelVerbal=" + nivelVerbal + ", nivelEscrito=" + nivelEscrito + ", nombreProg1=" + nombreProg1 + ", nombreProg2=" + nombreProg2 + ", carrera=" + carrera + ", indice=" + indice + ", opcion=" + opcion + ", creditosApro=" + creditosApro + ", lista=" + lista + ", fechaSolicitud=" + fechaSolicitud + ", recomendacion=" + recomendacion + ", comentarioRecomendacion=" + comentarioRecomendacion + '}';
-    }
+    //@Override
+    //public String toString() {
+//        return "PlanillaUSB{" + "nombreUsuario=" + nombreUsuario + ", periodo=" + periodo + ", apellidos=" + apellidos + ", nombres=" + nombres + ", sexo=" + sexo + ", calle=" + calle + ", ciudad=" + ciudad + ", estado=" + estado + ", CodPostal=" + codPostal + ", telefonoCelular=" + telefonoCelular + ", telefonoCasa=" + telefonoCasa + ", Fax=" + fax + ", email=" + email + ", fechaNacimiento=" + fechaNacimiento + ", nacionalidad=" + nacionalidad + ", cedula=" + cedula + ", carnet=" + carnet + ", pasaporte=" + pasaporte + ", apellidoNombresRep=" + apellidoNombresRep + ", tlfRep=" + tlfRep + ", emailRep=" + emailRep + ", relacion=" + relacion + ", direccionRep=" + direccionRep + ", fechaIni1=" + fechaIni1 + ", fechaFin1=" + fechaFin1 + ", nombreOpcion1=" + nombreOpcion1 + ", fechaIni2=" + fechaIni2 + ", fechaFin2=" + fechaFin2 + ", nombreOpcion2=" + nombreOpcion2 + ", Idiomadest=" + idiomaDest + ", nivelVerbal=" + nivelVerbal + ", nivelEscrito=" + nivelEscrito + ", nombreProg1=" + nombreProg1 + ", nombreProg2=" + nombreProg2 + ", carrera=" + carrera + ", indice=" + indice + ", opcion=" + opcion + ", creditosApro=" + creditosApro + ", lista=" + lista + ", fechaSolicitud=" + fechaSolicitud + ", recomendacion=" + recomendacion + ", comentarioRecomendacion=" + comentarioRecomendacion + '}';
+  //  }
 }
