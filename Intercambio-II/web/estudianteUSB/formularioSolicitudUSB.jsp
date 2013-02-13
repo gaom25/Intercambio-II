@@ -268,7 +268,7 @@
                                 <td> País Destino:</td>
                                 <td>
                                     <html:select  property="paisOpcion1">
-                                        <html:option value="N/A"></html:option>
+                                        <html:option value="Seleccione"></html:option>
                                         <html:option value="Alemania"></html:option>
                                         <html:option value="Argentina"></html:option>
                                         <html:option value="Bélgica"></html:option>
@@ -299,7 +299,7 @@
                                 <td> Nombre Universidad de Destino:</td>
                                 <td>
                                     <html:select  property="nombreOpcion1">
-                                        <html:option value="N/A"></html:option>
+                                        <html:option value="Seleccione"></html:option>
                                         <html:option value="ALE -- Universidad de Karlsruhe"></html:option>
                                         <html:option value="ALE -- Universidad de Siegen"></html:option>
                                         <html:option value="ALE -- Universidad de Stuttgart:"></html:option>
@@ -328,7 +328,7 @@
                                         <html:option value="CR -- Universidad de Costa Rica"></html:option>    
                                         <html:option value="DO -- Pontificia Universidad Católica Madre y Maestra"></html:option> 
                                         <html:option value="DO -- Instituto Tecnológico de Santo Domingo"></html:option> 
-                                        <html:option value="EC --  Escuela Superior Politécnica del Litoral"></html:option>    
+                                        <html:option value="EC -- Escuela Superior Politécnica del Litoral"></html:option>    
                                         <html:option value="ES -- Universidad de las Islas Baleares"></html:option>
                                         <html:option value="ES -- UUniversidad de Santiago de Compostela"></html:option>
                                         <html:option value="ES -- Universitat Oberta de Catalunya"></html:option>
@@ -357,7 +357,7 @@
                                         <html:option value="JPN -- Universidad Tecnológica de Nagaoka"></html:option>
                                         <html:option value="JPN -- Universidad de Tohoku"></html:option>
                                         <html:option value="MX -- ITESM Monterrey"></html:option>
-                                        <html:option value="MX --  Universidad Autónoma Metropolitana"></html:option>
+                                        <html:option value="MX -- Universidad Autónoma Metropolitana"></html:option>
                                         <html:option value="MX -- Instituto Tecnológico Superior de Cajeme(ITESCA)"></html:option>
                                         <html:option value="MX -- Universidad Veracruzana"></html:option>
                                         <html:option value="NO -- NTNU-Trondheim"></html:option>
@@ -365,7 +365,7 @@
                                         <html:option value="PE -- Pontificia Universidad Católica del Perú"></html:option>
                                         <html:option value="PE -- Universidad de Lima"></html:option>
                                         <html:option value="PE -- Universidad del Pacífico"></html:option>
-                                        <html:option value="PE --  Universidad Peruana Cayetano Heredia"></html:option>
+                                        <html:option value="PE -- Universidad Peruana Cayetano Heredia"></html:option>
                                         <html:option value="PA -- Universidad de Panamá"></html:option>
                                         <html:option value="PY -- Universidad Católica de Nuestra Señora de la Asunción"></html:option>
                                         <html:option value="PL -- AGH Universidad de Ciencias y Tecnología"></html:option>
