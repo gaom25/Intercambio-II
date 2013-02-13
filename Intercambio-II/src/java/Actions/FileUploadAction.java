@@ -56,6 +56,7 @@ public class FileUploadAction extends Action {
         
         String filePath =
                 getServlet().getServletContext().getRealPath("/") + "Documentos/" + nom;
+        String documentos = getServlet().getServletContext().getRealPath("/") + "Documentos/";
         /*Guardamos el path de los archivos relacionados a un usuario en la base
          de datos*/
         if(!DBMS.getInstance().InsertarPath(filePath,user)){
@@ -63,6 +64,11 @@ public class FileUploadAction extends Action {
         }
         
         System.out.println(filePath);
+        
+        folder = new File(documentos);
+        if (!folder.exists()) {
+            folder.mkdir();
+        }
         
         
         /*Creamos la carpeta donde se guardaran los archivos, si ya existe seguimos,
