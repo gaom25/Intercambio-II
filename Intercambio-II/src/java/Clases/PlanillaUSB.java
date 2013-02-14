@@ -30,12 +30,12 @@ public class PlanillaUSB extends org.apache.struts.action.ActionForm {
     private String apellido1;       //apellido1 db
     private String apellido2;       //apellido1 db
     private String nombre1;         //nombres db
-    private String nombre2;       //apellido1 db
+    private String nombre2;         //apellido1 db
     private String sexo;            //sexo db
-    private String urbanizacion;           //db
+    private String urbanizacion;    //db
     private String calle;           //db
-    private String edificio;           //db
-    private String apartamento;           //db
+    private String edificio;        //db
+    private String apartamento;     //db
     private String ciudad;          //db
     private String estado;          //db
     private String codPostal;       //db
@@ -48,12 +48,17 @@ public class PlanillaUSB extends org.apache.struts.action.ActionForm {
     private String cedula;          //db estudianteUSB
     private String carnet;          //db estudianteUSB
     private String pasaporte;       //db estudianteUSB
+    //tipo Programa
     private String programaOpcion1;
+    private String programaOpcion2;
     private String duracionProgramaOpcion1;
     private String duracionProgramaOpcion2;
-    private String programaOpcion2;
+    private String paisOpcion1;
     private String paisOpcion2;    
+    //Nombre de la Universidad
+    private String nombreOpcion1;   //db
     private String nombreOpcion2;    
+    // Nombre Programa
     private String nombreProgramaOpcion1;
     private String nombreProgramaOpcion2;    
     //Queda pendiente la foto
@@ -66,13 +71,15 @@ public class PlanillaUSB extends org.apache.struts.action.ActionForm {
     private String mesFechaFin2;       //db
     private String anoFechaIni2;       //db
     private String anoFechaFin2;       //db      
-    private String nombreOpcion1;   //db
+    
     private String idiomaDest;      //db
     private String nivelVerbal;     //db
     private String nivelEscrito;    //db
+    
+    //ESTAS DOS NO SE USAN
     private String nombreProg1;     //db
     private String nombrePais1;
-    private String paisOpcion1;
+    
     //Informacion Academica 
     private String carrera;         //db
     private String codCarrera;         //db
@@ -97,7 +104,8 @@ public class PlanillaUSB extends org.apache.struts.action.ActionForm {
     private String apellidoRep2;  //db
     private String nombreRep1;
     private String nombreRep2;
-    private String tlfRep;              //db
+    private String celRep;              //db
+    private String tlfRepCasa;              //db    
     private String emailRep;            //db
     private String relacion;            //db
     private String direccionRep;        //db    
@@ -377,14 +385,22 @@ public class PlanillaUSB extends org.apache.struts.action.ActionForm {
         this.apellidoRep2 = apellidoRep2;
     }
     
-    public String getTlfRep() {
-        return tlfRep;
+    public String getCelRep() {
+        return celRep;
     }
 
-    public void setTlfRep(String tlfRep) {
-        this.tlfRep = tlfRep;
+    public void setCelRep(String celRep) {
+        this.celRep = celRep;
     }
 
+    public String getTlfRepCasa() {
+        return tlfRepCasa;
+    }
+
+    public void setTlfRepCasa(String tlfRepCasa) {
+        this.tlfRepCasa = tlfRepCasa;
+    }
+    
     public String getEmailRep() {
         return emailRep;
     }

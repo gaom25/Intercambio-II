@@ -276,8 +276,8 @@ public class LlenarPlanilla_EstUSB extends org.apache.struts.action.Action {
             }else{
                return mapping.findForward(FAIL);
             }
-        }else if (DBMS.getInstance().agregarPlanillaUSB(p)) {
-            return mapping.findForward(SUCCESS);
+//        }else if (DBMS.getInstance().agregarPlanillaUSB(p)) {
+  //          return mapping.findForward(SUCCESS);
 
         } else {
             return mapping.findForward(FAIL);

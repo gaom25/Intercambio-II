@@ -44,13 +44,13 @@ public class CargarLlenarPlanillaUSB extends org.apache.struts.action.Action {
         u.setNombreusuario(p.getNombreUsuario());
         u.setConfirmar("2013-2014");
 
-        Clases.PlanillaUSB hay = DBMS.getInstance().obtenerPlanillaUSB(u);
+//        Clases.PlanillaUSB hay = DBMS.getInstance().obtenerPlanillaUSB(u);
 
-        if (hay.getNombreUsuario() != null) {
-            p = DBMS.getInstance().obtenerPlanillaUSB(u);
-            request.setAttribute("PlanillaUSB", p);
-            return mapping.findForward(MODIFICAR);
-        }
+  //      if (hay.getNombreUsuario() != null) {
+    //        p = DBMS.getInstance().obtenerPlanillaUSB(u);
+      //      request.setAttribute("PlanillaUSB", p);
+        //    return mapping.findForward(MODIFICAR);
+        //}
 
         return mapping.findForward(SUCCESS);
     }

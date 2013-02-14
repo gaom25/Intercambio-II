@@ -189,8 +189,8 @@ public class VerificarPlanillaUSB extends org.apache.struts.action.Action {
       //      huboError = true;
         //}
 
-        if (p.getTlfRep().equals("")) {
-            error.add("tlfRep", new ActionMessage("error.campo.required"));
+        if (p.getCelRep().equals("")) {
+            error.add("celRep", new ActionMessage("error.campo.required"));
             saveErrors(request, error);
             huboError = true;
         }
