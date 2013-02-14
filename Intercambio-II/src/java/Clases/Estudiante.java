@@ -12,7 +12,6 @@ import java.sql.Date;
  */
 public class Estudiante extends Usuario {
     
-    private String nombreUsuario;
     private String origen;
     private String pApellido;
     private String sApellido;
@@ -35,14 +34,6 @@ public class Estudiante extends Usuario {
     // falta la foto y no se como colocarla.
     public Estudiante() {
         super();
-    }
-
-    public String getNombreUsuario() {
-        return nombreUsuario;
-    }
-
-    public void setNombreUsuario(String nombreUsuario) {
-        this.nombreUsuario = nombreUsuario;
     }
 
     public String getOrigen() {

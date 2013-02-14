@@ -14,6 +14,8 @@ public class EstudianteUSB extends Estudiante {
    
     private String cedula;
     private String carnet;
+    private String carrera;
+    private String codCarrera;
 
     public EstudianteUSB(){
         super();
@@ -33,6 +35,22 @@ public class EstudianteUSB extends Estudiante {
 
     public void setCarnet(String carnet) {
         this.carnet = carnet;
+    }
+
+    public String getCarrera() {
+        return carrera;
+    }
+
+    public void setCarrera(String carrera) {
+        this.carrera = carrera;
+    }
+
+    public String getCodCarrera() {
+        return codCarrera;
+    }
+
+    public void setCodCarrera(String codCarrera) {
+        this.codCarrera = codCarrera;
     }
 
 }

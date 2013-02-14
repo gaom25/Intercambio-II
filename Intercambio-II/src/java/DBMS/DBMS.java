@@ -778,24 +778,25 @@ public class DBMS {
     public Boolean agregarEstudiante(EstudianteUSB e) {
         try {
 
-            String sesionActiva = e.getOrigen();
-            String[] info = DBMS.getInstance().getInfoPostulante(sesionActiva);
+            //String sesionActiva = e.getOrigen();
+            //String[] info = DBMS.getInstance().getInfoPostulante(sesionActiva);
 
             // Insercion dentro de la tabla estudiante
-            String sqlquery1 = "INSERT INTO \"dycicle\".estudiante VALUES ('" + e.getNombreUsuario()
-                    + "', '" + info[0] + "', '" + e.getpNombre()
+            String sqlquery1 = "INSERT INTO \"dycicle\".estudiante VALUES ('" + e.getNombreusuario()
+                    + "', '" + "null" + "', '" + e.getpNombre()
                     + "', '" + e.getsNombre() + "', '" + e.getpApellido()
-                    + "', '" + e.getsApellido() + "', '" + info[3]
-                    + "', '" + info[1] + "', 'null','null', 'null',  'null', 'null', 'null', 'null', "
+                    + "', '" + e.getsApellido() + "', '" + e.getCarrera()
+                    + "', '" + e.getCodCarrera() + "', 'null','null', 'null',  'null', 'null', 'null', 'null', "
                     + " 'null', 'null', 'null', '" + e.getEmail() + "', '2012-11-27 23:43:11.080', 'null', "
                     + "'/home/dreabalbas');";
             
+            System.out.println(sqlquery1);
             // la fecha de nacimiento colocada es temporal, se coloca para que no de error la insercion.
             // La direccion de la foto tambien es temporal.
             
             //Insercion dentro de la tabla estudianteUSB
-            String sqlquery2 = "INSERT INTO \"dyclicle\".estudianteUSB VALUES('" + e.getNombreUsuario()
-                    + "',  'null'" + e.getCarnet() + ");";
+            String sqlquery2 = "INSERT INTO \"dycicle\".estudianteUSB VALUES('" + e.getNombreusuario()
+                    + "',  'null' , '" + e.getCarnet() + "');";
             
             Statement stmt = conexion.createStatement();
             Integer i = stmt.executeUpdate(sqlquery1);
@@ -1005,7 +1006,7 @@ public class DBMS {
             Statement stmt = conexion.createStatement();
             ResultSet rs = stmt.executeQuery(sqlquery);
             while (rs.next()) {
-                datos.setNombreUsuario(rs.getString("nombreusuario"));
+                datos.setNombreusuario(rs.getString("nombreusuario"));
                 datos.setCarnet(rs.getString("carnet"));
                 datos.setCedula(rs.getString("cedula"));
 
