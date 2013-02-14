@@ -144,7 +144,7 @@ public class DBMS {
         try {
             String sqlquery = "INSERT INTO \"dycicle\".postulante VALUES ('" + p.getNombreusuario()
                     + "', '" + p.getNombreUniExt() + "', '" + p.getTipo() + "',  '" + p.getNombreUniExt()
-                    + "', null');";
+                    + "', 'null');";
             Statement stmt = conexion.createStatement();
             Integer i = stmt.executeUpdate(sqlquery);
             return i > 0;
