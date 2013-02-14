@@ -23,27 +23,14 @@ import DBMS.*;
  */
 public class AccionAgregarUsuario extends org.apache.struts.action.Action {
 
-    /* Patrones a Validar */
-    private static final String patronEmail = "^([_A-Za-z0-9-\\.\\+])+@([A-Za-z0-9-])+\\.([A-Za-z0-9-])+$";
-//            "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*" + "@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
-    /* forward name="success" path="" */
     private static final String SUCCESS = "success";
     private static final String FAIL = "failure";
-    private static final String ERROR = "error";
-    private static final String POSTULANTE = "postulante";
-    private static final String ESTUDIANTE = "estudiante";
-    private Pattern patron;
-    private Matcher match;
+    private static final String GESTOR = "gestor";
+    private static final String COORDINACION = "coordinacion";
+    private static final String UEXTRANJERA = "uextranjera";
+    private static final String ESTUDIANTEUSB = "estudianteUSB";
+    private static final String ESTUDIANTEEXT = "estudianteExt";
 
-    public AccionAgregarUsuario() {
-        patron = Pattern.compile(patronEmail);
-    }
-
-    public boolean validate(final String username) {
-
-        match = patron.matcher(username);
-        return match.matches();
-    }
 
     /**
      * This is the action called from the Struts framework.
@@ -60,68 +47,19 @@ public class AccionAgregarUsuario extends org.apache.struts.action.Action {
             throws Exception {
 
         Usuario u = (Usuario) form;
-        ActionErrors error = new ActionErrors();
-        boolean huboError = false;
-        String pswd = u.generarContrasena();
-        String confPswd = pswd;
-        String mail = u.getEmail();
-        u.setContrasena(pswd);
-        u.setConfirmar(confPswd);
-
-        //Verifica que el username no  sea vacio.
-        if (u.getNombreusuario().equals("")) {
-            error.add("nombreusuario", new ActionMessage("error.nombreusuario.required"));
-            saveErrors(request, error);
-            huboError = true;
-        }
-
-        //Verifica que el nombre propio del usuario no sea vacio/.
-        if (u.getNombre().equals("")) {
-            error.add("nombre", new ActionMessage("error.nombre.required"));
-            saveErrors(request, error);
-            huboError = true;
-        }
-
-        //Verifica que el email no sea vacio y que este estructurado correctamente.
-        if (u.getEmail().equals("")) {
-            error.add("email", new ActionMessage("error.email.required"));
-            saveErrors(request, error);
-            huboError = true;
-        } else if (validate(mail) == false) {
-            error.add("email", new ActionMessage("error.email.malformulado"));
-            saveErrors(request, error);
-            huboError = true;
-        }
-
-
-        // Si hubo error lo notifica, si no, procede a agregar en la BD.
-        if (huboError) {
-            return mapping.findForward(ERROR);
-
-        } else if (DBMS.getInstance().agregarUsuario(u)) {
-            Correo c = new Correo();
-            String asunto = "Su usuario en el Sistema de Gestión de Intercambios ha sido creado";
-            String mensaje = "Su usuario en el Sistema de Gestión de Intercambios ha sido creado."
-                    + "\nSu usuario es: " + u.getNombreusuario()
-                    + "\nSu clave de acceso es: " + u.getContrasena();
-            c.setAsunto(asunto);
-            c.setMensaje(mensaje);
-            boolean correoEnviado = c.enviarUsuario(u.getEmail());
-            if (correoEnviado) {
-                if ((u.getPrivilegio() == 1) || (u.getPrivilegio() == 2)) {
-                    return mapping.findForward(SUCCESS);
-                } else if ((u.getPrivilegio() == 3) || (u.getPrivilegio() == 4)) {
-                    return mapping.findForward(POSTULANTE);
-                } else if ((u.getPrivilegio() == 5) || (u.getPrivilegio() == 6)) {
-                    return mapping.findForward(ESTUDIANTE);
-                }
-
-            } else {
-                return mapping.findForward(FAIL);
-            }
+ 
+        if (u.getPrivilegio() == 2) {
+            return mapping.findForward(GESTOR);
+        }else if (u.getPrivilegio() == 3){
+            return mapping.findForward(COORDINACION);
+        }else if (u.getPrivilegio() == 4){
+            return mapping.findForward(UEXTRANJERA);
+        }else if (u.getPrivilegio() == 5){
+            return mapping.findForward(ESTUDIANTEUSB);
+        }else if (u.getPrivilegio () == 6){
+            return mapping.findForward(ESTUDIANTEEXT);
         } else {
             return mapping.findForward(FAIL);
         }
-        return mapping.findForward(FAIL);
     }
 }
