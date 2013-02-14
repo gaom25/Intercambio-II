@@ -42,7 +42,7 @@ CREATE TABLE "dycicle".ESTUDIANTE(
 	TelefonoCasa	VARCHAR(30),
 	Fax		VARCHAR(30),
         Email           VARCHAR(30),
-	FechaNac	DATE,
+	FechaNac	VARCHAR(20),
 	Nacionalidad	VARCHAR(100),
 	Foto		VARCHAR(200),
 	CONSTRAINT	PK_Estudiante	PRIMARY KEY (NombreUsuario)
@@ -334,26 +334,17 @@ OIDS = FALSE
 
 /* Entidad POSTULACION identificada por un numero unico */
 CREATE TABLE "dycicle".POSTULACION(
-	Numero              NUMERIC(10)	NOT NULL,
+	NombreUsuario       VARCHAR(20)	NOT NULL,
 	EstadoPostulacion   VARCHAR(30)	NOT NULL,
         Recomendacion       VARCHAR(30)     NOT NULL,
         ComentRecomend      TEXT,
         FechaCreacion       timestamp with time zone NOT NULL default CURRENT_TIMESTAMP(2),
-	CONSTRAINT          PK_Postulacion	PRIMARY KEY (Numero)
+	CONSTRAINT          PK_Postulacion	PRIMARY KEY (NombreUsuario)
 )
 WITH (
 OIDS = FALSE
 );
 
-/* Un estudiante puede consultar el estado de su postulacion */
-CREATE TABLE "dycicle".Consulta(
-	NombreUsuario	VARCHAR(20)	NOT NULL,
-	Numero		NUMERIC(10)	NOT NULL,
-	CONSTRAINT	PK_Consulta	PRIMARY KEY (NombreUsuario, Numero)
-)
-WITH (
-OIDS = FALSE
-);
 
 /* Un postulante puede postular a un estudiante */
 CREATE TABLE "dycicle".Postula(
@@ -598,14 +589,7 @@ ALTER TABLE "dycicle".ComentarioPostulacion ADD
 		REFERENCES "dycicle".POSTULACION;
 */
 
-/* Claves foraneas de Consulta */
-ALTER TABLE "dycicle".Consulta ADD
-	CONSTRAINT FK_Consulta_Estudiante FOREIGN KEY (NombreUsuario)
-		REFERENCES "dycicle".ESTUDIANTE;
 
-ALTER TABLE "dycicle".Consulta ADD
-	CONSTRAINT FK_Consulta_Postulacion FOREIGN KEY (Numero)
-		REFERENCES "dycicle".POSTULACION;
 
 /* Claves foraneas de Postula 
 ALTER TABLE "dycicle".Postula ADD
@@ -982,26 +966,18 @@ OIDS = FALSE
 
 /* Entidad POSTULACION identificada por un numero unico */
 CREATE TABLE "dycicle".POSTULACION(
-	Numero              NUMERIC(10)	NOT NULL,
+	NombreUsuario       VARCHAR(20)	NOT NULL,
 	EstadoPostulacion   VARCHAR(30)	NOT NULL,
-        Recomendacion       VARCHAR(30)     NOT NULL,
+        Recomendacion       VARCHAR(30) NOT NULL,
         ComentRecomend      TEXT,
         FechaCreacion       timestamp with time zone NOT NULL default CURRENT_TIMESTAMP(2),
-	CONSTRAINT          PK_Postulacion	PRIMARY KEY (Numero)
+	CONSTRAINT          PK_Postulacion	PRIMARY KEY (NombreUsuario)
 )
 WITH (
 OIDS = FALSE
 );
 
-/* Un estudiante puede consultar el estado de su postulacion */
-CREATE TABLE "dycicle".Consulta(
-	NombreUsuario	VARCHAR(20)	NOT NULL,
-	Numero		NUMERIC(10)	NOT NULL,
-	CONSTRAINT	PK_Consulta	PRIMARY KEY (NombreUsuario, Numero)
-)
-WITH (
-OIDS = FALSE
-);
+
 
 /* Un postulante puede postular a un estudiante */
 CREATE TABLE "dycicle".Postula(
@@ -1017,9 +993,8 @@ OIDS = FALSE
 /* Un gestor puede gestionar/editar una postulacion */
 CREATE TABLE "dycicle".Gestiona(
 	NombreUsuario	VARCHAR(20)	NOT NULL,
-	Numero		NUMERIC(10)	NOT NULL,
 	Cambio		VARCHAR(100)	NOT NULL,
-	CONSTRAINT 	PK_Gestiona	PRIMARY KEY (NombreUsuario, Numero)
+	CONSTRAINT 	PK_Gestiona	PRIMARY KEY (NombreUsuario)
 )
 WITH (
 OIDS = FALSE
@@ -1263,14 +1238,10 @@ ALTER TABLE "dycicle".ComentarioPostulacion ADD
 		REFERENCES "dycicle".POSTULACION;
 */
 
-/* Claves foraneas de Consulta */
-ALTER TABLE "dycicle".Consulta ADD
-	CONSTRAINT FK_Consulta_Estudiante FOREIGN KEY (NombreUsuario)
-		REFERENCES "dycicle".ESTUDIANTE;
 
-ALTER TABLE "dycicle".Consulta ADD
-	CONSTRAINT FK_Consulta_Postulacion FOREIGN KEY (Numero)
-		REFERENCES "dycicle".POSTULACION;
+ALTER TABLE "dycicle".Postulacion ADD
+	CONSTRAINT FK_Postulacion_Estudiante FOREIGN KEY (NombreUsuario)
+		REFERENCES "dycicle".ESTUDIANTE;
 
 /* Claves foraneas de Postula 
 ALTER TABLE "dycicle".Postula ADD
@@ -1289,7 +1260,7 @@ ALTER TABLE "dycicle".Gestiona ADD
 		REFERENCES "dycicle".GESTOR;
 
 ALTER TABLE "dycicle".Gestiona ADD
-	CONSTRAINT FK_Gestiona_Postulacion FOREIGN KEY (Numero)
+	CONSTRAINT FK_Gestiona_Postulacion FOREIGN KEY (NombreUsuario)
 		REFERENCES "dycicle".POSTULACION;
 
 /* Claves foraneas de Persiste */
