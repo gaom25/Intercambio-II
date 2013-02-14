@@ -1032,7 +1032,23 @@
                                         <html:option value="Urbanismo"></html:option>                                        
                                     </html:select>
                                 </td>
-                            </tr>                       
+                            </tr> 
+                            
+                            <tr>
+                                <td>Código de carrera: </td>
+                                
+                                
+                                <td>
+                                    <html:text name="PlanillaUSB" property="codCarrera" maxlength="30" errorStyleClass="error"
+                                               errorKey="org.apache.struts.action.ERROR">
+                                    </html:text>
+                                </td>
+
+                                <td>
+                                    <html:errors property="codCarrera" />
+                                </td>
+                                
+                            </tr>
                             <tr>
                                 <td> Número de Créditos Aprobados Hasta la Fecha</td>
 
