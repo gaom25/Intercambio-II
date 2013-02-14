@@ -1251,7 +1251,7 @@
                     <tr>
                         <td> Teléfono Celular: </td>
                         <td>
-                            <html:text name="PlanillaUSB" property="tlfRep" maxlength="80"  errorStyleClass="error"
+                            <html:text name="PlanillaUSB" property="celRep" maxlength="80"  errorStyleClass="error"
                                        errorKey="org.apache.struts.action.ERROR">
                             </html:text>
                         </td>
