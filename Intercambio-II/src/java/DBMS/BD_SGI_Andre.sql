@@ -312,7 +312,7 @@ OIDS = FALSE
  * pertenecientes   al   gestor                      */
 CREATE TABLE "dycicle".GESTOR(
 	NombreUsuario	VARCHAR(20)	NOT NULL,
-        Nombre          VARCHAR(20)     NOT NULL,
+        Nombre          VARCHAR(100)     NOT NULL,
 	CONSTRAINT	PK_GESTOR	PRIMARY KEY (NombreUsuario)
 )
 WITH (

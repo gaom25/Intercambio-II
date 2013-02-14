@@ -251,7 +251,7 @@
        <action name="Usuario" path="/AccionAgregarUsuario" scope="request" type="Actions.AccionAgregarUsuario">
             <forward name="failure" path="accFallo"/>
             <forward name="success" path="accExito" />
-            <forward name= "gestor" path= "agregarGestor"/>
+            <forward name="gestor" path="agregarGestor" />
             <forward name="coordinacion" path="agregarCoord" />
             <forward name="uextranjera" path="agregarUniExt"/> 
             <forward name="estudianteUSB" path="agregarEstudianteUSB"/>
@@ -323,6 +323,10 @@
             <forward name ="fail" path = "falloAgregEst" />
             <forward name="error" path = "agregEstudiantes" />          
        </action>
+       
+      <action input="/" name="Usuario" path="/AccionAgregarUniExt" scope="session" type="Actions.AccionAgregarUniExt"/>
+      <action input="/" name="Usuario" path="/AccionAgregarCoordinacion" scope="session" type="Actions.AccionAgregarCoordinacion"/>
+      <action input="/" name="Usuario" path="/AccionAgregarGestor" scope="session" type="Actions.AccionAgregarGestor"/>
                   
        <action name="EstUSB" path="/AgregarEstudiantes" scope="session" type="Actions.AgregarEstudiantes">
             <forward name="success" path="agregEstudiante" />

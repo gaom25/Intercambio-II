@@ -147,11 +147,11 @@
                 <put name="body" value="/admin/agregarUsuario.jsp" />
             </definition>
                       
-            <defintion name= "agregarGestor" extends= "baseAdmin"> <!-- pagina de agregar usuario -->
+            <definition name="agregarGestor" extends="baseAdmin"> <!-- pagina de agregar usuario -->
                 <put name="body" value="/admin/agregarTipoGestor.jsp" />
-            </defintion>
+            </definition>
             
-            <definition name="agregarCood" extends="baseAdmin"> <!-- pagina de agregar usuario -->
+            <definition name="agregarCoord" extends="baseAdmin"> <!-- pagina de agregar usuario -->
                 <put name="body" value="/admin/agregarTipoCoordinacion.jsp" />
             </definition>
             

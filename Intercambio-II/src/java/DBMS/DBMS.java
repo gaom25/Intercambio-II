@@ -113,7 +113,7 @@ public class DBMS {
         return false;
     }
 
-    public boolean agregarGestor(Gestor g) {
+    public boolean agregarGestor(Usuario g) {
         try {
             String sqlquery = "INSERT INTO \"dycicle\".gestor VALUES ('" + g.getNombreusuario()
                     + "', '" + g.getNombre() + "');";
@@ -133,7 +133,6 @@ public class DBMS {
                     + p.getNombreCarrera() + "');";
             Statement stmt = conexion.createStatement();
             Integer i = stmt.executeUpdate(sqlquery);
-            System.out.println();
             return i > 0;
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -789,8 +788,7 @@ public class DBMS {
                     + "', '" + e.getCodCarrera() + "', 'null','null', 'null',  'null', 'null', 'null', 'null', "
                     + " 'null', 'null', 'null', '" + e.getEmail() + "', '2012-11-27 23:43:11.080', 'null', "
                     + "'/home/dreabalbas');";
-            
-            System.out.println(sqlquery1);
+
             // la fecha de nacimiento colocada es temporal, se coloca para que no de error la insercion.
             // La direccion de la foto tambien es temporal.
             
@@ -835,8 +833,7 @@ public class DBMS {
                     + "', '0' , 'null','null', 'null',  'null', 'null', 'null', 'null', "
                     + " 'null', 'null', 'null', '" + e.getEmail() + "', '2012-11-27 23:43:11.080', 'null', "
                     + "'/home/dreabalbas');";
-            
-            System.out.println(sqlquery1);
+
             // la fecha de nacimiento colocada es temporal, se coloca para que no de error la insercion.
             // La direccion de la foto tambien es temporal.
             
@@ -865,10 +862,6 @@ public class DBMS {
         }
         return false;
     }
-    
-    
-    
-    
     
     
     /* public Boolean agregarEstudianteInternacional(Estudiante e, EstudianteInternacional inter,
