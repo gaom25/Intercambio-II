@@ -247,7 +247,7 @@
                     <p hidden="true"><html:text name="PlanillaUSB" property="nombreUsuario" maxlength="20" errorStyleClass="error" value ="<%=var.toString()%>"
                                errorKey="org.apache.struts.action.ERROR"></html:text></p>
 
-                        <table border="0"  align="center">
+                        <table border="0"  align="left">
                             <tbody>
                                 <tr>
                                     <td> <br/> <strong>Datos Personales</strong></td>
@@ -381,23 +381,42 @@
                                 </tr>
 
                                 <tr>
-
-                                    <td style=" padding-left: 50px">Dirección</td>
-
-                                    <td>
-                                        <html:textarea name="PlanillaUSB" property="calle" cols="50" rows="5"  errorStyleClass="error"
-                                                       errorKey="org.apache.struts.action.ERROR">
-                                        </html:textarea >
-                                    </td>
+                                    <td>Urb / Sector / Barrio</td>
 
                                     <td>
-                                        <html:errors property="calle" />
+                                        <html:text name="PlanillaUSB" property="urbanizacion" maxlength="80" errorStyleClass="error"
+                                                   errorKey="org.apache.struts.action.ERROR"></html:text>
                                     </td>
-                                </tr>
+                                </tr>                                
 
                                 <tr>
+                                    <td>Calle</td>
 
-                                    <td style=" padding-left: 50px">Ciudad</td>
+                                    <td>
+                                        <html:text name="PlanillaUSB" property="calle" maxlength="80" errorStyleClass="error"
+                                                   errorKey="org.apache.struts.action.ERROR"></html:text>
+                                    </td>
+                                </tr>    
+                                <tr>
+                                    <td>Edificio / Casa </td>
+
+                                    <td>
+                                        <html:text name="PlanillaUSB" property="edificio" maxlength="80" errorStyleClass="error"
+                                                   errorKey="org.apache.struts.action.ERROR"></html:text>
+                                    </td>
+                                </tr>                                    
+                                <tr>
+                                    <td>Apartamento / Núm. Casa</td>
+
+                                    <td>
+                                        <html:text name="PlanillaUSB" property="apartamento" maxlength="80" errorStyleClass="error"
+                                                   errorKey="org.apache.struts.action.ERROR"></html:text>
+                                    </td>
+                                </tr>                                    
+                                
+                                <tr>
+
+                                    <td>Ciudad</td>
 
                                     <td>
                                         <html:text name="PlanillaUSB" property="ciudad"  maxlength="30" errorStyleClass="error"
@@ -412,7 +431,7 @@
 
                                 <tr>
 
-                                    <td style=" padding-left: 50px">Estado</td>
+                                    <td>Estado</td>
 
                                     <td>
                                         <html:text name="PlanillaUSB" property="estado" maxlength="30" errorStyleClass="error"
@@ -427,7 +446,7 @@
 
                                 <tr>
 
-                                    <td style=" padding-left: 50px">Código Postal</td>
+                                    <td>Código Postal</td>
 
                                     <td>
                                         <html:text name="PlanillaUSB" property="codPostal"  maxlength="30" errorStyleClass="error"
@@ -446,7 +465,7 @@
 
                                 <tr>
 
-                                    <td style=" padding-left: 50px"> Tlf. Celular:</td>
+                                    <td> Tlf. Celular:</td>
 
                                     <td>
                                         <html:text name="PlanillaUSB" property="telefonoCelular" maxlength="15" errorStyleClass="error"
@@ -461,7 +480,7 @@
 
                                 <tr>
 
-                                    <td style=" padding-left: 50px"> Tlf. Casa:</td>
+                                    <td> Tlf. Casa:</td>
 
                                     <td>
                                         <html:text name="PlanillaUSB" property="telefonoCasa" maxlength="15" errorStyleClass="error"
@@ -477,7 +496,7 @@
 
                                 <tr>
 
-                                    <td style=" padding-left: 50px"> E-mail:</td>
+                                    <td> E-mail:</td>
 
                                     <td>
                                         <html:text name="PlanillaUSB" property="email" maxlength="45"  errorStyleClass="error"
@@ -1230,13 +1249,22 @@
                         </td>
                     </tr> 
                     <tr>
-                        <td> Teléfono: </td>
+                        <td> Teléfono Celular: </td>
                         <td>
                             <html:text name="PlanillaUSB" property="tlfRep" maxlength="80"  errorStyleClass="error"
                                        errorKey="org.apache.struts.action.ERROR">
                             </html:text>
                         </td>
                     </tr>                      
+                    <tr>
+                        <td> Teléfono Casa: </td>
+                        <td>
+                            <html:text name="PlanillaUSB" property="tlfRepCasa" maxlength="80"  errorStyleClass="error"
+                                       errorKey="org.apache.struts.action.ERROR">
+                            </html:text>
+                        </td>
+                    </tr>                      
+
                     <tr>
                         <td> E-mail: </td>
                         <td>

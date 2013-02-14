@@ -623,7 +623,7 @@ public class DBMS {
     }
     
   
-    public Boolean agregarPlanillaUSB(PlanillaUSB p) {
+/*    public Boolean agregarPlanillaUSB(PlanillaUSB p) {
         try {
             String sqlqueryEstudiante = "UPDATE \"dycicle\".estudiante SET "
                     + "PrimerNombre = '" + p.getNombre1() + "', "
@@ -695,7 +695,7 @@ public class DBMS {
             ex.printStackTrace();
         }
         return false;
-    }
+    } */
 
     public PlanillaUSB obtenerPlanillaUSB(Usuario u) {
 
