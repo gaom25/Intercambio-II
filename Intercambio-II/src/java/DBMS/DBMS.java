@@ -655,7 +655,7 @@ public class DBMS {
              String sqlqueryRepresentante = "UPDATE \"dycicle\".Representante SET "
                      + "Nombres = '" + p.getNombreRep1() + " " + p.getNombreRep2() + "', "
                      + "Apellidos = '" + p.getApellidoRep1() + " " + p.getApellidoRep2() + "', "
-                     + "Telefono = '" + p.getTlfRep() + "', "
+                     + "Telefono = '" + p.getCelRep() + "', "
                      + "Email = '" + p.getEmailRep() + "', "
                      + "TipoRelacion = '" + p.getRelacion() + "', "
                      + "Direccion = '" + p.getDireccionRep() + "'";
@@ -729,7 +729,7 @@ public class DBMS {
                 datos.setEmail(rs.getString("Email"));
                 datos.setFechaNacimiento(rs.getString("FechaNac"));
                 datos.setNacionalidad(rs.getString("Nacionalidad"));
-                datos.setTlfRep(rs.getString("Telefono"));
+                datos.setCelRep(rs.getString("Telefono"));
                 datos.setEmailRep(rs.getString("EmailRep"));
                 datos.setRelacion(rs.getString("TipoRelacion"));
                 datos.setDireccionRep(rs.getString("Direccion"));
@@ -784,7 +784,7 @@ public class DBMS {
                     // Falta la foto!!
                     //$$$$$$$$$$$$$$$$$
                     // Datos del representante
-                    + "', telefono='" + p.getTlfRep()
+                    + "', telefono='" + p.getCelRep()
                     + "', emailrep='" + p.getEmailRep()
                     + "', tiporelacion='" + p.getRelacion()
                     + "', direccion='" + p.getDireccionRep()
