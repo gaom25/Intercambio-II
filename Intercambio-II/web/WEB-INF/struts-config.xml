@@ -255,7 +255,7 @@
             <forward name="coordinacion" path="agregarCoord" />
             <forward name="uextranjera" path="agregarUniExt"/> 
             <forward name="estudianteUSB" path="agregarEstudianteUSB"/>
-            <forward name="estudianteEXT" path="agregarEstudianteExt"/>
+            <forward name="estudianteExt" path="agregarEstudianteExt"/>
        </action>
 
        <action name="Postulante" path="/AgregarPostulante" scope="request" type="Actions.AgregarPostulante">
@@ -313,6 +313,12 @@
      <!-- Acciones en Gestor -->
      
        <action input="/" name="EstUSB" path="/AccionAgregarEstudiante" scope="session" type="Actions.AccionAgregarEstudiante">
+            <forward name="success" path = "exitoAgregEst" />
+            <forward name ="fail" path = "falloAgregEst" />
+            <forward name="error" path = "agregEstudiantes" />          
+       </action>
+       
+       <action input="/" name="EstInter" path="/AccionAgregarEstudianteInter" scope="session" type="Actions.AccionAgregarEstudianteInter">
             <forward name="success" path = "exitoAgregEst" />
             <forward name ="fail" path = "falloAgregEst" />
             <forward name="error" path = "agregEstudiantes" />          

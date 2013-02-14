@@ -820,6 +820,57 @@ public class DBMS {
         return false;
     }
 
+    
+    public Boolean agregarEstudianteInternacional(EstudianteInternacional e) {
+        try {
+
+            //String sesionActiva = e.getOrigen();
+            //String[] info = DBMS.getInstance().getInfoPostulante(sesionActiva);
+
+            // Insercion dentro de la tabla estudiante
+            String sqlquery1 = "INSERT INTO \"dycicle\".estudiante VALUES ('" + e.getNombreusuario()
+                    + "', '" + "null" + "', '" + e.getpNombre()
+                    + "', '" + e.getsNombre() + "', '" + e.getpApellido()
+                    + "', '" + e.getsApellido() + "','null " 
+                    + "', '0' , 'null','null', 'null',  'null', 'null', 'null', 'null', "
+                    + " 'null', 'null', 'null', '" + e.getEmail() + "', '2012-11-27 23:43:11.080', 'null', "
+                    + "'/home/dreabalbas');";
+            
+            System.out.println(sqlquery1);
+            // la fecha de nacimiento colocada es temporal, se coloca para que no de error la insercion.
+            // La direccion de la foto tambien es temporal.
+            
+            //Insercion dentro de la tabla estudianteUSB
+            String sqlquery2 = "INSERT INTO \"dycicle\".estudianteInternacional VALUES('" + e.getNombreusuario()
+                    + "','"+e.getPasaporte()+"' , '" + e.getLenguamaterna() + "');";
+            
+            Statement stmt = conexion.createStatement();
+            Integer i = stmt.executeUpdate(sqlquery1);
+            Integer j = stmt.executeUpdate(sqlquery2);
+
+           /*
+            if (i > 0 && j > 0) {
+                PlanillaUSB p = new PlanillaUSB();
+                p.setNombreUsuario(e.getNombreUsuario());
+                p.setPeriodo("2013-2014");
+                Boolean res = DBMS.getInstance().agregarPlanillaUSB(p);
+
+                return res;
+            }*/
+
+            return i > 0 && j > 0;
+            
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return false;
+    }
+    
+    
+    
+    
+    
+    
     /* public Boolean agregarEstudianteInternacional(Estudiante e, EstudianteInternacional inter,
      AntecedentesAcademicos a, PlanDeEstudio plan, PeriodosPlan per) {
      try {
