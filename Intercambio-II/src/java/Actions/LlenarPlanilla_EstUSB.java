@@ -264,8 +264,6 @@ public class LlenarPlanilla_EstUSB extends org.apache.struts.action.Action {
         PlanillaUSB hay = DBMS.getInstance().obtenerPlanillaUSB(u);
 
         
-
-        
         if (huboError) {
             return mapping.findForward(ERROR);
 
