@@ -221,7 +221,7 @@ public class GeneradorPlanillas {
             campo = new Phrase("Dirección:  " + p.getDireccionRep(), fontCampo);
             ct.setSimpleColumn(campo, 90, 310, 300, 320, 10, Element.ALIGN_LEFT);
             ct.go();
-            campo = new Phrase("Teléfono:  " + p.getTlfRep(), fontCampo);
+            campo = new Phrase("Teléfono:  " + p.getCelRep(), fontCampo);
             ct.setSimpleColumn(campo, 90, 290, 350, 300, 10, Element.ALIGN_LEFT);
             ct.go();
             campo = new Phrase("E-mail:  " + p.getEmailRep(), fontCampo);

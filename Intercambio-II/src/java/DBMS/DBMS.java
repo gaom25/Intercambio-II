@@ -661,7 +661,8 @@ public class DBMS {
                      + "sNombre = '" + p.getNombreRep2() + "', "
                      + "pApellido = '" + p.getApellidoRep1() + "', "
                      + "sApellido = '" + p.getApellidoRep2() + "', "
-                     + "Telefono = '" + p.getTlfRep() + "', "
+                     + "TelefonoCel = '" + p.getCelRep() + "', "
+                     + "TelefonoHab = '" + p.getTlfRepCasa() + "', "
                      + "Email = '" + p.getEmailRep() + "', "
                      + "TipoRelacion = '" + p.getRelacion() + "', "
                      + "Direccion = '" + p.getDireccionRep() + "')";
@@ -710,8 +711,18 @@ public class DBMS {
                     + "DescrAyudaEc = '" + p.getDescripcion2() + "')";
 
             Statement stmt = conexion.createStatement();
- ////ME QUEDE AQUI
 
+                        
+            Integer i = stmt.executeUpdate(sqlqueryEstudiante);
+            Integer j = stmt.executeUpdate(sqlqueryEstudianteUSB);
+            Integer k = stmt.executeUpdate(sqlqueryRepresentante);
+            Integer l = stmt.executeUpdate(sqlqueryAntecedente);
+            Integer m = stmt.executeUpdate(sqlqueryUni1);
+            Integer n = stmt.executeUpdate(sqlqueryUni2);
+            Integer o = stmt.executeUpdate(sqlqueryFinanciamiento);
+            
+            return ((i > 0) && (j > 0) && (k > 0) && (l > 0) && (m > 0) && (n > 0) && (o > 0) );
+            
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
@@ -750,7 +761,7 @@ public class DBMS {
                 datos.setEmail(rs.getString("Email"));
                 datos.setFechaNacimiento(rs.getString("FechaNac"));
                 datos.setNacionalidad(rs.getString("Nacionalidad"));
-                datos.setTlfRep(rs.getString("Telefono"));
+                datos.setCelRep(rs.getString("Telefono"));
                 datos.setEmailRep(rs.getString("EmailRep"));
                 datos.setRelacion(rs.getString("TipoRelacion"));
                 datos.setDireccionRep(rs.getString("Direccion"));
@@ -805,7 +816,7 @@ public class DBMS {
                     // Falta la foto!!
                     //$$$$$$$$$$$$$$$$$
                     // Datos del representante
-                    + "', telefono='" + p.getTlfRep()
+                    + "', telefono='" + p.getCelRep()
                     + "', emailrep='" + p.getEmailRep()
                     + "', tiporelacion='" + p.getRelacion()
                     + "', direccion='" + p.getDireccionRep()
