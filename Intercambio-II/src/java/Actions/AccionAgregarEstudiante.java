@@ -86,6 +86,12 @@ public class AccionAgregarEstudiante extends org.apache.struts.action.Action {
             saveErrors(request, error);
             huboError = true;
         }
+        
+        if (e.getEmail().equals("")) {
+            error.add("email", new ActionMessage("error.email.required"));
+            saveErrors(request, error);
+            huboError = true;
+        }
 
         //String tmp = e.getpNombre();
         e.setNombre(e.getpNombre() + " " + e.getpApellido());
@@ -96,7 +102,7 @@ public class AccionAgregarEstudiante extends org.apache.struts.action.Action {
         } else if (DBMS.getInstance().agregarUsuario(e)) {
 
             //e.setNombre(tmp);
-            if (DBMS.getInstance().agregarEstudiante(e)) {
+            if (DBMS.getInstance().agregarEstudianteUSB(e)) {
 
                 Correo c = new Correo();
                 String asunto = "Su usuario en el Sistema de Gestión de Intercambios ha sido creado";
