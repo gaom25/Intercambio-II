@@ -37,6 +37,7 @@ CREATE TABLE "dycicle".ESTUDIANTE(
         Apartamento     VARCHAR(20),
         Ciudad          VARCHAR(30),
         Estado          VARCHAR(30),
+        CodPostal       VARCHAR(30),
 	TelefonoCel	VARCHAR(30),
 	TelefonoCasa	VARCHAR(30),
 	Fax		VARCHAR(30),
@@ -101,11 +102,9 @@ CREATE TABLE "dycicle".AntecedenteAcademico(
 	NombreUsuario	VARCHAR(20)	NOT NULL,
 	Indice		NUMERIC(5,4),
         IndicePonderado NUMERIC(5,4),
-        TipoEstudiante  VARCHAR(30),
 	Carrera		VARCHAR(30)	NOT NULL,
         Opcion          VARCHAR(30)     NOT NULL,
         CredAprob       NUMERIC(4)      NOT NULL,
-        AniosCursados   NUMERIC(1)      DEFAULT 0,
 	CONSTRAINT	PK_AntecedenteAcademico	
 		PRIMARY KEY (NombreUsuario)
 );
@@ -444,11 +443,6 @@ ALTER TABLE "dycicle".USUARIO ADD
 ALTER TABLE "dycicle".ESTUDIANTE ADD
 	CHECK ((Sexo = 'Masculino') OR (Sexo = 'Femenino')); */
 
-/* El tipo estudiante puede ser pregrado o postgrado */
-ALTER TABLE "dycicle".AntecedenteAcademico ADD
-	CHECK ((TipoEstudiante = 'Pregrado') OR (TipoEstudiante = 'Postgrado'));
-
-
 /* El indice debe estar entre 1 y 5 */
 ALTER TABLE "dycicle".AntecedenteAcademico ADD
 	CHECK ((1.0000 <= Indice) AND (Indice <= 5.0000));
@@ -456,10 +450,6 @@ ALTER TABLE "dycicle".AntecedenteAcademico ADD
 /* El indice ponderado es un numero positivo */
 ALTER TABLE "dycicle".AntecedenteAcademico ADD
 	CHECK (IndicePonderado >= 0.0000);
-
-/* Los anios cursados son mayores que 0 */
-ALTER TABLE "dycicle".AntecedenteAcademico ADD
-	CHECK (AniosCursados >= 0);
 
 /* La cantidad de creditos aprobados es mayor que 0 */
 ALTER TABLE "dycicle".AntecedenteAcademico ADD

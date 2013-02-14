@@ -32,7 +32,10 @@ public class PlanillaUSB extends org.apache.struts.action.ActionForm {
     private String nombre1;         //nombres db
     private String nombre2;       //apellido1 db
     private String sexo;            //sexo db
+    private String urbanizacion;           //db
     private String calle;           //db
+    private String edificio;           //db
+    private String apartamento;           //db
     private String ciudad;          //db
     private String estado;          //db
     private String codPostal;       //db
@@ -72,6 +75,7 @@ public class PlanillaUSB extends org.apache.struts.action.ActionForm {
     private String paisOpcion1;
     //Informacion Academica 
     private String carrera;         //db
+    private String codCarrera;         //db
     private String decanato;         //db
     private String areaEstud;         //db    
     private String indice;          //db
@@ -165,12 +169,36 @@ public class PlanillaUSB extends org.apache.struts.action.ActionForm {
         this.sexo = sexo;
     }
 
+    public String getUrbanizacion() {
+        return urbanizacion;
+    }
+
+    public void setUrbanizacion(String urbanizacion) {
+        this.urbanizacion = urbanizacion;
+    }
+
     public String getCalle() {
         return calle;
     }
 
     public void setCalle(String calle) {
         this.calle = calle;
+    }
+
+    public String getEdificio() {
+        return edificio;
+    }
+
+    public void setEdificio(String edificio) {
+        this.edificio = edificio;
+    }
+
+    public String getApartamento() {
+        return apartamento;
+    }
+
+    public void setApartamento(String apartamento) {
+        this.apartamento = apartamento;
     }
 
     public String getCiudad() {
@@ -518,6 +546,22 @@ public class PlanillaUSB extends org.apache.struts.action.ActionForm {
         this.carrera = carrera;
     }
 
+    public String getNombrePais1() {
+        return nombrePais1;
+    }
+
+    public void setNombrePais1(String nombrePais1) {
+        this.nombrePais1 = nombrePais1;
+    }
+
+    public String getCodCarrera() {
+        return codCarrera;
+    }
+
+    public void setCodCarrera(String codCarrera) {
+        this.codCarrera = codCarrera;
+    }
+    
     public String getIndice() {
         return indice;
     }
