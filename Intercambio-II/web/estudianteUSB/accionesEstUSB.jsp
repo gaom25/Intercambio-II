@@ -76,7 +76,7 @@
             <tbody>
                 <tr>
                     <td >
-                        <p hidden="true"> <html:text name="Usuario" property="nombreusuario" maxlength="20" errorStyleClass="error"
+                        <p hidden="true"> <html:text name="Usuario" property="nombreusuario" value ="<%=tmp.toString()%>" maxlength="20" errorStyleClass="error"
                                    errorKey="org.apache.struts.action.ERROR"></html:text></p>
                         </td>
                         <td>        
