@@ -37,6 +37,7 @@ CREATE TABLE "dycicle".ESTUDIANTE(
         Apartamento     VARCHAR(20),
         Ciudad          VARCHAR(30),
         Estado          VARCHAR(30),
+        CodPostal       VARCHAR(30),
 	TelefonoCel	VARCHAR(30),
 	TelefonoCasa	VARCHAR(30),
 	Fax		VARCHAR(30),
@@ -101,11 +102,9 @@ CREATE TABLE "dycicle".AntecedenteAcademico(
 	NombreUsuario	VARCHAR(20)	NOT NULL,
 	Indice		NUMERIC(5,4),
         IndicePonderado NUMERIC(5,4),
-        TipoEstudiante  VARCHAR(30),
 	Carrera		VARCHAR(30)	NOT NULL,
         Opcion          VARCHAR(30)     NOT NULL,
         CredAprob       NUMERIC(4)      NOT NULL,
-        AniosCursados   NUMERIC(1)      DEFAULT 0,
 	CONSTRAINT	PK_AntecedenteAcademico	
 		PRIMARY KEY (NombreUsuario)
 );
