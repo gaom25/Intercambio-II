@@ -91,7 +91,7 @@ public class AccionAgregarCoordinacion extends org.apache.struts.action.Action {
         if (huboError) {
             return mapping.findForward(ERROR);
         }else if (DBMS.getInstance().agregarUsuario(p)) {
-            if (DBMS.getInstance().agregarCoord(p)) {
+            if (DBMS.getInstance().agregarCoordUSB(p)) {
 
                 Correo c = new Correo();
                 String asunto = "Su usuario en el Sistema de Gestión de Intercambios ha sido creado";

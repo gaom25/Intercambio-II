@@ -16,22 +16,21 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Agregar nueva coordinaci&oacute;n</title>
+        <title>Agregar nueva coordinacion</title>
     </head>
     
     <body onload ="clearForms()" onunload="clearForms()">
 
-        <h4>Creaci&oacute;n de Nueva Coordinaci&oacute;n</h4>
+        <h4>Creaci&oacute;n de nueva coordinacion</h4>
         <h5>Por favor introduzca los datos del nuevo usuario</h5>
-
-        <html:form action="/AccionAgregarCoord"  method="POST" enctype="multipart/form-data" onsubmit="return(this)">
+        <html:form action="/AccionAgregarCoordinacion"  method="POST" enctype="multipart/form-data" onsubmit="return(this)">
             <table border="0" >
                 <tbody>
+                    
                     <tr>
-
-                        <td style="color: black">Nombre de Usuario</td>
+                        <td style="color: black">Nombre de usuario</td>
                         <td>
-                           <html:text name="Postulante" property="nombreusuario" maxlength="20" errorStyleClass="error"
+                            <html:text name="Postulante" property="nombreusuario" maxlength="30" errorStyleClass="error"
                                        errorKey="org.apache.struts.action.ERROR"></html:text>
                             </td>
                             <td>
@@ -42,16 +41,16 @@
                     <tr>
                         <td style="color: black">Email</td>
                         <td>
-                            <html:text name="Postulante" property="email" maxlength="30" errorStyleClass="error" value=""
+                            <html:text name="Postulante" property="email" maxlength="30" errorStyleClass="error"
                                        errorKey="org.apache.struts.action.ERROR"></html:text>
-                        </td>
-                        <td>
+                            </td>
+                            <td>
                             <html:errors property="email" />
                         </td>
                     </tr>
-
+                    
                     <tr>
-                        <td style="color: black">Código de la carrera</td>
+                        <td style="color: black">Codigo de la carrera</td>
                         <td>
                             <html:text name="Postulante" property="codigo" maxlength="30" errorStyleClass="error"
                                        errorKey="org.apache.struts.action.ERROR"></html:text>
@@ -77,10 +76,10 @@
 
             <p style="text-align: center">
                 <html:submit onclick="javascript: return confirm('¿Está seguro que los datos son correctos?')">
-                    Agregar Coordinación
+                    Agregar Coordinacion
                 </html:submit>
             </p>
         </html:form>
-
+        
     </body>
 </html>
