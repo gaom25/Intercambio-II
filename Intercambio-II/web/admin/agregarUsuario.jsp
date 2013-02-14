@@ -17,11 +17,12 @@
     <body onload ="clearForms()" onunload="clearForms()">
 
         <h4>Creaci&oacute;n de Nuevo Usuario</h4>
-        <h5>Porfavor introduzca los datos del nuevo usuario.</h5>
+        <h5>Por favor seleccione el tipo de usuario que desea crear</h5>
 
         <html:form action="/AccionAgregarUsuario"  method="POST" enctype="multipart/form-data" onsubmit="return(this)">
             <table border="0" >
                 <tbody>
+                    <%--
                     <tr>
                         <td style="color: black">Usuario</td>
                         <td>
@@ -53,8 +54,9 @@
                             <html:errors property="nombre" />
                         </td>
                     </tr>
+                    --%>
                     <tr>
-                        <td style="color: black">Privilegios</td>
+                        <td style="color: black">Tipo de usuario</td>
                         <td><html:select  property="privilegio">
                                 <html:option value="2">Decanato</html:option>
                                 <html:option value="2">DRIC</html:option>
@@ -69,7 +71,7 @@
             </table>
 
             <p style="text-align: center">
-                <html:submit onclick="javascript: return confirm('¿Está seguro que los datos son correctos?')">
+                <html:submit>
                     Agregar Usuario
                 </html:submit>
             </p>
