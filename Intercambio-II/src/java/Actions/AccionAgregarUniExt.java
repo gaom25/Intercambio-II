@@ -86,7 +86,7 @@ public class AccionAgregarUniExt extends org.apache.struts.action.Action {
             return mapping.findForward(ERROR);
         }else if (DBMS.getInstance().agregarUsuario(p)) {
             if (DBMS.getInstance().agregarUniExt(p)) {
-
+                
                 Correo c = new Correo();
                 String asunto = "Su usuario en el Sistema de Gestión de Intercambios ha sido creado";
                 String mensaje = "Su usuario en el Sistema de Gestión de Intercambios ha sido creado."
