@@ -312,25 +312,40 @@
        
      <!-- Acciones en Gestor -->
      
+     <!-- Acciones de agregar de administrador -->
+     
        <action input="/" name="EstUSB" path="/AccionAgregarEstudiante" scope="session" type="Actions.AccionAgregarEstudiante">
-            <forward name="success" path = "exitoAgregEst" />
-            <forward name ="fail" path = "falloAgregEst" />
+            <forward name="success" path = "accExito" />
+            <forward name ="fail" path = "accFallo" />
             <forward name="error" path = "agregEstudiantes" />          
        </action>
        
        <action input="/" name="EstInter" path="/AccionAgregarEstudianteInter" scope="session" type="Actions.AccionAgregarEstudianteInter">
-            <forward name="success" path = "exitoAgregEst" />
-            <forward name ="fail" path = "falloAgregEst" />
+            <forward name="success" path = "accExito" />
+            <forward name ="fail" path = "accFallo" />
             <forward name="error" path = "agregEstudiantes" />          
        </action>
        
-      <action input="/" name="Usuario" path="/AccionAgregarUniExt" scope="session" type="Actions.AccionAgregarUniExt"/>
-      <action input="/" name="Usuario" path="/AccionAgregarCoordinacion" scope="session" type="Actions.AccionAgregarCoordinacion"/>
-      <action input="/" name="Usuario" path="/AccionAgregarGestor" scope="session" type="Actions.AccionAgregarGestor"/>
+      <action input="/" name="Postulante" path="/AccionAgregarUniExt" scope="session" type="Actions.AccionAgregarUniExt">
+            <forward name="success" path = "accExito" />
+            <forward name ="failure" path = "accFallo" />
+            <forward name="error" path = "agregEstudiantes" />
+      </action>
+            
+      <action input="/" name="Postulante" path="/AccionAgregarCoordinacion" scope="session" type="Actions.AccionAgregarCoordinacion">
+            <forward name="success" path = "accExito" />
+            <forward name ="failure" path = "accFallo" />
+            <forward name="error" path = "agregEstudiantes" />
+      </action>
+            
+      <action input="/" name="Gestor" path="/AccionAgregarGestor" scope="session" type="Actions.AccionAgregarGestor">
+            <forward name="success" path = "accExito" />
+            <forward name ="failure" path = "accFallo" />
+            <forward name="error" path = "agregEstudiantes" />
+      </action>
                   
-       <action name="EstUSB" path="/AgregarEstudiantes" scope="session" type="Actions.AgregarEstudiantes">
-            <forward name="success" path="agregEstudiante" />
-       </action>
+       
+       <!-- Fin Acciones de agregar de administrador -->
        
        <action name="Usuario" path="/ListarEstudiantes" scope="session" type="Actions.ListarEstudiantes">
            <forward name="failure" path="listarEstudiantes"/>
