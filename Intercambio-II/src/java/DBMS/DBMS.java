@@ -144,7 +144,7 @@ public class DBMS {
     public boolean agregarUniExt(Postulante p) {
         try {
             String sqlquery = "INSERT INTO \"dycicle\".postulante VALUES ('" + p.getNombreusuario()
-                    + "', '" + p.getCodigo() + "', '" + p.getTipo() + "',  '" + p.getNombreUniExt()
+                    + "', '" + p.getNombreUniExt() + "', '" + p.getTipo() + "',  '" + p.getNombreUniExt()
                     + "', null');";
             Statement stmt = conexion.createStatement();
             Integer i = stmt.executeUpdate(sqlquery);
@@ -154,7 +154,7 @@ public class DBMS {
         }
         return false;
     }
-
+    
     public Boolean aceptarPreregistro(Usuario u) {
         try {
             Usuario user = consultarPreregistro(u);
