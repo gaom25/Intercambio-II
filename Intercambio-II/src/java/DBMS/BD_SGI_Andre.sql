@@ -443,11 +443,6 @@ ALTER TABLE "dycicle".USUARIO ADD
 ALTER TABLE "dycicle".ESTUDIANTE ADD
 	CHECK ((Sexo = 'Masculino') OR (Sexo = 'Femenino')); */
 
-/* El tipo estudiante puede ser pregrado o postgrado */
-ALTER TABLE "dycicle".AntecedenteAcademico ADD
-	CHECK ((TipoEstudiante = 'Pregrado') OR (TipoEstudiante = 'Postgrado'));
-
-
 /* El indice debe estar entre 1 y 5 */
 ALTER TABLE "dycicle".AntecedenteAcademico ADD
 	CHECK ((1.0000 <= Indice) AND (Indice <= 5.0000));
@@ -455,10 +450,6 @@ ALTER TABLE "dycicle".AntecedenteAcademico ADD
 /* El indice ponderado es un numero positivo */
 ALTER TABLE "dycicle".AntecedenteAcademico ADD
 	CHECK (IndicePonderado >= 0.0000);
-
-/* Los anios cursados son mayores que 0 */
-ALTER TABLE "dycicle".AntecedenteAcademico ADD
-	CHECK (AniosCursados >= 0);
 
 /* La cantidad de creditos aprobados es mayor que 0 */
 ALTER TABLE "dycicle".AntecedenteAcademico ADD
