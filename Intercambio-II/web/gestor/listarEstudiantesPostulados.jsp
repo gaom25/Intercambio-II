@@ -64,8 +64,9 @@
                             <html:image src="images/postulacion.png" styleClass="button" value="" property="" style=""/> 
                         <html:select name="Usuario" property="confirmar">
                             <html:option value="">Nvo Estado</html:option>
-                            <html:option value="Tramitando">Tramitando</html:option>
-                            <html:option value="Aprobado">Aprobado</html:option>
+                            <html:option value="Aceptado">Tramitando</html:option>
+                            <html:option value="En Evaluacion">Aprobado</html:option>
+                            <html:option value="Retenido">Rechazado</html:option>
                             <html:option value="Rechazado">Rechazado</html:option>
                         </html:select>
                     </html:form>
