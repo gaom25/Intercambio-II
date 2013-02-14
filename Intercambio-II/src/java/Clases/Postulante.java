@@ -16,9 +16,8 @@ import org.apache.struts.action.ActionMessage;
  *
  * @author dreabalbas
  */
-public class Postulante extends org.apache.struts.validator.ValidatorForm {
+public class Postulante extends Usuario {
     
-    private String nombreusuario;
     private String codigo;
     private String tipo;
     private String nombreUniExt;
@@ -26,14 +25,6 @@ public class Postulante extends org.apache.struts.validator.ValidatorForm {
     
     public Postulante(){
         super();
-    }
-
-    public String getNombreusuario() {
-        return nombreusuario;
-    }
-
-    public void setNombreusuario(String nombreusuario) {
-        this.nombreusuario = nombreusuario;
     }
 
     public String getCodigo() {
@@ -67,6 +58,5 @@ public class Postulante extends org.apache.struts.validator.ValidatorForm {
     public void setNombreCarrera(String nombreCarrera) {
         this.nombreCarrera = nombreCarrera;
     }
-    
     
 }
