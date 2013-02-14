@@ -66,18 +66,16 @@ public class AccionAgregarEstudiante extends org.apache.struts.action.Action {
         String mail = e.getEmail();
 
         e.setPrivilegio(5);
-
-
         e.setContrasena(pswd);
         e.setConfirmar(confPswd);
 
         if (e.getNombreusuario().equals("")) {
-            error.add("nombreusuario", new ActionMessage("error.nombreusuario.required"));
+            error.add("nombreUsuario", new ActionMessage("error.nombreusuario.required"));
             saveErrors(request, error);
             huboError = true;
         }
 
-        if (e.getNombre().equals("")) {
+        if (e.getpNombre().equals("")) {
             error.add("nombres", new ActionMessage("error.nombre.required"));
             saveErrors(request, error);
             huboError = true;
@@ -89,9 +87,7 @@ public class AccionAgregarEstudiante extends org.apache.struts.action.Action {
             huboError = true;
         }
 
-        System.out.println();
-
-        String tmp = e.getNombre();
+        //String tmp = e.getpNombre();
         e.setNombre(e.getpNombre() + " " + e.getpApellido());
         // Si hubo error lo notifica, si no, procede a agregar en la BD.
         if (huboError) {
@@ -99,7 +95,7 @@ public class AccionAgregarEstudiante extends org.apache.struts.action.Action {
 
         } else if (DBMS.getInstance().agregarUsuario(e)) {
 
-            e.setNombre(tmp);
+            //e.setNombre(tmp);
             if (DBMS.getInstance().agregarEstudiante(e)) {
 
                 Correo c = new Correo();
