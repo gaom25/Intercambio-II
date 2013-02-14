@@ -30,7 +30,6 @@ public class LlenarPlanilla_EstUSB extends org.apache.struts.action.Action {
     private static final String FAIL = "fail";
     private static final String ERROR = "error";
     private static final String MODIFICAR = "modificar";
-    
     private Pattern patron;
     private Matcher match;
 
@@ -196,9 +195,9 @@ public class LlenarPlanilla_EstUSB extends org.apache.struts.action.Action {
 //            huboError = true;
 //        }
 //
-        
-        
-        
+
+
+
 //        //Verifica que el email del Representante no sea vacio y que este estructurado correctamente.
 //        if (p.getEmailRep().equals("")) {
 //            error.add("emailRep", new ActionMessage("error.email.required"));
@@ -224,7 +223,7 @@ public class LlenarPlanilla_EstUSB extends org.apache.struts.action.Action {
 //            huboError = true;
 //        }
 
-        
+
 //  ############### Comparar ambas fechas
 //        
 //        else if ((p.getFechaIni1().compareTo(p.getFechaFin1())) >= 0) {
@@ -234,7 +233,7 @@ public class LlenarPlanilla_EstUSB extends org.apache.struts.action.Action {
 //        }
 
 
-      
+
 
 // ############# Comparar ambas fechas.
 //        if ((p.getFechaIni2().compareTo(p.getFechaFin2())) >= 0) {
@@ -260,26 +259,26 @@ public class LlenarPlanilla_EstUSB extends org.apache.struts.action.Action {
         Usuario u = new Usuario();
         u.setNombreusuario(p.getNombreUsuario());
         u.setConfirmar(p.getPeriodo());
-        
+
         PlanillaUSB hay = DBMS.getInstance().obtenerPlanillaUSB(u);
 
-        
+
         if (huboError) {
             return mapping.findForward(ERROR);
 
-        } else if (hay.getNombreUsuario() != null){
-           
-            if (DBMS.getInstance().modificarPlanillaUSB(p)){
-               return mapping.findForward(SUCCESS);      
-            }else{
-               return mapping.findForward(FAIL);
+        } else if (hay.getNombreUsuario() != null) {
+
+            if (DBMS.getInstance().modificarPlanillaUSB(p)) {
+                return mapping.findForward(SUCCESS);
+            } else {
+                return mapping.findForward(FAIL);
             }
-//        }else if (DBMS.getInstance().agregarPlanillaUSB(p)) {
-  //          return mapping.findForward(SUCCESS);
+        } else if (DBMS.getInstance().agregarPlanillaUSB(p)) {
+            return mapping.findForward(SUCCESS);
 
         } else {
             return mapping.findForward(FAIL);
-            
+
         }
     }
 }

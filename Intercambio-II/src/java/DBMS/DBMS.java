@@ -644,7 +644,7 @@ public class DBMS {
                     + "TelefonoCel = '" + p.getTelefonoCelular() + "', "
                     + "TelefonoCasa = '" + p.getTelefonoCasa() + "', "
                     + "Fax = '" + p.getFax() + "', "
-                    + "FechaNac = '" + p.getFax() + "', "
+                    + "FechaNac = '" + p.getFechaNacimiento() + "', "
                     + "Nacionalidad = '" + p.getNacionalidad() + "'";
                     //$$$$$$$$$$$$$$$$$
                     // Falta la foto!!
@@ -708,7 +708,7 @@ public class DBMS {
                     + "PpalFuente = '" + p.getFuenteFinanciamiento() + "', "
                     + "DescrFuente = '" + p.getDescripcion1() + "', "
                     + "TieneAyudaEc = '" + p.getAyudaEc() + "', "
-                    + "DescrAyudaEc = '" + p.getDescripcion2() + "')";
+                    + "DescrAyudaEc = '" + p.getDescripcion2() + "')'";
 
             Statement stmt = conexion.createStatement();
 
