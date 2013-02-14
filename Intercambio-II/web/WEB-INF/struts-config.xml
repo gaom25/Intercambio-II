@@ -19,6 +19,7 @@
         <form-bean name="Idiomas" type="Clases.Idiomas"/>
         <form-bean name="PlanDeEstudio" type ="Clases.PlanDeEstudio"/>
         <form-bean name="RegistrationForm" type="Clases.RegistrationForm"/>
+         <form-bean name="BusquedaAvanzada" type="Clases.Busqueda"/>
  
     </form-beans>
        
@@ -97,6 +98,14 @@
             scope="request"
             validate="false"
         parameter="salida"/> -->
+        
+        
+        
+        <!-- Busqueda avanzada-->
+        <action name="Usuario" path="/AccionBusquedaAvanzada" scope="session" type="Actions.AccionBusquedaAvanzada">
+           <forward name="failure" path="accFallo"/>
+           <forward name="success" path="listarEstudiantesPostulados"/>
+       </action>
         
         
         <!-- desde admin -->
