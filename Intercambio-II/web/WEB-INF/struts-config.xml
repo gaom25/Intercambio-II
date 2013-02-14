@@ -347,6 +347,29 @@
        
        <!-- Fin Acciones de agregar de administrador -->
        
+       
+       <!-- Acciones para agregar estudiante desde postulante -->
+       
+       <action input="/" name="EstUSB" path="/AgregarEstudiantes" scope="session" type="Actions.AgregarEstudiantes">
+            <forward name="cord" path = "agregEstUsb" />   
+            <forward name="uniex" path = "agregEstInt" />      
+       </action>
+       
+       <action input="/" name="EstInter" path="/AgregarEstudianteInter" scope="session" type="Actions.AgregarEstudianteInter">
+            <forward name="success" path = "exitoAgregEst" />
+            <forward name ="fail" path = "falloAgregEst" />
+            <forward name="error" path = "agregEstUsb" />          
+       </action>
+       
+       <action input="/" name="EstUSB" path="/AgregarEstudianteUsb" scope="session" type="Actions.AgregarEstudianteUsb">
+            <forward name="success" path = "exitoAgregEst" />
+            <forward name ="fail" path = "falloAgregEst" />
+            <forward name="error" path = "agregEstUsb" />          
+       </action>
+       
+       <!-- Fin Acciones para agregar estudiante -->
+       
+       
        <action name="Usuario" path="/ListarEstudiantes" scope="session" type="Actions.ListarEstudiantes">
            <forward name="failure" path="listarEstudiantes"/>
            <forward name="success" path="listarEstudiantes" />

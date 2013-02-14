@@ -339,6 +339,14 @@
                 <put name="body" value="/postulante/contactoCoord.jsp"/>
             </definition>
             
+            <definition name="agregEstUsb" extends="baseCoordinaciones">
+                <put name="body" value="/postulante/agregarEstudianteUSB.jsp" />
+            </definition>
+            
+            <definition name="agregEstInt" extends="baseCoordinaciones">
+                <put name="body" value="/postulante/agregarEstudianteInter.jsp" />
+            </definition>
+            
             <definition name="exitoContactoCoord" extends="baseCoordinaciones"> <!-- pagina de exito contacto de coordinaciones -->
                 <put name="body" value="/postulante/exitoContactoCoord.jsp"/>
             </definition>
