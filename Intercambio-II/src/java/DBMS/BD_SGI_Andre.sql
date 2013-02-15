@@ -78,7 +78,7 @@ CREATE TABLE "dycicle".EstudianteInternacional(
 CREATE TABLE "dycicle".ArchivosEstudiante(
 	NombreUsuario	VARCHAR(20)	NOT NULL,
 	Nombre		VARCHAR(30)	NOT NULL,	
-	Direccion	VARCHAR(100)	NOT NULL,
+	Direccion	VARCHAR(200)	NOT NULL,
 	Extension	VARCHAR(10)	NOT NULL,
 	Tamanio		VARCHAR(30)	NOT NULL,
 	CONSTRAINT	PK_ArchivosEstudiante	
@@ -207,18 +207,18 @@ CREATE TABLE "dycicle".PeriodosPlan(
 /* En  esta  tabla  se  tienen  todos los datos necesarios
  * de los representantes de un estudiante en particular */
 CREATE TABLE "dycicle".REPRESENTANTE(
-        NombreUsuario   VARCHAR(20)     NOT NULL,
-	pNombre         VARCHAR(30)	NOT NULL,
-	sNombre         VARCHAR(30),
-        pApellido       VARCHAR(30)     NOT NULL,
-        sApellidos      VARCHAR(30),
-	TelefonoCel	VARCHAR(30)	NOT NULL,
-        TelefonoHab     VARCHAR(30),
-	Email		VARCHAR(30)	NOT NULL,
-	TipoRelacion	VARCHAR(30)	NOT NULL,
-	Direccion	VARCHAR(140)	NOT NULL,
-	CONSTRAINT	PK_REPRESENTANTE
-		PRIMARY KEY (NombreUsuario)
+       NombreUsuario   VARCHAR(20)     NOT NULL,
+       pNombre         VARCHAR(30)        NOT NULL,
+       sNombre         VARCHAR(30),
+       pApellido       VARCHAR(30)     NOT NULL,
+       sApellido      VARCHAR(30),
+       TelefonoCel        VARCHAR(30)        NOT NULL,
+       TelefonoHab     VARCHAR(30),
+       EmailRep        VARCHAR(30)        NOT NULL,
+       TipoRelacion        VARCHAR(30)        NOT NULL,
+       Direccion        VARCHAR(140)        NOT NULL,
+       CONSTRAINT        PK_REPRESENTANTE
+               PRIMARY KEY (NombreUsuario)
 );
 
 /* Tabla que guarda las relaciones existentes entre los
