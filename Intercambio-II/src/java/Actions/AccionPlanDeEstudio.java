@@ -39,15 +39,6 @@ public class AccionPlanDeEstudio extends Action {
         ArrayList crediuni = plan.getListCreditoUniv();
         ArrayList nomuni = plan.getListMateriaUniv();
         
-        /*Imprimimos los tamaños de cada arralista para saber si la informacion
-         se esta pasando correctamente*/
-        System.out.println(codiusb.size());
-        System.out.println(crediusb.size());
-        System.out.println(nomusb.size());
-        System.out.println(codiuni.size());
-        System.out.println(crediuni.size());
-        System.out.println(nomuni.size());
-        System.out.println(nom);
         
         /*Llamamos a la funcion para que guarde en la base de datos el plan
          de estudio de un estudiante*/

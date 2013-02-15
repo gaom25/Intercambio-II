@@ -4,6 +4,7 @@
  */
 package Actions;
 
+import Clases.EstudianteUSB;
 import java.io.File;
 import java.io.FileOutputStream;
 import javax.servlet.http.HttpSession;
@@ -50,6 +51,10 @@ public class FileUploadAction extends Action {
         }
         /*en caso contrario*/
         user.setNombreusuario(nom);
+        EstudianteUSB est = new EstudianteUSB();
+        est.setNombreusuario(user.getNombreusuario());
+        est.setCarnet("0");
+        est.setCedula("0");
 
         //buscamos el path real para guardar el archivo, 
         //este path lo guarda en el la capeta build/web/Documentos
@@ -59,7 +64,7 @@ public class FileUploadAction extends Action {
         String documentos = getServlet().getServletContext().getRealPath("/") + "Documentos/";
         /*Guardamos el path de los archivos relacionados a un usuario en la base
          de datos*/
-        if(!DBMS.getInstance().InsertarPath(filePath,user)){
+        if(!DBMS.getInstance().InsertarPath(filePath,est)){
             System.out.println("No funciona el insertar");
         }
         
