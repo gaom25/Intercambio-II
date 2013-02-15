@@ -102,6 +102,104 @@
                
         }
         
+       
+        function addIdi(tableID) {
+            Count++;
+
+            var fObject = document.getElementById(tableID);
+            var checkbox = "checkbox";
+            var idioma = "idiomaDest[" +  Count +  "]";
+            var verbal = "nivelVerbal[" +  Count +  "]";
+            var escrito = "nivelEscrito[" +  Count +  "]";
+            var basico = "Basico";
+            var intermedio = "Intermedio";
+            var avanzado = "Avanzado";
+            var arr = "chk[]";
+            var type = "text";
+            
+            var tit1 = "Idioma que maneja";
+            var tit2 = "Nivel Verbal";
+            var tit3 = "Nivel Escrito";
+            var o2 = document.createElement("input");
+            var check = document.createElement("input");
+            var op1 = document.createElement("option");
+            var op2 = document.createElement("option");
+            var op3 = document.createElement("option");
+            var op4 = document.createElement("option");
+            var op5 = document.createElement("option");
+            var op6 = document.createElement("option");
+            var op7 = document.createElement("option");
+            var op8 = document.createElement("option");
+            var tr = document.createElement("tr");
+            var select1 = document.createElement("select");
+            var select2 =document.createElement("select");
+            var td = document.createElement("td");
+            var td2 = document.createElement("td");
+            var td3 = document.createElement("td");
+            var td4 = document.createElement("td");
+            var td5 = document.createElement("td");
+            var td6 = document.createElement("td");
+            var td7 = document.createElement("td");
+            var td8 = document.createElement("td");
+            var td9 = document.createElement("td");
+                
+            //Atributos para el checkbox
+            check.setAttribute("type",checkbox);
+            check.setAttribute("name",arr);
+            op1.setAttribute("value",basico);
+            op1.innerHTML = "Basico";
+            op4.setAttribute("value",basico);
+            op4.innerHTML = "Basico";
+            op2.setAttribute("value",intermedio);
+            op2.innerHTML = "Intermedio";
+            op5.setAttribute("value",intermedio);
+            op5.innerHTML = "Intermedio";
+            op3.setAttribute("value",avanzado);
+            op3.innerHTML = "Avanzado";
+            op6.setAttribute("value",avanzado);
+            op6.innerHTML = "Avanzado";
+            op7.setAttribute("value","")
+            op8.setAttribute("value","")
+            
+            o2.setAttribute("type",type);
+            o2.setAttribute("name",idioma);
+            op1.setAttribute("value",basico);
+            op2.setAttribute("value", intermedio);
+            op3.setAttribute("value",avanzado);
+            select1.setAttribute("name",verbal);
+            select2.setAttribute("name",escrito);
+            
+            td7.appendChild(check);
+            tr.appendChild(td7);
+            td.innerHTML = tit1;
+            tr.appendChild(td);
+            td2.appendChild(o2);
+            tr.appendChild(td2);
+            
+            td3.innerHTML = tit2;
+            tr.appendChild(td3);
+            select1.appendChild(op7);
+            select1.appendChild(op1);
+            select1.appendChild(op2);
+            select1.appendChild(op3);
+            td4.appendChild(select1);
+            tr.appendChild(td4);
+            
+            td5.innerHTML = tit3;
+            tr.appendChild(td5);
+            select2.appendChild(op8);
+            select2.appendChild(op4);
+            select2.appendChild(op5);
+            select2.appendChild(op6);
+            td6.appendChild(select2);
+            tr.appendChild(td6);
+            
+            fObject.appendChild(tr);
+                
+               
+        }
+         
+        
         
         function addRow(tableID) {
             fCount++;
@@ -1373,6 +1471,7 @@
                     </table>
                     <input type="button"  value="Agregar Materia" style="font-size:16px; padding:4px 6px;" onclick="addMate('MateBody')"/>
                     <input type="button" value="Eliminar Materia" style="font-size:16px; padding:4px 6px" onclick="deletePlan('MateBody')"/>
+
                 </div>
             </div>
             <p  align=center>
