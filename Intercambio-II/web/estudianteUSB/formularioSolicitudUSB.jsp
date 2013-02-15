@@ -102,6 +102,104 @@
                
         }
         
+       
+        function addIdi(tableID) {
+            Count++;
+
+            var fObject = document.getElementById(tableID);
+            var checkbox = "checkbox";
+            var idioma = "idiomaDest[" +  Count +  "]";
+            var verbal = "nivelVerbal[" +  Count +  "]";
+            var escrito = "nivelEscrito[" +  Count +  "]";
+            var basico = "Basico";
+            var intermedio = "Intermedio";
+            var avanzado = "Avanzado";
+            var arr = "chk[]";
+            var type = "text";
+            
+            var tit1 = "Idioma que maneja";
+            var tit2 = "Nivel Verbal";
+            var tit3 = "Nivel Escrito";
+            var o2 = document.createElement("input");
+            var check = document.createElement("input");
+            var op1 = document.createElement("option");
+            var op2 = document.createElement("option");
+            var op3 = document.createElement("option");
+            var op4 = document.createElement("option");
+            var op5 = document.createElement("option");
+            var op6 = document.createElement("option");
+            var op7 = document.createElement("option");
+            var op8 = document.createElement("option");
+            var tr = document.createElement("tr");
+            var select1 = document.createElement("select");
+            var select2 =document.createElement("select");
+            var td = document.createElement("td");
+            var td2 = document.createElement("td");
+            var td3 = document.createElement("td");
+            var td4 = document.createElement("td");
+            var td5 = document.createElement("td");
+            var td6 = document.createElement("td");
+            var td7 = document.createElement("td");
+            var td8 = document.createElement("td");
+            var td9 = document.createElement("td");
+                
+            //Atributos para el checkbox
+            check.setAttribute("type",checkbox);
+            check.setAttribute("name",arr);
+            op1.setAttribute("value",basico);
+            op1.innerHTML = "Basico";
+            op4.setAttribute("value",basico);
+            op4.innerHTML = "Basico";
+            op2.setAttribute("value",intermedio);
+            op2.innerHTML = "Intermedio";
+            op5.setAttribute("value",intermedio);
+            op5.innerHTML = "Intermedio";
+            op3.setAttribute("value",avanzado);
+            op3.innerHTML = "Avanzado";
+            op6.setAttribute("value",avanzado);
+            op6.innerHTML = "Avanzado";
+            op7.setAttribute("value","")
+            op8.setAttribute("value","")
+            
+            o2.setAttribute("type",type);
+            o2.setAttribute("name",idioma);
+            op1.setAttribute("value",basico);
+            op2.setAttribute("value", intermedio);
+            op3.setAttribute("value",avanzado);
+            select1.setAttribute("name",verbal);
+            select2.setAttribute("name",escrito);
+            
+            td7.appendChild(check);
+            tr.appendChild(td7);
+            td.innerHTML = tit1;
+            tr.appendChild(td);
+            td2.appendChild(o2);
+            tr.appendChild(td2);
+            
+            td3.innerHTML = tit2;
+            tr.appendChild(td3);
+            select1.appendChild(op7);
+            select1.appendChild(op1);
+            select1.appendChild(op2);
+            select1.appendChild(op3);
+            td4.appendChild(select1);
+            tr.appendChild(td4);
+            
+            td5.innerHTML = tit3;
+            tr.appendChild(td5);
+            select2.appendChild(op8);
+            select2.appendChild(op4);
+            select2.appendChild(op5);
+            select2.appendChild(op6);
+            td6.appendChild(select2);
+            tr.appendChild(td6);
+            
+            fObject.appendChild(tr);
+                
+               
+        }
+         
+        
         
         function addRow(tableID) {
             fCount++;
@@ -1198,37 +1296,64 @@
                 <tr>
                     <td><br/> <strong>Conocimiento de Idiomas</strong></td>
                 </tr>  
-                    <tr>
-                        <td> Idioma a Emplear en Univ. Destino </td>
-                        <td>
-                            <html:text name="PlanillaUSB" property="idiomaDest" maxlength="60"  errorStyleClass="error"
-                                       errorKey="org.apache.struts.action.ERROR">
-                            </html:text>
-                        </td>
-                        <td>
-                            <html:errors property="idiomaDest" />
-                        </td>
-                    </tr>
+ 
                 <tr>
-                <td> Nivel Verbal: </td>
-                    <td><html:select name="PlanillaUSB" property="nivelVerbal">
-                            <html:option value="Seleccione"></html:option>
-                            <html:option value="Básico"></html:option>
-                            <html:option value="Medio"></html:option>
-                            <html:option value="Avanzado"></html:option>
-                        </html:select>              
-                    </td>
-                </tr>  
-                <tr>
-                <td> Nivel Escrito: </td>
-                    <td><html:select name="PlanillaUSB" property="nivelEscrito">
-                            <html:option value="Seleccione"></html:option>
-                            <html:option value="Básico"></html:option>
-                            <html:option value="Medio"></html:option>
-                            <html:option value="Avanzado"></html:option>
-                        </html:select>              
-                    </td>
+                <td> Idiomas: </td>
+                <td>
+                <html:form action="/CargarIdioma" method="post" enctype="multipart/form-data">
+                    <br />
+                    <p hidden="true"><html:text name="Idiomas" property="nombreusuario" maxlength="20" errorStyleClass="error" value ="<%=var.toString()%>"
+                               errorKey="org.apache.struts.action.ERROR"></html:text></p>
+
+
+                    <table border="0"  align="center" style="margin-left: auto;margin-right: auto">
+                        <tbody id ="IdioBody">
+
+                            <tr>
+                                <td><INPUT type="checkbox" name="ch[]"/></td>
+                                <td> Idioma que maneja:</td>
+
+                                <td>
+                                    <html:text name="Idiomas" property="idiomaDest[0]" maxlength="45" errorStyleClass="error"
+                                               errorKey="org.apache.struts.action.ERROR">
+                                    </html:text>
+                                </td>
+
+                                <td>Nivel Verbal</td>
+
+                                <td>
+
+                                    <html:select property="nivelVerbal[0]" errorStyleClass="error" errorKey="org.apache.struts.action.ERROR">
+                                        <html:option value=""></html:option>
+                                        <html:option value="Basico">Basico</html:option>
+                                        <html:option value="Intermedio">Intermedio</html:option>
+                                        <html:option value="Avanzado">Avanzado</html:option>
+                                    </html:select>
+                                </td>
+
+                                <td>Nivel Escrito</td>
+
+                                <td>
+                                    <html:select property="nivelEscrito[0]" errorStyleClass="error" errorKey="org.apache.struts.action.ERROR">
+                                        <html:option value=""></html:option>
+                                        <html:option value="Basico">Basico</html:option>
+                                        <html:option value="Intermedio">Intermedio</html:option>
+                                        <html:option value="Avanzado">Avanzado</html:option>
+                                    </html:select>
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+                    </table>
+                    <input type="button"  value="Especificar Otro Idioma" style="font-size:16px; padding:4px 6px;" onclick="addIdi('IdioBody')"/>
+                    <input type="button" value="Eliminar Seleccionados" style="font-size:16px; padding:4px 6px" onclick="deleteRow('IdioBody')"/>
+                    </html:form>
+                </td>
                 </tr>                
+                
+                
+                
                 <tr>
                     <td> <br/> <strong>Datos en Caso de Emergencia</strong></td>
                 </tr>     
