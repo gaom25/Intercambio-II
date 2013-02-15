@@ -1203,26 +1203,51 @@ public class DBMS {
     public ArrayList<Usuario> listarBusquedaAvanzada(Busqueda busqueda) {
 
         ArrayList<Usuario> usrs = new ArrayList<Usuario>(0);
-        if (busqueda.getIndice() == null || busqueda.getIndice().length() == 0) {
-            busqueda.setIndice("%");
+        
+        if (busqueda.getNombre() == null || busqueda.getNombre().length() == 0) {
+            busqueda.setNombre("%");
         }
+        
+        if (busqueda.getApellido() == null || busqueda.getApellido().length() == 0) {
+            busqueda.setApellido("%");
+        }
+        
+        if (busqueda.getCarnet() == null || busqueda.getCarnet().length() == 0) {
+            busqueda.setCarnet("%");
+        }
+        
+        if (busqueda.getIndice() == null || busqueda.getIndice().length() == 0) {
+            busqueda.setIndice("~ '^[0-9]'");
+        }
+        
+        if (busqueda.getIndicePonderado() == null || busqueda.getIndicePonderado().length() == 0) {
+            busqueda.setIndicePonderado("~ '^[0-9]'");
+        }
+        
         if (busqueda.getCarrera() == null || busqueda.getCarrera().length() == 0) {
             busqueda.setCarrera("%");
         }
-        if (busqueda.getDestino() == null || busqueda.getDestino().length() == 0) {
-            busqueda.setDestino("%");
+        
+        if (busqueda.getOpcion1() == null || busqueda.getOpcion1().length() == 0) {
+            busqueda.setOpcion1("%");
         }
-        if (busqueda.getCohorte() == null || busqueda.getCohorte().length() == 0) {
-            busqueda.setCohorte("%");
+        
+        if (busqueda.getOpcion2() == null || busqueda.getOpcion2().length() == 0) {
+            busqueda.setOpcion2("%");
         }
-
+        
         try {
             String sqlquery = "SELECT * FROM \"dycicle\".estudiante NATURAL JOIN"
-                    + "\"dycicle\".AntecedenteAcademico WHERE "
-                    + "(indice LIKE '" + busqueda.getIndice() + "') AND "
-                    + "(carrera LIKE '" + busqueda.getCarrera() + "') AND"
-                    + "(opcion LIKE '" + busqueda.getDestino() + "') AND"
-                    + "(carnet LIKE '" + busqueda.getCohorte() + "%');";
+                    + "\"dycicle\".AntecedenteAcademico NATURAL JOIN "
+                    + "\"dycicle\".PlanillaUSB WHERE "
+                    + "(nombre LIKE '" + busqueda.getNombre() + "') AND "
+                    + "(apellido LIKE '" + busqueda.getApellido() + "') AND"
+                    + "(carnet LIKE '" + busqueda.getCarnet() + "') AND"
+                    + "(indice " + busqueda.getIndice() + ") AND"
+                    + "(indicePonderado "+ busqueda.getIndicePonderado()+") AND"
+                    + "(carrera LIKE '"+ busqueda.getCarrera()+"') AND"
+                    + "(universidad1 LIKE '"+busqueda.getOpcion1()+"') AND"
+                    + "(universidad2 LIKE '"+busqueda.getOpcion2()+"');";
             Statement stmt = conexion.createStatement();
             ResultSet rs = stmt.executeQuery(sqlquery);
 
