@@ -477,6 +477,7 @@
        <action input="/" name="Usuario" path="/GenerarCarpeta" scope="session" type="Actions.GenerarCarpeta">
            <forward name="success" path="creacionplanillacorrecta" />
            <forward name="error" path="planillaIncompleta" />
+           <forward name="vacio" path="sinArchivos" />
        </action>      
 
 
