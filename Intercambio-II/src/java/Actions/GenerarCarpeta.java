@@ -77,7 +77,7 @@ public class GenerarCarpeta extends org.apache.struts.action.Action {
         Document document = new Document(PageSize.LETTER);
 
         // Archivo de salida
-        String OUTPUTFILE = "/home/gustavo/Escritorio/prueba.pdf";
+        String OUTPUTFILE = "/home/dreabalbas/Desktop/prueba.pdf";
 
         PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream(OUTPUTFILE));
         document.open();

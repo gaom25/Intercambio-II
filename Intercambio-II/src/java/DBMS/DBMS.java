@@ -230,12 +230,20 @@ public class DBMS {
                     + "'" + e.getCarrera() + "', "
                     + "'opcion', '0');";
 
+            
+            
+            String sqlqueryPostulacion = "INSERT INTO \"dycicle\".Postulacion VALUES ('"
+                    + e.getNombreusuario() + "', "
+                    + "'En evaluacion', "
+                    + "'recomendacion', "
+                    + "'comentario');";
 
             Statement stmt = conexion.createStatement();
             Integer i = stmt.executeUpdate(sqlquery1);
             Integer j = stmt.executeUpdate(sqlquery2);
             Integer k = stmt.executeUpdate(sqlqueryAntecedente);
-
+            Integer l = stmt.executeUpdate(sqlqueryPostulacion);
+            
             /*
              if (i > 0 && j > 0) {
              PlanillaUSB p = new PlanillaUSB();
@@ -246,7 +254,7 @@ public class DBMS {
              return res;
              }*/
 
-            return i > 0 && j > 0;
+            return i > 0 && j > 0 && k > 0 && l > 0;
 
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -326,12 +334,12 @@ public class DBMS {
         }
         return false;
     }
-
-    public Usuario obtenerEstadoSolicitud(Usuario u) {
+    
+        public Usuario obtenerEstadoSolicitud(Usuario u) {
         try {
 
             String sqlquery = "SELECT estadopostulacion"
-                    + " FROM \"dycicle\".Consulta, \"dycicle\".POSTULACION SET"
+                    + " FROM \"dycicle\".POSTULACION"
                     + " WHERE nombreusuario = '" + u.getNombreusuario() + "'";
 
             Statement stmt = conexion.createStatement();
@@ -348,39 +356,27 @@ public class DBMS {
         }
         return null;
     }
-
+    
+    
     public Boolean cambiarEstadoSolicitud(Usuario u) {
         try {
-
-            String sqlquery = "SELECT numero FROM \"dycicle\".Consulta"
-                    + " WHERE nombreusuario = '" + u.getNombreusuario() + "'";
+            String sqlquery = "UPDATE \"dycicle\".POSTULACION SET estadopostulacion ='"
+                        + u.getConfirmar()
+                        + "' WHERE nombreusuario = '"
+                        + u.getNombreusuario() + "'";
 
             Statement stmt = conexion.createStatement();
-            ResultSet rs = stmt.executeQuery(sqlquery);
-
-            int numero = -1;
-            while (rs.next()) {
-                numero = rs.getInt("numero");
-            }
-
-            if (numero != -1) {
-                sqlquery = "UPDATE \"dycicle\".POSTULACION SET estadopostulacion ='"
-                        + u.getConfirmar()
-                        + "' WHERE numero = '"
-                        + numero + "'";
-
-                stmt = conexion.createStatement();
-                Integer i = stmt.executeUpdate(sqlquery);
-                return i > 0;
-            } else {
-                return false;
-            }
+            Integer i = stmt.executeUpdate(sqlquery);
+                
+            return i > 0;
 
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
         return false;
     }
+    
+    
 
     public Boolean modificarPerfil(Usuario u) {
         try {

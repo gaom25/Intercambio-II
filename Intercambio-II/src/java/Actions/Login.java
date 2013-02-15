@@ -15,6 +15,7 @@ import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionMessage;
 import DBMS.*;
+import java.util.ArrayList;
 import nl.captcha.Captcha;
 
 /**
@@ -86,6 +87,8 @@ public class Login extends org.apache.struts.action.Action {
                     session.setAttribute("nombreusuario", tmp.getNombreusuario());
                     return mapping.findForward(ADMIN);
                 } else if (tmp.getPrivilegio() == 2) {
+                    ArrayList<Usuario> users = DBMS.getInstance().listarEstudiantesPostulados();
+                    request.setAttribute("usuarios", users);
                     request.setAttribute("usuario", tmp);
                     session.setAttribute("nombre", tmp.getNombre());
                     session.setAttribute("nombreusuario", tmp.getNombreusuario());

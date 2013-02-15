@@ -19,6 +19,7 @@
         <form-bean name="Idiomas" type="Clases.Idiomas"/>
         <form-bean name="PlanDeEstudio" type ="Clases.PlanDeEstudio"/>
         <form-bean name="RegistrationForm" type="Clases.RegistrationForm"/>
+        <form-bean name="gestor" type="Clases.Gestor"/>
          <form-bean name="BusquedaAvanzada" type="Clases.Busqueda"/>
  
     </form-beans>
@@ -102,7 +103,7 @@
         
         
         <!-- Busqueda avanzada-->
-        <action name="Usuario" path="/AccionBusquedaAvanzada" scope="session" type="Actions.AccionBusquedaAvanzada">
+        <action name="BusquedaAvanzada" path="/AccionBusquedaAvanzada" scope="session" type="Actions.AccionBusquedaAvanzada">
            <forward name="failure" path="accFallo"/>
            <forward name="success" path="listarEstudiantesPostulados"/>
        </action>
@@ -191,7 +192,7 @@
         <action path="/Login" type="Actions.Login" name="Usuario">
             <forward name="failure" path="datosErrados"/>
             <forward name="administrador" path="accionesAdmin" />
-            <forward name="gestor" path="accionesGestor" />
+            <forward name="gestor" path="listarEstudiantesPostulados" />
             <forward name="coordinacion" path="accionesPostulante" />
             <forward name="univExt" path="welcomeCoord" />
             <forward name="estUSB" path="accionesEstUSB" />
@@ -347,7 +348,7 @@
             <forward name="error" path = "agregEstudiantes" />
       </action>
             
-      <action input="/" name="Gestor" path="/AccionAgregarGestor" scope="session" type="Actions.AccionAgregarGestor">
+      <action input="/" name="gestor" path="/AccionAgregarGestor" scope="session" type="Actions.AccionAgregarGestor">
             <forward name="success" path = "accExito" />
             <forward name ="failure" path = "accFallo" />
             <forward name="error" path = "agregEstudiantes" />

@@ -82,7 +82,7 @@ CREATE TABLE "dycicle".ArchivosEstudiante(
 	Extension	VARCHAR(10)	NOT NULL,
 	Tamanio		VARCHAR(30)	NOT NULL,
 	CONSTRAINT	PK_ArchivosEstudiante	
-		PRIMARY KEY (NombreUsuario, Direccion, Extension)
+		PRIMARY KEY (NombreUsuario, Nombre)
 );
 
 /* En esta tabla se almacena la relacion de los estudiantes con

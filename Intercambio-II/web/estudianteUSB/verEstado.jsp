@@ -1,9 +1,10 @@
 <%-- 
-    Document   : listarUsuario
+    Document   : verEstado
     Created on : Oct 18, 2012, 12:58:41 AM
     Author     : caponte
 --%>
 
+<%Object var = session.getAttribute("nombre");%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://struts.apache.org/tags-html" prefix="html" %>
 <%@ taglib uri="http://struts.apache.org/tags-logic" prefix="logic" %>
@@ -16,7 +17,7 @@
     <title>SGI - Estado Solicitud</title>
 
     <script language="JavaScript">
-        function submitForm() { document.ObtenerDatos.submit(); }
+        function submitForm() { document.ObtenerDatos().submit(); }
     </script>
 
     <h4>Estado de la Solicitud:</h4>

@@ -47,7 +47,7 @@
     </div>
 
     <div style="margin-top: 5px;padding-right:5px">
-        <html:link style="color:#126598" action="">
+        <html:link style="color:#126598" action="/">
             Modificar perfil
         </html:link>
     </div>

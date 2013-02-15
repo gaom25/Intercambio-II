@@ -3,6 +3,8 @@
     Created on : Nov 15, 2012, 12:16:02 AM
     Author     : kosmos
 --%>
+
+<%Object var = session.getAttribute("nombre");%>
 <%@ taglib uri="http://struts.apache.org/tags-bean" prefix="bean" %>
 <%@ taglib uri="http://struts.apache.org/tags-html" prefix="html" %>
 <%@ taglib uri="http://struts.apache.org/tags-logic" prefix="logic" %>
@@ -40,12 +42,12 @@
             </html:link>
         </div>
         <div>
-            <html:link style="color:#126598" action="">
+            <html:link style="color:#126598" action="/ObtenerDatos2">
                 Modificar Formulario
             </html:link>
         </div>
         <div>
-            <html:link style="color:#126598" action="">
+            <html:link style="color:#126598" action="/ConsultarEstado">
                 Consultar Estado de Solicitud
             </html:link>
         </div>

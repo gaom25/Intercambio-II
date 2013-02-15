@@ -18,8 +18,8 @@
     <script language="JavaScript">
         function submitForm() { document.ObtenerDatos.submit(); }
     </script>
-    
-     <h4>Busqueda Avanzada:</h4>
+
+    <h4>Busqueda Avanzada:</h4>
     <html:form action="AccionBusquedaAvanzada" method="POST" enctype="multipart/form-data" onsubmit="return(this)">
         <table border="0">
             <tbody>
@@ -179,6 +179,7 @@
                 </tr>
             </tbody>
         </table>
+    </html:form>
 
     <h4>Lista de Usuarios del Sistema:</h4>
     <table style="margin: auto">
@@ -199,7 +200,7 @@
         </tr>
     </table>
 
-    <logic:iterate name="usuario" id="usuarios">
+    <logic:iterate name="usuarios" id="usuarios">
         <table border="0" style="margin: auto">
             <tbody>
                 <tr>
@@ -213,7 +214,7 @@
                         </html:form>
                     </td>
                     <td align="center" width="150px">
-                        <html:form action="/VerificarPlanillaGestor" onsubmit="return(this)">
+                        <html:form action="/GenerarCarpeta" onsubmit="return(this)">
                             <html:hidden name = "usuarios" property="nombreusuario"/>
                             <html:image src="images/archivador.png" style="width:32px;height:32px"  styleClass="button" value="" property="" /> 
                         </html:form>
@@ -223,14 +224,14 @@
 
                             <html:hidden name = "usuarios" property="nombreusuario"/>
                             <html:image src="images/postulacion.png" styleClass="button" value="" property="" style=""/> 
-                        <html:select name="Usuario" property="confirmar">
-                            <html:option value="">Nvo Estado</html:option>
-                            <html:option value="Aceptado">Tramitando</html:option>
-                            <html:option value="En Evaluacion">Aprobado</html:option>
-                            <html:option value="Retenido">Rechazado</html:option>
-                            <html:option value="Rechazado">Rechazado</html:option>
-                        </html:select>
-                    </html:form>
+                            <html:select name="Usuario" property="confirmar">
+                                <html:option value="">Nvo Estado</html:option>
+                                <html:option value="Aceptado">Tramitando</html:option>
+                                <html:option value="En Evaluacion">Aprobado</html:option>
+                                <html:option value="Retenido">Rechazado</html:option>
+                                <html:option value="Rechazado">Rechazado</html:option>
+                            </html:select>
+                        </html:form>
                     </td>
                 </tr>
             </tbody>
