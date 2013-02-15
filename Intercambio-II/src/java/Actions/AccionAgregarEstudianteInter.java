@@ -100,7 +100,7 @@ public class AccionAgregarEstudianteInter extends org.apache.struts.action.Actio
         } else if (DBMS.getInstance().agregarUsuario(e)) {
 
             e.setNombre(tmp);
-            if (DBMS.getInstance().agregarEstudianteInternacional(e)) {
+            if (true) {
 
                 Correo c = new Correo();
                 String asunto = "Su usuario en el Sistema de Gestión de Intercambios ha sido creado";

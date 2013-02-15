@@ -10,19 +10,59 @@ package Clases;
  */
 public class Busqueda extends org.apache.struts.validator.ValidatorForm {
     
-    private String indiceSimbolo;
+    private String nombre;
+    private String apellido;
+    private String carnet;
     private String indice;
+    private String indicePonderado;
     private String carrera;
-    private String destino;
-    private String cohorte;
+    private String opcion1;
+    private String opcion2;
     
     public Busqueda(){
         super();
     }
-    
-    @Override
-    public String toString() {
-        return "Busqueda{ indice=" + indice + ", carrera=" + carrera + ", destino=" + destino + ", cohorte=" + cohorte + ",'}'";
+
+    /**
+     * @return the nombre
+     */
+    public String getNombre() {
+        return nombre;
+    }
+
+    /**
+     * @param nombre the nombre to set
+     */
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    /**
+     * @return the apellido
+     */
+    public String getApellido() {
+        return apellido;
+    }
+
+    /**
+     * @param apellido the apellido to set
+     */
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
+
+    /**
+     * @return the carnet
+     */
+    public String getCarnet() {
+        return carnet;
+    }
+
+    /**
+     * @param carnet the carnet to set
+     */
+    public void setCarnet(String carnet) {
+        this.carnet = carnet;
     }
 
     /**
@@ -40,6 +80,20 @@ public class Busqueda extends org.apache.struts.validator.ValidatorForm {
     }
 
     /**
+     * @return the indicePonderado
+     */
+    public String getIndicePonderado() {
+        return indicePonderado;
+    }
+
+    /**
+     * @param indicePonderado the indicePonderado to set
+     */
+    public void setIndicePonderado(String indicePonderado) {
+        this.indicePonderado = indicePonderado;
+    }
+
+    /**
      * @return the carrera
      */
     public String getCarrera() {
@@ -54,45 +108,31 @@ public class Busqueda extends org.apache.struts.validator.ValidatorForm {
     }
 
     /**
-     * @return the destino
+     * @return the opcion1
      */
-    public String getDestino() {
-        return destino;
+    public String getOpcion1() {
+        return opcion1;
     }
 
     /**
-     * @param destino the destino to set
+     * @param opcion1 the opcion1 to set
      */
-    public void setDestino(String destino) {
-        this.destino = destino;
+    public void setOpcion1(String opcion1) {
+        this.opcion1 = opcion1;
     }
 
     /**
-     * @return the cohorte
+     * @return the opcion2
      */
-    public String getCohorte() {
-        return cohorte;
+    public String getOpcion2() {
+        return opcion2;
     }
 
     /**
-     * @param cohorte the cohorte to set
+     * @param opcion2 the opcion2 to set
      */
-    public void setCohorte(String cohorte) {
-        this.cohorte = cohorte;
-    }
-
-    /**
-     * @return the indiceSimbolo
-     */
-    public String getIndiceSimbolo() {
-        return indiceSimbolo;
-    }
-
-    /**
-     * @param indiceSimbolo the indiceSimbolo to set
-     */
-    public void setIndiceSimbolo(String indiceSimbolo) {
-        this.indiceSimbolo = indiceSimbolo;
+    public void setOpcion2(String opcion2) {
+        this.opcion2 = opcion2;
     }
     
 }
