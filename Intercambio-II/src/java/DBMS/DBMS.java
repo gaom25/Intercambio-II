@@ -66,6 +66,10 @@ public class DBMS {
             while (rs.next()) {
 
                 u.setPrivilegio(rs.getInt("privilegio"));
+                if(u.getPrivilegio() == 5 || u.getPrivilegio() == 6){
+                   Usuario aux =  obtenerEstadoSolicitud(u);
+                   u.setConfirmar(aux.getConfirmar());
+                }
                 u.setNombre(rs.getString("nombre"));
                 u.setEmail(rs.getString("email"));
                 return u;
@@ -203,6 +207,20 @@ public class DBMS {
     public boolean agregarEstudianteUSB(EstudianteUSB e) {
         try {
 
+            
+            String sqlquerycod = "SELECT nombrecarrera,codigo FROM \"dycicle\".postulante where "
+                    + "nombreusuario ='"+e.getCarrera()+"';";
+            
+            
+            
+            Statement stmt = conexion.createStatement();
+            ResultSet rs = stmt.executeQuery(sqlquerycod);
+           
+            while(rs.next()){
+                e.setCodCarrera(rs.getString("codigo"));
+                e.setCarrera(rs.getString("nombrecarrera"));
+            }
+            
             //String sesionActiva = e.getOrigen();
             //String[] info = DBMS.getInstance().getInfoPostulante(sesionActiva);
 
@@ -229,16 +247,13 @@ public class DBMS {
                     + "'null','null', "
                     + "'" + e.getCarrera() + "', "
                     + "'opcion', '0');";
-
-            
-            
+          
             String sqlqueryPostulacion = "INSERT INTO \"dycicle\".Postulacion VALUES ('"
                     + e.getNombreusuario() + "', "
                     + "'En evaluacion', "
                     + "'recomendacion', "
                     + "'comentario');";
 
-            Statement stmt = conexion.createStatement();
             Integer i = stmt.executeUpdate(sqlquery1);
             Integer j = stmt.executeUpdate(sqlquery2);
             Integer k = stmt.executeUpdate(sqlqueryAntecedente);
@@ -453,7 +468,7 @@ public class DBMS {
         ArrayList<Usuario> usrs = new ArrayList<Usuario>(0);
 
         try {
-            String sqlquery = "SELECT * FROM \"dycicle\".estudiante";
+            String sqlquery = "SELECT * FROM \"dycicle\".estudiante NATURAL JOIN \"dycicle\".postulacion";
             Statement stmt = conexion.createStatement();
             ResultSet rs = stmt.executeQuery(sqlquery);
 
@@ -461,6 +476,7 @@ public class DBMS {
                 Usuario u = new Usuario();
                 u.setNombreusuario(rs.getString("nombreusuario"));
                 u.setEmail(rs.getString("email"));
+                u.setConfirmar(rs.getString("estadopostulacion"));
                 usrs.add(u);
             }
 
