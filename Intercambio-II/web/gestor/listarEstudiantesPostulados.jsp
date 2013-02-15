@@ -194,6 +194,9 @@
                 Consultar Solicitud
             </td>
             <td width="150px" align="center">
+                Estado actual
+            </td>
+            <td width="150px" align="center">
                 Cambiar Estado de la Solicitud
             </td>
 
@@ -213,26 +216,35 @@
                             <html:image src="images/verDatos.png" styleClass="button" value="" property="" style=""/> 
                         </html:form>
                     </td>
+
                     <td align="center" width="150px">
                         <html:form action="/GenerarCarpeta" onsubmit="return(this)">
                             <html:hidden name = "usuarios" property="nombreusuario"/>
                             <html:image src="images/archivador.png" style="width:32px;height:32px"  styleClass="button" value="" property="" /> 
                         </html:form>
                     </td>
+
+                    <td align="center" width="220px">
+
+                        <bean:write name="usuarios" property="confirmar" />
+                    </td>
+
                     <td>
                         <html:form action="/CambiarEstadoPostulacion"  method="POST" enctype="multipart/form-data" onsubmit="return(this)">
 
                             <html:hidden name = "usuarios" property="nombreusuario"/>
-                            <html:image src="images/postulacion.png" styleClass="button" value="" property="" style=""/> 
+
                             <html:select name="Usuario" property="confirmar">
                                 <html:option value="">Nvo Estado</html:option>
-                                <html:option value="Aceptado">Tramitando</html:option>
-                                <html:option value="En Evaluacion">Aprobado</html:option>
-                                <html:option value="Retenido">Rechazado</html:option>
+                                <html:option value="En Evaluacion">En Evaluacion</html:option>
+                                <html:option value="Retenido">Retenido</html:option>
+                                <html:option value="Aceptado">Aceptado</html:option>
                                 <html:option value="Rechazado">Rechazado</html:option>
                             </html:select>
+                            <html:image src="images/postulacion.png" styleClass="button" value="" property="" style=""/> 
                         </html:form>
                     </td>
+
                 </tr>
             </tbody>
         </table>
