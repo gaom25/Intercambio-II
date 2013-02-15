@@ -28,7 +28,7 @@ public class Estudiante extends Usuario {
     private String telefonoCasa;
     private String telefonoFax;
     private String email;
-    private Date   fechaNacimiento;
+    private String fechaNacimiento;
     private String nacionalidad;
 
     // falta la foto y no se como colocarla.
@@ -165,11 +165,11 @@ public class Estudiante extends Usuario {
         this.email = email;
     }
 
-    public Date getFechaNacimiento() {
+    public String getFechaNacimiento() {
         return fechaNacimiento;
     }
 
-    public void setFechaNacimiento(Date fechaNacimiento) {
+    public void setFechaNacimiento(String fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
     }
 
