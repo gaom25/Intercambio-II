@@ -57,6 +57,7 @@ public class GenerarCarpeta extends org.apache.struts.action.Action {
 
     /* forward name="success" path="" */
     private static final String SUCCESS = "success";
+    private static final String VACIO = "vacio";
 
     /**
      * This is the action called from the Struts framework.
@@ -83,6 +84,10 @@ public class GenerarCarpeta extends org.apache.struts.action.Action {
         document.open();
         
         ArrayList<String> files = DBMS.getInstance().listarDocumentos(u);
+        
+        if (files == null){
+            return mapping.findForward(VACIO);
+        }
         
         Iterator it = files.iterator();
         

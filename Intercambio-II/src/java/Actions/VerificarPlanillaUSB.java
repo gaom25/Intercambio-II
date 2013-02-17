@@ -298,7 +298,6 @@ public class VerificarPlanillaUSB extends org.apache.struts.action.Action {
            g.generarPlanillaUSB(p,filePath);
            
            if(!DBMS.getInstance().InsertarPath(filePath,u)){
-               System.out.println("hola");
                return mapping.findForward(ERROR);
            }
                    

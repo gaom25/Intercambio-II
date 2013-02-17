@@ -46,11 +46,7 @@
                 Modificar Formulario
             </html:link>
         </div>
-        <div>
-            <html:link style="color:#126598" action="/ConsultarEstado">
-                Consultar Estado de Solicitud
-            </html:link>
-        </div>
+
         <div>
             <html:link style="color:#126598" action="">
                 Generar Planilla

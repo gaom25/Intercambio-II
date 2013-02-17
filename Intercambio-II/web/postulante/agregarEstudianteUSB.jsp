@@ -3,7 +3,7 @@
     Created on : Oct 25, 2012, 8:03:13 PM
     Author     : dycicle Systems
 --%>
-<%Object var = session.getAttribute("nombre");%>
+<%Object var = session.getAttribute("nombreusuario");%>
 <%@page contentType="text/html"%>
 <%@page pageEncoding="UTF-8"%>
 
@@ -67,52 +67,19 @@
                         </td>
                     </tr>
 
-                    <tr>
+                    <tr hidden="true">
                         <td style="color: black">Carrera</td>
+                        
                         <td>
-                        <td><html:select  property="carrera">
-                                <html:option value="Licenciatura en Quimica"></html:option>
-                                <html:option value="Licenciatura en Matematicas"></html:option>
-                                <html:option value="Licenciatura en Fisica"></html:option>
-                                <html:option value="Licenciatura en Biologia"></html:option>
-                                <html:option value="Arquitectura"></html:option>
-                                <html:option value="Urbanismo"></html:option>
-                                <html:option value="Ingenieria Electrica"></html:option>
-                                <html:option value="Ingenieria Mecanica"></html:option>
-                                <html:option value="Ingenieria Quimica"></html:option>
-                                <html:option value="Ingenieria Electrica"></html:option>
-                                <html:option value="Ingenieria Mecanica"></html:option>
-                                <html:option value="Ingenieria Electronica"></html:option>
-                                <html:option value="Ingenieria de Computacion"></html:option>
-                                <html:option value="Ingenieria Geofisica"></html:option>
-                                <html:option value="Ingenieria de Materiales"></html:option>
-                                <html:option value="Ingenieria de Produccion"></html:option>
-                                <html:option value="Ingenieria de Telecomunicaciones"></html:option>
-                                <html:option value="Ingenieria de Mantenimeinto"></html:option>
-                                <html:option value="Licenciatura en Gestion de la Hospitalidad"></html:option>
-                                <html:option value="Licenciatura en Comercio Internacion"></html:option>
-                                <html:option value="Tecnología  Electrica"></html:option>
-                                <html:option value="Tecnología  Electronica"></html:option>
-                                <html:option value="Organizacion Empresarial"></html:option>
-                                <html:option value="Tecnologia Mecanica"></html:option>
-                                <html:option value="Mantenimiento Aeronautico"></html:option>
-                                <html:option value="Administración del Turismo"></html:option>
-                                <html:option value="Administración Hotelera"></html:option>
-                                <html:option value="Administración del Transporte"></html:option>
-                                <html:option value="Administración Aduanera"></html:option>
-                            </html:select>
-                        </td>
-                    </tr>
-                    
-                    <tr>
-                        <td style="color: black">Codigo de la carrera</td>       
-                        <td><html:text name="EstUSB" property="codCarrera" maxlength="100" errorStyleClass="error"
+                            <html:text name="EstUSB" property="carrera" value="<%=var.toString()%>" maxlength="100" errorStyleClass="error"
                                    errorKey="org.apache.struts.action.ERROR"></html:text>
                             </td>
                             <td>
-                            <html:errors property="codCarrera" />
+                            <html:errors property="carrera" />
+                           
                         </td>
                     </tr>
+                    
                     <%--<tr>
                         <td style="color: black">Institucion de Origen</td>
                         

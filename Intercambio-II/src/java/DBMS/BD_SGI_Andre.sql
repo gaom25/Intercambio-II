@@ -491,7 +491,7 @@ ALTER TABLE "dycicle".IDIOMAS ADD
 
 /* El email de un representante debe contener un @ */
 ALTER TABLE "dycicle".REPRESENTANTE ADD
-	CHECK (Email ~~ '%@%');
+	CHECK (EmailRep ~~ '%@%');
 
 /* En POSTULANTE: Si Tipo=Coordinacion => NombreUniExt=NULL */
 ALTER TABLE "dycicle".POSTULANTE ADD
@@ -552,7 +552,7 @@ ALTER TABLE "dycicle".esRepresentado ADD
 
 ALTER TABLE "dycicle".esRepresentado ADD
 	CONSTRAINT FK_esRepresentado_Representante FOREIGN KEY (EmailRep)
-		REFERENCES "dycicle".REPRESENTANTE(Email);
+		REFERENCES "dycicle".REPRESENTANTE(EmailRep);
 
 /*Claves foraneas de Financiamiento */
 ALTER TABLE "dycicle".FINANCIAMIENTO ADD

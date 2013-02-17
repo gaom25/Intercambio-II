@@ -295,6 +295,10 @@
                 <put name="body" value="/gestor/listarEstudiantesPostulados.jsp"/>
             </definition>
             
+            <definition name="sinArchivos" extends="baseGestor">
+                <put name="body" value="/gestor/sinArchivos.jsp"/>
+            </definition>
+            
             <definition name="contactoGestor" extends="baseGestor"> <!-- pagina de contacto de gestores -->
                 <put name="body" value="/gestor/contactoGestor.jsp"/>
             </definition>

@@ -5,6 +5,7 @@
 --%>
 <%Object tmp = session.getAttribute("nombreusuario");%>
 <%Object var = session.getAttribute("nombre");%>
+<%Object confirm = session.getAttribute("confirmar");%>
 <%@page import="javax.swing.text.html.HTML"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://struts.apache.org/tags-bean" prefix="bean" %>
@@ -22,6 +23,11 @@
         <h1><%=var.toString()%></h1>
     </div>
 
+    
+    <div id="NombreUser">
+        <h1>El estado actual de su postulacion es: <%=confirm.toString()%></h1>
+    </div>
+    
     <p hidden="true"><bean:write name="Usuario" property="nombre"></bean:write></p>
     <p hidden="true"><bean:write name="Usuario" property="email"></bean:write></p>
     <p hidden="true"><bean:write name="Usuario" property="nombreusuario"></bean:write></p>

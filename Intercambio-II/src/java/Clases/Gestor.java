@@ -16,7 +16,7 @@ import org.apache.struts.action.ActionMessage;
  *
  * @author dreabalbas
  */
-public class Gestor extends org.apache.struts.validator.ValidatorForm  {
+public class Gestor extends Usuario  {
     
     private String nombreusuario;
     private String nombre;

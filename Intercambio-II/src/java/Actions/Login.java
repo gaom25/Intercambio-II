@@ -104,11 +104,13 @@ public class Login extends org.apache.struts.action.Action {
                     session.setAttribute("nombreusuario", tmp.getNombreusuario());
                     return mapping.findForward(univExt);
                 } else if (tmp.getPrivilegio() == 5) {
+                    session.setAttribute("confirmar", tmp.getConfirmar());
                     request.setAttribute("usuario", tmp);
                     session.setAttribute("nombre", tmp.getNombre());
                     session.setAttribute("nombreusuario", tmp.getNombreusuario());
                     return mapping.findForward(estUSB);
                 } else if (tmp.getPrivilegio() == 6) {
+                    session.setAttribute("confirmar", tmp.getConfirmar());
                     request.setAttribute("usuario", tmp);
                     session.setAttribute("nombre", tmp.getNombre());
                     session.setAttribute("nombreusuario", tmp.getNombreusuario());

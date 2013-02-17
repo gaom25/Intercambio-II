@@ -56,6 +56,9 @@ public class AgregarEstudianteUsb extends org.apache.struts.action.Action {
         String pswd = e.generarContrasena();
         String confPswd = pswd;
         String mail = e.getEmail();
+        
+        String carrera = e.getCarrera();
+        e.setCodCarrera("0800");
 
         e.setPrivilegio(5);
         e.setContrasena(pswd);
