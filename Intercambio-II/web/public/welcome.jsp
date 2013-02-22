@@ -15,7 +15,7 @@
         <html:form action="Login">
             <table>
                 <tr>
-                    <td> Login </td>
+                    <td> Usuario </td>
                     <td><html:text name="Usuario" property="nombreusuario" size="14" value=""
                                errorStyleClass="error" errorKey="org.apache.struts.action.ERROR"></html:text>
                     </td>
@@ -24,7 +24,7 @@
                     <td colspan="2"><html:errors property="nombreusuario"/></td>
                 </tr>
                 <tr>
-                    <td> Password </td>
+                    <td> Contraseña </td>
                     <td><html:password name="Usuario" property="contrasena" value="" size="14"
                                    errorStyleClass="error" errorKey="org.apache.struts.action.ERROR" ></html:password>
                     </td>
