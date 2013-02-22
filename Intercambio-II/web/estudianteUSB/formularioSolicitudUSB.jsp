@@ -21,6 +21,7 @@
         var Count = 0;
         var mCount = 0;
         
+        
         function addMate(tableID) {
             mCount++;
 
@@ -367,6 +368,29 @@
             }
         }
 
+    var universidades_1=new Array("ale1","ale2")
+    var universidades_2=new Array("brasil1","brasil2")
+
+    function cambia_universidad(){ 
+        //tomo el valor del select del pais elegido 
+        pais = document.getElementById("pais_sec")[document.getElementById("pais_sec").selectedIndex].value 
+        if (pais != 0) { 
+           mis_universidades=eval("universidades_" + pais) 
+           num_universidades = mis_universidades.length 
+           document.getElementById("uni_selecc").length = num_universidades 
+           for(i=0;i<num_universidades;i++){ 
+              document.getElementById("uni_selecc").options[i].value=mis_universidades[i] 
+              document.getElementById("uni_selecc").options[i].text=mis_universidades[i] 
+           } 
+        }else{ 
+           //si no había provincia seleccionada, elimino las universidades del select 
+           document.getElementById("uni_selecc").length = 1 
+           document.getElementById("uni_selecc").options[0].value = "-" 
+           document.getElementById("uni_selecc").options[0].text = "-" 
+        } 
+        //marco como seleccionada la opción primera de provincia 
+        document.getElementById("uni_selecc").options[0].selected = true 
+    } 
     </script>
 
     <title>Sistema de Gestión de Intercambio</title>
@@ -678,13 +702,30 @@
                 </div>                    
                             
                 <div id="opci4" style="display:none;width:650px;height:450px; background-color: #FFFF94; border-radius: 10px">
+                    <br>
                     <table border="0"  align="center">
                         <tbody>
                         
                         <tr>
                             <td> Opción 1:</td>
                         </tr>
+                        <!-- NADIEEE TOQUE ESTOO!!!!
+                        <tr>
+        
+                              
+                            <select name="pais" id="pais_sec" onchange="cambia_universidad()"> 
+                            <option value="0" selected>Seleccione... 
+                            <option value="1">Alemania
+                            <option value="2">Brasil  
+                            </select> 
 
+                            <select name="provincia" id="uni_selecc"> 
+                            <option value="-">- 
+                            </select>
+                            
+                        </tr>
+                        -->                        
+                        
                         <tr>
                             <td> País Destino:</td>
                             <td>
@@ -1145,6 +1186,7 @@
                 </div>
                             
                 <div id="opci5" style="display:none;width:650px;height:250px; background-color: #F2D8FF; border-radius: 10px">
+                    <br>
                     <table border="0"  align="center">
                         <tbody>
                         <tr>
@@ -1261,6 +1303,7 @@
                     </table>
                 </div>
                 <div id="opci6" style="display:none;width:650px;height:150px; background-color: #D6D6C2; border-radius: 10px">
+                    <br>
                     <table border="0"  align="center">
                         <tbody>
                         <tr>
@@ -1295,6 +1338,7 @@
                 </div>
                             
                 <div id="opci7" style="display:none;width:650px;height:350px; background-color: #ADD6FF; border-radius: 10px">
+                    <br>
                     <table border="0"  align="center">
                         <tbody>
                     
