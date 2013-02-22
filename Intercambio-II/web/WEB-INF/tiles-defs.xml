@@ -38,9 +38,6 @@
                 <put name="body" value="/public/FAQ.jsp"/>
             </definition>
             
-            <definition name="inicSesionEn" extends="basePublic"> <!-- pagina de inicio del sistema en ingles -->
-                <put name="body" value="/public/en/englishWelcome.jsp"/>
-            </definition>
             
             <definition name="preRegistro" extends="basePublic"> <!-- pagina de pre registro -->
                 <put name="body" value="/public/preRegistro.jsp"/>

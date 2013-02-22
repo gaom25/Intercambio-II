@@ -46,18 +46,6 @@
             validate="false"
             parameter="faq"/>
         
-        <action path="/englishWelcome"
-            type="org.apache.struts.actions.ForwardAction"
-            scope="request"
-            validate="false"
-            parameter="inicSesionEn"/>
-        
-        <action path="/englishWelcome"
-            type="org.apache.struts.actions.ForwardAction"
-            scope="request"
-            validate="false"
-            parameter="inicSesionEn"/>
-        
         <action path="/preRegistro"
             type="org.apache.struts.actions.ForwardAction"
             scope="request"

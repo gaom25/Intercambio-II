@@ -13,11 +13,17 @@
             
         </nav>
     </div>-->
+
     <div style="float:right;">
-        <nav>
-            <html:link action="accionesEstUSB">&nbsp;&nbsp;Español&nbsp;&nbsp;</html:link>
-            <html:link action="englishWelcome">&nbsp;&nbsp;English&nbsp;&nbsp;</html:link>
-        </nav>
+        <div id="google_translate_element"">
+        </div>
+                <script type="text/javascript">
+                    function googleTranslateElementInit() {
+                        new google.translate.TranslateElement({pageLanguage: 'es', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                    }
+                </script>
+                <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+                </script>            
     </div>
     
 </div>
