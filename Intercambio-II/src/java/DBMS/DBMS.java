@@ -472,13 +472,13 @@ public class DBMS {
             Statement stmt = conexion.createStatement();
             ResultSet rs = stmt.executeQuery(sqlquery);
 
-            do {
+           while(rs.next()) {
                 Usuario u = new Usuario();
                 u.setNombreusuario(rs.getString("nombreusuario"));
                 u.setEmail(rs.getString("email"));
                 u.setConfirmar(rs.getString("estadopostulacion"));
                 usrs.add(u);
-            } while(rs.next());
+            };
 
 
             /* sqlquery = "SELECT * FROM \"dycicle\".planillausb WHERE nombreusuario='"
@@ -725,6 +725,7 @@ public class DBMS {
             ResultSet rs = stmt.executeQuery(sqlquery);
 
             boolean primeraUni = rs.next();
+            rs.next();
 
             datos.setNombreUsuario(rs.getString("NombreUsuario"));
             datos.setApellido1(rs.getString("PrimerApellido"));
