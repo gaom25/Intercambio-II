@@ -276,7 +276,9 @@
        
        <action name="Usuario" path="/ModificarPerfil" scope="session" type="Actions.ModificarPerfil">
            <forward name="failure" path="accFallo"/>
-           <forward name="success" path="accionesAdmin" />
+           <forward name="admin" path="accionesAdmin" />
+           <forward name="gestor" path="listarEstudiantesPostulados"/>
+           <forward name="coordinacion" path="accionesPostulante"/>
            <forward name="error" path="modPerfilAdm"/>
        </action>       
        
@@ -374,7 +376,7 @@
        </action>
            
        <action input="/" name="Usuario" path="/CambiarEstadoPostulacion" scope="session" type="Actions.CambiarEstadoPostulacion">
-           <forward name="success" path="accionesGestor" />
+           <forward name="success" path="listarEstudiantesPostulados"/>
            <forward name="failure" path="accFallo" />
        </action>
        

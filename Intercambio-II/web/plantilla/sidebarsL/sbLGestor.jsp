@@ -23,7 +23,7 @@
     </script>
 
     <div style="margin-top: 5px;padding-right:5px">
-        <html:link style="color:#126598" action="/accionesGestor">
+        <html:link style="color:#126598" action="ListarEstudiantesPostulados">
             Inicio
         </html:link>
     </div>
@@ -51,14 +51,8 @@
             </html:link>
         </div>
     </div>
-
     <div style="margin-top: 5px;padding-right:5px">
-        <html:link style="color:#126598" action="/ListarEstudiantesPostulados">
-            Consultar Estudiantes Postulados
-        </html:link>
-    </div>
-    <div style="margin-top: 5px;padding-right:5px">
-        <html:link style="color:#126598" action="">
+        <html:link style="color:#126598" action="/modPerfilAdm">
             Modificar perfil
         </html:link>
     </div>

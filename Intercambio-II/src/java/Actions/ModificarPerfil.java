@@ -6,10 +6,12 @@ package Actions;
 
 import Clases.Usuario;
 import DBMS.DBMS;
+import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
@@ -26,6 +28,9 @@ public class ModificarPerfil extends org.apache.struts.action.Action {
     private static final String patronEmail = "^([_A-Za-z0-9-\\.\\+])+@([A-Za-z0-9-])+\\.([A-Za-z0-9-])+$";
     /* forward name="success" path="" */
     private static final String SUCCESS = "success";
+    private static final String ADMIN = "admin";
+    private static final String GESTOR = "gestor";
+    private static final String COORDINACION = "coordinacion";
     private static final String FAIL = "failure";
     private static final String ERROR = "error";
     private Pattern patron;
@@ -59,7 +64,7 @@ public class ModificarPerfil extends org.apache.struts.action.Action {
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
 
-        
+        HttpSession session = request.getSession(true);
         Usuario u = (Usuario) form;
         Usuario user = DBMS.getInstance().obtenerDatos(u);
         ActionErrors error = new ActionErrors();
@@ -137,7 +142,23 @@ public class ModificarPerfil extends org.apache.struts.action.Action {
             return mapping.findForward(ERROR);
 
         } else if (DBMS.getInstance().modificarPerfil(u)) {
-            return mapping.findForward(SUCCESS);
+            if (u.getPrivilegio()==1){
+                return mapping.findForward(ADMIN);
+            }
+            else if (u.getPrivilegio()==2){
+                ArrayList<Usuario> users = DBMS.getInstance().listarEstudiantesPostulados();
+                request.setAttribute("usuarios", users);
+                request.setAttribute("usuario", u);
+                session.setAttribute("nombre", u.getNombre());
+                session.setAttribute("nombreusuario", u.getNombreusuario());
+                return mapping.findForward(GESTOR);
+            }
+            else if (u.getPrivilegio()==3){
+                return mapping.findForward(COORDINACION);
+            }
+            else{
+                return mapping.findForward(SUCCESS);
+            }
 
         } else {
             return mapping.findForward(FAIL);
