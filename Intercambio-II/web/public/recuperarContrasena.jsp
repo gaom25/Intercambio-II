@@ -44,11 +44,17 @@
             <div  style="position: relative; height: 120px; bottom: -10px;">
                 <div id="Imagencita" style="height: 75px;">
                     <img onloadstart="loadstart" src="/Intercambio-II/stickyImg"/>
+                    <br><br>
+                    <div>
+                        <a href="javascript:history.go(0)">Click para cambiar captcha</a>
+                    </div>
                 </div>
+                <br><br>
                 <div>
                     Captcha <input name="answer" />
                 </div>
             </div>
+                <br><br>
 
             <html:submit value="Recuperar">Recuperar contraseña</html:submit>
         </html:form>
