@@ -69,13 +69,18 @@
                 <div  style="position: relative; height: 120px; bottom: -10px;">
                     <div id="Imagencita" style="height: 75px;">
                         <img onloadstart="loadstart" src="/Intercambio-II/stickyImg"/>
+                        <br><br>
+                        <div>
+                            <a href="javascript:history.go(0)">Click para cambiar captcha</a>
+                        </div>
                     </div>
+                    <br><br>
                     <div>
                         Captcha <input name="answer" />
                     </div>
                 </div>
 
-
+<br>
                 <p style="text-align: center">
                     <html:submit onclick="javascript: return confirm('¿Está seguro que los datos son correctos?')">
                         Enviar mensaje

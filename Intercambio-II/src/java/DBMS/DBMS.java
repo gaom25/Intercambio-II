@@ -472,13 +472,13 @@ public class DBMS {
             Statement stmt = conexion.createStatement();
             ResultSet rs = stmt.executeQuery(sqlquery);
 
-            while (rs.next()) {
+            do {
                 Usuario u = new Usuario();
                 u.setNombreusuario(rs.getString("nombreusuario"));
                 u.setEmail(rs.getString("email"));
                 u.setConfirmar(rs.getString("estadopostulacion"));
                 usrs.add(u);
-            }
+            } while(rs.next());
 
 
             /* sqlquery = "SELECT * FROM \"dycicle\".planillausb WHERE nombreusuario='"
