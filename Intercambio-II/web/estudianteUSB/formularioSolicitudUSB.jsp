@@ -1,8 +1,10 @@
 <%-- 
     Document   : formularioSolicitudUSB
     Created on : Nov 13, 2012, 10:13:53 AM
+    Last Modif : Feb 21, 2013
     Author     : Katy
 --%>
+
 <%Object var = session.getAttribute("nombreusuario");%>
 
 <%@page pageEncoding="UTF-8"%>
@@ -322,6 +324,48 @@
             document.getElementById(target).style.display = 'none';
         }
 
+        function seleccion(opc)
+        {
+            //escondemos todos los contenidos
+            document.getElementById("opci1").style.display="none";
+            document.getElementById("opci2").style.display="none";
+            document.getElementById("opci3").style.display="none";
+            document.getElementById("opci4").style.display="none";
+            document.getElementById("opci5").style.display="none";
+            document.getElementById("opci6").style.display="none";
+            document.getElementById("opci7").style.display="none";
+            switch(opc)
+            {
+                    case 1:
+                            //mostramos elcontenido de la primera opcion
+                            document.getElementById("opci1").style.display="block";
+                            break;
+                    case 2:
+                            //mostramos elcontenido de la segunda opcion
+                            document.getElementById("opci2").style.display="block";
+                            break;
+                    case 3:
+                            //mostramos elcontenido de la tercera opcion
+                            document.getElementById("opci3").style.display="block";
+                            break;
+                    case 4:
+                            //mostramos elcontenido de la tercera opcion
+                            document.getElementById("opci4").style.display="block";
+                            break;
+                    case 5:
+                            //mostramos elcontenido de la tercera opcion
+                            document.getElementById("opci5").style.display="block";
+                            break;
+                    case 6:
+                            //mostramos elcontenido de la tercera opcion
+                            document.getElementById("opci6").style.display="block";
+                            break;
+                    case 7:
+                            //mostramos elcontenido de la tercera opcion
+                            document.getElementById("opci7").style.display="block";
+                            break;                            
+            }
+        }
 
     </script>
 
@@ -338,18 +382,31 @@
     </div>
 
     <div id="datosplanilla" style="display: none">
-        <div style="width:auto;height:auto;border:6px solid #F0F0F0; background-color: #F0F0F0">
+        <div>
             <div align=center>
 
                 <html:form action="/LlenarPlanilla_EstUSB"  method="POST" enctype="multipart/form-data" onsubmit="return(this)">
                     <p hidden="true"><html:text name="PlanillaUSB" property="nombreUsuario" maxlength="20" errorStyleClass="error" value ="<%=var.toString()%>"
                                errorKey="org.apache.struts.action.ERROR"></html:text></p>
-
-                        <table border="0"  align="left">
+                    <br>
+                  
+                <!-- pestañas -->
+                
+                <div>
+                        <span style="background-color: #F9F4CF; border-radius: 5px;"><a href='javascript:seleccion(1);'> Datos </a></span>
+                        <span style="background-color: #ADFFAD; border-radius: 5px;"><a href='javascript:seleccion(2);'> Domicilio </a></span>
+                        <span style="background-color: #B8B8FF; border-radius: 5px;"><a href='javascript:seleccion(3);'> Contacto </a></span>
+                        <span style="background-color: #FFFF94; border-radius: 5px;"><a href='javascript:seleccion(4);'> Programa </a></span>
+                        <span style="background-color: #F2D8FF; border-radius: 5px;"><a href='javascript:seleccion(5);'> Info. Académica </a></span>                        
+                        <span style="background-color: #D6D6C2; border-radius: 5px;"><a href='javascript:seleccion(6);'> Financiamiento </a></span>                        
+                        <span style="background-color: #ADD6FF; border-radius: 5px;"><a href='javascript:seleccion(7);'> Contac. Emergencia</a></span>
+                </div>
+                
+                <!-- contenido de las pestañas -->
+                
+                <div id="opci1" style="display:block;width:650px;height:300px;background-color: #F9F4CF; border-radius: 10px">
+                    <table border="0"  align="center">
                             <tbody>
-                                <tr>
-                                    <td> <br/> <strong>Datos Personales</strong></td>
-                                </tr>
                             <br>
                             <tr>
                                 <td>Primer Apellido</td>
@@ -473,11 +530,15 @@
                                 <html:errors property="carnet" />
                             </td>
                         </tr>
+                    </tbody>
+                </table>
 
-                        <tr>
-                            <td> <br/> <strong> Domicilio </strong> </td>
-                        </tr>
-
+                </div>
+                            
+                <div id="opci2" style="display:none;width:650px;height:250px; background-color: #ADFFAD; border-radius: 10px">
+                    <br>
+                    <table border="0"  align="center">
+                            <tbody>                
                         <tr>
                             <td>Urb / Sector / Barrio</td>
 
@@ -556,11 +617,16 @@
                                 <html:errors property="codPostal" />
                             </td>
                         </tr>
+                        
+                            </tbody>
+                    </table>
+                </div>
 
-                        <tr>
-                            <td> <br/> <strong>Información de Contacto</strong></td>
-                        </tr>
-
+                <div id="opci3" style="display:none;width:650px;height:150px; background-color: #B8B8FF; border-radius: 10px">
+                    <br>
+                    <table border="0"  align="center">
+                        <tbody>
+                            
                         <tr>
 
                             <td> Tlf. Celular:</td>
@@ -609,13 +675,12 @@
 
                         </tbody>
                     </table>
+                </div>                    
+                            
+                <div id="opci4" style="display:none;width:650px;height:450px; background-color: #FFFF94; border-radius: 10px">
                     <table border="0"  align="center">
                         <tbody>
-                        <br>
-                        <tr>
-                            <td> <strong>Programa y Lapso de Estudio de Intercambio</strong></td>
-                        </tr>
-
+                        
                         <tr>
                             <td> Opción 1:</td>
                         </tr>
@@ -1075,9 +1140,13 @@
                                 <html:errors property="duracionProgramaOpcion2" />
                             </td>
                         </tr> 
-                        <tr>
-                            <td> <br/> <strong>Información Académica</strong></td>
-                        </tr>                            
+                        </tbody>
+                    </table>
+                </div>
+                            
+                <div id="opci5" style="display:none;width:650px;height:250px; background-color: #F2D8FF; border-radius: 10px">
+                    <table border="0"  align="center">
+                        <tbody>
                         <tr>
                             <td> Decanato:</td>
                             <td><html:select name="PlanillaUSB" property="decanato">
@@ -1188,10 +1257,12 @@
                                 <html:errors property="indicePon" />
                             </td>
                         </tr>
-
-                        <tr>
-                            <td> <br/> <strong>Fuente de Financiamiento</strong></td>
-                        </tr> 
+                        </tbody>
+                    </table>
+                </div>
+                <div id="opci6" style="display:none;width:650px;height:150px; background-color: #D6D6C2; border-radius: 10px">
+                    <table border="0"  align="center">
+                        <tbody>
                         <tr>
                             <td> Principal Fuente de Ingresos: </td>
                             <td><html:select name="PlanillaUSB" property="fuenteFinanciamiento">
@@ -1219,10 +1290,14 @@
                                 </html:text> 
                             </td>                    
                         </tr>
-
-                        <tr>
-                            <td> <br/> <strong>Datos en Caso de Emergencia</strong></td>
-                        </tr>     
+                        </tbody>
+                    </table>
+                </div>
+                            
+                <div id="opci7" style="display:none;width:650px;height:350px; background-color: #ADD6FF; border-radius: 10px">
+                    <table border="0"  align="center">
+                        <tbody>
+                    
                         <tr>
                             <td> Primer Apellido: </td>
                             <td>
@@ -1306,29 +1381,34 @@
 
                         </tbody>
                     </table>    
-                    <p  align=center>
-                        <html:submit> Enviar Formulario </html:submit>
-                        </p>                        
-                </html:form>
+                </div>                
+
+                <br>
+                <p  align=center>
+                    <html:submit> Enviar Formulario </html:submit>
+                </p>            
+                
+            </html:form>
             </div>
         </div>
     </div>
 
     <br>
+    
     <!-- CARGA DE DOCUMENTOS -->
 
     <div class="nav" style="text-align: center;">
         <a href="#" onclick=" if (true) hide('datosplanilla'), show('archivos'),hide('plan'),hide('idio')"> Cargar Archivos Adjuntos </a>
     </div>
     <div id="archivos" style="display: none">
-        <div style="width:auto;height:auto;border:6px solid #F0F0F0; background-color: #F0F0F0">
+        <div style="width:auto;height:auto;border:6px solid  #F9F4CF; background-color: #F9F4CF; border-radius: 10px">
 
             <div align=center>
                 <html:form action="/FileUploadAction" method="post" enctype="multipart/form-data">
                     <br />
                     <p hidden="true"><html:text name="FileUploadForm" property="nombreusuario" maxlength="20" errorStyleClass="error" value ="<%=var.toString()%>"
                                errorKey="org.apache.struts.action.ERROR"></html:text></p>
-                        <div style="width:auto;height:auto;border:6px solid #F0F0F0; background-color: #F0F0F0">
+                        <div style="width:auto;height:auto;border:6px solid #F9F4CF; background-color: #F9F4CF">
                             <table id="dataTable" width="350px" cellspacing="14px">
                                 <tbody id="dataBody">
                                     <tr>
@@ -1367,7 +1447,7 @@
 
     <div id="plan" style="display: none">
 
-        <div style="width:auto;height:auto;border:6px solid #F0F0F0; background-color: #F0F0F0">
+        <div style="width:auto;height:auto;border:6px solid #F9F4CF; background-color: #F9F4CF; border-radius: 10px">
             <div align=center>
                 <html:form action="/AccionPlanDeEstudio" method="post" enctype="multipart/form-data">
                     <br />
@@ -1453,7 +1533,7 @@
     </div>
 
     <div id="idio" style="display: none">
-        <div style="width:auto;height:auto;border:6px solid #F0F0F0; background-color: #F0F0F0">
+        <div style="width:auto;height:auto;border:6px solid #F9F4CF; background-color: #F9F4CF; border-radius: 10px">
             <div align=center>
                 <html:form action="/CargarIdioma" method="post" enctype="multipart/form-data">
                     <br />
