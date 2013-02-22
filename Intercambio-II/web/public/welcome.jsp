@@ -6,7 +6,7 @@
 <%@ taglib uri="http://struts.apache.org/tags-tiles" prefix="tiles" %>
 <%@ page import="nl.captcha.Captcha" %>
 <html:html lang="true">
-    
+
     <title>Sistema de Gesti&oacute;n de Intercambio</title>
 
     <h4>Bienvenido</h4>
@@ -36,7 +36,12 @@
             <div  style="position: relative; height: 120px; bottom: -10px;">
                 <div id="Imagencita" style="height: 75px;">
                     <img src="/Intercambio-II/stickyImg"/>
+                    <br><br>
+                    <div>
+                        <a href="javascript:history.go(0)">Click para cambiar captcha</a>
+                    </div>
                 </div>
+                <br><br>
                 <div>
                     Captcha <input name="answer" />
                 </div>
@@ -48,6 +53,7 @@
     </div>
 
     <br /><br />
+
     <div align="center" > 
         <html:link action="preRegistro">
             ¿No tiene una cuenta?<br />
