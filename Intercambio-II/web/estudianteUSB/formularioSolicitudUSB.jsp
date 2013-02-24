@@ -368,29 +368,208 @@
             }
         }
 
-    var universidades_1=new Array("ale1","ale2")
-    var universidades_2=new Array("brasil1","brasil2")
+// CAMBIA EL PAIS DE ACUERDO AL TIPO DE CONVENIO ELEGIDO
 
-    function cambia_universidad(){ 
+    // Convenios Bilaterales
+    var paises_1=new Array("Seleccione", "Alemania","Australia", "Canadá", "Colombia", "España", "Estados Unidos", "Finlandia", "Francia", "Italia", "Japón", "México", "Noruega", "Perú", "Puerto Rico", "Reino Unido", "Suecia")
+    // SMILE
+    var paises_2=new Array("Seleccione", "Alemania", "Bélgica", "Brasil", "Chile", "Colombia", "España", "Polonia", "Portugal", "República Checa")
+    // CINDA
+    var paises_3=new Array("Seleccione", "Argentina", "Bolivia", "Brasil", "Chile", "Colombia", "Costa Rica", "Ecuador", "España", "Italia", "México", "Panamá", "Paraguay", "Perú", "República Dominicada", "Uruguay", "Venezuela")
+
+    function cambia_pais(){ 
         //tomo el valor del select del pais elegido 
-        pais = document.getElementById("pais_sec")[document.getElementById("pais_sec").selectedIndex].value 
-        if (pais != 0) { 
-           mis_universidades=eval("universidades_" + pais) 
-           num_universidades = mis_universidades.length 
-           document.getElementById("uni_selecc").length = num_universidades 
-           for(i=0;i<num_universidades;i++){ 
-              document.getElementById("uni_selecc").options[i].value=mis_universidades[i] 
-              document.getElementById("uni_selecc").options[i].text=mis_universidades[i] 
+        programa = document.getElementById("prog_princ")[document.getElementById("prog_princ").selectedIndex].value 
+        if (programa != 0) { 
+           mis_paises=eval("paises_" + programa) 
+           num_paises = mis_paises.length 
+           document.getElementById("pais_princ").length = num_paises
+           for(i=0;i<num_paises;i++){ 
+              document.getElementById("pais_princ").options[i].value=i
+              document.getElementById("pais_princ").options[i].text=mis_paises[i] 
            } 
         }else{ 
            //si no había provincia seleccionada, elimino las universidades del select 
-           document.getElementById("uni_selecc").length = 1 
-           document.getElementById("uni_selecc").options[0].value = "-" 
-           document.getElementById("uni_selecc").options[0].text = "-" 
+           document.getElementById("pais_princ").length = 1 
+           document.getElementById("pais_princ").options[0].value = "-" 
+           document.getElementById("pais_princ").options[0].text = "-" 
         } 
         //marco como seleccionada la opción primera de provincia 
-        document.getElementById("uni_selecc").options[0].selected = true 
-    } 
+        document.getElementById("pais_princ").options[0].selected = true 
+    }
+
+    function cambia_pais2(){ 
+        //tomo el valor del select del pais elegido 
+        programa = document.getElementById("prog_princ2")[document.getElementById("prog_princ2").selectedIndex].value 
+        if (programa != 0) { 
+           mis_paises=eval("paises_" + programa) 
+           num_paises = mis_paises.length 
+           document.getElementById("pais_princ2").length = num_paises
+           for(i=0;i<num_paises;i++){ 
+              document.getElementById("pais_princ2").options[i].value=i
+              document.getElementById("pais_princ2").options[i].text=mis_paises[i] 
+           } 
+        }else{ 
+           //si no había provincia seleccionada, elimino las universidades del select 
+           document.getElementById("pais_princ2").length = 1 
+           document.getElementById("pais_princ2").options[0].value = "-" 
+           document.getElementById("pais_princ2").options[0].text = "-" 
+        } 
+        //marco como seleccionada la opción primera de provincia 
+        document.getElementById("pais_princ2").options[0].selected = true 
+    }
+
+// CAMBIA LA UNIVERSIDAD DE ACUERDO AL PAIS ESCOGIDO 
+
+// Universidad con Convenios Bilaterales
+var uni_11=new Array("Seleccione", "Universidad de Karlsruhe", "Universidad de Siegen")
+var uni_12=new Array("Seleccione", "Universidad Tecnológica de Swinburne")
+var uni_13=new Array("Seleccione", "Instituto de Tecnología de Ontario")
+var uni_14=new Array("Seleccione", "Pontificia Universidad Bolivariana", "Universidad Externado")
+var uni_15=new Array("Seleccione", "Universidad de Granada", "Universidad de Zaragoza", "Universidad Politécnica de Valencia")
+var uni_16=new Array("Seleccione", "Universidad de Nuevo México", "Universidad de Oklahoma")
+var uni_17=new Array("Seleccione", "Universidad Abo Akademi")
+var uni_18=new Array("Seleccione", "Arts et Métiers ParisTech", "EPF Escuela de Ingenieros", "Escuela de Minas de Nantes", "INSA – Lyon", "TELECOM – SudParis", "Universidad Paris Est Marne la Vallé", "Universidad Paris Ouest Nanterre", "Universidad Tecnológica de Compiègne")
+var uni_19=new Array("Seleccione", "Politécnico de Milano", "Politécnico de Torino")
+var uni_110=new Array("Seleccione", "Universidad de Tohoku", "Universidad Tecnológica de Nagaoka")
+var uni_111=new Array("Seleccione", "Instituto Tecnológico Superior de Cajeme (ITESCA)", "ITESM Monterrey", "Universidad Veracruzana")
+var uni_112=new Array("Seleccione", "NTNU- Trondheim")
+var uni_113=new Array("Seleccione", "Universidad San Martín de Porres")
+var uni_114=new Array("Seleccione", "Universidad de Puerto Rico")
+var uni_115=new Array("Seleccione", "Universidad de Ulster")
+var uni_116=new Array("Seleccione", "Real Instituto de Estocolmo KTH", "Universidad de Lund", "Universidad de Uppsala")
+
+// Universidad con SMILE
+var uni_21=new Array("Seleccione", "Universidad de Stuttgart")
+var uni_22=new Array("Seleccione", "Universidad Católica de Lovaina")
+var uni_23=new Array("Seleccione", "PSML - BRA - Universidad de Sao Paulo", "PSML - BRA - Universidad Federal de Río de Janeiro")
+var uni_24=new Array("Seleccione", "PSML - CHI - Pontifica Universidad Católica de Chile")
+var uni_25=new Array("Seleccione", "PSML - COL - Pontificia Universidad Javeriana")
+var uni_26=new Array("Seleccione", "PSML - ESP - Universidad Politécnica de Cataluña", "PSML - ESP - Universidad Politécnica de Madrid")
+var uni_27=new Array("Seleccione", "PSML - POL - AGH Universidad de Ciencias y Tecnología")
+var uni_28=new Array("Seleccione", "PSML - POR - Universidad Técnica de Lisboa")
+var uni_29=new Array("Seleccione", "PSML - RPC - Universidad Técnica Checa en Praga")
+
+// Universidad con CINDA
+var uni_31=new Array("Seleccione", "Universidad Nacional de Cuyo", "Universidad Nacional de Quilmes", "Universidad Nacional de San Martín")
+var uni_32=new Array("Seleccione", "Universidad Católica Boliviana San Pablo", "Universidad Privada Santa Cruz de la Sierra")
+var uni_33=new Array("Seleccione", "Universidad de Sao Paulo ", "Universidad Estadual de Campinas")
+var uni_34=new Array("Seleccione", "Pontificia Universidad Católica de Chile", "Pontificia Universidad Católica de Valparaíso", "Universidad Austral de Chile", "Universidad de Concepción", "Universidad de Talca", "Universidad de Tarapacá")
+var uni_35=new Array("Seleccione", "Pontificia Universidad Javeriana ", "Universidad de los Andes", "Universidad del Norte", "Universidad del Valle")
+var uni_36=new Array("Seleccione", "Universidad de Costa Rica ")
+var uni_37=new Array("Seleccione", "Escuela Superior Politécnica del Litoral")
+var uni_38=new Array("Seleccione", "Universidad Carlos III de Madrid", "Universidad de Barcelona", "Universidad de las Islas Baleares", "Universidad de Santiago de Compostela", "Universitat Oberta de Catalunya", "Universitat Politécnica de Catalunya")
+var uni_39=new Array("Seleccione", "Universidad Degli Studi Di Genova")
+var uni_310=new Array("Seleccione", "ITESM Monterrey ", "Universidad Autónoma Metropolitana")
+var uni_311=new Array("Seleccione", "Universidad de Panamá ")
+var uni_312=new Array("Seleccione", "Universidad Católica de Nuestra Señora de la Asunción")
+var uni_313=new Array("Seleccione", "Pontificia Universidad Católica del Perú ", "Universidad de Lima", "Universidad del Pacífico ", "Universidad Peruana Cayetano Heredia")
+var uni_314=new Array("Seleccione", "Instituto Tecnológico de Santo Domingo", "Pontificia Universidad Católica Madre Maestra ")
+var uni_315=new Array("Seleccione", "Universidad Católica del Uruguay")
+var uni_316=new Array("Seleccione", "Universidad Centroccidental Lisandro Alvarado", "Universidad Metropolitana")
+
+
+function cambia_universidad(){ 
+        //tomo el valor del select del pais elegido 
+        programa = document.getElementById("prog_princ")[document.getElementById("prog_princ").selectedIndex].value 
+        pais = document.getElementById("pais_princ")[document.getElementById("pais_princ").selectedIndex].value 
+        if (programa != 0) { 
+           mis_universidades=eval("uni_" + programa + pais) 
+           num_universidades = mis_universidades.length 
+           document.getElementById("uni_princ").length = num_universidades 
+           for(i=0;i<num_universidades;i++){ 
+              document.getElementById("uni_princ").options[i].value=mis_universidades[i] 
+              document.getElementById("uni_princ").options[i].text=mis_universidades[i] 
+           } 
+        }else{ 
+           //si no había provincia seleccionada, elimino las universidades del select 
+           document.getElementById("uni_princ").length = 1 
+           document.getElementById("uni_princ").options[0].value = "-" 
+           document.getElementById("uni_princ").options[0].text = "-" 
+        } 
+        //marco como seleccionada la opción primera de provincia 
+        document.getElementById("uni_princ").options[0].selected = true 
+    }
+
+
+function cambia_universidad2(){ 
+        //tomo el valor del select del pais elegido 
+        programa = document.getElementById("prog_princ2")[document.getElementById("prog_princ2").selectedIndex].value 
+        pais = document.getElementById("pais_princ2")[document.getElementById("pais_princ2").selectedIndex].value 
+        if (programa != 0) { 
+           mis_universidades=eval("uni_" + programa + pais) 
+           num_universidades = mis_universidades.length 
+           document.getElementById("uni_princ2").length = num_universidades 
+           for(i=0;i<num_universidades;i++){ 
+              document.getElementById("uni_princ2").options[i].value=mis_universidades[i] 
+              document.getElementById("uni_princ2").options[i].text=mis_universidades[i] 
+           } 
+        }else{ 
+           //si no había provincia seleccionada, elimino las universidades del select 
+           document.getElementById("uni_princ2").length = 1 
+           document.getElementById("uni_princ2").options[0].value = "-" 
+           document.getElementById("uni_princ2").options[0].text = "-" 
+        } 
+        //marco como seleccionada la opción primera de provincia 
+        document.getElementById("uni_princ2").options[0].selected = true 
+    }
+
+    // Estudios Profesionales
+    var area_1=new Array("Seleccione", "Áreas de Ciencias Básicas", "Área de Arquitectura y Urbanismo", "Área de Ingeniería", "Área de Ciencias Administrativas")
+    // Estudios Tecnologicos 
+    var area_2=new Array("Seleccione", "Área de Tecnología", "Área de Ciencias Sociales")
+
+    function cambia_area(){ 
+        decanato = document.getElementById("dec")[document.getElementById("dec").selectedIndex].value 
+        if (decanato != 0) { 
+           mis_areas=eval("area_" + decanato) 
+           num_areas = mis_areas.length 
+           document.getElementById("area").length = num_areas
+           for(i=0;i<num_areas;i++){ 
+              document.getElementById("area").options[i].value=i
+              document.getElementById("area").options[i].text=mis_areas[i] 
+           } 
+        }else{ 
+           //si no había provincia seleccionada, elimino las universidades del select 
+           document.getElementById("area").length = 1 
+           document.getElementById("area").options[0].value = "-" 
+           document.getElementById("area").options[0].text = "-" 
+        } 
+        //marco como seleccionada la opción primera de provincia 
+        document.getElementById("area").options[0].selected = true 
+    }
+    
+var carrera_11=new Array("Seleccione", "Lic. Biología", "Lic. Física", "Lic. Matemática", "Lic. Química")
+var carrera_12=new Array("Seleccione", "Arquitectura", "Urbanismo")
+var carrera_13=new Array("Seleccione", "Ing. Eléctrica", "Ing. Mecánica", "Ing. Química", "Ing. Computación", "Ing. Telecomunicaciones", "Ing. Mantenimiento", "Ing. Electrónica", "Ing. Geofísica", "Ing. Materiales", "Ing. Producción")
+var carrera_14=new Array("Seleccione", "Lic. Gestión de la Hospitalidad", "Lic. Com. Internacional")
+
+var carrera_21=new Array("Seleccione", "TSU Tec. Electrónica", "TSU Tec. Mecánica", "TSU Mant. Aeronáutico")
+var carrera_22=new Array("Seleccione", "TSU Admin. Turismo", "TSU Admin. Hotelera", "TSU Admin. Transporte", "TSU Admin. Aduanera", "TSU Com. Exterior", "TSU Org. Empresarial")
+
+function cambia_carrera(){ 
+        //tomo el valor del select del pais elegido 
+        decanato = document.getElementById("dec")[document.getElementById("dec").selectedIndex].value 
+        areas = document.getElementById("area")[document.getElementById("area").selectedIndex].value 
+        if (decanato != 0) { 
+           mis_carreras=eval("carrera_" + decanato + areas) 
+           num_carreras = mis_carreras.length 
+           document.getElementById("carr").length = num_carreras
+           for(i=0;i<num_carreras;i++){ 
+              document.getElementById("carr").options[i].value=mis_carreras[i] 
+              document.getElementById("carr").options[i].text=mis_carreras[i] 
+           } 
+        }else{ 
+           //si no había provincia seleccionada, elimino las universidades del select 
+           document.getElementById("carr").length = 1 
+           document.getElementById("carr").options[0].value = "-" 
+           document.getElementById("carr").options[0].text = "-" 
+        } 
+        //marco como seleccionada la opción primera de provincia 
+        document.getElementById("carr").options[0].selected = true 
+    }    
+    
+    
     </script>
 
     <title>Sistema de Gestión de Intercambio</title>
@@ -428,7 +607,8 @@
                 
                 <!-- contenido de las pestañas -->
                 
-                <div id="opci1" style="display:block;width:650px;height:300px;background-color: #F9F4CF; border-radius: 10px">
+                
+                <div id="opci1" style="display:block;width:650px;height:300px; border: 5px solid #F9F4CF; border-width:5px; border-radius: 10px">
                     <table border="0"  align="center">
                             <tbody>
                             <br>
@@ -559,7 +739,7 @@
 
                 </div>
                             
-                <div id="opci2" style="display:none;width:650px;height:250px; background-color: #ADFFAD; border-radius: 10px">
+                <div id="opci2" style="display:none;width:650px;height:250px; border: 5px solid #ADFFAD; border-width:5px; border-radius: 10px">
                     <br>
                     <table border="0"  align="center">
                             <tbody>                
@@ -646,7 +826,7 @@
                     </table>
                 </div>
 
-                <div id="opci3" style="display:none;width:650px;height:150px; background-color: #B8B8FF; border-radius: 10px">
+                <div id="opci3" style="display:none;width:650px;height:150px; border: 5px solid #B8B8FF; border-width:5px; border-radius: 10px">
                     <br>
                     <table border="0"  align="center">
                         <tbody>
@@ -701,152 +881,44 @@
                     </table>
                 </div>                    
                             
-                <div id="opci4" style="display:none;width:650px;height:450px; background-color: #FFFF94; border-radius: 10px">
+                <div id="opci4" style="display:none;width:650px;height:450px; border: 5px solid #FFFF94; border-radius: 10px; border-width:5px;">
                     <br>
                     <table border="0"  align="center">
                         <tbody>
                         
                         <tr>
-                            <td> Opción 1:</td>
+                            <td> <b>Opción 1</b> </td>
                         </tr>
-                        <!-- NADIEEE TOQUE ESTOO!!!!
                         <tr>
-        
-                              
-                            <select name="pais" id="pais_sec" onchange="cambia_universidad()"> 
-                            <option value="0" selected>Seleccione... 
-                            <option value="1">Alemania
-                            <option value="2">Brasil  
-                            </select> 
-
-                            <select name="provincia" id="uni_selecc"> 
-                            <option value="-">- 
+                            <td> Nombre de Programa: </td>
+                            <td>
+                            <select id="prog_princ" onchange="cambia_pais()" property="nombreProgramaOpcion1"> 
+                            <option value="0" selected>Seleccione
+                            <option value="1">Convenios Bilaterales
+                            <option value="2">Programa SMILE
+                            <option value="3">Programa de Movilidad Estudiantil CINDA
                             </select>
-                            
+                            </td>
                         </tr>
-                        -->                        
                         
                         <tr>
-                            <td> País Destino:</td>
+                            <td> Pais Destino: </td>
                             <td>
-                                <html:select  property="paisOpcion1">
-                                    <html:option value="Seleccione"></html:option>
-                                    <html:option value="Alemania"></html:option>
-                                    <html:option value="Argentina"></html:option>
-                                    <html:option value="Bélgica"></html:option>
-                                    <html:option value="Bogota"></html:option>
-                                    <html:option value="Brasil"></html:option>
-                                    <html:option value="Canada"></html:option>
-                                    <html:option value="Colombia"></html:option>
-                                    <html:option value="Chile"></html:option>
-                                    <html:option value="Costa Rica"></html:option>
-                                    <html:option value="España"></html:option>
-                                    <html:option value="Estados Unidos"></html:option>
-                                    <html:option value="Finlandia"></html:option>
-                                    <html:option value="Francia"></html:option>
-                                    <html:option value="Italia"></html:option>
-                                    <html:option value="Japón"></html:option>
-                                    <html:option value="México"></html:option>
-                                    <html:option value="Noruega"></html:option>
-                                    <html:option value="Perú"></html:option>
-                                    <html:option value="Panamá"></html:option>
-                                    <html:option value="Puerto Rico"></html:option>
-                                </html:select>
-                            </td>
-                            <td>
-                                <html:errors property="paisOpcion1" />
+                            <select id="pais_princ" onchange="cambia_universidad()" property="paisOpcion1"> 
+                            <option value="-">- 
+                            </select>
                             </td>
                         </tr>
+
                         <tr>
-                            <td> Nombre Universidad de Destino:</td>
+                            <td> Universidad Destino: </td>
                             <td>
-                                <html:select  property="nombreOpcion1">
-                                    <html:option value="Seleccione"></html:option>
-                                    <html:option value="ALE -- Universidad de Karlsruhe"></html:option>
-                                    <html:option value="ALE -- Universidad de Siegen"></html:option>
-                                    <html:option value="ALE -- Universidad de Stuttgart:"></html:option>
-                                    <html:option value="AR -- Universidad Nacional de Cuyo"></html:option>
-                                    <html:option value="AR -- Universidad Nacional de Quilmes"></html:option>
-                                    <html:option value="AR -- Universidad Nacional de San Martín"></html:option>
-                                    <html:option value="AU -- Universidad Tecnológica de Swinburne"></html:option>
-                                    <html:option value="BE -- Universidad Católica de Lovaina"></html:option>
-                                    <html:option value="BO -- Universidad Privada Santa Cruz de la Sierra"></html:option>
-                                    <html:option value="BR -- Universidad Federal de Río de Janeiro"></html:option>
-                                    <html:option value="BR -- Universidad de Sao Paulo"></html:option>
-                                    <html:option value="BR -- Universidad Estadual de Campinas"></html:option>
-                                    <html:option value="CA -- Instituto de Tecnología de Ontario"></html:option>
-                                    <html:option value="CO -- Universidad Externado"></html:option>
-                                    <html:option value="CO -- Pontificia Universidad Bolivariana"></html:option>
-                                    <html:option value="CO -- Pontificia Universidad Javeriana"></html:option>
-                                    <html:option value="CO -- Universidad de los Andes"></html:option>
-                                    <html:option value="CO -- Universidad del Norte"></html:option>
-                                    <html:option value="CO -- Universidad del Valle"></html:option>
-                                    <html:option value="CL -- Pontifica Universidad Católica de Chile"></html:option>
-                                    <html:option value="CL -- Pontificia Universidad Católica de Valparaíso"></html:option>
-                                    <html:option value="CL -- Universidad Austral de Chile"></html:option>
-                                    <html:option value="CL -- Universidad de Concepción"></html:option>
-                                    <html:option value="CL -- Universidad de Talca"></html:option>
-                                    <html:option value="CL -- Universidad de Tarapacá"></html:option>
-                                    <html:option value="CR -- Universidad de Costa Rica"></html:option>    
-                                    <html:option value="DO -- Pontificia Universidad Católica Madre y Maestra"></html:option> 
-                                    <html:option value="DO -- Instituto Tecnológico de Santo Domingo"></html:option> 
-                                    <html:option value="EC -- Escuela Superior Politécnica del Litoral"></html:option>    
-                                    <html:option value="ES -- Universidad de las Islas Baleares"></html:option>
-                                    <html:option value="ES -- UUniversidad de Santiago de Compostela"></html:option>
-                                    <html:option value="ES -- Universitat Oberta de Catalunya"></html:option>
-                                    <html:option value="ES -- Universidad de Barcelona"></html:option>
-                                    <html:option value="ES -- Universidad Carlos III de Madrid"></html:option>
-                                    <html:option value="ES -- Universidad de Granada"></html:option>
-                                    <html:option value="ES -- Universidad Politécnica de Madrid"></html:option>
-                                    <html:option value="ES -- Universidad Politécnica de Cataluña"></html:option>
-                                    <html:option value="ES -- Universidad Politécnica de Valencia"></html:option>
-                                    <html:option value="ES -- Universidad de Zaragoza"></html:option>
-                                    <html:option value="EEUU -- Universidad de Nuevo México"></html:option>
-                                    <html:option value="EEUU -- Universidad de Oklahoma"></html:option>
-                                    <html:option value="FI -- Universidad Abo Akademi"></html:option>
-                                    <html:option value="FR -- Arts et Metiers ParisTech"></html:option>
-                                    <html:option value="FR -- Escuela de Minas de Nantes"></html:option>
-                                    <html:option value="FR -- EPF Escuela de Ingenieros"></html:option>
-                                    <html:option value="FR -- INSA – Lyon"></html:option>
-                                    <html:option value="FR -- TELECOM – SudParis"></html:option>
-                                    <html:option value="FR -- Universidad Tecnológica de Compiegne"></html:option>
-                                    <html:option value="FR -- Universidad Paris Ouest Nanterre"></html:option>
-                                    <html:option value="FR -- Universidad Paris Est Marne la Valle"></html:option>
-                                    <html:option value="ITA -- Politécnico de Milano"></html:option>
-                                    <html:option value="ITA -- Politécnico de Torino"></html:option>
-                                    <html:option value="ITA -- Universidad Degli Studi Di Genova"></html:option>
-                                    <html:option value="ITA -- Universidad Degli Studi Di Siena"></html:option>
-                                    <html:option value="JPN -- Universidad Tecnológica de Nagaoka"></html:option>
-                                    <html:option value="JPN -- Universidad de Tohoku"></html:option>
-                                    <html:option value="MX -- ITESM Monterrey"></html:option>
-                                    <html:option value="MX -- Universidad Autónoma Metropolitana"></html:option>
-                                    <html:option value="MX -- Instituto Tecnológico Superior de Cajeme(ITESCA)"></html:option>
-                                    <html:option value="MX -- Universidad Veracruzana"></html:option>
-                                    <html:option value="NO -- NTNU-Trondheim"></html:option>
-                                    <html:option value="PE -- Universidad San Martín de Porres"></html:option>
-                                    <html:option value="PE -- Pontificia Universidad Católica del Perú"></html:option>
-                                    <html:option value="PE -- Universidad de Lima"></html:option>
-                                    <html:option value="PE -- Universidad del Pacífico"></html:option>
-                                    <html:option value="PE -- Universidad Peruana Cayetano Heredia"></html:option>
-                                    <html:option value="PA -- Universidad de Panamá"></html:option>
-                                    <html:option value="PY -- Universidad Católica de Nuestra Señora de la Asunción"></html:option>
-                                    <html:option value="PL -- AGH Universidad de Ciencias y Tecnología"></html:option>
-                                    <html:option value="PT -- Universidad Técnica de Lisboa"></html:option>
-                                    <html:option value="PRC -- Universidad de Puerto Rico"></html:option>
-                                    <html:option value="UK -- Universidad de Ulster"></html:option>
-                                    <html:option value="RCH -- Universidad Técnica Checa en Praga (CTU)"></html:option>
-                                    <html:option value="SE -- Real Instituto de Estocolmo KTH"></html:option>
-                                    <html:option value="SE -- Universidad de Lund"></html:option>
-                                    <html:option value="SE -- Universidad de Uppsala"></html:option>
-                                    <html:option value="VE -- Universidad Centroccidental Lisandro Alvarado"></html:option>
-                                </html:select>
-                            </td>
-
-                            <td>
-                                <html:errors property="nombreOpcion1" />
+                            <select id="uni_princ" property="nombreOpcion1"> 
+                            <option value="-">- 
+                            </select>
                             </td>
                         </tr>
-
+                        
                         <tr>
                             <td> Tipo de Programa: </td>
                             <td>
@@ -861,20 +933,6 @@
                             </td>
                             <td>
                                 <html:errors property="programaOpcion1" />
-                            </td>
-                        </tr>                            
-                        <tr>
-                            <td> Nombre de Programa: </td>
-                            <td>
-                                <html:select  property="nombreProgramaOpcion1">
-                                    <html:option value="Seleccione"></html:option>
-                                    <html:option value="Convenios Bilaterales"></html:option>
-                                    <html:option value="Programa Red"></html:option>
-                                    <html:option value="Programa Movilidad Estudiantil (CINDA)"></html:option>
-                                </html:select>
-                            </td>
-                            <td>
-                                <html:errors property="nombreProgramaOpcion1" />
                             </td>
                         </tr>                            
                         <tr>
@@ -949,136 +1007,40 @@
                                 <html:errors property="duracionProgramaOpcion1" />
                             </td>
                         </tr>  
-
+                        
                         <tr>
-                            <td>      </td>
-                        </tr>
-
-                        <tr>
-                            <td> Opción 2:</td>
-                        </tr>
-
-
-                        <tr>
-                            <td> País Destino:</td>
-                            <td>
-                                <html:select  property="paisOpcion2">
-                                    <html:option value="Seleccione"></html:option>
-                                    <html:option value="Alemania"></html:option>
-                                    <html:option value="Argentina"></html:option>
-                                    <html:option value="Bélgica"></html:option>
-                                    <html:option value="Bogota"></html:option>
-                                    <html:option value="Brasil"></html:option>
-                                    <html:option value="Canada"></html:option>
-                                    <html:option value="Colombia"></html:option>
-                                    <html:option value="Chile"></html:option>
-                                    <html:option value="Costa Rica"></html:option>
-                                    <html:option value="España"></html:option>
-                                    <html:option value="Estados Unidos"></html:option>
-                                    <html:option value="Finlandia"></html:option>
-                                    <html:option value="Francia"></html:option>
-                                    <html:option value="Italia"></html:option>
-                                    <html:option value="Japón"></html:option>
-                                    <html:option value="México"></html:option>
-                                    <html:option value="Noruega"></html:option>
-                                    <html:option value="Perú"></html:option>
-                                    <html:option value="Panamá"></html:option>
-                                    <html:option value="Puerto Rico"></html:option>
-                                </html:select>
-                            </td>
-                            <td>
-                                <html:errors property="paisOpcion2" />
-                            </td>
+                            <td> <b>Opción 2</b> </td>
                         </tr>
                         <tr>
-                            <td> Nombre Universidad de Destino:</td>
+                            <td> Nombre de Programa: </td>
                             <td>
-                                <html:select  property="nombreOpcion2">
-                                    <html:option value="Seleccione"></html:option>
-                                    <html:option value="ALE -- Universidad de Karlsruhe"></html:option>
-                                    <html:option value="ALE -- Universidad de Siegen"></html:option>
-                                    <html:option value="ALE -- Universidad de Stuttgart:"></html:option>
-                                    <html:option value="AR -- Universidad Nacional de Cuyo"></html:option>
-                                    <html:option value="AR -- Universidad Nacional de Quilmes"></html:option>
-                                    <html:option value="AR -- Universidad Nacional de San Martín"></html:option>
-                                    <html:option value="AU -- Universidad Tecnológica de Swinburne"></html:option>
-                                    <html:option value="BE -- Universidad Católica de Lovaina"></html:option>
-                                    <html:option value="BO -- Universidad Privada Santa Cruz de la Sierra"></html:option>
-                                    <html:option value="BR -- Universidad Federal de Río de Janeiro"></html:option>
-                                    <html:option value="BR -- Universidad de Sao Paulo"></html:option>
-                                    <html:option value="BR -- Universidad Estadual de Campinas"></html:option>
-                                    <html:option value="CA -- Instituto de Tecnología de Ontario"></html:option>
-                                    <html:option value="CO -- Universidad Externado"></html:option>
-                                    <html:option value="CO -- Pontificia Universidad Bolivariana"></html:option>
-                                    <html:option value="CO -- Pontificia Universidad Javeriana"></html:option>
-                                    <html:option value="CO -- Universidad de los Andes"></html:option>
-                                    <html:option value="CO -- Universidad del Norte"></html:option>
-                                    <html:option value="CO -- Universidad del Valle"></html:option>
-                                    <html:option value="CL -- Pontifica Universidad Católica de Chile"></html:option>
-                                    <html:option value="CL -- Pontificia Universidad Católica de Valparaíso"></html:option>
-                                    <html:option value="CL -- Universidad Austral de Chile"></html:option>
-                                    <html:option value="CL -- Universidad de Concepción"></html:option>
-                                    <html:option value="CL -- Universidad de Talca"></html:option>
-                                    <html:option value="CL -- Universidad de Tarapacá"></html:option>
-                                    <html:option value="CR -- Universidad de Costa Rica"></html:option>    
-                                    <html:option value="DO -- Pontificia Universidad Católica Madre y Maestra"></html:option> 
-                                    <html:option value="DO -- Instituto Tecnológico de Santo Domingo"></html:option> 
-                                    <html:option value="EC -- Escuela Superior Politécnica del Litoral"></html:option>    
-                                    <html:option value="ES -- Universidad de las Islas Baleares"></html:option>
-                                    <html:option value="ES -- UUniversidad de Santiago de Compostela"></html:option>
-                                    <html:option value="ES -- Universitat Oberta de Catalunya"></html:option>
-                                    <html:option value="ES -- Universidad de Barcelona"></html:option>
-                                    <html:option value="ES -- Universidad Carlos III de Madrid"></html:option>
-                                    <html:option value="ES -- Universidad de Granada"></html:option>
-                                    <html:option value="ES -- Universidad Politécnica de Madrid"></html:option>
-                                    <html:option value="ES -- Universidad Politécnica de Cataluña"></html:option>
-                                    <html:option value="ES -- Universidad Politécnica de Valencia"></html:option>
-                                    <html:option value="ES -- Universidad de Zaragoza"></html:option>
-                                    <html:option value="EEUU -- Universidad de Nuevo México"></html:option>
-                                    <html:option value="EEUU -- Universidad de Oklahoma"></html:option>
-                                    <html:option value="FI -- Universidad Abo Akademi"></html:option>
-                                    <html:option value="FR -- Arts et Metiers ParisTech"></html:option>
-                                    <html:option value="FR -- Escuela de Minas de Nantes"></html:option>
-                                    <html:option value="FR -- EPF Escuela de Ingenieros"></html:option>
-                                    <html:option value="FR -- INSA – Lyon"></html:option>
-                                    <html:option value="FR -- TELECOM – SudParis"></html:option>
-                                    <html:option value="FR -- Universidad Tecnológica de Compiegne"></html:option>
-                                    <html:option value="FR -- Universidad Paris Ouest Nanterre"></html:option>
-                                    <html:option value="FR -- Universidad Paris Est Marne la Valle"></html:option>
-                                    <html:option value="ITA -- Politécnico de Milano"></html:option>
-                                    <html:option value="ITA -- Politécnico de Torino"></html:option>
-                                    <html:option value="ITA -- Universidad Degli Studi Di Genova"></html:option>
-                                    <html:option value="ITA -- Universidad Degli Studi Di Siena"></html:option>
-                                    <html:option value="JPN -- Universidad Tecnológica de Nagaoka"></html:option>
-                                    <html:option value="JPN -- Universidad de Tohoku"></html:option>
-                                    <html:option value="MX -- ITESM Monterrey"></html:option>
-                                    <html:option value="MX -- Universidad Autónoma Metropolitana"></html:option>
-                                    <html:option value="MX -- Instituto Tecnológico Superior de Cajeme(ITESCA)"></html:option>
-                                    <html:option value="MX -- Universidad Veracruzana"></html:option>
-                                    <html:option value="NO -- NTNU-Trondheim"></html:option>
-                                    <html:option value="PE -- Universidad San Martín de Porres"></html:option>
-                                    <html:option value="PE -- Pontificia Universidad Católica del Perú"></html:option>
-                                    <html:option value="PE -- Universidad de Lima"></html:option>
-                                    <html:option value="PE -- Universidad del Pacífico"></html:option>
-                                    <html:option value="PE -- Universidad Peruana Cayetano Heredia"></html:option>
-                                    <html:option value="PA -- Universidad de Panamá"></html:option>
-                                    <html:option value="PY -- Universidad Católica de Nuestra Señora de la Asunción"></html:option>
-                                    <html:option value="PL -- AGH Universidad de Ciencias y Tecnología"></html:option>
-                                    <html:option value="PT -- Universidad Técnica de Lisboa"></html:option>
-                                    <html:option value="PRC -- Universidad de Puerto Rico"></html:option>
-                                    <html:option value="UK -- Universidad de Ulster"></html:option>
-                                    <html:option value="RCH -- Universidad Técnica Checa en Praga (CTU)"></html:option>
-                                    <html:option value="SE -- Real Instituto de Estocolmo KTH"></html:option>
-                                    <html:option value="SE -- Universidad de Lund"></html:option>
-                                    <html:option value="SE -- Universidad de Uppsala"></html:option>
-                                    <html:option value="VE -- Universidad Centroccidental Lisandro Alvarado"></html:option>
-                                </html:select>
-                            </td>
-
-                            <td>
-                                <html:errors property="nombreOpcion2" />
+                            <select id="prog_princ2" onchange="cambia_pais2()" property="nombreProgramaOpcion2"> 
+                            <option value="0" selected>Seleccione
+                            <option value="1">Convenios Bilaterales
+                            <option value="2">Programa SMILE
+                            <option value="3">Programa de Movilidad Estudiantil CINDA
+                            </select>
                             </td>
                         </tr>
+                        
+                        <tr>
+                            <td> Pais Destino: </td>
+                            <td>
+                            <select id="pais_princ2" onchange="cambia_universidad2()" property="paisOpcion2"> 
+                            <option value="-">- 
+                            </select>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td> Universidad Destino: </td>
+                            <td>
+                            <select id="uni_princ2" property="nombreOpcion2"> 
+                            <option value="-">- 
+                            </select>
+                            </td>
+                        </tr>
+                        
                         <tr>
                             <td> Tipo de Programa: </td>
                             <td>
@@ -1093,20 +1055,6 @@
                             </td>
                             <td>
                                 <html:errors property="programaOpcion2" />
-                            </td>
-                        </tr>                            
-                        <tr>
-                            <td> Nombre de Programa: </td>
-                            <td>
-                                <html:select  property="nombreProgramaOpcion2">
-                                    <html:option value="Seleccione"></html:option>
-                                    <html:option value="Convenios Bilaterales"></html:option>
-                                    <html:option value="Programa Red"></html:option>
-                                    <html:option value="Programa Movilidad Estudiantil (CINDA)"></html:option>
-                                </html:select>
-                            </td>
-                            <td>
-                                <html:errors property="nombreProgramaOpcion2" />
                             </td>
                         </tr>                            
                         <tr>
@@ -1166,7 +1114,7 @@
                                 <html:errors property="mesFechaFin2" />
                                 <html:errors property="anoFechaFin2" />
                             </td>
-                        </tr>      
+                        </tr>
                         <tr>
                             <td> Duración: </td>
                             <td>
@@ -1180,68 +1128,45 @@
                             <td>
                                 <html:errors property="duracionProgramaOpcion2" />
                             </td>
-                        </tr> 
+                        </tr>  
+                        
                         </tbody>
                     </table>
                 </div>
                             
-                <div id="opci5" style="display:none;width:650px;height:250px; background-color: #F2D8FF; border-radius: 10px">
+                <div id="opci5" style="display:none;width:650px;height:250px; border: 5px solid #F2D8FF; border-radius: 10px; border-width:5px;">
                     <br>
                     <table border="0"  align="center">
                         <tbody>
-                        <tr>
-                            <td> Decanato:</td>
-                            <td><html:select name="PlanillaUSB" property="decanato">
-                                    <html:option value="Seleccione"></html:option>
-                                    <html:option value="Dec. Estudios Profesionales"></html:option>
-                                </html:select>
-                            </td>
-                        </tr>
 
                         <tr>
-                            <td> Área de Estudio:</td>
-                            <td><html:select name="PlanillaUSB" property="areaEstud">
-                                    <html:option value="Seleccione"></html:option>
-                                </html:select>
+                            <td> Decanato: </td>
+                            <td>
+                            <select id="dec" onchange="cambia_area()" property="decanato"> 
+                            <option value="0" selected>Seleccione
+                            <option value="1"> Decanato de Estudios Profesionales
+                            <option value="2"> Decanato de Estudios Tecnológicos 
+                            </select>
                             </td>
-                        </tr>
+                        </tr>        
+                        
+                        <tr>
+                            <td> Área de Estudio: </td>
+                            <td>
+                            <select id="area" onchange="cambia_carrera()" property="areaEstud"> 
+                            <option value="-">- 
+                            </select>
+                            </td>
+                        </tr>                        
 
                         <tr>
-                            <td> Carrera:</td>
-                            <td><html:select name="PlanillaUSB" property="carrera">
-                                    <html:option value="Seleccione"></html:option>
-                                    <html:option value="Administración del Turismo"></html:option>
-                                    <html:option value="Administración Hotelera"></html:option>
-                                    <html:option value="Administración del Transporte"></html:option>
-                                    <html:option value="Administración Aduanera"></html:option>                                        
-                                    <html:option value="Arquitectura"></html:option>
-                                    <html:option value="Ingenieria Electrica"></html:option>
-                                    <html:option value="Ingenieria Mecanica"></html:option>
-                                    <html:option value="Ingenieria Quimica"></html:option>
-                                    <html:option value="Ingenieria Electrica"></html:option>
-                                    <html:option value="Ingenieria Mecanica"></html:option>
-                                    <html:option value="Ingenieria Electronica"></html:option>
-                                    <html:option value="Ingenieria de Computacion"></html:option>
-                                    <html:option value="Ingenieria Geofisica"></html:option>
-                                    <html:option value="Ingenieria de Materiales"></html:option>
-                                    <html:option value="Ingenieria de Produccion"></html:option>
-                                    <html:option value="Ingenieria de Telecomunicaciones"></html:option>
-                                    <html:option value="Ingenieria de Mantenimeinto"></html:option>
-                                    <html:option value="Licenciatura en Gestion de la Hospitalidad"></html:option>
-                                    <html:option value="Licenciatura en Comercio Internacion"></html:option>
-                                    <html:option value="Licenciatura en Quimica"></html:option>
-                                    <html:option value="Licenciatura en Matematicas"></html:option>
-                                    <html:option value="Licenciatura en Fisica"></html:option>
-                                    <html:option value="Licenciatura en Biologia"></html:option>                                        
-                                    <html:option value="Mantenimiento Aeronautico"></html:option>
-                                    <html:option value="Organizacion Empresarial"></html:option>                                        
-                                    <html:option value="Tecnología  Electrica"></html:option>
-                                    <html:option value="Tecnología  Electronica"></html:option>
-                                    <html:option value="Tecnologia Mecanica"></html:option>
-                                    <html:option value="Urbanismo"></html:option>                                        
-                                </html:select>
+                            <td> Carrera: </td>
+                            <td>
+                            <select id="carr" property="carrera"> 
+                            <option value="-">- 
+                            </select>
                             </td>
-                        </tr> 
+                        </tr>                                       
 
                         <tr>
                             <td>Código de carrera: </td>
@@ -1302,7 +1227,8 @@
                         </tbody>
                     </table>
                 </div>
-                <div id="opci6" style="display:none;width:650px;height:150px; background-color: #D6D6C2; border-radius: 10px">
+                            
+                <div id="opci6" style="display:none;width:650px;height:150px; border: 5px solid #D6D6C2; border-radius: 10px; border-width:5px;">
                     <br>
                     <table border="0"  align="center">
                         <tbody>
@@ -1337,7 +1263,7 @@
                     </table>
                 </div>
                             
-                <div id="opci7" style="display:none;width:650px;height:350px; background-color: #ADD6FF; border-radius: 10px">
+                <div id="opci7" style="display:none;width:650px;height:350px; border: 5px solid #ADD6FF; border-radius: 10px; border-width:5px;">
                     <br>
                     <table border="0"  align="center">
                         <tbody>
@@ -1436,7 +1362,6 @@
             </div>
         </div>
     </div>
-
     <br>
     
     <!-- CARGA DE DOCUMENTOS -->
@@ -1445,14 +1370,14 @@
         <a href="#" onclick=" if (true) hide('datosplanilla'), show('archivos'),hide('plan'),hide('idio')"> Cargar Archivos Adjuntos </a>
     </div>
     <div id="archivos" style="display: none">
-        <div style="width:auto;height:auto;border:6px solid  #F9F4CF; background-color: #F9F4CF; border-radius: 10px">
+        <div style="width:auto;height:auto;border:6px solid  #F9F4CF; border-color: #F9F4CF; border-radius: 10px; border-width:5px;">
 
             <div align=center>
                 <html:form action="/FileUploadAction" method="post" enctype="multipart/form-data">
                     <br />
                     <p hidden="true"><html:text name="FileUploadForm" property="nombreusuario" maxlength="20" errorStyleClass="error" value ="<%=var.toString()%>"
                                errorKey="org.apache.struts.action.ERROR"></html:text></p>
-                        <div style="width:auto;height:auto;border:6px solid #F9F4CF; background-color: #F9F4CF">
+                        <div style="width:auto;height:auto;">
                             <table id="dataTable" width="350px" cellspacing="14px">
                                 <tbody id="dataBody">
                                     <tr>
@@ -1491,7 +1416,7 @@
 
     <div id="plan" style="display: none">
 
-        <div style="width:auto;height:auto;border:6px solid #F9F4CF; background-color: #F9F4CF; border-radius: 10px">
+        <div style="width:auto;height:auto;border:6px solid #F9F4CF; border-color: #F9F4CF; border-radius: 10px; border-width:5px;">
             <div align=center>
                 <html:form action="/AccionPlanDeEstudio" method="post" enctype="multipart/form-data">
                     <br />
@@ -1577,7 +1502,7 @@
     </div>
 
     <div id="idio" style="display: none">
-        <div style="width:auto;height:auto;border:6px solid #F9F4CF; background-color: #F9F4CF; border-radius: 10px">
+        <div style="width:auto;height:auto;border:6px solid #F9F4CF; border-color: #F9F4CF; border-radius: 10px; border-width:5px;">
             <div align=center>
                 <html:form action="/CargarIdioma" method="post" enctype="multipart/form-data">
                     <br />
@@ -1634,8 +1559,6 @@
                 </html:form>
             </div>
         </div>
-
-
     </div>
 
 </html:html>

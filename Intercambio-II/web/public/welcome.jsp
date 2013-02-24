@@ -46,7 +46,8 @@
                     Captcha <input name="answer" />
                 </div>
             </div>
-
+                <br>
+                <br>
             <html:submit value = "Login"> Login</html:submit>   
         </html:form>
         <html:link action="reccontra">¿Olvid&oacute; su contraseña?</html:link><br />
