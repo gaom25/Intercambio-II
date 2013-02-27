@@ -20,6 +20,7 @@
     </script>
 
     <h4>Lista de Usuarios del Sistema:</h4>
+
     <table style="margin: auto">
         <tr>
             <td width="220px">
