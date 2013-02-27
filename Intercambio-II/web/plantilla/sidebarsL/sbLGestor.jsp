@@ -63,13 +63,13 @@
     </div>
     <div style="margin-top: 5px;padding-right:5px">
         <html:link style="color:#126598" action="/BusquedaAvanzada">
-            Busqueda Avanzada 
+            Búsqueda Avanzada 
         </html:link>
     </div>
     <div style="height:20px"></div>
     <div>
         <html:link style="color:#126598" action="/CerrarSesion">
-            Cerrar sesion
+            Cerrar sesión
         </html:link>
     </div>
 </html:html>

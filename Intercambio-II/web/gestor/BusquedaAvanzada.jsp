@@ -1,8 +1,3 @@
-<%-- 
-    Document   : BusquedaAvanzada
-    Created on : Feb 27, 2013, 9:39:27 AM
-    Author     : brahyam
---%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://struts.apache.org/tags-bean" prefix="bean" %>
@@ -10,6 +5,8 @@
 <%@ taglib uri="http://struts.apache.org/tags-logic" prefix="logic" %>
 <%@ taglib uri="http://struts.apache.org/tags-tiles" prefix="tiles" %>
 
+<% Object var = session.getAttribute("nombreusuario");
+    if (var != "") {%>
 <html>
 
     <head>
@@ -26,6 +23,7 @@
 
         <div id="login-form">
             <html:form action="/AccionBusquedaAvanzada"  method="POST" enctype="multipart/form-data" onsubmit="return(this)">
+                <html:hidden property="nombreSolicitante" value="<%=var.toString()%>"/>
                 <table border="0" >
                     <tbody>
                         <tr>
@@ -307,6 +305,11 @@
         </div>
 
     </body>
-
-
 </html>
+<%} else {%>
+<html>
+
+    <title> hello</title>
+</html>
+<% }%>
+
