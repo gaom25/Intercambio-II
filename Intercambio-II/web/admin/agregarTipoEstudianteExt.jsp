@@ -29,7 +29,7 @@
 
                         <td style="color: black">Nombre de Usuario</td>
                         <td>
-                            <html:text name="EstInter" property="nombreusuario" maxlength="20" errorStyleClass="error"
+                            <html:text name="EstInter" property="nombreusuario" value="" maxlength="20" errorStyleClass="error"
                                        errorKey="org.apache.struts.action.ERROR"></html:text>
                         </td>
                         <td>
@@ -40,7 +40,7 @@
                     <tr>
                         <td style="color: black">Email</td>
                         <td>
-                            <html:text name="EstInter" property="email" maxlength="30" errorStyleClass="error" value=""
+                            <html:text name="EstInter" property="email" maxlength="30" value="" errorStyleClass="error" 
                                        errorKey="org.apache.struts.action.ERROR"></html:text>
                         </td>
                         <td>
@@ -51,7 +51,7 @@
                     <tr>
                         <td style="color: black">Primer nombre</td>
                         <td>
-                            <html:text name="EstInter" property="pNombre" maxlength="30" errorStyleClass="error"
+                            <html:text name="EstInter" property="pNombre" value="" maxlength="30" errorStyleClass="error"
                                        errorKey="org.apache.struts.action.ERROR"></html:text>
                         </td>
                         <td>
@@ -61,7 +61,7 @@
 
                     <tr>
                         <td style="color: black">Primer Apellido</td>       
-                        <td><html:text name="EstInter" property="pApellido" maxlength="100" errorStyleClass="error"
+                        <td><html:text name="EstInter" property="pApellido" value="" maxlength="100" errorStyleClass="error"
                                    errorKey="org.apache.struts.action.ERROR"></html:text>
                         </td>
                         <td>
@@ -71,7 +71,7 @@
                     <tr>
                         <td style="color: black">Pasaporte</td>
                         <td>
-                            <html:text name="EstInter" property="pasaporte" maxlength="30" errorStyleClass="error" value=""
+                            <html:text name="EstInter" property="pasaporte" value="" maxlength="30" errorStyleClass="error"
                                        errorKey="org.apache.struts.action.ERROR"></html:text>
                         </td>
                         <td>
