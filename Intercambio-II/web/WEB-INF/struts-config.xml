@@ -546,6 +546,8 @@
       <action input="/" name="Usuario" path="/ListarDocumentos" scope="session" type="Actions.ListarDocumentos">
           <forward name="success" path="listarDocumentos" />
        </action>
+      <action input="/" name="PlanExtranjero" path="/AccionPlanEstudioExt" scope="session" type="Actions.AccionPlanEstudioExt"/>
+       
       <action input="/" name="PlanillaExt" path="/LlenarPlanilla_EstExt" scope="session" type="Actions.LlenarPlanilla_EstExt"/>
     
       <action path="/Descarga" type="Actions.Descarga" parameter="images/descarga.png" />

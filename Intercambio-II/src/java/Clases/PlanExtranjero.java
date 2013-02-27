@@ -26,34 +26,19 @@ public class PlanExtranjero extends org.apache.struts.action.ActionForm {
     private String codigoUSB;
     private ArrayList listCreditosUSB;
     private Integer creditosUSB;
-    private String codigoUniv;
-    private ArrayList listCodigoUniv;
-    private String materiaUniv;
-    private ArrayList listMateriaUniv;
-    private Integer creditosUniv;
-    private ArrayList listCreditosUniv;
     private Integer indexCodUSB;
     private Integer indexNomUSB;
     private Integer indexCreUSB;
-    private Integer indexCodUniv;
-    private Integer indexNomUniv;
-    private Integer indexCreUniv;
 
-    public PlanDeEstudio() {
+    public PlanExtranjero() {
 
         /*Se crea un plan de estudio con los arraylist, limpios y los indices en 0*/
         listCodigoUSB = new ArrayList();
-        listCodigoUniv = new ArrayList();
         listCreditosUSB = new ArrayList();
-        listCreditosUniv = new ArrayList();
         listMateriaUSB = new ArrayList();
-        listMateriaUniv = new ArrayList();
         indexCodUSB = 0;
         indexNomUSB = 0;
         indexCreUSB = 0;
-        indexCodUniv = 0;
-        indexNomUniv = 0;
-        indexCreUniv = 0;
     }
 
     /*Metodos de la clase:
@@ -109,45 +94,6 @@ public class PlanExtranjero extends org.apache.struts.action.ActionForm {
         this.listCodigoUSB.add(indexCodUSB, codigo);
     }
 
-    public String getCodigoUniv(int index) {
-        return this.codigoUniv;
-    }
-
-    public void setCodigoUniv(int index, String codigo) {
-
-        this.codigoUniv = codigo;
-        setListCodigoUniv(codigoUniv);
-        indexCodUniv++;
-    }
-
-    public ArrayList getListCodigoUniv() {
-        return this.listCodigoUniv;
-    }
-
-    public void setListCodigoUniv(String codigo) {
-        this.listCodigoUniv.add(indexCodUniv, codigo);
-    }
-
-    public String getMateriaUniv(int index) {
-        return this.materiaUniv;
-    }
-
-    public void setMateriaUniv(int index, String materia) {
-
-        this.materiaUniv = materia;
-        setListMateriaUniv(materiaUniv);
-        indexNomUniv++;
-    }
-
-    public ArrayList getListMateriaUniv() {
-        return this.listMateriaUniv;
-    }
-
-    public void setListMateriaUniv(String materia) {
-        this.listMateriaUniv.add(indexNomUniv, materia);
-
-    }
-
     public int getCreditosUSB(int index) {
         return this.creditosUSB;
     }
@@ -168,23 +114,4 @@ public class PlanExtranjero extends org.apache.struts.action.ActionForm {
 
     }
 
-    public int getCreditosUniv(int index) {
-        return this.creditosUniv;
-    }
-
-    public void setCreditosUniv(int index, int credito) {
-
-        this.creditosUniv = credito;
-        setListCreditosUniv(creditosUniv);
-        indexCreUniv++;
-    }
-
-    public ArrayList getListCreditoUniv() {
-        return this.listCreditosUniv;
-    }
-
-    public void setListCreditosUniv(int credito) {
-        this.listCreditosUniv.add(indexCreUniv, credito);
-
-    }
 }
