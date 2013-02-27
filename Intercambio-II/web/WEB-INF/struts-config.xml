@@ -20,7 +20,8 @@
         <form-bean name="PlanDeEstudio" type ="Clases.PlanDeEstudio"/>
         <form-bean name="RegistrationForm" type="Clases.RegistrationForm"/>
         <form-bean name="gestor" type="Clases.Gestor"/>
-         <form-bean name="BusquedaAvanzada" type="Clases.Busqueda"/>
+        <form-bean name="BusquedaAvanzada" type="Clases.Busqueda"/>
+        <form-bean name="PlanExtranjero" type="Clases.PlanExtranjero" />
  
     </form-beans>
        
@@ -148,7 +149,42 @@
             validate="false"
             parameter="contactoEstUSB"/>
         
-         <!-- desde Coordinacion usb -->
+
+        
+        
+        <!-- desde estudiante usb -->
+        <action path="/accionesEstExt"
+            type="org.apache.struts.actions.ForwardAction"
+            scope="request"
+            validate="false"
+            parameter="accionesEstExt"/>
+        
+        <action path="/formSolicExt"
+            type="org.apache.struts.actions.ForwardAction"
+            scope="request"
+            validate="false"
+            parameter="formSolicExt"/>
+        
+        <action path="/cuentaEstExt"
+            type="org.apache.struts.actions.ForwardAction"
+            scope="request"
+            validate="false"
+            parameter="cuentaEstExt"/>
+        
+        <action path="/modificarperExt"
+            type="org.apache.struts.actions.ForwardAction"
+            scope="request"
+            validate="false"
+            parameter="modificarperExt"/>
+        
+        <action path="/contactoEstExt"
+            type="org.apache.struts.actions.ForwardAction"
+            scope="request"
+            validate="false"
+            parameter="contactoEstExt"/>
+
+
+        <!-- desde Coordinacion usb -->
         <action path="/accionesPostulante"
             type="org.apache.struts.actions.ForwardAction"
             scope="request"
@@ -184,7 +220,7 @@
             <forward name="coordinacion" path="accionesPostulante" />
             <forward name="univExt" path="welcomeCoord" />
             <forward name="estUSB" path="accionesEstUSB" />
-            <forward name="estExt" path="accionesEstUSB" />
+            <forward name="estExt" path="accionesEstExt" />
             <forward name="error" path = "datosErrados"/>
         </action> 
                
@@ -320,7 +356,7 @@
             <forward name="error" path = "agregEstudiantes" />          
        </action>
        
-       <action input="/" name="EstInter" path="/AccionAgregarEstudianteInter" scope="session" type="Actions.AccionAgregarEstudianteInter">
+       <action name="EstInter" path="/AccionAgregarEstudianteInter" scope="session" type="Actions.AccionAgregarEstudianteInter">
             <forward name="success" path = "accExito" />
             <forward name ="fail" path = "accFallo" />
             <forward name="error" path = "agregEstudiantes" />          
@@ -470,6 +506,10 @@
            <forward name="vacio" path="sinArchivos" />
        </action>      
 
+      <action name="PlanillaExt" path="/CargarLlenarPlanillaExt" scope="session" type="Actions.CargarLlenarPlanillaExt">
+         <forward name="success" path="formularioExt" />
+         <forward name="modificar" path="modificarPlanillaExt" />
+      </action>  
 
        <action input="/" name="PlanillaUSB" path="/LlenarSolicitud" scope="session" type="Actions.LlenarSolicitud"/>
        
@@ -494,9 +534,11 @@
       <action input="/" name="Usuario" path="/ObtenerEstadoSolicitud" scope="session" type="Actions.ObtenerEstadoSolicitud">
           <forward name="success" path="estadoSolicitud"/>
       </action>
+      
       <action input="/" name="Usuario" path="/ListarDocumentos" scope="session" type="Actions.ListarDocumentos">
-             <forward name="success" path="listarDocumentos" />
+          <forward name="success" path="listarDocumentos" />
        </action>
+      <action input="/" name="PlanillaExt" path="/LlenarPlanilla_EstExt" scope="session" type="Actions.LlenarPlanilla_EstExt"/>
     
       <action path="/Descarga" type="Actions.Descarga" parameter="images/descarga.png" />
       

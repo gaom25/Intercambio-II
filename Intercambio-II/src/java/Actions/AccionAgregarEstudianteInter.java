@@ -89,33 +89,31 @@ public class AccionAgregarEstudianteInter extends org.apache.struts.action.Actio
             huboError = true;
         }
 
-        System.out.println();
-
         String tmp = e.getNombre();
         e.setNombre(e.getpNombre() + " " + e.getpApellido());
+
         // Si hubo error lo notifica, si no, procede a agregar en la BD.
         if (huboError) {
             return mapping.findForward(ERROR);
 
         } else if (DBMS.getInstance().agregarUsuario(e)) {
+            
+            if (DBMS.getInstance().agregarEstudianteExt(e)){
 
-            e.setNombre(tmp);
-            if (true) {
+               Correo c = new Correo();
+              String asunto = "Su usuario en el Sistema de Gestión de Intercambios ha sido creado";
+              String mensaje = "Su usuario en el Sistema de Gestión de Intercambios ha sido creado."
+                            + "\nSu usuario es: " + e.getNombreusuario()
+                            + "\nSu clave de acceso temporal es: " + e.getContrasena();
+              c.setAsunto(asunto);
+              c.setMensaje(mensaje);
+              boolean correoEnviado = c.enviarUsuario(e.getEmail());
 
-                Correo c = new Correo();
-                String asunto = "Su usuario en el Sistema de Gestión de Intercambios ha sido creado";
-                String mensaje = "Su usuario en el Sistema de Gestión de Intercambios ha sido creado."
-                        + "\nSu usuario es: " + e.getNombreusuario()
-                        + "\nSu clave de acceso temporal es: " + e.getContrasena();
-                c.setAsunto(asunto);
-                c.setMensaje(mensaje);
-                boolean correoEnviado = c.enviarUsuario(e.getEmail());
-
-                if (correoEnviado) {
-                    return mapping.findForward(SUCCESS);
-                } else {
-                    return mapping.findForward(FAIL);
-                }
+              if (correoEnviado) {
+                 return mapping.findForward(SUCCESS);
+              } else {
+                 return mapping.findForward(FAIL);
+              }
             }
 
         } else {

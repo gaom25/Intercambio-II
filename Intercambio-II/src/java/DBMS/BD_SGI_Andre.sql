@@ -69,6 +69,9 @@ CREATE TABLE "dycicle".EstudianteInternacional(
 	NombreUsuario	VARCHAR(20)	NOT NULL,
 	Pasaporte	VARCHAR(100)	NOT NULL,
 	LenguaMaterna	VARCHAR(40)	NOT NULL,
+        PaisOrigen      VARCHAR(100)    NOT NULL,
+        UniOrigen       VARCHAR(100)    NOT NULL,
+        CursoEspaniol   VARCHAR(2)      NOT NULL,     
 	CONSTRAINT	PK_EstudianteInternacional	
 		PRIMARY KEY (NombreUsuario, Pasaporte)
 );
@@ -103,10 +106,12 @@ CREATE TABLE "dycicle".AntecedenteAcademico(
 	Indice		NUMERIC(5,4),
         IndicePonderado NUMERIC(5,4),
         Decanato        VARCHAR(50),
-        AreaDeEstudio   VARCHAR(100),
+        AreaDeEstudio   VARCHAR(100)    NOT NULL,
 	Carrera		VARCHAR(30)	NOT NULL,
         Opcion          VARCHAR(30)     NOT NULL,
-        CredAprob       NUMERIC(4)      NOT NULL,
+        CredAprob       NUMERIC(4),
+        AnioIngreso     NUMERIC(4),
+        AniosAprob      NUMERIC(2),
 	CONSTRAINT	PK_AntecedenteAcademico	
 		PRIMARY KEY (NombreUsuario)
 );
@@ -208,15 +213,15 @@ CREATE TABLE "dycicle".PeriodosPlan(
  * de los representantes de un estudiante en particular */
 CREATE TABLE "dycicle".REPRESENTANTE(
        NombreUsuario   VARCHAR(20)     NOT NULL,
-       pNombre         VARCHAR(30)        NOT NULL,
+       pNombre         VARCHAR(30)     NOT NULL,
        sNombre         VARCHAR(30),
        pApellido       VARCHAR(30)     NOT NULL,
-       sApellido      VARCHAR(30),
-       TelefonoCel        VARCHAR(30)        NOT NULL,
+       sApellido       VARCHAR(30),
+       TelefonoCel     VARCHAR(30)     NOT NULL,
        TelefonoHab     VARCHAR(30),
-       EmailRep        VARCHAR(30)        NOT NULL,
-       TipoRelacion        VARCHAR(30)        NOT NULL,
-       Direccion        VARCHAR(140)        NOT NULL,
+       EmailRep        VARCHAR(30)     NOT NULL,
+       TipoRelacion    VARCHAR(30)     NOT NULL,
+       Direccion       VARCHAR(140)    NOT NULL,
        CONSTRAINT        PK_REPRESENTANTE
                PRIMARY KEY (NombreUsuario)
 );
@@ -338,7 +343,7 @@ WITH (
 OIDS = FALSE
 );
 
-/* Entidad POSTULACION identificada por un numero unico */
+/* Entidad POSTULACION identificada por el usuario al que pertenece */
 CREATE TABLE "dycicle".POSTULACION(
 	NombreUsuario       VARCHAR(20)	NOT NULL,
 	EstadoPostulacion   VARCHAR(30)	NOT NULL,
@@ -357,10 +362,10 @@ OIDS = FALSE
        Pais            VARCHAR(100)    NOT NULL,
        TipoPrograma    VARCHAR(100)    NOT NULL,
        NombrePrograma  VARCHAR(100)    NOT NULL,
-       MesFechaIni     VARCHAR(12)     NOT NULL,
-       AnioFechaIni    VARCHAR(6)      NOT NULL,
-       MesFechaFin     VARCHAR(12)     NOT NULL,
-       AnioFechaFin    VARCHAR(6)      NOT NULL,
+       MesFechaIni     VARCHAR(12),
+       AnioFechaIni    VARCHAR(6),
+       MesFechaFin     VARCHAR(12),
+       AnioFechaFin    VARCHAR(6),
        Duracion        VARCHAR(15)     NOT NULL,
        CONSTRAINT      PK_Universidades    PRIMARY KEY (NombreUsuario, NombreUni)
 )
@@ -551,8 +556,8 @@ ALTER TABLE "dycicle".esRepresentado ADD
 		REFERENCES "dycicle".Estudiante;
 
 ALTER TABLE "dycicle".esRepresentado ADD
-	CONSTRAINT FK_esRepresentado_Representante FOREIGN KEY (EmailRep)
-		REFERENCES "dycicle".REPRESENTANTE(EmailRep);
+	CONSTRAINT FK_esRepresentado_Representante FOREIGN KEY (NombreUsuario)
+		REFERENCES "dycicle".REPRESENTANTE(NombreUsuario);
 
 /*Claves foraneas de Financiamiento */
 ALTER TABLE "dycicle".FINANCIAMIENTO ADD

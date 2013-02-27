@@ -211,8 +211,6 @@ public class DBMS {
             String sqlquerycod = "SELECT nombrecarrera,codigo FROM \"dycicle\".postulante where "
                     + "nombreusuario ='"+e.getCarrera()+"';";
             
-            
-            
             Statement stmt = conexion.createStatement();
             ResultSet rs = stmt.executeQuery(sqlquerycod);
            
@@ -221,9 +219,6 @@ public class DBMS {
                 e.setCarrera(rs.getString("nombrecarrera"));
             }
             
-            //String sesionActiva = e.getOrigen();
-            //String[] info = DBMS.getInstance().getInfoPostulante(sesionActiva);
-
             // Insercion dentro de la tabla estudiante
             String sqlquery1 = "INSERT INTO \"dycicle\".estudiante VALUES ('" + e.getNombreusuario()
                     + "', '" + "null" + "', '" + e.getpNombre()
@@ -246,7 +241,7 @@ public class DBMS {
                     + "'1.0000', "
                     + "'null','null', "
                     + "'" + e.getCarrera() + "', "
-                    + "'opcion', '0');";
+                    + "'opcion', '0', '0000', 0');";
           
             String sqlqueryPostulacion = "INSERT INTO \"dycicle\".Postulacion VALUES ('"
                     + e.getNombreusuario() + "', "
@@ -258,16 +253,52 @@ public class DBMS {
             Integer j = stmt.executeUpdate(sqlquery2);
             Integer k = stmt.executeUpdate(sqlqueryAntecedente);
             Integer l = stmt.executeUpdate(sqlqueryPostulacion);
-            
-            /*
-             if (i > 0 && j > 0) {
-             PlanillaUSB p = new PlanillaUSB();
-             p.setNombreUsuario(e.getNombreUsuario());
-             p.setPeriodo("2013-2014");
-             Boolean res = DBMS.getInstance().agregarPlanillaUSB(p);
 
-             return res;
-             }*/
+            return i > 0 && j > 0 && k > 0 && l > 0;
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return false;
+    }
+
+    /*
+     * Esta funcion es la de agregar estudiante desde el administrador
+     */
+    public boolean agregarEstudianteExt(EstudianteInternacional e) {
+        try {
+
+            // Insercion dentro de la tabla estudiante
+            String sqlquery1 = "INSERT INTO \"dycicle\".estudiante VALUES ('" + e.getNombreusuario()
+                    + "', '" + "null" + "', '" + e.getpNombre()
+                    + "', '" + e.getsNombre() + "', '" + e.getpApellido()
+                    + "', '" + e.getsApellido() + "', 'null', '0000', 'null','null', 'null',  'null', 'null', 'null', 'null', "
+                    + " 'null', 'null', 'null', '" + e.getEmail() + "', '2012-11-27 23:43:11.080','null','null');";
+
+            // la fecha de nacimiento colocada es temporal, se coloca para que no de error la insercion.
+            // La direccion de la foto tambien es temporal.
+
+            //Insercion dentro de la tabla estudianteInternacional
+            String sqlquery2 = "INSERT INTO \"dycicle\".estudianteInternacional VALUES('" + e.getNombreusuario()
+                    + "', '" + e.getPasaporte() + "', 'null', 'null', 'null', 'no');";
+
+            //Insercion dentro de la tabla AntecedenteAcademico
+            String sqlqueryAntecedente = "INSERT INTO \"dycicle\".AntecedenteAcademico VALUES ('"
+                    + e.getNombreusuario() + "', "
+                    + "'1.0000', '0.0000', 'null','null', 'null', "
+                    + "'opcion', '0','0000' , '0');";
+          
+            String sqlqueryPostulacion = "INSERT INTO \"dycicle\".Postulacion VALUES ('"
+                    + e.getNombreusuario() + "', "
+                    + "'En evaluacion', "
+                    + "'recomendacion', "
+                    + "'comentario');";
+
+            Statement stmt = conexion.createStatement();
+            Integer i = stmt.executeUpdate(sqlquery1);
+            Integer j = stmt.executeUpdate(sqlquery2);
+            Integer k = stmt.executeUpdate(sqlqueryAntecedente);
+            Integer l = stmt.executeUpdate(sqlqueryPostulacion);
 
             return i > 0 && j > 0 && k > 0 && l > 0;
 
@@ -700,6 +731,85 @@ public class DBMS {
             Integer o = stmt.executeUpdate(sqlqueryFinanciamiento);
 
             return ((i > 0) && (j > 0) && (k > 0) && (l > 0) && (m > 0) && (n > 0) && (o > 0));
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return false;
+    }
+    
+    public Boolean agregarPlanillaExt(PlanillaExt p) {
+        try {
+
+            String sqlqueryEstudiante = "UPDATE \"dycicle\".estudiante SET "
+                    + "PrimerNombre = '" + p.getNombre1() + "', "
+                    + "SegundoNombre = '" + p.getNombre2() + "', "
+                    + "PrimerApellido = '" + p.getApellido1() + "',"
+                    + "SegundoApellido = '" + p.getApellido2() + "',"
+                    + "Sexo = '" + p.getSexo() + "', "
+                    + "Calle = '" + p.getCalle() + "', "
+                    + "Edificio = '" + p.getEdificio() + "', "
+                    + "Apartamento = '" + p.getApartamento() + "', "
+                    + "Ciudad = '" + p.getCiudad() + "', "
+                    + "Estado = '" + p.getEstado() + "', "
+                    + "CodPostal = '" + p.getCodPostal() + "', "
+                    + "TelefonoCel = '" + p.getTelefonoCelular() + "', "
+                    + "TelefonoCasa = '" + p.getTelefonoCasa() + "', "
+                    + "FechaNac = '" + p.getFechaNacimiento() + "', "
+                    + "Nacionalidad = '" + p.getNacionalidad() + "';";
+            //$$$$$$$$$$$$$$$$$
+            // Falta la foto!!
+            //$$$$$$$$$$$$$$$$$
+
+
+            String sqlqueryEstudianteExt = "UPDATE \"dycicle\".estudianteInternacional SET "
+                    + "Pasaporte = '" + p.getPasaporte() + "',"
+                    + "LenguaMaterna = '" + p.getLenguaMaterna() + "',"
+                    + "PaisOrigen = '" + p.getPaisOrigen() + "',"
+                    + "UniOrigen = '" + p.getNombreUniOrigen() + "',"
+                    + "CursoEspaniol = '" + p.isTomarCursoDeEspaniol() + "';";
+
+            // Datos del representante
+            String sqlqueryRepresentante = "INSERT INTO \"dycicle\".Representante VALUES ("
+                    + "'" + p.getNombreUsuario() + "', "
+                    + "'" + p.getNombreRep1() + "', "
+                    + "'" + p.getNombreRep2() + "', "
+                    + "'" + p.getApellidoRep1() + "', "
+                    + "'" + p.getApellidoRep2() + "', "
+                    + "'" + p.getCelRep() + "', "
+                    + "'" + p.getTlfRepCasa() + "', "
+                    + "'" + p.getEmailRep() + "', "
+                    + "'" + p.getRelacion() + "', "
+                    + "'" + p.getDireccionRep() + "');";
+
+            //Antecedentes Academicos
+            String sqlqueryAntecedente = "UPDATE \"dycicle\".AntecedenteAcademico SET "
+                    + "AreaDeEstudio = '" + p.getAreaEstud() + "', "
+                    + "Carrera = '" + p.getCarrera() + "', "
+                    + "AnioIngreso = '" + p.getAnioIngreso() + "', "
+                    + "AniosAprob= '" + p.getAniosAprobados() + "';";
+
+            // Opciones de uni de intercambios
+            String sqlqueryUni1 = "INSERT INTO \"dycicle\".Universidades VALUES ("
+                    + "'" + p.getNombreUsuario() + "', "
+                    + "'Universidad Simon Bolivar', "
+                    + "'Venezuela', "
+                    + "'" + p.getPrograma() + "', "
+                    + "'" + p.getNombrePrograma() + "', "
+                    + "'null', 'null', 'null', 'null'"
+                    + "'" + p.getDuracionPrograma() + "');";
+
+
+            Statement stmt = conexion.createStatement();
+
+
+            Integer i = stmt.executeUpdate(sqlqueryEstudiante);
+            Integer j = stmt.executeUpdate(sqlqueryEstudianteExt);
+            Integer k = stmt.executeUpdate(sqlqueryRepresentante);
+            Integer l = stmt.executeUpdate(sqlqueryAntecedente);
+            Integer m = stmt.executeUpdate(sqlqueryUni1);
+
+            return ((i > 0) && (j > 0) && (k > 0) && (l > 0) && (m > 0));
 
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -1149,11 +1259,11 @@ public class DBMS {
             ArrayList escri = idioma.getListEscrito();
             ArrayList ver = idioma.getListVerbal();
             ArrayList idio = idioma.getListIdioma();
+            ArrayList conver = idioma.getListConver();
             for (int i = 0; i < idio.size(); i++) {
                 String sqlquery = "INSERT INTO \"dycicle\".idiomas VALUES("
                         + "'" + idioma.getNombreusuario() + "','" + idio.get(i) + "','"
-                        + ver.get(i) + "','" + escri.get(i) + "');";
-                System.out.println(sqlquery);
+                        + ver.get(i) + "','" + escri.get(i) + "','" + conver.get(i) +  "');";
                 Statement stmt = conexion.createStatement();
                 Integer j = stmt.executeUpdate(sqlquery);
             }
