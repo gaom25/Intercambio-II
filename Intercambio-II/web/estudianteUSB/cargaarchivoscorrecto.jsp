@@ -19,6 +19,10 @@
         
         <div style="text-align: center;">
         <h1>Archivos guardados correctamente</h1>
+        
+        <html:image src="images/correct.png" /> 
+        <br />
+        
         <html:link action="accionesEstUSB">
             Continuar
         </html:link>
