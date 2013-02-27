@@ -324,6 +324,10 @@
                  <put name="body" value="/admin/agregarTipoEstudiante.jsp" />
             </definition>
             
+            <definition name = "agregComent" extends = "baseCoordinaciones">
+                <put name="body" value="/postulante/agregarComentario.jsp" />
+            </definition>
+            
             <definition name="exitoAgregEst" extends="baseCoordinaciones"> <!-- pagina de exito postular estudiante -->
                  <put name="body" value="/postulante/exitoAgregEst.jsp" />
             </definition>
