@@ -1283,33 +1283,6 @@ public class DBMS {
         return false;
     }
     
-    /* Esta funcion es para insertar el plan de estudio de los estudiantes extranjeros*/
-    public boolean InsertarPlan(PlanExtranjero plan) {
-
-        try {
-
-            ArrayList codusb = plan.getListCodigoUSB();
-            ArrayList creusb = plan.getListCreditoUSB();
-            ArrayList nomusb = plan.getListMateriaUSB();
-            String nombre = plan.getNombreUsuario();
-            for (int i = 0; i < codusb.size(); i++) {
-                String sqlquery = "INSERT INTO \"dycicle\".planestudio VALUES("
-                        + "'" + nombre
-                        + "','" + codusb.get(i)
-                        + "','" + nomusb.get(i)
-                        + "','" + creusb.get(i)
-                        + "','null', 'null', 'null');";
-                Statement stmt = conexion.createStatement();
-                Integer j = stmt.executeUpdate(sqlquery);
-
-            }
-            
-            return true;
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        }
-        return false;
-    }
 
     public ArrayList<Usuario> listarBusquedaAvanzada(Busqueda busqueda) {
 

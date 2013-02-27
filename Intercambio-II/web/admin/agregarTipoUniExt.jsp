@@ -30,7 +30,7 @@
                     <tr>
                         <td style="color: black">Nombre de usuario</td>
                         <td>
-                            <html:text name="Postulante" property="nombreusuario" maxlength="30" errorStyleClass="error"
+                            <html:text name="Postulante" property="nombreusuario" value="" maxlength="30" errorStyleClass="error"
                                        errorKey="org.apache.struts.action.ERROR"></html:text>
                         </td>
                         <td>
@@ -41,7 +41,7 @@
                     <tr>
                         <td style="color: black">Email</td>
                         <td>
-                            <html:text name="Postulante" property="email" maxlength="30" errorStyleClass="error"
+                            <html:text name="Postulante" property="email" value="" maxlength="30" errorStyleClass="error"
                                        errorKey="org.apache.struts.action.ERROR"></html:text>
                         </td>
                         <td>
@@ -52,7 +52,7 @@
                     <tr>
                         <td style="color: black">Nombre de la universidad</td>
                         <td>
-                            <html:text name="Postulante" property="nombreUniExt" maxlength="30" errorStyleClass="error"
+                            <html:text name="Postulante" property="nombreUniExt" value="" maxlength="30" errorStyleClass="error"
                                        errorKey="org.apache.struts.action.ERROR"></html:text>
                             </td>
                             <td>

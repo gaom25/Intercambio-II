@@ -19,7 +19,7 @@
         <title>Agregar nueva coordinacion</title>
     </head>
     
-    <body onload ="clearForms()" onunload="clearForms()">
+    <body>
 
         <h4>Creaci&oacute;n de nueva coordinacion</h4>
         <h5>Por favor introduzca los datos del nuevo usuario</h5>
@@ -30,7 +30,7 @@
                     <tr>
                         <td style="color: black">Nombre de usuario</td>
                         <td>
-                            <html:text name="Postulante" property="nombreusuario" maxlength="30" errorStyleClass="error"
+                            <html:text name="Postulante" property="nombreusuario" maxlength="30" value="" errorStyleClass="error"
                                        errorKey="org.apache.struts.action.ERROR"></html:text>
                             </td>
                             <td>
@@ -41,7 +41,7 @@
                     <tr>
                         <td style="color: black">Email</td>
                         <td>
-                            <html:text name="Postulante" property="email" maxlength="30" errorStyleClass="error"
+                            <html:text name="Postulante" property="email" maxlength="30" value="" errorStyleClass="error"
                                        errorKey="org.apache.struts.action.ERROR"></html:text>
                             </td>
                             <td>
@@ -52,7 +52,7 @@
                     <tr>
                         <td style="color: black">Codigo de la carrera</td>
                         <td>
-                            <html:text name="Postulante" property="codigo" maxlength="30" errorStyleClass="error"
+                            <html:text name="Postulante" property="codigo" maxlength="30" value="" errorStyleClass="error"
                                        errorKey="org.apache.struts.action.ERROR"></html:text>
                             </td>
                             <td>

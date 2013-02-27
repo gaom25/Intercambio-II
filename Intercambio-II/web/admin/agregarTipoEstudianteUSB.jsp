@@ -27,7 +27,7 @@
 
                         <td style="color: black">Nombre de Usuario</td>
                         <td>
-                            <html:text name="EstUSB" property="nombreusuario" maxlength="20" errorStyleClass="error"
+                            <html:text name="EstUSB" property="nombreusuario" value="" maxlength="20" errorStyleClass="error"
                                        errorKey="org.apache.struts.action.ERROR"></html:text>
                             </td>
                             <td>
@@ -49,7 +49,7 @@
                     <tr>
                         <td style="color: black">Primer nombre</td>
                         <td>
-                            <html:text name="EstUSB" property="pNombre" maxlength="30" errorStyleClass="error"
+                            <html:text name="EstUSB" property="pNombre" maxlength="30" value="" errorStyleClass="error"
                                        errorKey="org.apache.struts.action.ERROR"></html:text>
                             </td>
                             <td>
@@ -59,7 +59,7 @@
 
                     <tr>
                         <td style="color: black">Primer Apellido</td>       
-                        <td><html:text name="EstUSB" property="pApellido" maxlength="100" errorStyleClass="error"
+                        <td><html:text name="EstUSB" property="pApellido" maxlength="100" value="" errorStyleClass="error"
                                    errorKey="org.apache.struts.action.ERROR"></html:text>
                             </td>
                             <td>
