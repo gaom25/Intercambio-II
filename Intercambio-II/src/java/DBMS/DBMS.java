@@ -1279,4 +1279,20 @@ public class DBMS {
         }
         return result;
     }
+    
+    public boolean Comentar(Usuario u){
+        try{
+        String sqlquery = "UPDATE \"dycicle\".estudiante SET comentario='" + u.getConfirmar()
+                    + "' WHERE nombreusuario = '"
+                    + u.getNombreusuario() + "'";
+            Statement stmt = conexion.createStatement();
+            Integer i = stmt.executeUpdate(sqlquery);
+            return i > 0;
+        
+        } catch (SQLException ex){
+        }
+        return true;
+    }
+    
+    
 }
