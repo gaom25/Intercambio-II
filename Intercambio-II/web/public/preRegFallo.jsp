@@ -17,6 +17,10 @@
 
     <div style="text-align: center;">
         <h1>El pre-registro no pudo ser enviado</h1>
+        
+        <html:image src="images/error.png" /> 
+        <br />
+        
         <html:link action="Welcome">
             Continuar
         </html:link>
