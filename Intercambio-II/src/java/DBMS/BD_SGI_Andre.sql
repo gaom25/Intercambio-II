@@ -44,7 +44,7 @@ CREATE TABLE "dycicle".ESTUDIANTE(
         Email           VARCHAR(30),
 	FechaNac	VARCHAR(40),
         Nacionalidad    VARCHAR(100),
-	Foto		VARCHAR(200),
+	Comentario	TEXT,
 	CONSTRAINT	PK_Estudiante	PRIMARY KEY (NombreUsuario)
 
 )
