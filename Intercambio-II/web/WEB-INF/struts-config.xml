@@ -325,31 +325,31 @@
        <action input="/" name="EstUSB" path="/AccionAgregarEstudiante" scope="session" type="Actions.AccionAgregarEstudiante">
             <forward name="success" path = "accExito" />
             <forward name ="fail" path = "accFallo" />
-            <forward name="error" path = "agregEstudiantes" />          
+            <forward name="error" path = "agregarEstudianteUSB" />          
        </action>
        
        <action input="/" name="EstInter" path="/AccionAgregarEstudianteInter" scope="session" type="Actions.AccionAgregarEstudianteInter">
             <forward name="success" path = "accExito" />
             <forward name ="fail" path = "accFallo" />
-            <forward name="error" path = "agregEstudiantes" />          
+            <forward name="error" path = "agregarEstudianteExt" />          
        </action>
        
       <action input="/" name="Postulante" path="/AccionAgregarUniExt" scope="session" type="Actions.AccionAgregarUniExt">
             <forward name="success" path = "accExito" />
             <forward name ="failure" path = "accFallo" />
-            <forward name="error" path = "agregEstudiantes" />
+            <forward name="error" path = "agregarUniExt" />
       </action>
             
       <action input="/" name="Postulante" path="/AccionAgregarCoordinacion" scope="session" type="Actions.AccionAgregarCoordinacion">
             <forward name="success" path = "accExito" />
             <forward name ="failure" path = "accFallo" />
-            <forward name="error" path = "agregEstudiantes" />
+            <forward name="error" path = "agregarCoord" />
       </action>
             
       <action input="/" name="gestor" path="/AccionAgregarGestor" scope="session" type="Actions.AccionAgregarGestor">
             <forward name="success" path = "accExito" />
             <forward name ="failure" path = "accFallo" />
-            <forward name="error" path = "agregEstudiantes" />
+            <forward name="error" path = "agregarGestor" />
       </action>
                   
        
@@ -503,8 +503,14 @@
           <forward name="success" path="estadoSolicitud"/>
       </action>
       <action input="/" name="Usuario" path="/ListarDocumentos" scope="session" type="Actions.ListarDocumentos">
-             <forward name="success" path="listarDocumentos" />
+          <forward name="success" path="listarDocumentos" />
        </action>
+      <action input="/" name="Usuario" path="/Comentar" scope="session" type="Actions.Comentar">
+          <forward name ="success" path="agregComent"/>
+      </action>
+      <action input="/" name="Usuario" path="/AgregarComentario" scope="session" type="Actions.AgregarComentario">
+          <forward name = "success" path="exitoAgregEst"/>
+      </action>
     
       <action path="/Descarga" type="Actions.Descarga" parameter="images/descarga.png" />
       
