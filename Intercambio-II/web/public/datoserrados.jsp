@@ -4,6 +4,7 @@
     Author     : gustavo
 --%>
 
+<%@page contentType="text/html"%>
 <%@page pageEncoding="UTF-8"%>
 <link rel="stylesheet" type="text/css" href="css/estilo.css">
 <%@ taglib uri="http://struts.apache.org/tags-bean" prefix="bean" %>
