@@ -109,6 +109,7 @@ public class PlanillaUSB extends org.apache.struts.action.ActionForm {
     private String emailRep;            //db
     private String relacion;            //db
     private String direccionRep;        //db    
+
     public PlanillaUSB() {
         super();
     }
