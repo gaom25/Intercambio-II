@@ -1374,4 +1374,19 @@ public class DBMS {
         }
         return usrs;
     }
+    
+    public String getPrivilegioUsuario(String nombreUsuario){
+        String result=null;
+        try{
+            String sqlQuery="SELECT privilegio FROM \"dycicle\".usuario WHERE"
+                    + " nombreusuario='"+nombreUsuario+"';";
+            Statement stmt = conexion.createStatement();
+            ResultSet rs = stmt.executeQuery(sqlQuery);
+            if(rs.next()){
+                result=rs.getString("privilegio");
+            }
+        } catch (SQLException ex) {
+        }
+        return result;
+    }
 }

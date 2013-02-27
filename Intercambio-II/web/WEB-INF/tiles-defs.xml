@@ -369,6 +369,10 @@
             <definition name="exitoContactoGestor" extends="baseGestor"> <!-- pagina de exito contacto de gestores -->
                 <put name="body" value="/gestor/exitoContactoGestor.jsp"/>
             </definition>
+            
+            <definition name="busquedaAvanzada" extends="baseGestor">
+                <put name="body" value="/gestor/BusquedaAvanzada.jsp"/>
+            </definition>
 
         
  

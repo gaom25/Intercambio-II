@@ -94,8 +94,10 @@
         <!-- Busqueda avanzada-->
         <action name="BusquedaAvanzada" path="/AccionBusquedaAvanzada" scope="session" type="Actions.AccionBusquedaAvanzada">
            <forward name="failure" path="accFallo"/>
-           <forward name="success" path="listarEstudiantes"/>
-       </action>
+           <forward name="postulante" path="listarEstudiantes"/>
+           <forward name="gestor" path="listarEstudiantesPostulados"/>
+           <forward name="admin" path="listarEstudiantesPostulados"/>
+        </action>
         
         
         <!-- desde admin -->
@@ -209,6 +211,12 @@
             scope="request"
             validate="false"
             parameter="contactoGestor"/>
+        
+        <action path="/BusquedaAvanzada"
+            type="org.apache.struts.actions.ForwardAction"
+            scope="request"
+            validate="false"
+            parameter="busquedaAvanzada"/>
               
         
         <!-- Acciones en public -->

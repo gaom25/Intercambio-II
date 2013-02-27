@@ -5,6 +5,7 @@
 package Actions;
 
 
+import Clases.Busqueda;
 import Clases.Usuario;
 import DBMS.DBMS;
 import java.util.ArrayList;
@@ -13,7 +14,6 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
-import Clases.Busqueda;
 
 
 /**
@@ -43,9 +43,28 @@ public class AccionBusquedaAvanzada extends org.apache.struts.action.Action {
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
         Busqueda busq = (Busqueda) form;
+        String priv=null;
+        priv = DBMS.getInstance().getPrivilegioUsuario(busq.getNombreSolicitante());
         ArrayList<Usuario> users = DBMS.getInstance().listarBusquedaAvanzada(busq);
-        request.setAttribute("usuario", users);        
-        return mapping.findForward(SUCCESS);
+        request.setAttribute("usuario", users);
+        
+        if(priv==null){
+            return mapping.findForward(FAIL);
+        }
+        else{
+            if(priv.equals("3")){
+                return mapping.findForward("postulante");
+            }
+            else if(priv.equals("2")){
+                return mapping.findForward("gestor");
+            }
+            else if(priv.equals("1")){
+                return mapping.findForward("admin");
+                
+            }
+        }
+        
+        return mapping.findForward(FAIL);
 
     }
     
