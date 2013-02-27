@@ -18,6 +18,10 @@
     <div style="text-align: center;">
         <h1>Operación Fallida</h1>
         <h3>Inténtelo de Nuevo</h3>
+        
+        <html:image src="images/error.png" /> 
+        <br />
+        
         <html:link action="agregUsuario">
             Continuar
         </html:link>
