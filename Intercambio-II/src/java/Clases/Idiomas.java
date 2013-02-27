@@ -25,6 +25,8 @@ public class Idiomas extends org.apache.struts.action.ActionForm {
     private ArrayList listVerb;
     private String nivelEscrito;    
     private ArrayList listEscr;
+    private String nivelConversacional;
+    private ArrayList listConver;
     private String nombreusuario;
     private Integer indexIdi = 0;
     private Integer indexEsc = 0;
@@ -36,6 +38,7 @@ public class Idiomas extends org.apache.struts.action.ActionForm {
         listEscr = new ArrayList();
         listIdio = new ArrayList();
         listVerb = new ArrayList();
+        listConver = new ArrayList();
         this.indexEsc = 0;
         this.indexIdi = 0;
         this.indexVer = 0;
@@ -112,4 +115,94 @@ public class Idiomas extends org.apache.struts.action.ActionForm {
     public void setListEscrito(String escri) {
         this.listEscr.add(indexEsc, escri);
     }
+
+    public String getIdiomaDest() {
+        return idiomaDest;
+    }
+
+    public void setIdiomaDest(String idiomaDest) {
+        this.idiomaDest = idiomaDest;
+    }
+
+    public ArrayList getListIdio() {
+        return listIdio;
+    }
+
+    public void setListIdio(ArrayList listIdio) {
+        this.listIdio = listIdio;
+    }
+
+    public String getNivelVerbal() {
+        return nivelVerbal;
+    }
+
+    public void setNivelVerbal(String nivelVerbal) {
+        this.nivelVerbal = nivelVerbal;
+    }
+
+    public ArrayList getListVerb() {
+        return listVerb;
+    }
+
+    public void setListVerb(ArrayList listVerb) {
+        this.listVerb = listVerb;
+    }
+
+    public String getNivelEscrito() {
+        return nivelEscrito;
+    }
+
+    public void setNivelEscrito(String nivelEscrito) {
+        this.nivelEscrito = nivelEscrito;
+    }
+
+    public ArrayList getListEscr() {
+        return listEscr;
+    }
+
+    public void setListEscr(ArrayList listEscr) {
+        this.listEscr = listEscr;
+    }
+
+    public String getNivelConversacional() {
+        return nivelConversacional;
+    }
+
+    public void setNivelConversacional(String nivelConversacional) {
+        this.nivelConversacional = nivelConversacional;
+    }
+
+    public ArrayList getListConver() {
+        return listConver;
+    }
+
+    public void setListConver(ArrayList listConver) {
+        this.listConver = listConver;
+    }
+
+    public Integer getIndexIdi() {
+        return indexIdi;
+    }
+
+    public void setIndexIdi(Integer indexIdi) {
+        this.indexIdi = indexIdi;
+    }
+
+    public Integer getIndexEsc() {
+        return indexEsc;
+    }
+
+    public void setIndexEsc(Integer indexEsc) {
+        this.indexEsc = indexEsc;
+    }
+
+    public Integer getIndexVer() {
+        return indexVer;
+    }
+
+    public void setIndexVer(Integer indexVer) {
+        this.indexVer = indexVer;
+    }
+    
+    
 }
