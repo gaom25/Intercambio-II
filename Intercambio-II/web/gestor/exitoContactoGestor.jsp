@@ -9,6 +9,10 @@
     
     <div style="text-align: center;">
         <h1>Operación Exitosa</h1>
+        
+        <html:image src="images/correct.png" /> 
+        <br />
+        
         <html:link action="accionesGestor">
             Continuar
         </html:link>

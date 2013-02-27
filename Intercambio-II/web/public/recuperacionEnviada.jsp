@@ -21,6 +21,10 @@
 
     <div style="text-align: center;">
         <h4>Se ha enviado un email de recuperación a su correo.</h4>
+        
+        <html:image src="images/correct.png" /> 
+        <br />
+        
         <html:link action="Welcome">
             Continuar
         </html:link>

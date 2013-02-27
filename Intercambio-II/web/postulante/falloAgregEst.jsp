@@ -17,6 +17,10 @@
 
     <div style="text-align: center;">
         <h1>El estudiante no pudo ser agregado</h1>
+        
+        <html:image src="images/error.png" /> 
+        <br />
+        
         <html:link action="accionesPostulante">
             Continuar
         </html:link>

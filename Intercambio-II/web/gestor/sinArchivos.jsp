@@ -15,6 +15,10 @@
     
     <div style="text-align: center;">
         <h1>El estudiante no posee archivos adjuntos</h1>
+        
+        <html:image src="images/error.png" /> 
+        <br />
+        
         <html:link action="/ListarEstudiantesPostulados">
             Volver
         </html:link>

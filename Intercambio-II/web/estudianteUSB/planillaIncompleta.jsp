@@ -29,12 +29,15 @@
 
 
     <h4 align ="center">Estudiante USB</h4>
-    <h5 align ="center">PLANILLA IMCOMPLETA</h5>
+    
+    <html:image src="images/error.png" /> 
+    <br />
+        
     <font color="red">
         <h3 align ="center">
             Su planilla de solicitud todavia no tiene toda la informacion necesaria,
             </br>
-            por favor presiene el boton de completar planilla para llenar los datos faltante.
+            por favor presione el boton de completar planilla para llenar los datos faltante.
         </h3>
     </font>
     

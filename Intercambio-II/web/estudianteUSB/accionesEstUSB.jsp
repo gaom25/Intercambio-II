@@ -47,16 +47,6 @@
         </p>
     </html:form>
 
-    <html:form  action="/ObtenerEstadoSolicitud" method="POST" enctype="multipart/form-data" onsubmit="return(this)">
-        <p hidden="true"><html:text name="PlanillaUSB" property="nombreUsuario" maxlength="20" errorStyleClass="error" value ="<%=tmp.toString()%>"
-                   errorKey="org.apache.struts.action.ERROR"></html:text></p>
-            <p style="text-align: center">
-            <html:submit >
-                Ver Estado de la solicitud
-            </html:submit>
-        </p>
-    </html:form>
-
     <html:form  action="/ListarDocumentos" method="POST" enctype="multipart/form-data" onsubmit="return(this)">
         <p hidden="true"><html:text name="Usuario" property="nombreUsuario" maxlength="20" errorStyleClass="error" value ="<%=tmp.toString()%>"
                    errorKey="org.apache.struts.action.ERROR"></html:text></p>

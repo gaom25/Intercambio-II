@@ -13,5 +13,8 @@
     </head>
     <body>
         <h1>Tamaño de archivos superior al esperado, intente de nuevo</h1>
+        
+        <html:image src="images/error.png" /> 
+        <br />
     </body>
 </html>
