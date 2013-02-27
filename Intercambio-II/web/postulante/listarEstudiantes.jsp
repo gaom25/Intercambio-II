@@ -32,6 +32,9 @@
             <td width="150px" align="center">
                 Eliminar Estudiante
             </td>
+            <td width="150px" align="center">
+                Recomendacion/Comentario
+            </td>
         </tr>
     </table>
     <logic:iterate name="usuario" id="usuarios">
@@ -53,6 +56,12 @@
                             <a onclick="javascript: return confirm('Seguro Que Deses Elmininar Este Usuario?')">
                                 <html:image src="images/trashcan-delete.png" styleClass="button" value="" property="" /> 
                             </a>
+                        </html:form>
+                    </td>
+                    <td>
+                        <html:form action="/Comentar" onsubmit="return(this)">
+                            <html:hidden name="usuarios" property="nombreusuario"/>
+                            <html:submit value="Comentar">Comentar</html:submit>
                         </html:form>
                     </td>
                 </tr>
