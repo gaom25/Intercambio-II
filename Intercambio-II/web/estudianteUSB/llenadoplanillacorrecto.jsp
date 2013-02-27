@@ -18,6 +18,10 @@
     <body>
         <div style="text-align: center;">
         <h1>Datos de la planilla correctos y guardatos</h1>
+        
+        <html:image src="images/correct.png" /> 
+        <br />
+        
         <html:link action="accionesEstUSB">
             Continuar
         </html:link>
