@@ -859,7 +859,7 @@ function cambia_carrera(){
                     </table>
                 </div>                    
                             
-                <div id="opci4" style="display:none;width:450px;height:450px; border: 5px solid #FFFF94; border-radius: 10px; border-width:5px;">
+                <div id="opci4" style="display:none;width:650px;height:350px; border: 5px solid #FFFF94; border-radius: 10px; border-width:5px;">
                     <br>
                     <table border="0"  align="center">
                         <tbody>
@@ -867,29 +867,24 @@ function cambia_carrera(){
                         <tr>
                             <td> Nombre de Programa: </td>
                             <td>
-                            <select id="prog_princ" onchange="cambia_pais()" property="nombrePrograma"> 
-                            <option value="0" selected>Seleccione
-                            <option value="1">Convenios Bilaterales
-                            <option value="2">Programa SMILE
-                            <option value="3">Programa de Movilidad Estudiantil CINDA
-                            </select>
+                            <html:select styleId="prog_princ" onchange="cambia_pais()" property="nombrePrograma"> 
+                                <html:option value="0">Seleccione </html:option>
+                            <html:option value="1">Convenios Bilaterales </html:option>
+                            <html:option value="2">Programa SMILE </html:option>
+                            <html:option value="3">Programa de Movilidad Estudiantil CINDA </html:option>
+                            </html:select>
                             </td>
                         </tr>
                         
                         <tr>
                             <td> Pais de origen: </td>
                             <td>
-                            <select id="pais_princ" onchange="cambia_universidad()" property="paisOrigen"> 
-                            <option value="-">- 
-                            </select>
+                            <html:select styleId="pais_princ" onchange="cambia_universidad()" property="paisOrigen"> 
+                                <html:option value="-">- </html:option>
+                            </html:select>
                             </td>
                         </tr>
-                        
-<!-- 
-faltaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-AREA DE ESTUDIO 
-CARRERA DE ESTUDIO (texto)--!>
-                        
+
                         <tr>
                             <td> Universidad de origen: </td>
                             <td>
@@ -897,8 +892,8 @@ CARRERA DE ESTUDIO (texto)--!>
                             <option value="-">- 
                             </select>
                             </td>
-                        </tr>
-                        
+                        </tr>                        
+
                         <tr>
                             <td>Nombre del coordinador de movilidad: </td>
 
@@ -968,24 +963,36 @@ CARRERA DE ESTUDIO (texto)--!>
                     <table border="0"  align="center">
                         <tbody>
                         
+
                         <tr>
                             <td> Área de Estudio: </td>
                             <td>
-                            <select id="area" onchange="cambia_carrera()" property="areaEstud"> 
-                            <option value="-">- 
-                            </select>
+                            <html:select property="areaEstud"> 
+                                <html:option value="Seleccione"></html:option>                                                                
+                                <html:option value="Áreas de Arquitectura y Urbanismo"></html:option>                                
+                                <html:option value="Áreas de Ciencias Administrativas"></html:option>                                
+                                <html:option value="Áreas de Ciencias Básicas"></html:option>
+                                <html:option value="Áreas de Ciencias Sociales"></html:option>
+                                <html:option value="Áreas de Ingeniería"></html:option>
+                                <html:option value="Áreas de Tecnología"></html:option>
+                            </html:select>
                             </td>
-                        </tr>                        
-
+                        </tr>
+                        
+                  
                         <tr>
-                            <td> Carrera: </td>
-                            <td>
-                            <select id="carr" property="carrera"> 
-                            <option value="-">- 
-                            </select>
-                            </td>
-                        </tr>                                       
+                            <td>Carrera: </td>
 
+                            <td>
+                                <html:text name="PlanillaExt" property="carrera" maxlength="80" errorStyleClass="error"
+                                           errorKey="org.apache.struts.action.ERROR"></html:text>
+                                </td>
+
+                                <td>
+                                <html:errors property="carrera" />
+                            </td>
+                        </tr>
+                        
                         <tr>
                             <td> Año de ingreso a la carrera: </td>
 
