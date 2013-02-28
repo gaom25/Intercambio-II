@@ -428,7 +428,7 @@ CREATE TABLE "dycicle".IDIOMAS(
 	NivelVerbal	VARCHAR(15)	NOT NULL,
 	NivelEscrito	VARCHAR(15)	NOT NULL,
         NivelConversacional VARCHAR(15) NOT NULL,
-	CONSTRAINT 	PK_IDIOMAS	PRIMARY KEY (NombreUsario,NombreIdioma)
+	CONSTRAINT 	PK_IDIOMAS	PRIMARY KEY (NombreUsuario,NombreIdioma)
 )
 WITH (
 OIDS = FALSE
@@ -481,27 +481,6 @@ ALTER TABLE "dycicle".AntecedenteAcademico ADD
 /* La fecha de ida debe ser anterior a la fecha de regreso */
 ALTER TABLE "dycicle".PlanillaUSB ADD
 	CHECK (FechaIda1 < FechaRegreso1);
-
-/* El nivel verbal de un idioma debe ser Bajo, Medio o Alto */
-ALTER TABLE "dycicle".PlanillaUSB ADD
-	CHECK ((NivelVerbal = 'Bajo') OR (NivelVerbal = 'Medio') OR (NivelVerbal = 'Alto'));
-
-ALTER TABLE "dycicle".IDIOMAS ADD
-	CHECK ((NivelVerbal = 'Bajo') OR (NivelVerbal = 'Medio') OR (NivelVerbal = 'Alto'));
-
-/* El nivel escrito de un idioma debe ser Bajo, Medio o Alto */
-ALTER TABLE "dycicle".PlanillaUSB ADD
-	CHECK ((NivelEscrito = 'Bajo') OR (NivelEscrito = 'Medio') OR (NivelEscrito = 'Alto'));
-
-ALTER TABLE "dycicle".IDIOMAS ADD
-	CHECK ((NivelEscrito = 'Bajo') OR (NivelEscrito = 'Medio') OR (NivelEscrito = 'Alto'));
-
-/* El nivel conversacional de un idioma debe ser Bajo, Medio o Alto */
-ALTER TABLE "dycicle".PlanillaUSB ADD
-	CHECK ((NivelConversacional = 'Bajo') OR (NivelConversacional = 'Medio') OR (NivelConversacional = 'Alto'));
-
-ALTER TABLE "dycicle".IDIOMAS ADD
-	CHECK ((NivelConversacional = 'Bajo') OR (NivelConversacional = 'Medio') OR (NivelConversacional = 'Alto'));
 
 /* El email de un representante debe contener un @ */
 ALTER TABLE "dycicle".REPRESENTANTE ADD

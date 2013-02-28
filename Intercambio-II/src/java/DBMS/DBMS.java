@@ -1267,7 +1267,7 @@ public class DBMS {
             ArrayList escri = idioma.getListEscrito();
             ArrayList ver = idioma.getListVerbal();
             ArrayList idio = idioma.getListIdioma();
-            ArrayList conver = idioma.getListConver();
+            ArrayList conver = idioma.getListConversacional();
             for (int i = 0; i < idio.size(); i++) {
                 String sqlquery = "INSERT INTO \"dycicle\".idiomas VALUES("
                         + "'" + idioma.getNombreusuario() + "','" + idio.get(i) + "','"
