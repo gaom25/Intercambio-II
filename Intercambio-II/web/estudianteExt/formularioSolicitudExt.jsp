@@ -867,7 +867,7 @@ function cambia_carrera(){
                         <tr>
                             <td> Nombre de Programa: </td>
                             <td>
-                            <select id="prog_princ" onchange="cambia_pais()" property="nombreProgramaOpcion1"> 
+                            <select id="prog_princ" onchange="cambia_pais()" property="nombrePrograma"> 
                             <option value="0" selected>Seleccione
                             <option value="1">Convenios Bilaterales
                             <option value="2">Programa SMILE
@@ -923,7 +923,7 @@ function cambia_carrera(){
                         <tr>
                             <td> Tipo de Programa: </td>
                             <td>
-                                <html:select  property="programaOpcion1">
+                                <html:select  property="programa">
                                     <html:option value="Seleccione"></html:option>
                                     <html:option value="Intercambio Académico (sólo Asignaturas)"></html:option>
                                     <html:option value="Intercambio Académico + Pasantía Internacional"></html:option>
@@ -933,7 +933,7 @@ function cambia_carrera(){
                                 </html:select>
                             </td>
                             <td>
-                                <html:errors property="programaOpcion1" />
+                                <html:errors property="programa" />
                             </td>
                         </tr>                            
                         <tr>
@@ -1169,7 +1169,7 @@ function cambia_carrera(){
 
         <div style="width:auto;height:auto;border:6px solid #F9F4CF; border-color: #F9F4CF; border-radius: 10px; border-width:5px;">
             <div align=center>
-                <html:form action="/AccionPlanEstudioExt"method="post" enctype="multipart/form-data">
+                <html:form action="/AccionPlanEstudioExt" method="post" enctype="multipart/form-data">
                     <br />
                     <p hidden="true"><html:text name="PlanDeEstudio" property="nombreUsuario" maxlength="20" errorStyleClass="error" value ="<%=var.toString()%>"
                                errorKey="org.apache.struts.action.ERROR"></html:text></p>
