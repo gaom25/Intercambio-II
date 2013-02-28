@@ -275,7 +275,7 @@
             <put name="sidebarL" value="/plantilla/sidebarsL/sbLEstExt.jsp"/>
         </definition>
         
-            <definition name="errortam" extends="baseEstudianteExt"> <!-- pagina arror de tamano archivo de estudiante usb -->
+            <definition name="errortamExt" extends="baseEstudianteExt"> <!-- pagina arror de tamano archivo de estudiante usb -->
                 <put name="body" value="/estudianteUSB/errortam.jsp" />
             </definition>
         
@@ -283,27 +283,27 @@
                 <put name="body" value="/estudianteExt/accionesEstExt.jsp" />
             </definition>
             
-            <definition name="cargacorrecta" extends="baseEstudianteExt"> <!-- pagina acciones de estudiante usb -->
+            <definition name="cargacorrectaExt" extends="baseEstudianteExt"> <!-- pagina acciones de estudiante usb -->
                 <put name="body" value="/estudianteExt/llenadoplanillacorrecto.jsp" />
             </definition>
             
-            <definition name="cargaarchivoscorrecta" extends="baseEstudianteExt"> <!-- pagina acciones de estudiante usb -->
+            <definition name="cargaarchivoscorrectaExt" extends="baseEstudianteExt"> <!-- pagina acciones de estudiante usb -->
                 <put name="body" value="/estudianteExt/cargaarchivoscorrecto.jsp" />
             </definition>
             
-             <definition name="cargaplancorrecta" extends="baseEstudianteExt"> <!-- pagina acciones de estudiante usb -->
+             <definition name="cargaplancorrectaExt" extends="baseEstudianteExt"> <!-- pagina acciones de estudiante usb -->
                 <put name="body" value="/estudianteExt/cargaplancorrecto.jsp" />
             </definition>
             
-            <definition name="creacionplanillacorrecta" extends="baseEstudianteExt"> <!-- pagina acciones de estudiante usb -->
+            <definition name="creacionplanillacorrectaExt" extends="baseEstudianteExt"> <!-- pagina acciones de estudiante usb -->
                 <put name="body" value="/estudianteExt/planillacreadaexitosamente.jsp" />
             </definition>
             
-            <definition name="cargaincorrecta" extends="baseEstudianteExt"> <!-- pagina acciones de estudiante usb -->
+            <definition name="cargaincorrectaExt" extends="baseEstudianteExt"> <!-- pagina acciones de estudiante usb -->
                 <put name="body" value="/estudianteExt/llenadoplanillaincorrecto.jsp" />
             </definition>
             
-            <definition name="cargaidioma" extends="baseEstudianteExt"> <!-- pagina acciones de estudiante usb -->
+            <definition name="cargaidiomaExt" extends="baseEstudianteExt"> <!-- pagina acciones de estudiante usb -->
                 <put name="body" value="/estudianteExt/cargaidiomascorrecto.jsp" />
             </definition>
             
@@ -327,19 +327,19 @@
                 <put name="body" value="/estudianteExt/modificarPlanilla.jsp" />
             </definition>
             
-            <definition name="contactoEstUSB" extends="baseEstudianteExt"> <!-- pagina de contacto de estudiante usb -->
+            <definition name="contactoEstExt" extends="baseEstudianteExt"> <!-- pagina de contacto de estudiante usb -->
                 <put name="body" value="/estudianteExt/contactoEstudiante.jsp"/>
             </definition>
             
-            <definition name="exitoContactoEstUSB" extends="baseEstudianteExt"> <!-- pagina de exito contacto de estudiante usb -->
+            <definition name="exitoContactoEstExt" extends="baseEstudianteExt"> <!-- pagina de exito contacto de estudiante usb -->
                 <put name="body" value="/estudianteExt/exitoContactoEstExt.jsp"/>
             </definition>
             
-            <definition name="planillaIncompleta" extends="baseEstudianteExt"> <!-- pagina de contacto de estudiante usb -->
+            <definition name="planillaIncompletaExt" extends="baseEstudianteExt"> <!-- pagina de contacto de estudiante usb -->
                 <put name="body" value="/estudianteExt/planillaIncompleta.jsp"/>
             </definition>
         
-            <definition name="listarDocumentos" extends="baseEstudianteExt"> <!-- pagina de listar usuarios -->
+            <definition name="listarDocumentosExt" extends="baseEstudianteExt"> <!-- pagina de listar usuarios -->
                 <put name="body" value="/estudianteExt/listarDocumentos.jsp" />
             </definition>
         
