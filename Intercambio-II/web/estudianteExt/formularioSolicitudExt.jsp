@@ -572,7 +572,7 @@ function cambia_carrera(){
 
     <title>Sistema de Gestión de Intercambio</title>
 
-    <h4 align ="center">Formulario de solicitud</h4>
+    <h4 align ="center"> Formulario de solicitud</h4>
     <h5 align ="center"> Por favor complete los datos que son requeridos a continuación</h5>
     <h5 align ="center"> Recuerde no dejar en blanco los campos obligatorios</h5>
 
@@ -859,7 +859,7 @@ function cambia_carrera(){
                     </table>
                 </div>                    
                             
-                <div id="opci4" style="display:none;width:650px;height:450px; border: 5px solid #FFFF94; border-radius: 10px; border-width:5px;">
+                <div id="opci4" style="display:none;width:450px;height:450px; border: 5px solid #FFFF94; border-radius: 10px; border-width:5px;">
                     <br>
                     <table border="0"  align="center">
                         <tbody>
@@ -884,6 +884,11 @@ function cambia_carrera(){
                             </select>
                             </td>
                         </tr>
+                        
+<!-- 
+faltaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+AREA DE ESTUDIO 
+CARRERA DE ESTUDIO (texto)--!>
                         
                         <tr>
                             <td> Universidad de origen: </td>

@@ -892,30 +892,30 @@
                                 <tr>
                                     <td> Nombre de Programa: </td>
                                     <td>
-                                        <select id="prog_princ" onchange="cambia_pais()" property="nombreProgramaOpcion1"> 
-                                            <option value="0" selected>Seleccione
-                                            <option value="1">Convenios Bilaterales
-                                            <option value="2">Programa SMILE
-                                            <option value="3">Programa de Movilidad Estudiantil CINDA
-                                        </select>
+                                        <html:select styleId="prog_princ" onchange="cambia_pais()" property="nombreProgramaOpcion1"> 
+                                            <html:option value="0">Seleccione </html:option>
+                                            <html:option value="1">Convenios Bilaterales </html:option>
+                                            <html:option value="2">Programa SMILE </html:option>
+                                            <html:option value="3">Programa de Movilidad Estudiantil CINDA </html:option>
+                                        </html:select>
                                     </td>
                                 </tr>
 
                                 <tr>
                                     <td> Pais Destino: </td>
                                     <td>
-                                        <select id="pais_princ" onchange="cambia_universidad()" property="paisOpcion1"> 
-                                            <option value="-">- 
-                                        </select>
+                                        <html:select styleId="pais_princ" onchange="cambia_universidad()" property="paisOpcion1"> 
+                                            <html:option value="-">- </html:option>
+                                        </html:select>
                                     </td>
                                 </tr>
 
                                 <tr>
                                     <td> Universidad Destino: </td>
                                     <td>
-                                        <select id="uni_princ" property="nombreOpcion1"> 
-                                            <option value="-">- 
-                                        </select>
+                                        <html:select styleId="uni_princ" property="nombreOpcion1"> 
+                                            <html:option value="-">- </html:option>
+                                        </html:select>
                                     </td>
                                 </tr>
 
@@ -1014,30 +1014,30 @@
                                 <tr>
                                     <td> Nombre de Programa: </td>
                                     <td>
-                                        <select id="prog_princ2" onchange="cambia_pais2()" property="nombreProgramaOpcion2"> 
-                                            <option value="0" selected>Seleccione
-                                            <option value="1">Convenios Bilaterales
-                                            <option value="2">Programa SMILE
-                                            <option value="3">Programa de Movilidad Estudiantil CINDA
-                                        </select>
+                                        <html:select styleId="prog_princ2" onchange="cambia_pais2()" property="nombreProgramaOpcion2"> 
+                                            <html:option value="0">Seleccione </html:option>
+                                            <html:option value="1">Convenios Bilaterales </html:option>
+                                            <html:option value="2">Programa SMILE </html:option>
+                                            <html:option value="3">Programa de Movilidad Estudiantil CINDA </html:option>
+                                        </html:select>
                                     </td>
                                 </tr>
 
                                 <tr>
                                     <td> Pais Destino: </td>
                                     <td>
-                                        <select id="pais_princ2" onchange="cambia_universidad2()" property="paisOpcion2"> 
-                                            <option value="-">- 
-                                        </select>
+                                        <html:select styleId="pais_princ2" onchange="cambia_universidad2()" property="paisOpcion2"> 
+                                            <html:option value="-">- </html:option>
+                                        </html:select>
                                     </td>
                                 </tr>
 
                                 <tr>
                                     <td> Universidad Destino: </td>
                                     <td>
-                                        <select id="uni_princ2" property="nombreOpcion2"> 
-                                            <option value="-">- 
-                                        </select>
+                                        <html:select styleId="uni_princ2" property="nombreOpcion2"> 
+                                            <html:option value="-">- </html:option>
+                                        </html:select>
                                     </td>
                                 </tr>
 
