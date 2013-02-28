@@ -100,7 +100,13 @@ public class FileUploadAction extends Action {
                 /* Se crea el archivo para poder guardalo en el servidor
                  */
                 System.out.println("Server path:" + filePath);
-                File newFile = new File(filePath, fileName);
+                File newFile;
+                if (i == 0){
+                    newFile = new File(filePath, "Foto.png");
+                }
+                else{
+                    newFile = new File(filePath, fileName);
+                }
 
                 // si existe el archivo lo sobreescribe
                 if (!newFile.exists()) {

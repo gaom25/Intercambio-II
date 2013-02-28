@@ -91,7 +91,7 @@ public class GeneradorPlanillas {
             ct.setSimpleColumn(titulo, 40, 655, 600, 680, 25, Element.ALIGN_CENTER);
             ct.go();
 
-            Image imagen = Image.getInstance("/home/brahyam/Documents/Sistemas de Informacion II/Proyecto Sistemas/Intercambio-II/Intercambio-II/web/images/user_data.png");
+            Image imagen = Image.getInstance(path+"/Foto.png");
             imagen.setAbsolutePosition(500f, 680f); // define la posicion de la imagen del aplicante
             imagen.scaleAbsolute(75f, 75f); // define el tamano de la imagen del aplicante
 

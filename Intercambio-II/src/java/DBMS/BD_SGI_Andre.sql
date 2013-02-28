@@ -426,6 +426,7 @@ CREATE TABLE "dycicle".IDIOMAS(
 	NombreIdioma	VARCHAR(30)	NOT NULL,
 	NivelVerbal	VARCHAR(15)	NOT NULL,
 	NivelEscrito	VARCHAR(15)	NOT NULL,
+        NivelConversacional VARCHAR(15) NOT NULL,
 	CONSTRAINT 	PK_IDIOMAS	PRIMARY KEY (NombreIdioma)
 )
 WITH (
@@ -493,6 +494,13 @@ ALTER TABLE "dycicle".PlanillaUSB ADD
 
 ALTER TABLE "dycicle".IDIOMAS ADD
 	CHECK ((NivelEscrito = 'Bajo') OR (NivelEscrito = 'Medio') OR (NivelEscrito = 'Alto'));
+
+/* El nivel conversacional de un idioma debe ser Bajo, Medio o Alto */
+ALTER TABLE "dycicle".PlanillaUSB ADD
+	CHECK ((NivelConversacional = 'Bajo') OR (NivelConversacional = 'Medio') OR (NivelConversacional = 'Alto'));
+
+ALTER TABLE "dycicle".IDIOMAS ADD
+	CHECK ((NivelConversacional = 'Bajo') OR (NivelConversacional = 'Medio') OR (NivelConversacional = 'Alto'));
 
 /* El email de un representante debe contener un @ */
 ALTER TABLE "dycicle".REPRESENTANTE ADD

@@ -240,7 +240,7 @@ public class DBMS {
                     + "'1.0000', "
                     + "'null','null', "
                     + "'" + e.getCarrera() + "', "
-                    + "'opcion', '0', '0000', 0');";
+                    + "'opcion', '0', '0000', '0');";
           
             String sqlqueryPostulacion = "INSERT INTO \"dycicle\".Postulacion VALUES ('"
                     + e.getNombreusuario() + "', "
@@ -1270,7 +1270,7 @@ public class DBMS {
                         + "','" + codusb.get(i)
                         + "','" + nomusb.get(i)
                         + "','" + creusb.get(i)
-                        + "','null', 'null', 'null');";
+                        + "','1', '1', '1');";
                 Statement stmt = conexion.createStatement();
                 Integer j = stmt.executeUpdate(sqlquery);
 

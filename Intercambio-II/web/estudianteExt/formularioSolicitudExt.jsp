@@ -1124,7 +1124,7 @@ function cambia_carrera(){
         <div style="width:auto;height:auto;border:6px solid  #F9F4CF; border-color: #F9F4CF; border-radius: 10px; border-width:5px;">
 
             <div align=center>
-                <html:form method="post" enctype="multipart/form-data">
+                <html:form action="/FileUploadAction" method="post" enctype="multipart/form-data">
                     <br />
                     <p hidden="true"><html:text name="FileUploadForm" property="nombreusuario" maxlength="20" errorStyleClass="error" value ="<%=var.toString()%>"
                                errorKey="org.apache.struts.action.ERROR"></html:text></p>
@@ -1136,13 +1136,26 @@ function cambia_carrera(){
 
                                         <td valign="middle">
                                             <div id="archivos" >
-                                                <div class="feed">  
-                                                <html:file property="theFile[0]" />
+                                                <div class="feed" >  
+                                                    <html:file property="theFile[0]" />
                                                 <br />
                                             </div>
                                         </div>
 
                                     </td> 
+                                    </tr>
+                                    <tr>
+                                    <td><INPUT type="checkbox" name="chk[]"/></td>
+
+                                        <td valign="middle">
+                                            <div id="archivos" >
+                                                <div class="feed">  
+                                                <html:file property="theFile[1]" />
+                                                <br />
+                                            </div>
+                                        </div>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>  
@@ -1230,7 +1243,7 @@ function cambia_carrera(){
     <div id="idio" style="display: none">
         <div style="width:auto;height:auto;border:6px solid #F9F4CF; border-color: #F9F4CF; border-radius: 10px; border-width:5px;">
             <div align=center>
-                <html:form method="post" enctype="multipart/form-data">
+                <html:form action="/CargarIdioma" method="post" enctype="multipart/form-data">
                     <br />
                     <p hidden="true"><html:text name="Idiomas" property="nombreusuario" maxlength="20" errorStyleClass="error" value ="<%=var.toString()%>"
                                errorKey="org.apache.struts.action.ERROR"></html:text></p>
@@ -1256,17 +1269,17 @@ function cambia_carrera(){
                                   <td>¿Le gustaría tomar un curso de español? </td>
 
                                   <td>
-                                      <html:radio name="PlanillaExt" property="tomarCursoEspaniol" value="Sí" errorStyleClass="error"
+                                      <html:radio name="PlanillaExt" property="tomarCursoDeEspaniol" value="Sí" errorStyleClass="error"
                                            errorKey="org.apache.struts.action.ERROR"></html:radio>
                                   </td>
                                   
                                   <td>
-                                      <html:radio name="PlanillaExt" property="tomarCursoEspaniol" value="No" errorStyleClass="error"
+                                      <html:radio name="PlanillaExt" property="tomarCursoDeEspaniol" value="No" errorStyleClass="error"
                                            errorKey="org.apache.struts.action.ERROR"></html:radio>
                                   </td>
 
                                   <td>
-                                    <html:errors property="tomarCursoEspaniol" />
+                                    <html:errors property="tomarCursoDeEspaniol" />
                                   </td>
                                 </tr>
 
@@ -1284,7 +1297,7 @@ function cambia_carrera(){
 
                                 <td>
 
-                                    <html:select property="nivelVerbal[0]" errorStyleClass="error" errorKey="org.apache.struts.action.ERROR">
+                                    <html:select name="Idiomas" property="nivelVerbal[0]" errorStyleClass="error" errorKey="org.apache.struts.action.ERROR">
                                         <html:option value=""></html:option>
                                         <html:option value="Basico">Basico</html:option>
                                         <html:option value="Intermedio">Intermedio</html:option>
@@ -1295,7 +1308,7 @@ function cambia_carrera(){
                                 <td>Nivel Escrito</td>
 
                                 <td>
-                                    <html:select property="nivelEscrito[0]" errorStyleClass="error" errorKey="org.apache.struts.action.ERROR">
+                                    <html:select name="Idiomas" property="nivelEscrito[0]" errorStyleClass="error" errorKey="org.apache.struts.action.ERROR">
                                         <html:option value=""></html:option>
                                         <html:option value="Basico">Basico</html:option>
                                         <html:option value="Intermedio">Intermedio</html:option>
@@ -1306,7 +1319,7 @@ function cambia_carrera(){
                                 <td>Nivel Conversacional</td>
 
                                 <td>
-                                    <html:select property="nivelConversacional[0]" errorStyleClass="error" errorKey="org.apache.struts.action.ERROR">
+                                    <html:select name="Idiomas" property="nivelConversacional" errorStyleClass="error" errorKey="org.apache.struts.action.ERROR">
                                         <html:option value=""></html:option>
                                         <html:option value="Basico">Basico</html:option>
                                         <html:option value="Intermedio">Intermedio</html:option>

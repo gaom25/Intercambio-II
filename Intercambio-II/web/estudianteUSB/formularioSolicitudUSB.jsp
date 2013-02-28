@@ -337,237 +337,237 @@
             document.getElementById("opci7").style.display="none";
             switch(opc)
             {
-                    case 1:
-                            //mostramos elcontenido de la primera opcion
-                            document.getElementById("opci1").style.display="block";
-                            break;
-                    case 2:
-                            //mostramos elcontenido de la segunda opcion
-                            document.getElementById("opci2").style.display="block";
-                            break;
-                    case 3:
-                            //mostramos elcontenido de la tercera opcion
-                            document.getElementById("opci3").style.display="block";
-                            break;
-                    case 4:
-                            //mostramos elcontenido de la tercera opcion
-                            document.getElementById("opci4").style.display="block";
-                            break;
-                    case 5:
-                            //mostramos elcontenido de la tercera opcion
-                            document.getElementById("opci5").style.display="block";
-                            break;
-                    case 6:
-                            //mostramos elcontenido de la tercera opcion
-                            document.getElementById("opci6").style.display="block";
-                            break;
-                    case 7:
-                            //mostramos elcontenido de la tercera opcion
-                            document.getElementById("opci7").style.display="block";
-                            break;                            
+                case 1:
+                    //mostramos elcontenido de la primera opcion
+                    document.getElementById("opci1").style.display="block";
+                    break;
+                case 2:
+                    //mostramos elcontenido de la segunda opcion
+                    document.getElementById("opci2").style.display="block";
+                    break;
+                case 3:
+                    //mostramos elcontenido de la tercera opcion
+                    document.getElementById("opci3").style.display="block";
+                    break;
+                case 4:
+                    //mostramos elcontenido de la tercera opcion
+                    document.getElementById("opci4").style.display="block";
+                    break;
+                case 5:
+                    //mostramos elcontenido de la tercera opcion
+                    document.getElementById("opci5").style.display="block";
+                    break;
+                case 6:
+                    //mostramos elcontenido de la tercera opcion
+                    document.getElementById("opci6").style.display="block";
+                    break;
+                case 7:
+                    //mostramos elcontenido de la tercera opcion
+                    document.getElementById("opci7").style.display="block";
+                    break;                            
             }
         }
 
-// CAMBIA EL PAIS DE ACUERDO AL TIPO DE CONVENIO ELEGIDO
+        // CAMBIA EL PAIS DE ACUERDO AL TIPO DE CONVENIO ELEGIDO
 
-    // Convenios Bilaterales
-    var paises_1=new Array("Seleccione", "Alemania","Australia", "Canadá", "Colombia", "España", "Estados Unidos", "Finlandia", "Francia", "Italia", "Japón", "México", "Noruega", "Perú", "Puerto Rico", "Reino Unido", "Suecia")
-    // SMILE
-    var paises_2=new Array("Seleccione", "Alemania", "Bélgica", "Brasil", "Chile", "Colombia", "España", "Polonia", "Portugal", "República Checa")
-    // CINDA
-    var paises_3=new Array("Seleccione", "Argentina", "Bolivia", "Brasil", "Chile", "Colombia", "Costa Rica", "Ecuador", "España", "Italia", "México", "Panamá", "Paraguay", "Perú", "República Dominicada", "Uruguay", "Venezuela")
+        // Convenios Bilaterales
+        var paises_1=new Array("Seleccione", "Alemania","Australia", "Canadá", "Colombia", "España", "Estados Unidos", "Finlandia", "Francia", "Italia", "Japón", "México", "Noruega", "Perú", "Puerto Rico", "Reino Unido", "Suecia")
+        // SMILE
+        var paises_2=new Array("Seleccione", "Alemania", "Bélgica", "Brasil", "Chile", "Colombia", "España", "Polonia", "Portugal", "República Checa")
+        // CINDA
+        var paises_3=new Array("Seleccione", "Argentina", "Bolivia", "Brasil", "Chile", "Colombia", "Costa Rica", "Ecuador", "España", "Italia", "México", "Panamá", "Paraguay", "Perú", "República Dominicada", "Uruguay", "Venezuela")
 
-    function cambia_pais(){ 
-        //tomo el valor del select del pais elegido 
-        programa = document.getElementById("prog_princ")[document.getElementById("prog_princ").selectedIndex].value 
-        if (programa != 0) { 
-           mis_paises=eval("paises_" + programa) 
-           num_paises = mis_paises.length 
-           document.getElementById("pais_princ").length = num_paises
-           for(i=0;i<num_paises;i++){ 
-              document.getElementById("pais_princ").options[i].value=i
-              document.getElementById("pais_princ").options[i].text=mis_paises[i] 
-           } 
-        }else{ 
-           //si no había provincia seleccionada, elimino las universidades del select 
-           document.getElementById("pais_princ").length = 1 
-           document.getElementById("pais_princ").options[0].value = "-" 
-           document.getElementById("pais_princ").options[0].text = "-" 
-        } 
-        //marco como seleccionada la opción primera de provincia 
-        document.getElementById("pais_princ").options[0].selected = true 
-    }
+        function cambia_pais(){ 
+            //tomo el valor del select del pais elegido 
+            programa = document.getElementById("prog_princ")[document.getElementById("prog_princ").selectedIndex].value 
+            if (programa != 0) { 
+                mis_paises=eval("paises_" + programa) 
+                num_paises = mis_paises.length 
+                document.getElementById("pais_princ").length = num_paises
+                for(i=0;i<num_paises;i++){ 
+                    document.getElementById("pais_princ").options[i].value=i
+                    document.getElementById("pais_princ").options[i].text=mis_paises[i] 
+                } 
+            }else{ 
+                //si no había provincia seleccionada, elimino las universidades del select 
+                document.getElementById("pais_princ").length = 1 
+                document.getElementById("pais_princ").options[0].value = "-" 
+                document.getElementById("pais_princ").options[0].text = "-" 
+            } 
+            //marco como seleccionada la opción primera de provincia 
+            document.getElementById("pais_princ").options[0].selected = true 
+        }
 
-    function cambia_pais2(){ 
-        //tomo el valor del select del pais elegido 
-        programa = document.getElementById("prog_princ2")[document.getElementById("prog_princ2").selectedIndex].value 
-        if (programa != 0) { 
-           mis_paises=eval("paises_" + programa) 
-           num_paises = mis_paises.length 
-           document.getElementById("pais_princ2").length = num_paises
-           for(i=0;i<num_paises;i++){ 
-              document.getElementById("pais_princ2").options[i].value=i
-              document.getElementById("pais_princ2").options[i].text=mis_paises[i] 
-           } 
-        }else{ 
-           //si no había provincia seleccionada, elimino las universidades del select 
-           document.getElementById("pais_princ2").length = 1 
-           document.getElementById("pais_princ2").options[0].value = "-" 
-           document.getElementById("pais_princ2").options[0].text = "-" 
-        } 
-        //marco como seleccionada la opción primera de provincia 
-        document.getElementById("pais_princ2").options[0].selected = true 
-    }
+        function cambia_pais2(){ 
+            //tomo el valor del select del pais elegido 
+            programa = document.getElementById("prog_princ2")[document.getElementById("prog_princ2").selectedIndex].value 
+            if (programa != 0) { 
+                mis_paises=eval("paises_" + programa) 
+                num_paises = mis_paises.length 
+                document.getElementById("pais_princ2").length = num_paises
+                for(i=0;i<num_paises;i++){ 
+                    document.getElementById("pais_princ2").options[i].value=i
+                    document.getElementById("pais_princ2").options[i].text=mis_paises[i] 
+                } 
+            }else{ 
+                //si no había provincia seleccionada, elimino las universidades del select 
+                document.getElementById("pais_princ2").length = 1 
+                document.getElementById("pais_princ2").options[0].value = "-" 
+                document.getElementById("pais_princ2").options[0].text = "-" 
+            } 
+            //marco como seleccionada la opción primera de provincia 
+            document.getElementById("pais_princ2").options[0].selected = true 
+        }
 
-// CAMBIA LA UNIVERSIDAD DE ACUERDO AL PAIS ESCOGIDO 
+        // CAMBIA LA UNIVERSIDAD DE ACUERDO AL PAIS ESCOGIDO 
 
-// Universidad con Convenios Bilaterales
-var uni_11=new Array("Seleccione", "Universidad de Karlsruhe", "Universidad de Siegen")
-var uni_12=new Array("Seleccione", "Universidad Tecnológica de Swinburne")
-var uni_13=new Array("Seleccione", "Instituto de Tecnología de Ontario")
-var uni_14=new Array("Seleccione", "Pontificia Universidad Bolivariana", "Universidad Externado")
-var uni_15=new Array("Seleccione", "Universidad de Granada", "Universidad de Zaragoza", "Universidad Politécnica de Valencia")
-var uni_16=new Array("Seleccione", "Universidad de Nuevo México", "Universidad de Oklahoma")
-var uni_17=new Array("Seleccione", "Universidad Abo Akademi")
-var uni_18=new Array("Seleccione", "Arts et Métiers ParisTech", "EPF Escuela de Ingenieros", "Escuela de Minas de Nantes", "INSA – Lyon", "TELECOM – SudParis", "Universidad Paris Est Marne la Vallé", "Universidad Paris Ouest Nanterre", "Universidad Tecnológica de Compiègne")
-var uni_19=new Array("Seleccione", "Politécnico de Milano", "Politécnico de Torino")
-var uni_110=new Array("Seleccione", "Universidad de Tohoku", "Universidad Tecnológica de Nagaoka")
-var uni_111=new Array("Seleccione", "Instituto Tecnológico Superior de Cajeme (ITESCA)", "ITESM Monterrey", "Universidad Veracruzana")
-var uni_112=new Array("Seleccione", "NTNU- Trondheim")
-var uni_113=new Array("Seleccione", "Universidad San Martín de Porres")
-var uni_114=new Array("Seleccione", "Universidad de Puerto Rico")
-var uni_115=new Array("Seleccione", "Universidad de Ulster")
-var uni_116=new Array("Seleccione", "Real Instituto de Estocolmo KTH", "Universidad de Lund", "Universidad de Uppsala")
+        // Universidad con Convenios Bilaterales
+        var uni_11=new Array("Seleccione", "Universidad de Karlsruhe", "Universidad de Siegen")
+        var uni_12=new Array("Seleccione", "Universidad Tecnológica de Swinburne")
+        var uni_13=new Array("Seleccione", "Instituto de Tecnología de Ontario")
+        var uni_14=new Array("Seleccione", "Pontificia Universidad Bolivariana", "Universidad Externado")
+        var uni_15=new Array("Seleccione", "Universidad de Granada", "Universidad de Zaragoza", "Universidad Politécnica de Valencia")
+        var uni_16=new Array("Seleccione", "Universidad de Nuevo México", "Universidad de Oklahoma")
+        var uni_17=new Array("Seleccione", "Universidad Abo Akademi")
+        var uni_18=new Array("Seleccione", "Arts et Métiers ParisTech", "EPF Escuela de Ingenieros", "Escuela de Minas de Nantes", "INSA – Lyon", "TELECOM – SudParis", "Universidad Paris Est Marne la Vallé", "Universidad Paris Ouest Nanterre", "Universidad Tecnológica de Compiègne")
+        var uni_19=new Array("Seleccione", "Politécnico de Milano", "Politécnico de Torino")
+        var uni_110=new Array("Seleccione", "Universidad de Tohoku", "Universidad Tecnológica de Nagaoka")
+        var uni_111=new Array("Seleccione", "Instituto Tecnológico Superior de Cajeme (ITESCA)", "ITESM Monterrey", "Universidad Veracruzana")
+        var uni_112=new Array("Seleccione", "NTNU- Trondheim")
+        var uni_113=new Array("Seleccione", "Universidad San Martín de Porres")
+        var uni_114=new Array("Seleccione", "Universidad de Puerto Rico")
+        var uni_115=new Array("Seleccione", "Universidad de Ulster")
+        var uni_116=new Array("Seleccione", "Real Instituto de Estocolmo KTH", "Universidad de Lund", "Universidad de Uppsala")
 
-// Universidad con SMILE
-var uni_21=new Array("Seleccione", "Universidad de Stuttgart")
-var uni_22=new Array("Seleccione", "Universidad Católica de Lovaina")
-var uni_23=new Array("Seleccione", "PSML - BRA - Universidad de Sao Paulo", "PSML - BRA - Universidad Federal de Río de Janeiro")
-var uni_24=new Array("Seleccione", "PSML - CHI - Pontifica Universidad Católica de Chile")
-var uni_25=new Array("Seleccione", "PSML - COL - Pontificia Universidad Javeriana")
-var uni_26=new Array("Seleccione", "PSML - ESP - Universidad Politécnica de Cataluña", "PSML - ESP - Universidad Politécnica de Madrid")
-var uni_27=new Array("Seleccione", "PSML - POL - AGH Universidad de Ciencias y Tecnología")
-var uni_28=new Array("Seleccione", "PSML - POR - Universidad Técnica de Lisboa")
-var uni_29=new Array("Seleccione", "PSML - RPC - Universidad Técnica Checa en Praga")
+        // Universidad con SMILE
+        var uni_21=new Array("Seleccione", "Universidad de Stuttgart")
+        var uni_22=new Array("Seleccione", "Universidad Católica de Lovaina")
+        var uni_23=new Array("Seleccione", "PSML - BRA - Universidad de Sao Paulo", "PSML - BRA - Universidad Federal de Río de Janeiro")
+        var uni_24=new Array("Seleccione", "PSML - CHI - Pontifica Universidad Católica de Chile")
+        var uni_25=new Array("Seleccione", "PSML - COL - Pontificia Universidad Javeriana")
+        var uni_26=new Array("Seleccione", "PSML - ESP - Universidad Politécnica de Cataluña", "PSML - ESP - Universidad Politécnica de Madrid")
+        var uni_27=new Array("Seleccione", "PSML - POL - AGH Universidad de Ciencias y Tecnología")
+        var uni_28=new Array("Seleccione", "PSML - POR - Universidad Técnica de Lisboa")
+        var uni_29=new Array("Seleccione", "PSML - RPC - Universidad Técnica Checa en Praga")
 
-// Universidad con CINDA
-var uni_31=new Array("Seleccione", "Universidad Nacional de Cuyo", "Universidad Nacional de Quilmes", "Universidad Nacional de San Martín")
-var uni_32=new Array("Seleccione", "Universidad Católica Boliviana San Pablo", "Universidad Privada Santa Cruz de la Sierra")
-var uni_33=new Array("Seleccione", "Universidad de Sao Paulo ", "Universidad Estadual de Campinas")
-var uni_34=new Array("Seleccione", "Pontificia Universidad Católica de Chile", "Pontificia Universidad Católica de Valparaíso", "Universidad Austral de Chile", "Universidad de Concepción", "Universidad de Talca", "Universidad de Tarapacá")
-var uni_35=new Array("Seleccione", "Pontificia Universidad Javeriana ", "Universidad de los Andes", "Universidad del Norte", "Universidad del Valle")
-var uni_36=new Array("Seleccione", "Universidad de Costa Rica ")
-var uni_37=new Array("Seleccione", "Escuela Superior Politécnica del Litoral")
-var uni_38=new Array("Seleccione", "Universidad Carlos III de Madrid", "Universidad de Barcelona", "Universidad de las Islas Baleares", "Universidad de Santiago de Compostela", "Universitat Oberta de Catalunya", "Universitat Politécnica de Catalunya")
-var uni_39=new Array("Seleccione", "Universidad Degli Studi Di Genova")
-var uni_310=new Array("Seleccione", "ITESM Monterrey ", "Universidad Autónoma Metropolitana")
-var uni_311=new Array("Seleccione", "Universidad de Panamá ")
-var uni_312=new Array("Seleccione", "Universidad Católica de Nuestra Señora de la Asunción")
-var uni_313=new Array("Seleccione", "Pontificia Universidad Católica del Perú ", "Universidad de Lima", "Universidad del Pacífico ", "Universidad Peruana Cayetano Heredia")
-var uni_314=new Array("Seleccione", "Instituto Tecnológico de Santo Domingo", "Pontificia Universidad Católica Madre Maestra ")
-var uni_315=new Array("Seleccione", "Universidad Católica del Uruguay")
-var uni_316=new Array("Seleccione", "Universidad Centroccidental Lisandro Alvarado", "Universidad Metropolitana")
-
-
-function cambia_universidad(){ 
-        //tomo el valor del select del pais elegido 
-        programa = document.getElementById("prog_princ")[document.getElementById("prog_princ").selectedIndex].value 
-        pais = document.getElementById("pais_princ")[document.getElementById("pais_princ").selectedIndex].value 
-        if (programa != 0) { 
-           mis_universidades=eval("uni_" + programa + pais) 
-           num_universidades = mis_universidades.length 
-           document.getElementById("uni_princ").length = num_universidades 
-           for(i=0;i<num_universidades;i++){ 
-              document.getElementById("uni_princ").options[i].value=mis_universidades[i] 
-              document.getElementById("uni_princ").options[i].text=mis_universidades[i] 
-           } 
-        }else{ 
-           //si no había provincia seleccionada, elimino las universidades del select 
-           document.getElementById("uni_princ").length = 1 
-           document.getElementById("uni_princ").options[0].value = "-" 
-           document.getElementById("uni_princ").options[0].text = "-" 
-        } 
-        //marco como seleccionada la opción primera de provincia 
-        document.getElementById("uni_princ").options[0].selected = true 
-    }
+        // Universidad con CINDA
+        var uni_31=new Array("Seleccione", "Universidad Nacional de Cuyo", "Universidad Nacional de Quilmes", "Universidad Nacional de San Martín")
+        var uni_32=new Array("Seleccione", "Universidad Católica Boliviana San Pablo", "Universidad Privada Santa Cruz de la Sierra")
+        var uni_33=new Array("Seleccione", "Universidad de Sao Paulo ", "Universidad Estadual de Campinas")
+        var uni_34=new Array("Seleccione", "Pontificia Universidad Católica de Chile", "Pontificia Universidad Católica de Valparaíso", "Universidad Austral de Chile", "Universidad de Concepción", "Universidad de Talca", "Universidad de Tarapacá")
+        var uni_35=new Array("Seleccione", "Pontificia Universidad Javeriana ", "Universidad de los Andes", "Universidad del Norte", "Universidad del Valle")
+        var uni_36=new Array("Seleccione", "Universidad de Costa Rica ")
+        var uni_37=new Array("Seleccione", "Escuela Superior Politécnica del Litoral")
+        var uni_38=new Array("Seleccione", "Universidad Carlos III de Madrid", "Universidad de Barcelona", "Universidad de las Islas Baleares", "Universidad de Santiago de Compostela", "Universitat Oberta de Catalunya", "Universitat Politécnica de Catalunya")
+        var uni_39=new Array("Seleccione", "Universidad Degli Studi Di Genova")
+        var uni_310=new Array("Seleccione", "ITESM Monterrey ", "Universidad Autónoma Metropolitana")
+        var uni_311=new Array("Seleccione", "Universidad de Panamá ")
+        var uni_312=new Array("Seleccione", "Universidad Católica de Nuestra Señora de la Asunción")
+        var uni_313=new Array("Seleccione", "Pontificia Universidad Católica del Perú ", "Universidad de Lima", "Universidad del Pacífico ", "Universidad Peruana Cayetano Heredia")
+        var uni_314=new Array("Seleccione", "Instituto Tecnológico de Santo Domingo", "Pontificia Universidad Católica Madre Maestra ")
+        var uni_315=new Array("Seleccione", "Universidad Católica del Uruguay")
+        var uni_316=new Array("Seleccione", "Universidad Centroccidental Lisandro Alvarado", "Universidad Metropolitana")
 
 
-function cambia_universidad2(){ 
-        //tomo el valor del select del pais elegido 
-        programa = document.getElementById("prog_princ2")[document.getElementById("prog_princ2").selectedIndex].value 
-        pais = document.getElementById("pais_princ2")[document.getElementById("pais_princ2").selectedIndex].value 
-        if (programa != 0) { 
-           mis_universidades=eval("uni_" + programa + pais) 
-           num_universidades = mis_universidades.length 
-           document.getElementById("uni_princ2").length = num_universidades 
-           for(i=0;i<num_universidades;i++){ 
-              document.getElementById("uni_princ2").options[i].value=mis_universidades[i] 
-              document.getElementById("uni_princ2").options[i].text=mis_universidades[i] 
-           } 
-        }else{ 
-           //si no había provincia seleccionada, elimino las universidades del select 
-           document.getElementById("uni_princ2").length = 1 
-           document.getElementById("uni_princ2").options[0].value = "-" 
-           document.getElementById("uni_princ2").options[0].text = "-" 
-        } 
-        //marco como seleccionada la opción primera de provincia 
-        document.getElementById("uni_princ2").options[0].selected = true 
-    }
+        function cambia_universidad(){ 
+            //tomo el valor del select del pais elegido 
+            programa = document.getElementById("prog_princ")[document.getElementById("prog_princ").selectedIndex].value 
+            pais = document.getElementById("pais_princ")[document.getElementById("pais_princ").selectedIndex].value 
+            if (programa != 0) { 
+                mis_universidades=eval("uni_" + programa + pais) 
+                num_universidades = mis_universidades.length 
+                document.getElementById("uni_princ").length = num_universidades 
+                for(i=0;i<num_universidades;i++){ 
+                    document.getElementById("uni_princ").options[i].value=mis_universidades[i] 
+                    document.getElementById("uni_princ").options[i].text=mis_universidades[i] 
+                } 
+            }else{ 
+                //si no había provincia seleccionada, elimino las universidades del select 
+                document.getElementById("uni_princ").length = 1 
+                document.getElementById("uni_princ").options[0].value = "-" 
+                document.getElementById("uni_princ").options[0].text = "-" 
+            } 
+            //marco como seleccionada la opción primera de provincia 
+            document.getElementById("uni_princ").options[0].selected = true 
+        }
 
-    // Estudios Profesionales
-    var area_1=new Array("Seleccione", "Áreas de Ciencias Básicas", "Área de Arquitectura y Urbanismo", "Área de Ingeniería", "Área de Ciencias Administrativas")
-    // Estudios Tecnologicos 
-    var area_2=new Array("Seleccione", "Área de Tecnología", "Área de Ciencias Sociales")
 
-    function cambia_area(){ 
-        decanato = document.getElementById("dec")[document.getElementById("dec").selectedIndex].value 
-        if (decanato != 0) { 
-           mis_areas=eval("area_" + decanato) 
-           num_areas = mis_areas.length 
-           document.getElementById("area").length = num_areas
-           for(i=0;i<num_areas;i++){ 
-              document.getElementById("area").options[i].value=i
-              document.getElementById("area").options[i].text=mis_areas[i] 
-           } 
-        }else{ 
-           //si no había provincia seleccionada, elimino las universidades del select 
-           document.getElementById("area").length = 1 
-           document.getElementById("area").options[0].value = "-" 
-           document.getElementById("area").options[0].text = "-" 
-        } 
-        //marco como seleccionada la opción primera de provincia 
-        document.getElementById("area").options[0].selected = true 
-    }
+        function cambia_universidad2(){ 
+            //tomo el valor del select del pais elegido 
+            programa = document.getElementById("prog_princ2")[document.getElementById("prog_princ2").selectedIndex].value 
+            pais = document.getElementById("pais_princ2")[document.getElementById("pais_princ2").selectedIndex].value 
+            if (programa != 0) { 
+                mis_universidades=eval("uni_" + programa + pais) 
+                num_universidades = mis_universidades.length 
+                document.getElementById("uni_princ2").length = num_universidades 
+                for(i=0;i<num_universidades;i++){ 
+                    document.getElementById("uni_princ2").options[i].value=mis_universidades[i] 
+                    document.getElementById("uni_princ2").options[i].text=mis_universidades[i] 
+                } 
+            }else{ 
+                //si no había provincia seleccionada, elimino las universidades del select 
+                document.getElementById("uni_princ2").length = 1 
+                document.getElementById("uni_princ2").options[0].value = "-" 
+                document.getElementById("uni_princ2").options[0].text = "-" 
+            } 
+            //marco como seleccionada la opción primera de provincia 
+            document.getElementById("uni_princ2").options[0].selected = true 
+        }
+
+        // Estudios Profesionales
+        var area_1=new Array("Seleccione", "Áreas de Ciencias Básicas", "Área de Arquitectura y Urbanismo", "Área de Ingeniería", "Área de Ciencias Administrativas")
+        // Estudios Tecnologicos 
+        var area_2=new Array("Seleccione", "Área de Tecnología", "Área de Ciencias Sociales")
+
+        function cambia_area(){ 
+            decanato = document.getElementById("dec")[document.getElementById("dec").selectedIndex].value 
+            if (decanato != 0) { 
+                mis_areas=eval("area_" + decanato) 
+                num_areas = mis_areas.length 
+                document.getElementById("area").length = num_areas
+                for(i=0;i<num_areas;i++){ 
+                    document.getElementById("area").options[i].value=i
+                    document.getElementById("area").options[i].text=mis_areas[i] 
+                } 
+            }else{ 
+                //si no había provincia seleccionada, elimino las universidades del select 
+                document.getElementById("area").length = 1 
+                document.getElementById("area").options[0].value = "-" 
+                document.getElementById("area").options[0].text = "-" 
+            } 
+            //marco como seleccionada la opción primera de provincia 
+            document.getElementById("area").options[0].selected = true 
+        }
     
-var carrera_11=new Array("Seleccione", "Lic. Biología", "Lic. Física", "Lic. Matemática", "Lic. Química")
-var carrera_12=new Array("Seleccione", "Arquitectura", "Urbanismo")
-var carrera_13=new Array("Seleccione", "Ing. Eléctrica", "Ing. Mecánica", "Ing. Química", "Ing. Computación", "Ing. Telecomunicaciones", "Ing. Mantenimiento", "Ing. Electrónica", "Ing. Geofísica", "Ing. Materiales", "Ing. Producción")
-var carrera_14=new Array("Seleccione", "Lic. Gestión de la Hospitalidad", "Lic. Com. Internacional")
+        var carrera_11=new Array("Seleccione", "Lic. Biología", "Lic. Física", "Lic. Matemática", "Lic. Química")
+        var carrera_12=new Array("Seleccione", "Arquitectura", "Urbanismo")
+        var carrera_13=new Array("Seleccione", "Ing. Eléctrica", "Ing. Mecánica", "Ing. Química", "Ing. Computación", "Ing. Telecomunicaciones", "Ing. Mantenimiento", "Ing. Electrónica", "Ing. Geofísica", "Ing. Materiales", "Ing. Producción")
+        var carrera_14=new Array("Seleccione", "Lic. Gestión de la Hospitalidad", "Lic. Com. Internacional")
 
-var carrera_21=new Array("Seleccione", "TSU Tec. Electrónica", "TSU Tec. Mecánica", "TSU Mant. Aeronáutico")
-var carrera_22=new Array("Seleccione", "TSU Admin. Turismo", "TSU Admin. Hotelera", "TSU Admin. Transporte", "TSU Admin. Aduanera", "TSU Com. Exterior", "TSU Org. Empresarial")
+        var carrera_21=new Array("Seleccione", "TSU Tec. Electrónica", "TSU Tec. Mecánica", "TSU Mant. Aeronáutico")
+        var carrera_22=new Array("Seleccione", "TSU Admin. Turismo", "TSU Admin. Hotelera", "TSU Admin. Transporte", "TSU Admin. Aduanera", "TSU Com. Exterior", "TSU Org. Empresarial")
 
-function cambia_carrera(){ 
-        //tomo el valor del select del pais elegido 
-        decanato = document.getElementById("dec")[document.getElementById("dec").selectedIndex].value 
-        areas = document.getElementById("area")[document.getElementById("area").selectedIndex].value 
-        if (decanato != 0) { 
-           mis_carreras=eval("carrera_" + decanato + areas) 
-           num_carreras = mis_carreras.length 
-           document.getElementById("carr").length = num_carreras
-           for(i=0;i<num_carreras;i++){ 
-              document.getElementById("carr").options[i].value=mis_carreras[i] 
-              document.getElementById("carr").options[i].text=mis_carreras[i] 
-           } 
-        }else{ 
-           //si no había provincia seleccionada, elimino las universidades del select 
-           document.getElementById("carr").length = 1 
-           document.getElementById("carr").options[0].value = "-" 
-           document.getElementById("carr").options[0].text = "-" 
-        } 
-        //marco como seleccionada la opción primera de provincia 
-        document.getElementById("carr").options[0].selected = true 
-    }    
+        function cambia_carrera(){ 
+            //tomo el valor del select del pais elegido 
+            decanato = document.getElementById("dec")[document.getElementById("dec").selectedIndex].value 
+            areas = document.getElementById("area")[document.getElementById("area").selectedIndex].value 
+            if (decanato != 0) { 
+                mis_carreras=eval("carrera_" + decanato + areas) 
+                num_carreras = mis_carreras.length 
+                document.getElementById("carr").length = num_carreras
+                for(i=0;i<num_carreras;i++){ 
+                    document.getElementById("carr").options[i].value=mis_carreras[i] 
+                    document.getElementById("carr").options[i].text=mis_carreras[i] 
+                } 
+            }else{ 
+                //si no había provincia seleccionada, elimino las universidades del select 
+                document.getElementById("carr").length = 1 
+                document.getElementById("carr").options[0].value = "-" 
+                document.getElementById("carr").options[0].text = "-" 
+            } 
+            //marco como seleccionada la opción primera de provincia 
+            document.getElementById("carr").options[0].selected = true 
+        }    
     
     
     </script>
@@ -591,779 +591,779 @@ function cambia_carrera(){
                 <html:form action="/LlenarPlanilla_EstUSB"  method="POST" enctype="multipart/form-data" onsubmit="return(this)">
                     <p hidden="true"><html:text name="PlanillaUSB" property="nombreUsuario" maxlength="20" errorStyleClass="error" value ="<%=var.toString()%>"
                                errorKey="org.apache.struts.action.ERROR"></html:text></p>
-                    <br>
-                  
-                <!-- pestañas -->
-                
-                <div>
-                        <span style="background-color: #F9F4CF; border-radius: 5px;"><a href='javascript:seleccion(1);'> Datos </a></span>
-                        <span style="background-color: #ADFFAD; border-radius: 5px;"><a href='javascript:seleccion(2);'> Domicilio </a></span>
-                        <span style="background-color: #B8B8FF; border-radius: 5px;"><a href='javascript:seleccion(3);'> Contacto </a></span>
-                        <span style="background-color: #FFFF94; border-radius: 5px;"><a href='javascript:seleccion(4);'> Programa </a></span>
-                        <span style="background-color: #F2D8FF; border-radius: 5px;"><a href='javascript:seleccion(5);'> Info. Académica </a></span>                        
-                        <span style="background-color: #D6D6C2; border-radius: 5px;"><a href='javascript:seleccion(6);'> Financiamiento </a></span>                        
-                        <span style="background-color: #ADD6FF; border-radius: 5px;"><a href='javascript:seleccion(7);'> Contac. Emergencia</a></span>
-                </div>
-                
-                <!-- contenido de las pestañas -->
-                
-                
-                <div id="opci1" style="display:block;width:650px;height:300px; border: 5px solid #F9F4CF; border-width:5px; border-radius: 10px">
-                    <table border="0"  align="center">
-                            <tbody>
-                            <br>
+                        <br>
+
+                        <!-- pestañas -->
+
+                        <div>
+                            <span style="background-color: #F9F4CF; border-radius: 5px;"><a href='javascript:seleccion(1);'> Datos </a></span>
+                            <span style="background-color: #ADFFAD; border-radius: 5px;"><a href='javascript:seleccion(2);'> Domicilio </a></span>
+                            <span style="background-color: #B8B8FF; border-radius: 5px;"><a href='javascript:seleccion(3);'> Contacto </a></span>
+                            <span style="background-color: #FFFF94; border-radius: 5px;"><a href='javascript:seleccion(4);'> Programa </a></span>
+                            <span style="background-color: #F2D8FF; border-radius: 5px;"><a href='javascript:seleccion(5);'> Info. Académica </a></span>                        
+                            <span style="background-color: #D6D6C2; border-radius: 5px;"><a href='javascript:seleccion(6);'> Financiamiento </a></span>                        
+                            <span style="background-color: #ADD6FF; border-radius: 5px;"><a href='javascript:seleccion(7);'> Contac. Emergencia</a></span>
+                        </div>
+
+                        <!-- contenido de las pestañas -->
+
+
+                        <div id="opci1" style="display:block;width:650px;height:300px; border: 5px solid #F9F4CF; border-width:5px; border-radius: 10px">
+                            <table border="0"  align="center">
+                                <tbody>
+                                <br>
+                                <tr>
+                                    <td>Primer Apellido</td>
+
+                                    <td>
+                                    <html:text name="PlanillaUSB" property="apellido1" maxlength="80" errorStyleClass="error"
+                                               errorKey="org.apache.struts.action.ERROR"></html:text>
+                                    </td>
+
+                                    <td>
+                                    <html:errors property="apellido1" />
+                                </td>
+                            </tr>
+
                             <tr>
-                                <td>Primer Apellido</td>
+                                <td>Segundo Apellido</td>
 
                                 <td>
-                                <html:text name="PlanillaUSB" property="apellido1" maxlength="80" errorStyleClass="error"
-                                           errorKey="org.apache.struts.action.ERROR"></html:text>
+                                    <html:text name="PlanillaUSB" property="apellido2" maxlength="80" errorStyleClass="error"
+                                               errorKey="org.apache.struts.action.ERROR"></html:text>
+                                    </td>
+
+                                    <td>
+                                    <html:errors property="apellido2" />
                                 </td>
+                            </tr>
+
+                            <tr>
+                                <td>Primer Nombre</td>
 
                                 <td>
-                                <html:errors property="apellido1" />
-                            </td>
-                        </tr>
+                                    <html:text name="PlanillaUSB" property="nombre1" maxlength="80" errorStyleClass="error"
+                                               errorKey="org.apache.struts.action.ERROR"></html:text>
+                                    </td>
 
-                        <tr>
-                            <td>Segundo Apellido</td>
-
-                            <td>
-                                <html:text name="PlanillaUSB" property="apellido2" maxlength="80" errorStyleClass="error"
-                                           errorKey="org.apache.struts.action.ERROR"></html:text>
+                                    <td>
+                                    <html:errors property="nombre1" />
                                 </td>
+                            </tr>
+
+                            <tr>
+                                <td>Segundo Nombre</td>
 
                                 <td>
-                                <html:errors property="apellido2" />
-                            </td>
-                        </tr>
+                                    <html:text name="PlanillaUSB" property="nombre2" maxlength="80" errorStyleClass="error"
+                                               errorKey="org.apache.struts.action.ERROR"></html:text>
+                                    </td>
 
-                        <tr>
-                            <td>Primer Nombre</td>
-
-                            <td>
-                                <html:text name="PlanillaUSB" property="nombre1" maxlength="80" errorStyleClass="error"
-                                           errorKey="org.apache.struts.action.ERROR"></html:text>
+                                    <td>
+                                    <html:errors property="nombre2" />
                                 </td>
 
-                                <td>
-                                <html:errors property="nombre1" />
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>Segundo Nombre</td>
-
-                            <td>
-                                <html:text name="PlanillaUSB" property="nombre2" maxlength="80" errorStyleClass="error"
-                                           errorKey="org.apache.struts.action.ERROR"></html:text>
-                                </td>
-
-                                <td>
-                                <html:errors property="nombre2" />
-                            </td>
-
-                        </tr>                                
-
-                        <tr>
-                            <td>Fecha de Nacimiento</td>
-
-                            <td>
-                                <input type="date" name="fechaNacimiento" maxlength="80" errorStyleClass="error" />
-                                <!--                               errorKey="org.apache.struts.action.ERROR" />-->
-                            </td>
-
-                            <td>
-                                <html:errors name="fechaNacimiento" />
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>Género</td>
-
-                            <td>
-                                <html:select property="sexo" errorStyleClass="error" errorKey="org.apache.struts.action.ERROR">
-                                    <html:option value="">Seleccione</html:option>
-                                    <html:option value="Femino">Femenino</html:option>
-                                    <html:option value="Masculino">Masculino</html:option>
-                                </html:select>
-                            </td>
-
-                            <td>
-                                <html:errors property="sexo" />
-                            </td>
-
-                        </tr>
-
-                        <tr>
-                            <td>Nacionalidad</td>
-
-                            <td>
-                                <html:text name="PlanillaUSB" property="nacionalidad" maxlength="80" errorStyleClass="error"
-                                           errorKey="org.apache.struts.action.ERROR">
-                                </html:text>
-                            </td>
-
-                            <td>
-                                <html:errors property="nacionalidad" />
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>Cédula de Identidad</td>
-
-                            <td>
-                                <html:text name="PlanillaUSB" property="cedula" maxlength="10" errorStyleClass="error"
-                                           errorKey="org.apache.struts.action.ERROR">
-                                </html:text>
-                            </td>
-
-                            <td>
-                                <html:errors property="cedula" />
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>Nro Carnet Estudiantil</td>
-                            <td>
-                                <html:text name="PlanillaUSB" property="carnet" maxlength="10" errorStyleClass="error"
-                                           errorKey="org.apache.struts.action.ERROR">
-                                </html:text>
-                            </td>
-                            <td>
-                                <html:errors property="carnet" />
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                </div>
-                            
-                <div id="opci2" style="display:none;width:650px;height:250px; border: 5px solid #ADFFAD; border-width:5px; border-radius: 10px">
-                    <br>
-                    <table border="0"  align="center">
-                            <tbody>                
-                        <tr>
-                            <td>Urb / Sector / Barrio</td>
-
-                            <td>
-                                <html:text name="PlanillaUSB" property="urbanizacion" maxlength="80" errorStyleClass="error"
-                                           errorKey="org.apache.struts.action.ERROR"></html:text>
-                                </td>
                             </tr>                                
 
                             <tr>
-                                <td>Calle</td>
+                                <td>Fecha de Nacimiento</td>
 
                                 <td>
-                                <html:text name="PlanillaUSB" property="calle" maxlength="80" errorStyleClass="error"
-                                           errorKey="org.apache.struts.action.ERROR"></html:text>
+                                    <input type="date" name="fechaNacimiento" maxlength="80" errorStyleClass="error" />
+                                    <!--                               errorKey="org.apache.struts.action.ERROR" />-->
                                 </td>
-                            </tr>    
-                            <tr>
-                                <td>Edificio / Casa </td>
 
                                 <td>
-                                <html:text name="PlanillaUSB" property="edificio" maxlength="80" errorStyleClass="error"
-                                           errorKey="org.apache.struts.action.ERROR"></html:text>
+                                    <html:errors name="fechaNacimiento" />
                                 </td>
-                            </tr>                                    
-                            <tr>
-                                <td>Apartamento / Núm. Casa</td>
-
-                                <td>
-                                <html:text name="PlanillaUSB" property="apartamento" maxlength="80" errorStyleClass="error"
-                                           errorKey="org.apache.struts.action.ERROR"></html:text>
-                                </td>
-                            </tr>                                    
+                            </tr>
 
                             <tr>
-
-                                <td>Ciudad</td>
+                                <td>Género</td>
 
                                 <td>
-                                <html:text name="PlanillaUSB" property="ciudad"  maxlength="30" errorStyleClass="error"
-                                           errorKey="org.apache.struts.action.ERROR">
-                                </html:text>
-                            </td>
+                                    <html:select property="sexo" errorStyleClass="error" errorKey="org.apache.struts.action.ERROR">
+                                        <html:option value="">Seleccione</html:option>
+                                        <html:option value="Femino">Femenino</html:option>
+                                        <html:option value="Masculino">Masculino</html:option>
+                                    </html:select>
+                                </td>
 
-                            <td>
-                                <html:errors property="ciudad" />
-                            </td>
-                        </tr>
+                                <td>
+                                    <html:errors property="sexo" />
+                                </td>
 
-                        <tr>
+                            </tr>
 
-                            <td>Estado</td>
+                            <tr>
+                                <td>Nacionalidad</td>
 
-                            <td>
-                                <html:text name="PlanillaUSB" property="estado" maxlength="30" errorStyleClass="error"
-                                           errorKey="org.apache.struts.action.ERROR">
-                                </html:text>
-                            </td>
-
-                            <td>
-                                <html:errors property="estado" />
-                            </td>
-                        </tr>
-
-                        <tr>
-
-                            <td>Código Postal</td>
-
-                            <td>
-                                <html:text name="PlanillaUSB" property="codPostal"  maxlength="30" errorStyleClass="error"
-                                           errorKey="org.apache.struts.action.ERROR">
-                                </html:text>
-                            </td>
-
-                            <td>
-                                <html:errors property="codPostal" />
-                            </td>
-                        </tr>
-                        
-                            </tbody>
-                    </table>
-                </div>
-
-                <div id="opci3" style="display:none;width:650px;height:150px; border: 5px solid #B8B8FF; border-width:5px; border-radius: 10px">
-                    <br>
-                    <table border="0"  align="center">
-                        <tbody>
-                            
-                        <tr>
-
-                            <td> Tlf. Celular:</td>
-
-                            <td>
-                                <html:text name="PlanillaUSB" property="telefonoCelular" maxlength="15" errorStyleClass="error"
-                                           errorKey="org.apache.struts.action.ERROR">
-                                </html:text>
-                            </td>
-
-                            <td>
-                                <html:errors property="telefonoCelular" />
-                            </td>
-                        </tr>
-
-                        <tr>
-
-                            <td> Tlf. Casa:</td>
-
-                            <td>
-                                <html:text name="PlanillaUSB" property="telefonoCasa" maxlength="15" errorStyleClass="error"
-                                           errorKey="org.apache.struts.action.ERROR">
-                                </html:text>
-                            </td>
-
-                            <td>
-                                <html:errors property="telefonoCasa" />
-                            </td>
-                        </tr>
-
-
-                        <tr>
-
-                            <td> E-mail:</td>
-
-                            <td>
-                                <html:text name="PlanillaUSB" property="email" maxlength="45"  errorStyleClass="error"
-                                           errorKey="org.apache.struts.action.ERROR">
-                                </html:text>
-                            </td>
-
-                            <td>
-                                <html:errors property="email" />
-                            </td>
-                        </tr>
-
-                        </tbody>
-                    </table>
-                </div>                    
-                            
-                <div id="opci4" style="display:none;width:650px;height:450px; border: 5px solid #FFFF94; border-radius: 10px; border-width:5px;">
-                    <br>
-                    <table border="0"  align="center">
-                        <tbody>
-                        
-                        <tr>
-                            <td> <b>Opción 1</b> </td>
-                        </tr>
-                        <tr>
-                            <td> Nombre de Programa: </td>
-                            <td>
-                            <select id="prog_princ" onchange="cambia_pais()" property="nombreProgramaOpcion1"> 
-                            <option value="0" selected>Seleccione
-                            <option value="1">Convenios Bilaterales
-                            <option value="2">Programa SMILE
-                            <option value="3">Programa de Movilidad Estudiantil CINDA
-                            </select>
-                            </td>
-                        </tr>
-                        
-                        <tr>
-                            <td> Pais Destino: </td>
-                            <td>
-                            <select id="pais_princ" onchange="cambia_universidad()" property="paisOpcion1"> 
-                            <option value="-">- 
-                            </select>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td> Universidad Destino: </td>
-                            <td>
-                            <select id="uni_princ" property="nombreOpcion1"> 
-                            <option value="-">- 
-                            </select>
-                            </td>
-                        </tr>
-                        
-                        <tr>
-                            <td> Tipo de Programa: </td>
-                            <td>
-                                <html:select  property="programaOpcion1">
-                                    <html:option value="Seleccione"></html:option>
-                                    <html:option value="Intercambio Académico (sólo Asignaturas)"></html:option>
-                                    <html:option value="Intercambio Académico + Pasantía Internacional"></html:option>
-                                    <html:option value="Intercambio Académico + Trabajo de Grado"></html:option>
-                                    <html:option value="Trabajo de Grado"></html:option>
-                                    <html:option value="Doble Titulación"></html:option>
-                                </html:select>
-                            </td>
-                            <td>
-                                <html:errors property="programaOpcion1" />
-                            </td>
-                        </tr>                            
-                        <tr>
-                            <td> Fecha Tentativa Inicio: </td>
-                            <td>
-                                <html:select  property="mesFechaIni1">
-                                    <html:option value="Mes"></html:option>
-                                    <html:option value="Enero"></html:option>
-                                    <html:option value="Febrero"></html:option>
-                                    <html:option value="Marzo"></html:option>
-                                    <html:option value="Abril"></html:option>
-                                    <html:option value="Mayo"></html:option>
-                                    <html:option value="Junio"></html:option>
-                                    <html:option value="Julio"></html:option>
-                                    <html:option value="Agosto"></html:option>
-                                    <html:option value="Septiembre"></html:option>
-                                    <html:option value="Octubre"></html:option>
-                                    <html:option value="Noviembre"></html:option>
-                                    <html:option value="Diciembre"></html:option>
-                                </html:select>
-                                <html:select  property="anoFechaIni1">
-                                    <html:option value="Año"></html:option>
-                                    <html:option value="2014"></html:option>
-                                    <html:option value="2015"></html:option>
-                                    <html:option value="2016"></html:option>
-                                </html:select>
-                            <td>
-                                <html:errors property="mesFechaIni1" />
-                                <html:errors property="anoFechaIni1" />
-                            </td>
-                        </tr>                        
-                        <tr>
-                            <td> Fecha Tentativa Fin: </td>
-                            <td>
-                                <html:select  property="mesFechaFin1">
-                                    <html:option value="Mes"></html:option>
-                                    <html:option value="Enero"></html:option>
-                                    <html:option value="Febrero"></html:option>
-                                    <html:option value="Marzo"></html:option>
-                                    <html:option value="Abril"></html:option>
-                                    <html:option value="Mayo"></html:option>
-                                    <html:option value="Junio"></html:option>
-                                    <html:option value="Julio"></html:option>
-                                    <html:option value="Agosto"></html:option>
-                                    <html:option value="Septiembre"></html:option>
-                                    <html:option value="Octubre"></html:option>
-                                    <html:option value="Noviembre"></html:option>
-                                    <html:option value="Diciembre"></html:option>
-                                </html:select>
-                                <html:select  property="anoFechaFin1">
-                                    <html:option value="Año"></html:option>
-                                    <html:option value="2014"></html:option>
-                                    <html:option value="2015"></html:option>
-                                    <html:option value="2016"></html:option>
-                                </html:select>
-                            <td>
-                                <html:errors property="mesFechaFin1" />
-                                <html:errors property="anoFechaFin1" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td> Duración: </td>
-                            <td>
-                                <html:select  property="duracionProgramaOpcion1">
-                                    <html:option value="Seleccione"></html:option>
-                                    <html:option value="Un Trimestre"></html:option>
-                                    <html:option value="Dos Trimestres"></html:option>
-                                    <html:option value="Año Académico"></html:option>
-                                </html:select>
-                            </td>
-                            <td>
-                                <html:errors property="duracionProgramaOpcion1" />
-                            </td>
-                        </tr>  
-                        
-                        <tr>
-                            <td> <b>Opción 2</b> </td>
-                        </tr>
-                        <tr>
-                            <td> Nombre de Programa: </td>
-                            <td>
-                            <select id="prog_princ2" onchange="cambia_pais2()" property="nombreProgramaOpcion2"> 
-                            <option value="0" selected>Seleccione
-                            <option value="1">Convenios Bilaterales
-                            <option value="2">Programa SMILE
-                            <option value="3">Programa de Movilidad Estudiantil CINDA
-                            </select>
-                            </td>
-                        </tr>
-                        
-                        <tr>
-                            <td> Pais Destino: </td>
-                            <td>
-                            <select id="pais_princ2" onchange="cambia_universidad2()" property="paisOpcion2"> 
-                            <option value="-">- 
-                            </select>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td> Universidad Destino: </td>
-                            <td>
-                            <select id="uni_princ2" property="nombreOpcion2"> 
-                            <option value="-">- 
-                            </select>
-                            </td>
-                        </tr>
-                        
-                        <tr>
-                            <td> Tipo de Programa: </td>
-                            <td>
-                                <html:select  property="programaOpcion2">
-                                    <html:option value="Seleccione"></html:option>
-                                    <html:option value="Intercambio Académico (sólo Asignaturas)"></html:option>
-                                    <html:option value="Intercambio Académico + Pasantía Internacional"></html:option>
-                                    <html:option value="Intercambio Académico + Trabajo de Grado"></html:option>
-                                    <html:option value="Trabajo de Grado"></html:option>
-                                    <html:option value="Doble Titulación"></html:option>
-                                </html:select>
-                            </td>
-                            <td>
-                                <html:errors property="programaOpcion2" />
-                            </td>
-                        </tr>                            
-                        <tr>
-                            <td> Fecha Tentativa Inicio: </td>
-                            <td>
-                                <html:select  property="mesFechaIni2">
-                                    <html:option value="Mes"></html:option>
-                                    <html:option value="Enero"></html:option>
-                                    <html:option value="Febrero"></html:option>
-                                    <html:option value="Marzo"></html:option>
-                                    <html:option value="Abril"></html:option>
-                                    <html:option value="Mayo"></html:option>
-                                    <html:option value="Junio"></html:option>
-                                    <html:option value="Julio"></html:option>
-                                    <html:option value="Agosto"></html:option>
-                                    <html:option value="Septiembre"></html:option>
-                                    <html:option value="Octubre"></html:option>
-                                    <html:option value="Noviembre"></html:option>
-                                    <html:option value="Diciembre"></html:option>
-                                </html:select>
-                                <html:select  property="anoFechaIni2">
-                                    <html:option value="Año"></html:option>
-                                    <html:option value="2014"></html:option>
-                                    <html:option value="2015"></html:option>
-                                    <html:option value="2016"></html:option>
-                                </html:select>
-                            <td>
-                                <html:errors property="mesFechaIni2" />
-                                <html:errors property="anoFechaIni2" />
-                            </td>
-                        </tr>                        
-                        <tr>
-                            <td> Fecha Tentativa Fin: </td>
-                            <td>
-                                <html:select  property="mesFechaFin2">
-                                    <html:option value="Mes"></html:option>
-                                    <html:option value="Enero"></html:option>
-                                    <html:option value="Febrero"></html:option>
-                                    <html:option value="Marzo"></html:option>
-                                    <html:option value="Abril"></html:option>
-                                    <html:option value="Mayo"></html:option>
-                                    <html:option value="Junio"></html:option>
-                                    <html:option value="Julio"></html:option>
-                                    <html:option value="Agosto"></html:option>
-                                    <html:option value="Septiembre"></html:option>
-                                    <html:option value="Octubre"></html:option>
-                                    <html:option value="Noviembre"></html:option>
-                                    <html:option value="Diciembre"></html:option>
-                                </html:select>
-                                <html:select  property="anoFechaFin2">
-                                    <html:option value="Año"></html:option>
-                                    <html:option value="2014"></html:option>
-                                    <html:option value="2015"></html:option>
-                                    <html:option value="2016"></html:option>
-                                </html:select>
-                            <td>
-                                <html:errors property="mesFechaFin2" />
-                                <html:errors property="anoFechaFin2" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td> Duración: </td>
-                            <td>
-                                <html:select  property="duracionProgramaOpcion2">
-                                    <html:option value="Seleccione"></html:option>
-                                    <html:option value="Un Trimestre"></html:option>
-                                    <html:option value="Dos Trimestres"></html:option>
-                                    <html:option value="Año Académico"></html:option>
-                                </html:select>
-                            </td>
-                            <td>
-                                <html:errors property="duracionProgramaOpcion2" />
-                            </td>
-                        </tr>  
-                        
-                        </tbody>
-                    </table>
-                </div>
-                            
-                <div id="opci5" style="display:none;width:650px;height:250px; border: 5px solid #F2D8FF; border-radius: 10px; border-width:5px;">
-                    <br>
-                    <table border="0"  align="center">
-                        <tbody>
-
-                        <tr>
-                            <td> Decanato: </td>
-                            <td>
-                            <select id="dec" onchange="cambia_area()" property="decanato"> 
-                            <option value="0" selected>Seleccione
-                            <option value="1"> Decanato de Estudios Profesionales
-                            <option value="2"> Decanato de Estudios Tecnológicos 
-                            </select>
-                            </td>
-                        </tr>        
-                        
-                        <tr>
-                            <td> Área de Estudio: </td>
-                            <td>
-                            <select id="area" onchange="cambia_carrera()" property="areaEstud"> 
-                            <option value="-">- 
-                            </select>
-                            </td>
-                        </tr>                        
-
-                        <tr>
-                            <td> Carrera: </td>
-                            <td>
-                            <select id="carr" property="carrera"> 
-                            <option value="-">- 
-                            </select>
-                            </td>
-                        </tr>                                       
-
-                        <tr>
-                            <td>Código de carrera: </td>
-
-
-                            <td>
-                                <html:text name="PlanillaUSB" property="codCarrera" maxlength="30" errorStyleClass="error"
-                                           errorKey="org.apache.struts.action.ERROR">
-                                </html:text>
-                            </td>
-
-                            <td>
-                                <html:errors property="codCarrera" />
-                            </td>
-
-                        </tr>
-                        <tr>
-                            <td> Número de Créditos Aprobados Hasta la Fecha</td>
-
-                            <td>
-                                <html:text name="PlanillaUSB" property="creditosApro" maxlength="60"  errorStyleClass="error"
-                                           errorKey="org.apache.struts.action.ERROR">
-                                </html:text>
-                            </td>
-
-                            <td>
-                                <html:errors property="creditosApro" />
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td> Índice Académico: </td>
-
-                            <td>
-                                <html:text name="PlanillaUSB" property="indice" maxlength="60"  errorStyleClass="error"
-                                           errorKey="org.apache.struts.action.ERROR">
-                                </html:text>
-                            </td>
-
-                            <td>
-                                <html:errors property="indice" />
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td> Índice Académico Ponderado: </td>
-
-                            <td>
-                                <html:text name="PlanillaUSB" property="indicePon" maxlength="60"  errorStyleClass="error"
-                                           errorKey="org.apache.struts.action.ERROR">
-                                </html:text>
-                            </td>
-
-                            <td>
-                                <html:errors property="indicePon" />
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-                            
-                <div id="opci6" style="display:none;width:650px;height:150px; border: 5px solid #D6D6C2; border-radius: 10px; border-width:5px;">
-                    <br>
-                    <table border="0"  align="center">
-                        <tbody>
-                        <tr>
-                            <td> Principal Fuente de Ingresos: </td>
-                            <td><html:select name="PlanillaUSB" property="fuenteFinanciamiento">
-                                    <html:option value="Seleccione"></html:option>
-                                    <html:option value="Personal"></html:option>
-                                    <html:option value="Familiar"></html:option>
-                                    <html:option value="Otro"></html:option>
-                                </html:select>              
-                                Especifique:
-                                <html:text name="PlanillaUSB" property="descripcion1" maxlength="60"  errorStyleClass="error"
-                                           errorKey="org.apache.struts.action.ERROR">
-                                </html:text>     
-                            </td>
-                        </tr>
-                        <tr>
-                            <td> ¿Recibe Algún Tipo de Ayuda Económica?: </td>
-                            <td><html:select name="PlanillaUSB" property="ayudaEc">
-                                    <html:option value="Seleccione"></html:option>
-                                    <html:option value="Si"></html:option>
-                                    <html:option value="No"></html:option>
-                                </html:select>
-                                Especifique:
-                                <html:text name="PlanillaUSB" property="descripcion2" maxlength="60"  errorStyleClass="error"
-                                           errorKey="org.apache.struts.action.ERROR">
-                                </html:text> 
-                            </td>                    
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-                            
-                <div id="opci7" style="display:none;width:650px;height:350px; border: 5px solid #ADD6FF; border-radius: 10px; border-width:5px;">
-                    <br>
-                    <table border="0"  align="center">
-                        <tbody>
-                    
-                        <tr>
-                            <td> Primer Apellido: </td>
-                            <td>
-                                <html:text name="PlanillaUSB" property="apellidoRep1" maxlength="80"  errorStyleClass="error"
-                                           errorKey="org.apache.struts.action.ERROR">
-                                </html:text>
-                            </td>
-                        </tr>                     
-                        <tr>
-                            <td> Segundo Apellido: </td>
-                            <td>
-                                <html:text name="PlanillaUSB" property="apellidoRep2" maxlength="80"  errorStyleClass="error"
-                                           errorKey="org.apache.struts.action.ERROR">
-                                </html:text>
-                            </td>
-                        </tr>                                     
-                        <tr>
-                            <td> Primer Nombre: </td>
-                            <td>
-                                <html:text name="PlanillaUSB" property="nombreRep1" maxlength="80"  errorStyleClass="error"
-                                           errorKey="org.apache.struts.action.ERROR">
-                                </html:text>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td> Segundo Nombre: </td>
-                            <td>
-                                <html:text name="PlanillaUSB" property="nombreRep2" maxlength="80"  errorStyleClass="error"
-                                           errorKey="org.apache.struts.action.ERROR">
-                                </html:text>
-                            </td>
-                        </tr> 
-                        <tr>
-                            <td> Teléfono Celular: </td>
-                            <td>
-                                <html:text name="PlanillaUSB" property="celRep" maxlength="80"  errorStyleClass="error"
-                                           errorKey="org.apache.struts.action.ERROR">
-                                </html:text>
-                            </td>
-                        </tr>                      
-                        <tr>
-                            <td> Teléfono Casa: </td>
-                            <td>
-                                <html:text name="PlanillaUSB" property="tlfRepCasa" maxlength="80"  errorStyleClass="error"
-                                           errorKey="org.apache.struts.action.ERROR">
-                                </html:text>
-                            </td>
-                        </tr>                      
-
-                        <tr>
-                            <td> E-mail: </td>
-                            <td>
-                                <html:text name="PlanillaUSB" property="emailRep" maxlength="80"  errorStyleClass="error"
-                                           errorKey="org.apache.struts.action.ERROR">
-                                </html:text>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td> Relación con el Estudiante: </td>
-                            <td>
-                                <html:text name="PlanillaUSB" property="relacion" maxlength="80"  errorStyleClass="error"
-                                           errorKey="org.apache.struts.action.ERROR">
-                                </html:text>
-                            </td>
-                        </tr>    
-
-                        <tr>
-
-                            <td>Dirección: </td>
-
-                            <td>
-                                <html:textarea name="PlanillaUSB" property="direccionRep" cols="50" rows="5"  errorStyleClass="error"
+                                <td>
+                                    <html:text name="PlanillaUSB" property="nacionalidad" maxlength="80" errorStyleClass="error"
                                                errorKey="org.apache.struts.action.ERROR">
-                                </html:textarea >
-                            </td>
+                                    </html:text>
+                                </td>
 
-                            <td>
-                                <html:errors property="direccionRep" />
-                            </td>
-                        </tr>
+                                <td>
+                                    <html:errors property="nacionalidad" />
+                                </td>
+                            </tr>
 
-                        </tbody>
-                    </table>    
-                </div>                
+                            <tr>
+                                <td>Cédula de Identidad</td>
 
-                <br>
-                <p  align=center>
-                    <html:submit> Enviar Formulario </html:submit>
-                </p>            
-                
-            </html:form>
+                                <td>
+                                    <html:text name="PlanillaUSB" property="cedula" maxlength="10" errorStyleClass="error"
+                                               errorKey="org.apache.struts.action.ERROR">
+                                    </html:text>
+                                </td>
+
+                                <td>
+                                    <html:errors property="cedula" />
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Nro Carnet Estudiantil</td>
+                                <td>
+                                    <html:text name="PlanillaUSB" property="carnet" maxlength="10" errorStyleClass="error"
+                                               errorKey="org.apache.struts.action.ERROR">
+                                    </html:text>
+                                </td>
+                                <td>
+                                    <html:errors property="carnet" />
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+
+                    <div id="opci2" style="display:none;width:650px;height:250px; border: 5px solid #ADFFAD; border-width:5px; border-radius: 10px">
+                        <br>
+                        <table border="0"  align="center">
+                            <tbody>                
+                                <tr>
+                                    <td>Urb / Sector / Barrio</td>
+
+                                    <td>
+                                        <html:text name="PlanillaUSB" property="urbanizacion" maxlength="80" errorStyleClass="error"
+                                                   errorKey="org.apache.struts.action.ERROR"></html:text>
+                                        </td>
+                                    </tr>                                
+
+                                    <tr>
+                                        <td>Calle</td>
+
+                                        <td>
+                                        <html:text name="PlanillaUSB" property="calle" maxlength="80" errorStyleClass="error"
+                                                   errorKey="org.apache.struts.action.ERROR"></html:text>
+                                        </td>
+                                    </tr>    
+                                    <tr>
+                                        <td>Edificio / Casa </td>
+
+                                        <td>
+                                        <html:text name="PlanillaUSB" property="edificio" maxlength="80" errorStyleClass="error"
+                                                   errorKey="org.apache.struts.action.ERROR"></html:text>
+                                        </td>
+                                    </tr>                                    
+                                    <tr>
+                                        <td>Apartamento / Núm. Casa</td>
+
+                                        <td>
+                                        <html:text name="PlanillaUSB" property="apartamento" maxlength="80" errorStyleClass="error"
+                                                   errorKey="org.apache.struts.action.ERROR"></html:text>
+                                        </td>
+                                    </tr>                                    
+
+                                    <tr>
+
+                                        <td>Ciudad</td>
+
+                                        <td>
+                                        <html:text name="PlanillaUSB" property="ciudad"  maxlength="30" errorStyleClass="error"
+                                                   errorKey="org.apache.struts.action.ERROR">
+                                        </html:text>
+                                    </td>
+
+                                    <td>
+                                        <html:errors property="ciudad" />
+                                    </td>
+                                </tr>
+
+                                <tr>
+
+                                    <td>Estado</td>
+
+                                    <td>
+                                        <html:text name="PlanillaUSB" property="estado" maxlength="30" errorStyleClass="error"
+                                                   errorKey="org.apache.struts.action.ERROR">
+                                        </html:text>
+                                    </td>
+
+                                    <td>
+                                        <html:errors property="estado" />
+                                    </td>
+                                </tr>
+
+                                <tr>
+
+                                    <td>Código Postal</td>
+
+                                    <td>
+                                        <html:text name="PlanillaUSB" property="codPostal"  maxlength="30" errorStyleClass="error"
+                                                   errorKey="org.apache.struts.action.ERROR">
+                                        </html:text>
+                                    </td>
+
+                                    <td>
+                                        <html:errors property="codPostal" />
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div id="opci3" style="display:none;width:650px;height:150px; border: 5px solid #B8B8FF; border-width:5px; border-radius: 10px">
+                        <br>
+                        <table border="0"  align="center">
+                            <tbody>
+
+                                <tr>
+
+                                    <td> Tlf. Celular:</td>
+
+                                    <td>
+                                        <html:text name="PlanillaUSB" property="telefonoCelular" maxlength="15" errorStyleClass="error"
+                                                   errorKey="org.apache.struts.action.ERROR">
+                                        </html:text>
+                                    </td>
+
+                                    <td>
+                                        <html:errors property="telefonoCelular" />
+                                    </td>
+                                </tr>
+
+                                <tr>
+
+                                    <td> Tlf. Casa:</td>
+
+                                    <td>
+                                        <html:text name="PlanillaUSB" property="telefonoCasa" maxlength="15" errorStyleClass="error"
+                                                   errorKey="org.apache.struts.action.ERROR">
+                                        </html:text>
+                                    </td>
+
+                                    <td>
+                                        <html:errors property="telefonoCasa" />
+                                    </td>
+                                </tr>
+
+
+                                <tr>
+
+                                    <td> E-mail:</td>
+
+                                    <td>
+                                        <html:text name="PlanillaUSB" property="email" maxlength="45"  errorStyleClass="error"
+                                                   errorKey="org.apache.struts.action.ERROR">
+                                        </html:text>
+                                    </td>
+
+                                    <td>
+                                        <html:errors property="email" />
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>                    
+
+                    <div id="opci4" style="display:none;width:650px;height:450px; border: 5px solid #FFFF94; border-radius: 10px; border-width:5px;">
+                        <br>
+                        <table border="0"  align="center">
+                            <tbody>
+
+                                <tr>
+                                    <td> <b>Opción 1</b> </td>
+                                </tr>
+                                <tr>
+                                    <td> Nombre de Programa: </td>
+                                    <td>
+                                        <select id="prog_princ" onchange="cambia_pais()" property="nombreProgramaOpcion1"> 
+                                            <option value="0" selected>Seleccione
+                                            <option value="1">Convenios Bilaterales
+                                            <option value="2">Programa SMILE
+                                            <option value="3">Programa de Movilidad Estudiantil CINDA
+                                        </select>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td> Pais Destino: </td>
+                                    <td>
+                                        <select id="pais_princ" onchange="cambia_universidad()" property="paisOpcion1"> 
+                                            <option value="-">- 
+                                        </select>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td> Universidad Destino: </td>
+                                    <td>
+                                        <select id="uni_princ" property="nombreOpcion1"> 
+                                            <option value="-">- 
+                                        </select>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td> Tipo de Programa: </td>
+                                    <td>
+                                        <html:select  property="programaOpcion1">
+                                            <html:option value="Seleccione"></html:option>
+                                            <html:option value="Intercambio Académico (sólo Asignaturas)"></html:option>
+                                            <html:option value="Intercambio Académico + Pasantía Internacional"></html:option>
+                                            <html:option value="Intercambio Académico + Trabajo de Grado"></html:option>
+                                            <html:option value="Trabajo de Grado"></html:option>
+                                            <html:option value="Doble Titulación"></html:option>
+                                        </html:select>
+                                    </td>
+                                    <td>
+                                        <html:errors property="programaOpcion1" />
+                                    </td>
+                                </tr>                            
+                                <tr>
+                                    <td> Fecha Tentativa Inicio: </td>
+                                    <td>
+                                        <html:select  property="mesFechaIni1">
+                                            <html:option value="Mes"></html:option>
+                                            <html:option value="Enero"></html:option>
+                                            <html:option value="Febrero"></html:option>
+                                            <html:option value="Marzo"></html:option>
+                                            <html:option value="Abril"></html:option>
+                                            <html:option value="Mayo"></html:option>
+                                            <html:option value="Junio"></html:option>
+                                            <html:option value="Julio"></html:option>
+                                            <html:option value="Agosto"></html:option>
+                                            <html:option value="Septiembre"></html:option>
+                                            <html:option value="Octubre"></html:option>
+                                            <html:option value="Noviembre"></html:option>
+                                            <html:option value="Diciembre"></html:option>
+                                        </html:select>
+                                        <html:select  property="anoFechaIni1">
+                                            <html:option value="Año"></html:option>
+                                            <html:option value="2014"></html:option>
+                                            <html:option value="2015"></html:option>
+                                            <html:option value="2016"></html:option>
+                                        </html:select>
+                                    <td>
+                                        <html:errors property="mesFechaIni1" />
+                                        <html:errors property="anoFechaIni1" />
+                                    </td>
+                                </tr>                        
+                                <tr>
+                                    <td> Fecha Tentativa Fin: </td>
+                                    <td>
+                                        <html:select  property="mesFechaFin1">
+                                            <html:option value="Mes"></html:option>
+                                            <html:option value="Enero"></html:option>
+                                            <html:option value="Febrero"></html:option>
+                                            <html:option value="Marzo"></html:option>
+                                            <html:option value="Abril"></html:option>
+                                            <html:option value="Mayo"></html:option>
+                                            <html:option value="Junio"></html:option>
+                                            <html:option value="Julio"></html:option>
+                                            <html:option value="Agosto"></html:option>
+                                            <html:option value="Septiembre"></html:option>
+                                            <html:option value="Octubre"></html:option>
+                                            <html:option value="Noviembre"></html:option>
+                                            <html:option value="Diciembre"></html:option>
+                                        </html:select>
+                                        <html:select  property="anoFechaFin1">
+                                            <html:option value="Año"></html:option>
+                                            <html:option value="2014"></html:option>
+                                            <html:option value="2015"></html:option>
+                                            <html:option value="2016"></html:option>
+                                        </html:select>
+                                    <td>
+                                        <html:errors property="mesFechaFin1" />
+                                        <html:errors property="anoFechaFin1" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td> Duración: </td>
+                                    <td>
+                                        <html:select  property="duracionProgramaOpcion1">
+                                            <html:option value="Seleccione"></html:option>
+                                            <html:option value="Un Trimestre"></html:option>
+                                            <html:option value="Dos Trimestres"></html:option>
+                                            <html:option value="Año Académico"></html:option>
+                                        </html:select>
+                                    </td>
+                                    <td>
+                                        <html:errors property="duracionProgramaOpcion1" />
+                                    </td>
+                                </tr>  
+
+                                <tr>
+                                    <td> <b>Opción 2</b> </td>
+                                </tr>
+                                <tr>
+                                    <td> Nombre de Programa: </td>
+                                    <td>
+                                        <select id="prog_princ2" onchange="cambia_pais2()" property="nombreProgramaOpcion2"> 
+                                            <option value="0" selected>Seleccione
+                                            <option value="1">Convenios Bilaterales
+                                            <option value="2">Programa SMILE
+                                            <option value="3">Programa de Movilidad Estudiantil CINDA
+                                        </select>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td> Pais Destino: </td>
+                                    <td>
+                                        <select id="pais_princ2" onchange="cambia_universidad2()" property="paisOpcion2"> 
+                                            <option value="-">- 
+                                        </select>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td> Universidad Destino: </td>
+                                    <td>
+                                        <select id="uni_princ2" property="nombreOpcion2"> 
+                                            <option value="-">- 
+                                        </select>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td> Tipo de Programa: </td>
+                                    <td>
+                                        <html:select  property="programaOpcion2">
+                                            <html:option value="Seleccione"></html:option>
+                                            <html:option value="Intercambio Académico (sólo Asignaturas)"></html:option>
+                                            <html:option value="Intercambio Académico + Pasantía Internacional"></html:option>
+                                            <html:option value="Intercambio Académico + Trabajo de Grado"></html:option>
+                                            <html:option value="Trabajo de Grado"></html:option>
+                                            <html:option value="Doble Titulación"></html:option>
+                                        </html:select>
+                                    </td>
+                                    <td>
+                                        <html:errors property="programaOpcion2" />
+                                    </td>
+                                </tr>                            
+                                <tr>
+                                    <td> Fecha Tentativa Inicio: </td>
+                                    <td>
+                                        <html:select  property="mesFechaIni2">
+                                            <html:option value="Mes"></html:option>
+                                            <html:option value="Enero"></html:option>
+                                            <html:option value="Febrero"></html:option>
+                                            <html:option value="Marzo"></html:option>
+                                            <html:option value="Abril"></html:option>
+                                            <html:option value="Mayo"></html:option>
+                                            <html:option value="Junio"></html:option>
+                                            <html:option value="Julio"></html:option>
+                                            <html:option value="Agosto"></html:option>
+                                            <html:option value="Septiembre"></html:option>
+                                            <html:option value="Octubre"></html:option>
+                                            <html:option value="Noviembre"></html:option>
+                                            <html:option value="Diciembre"></html:option>
+                                        </html:select>
+                                        <html:select  property="anoFechaIni2">
+                                            <html:option value="Año"></html:option>
+                                            <html:option value="2014"></html:option>
+                                            <html:option value="2015"></html:option>
+                                            <html:option value="2016"></html:option>
+                                        </html:select>
+                                    <td>
+                                        <html:errors property="mesFechaIni2" />
+                                        <html:errors property="anoFechaIni2" />
+                                    </td>
+                                </tr>                        
+                                <tr>
+                                    <td> Fecha Tentativa Fin: </td>
+                                    <td>
+                                        <html:select  property="mesFechaFin2">
+                                            <html:option value="Mes"></html:option>
+                                            <html:option value="Enero"></html:option>
+                                            <html:option value="Febrero"></html:option>
+                                            <html:option value="Marzo"></html:option>
+                                            <html:option value="Abril"></html:option>
+                                            <html:option value="Mayo"></html:option>
+                                            <html:option value="Junio"></html:option>
+                                            <html:option value="Julio"></html:option>
+                                            <html:option value="Agosto"></html:option>
+                                            <html:option value="Septiembre"></html:option>
+                                            <html:option value="Octubre"></html:option>
+                                            <html:option value="Noviembre"></html:option>
+                                            <html:option value="Diciembre"></html:option>
+                                        </html:select>
+                                        <html:select  property="anoFechaFin2">
+                                            <html:option value="Año"></html:option>
+                                            <html:option value="2014"></html:option>
+                                            <html:option value="2015"></html:option>
+                                            <html:option value="2016"></html:option>
+                                        </html:select>
+                                    <td>
+                                        <html:errors property="mesFechaFin2" />
+                                        <html:errors property="anoFechaFin2" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td> Duración: </td>
+                                    <td>
+                                        <html:select  property="duracionProgramaOpcion2">
+                                            <html:option value="Seleccione"></html:option>
+                                            <html:option value="Un Trimestre"></html:option>
+                                            <html:option value="Dos Trimestres"></html:option>
+                                            <html:option value="Año Académico"></html:option>
+                                        </html:select>
+                                    </td>
+                                    <td>
+                                        <html:errors property="duracionProgramaOpcion2" />
+                                    </td>
+                                </tr>  
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div id="opci5" style="display:none;width:650px;height:250px; border: 5px solid #F2D8FF; border-radius: 10px; border-width:5px;">
+                        <br>
+                        <table border="0"  align="center">
+                            <tbody>
+
+                                <tr>
+                                    <td> Decanato: </td>
+                                    <td>
+                                        <select id="dec" onchange="cambia_area()" property="decanato"> 
+                                            <option value="0" selected>Seleccione
+                                            <option value="1"> Decanato de Estudios Profesionales
+                                            <option value="2"> Decanato de Estudios Tecnológicos 
+                                        </select>
+                                    </td>
+                                </tr>        
+
+                                <tr>
+                                    <td> Área de Estudio: </td>
+                                    <td>
+                                        <select id="area" onchange="cambia_carrera()" property="areaEstud"> 
+                                            <option value="-">- 
+                                        </select>
+                                    </td>
+                                </tr>                        
+
+                                <tr>
+                                    <td> Carrera: </td>
+                                    <td>
+                                        <select id="carr" property="carrera"> 
+                                            <option value="-">- 
+                                        </select>
+                                    </td>
+                                </tr>                                       
+
+                                <tr>
+                                    <td>Código de carrera: </td>
+
+
+                                    <td>
+                                        <html:text name="PlanillaUSB" property="codCarrera" maxlength="30" errorStyleClass="error"
+                                                   errorKey="org.apache.struts.action.ERROR">
+                                        </html:text>
+                                    </td>
+
+                                    <td>
+                                        <html:errors property="codCarrera" />
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td> Número de Créditos Aprobados Hasta la Fecha</td>
+
+                                    <td>
+                                        <html:text name="PlanillaUSB" property="creditosApro" maxlength="60"  errorStyleClass="error"
+                                                   errorKey="org.apache.struts.action.ERROR">
+                                        </html:text>
+                                    </td>
+
+                                    <td>
+                                        <html:errors property="creditosApro" />
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td> Índice Académico: </td>
+
+                                    <td>
+                                        <html:text name="PlanillaUSB" property="indice" maxlength="60"  errorStyleClass="error"
+                                                   errorKey="org.apache.struts.action.ERROR">
+                                        </html:text>
+                                    </td>
+
+                                    <td>
+                                        <html:errors property="indice" />
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td> Índice Académico Ponderado: </td>
+
+                                    <td>
+                                        <html:text name="PlanillaUSB" property="indicePon" maxlength="60"  errorStyleClass="error"
+                                                   errorKey="org.apache.struts.action.ERROR">
+                                        </html:text>
+                                    </td>
+
+                                    <td>
+                                        <html:errors property="indicePon" />
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div id="opci6" style="display:none;width:650px;height:150px; border: 5px solid #D6D6C2; border-radius: 10px; border-width:5px;">
+                        <br>
+                        <table border="0"  align="center">
+                            <tbody>
+                                <tr>
+                                    <td> Principal Fuente de Ingresos: </td>
+                                    <td><html:select name="PlanillaUSB" property="fuenteFinanciamiento">
+                                            <html:option value="Seleccione"></html:option>
+                                            <html:option value="Personal"></html:option>
+                                            <html:option value="Familiar"></html:option>
+                                            <html:option value="Otro"></html:option>
+                                        </html:select>              
+                                        Especifique:
+                                        <html:text name="PlanillaUSB" property="descripcion1" maxlength="60"  errorStyleClass="error"
+                                                   errorKey="org.apache.struts.action.ERROR">
+                                        </html:text>     
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td> ¿Recibe Algún Tipo de Ayuda Económica?: </td>
+                                    <td><html:select name="PlanillaUSB" property="ayudaEc">
+                                            <html:option value="Seleccione"></html:option>
+                                            <html:option value="Si"></html:option>
+                                            <html:option value="No"></html:option>
+                                        </html:select>
+                                        Especifique:
+                                        <html:text name="PlanillaUSB" property="descripcion2" maxlength="60"  errorStyleClass="error"
+                                                   errorKey="org.apache.struts.action.ERROR">
+                                        </html:text> 
+                                    </td>                    
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div id="opci7" style="display:none;width:650px;height:350px; border: 5px solid #ADD6FF; border-radius: 10px; border-width:5px;">
+                        <br>
+                        <table border="0"  align="center">
+                            <tbody>
+
+                                <tr>
+                                    <td> Primer Apellido: </td>
+                                    <td>
+                                        <html:text name="PlanillaUSB" property="apellidoRep1" maxlength="80"  errorStyleClass="error"
+                                                   errorKey="org.apache.struts.action.ERROR">
+                                        </html:text>
+                                    </td>
+                                </tr>                     
+                                <tr>
+                                    <td> Segundo Apellido: </td>
+                                    <td>
+                                        <html:text name="PlanillaUSB" property="apellidoRep2" maxlength="80"  errorStyleClass="error"
+                                                   errorKey="org.apache.struts.action.ERROR">
+                                        </html:text>
+                                    </td>
+                                </tr>                                     
+                                <tr>
+                                    <td> Primer Nombre: </td>
+                                    <td>
+                                        <html:text name="PlanillaUSB" property="nombreRep1" maxlength="80"  errorStyleClass="error"
+                                                   errorKey="org.apache.struts.action.ERROR">
+                                        </html:text>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td> Segundo Nombre: </td>
+                                    <td>
+                                        <html:text name="PlanillaUSB" property="nombreRep2" maxlength="80"  errorStyleClass="error"
+                                                   errorKey="org.apache.struts.action.ERROR">
+                                        </html:text>
+                                    </td>
+                                </tr> 
+                                <tr>
+                                    <td> Teléfono Celular: </td>
+                                    <td>
+                                        <html:text name="PlanillaUSB" property="celRep" maxlength="80"  errorStyleClass="error"
+                                                   errorKey="org.apache.struts.action.ERROR">
+                                        </html:text>
+                                    </td>
+                                </tr>                      
+                                <tr>
+                                    <td> Teléfono Casa: </td>
+                                    <td>
+                                        <html:text name="PlanillaUSB" property="tlfRepCasa" maxlength="80"  errorStyleClass="error"
+                                                   errorKey="org.apache.struts.action.ERROR">
+                                        </html:text>
+                                    </td>
+                                </tr>                      
+
+                                <tr>
+                                    <td> E-mail: </td>
+                                    <td>
+                                        <html:text name="PlanillaUSB" property="emailRep" maxlength="80"  errorStyleClass="error"
+                                                   errorKey="org.apache.struts.action.ERROR">
+                                        </html:text>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td> Relación con el Estudiante: </td>
+                                    <td>
+                                        <html:text name="PlanillaUSB" property="relacion" maxlength="80"  errorStyleClass="error"
+                                                   errorKey="org.apache.struts.action.ERROR">
+                                        </html:text>
+                                    </td>
+                                </tr>    
+
+                                <tr>
+
+                                    <td>Dirección: </td>
+
+                                    <td>
+                                        <html:textarea name="PlanillaUSB" property="direccionRep" cols="50" rows="5"  errorStyleClass="error"
+                                                       errorKey="org.apache.struts.action.ERROR">
+                                        </html:textarea >
+                                    </td>
+
+                                    <td>
+                                        <html:errors property="direccionRep" />
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>    
+                    </div>                
+
+                    <br>
+                    <p  align=center>
+                        <html:submit> Enviar Formulario </html:submit>
+                        </p>            
+
+                </html:form>
             </div>
         </div>
     </div>
     <br>
-    
+
     <!-- CARGA DE DOCUMENTOS -->
 
     <div class="nav" style="text-align: center;">
@@ -1392,6 +1392,19 @@ function cambia_carrera(){
                                         </div>
 
                                     </td> 
+                                </tr>
+                                <tr>
+                                    <td><INPUT type="checkbox" name="chk[]"/></td>
+
+                                    <td valign="middle">
+                                        <div id="archivos" >
+                                            <div class="feed">  
+                                                <html:file property="theFile[1]" />
+                                                <br />
+                                            </div>
+                                        </div>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>  
@@ -1539,6 +1552,17 @@ function cambia_carrera(){
 
                                 <td>
                                     <html:select property="nivelEscrito[0]" errorStyleClass="error" errorKey="org.apache.struts.action.ERROR">
+                                        <html:option value=""></html:option>
+                                        <html:option value="Basico">Basico</html:option>
+                                        <html:option value="Intermedio">Intermedio</html:option>
+                                        <html:option value="Avanzado">Avanzado</html:option>
+                                    </html:select>
+                                </td>
+
+                                <td>Nivel Conversacional</td>
+
+                                <td>
+                                    <html:select name="Idiomas" property="nivelConversacional" errorStyleClass="error" errorKey="org.apache.struts.action.ERROR">
                                         <html:option value=""></html:option>
                                         <html:option value="Basico">Basico</html:option>
                                         <html:option value="Intermedio">Intermedio</html:option>

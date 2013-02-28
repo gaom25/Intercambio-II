@@ -33,13 +33,14 @@ public class CargarIdioma extends Action {
         
         /*obtenemos los arraylist para los campos de cada idioma*/
         ArrayList archivos = idioma.getListEscrito();
-        ArrayList archivo = idioma.getListVerbal();
-        ArrayList archiv = idioma.getListIdioma();
+        ArrayList archivo = idioma.getListVerb();
+        ArrayList archiv = idioma.getListIdio();
+        ArrayList archi = idioma.getListConver();
         /*imprimos los valores de cada arraylist, para saber si se estan obteniendo
          los valores correctamente y que la correspondencia de cada arraylist
          es por indice*/
         for(int i = 0; i < archivos.size();i++){
-            System.out.println(archivos.get(i)+"-"+archivo.get(i)+"-"+archiv.get(i));
+            System.out.println(archivos.get(i)+"-"+archivo.get(i)+"-"+archiv.get(i)+"-"+archi.get(i));
         }
         /*por ultimo ejecutamos la funcion que inserta en la base de datos los
          diferentes idiomas de un usuario*/
