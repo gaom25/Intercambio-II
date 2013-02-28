@@ -423,11 +423,12 @@ OIDS = FALSE
  * el nombre del idioma  y  su nivel tanto verbal como
  * escrito                                          */
 CREATE TABLE "dycicle".IDIOMAS(
+        NombreUsuario   VARCHAR(20)     NOT NULL,
 	NombreIdioma	VARCHAR(30)	NOT NULL,
 	NivelVerbal	VARCHAR(15)	NOT NULL,
 	NivelEscrito	VARCHAR(15)	NOT NULL,
         NivelConversacional VARCHAR(15) NOT NULL,
-	CONSTRAINT 	PK_IDIOMAS	PRIMARY KEY (NombreIdioma)
+	CONSTRAINT 	PK_IDIOMAS	PRIMARY KEY (NombreUsario,NombreIdioma)
 )
 WITH (
 OIDS = FALSE
