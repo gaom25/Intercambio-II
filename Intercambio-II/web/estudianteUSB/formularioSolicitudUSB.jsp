@@ -1598,7 +1598,7 @@
                                 <td>Nivel Conversacional</td>
 
                                 <td>
-                                    <html:select property="nivelConversacional[]" errorStyleClass="error" errorKey="org.apache.struts.action.ERROR">
+                                    <html:select property="nivelConversacional[0]" errorStyleClass="error" errorKey="org.apache.struts.action.ERROR">
                                         <html:option value=""></html:option>
                                         <html:option value="Basico">Basico</html:option>
                                         <html:option value="Intermedio">Intermedio</html:option>
