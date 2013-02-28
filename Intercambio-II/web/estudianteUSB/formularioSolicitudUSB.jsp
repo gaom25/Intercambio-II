@@ -114,6 +114,7 @@
             var idioma = "idiomaDest[" +  Count +  "]";
             var verbal = "nivelVerbal[" +  Count +  "]";
             var escrito = "nivelEscrito[" +  Count +  "]";
+            var conversacional = "nivelConversacional[" + Count + "]";
             var basico = "Basico";
             var intermedio = "Intermedio";
             var avanzado = "Avanzado";
@@ -123,19 +124,34 @@
             var tit1 = "Idioma que maneja";
             var tit2 = "Nivel Verbal";
             var tit3 = "Nivel Escrito";
+            var tit4 = "Nivel Conversacional";
             var o2 = document.createElement("input");
             var check = document.createElement("input");
-            var op1 = document.createElement("option");
-            var op2 = document.createElement("option");
-            var op3 = document.createElement("option");
-            var op4 = document.createElement("option");
-            var op5 = document.createElement("option");
-            var op6 = document.createElement("option");
-            var op7 = document.createElement("option");
-            var op8 = document.createElement("option");
+            
+            //Nivel Escrito
+            var op1 = document.createElement("option"); //basico
+            var op2 = document.createElement("option");//intermedio
+            var op3 = document.createElement("option");//avanzado
+            
+            //Nivel Verbal
+            var op4 = document.createElement("option");//basico
+            var op5 = document.createElement("option");//intermedio
+            var op6 = document.createElement("option");//avanzado
+            
+            //Nivel Conversacional
+            var op7 = document.createElement("option");//basico
+            var op8 = document.createElement("option"); //intermedio
+            var op9 = document.createElement("option"); //avanzado
+            
+            var op10 = document.createElement("option");
+            var op11 = document.createElement("option");
+            var op12 = document.createElement("option");
+            
+            
             var tr = document.createElement("tr");
             var select1 = document.createElement("select");
             var select2 =document.createElement("select");
+            var select3 = document.createElement("select");
             var td = document.createElement("td");
             var td2 = document.createElement("td");
             var td3 = document.createElement("td");
@@ -145,6 +161,8 @@
             var td7 = document.createElement("td");
             var td8 = document.createElement("td");
             var td9 = document.createElement("td");
+            var td10 = document.createElement("td");
+            
                 
             //Atributos para el checkbox
             check.setAttribute("type",checkbox);
@@ -153,16 +171,24 @@
             op1.innerHTML = "Basico";
             op4.setAttribute("value",basico);
             op4.innerHTML = "Basico";
+            op7.setAttribute("value", basico);
+            op7.innerHTML = "Basico";
             op2.setAttribute("value",intermedio);
             op2.innerHTML = "Intermedio";
             op5.setAttribute("value",intermedio);
             op5.innerHTML = "Intermedio";
+            op8.setAttribute("value", intermedio);
+            op8.innerHTML = "Intermedio";
             op3.setAttribute("value",avanzado);
             op3.innerHTML = "Avanzado";
             op6.setAttribute("value",avanzado);
             op6.innerHTML = "Avanzado";
-            op7.setAttribute("value","")
-            op8.setAttribute("value","")
+            op9.setAttribute("value", avanzado);
+            op9.innerHTML = "Avanzado";
+            
+            op10.setAttribute("value","");
+            op11.setAttribute("value","");
+            op12.setAttribute("value","");
             
             o2.setAttribute("type",type);
             o2.setAttribute("name",idioma);
@@ -171,6 +197,7 @@
             op3.setAttribute("value",avanzado);
             select1.setAttribute("name",verbal);
             select2.setAttribute("name",escrito);
+            select3.setAttribute("name",conversacional);
             
             td7.appendChild(check);
             tr.appendChild(td7);
@@ -181,6 +208,7 @@
             
             td3.innerHTML = tit2;
             tr.appendChild(td3);
+            select1.appendChild(op10);
             select1.appendChild(op7);
             select1.appendChild(op1);
             select1.appendChild(op2);
@@ -190,6 +218,7 @@
             
             td5.innerHTML = tit3;
             tr.appendChild(td5);
+            select2.appendChild(op11);
             select2.appendChild(op8);
             select2.appendChild(op4);
             select2.appendChild(op5);
@@ -197,13 +226,20 @@
             td6.appendChild(select2);
             tr.appendChild(td6);
             
+            td8.innerHTML = tit4;
+            tr.appendChild(td8);
+            select3.appendChild(op12);
+            select3.appendChild(op7);
+            select3.appendChild(op8);
+            select3.appendChild(op9);
+            td10.appendChild(select3);
+            tr.appendChild(td10);
+            
             fObject.appendChild(tr);
-                
                
         }
          
-        
-        
+               
         function addRow(tableID) {
             fCount++;
 
@@ -1562,7 +1598,7 @@
                                 <td>Nivel Conversacional</td>
 
                                 <td>
-                                    <html:select name="Idiomas" property="nivelConversacional" errorStyleClass="error" errorKey="org.apache.struts.action.ERROR">
+                                    <html:select property="nivelConversacional[0]" errorStyleClass="error" errorKey="org.apache.struts.action.ERROR">
                                         <html:option value=""></html:option>
                                         <html:option value="Basico">Basico</html:option>
                                         <html:option value="Intermedio">Intermedio</html:option>
