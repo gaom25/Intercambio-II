@@ -151,10 +151,8 @@
             validate="false"
             parameter="contactoEstUSB"/>
         
-
         
-        
-        <!-- desde estudiante usb -->
+        <!-- desde estudiante Ext -->
         <action path="/accionesEstExt"
             type="org.apache.struts.actions.ForwardAction"
             scope="request"
@@ -245,14 +243,7 @@
         </action>
         
         
-        
-        
         <!-- Acciones en usuario general -->
-        
-        
-        
-        
-        
         
         
         <!-- Acciones en admin -->
@@ -467,7 +458,8 @@
        </action>
        
        <action input="/" name="PlanillaExt" path="/GenerarPlanilla_EstExt" scope="session" type="Actions.GenerarPlanilla_EstExt">
-            <forward name="success" path="accionesEstUSB" />
+            <forward name="success" path="accionesEstExt" />
+            <forward name="incompleta" path="formularioExt" />
        </action>
        
        <action name="PlanillaUSB" path="/CargarLlenarPlanillaUSB" scope="session" type="Actions.CargarLlenarPlanillaUSB">
@@ -553,9 +545,15 @@
           <forward name = "success" path="exitoAgregEst"/>
       </action>
       
-      <action input="/" name="PlanExtranjero" path="/AccionPlanEstudioExt" scope="session" type="Actions.AccionPlanEstudioExt"/>
+      <action name="PlanExtranjero" path="/AccionPlanEstudioExt" scope="session" type="Actions.AccionPlanEstudioExt">
+           <forward name ="success" path="cargaplancorrecta" />
+      </action>
        
-      <action input="/" name="PlanillaExt" path="/LlenarPlanilla_EstExt" scope="session" type="Actions.LlenarPlanilla_EstExt"/>
+      <action input="/" name="PlanillaExt" path="/LlenarPlanilla_EstExt" scope="session" type="Actions.LlenarPlanilla_EstExt" >
+            <forward name="success" path="cargacorrecta" />
+            <forward name ="fail" path = "cargaincorrecta" />
+            <forward name="error" path="cargaincorrecta" />
+      </action>
     
 
     

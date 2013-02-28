@@ -763,8 +763,8 @@ public class DBMS {
                     + "Pasaporte = '" + p.getPasaporte() + "',"
                     + "LenguaMaterna = '" + p.getLenguaMaterna() + "',"
                     + "PaisOrigen = '" + p.getPaisOrigen() + "',"
-                    + "UniOrigen = '" + p.getNombreUniOrigen() + "',"
-                    + "CursoEspaniol = '" + p.isTomarCursoDeEspaniol() + "';";
+                    + "UniOrigen = '" + p.getNombreUniOrigen() + "';";
+                   // + "CursoEspaniol = '" + p.isTomarCursoDeEspaniol() + "';";
 
             // Datos del representante
             String sqlqueryRepresentante = "INSERT INTO \"dycicle\".Representante VALUES ("
