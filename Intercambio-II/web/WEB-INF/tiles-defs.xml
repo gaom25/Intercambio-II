@@ -276,7 +276,7 @@
         </definition>
         
             <definition name="errortamExt" extends="baseEstudianteExt"> <!-- pagina arror de tamano archivo de estudiante usb -->
-                <put name="body" value="/estudianteUSB/errortam.jsp" />
+                <put name="body" value="/estudianteExt/errortam.jsp" />
             </definition>
         
             <definition name="accionesEstExt" extends="baseEstudianteExt"> <!-- pagina acciones de estudiante usb -->
@@ -308,7 +308,7 @@
             </definition>
             
             <definition name="cuentaEstExt" extends="baseEstudianteExt"> <!-- pagina acciones de estudiante usb -->
-                <put name="body" value="/estudianteExt/cuentaEstUSB.jsp" />
+                <put name="body" value="/estudianteExt/cuentaEstExt.jsp" />
             </definition>
             
             <definition name="formSolicExt" extends="baseEstudianteExt"> <!-- pagina acciones de estudiante usb -->
@@ -316,7 +316,7 @@
             </definition>
             
             <definition name="modificarperExt" extends="baseEstudianteExt"> <!-- pagina acciones de estudiante usb -->
-                <put name="body" value="/estudianteExt/modificarperExt.jsp" />
+                <put name="body" value="/estudianteExt/modificarperExt.jsp" />1
             </definition>
         
             <definition name="formularioExt" extends="baseEstudianteExt"> <!-- pagina acciones de estudiante usb -->
