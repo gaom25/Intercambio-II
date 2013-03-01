@@ -25,7 +25,7 @@
     </script>
 
     <div style="margin-top: 5px;padding-right:5px">
-        <html:link style="color:#126598" href="estudianteExt/accionesEstExt.jsp">
+        <html:link style="color:#126598" action="/accionesEstExt">
             Inicio
         </html:link>
     </div>
@@ -55,12 +55,12 @@
     </div>
 
     <div style="margin-top: 5px;padding-right:5px">
-        <html:link style="color:#126598" action="/modificarperUSB">
+        <html:link style="color:#126598" action="/modificarperExt">
             Modificar perfil
         </html:link>
     </div>
     <div style="margin-top: 5px;padding-right:5px">
-        <html:link style="color:#126598" action="/contactoEstUSB">
+        <html:link style="color:#126598" action="/contactoEstExt">
             Contactenos 
         </html:link>
     </div>
