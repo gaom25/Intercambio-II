@@ -1403,7 +1403,7 @@
     <!-- CARGA DE DOCUMENTOS -->
 
     <div class="nav" style="text-align: center;">
-        <a href="#" onclick=" if (true) hide('datosplanilla'), show('archivos'),hide('plan'),hide('idio')"> Cargar Archivos Adjuntos </a>
+        <a href="#" onclick=" if (true) hide('datosplanilla'), show('archivos'),hide('plan'),hide('idio')"> Adjuntar archivos </a>
     </div>
     <div id="archivos" style="display: none">
         <div style="width:auto;height:auto;border:6px solid  #F9F4CF; border-color: #F9F4CF; border-radius: 10px; border-width:5px;">

@@ -69,7 +69,7 @@ CREATE TABLE "dycicle".EstudianteInternacional(
 	NombreUsuario	VARCHAR(20)	NOT NULL,
 	Pasaporte	VARCHAR(100)	NOT NULL,
 	LenguaMaterna	VARCHAR(40)	NOT NULL,
-        PaisOrigen      VARCHAR(100)    NOT NULL,
+        PaisOrigen      VARCHAR(100)    /*NOT NULL*/,
         UniOrigen       VARCHAR(100)    NOT NULL,
         CursoEspaniol   VARCHAR(2)      NOT NULL,     
 	CONSTRAINT	PK_EstudianteInternacional	

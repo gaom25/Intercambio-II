@@ -550,9 +550,9 @@
       </action>
        
       <action input="/" name="PlanillaExt" path="/LlenarPlanilla_EstExt" scope="session" type="Actions.LlenarPlanilla_EstExt" >
-            <forward name="success" path="cargacorrecta" />
-            <forward name ="fail" path = "cargaincorrecta" />
-            <forward name="error" path="cargaincorrecta" />
+            <forward name="success" path="cargacorrectaExt" />
+            <forward name ="fail" path = "cargaincorrectaExt" />
+            <forward name="error" path="cargaincorrectaExt" />
       </action>
     
 

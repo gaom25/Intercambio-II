@@ -827,7 +827,7 @@ public class DBMS {
 
             String sqlqueryEstudianteExt = "UPDATE \"dycicle\".estudianteInternacional SET "
                     + "Pasaporte = '" + p.getPasaporte() + "',"
-                    + "LenguaMaterna = '" + p.getLenguaMaterna() + "',"
+                    //+ "LenguaMaterna = '" + p.getLenguaMaterna() + "',"
                     + "PaisOrigen = '" + p.getPaisOrigen() + "',"
                     + "UniOrigen = '" + p.getNombreUniOrigen() + "';";
             // + "CursoEspaniol = '" + p.isTomarCursoDeEspaniol() + "';";
@@ -859,7 +859,7 @@ public class DBMS {
                     + "'Venezuela', "
                     + "'" + p.getPrograma() + "', "
                     + "'" + p.getNombrePrograma() + "', "
-                    + "'null', 'null', 'null', 'null'"
+                    + "'null', 'null', 'null', 'null', "
                     + "'" + p.getDuracionPrograma() + "');";
 
 
