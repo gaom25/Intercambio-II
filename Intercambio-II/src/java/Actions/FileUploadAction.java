@@ -31,6 +31,12 @@ public class FileUploadAction extends Action {
         Usuario user = new Usuario();
         FileUploadForm fileUploadForm = (FileUploadForm) form;
         String nom = fileUploadForm.getNombreusuario();
+        Usuario u = new Usuario();
+        Usuario u2 = new Usuario();
+        u.setNombreusuario(nom);
+        
+        u2 = DBMS.getInstance().obtenerDatos(u);
+        
         File folder;
         
         //obtenemos los archivos de un arraylist
@@ -70,7 +76,7 @@ public class FileUploadAction extends Action {
         
         System.out.println(filePath);
         
-        folder = new File(filePath);
+        folder = new File(documentos);
         if (!folder.exists()) {
             folder.mkdir();
         }
@@ -121,6 +127,9 @@ public class FileUploadAction extends Action {
             }
 
         }
-        return mapping.findForward("success");
+        if(u2.getPrivilegio() == 5){
+            return mapping.findForward("usb");
+        }
+        return mapping.findForward("ext");
     }
 }

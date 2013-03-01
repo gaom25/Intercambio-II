@@ -1424,7 +1424,7 @@
                                             <div id="archivos" >
                                                 <div class="feed">  
                                                 <%--<a>Foto:</a>--%>
-                                                <html:file value="hola" property="theFile[0]">holjkahgkadjghsadkjghdsakjhgsadkjghakshga</html:file>
+                                                <html:file value="hola" property="theFile[0]"></html:file>
                                                     <br />
                                                 </div>
                                             </div>

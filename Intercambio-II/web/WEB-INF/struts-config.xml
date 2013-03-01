@@ -497,8 +497,9 @@
        </action>
 
 
-       <action input="/" path="/CargarIdioma" type="Actions.CargarIdioma" scope="request" name="Idiomas" >
-           <forward name ="success" path="cargaidiomaExt" />
+       <action path="/CargarIdioma" type="Actions.CargarIdioma" scope="request" name="Idiomas" >
+           <forward name ="usb" path="cargaidioma" />
+           <forward name ="ext" path="cargaidiomaExt" />
        </action>
        
        
@@ -532,7 +533,8 @@
                input="/upload.jsp"
                validate = "true"
                scope="request">
-            <forward name="success" path="cargaarchivoscorrecta"/>
+            <forward name="usb" path="cargaarchivoscorrecta"/>
+            <forward name="ext" path="cargaarchivoscorrectaExt"/>
             <forward name="error" path="errortam"/>
        </action>
        

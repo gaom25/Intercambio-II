@@ -30,7 +30,11 @@ public class CargarIdioma extends Action {
         // aqui recibimos los idiomas puestos en el form
         
         Idiomas idioma = (Idiomas) form;
+        Usuario u = new Usuario();
+        Usuario u2 = new Usuario();
+        u.setNombreusuario(idioma.getNombreusuario());
         
+        u2 = DBMS.getInstance().obtenerDatos(u);
         /*obtenemos los arraylist para los campos de cada idioma*/
         ArrayList archivos = idioma.getListEscrito();
         ArrayList archivo = idioma.getListVerb();
@@ -44,7 +48,9 @@ public class CargarIdioma extends Action {
             System.out.println("Falloooooo");
         }
 
-        
-        return mapping.findForward("success");
+        if(u2.getPrivilegio() == 5){
+            return mapping.findForward("usb");
+        }
+        return mapping.findForward("ext");
     }
 }
