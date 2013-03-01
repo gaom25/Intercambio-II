@@ -111,17 +111,17 @@ public class GeneradorPlanillas {
             document.add(imagen); 
 
             //PRUEBAS DE LA CEBOLLA
-            imagen = Image.getInstance("/home/kattys/Escritorio/PRUEBAS_iTExtPDF/Dos/cebollaUSB.jpg");
+            //imagen = Image.getInstance("/home/kattys/Escritorio/PRUEBAS_iTExtPDF/Dos/cebollaUSB.jpg");
 // define la posicion de la imagen
 //(X,Y)
     //        imagen.setAbsolutePosition(50f, 100f); Sale abajoo a la izquierda
 //            imagen.setAbsolutePosition(0, 0);  sale en la misma posicion
 //            imagen.setAbsolutePosition(50, 680); // es indiferente si le pongo f o no
-            imagen.setAbsolutePosition(125f, 730f); 
+           // imagen.setAbsolutePosition(125f, 730f); 
 
 // define el tamano de la imagen
 //            imagen.scaleAbsolute(300f, 70f); 
-            imagen.scalePercent(20f);
+            //imagen.scalePercent(20f);
 			
 
             campo = new Phrase("                                             \n"
@@ -624,6 +624,7 @@ public class GeneradorPlanillas {
 
         } catch (IOException ex) {
             Logger.getLogger(GeneradorPlanillas.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
         }
 
         return true;
@@ -632,7 +633,7 @@ public class GeneradorPlanillas {
 public Boolean generarPlanillaExt(PlanillaExt p, String path) throws BadElementException, DocumentException {
 //public Boolean generarPlanillaExt(PlanillaExt p, String path, ArrayList<Idiomas> idiomas, ArrayList<Materias> materias) throws BadElementException, DocumentException {
         Document document = new Document(PageSize.LETTER); // Pdf de tamano carta
-        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
         Calendar cal = Calendar.getInstance();
         String creacion = dateFormat.format(cal.getTime());
 
@@ -699,7 +700,7 @@ public Boolean generarPlanillaExt(PlanillaExt p, String path) throws BadElementE
 
 //PRUEBAS DE LA CEBOLLA
             
-            imagen = Image.getInstance("/home/kattys/NetBeansProjects/Intercambio-II/Intercambio-II/web/images/cebollaUSB.jpg");
+            imagen = Image.getInstance("/home/dreabalbas/NetBeansProjects/Intercambio-II/Intercambio-II/web/images/cebollaUSB.jpg");
             imagen.setAbsolutePosition(125f, 730f); 
 
 // define el tamano de la imagen
@@ -1296,6 +1297,7 @@ public Boolean generarPlanillaExt(PlanillaExt p, String path) throws BadElementE
 
         } catch (IOException ex) {
             Logger.getLogger(GeneradorPlanillas.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
         }
 
         return true;

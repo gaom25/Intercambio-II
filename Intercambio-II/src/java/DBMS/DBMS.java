@@ -1065,15 +1065,27 @@ public class DBMS {
         try {
 
             String sqlquery = "SELECT * FROM \"dycicle\".estudiante NATURAL JOIN "
-                    + "\"dycicle\".estudianteusb NATURAL JOIN "
-                    + " \"dycicle\".AntecedenteAcademico NATURAL JOIN "
-                    + "\"dycicle\".Universidades NATURAL JOIN "
-                    + "\"dycicle\".Representante NATURAL JOIN "
+                    + "\"dycicle\".estudianteinternacional NATURAL JOIN "
+                    + "\"dycicle\".Universidades "
                     + " WHERE nombreusuario ='" + u.getNombreusuario() + "';";
 
             Statement stmt = conexion.createStatement();
             ResultSet rs = stmt.executeQuery(sqlquery);
 
+            sqlquery = "SELECT * FROM \"dycicle\".representante "
+                    + " WHERE nombreusuario ='" + u.getNombreusuario() + "';";
+            
+            stmt = conexion.createStatement();
+            ResultSet rs2 = stmt.executeQuery(sqlquery);
+            rs2.next();
+            
+            sqlquery = "SELECT * FROM \"dycicle\".antecedenteacademico "
+                    + " WHERE nombreusuario ='" + u.getNombreusuario() + "';";
+            
+            stmt = conexion.createStatement();
+            ResultSet rs3 = stmt.executeQuery(sqlquery);
+            rs3.next();
+            
             boolean primeraUni = rs.next();
 
             datos.setNombreUsuario(rs.getString("NombreUsuario"));
@@ -1082,6 +1094,7 @@ public class DBMS {
             datos.setNombre1(rs.getString("PrimerNombre"));
             datos.setNombre2(rs.getString("SegundoNombre"));
             datos.setSexo(rs.getString("Sexo"));
+            datos.setPasaporte(rs.getString("Pasaporte"));
             datos.setCalle(rs.getString("Calle"));
             datos.setEdificio(rs.getString("Edificio"));
             datos.setApartamento(rs.getString("Apartamento"));
@@ -1093,27 +1106,26 @@ public class DBMS {
             datos.setEmail(rs.getString("Email"));
             datos.setFechaNacimiento(rs.getString("FechaNac"));
             datos.setNacionalidad(rs.getString("Nacionalidad"));
-            datos.setApellidoRep1(rs.getString("pApellido"));
-            datos.setApellidoRep2(rs.getString("sApellido"));
-            datos.setNombreRep1(rs.getString("pNombre"));
-            datos.setNombreRep2(rs.getString("sNombre"));
-            datos.setCelRep(rs.getString("TelefonoCel"));
-            datos.setTlfRepCasa(rs.getString("TelefonoHab"));
-            datos.setEmailRep(rs.getString("EmailRep"));
-            datos.setRelacion(rs.getString("TipoRelacion"));
-            datos.setDireccionRep(rs.getString("Direccion"));
-            datos.setAreaEstud(rs.getString("AreaDeEstudio"));
-            datos.setCarrera(rs.getString("Carrera"));
-            datos.setAnioIngreso(rs.getInt("AnioIngreso"));
-            datos.setAniosAprobados(rs.getInt("AniosAprob"));
+            datos.setApellidoRep1(rs2.getString("pApellido"));
+            datos.setApellidoRep2(rs2.getString("sApellido"));
+            datos.setNombreRep1(rs2.getString("pNombre"));
+            datos.setNombreRep2(rs2.getString("sNombre"));
+            datos.setCelRep(rs2.getString("TelefonoCel"));
+            datos.setTlfRepCasa(rs2.getString("TelefonoHab"));
+            datos.setEmailRep(rs2.getString("EmailRep"));
+            datos.setRelacion(rs2.getString("TipoRelacion"));
+            datos.setDireccionRep(rs2.getString("Direccion"));
+            datos.setAreaEstud(rs3.getString("AreaDeEstudio"));
+            datos.setCarrera(rs3.getString("Carrera"));
+            datos.setAnioIngreso(rs3.getInt("AnioIngreso"));
+            datos.setAniosAprobados(rs3.getInt("AniosAprob"));
             datos.setPrograma(rs.getString("TipoPrograma"));
             datos.setNombrePrograma(rs.getString("NombrePrograma"));
             datos.setDuracionPrograma(rs.getString("Duracion"));
             datos.setPaisOrigen(rs.getString("PaisOrigen"));
-            datos.setNombreCoordAcademico("CoordAcademico");
-            datos.setNombreCoordMovilidad("CoordMovilidad");
-            datos.setNombreUniOrigen("UniOrigen");
-            datos.setPaisOrigen("PaisOrgen");
+            datos.setNombreCoordAcademico(rs3.getString("CoordAcademico"));
+            datos.setNombreCoordMovilidad(rs3.getString("CoordMovilidad"));
+            datos.setNombreUniOrigen(rs.getString("UniOrigen"));
 
         } catch (SQLException ex) {
             ex.printStackTrace();

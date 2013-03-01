@@ -45,11 +45,11 @@ public class FileUploadForm extends ActionForm {
         this.nombreusuario = nombreusuario;
     }
 
-    public FormFile getTheFile(int index) {
+    public FormFile getTheFile(int indice) {
         return this.theFile;
     }
 
-    public void setTheFile(int index, FormFile theFile) {
+    public void setTheFile(int indice, FormFile theFile) {
 
         this.theFile = theFile;
         setListFile(theFile);

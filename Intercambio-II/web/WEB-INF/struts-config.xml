@@ -557,7 +557,7 @@
       </action>
       
       <action name="PlanExtranjero" path="/AccionPlanEstudioExt" scope="session" type="Actions.AccionPlanEstudioExt">
-           <forward name ="success" path="cargaplancorrecta" />
+           <forward name ="success" path="cargaplancorrectaExt" />
       </action>
        
       <action input="/" name="PlanillaExt" path="/LlenarPlanilla_EstExt" scope="session" type="Actions.LlenarPlanilla_EstExt" >
