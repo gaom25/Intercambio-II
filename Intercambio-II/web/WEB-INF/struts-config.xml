@@ -94,9 +94,7 @@
         <!-- Busqueda avanzada-->
         <action name="BusquedaAvanzada" path="/AccionBusquedaAvanzada" scope="session" type="Actions.AccionBusquedaAvanzada">
            <forward name="failure" path="accFallo"/>
-           <forward name="postulante" path="listarEstudiantes"/>
-           <forward name="gestor" path="listarEstudiantesPostulados"/>
-           <forward name="admin" path="listarEstudiantesPostulados"/>
+           <forward name="success" path="listarEstudiantesPostulados"/>
         </action>
         
         
@@ -344,6 +342,15 @@
             <forward name="success" path="exitoContactoEstUSB"/>
             <forward name="error" path="contactoEstUSB"/>
      </action>
+     
+     
+     <action path="/EnviarCorreoEstExt" type="Actions.EnviarCorreo" name="Contacto">
+            <forward name="failure" path="contactoEstExt"/>
+            <forward name="success" path="exitoContactoEstExt"/>
+            <forward name="error" path="contactoEstExt"/>
+     </action>
+     
+     
        
      <!-- Acciones en Gestor -->
      
@@ -491,12 +498,12 @@
 
 
        <action input="/" path="/CargarIdioma" type="Actions.CargarIdioma" scope="request" name="Idiomas" >
-           <forward name ="success" path="cargaidioma" />
+           <forward name ="success" path="cargaidiomaExt" />
        </action>
        
        
        <action input="/" path="/AccionPlanDeEstudio" type="Actions.AccionPlanDeEstudio" scope="request" name="PlanDeEstudio" >
-           <forward name ="success" path="cargaplancorrecta" />
+           <forward name ="success" path="cargaplancorrectaExt" />
        </action>
 
 

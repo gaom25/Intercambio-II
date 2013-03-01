@@ -70,7 +70,7 @@ public class FileUploadAction extends Action {
         
         System.out.println(filePath);
         
-        folder = new File(documentos);
+        folder = new File(filePath);
         if (!folder.exists()) {
             folder.mkdir();
         }
