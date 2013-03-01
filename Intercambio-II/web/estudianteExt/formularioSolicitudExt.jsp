@@ -888,9 +888,9 @@ function cambia_carrera(){
                         <tr>
                             <td> Universidad de origen: </td>
                             <td>
-                            <select id="uni_princ" property="nombreUniOrigen"> 
-                            <option value="-">- 
-                            </select>
+                            <html:select styleId="uni_princ" property="nombreUniOrigen"> 
+                                <html:option value="-">- </html:option>
+                            </html:select>
                             </td>
                         </tr>                        
 
