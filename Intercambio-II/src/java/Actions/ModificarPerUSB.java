@@ -21,17 +21,15 @@ import org.apache.struts.action.ActionMessage;
  * @author gustavo
  */
 public class ModificarPerUSB extends org.apache.struts.action.Action {
- 
+
     /* Patrones a Validar */
     private static final String patronEmail = "^([_A-Za-z0-9-\\.\\+])+@([A-Za-z0-9-])+\\.([A-Za-z0-9-])+$";
     /* forward name="success" path="" */
-    private static final String SUCCESS = "success";
-    private static final String FAIL = "failure";
-    private static final String ERROR = "error";
+    private static final String FAIL = "failureusb";
+    private static final String ERROR = "errorusb";
     private Pattern patron;
     private Matcher match;
 
-   
     public ModificarPerUSB() {
         patron = Pattern.compile(patronEmail);
     }
@@ -42,7 +40,7 @@ public class ModificarPerUSB extends org.apache.struts.action.Action {
         return match.matches();
     }
 
-     /**
+    /**
      * This is the action called from the Struts framework.
      *
      * @param mapping The ActionMapping used to select this instance.
@@ -53,13 +51,11 @@ public class ModificarPerUSB extends org.apache.struts.action.Action {
      * @return
      *
      */
-    
-    
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
 
-        
+
         Usuario u = (Usuario) form;
         Usuario user = DBMS.getInstance().obtenerDatos(u);
         ActionErrors error = new ActionErrors();
@@ -82,9 +78,9 @@ public class ModificarPerUSB extends org.apache.struts.action.Action {
             saveErrors(request, error);
             huboError = true;
         }
-        
+
         //Verificar que el campo contrasena del usuario no sea vacio/.
-        
+
         if (u.getContrasena().equals("")) {
             error.add("contrasena", new ActionMessage("error.nombre.required"));
             saveErrors(request, error);
@@ -94,23 +90,23 @@ public class ModificarPerUSB extends org.apache.struts.action.Action {
             saveErrors(request, error);
             huboError = true;
         }
-        
-         if(!user.getContrasena().equals(u.getContrasena())){
-            error.add("contrasena",new ActionMessage("error.contrasena.diferente"));
-            saveErrors(request,error);
+
+        if (!user.getContrasena().equals(u.getContrasena())) {
+            error.add("contrasena", new ActionMessage("error.contrasena.diferente"));
+            saveErrors(request, error);
             huboError = true;
-        
+
         }
         //Verificar que el campo nuevacontrasena del usuario no sea vacio/.
-        
+
         if (u.getNuevacontra().equals("")) {
             error.add("nuevacontra", new ActionMessage("error.nuevacontra.required"));
             saveErrors(request, error);
             huboError = true;
         }
-        
+
         //Verificar que el campo confirmar del usuario no sea vacio/.
-        
+
         if (u.getConfirmar().equals("")) {
             error.add("confirmar", new ActionMessage("error.confirmar.required"));
             saveErrors(request, error);
@@ -123,24 +119,35 @@ public class ModificarPerUSB extends org.apache.struts.action.Action {
             saveErrors(request, error);
             huboError = true;
         }
-        
-        
-        if(!confPswd.equals(nuev)){
+
+
+        if (!confPswd.equals(nuev)) {
             error.add("nuevacontra", new ActionMessage("error.contrasena.distintas"));
             saveErrors(request, error);
             huboError = true;
         }
-        
+
 
         // Si hubo error lo notifica, si no, procede a agregar en la BD.
         if (huboError) {
-            return mapping.findForward(ERROR);
+            if (user.getPrivilegio() == 5)
+            {
+                return mapping.findForward(ERROR);
+            }
+            return mapping.findForward("errorext");
+            
 
         } else if (DBMS.getInstance().modificarPerfil(u)) {
-            return mapping.findForward(SUCCESS);
+            if (user.getPrivilegio() == 5) {
+                return mapping.findForward("usb");
+            }
+            return mapping.findForward("ext");
 
         } else {
-            return mapping.findForward(FAIL);
+            if (user.getPrivilegio() == 5) {
+                return mapping.findForward(FAIL);
+            }
+            return mapping.findForward("failureext");
         }
     }
 }
