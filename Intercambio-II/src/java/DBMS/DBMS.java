@@ -309,7 +309,7 @@ public class DBMS {
                     + "'1.0000', "
                     + "'null','null', "
                     + "'" + e.getCarrera() + "', "
-                    + "'opcion', '0', '0000', '0');";
+                    + "'opcion', '0', '0000', '0', 'null', 'null');";
 
             String sqlqueryPostulacion = "INSERT INTO \"dycicle\".Postulacion VALUES ('"
                     + e.getNombreusuario() + "', "
@@ -354,7 +354,7 @@ public class DBMS {
             String sqlqueryAntecedente = "INSERT INTO \"dycicle\".AntecedenteAcademico VALUES ('"
                     + e.getNombreusuario() + "', "
                     + "'1.0000', '0.0000', 'null','null', 'null', "
-                    + "'opcion', '0','0000' , '0');";
+                    + "'opcion', '0','0000' , '0', 'null', 'null');";
 
             String sqlqueryPostulacion = "INSERT INTO \"dycicle\".Postulacion VALUES ('"
                     + e.getNombreusuario() + "', "
@@ -830,7 +830,6 @@ public class DBMS {
                     //+ "LenguaMaterna = '" + p.getLenguaMaterna() + "',"
                     + "PaisOrigen = '" + p.getPaisOrigen() + "',"
                     + "UniOrigen = '" + p.getNombreUniOrigen() + "';";
-            // + "CursoEspaniol = '" + p.isTomarCursoDeEspaniol() + "';";
 
             // Datos del representante
             String sqlqueryRepresentante = "INSERT INTO \"dycicle\".Representante VALUES ("
@@ -850,7 +849,9 @@ public class DBMS {
                     + "AreaDeEstudio = '" + p.getAreaEstud() + "', "
                     + "Carrera = '" + p.getCarrera() + "', "
                     + "AnioIngreso = '" + p.getAnioIngreso() + "', "
-                    + "AniosAprob= '" + p.getAniosAprobados() + "';";
+                    + "AniosAprob= '" + p.getAniosAprobados() + "', "
+                    + "CoordMovilidad='" + p.getNombreCoordMovilidad() + "', "
+                    + "CoordAcademico='" + p.getNombreCoordAcademico() + "';";
 
             // Opciones de uni de intercambios
             String sqlqueryUni1 = "INSERT INTO \"dycicle\".Universidades VALUES ("
@@ -1261,18 +1262,32 @@ public class DBMS {
     }
 
     public boolean InsertarIdioma(Idiomas idioma) {
+        
 
         try {
 
+            String sqlquery = "SELECT nombreusuario FROM \"dycicle\".estudianteInternacional WHERE"
+                    + " nombreusuario='" + idioma.getNombreusuario() + "';";
+            Statement stmt = conexion.createStatement();
+            ResultSet rs = stmt.executeQuery(sqlquery);
+            
+            if (rs.next()){
+                sqlquery = "UPDATE \"dycicle\".estudianteInternacional SET "
+                    + "LenguaMaterna = '" + idioma.getLenguaMaterna() + "',"
+                    + "CursoEspaniol = '" + idioma.getTomarCursoDeEspaniol() + "';";
+                stmt = conexion.createStatement();
+                Integer i = stmt.executeUpdate(sqlquery);
+            }
+            
             ArrayList escri = idioma.getListEscrito();
             ArrayList ver = idioma.getListVerbal();
             ArrayList idio = idioma.getListIdioma();
             ArrayList conver = idioma.getListConversacional();
             for (int i = 0; i < idio.size(); i++) {
-                String sqlquery = "INSERT INTO \"dycicle\".idiomas VALUES("
+                sqlquery = "INSERT INTO \"dycicle\".idiomas VALUES("
                         + "'" + idioma.getNombreusuario() + "','" + idio.get(i) + "','"
                         + ver.get(i) + "','" + escri.get(i) + "','" + conver.get(i) + "');";
-                Statement stmt = conexion.createStatement();
+                stmt = conexion.createStatement();
                 Integer j = stmt.executeUpdate(sqlquery);
             }
             return true;

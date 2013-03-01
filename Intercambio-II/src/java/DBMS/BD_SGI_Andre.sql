@@ -71,7 +71,7 @@ CREATE TABLE "dycicle".EstudianteInternacional(
 	LenguaMaterna	VARCHAR(40)	NOT NULL,
         PaisOrigen      VARCHAR(100)    /*NOT NULL*/,
         UniOrigen       VARCHAR(100)    NOT NULL,
-        CursoEspaniol   VARCHAR(2)      NOT NULL,     
+        CursoEspaniol   VARCHAR(4)      NOT NULL,     
 	CONSTRAINT	PK_EstudianteInternacional	
 		PRIMARY KEY (NombreUsuario, Pasaporte)
 );
@@ -112,6 +112,8 @@ CREATE TABLE "dycicle".AntecedenteAcademico(
         CredAprob       NUMERIC(4),
         AnioIngreso     NUMERIC(4),
         AniosAprob      NUMERIC(2),
+        CoordMovilidad  VARCHAR(100),
+        CoordAcademico  VARCHAR(100),
 	CONSTRAINT	PK_AntecedenteAcademico	
 		PRIMARY KEY (NombreUsuario)
 );

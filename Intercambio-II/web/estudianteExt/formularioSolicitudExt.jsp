@@ -120,6 +120,8 @@
             
             var op10 = document.createElement("option");
             var op11 = document.createElement("option");
+            var op12 = document.createElement("option");
+            
             
             var tr = document.createElement("tr");
             var select1 = document.createElement("select");
@@ -134,6 +136,8 @@
             var td7 = document.createElement("td");
             var td8 = document.createElement("td");
             var td9 = document.createElement("td");
+            var td10 = document.createElement("td");
+            
                 
             //Atributos para el checkbox
             check.setAttribute("type",checkbox);
@@ -157,9 +161,9 @@
             op9.setAttribute("value", avanzado);
             op9.innerHTML = "Avanzado";
             
-            op10.setAttribute("value","")
-            op11.setAttribute("value","")
-            op12.setAttribute("value","")
+            op10.setAttribute("value","");
+            op11.setAttribute("value","");
+            op12.setAttribute("value","");
             
             o2.setAttribute("type",type);
             o2.setAttribute("name",idioma);
@@ -179,6 +183,7 @@
             
             td3.innerHTML = tit2;
             tr.appendChild(td3);
+            select1.appendChild(op10);
             select1.appendChild(op7);
             select1.appendChild(op1);
             select1.appendChild(op2);
@@ -188,6 +193,7 @@
             
             td5.innerHTML = tit3;
             tr.appendChild(td5);
+            select2.appendChild(op11);
             select2.appendChild(op8);
             select2.appendChild(op4);
             select2.appendChild(op5);
@@ -201,11 +207,12 @@
             select3.appendChild(op7);
             select3.appendChild(op8);
             select3.appendChild(op9);
+            td10.appendChild(select3);
+            tr.appendChild(td10);
             
             fObject.appendChild(tr);
                
-        }
-         
+        }         
         
         function addRow(tableID) {
             fCount++;
@@ -1268,7 +1275,7 @@ function cambia_carrera(){
                                   <td>Lengua materna: </td>
 
                                   <td>
-                                   <html:text name="PlanillaExt" property="lenguaMaterna" maxlength="80" errorStyleClass="error"
+                                   <html:text name="Idiomas" property="lenguaMaterna" maxlength="80" errorStyleClass="error"
                                            errorKey="org.apache.struts.action.ERROR"></html:text>
                                   </td>
 
@@ -1281,13 +1288,13 @@ function cambia_carrera(){
                                   <td>¿Le gustaría tomar un curso de español? </td>
 
                                   <td>
-                                      <html:radio name="PlanillaExt" property="tomarCursoDeEspaniol" value="Sí" errorStyleClass="error"
-                                           errorKey="org.apache.struts.action.ERROR"></html:radio>
+                                      <html:radio name="Idiomas" property="tomarCursoDeEspaniol" value="Sí" errorStyleClass="error"
+                                           errorKey="org.apache.struts.action.ERROR">Sí</html:radio>
                                   </td>
                                   
                                   <td>
-                                      <html:radio name="PlanillaExt" property="tomarCursoDeEspaniol" value="No" errorStyleClass="error"
-                                           errorKey="org.apache.struts.action.ERROR"></html:radio>
+                                      <html:radio name="Idiomas" property="tomarCursoDeEspaniol" value="No" errorStyleClass="error"
+                                           errorKey="org.apache.struts.action.ERROR">No</html:radio>
                                   </td>
 
                                   <td>
