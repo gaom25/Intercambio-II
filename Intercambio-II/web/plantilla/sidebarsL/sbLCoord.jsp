@@ -56,11 +56,6 @@
             Contactenos 
         </html:link>
     </div>
-    <div style="margin-top: 5px;padding-right:5px">
-        <html:link style="color:#126598" action="/BusquedaAvanzada">
-            Búsqueda Avanzada 
-        </html:link>
-    </div>
     <div style="height:20px"></div>
     
     <div>

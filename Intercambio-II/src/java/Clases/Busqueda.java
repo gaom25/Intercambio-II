@@ -10,7 +10,6 @@ package Clases;
  */
 public class Busqueda extends org.apache.struts.validator.ValidatorForm {
     
-    private String nombreSolicitante;
     private String nombre;
     private String apellido;
     private String carnet;
@@ -24,20 +23,7 @@ public class Busqueda extends org.apache.struts.validator.ValidatorForm {
         super();
     }
     
-    /**
-     * @return the nombreSolicitante
-     */
-    public String getNombreSolicitante() {
-        return nombreSolicitante;
-    }
-
-    /**
-     * @param nombre the nombreSolicitante to set
-     */
-    public void setNombreSolicitante(String nombreSolicitante) {
-        this.nombreSolicitante = nombreSolicitante;
-    }
-
+    
 
     /**
      * @return the nombre
