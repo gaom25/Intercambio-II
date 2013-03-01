@@ -1487,54 +1487,76 @@ public class DBMS {
         return false;
     }
 
-    public ArrayList<Usuario> listarBusquedaAvanzada(Busqueda busqueda) {
+     public ArrayList<Usuario> listarBusquedaAvanzada(Busqueda busqueda) {
 
         ArrayList<Usuario> usrs = new ArrayList<Usuario>(0);
-
-        if (busqueda.getNombre() == null || busqueda.getNombre().length() == 0) {
-            busqueda.setNombre("%");
+        String query2=" ";
+        boolean iniciado=false;
+        
+        if (busqueda.getNombre() != null || busqueda.getNombre().length() > 0) {
+                query2+="primernombre='"+busqueda.getNombre()+"' ";
+                iniciado=true;
         }
-
-        if (busqueda.getApellido() == null || busqueda.getApellido().length() == 0) {
-            busqueda.setApellido("%");
+        
+        if (busqueda.getApellido() != null || busqueda.getApellido().length() > 0) {
+            if(iniciado){
+                query2+=" AND ";
+            }
+            query2+="primerapellido='"+busqueda.getApellido()+"' ";
         }
-
-        if (busqueda.getCarnet() == null || busqueda.getCarnet().length() == 0) {
-            busqueda.setCarnet("%");
+        
+        if (busqueda.getCarnet() != null || busqueda.getCarnet().length() > 0) {
+            if(iniciado){
+                query2+=" AND ";
+            }
+            query2+="carnet='"+busqueda.getCarnet()+"' ";
         }
-
-        if (busqueda.getIndice() == null || busqueda.getIndice().length() == 0) {
-            busqueda.setIndice("~ '^[0-9]'");
+        
+        if (busqueda.getIndice() != null || busqueda.getIndice().length() > 0) {
+            if(iniciado){
+                query2+=" AND ";
+            }
+            query2+="indice "+busqueda.getIndice();
         }
-
-        if (busqueda.getIndicePonderado() == null || busqueda.getIndicePonderado().length() == 0) {
-            busqueda.setIndicePonderado("~ '^[0-9]'");
+        
+        if (busqueda.getIndicePonderado() != null || busqueda.getIndicePonderado().length() > 0) {
+            if(iniciado){
+                query2+=" AND ";
+            }
+            query2+="indiceponderado "+busqueda.getIndicePonderado();
         }
-
-        if (busqueda.getCarrera() == null || busqueda.getCarrera().length() == 0) {
-            busqueda.setCarrera("%");
+        
+        if (busqueda.getCarrera() != null || busqueda.getCarrera().length() > 0) {
+            if(iniciado){
+                query2+=" AND ";
+            }
+            query2+="carrera='"+busqueda.getCarrera()+"' ";
         }
-
-        if (busqueda.getOpcion1() == null || busqueda.getOpcion1().length() == 0) {
-            busqueda.setOpcion1("%");
+        
+        if (busqueda.getOpcion1() != null || busqueda.getOpcion1().length() > 0) {
+            if(iniciado){
+                query2+=" AND ";
+            }
+            query2+="opcion1='"+busqueda.getOpcion1()+"' ";
         }
-
-        if (busqueda.getOpcion2() == null || busqueda.getOpcion2().length() == 0) {
-            busqueda.setOpcion2("%");
+        
+        if (busqueda.getOpcion2() != null || busqueda.getOpcion2().length() > 0) {
+            if(iniciado){
+                query2+=" AND ";
+            }
+            query2+="opcion2='"+busqueda.getOpcion2()+"' ";
         }
-
+        
         try {
-            String sqlquery = "SELECT * FROM \"dycicle\".estudiante NATURAL JOIN"
-                    + "\"dycicle\".AntecedenteAcademico NATURAL JOIN "
-                    + "\"dycicle\".PlanillaUSB WHERE "
-                    + "(nombre LIKE '" + busqueda.getNombre() + "') AND "
-                    + "(apellido LIKE '" + busqueda.getApellido() + "') AND"
-                    + "(carnet LIKE '" + busqueda.getCarnet() + "') AND"
-                    + "(indice " + busqueda.getIndice() + ") AND"
-                    + "(indicePonderado " + busqueda.getIndicePonderado() + ") AND"
-                    + "(carrera LIKE '" + busqueda.getCarrera() + "') AND"
-                    + "(universidad1 LIKE '" + busqueda.getOpcion1() + "') AND"
-                    + "(universidad2 LIKE '" + busqueda.getOpcion2() + "');";
+            String sqlquery;
+            sqlquery = "SELECT * FROM \"dycicle\".estudiante NATURAL JOIN"
+             + "\"dycicle\".AntecedenteAcademico NATURAL JOIN "
+             + "\"dycicle\".PlanillaUSB NATURAL JOIN \"dycicle\".postulacion";
+            if(iniciado==true){
+                sqlquery+=" WHERE "+query2;
+            }
+            
+            query2+=";";
             Statement stmt = conexion.createStatement();
             ResultSet rs = stmt.executeQuery(sqlquery);
 
@@ -1546,11 +1568,10 @@ public class DBMS {
             }
 
         } catch (SQLException ex) {
-            ex.printStackTrace();
         }
         return usrs;
     }
-
+    
     public String getPrivilegioUsuario(String nombreUsuario) {
         String result = null;
         try {
