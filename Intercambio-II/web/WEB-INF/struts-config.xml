@@ -94,9 +94,7 @@
         <!-- Busqueda avanzada-->
         <action name="BusquedaAvanzada" path="/AccionBusquedaAvanzada" scope="session" type="Actions.AccionBusquedaAvanzada">
            <forward name="failure" path="accFallo"/>
-           <forward name="postulante" path="listarEstudiantes"/>
-           <forward name="gestor" path="listarEstudiantesPostulados"/>
-           <forward name="admin" path="listarEstudiantesPostulados"/>
+           <forward name="success" path="listarEstudiantesPostulados"/>
         </action>
         
         
