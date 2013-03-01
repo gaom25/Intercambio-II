@@ -66,13 +66,12 @@ public class PlanillaExt extends org.apache.struts.action.ActionForm {
     private ArrayList<Materias> lista;
     
     //Conocimiento de idiomas
-    private String lenguaMaterna;
+    
     private String idiomaDest;      //db
     private String nivelVerbal;     //db
     private String nivelEscrito;    //db
     private String nivelConversacional;
     
-    private boolean tomarCursoDeEspaniol;
     //Area Coordinacion (Postulacion)
     private String fechaSolicitud;          //db      
     private String recomendacion;           //db
@@ -346,13 +345,6 @@ public class PlanillaExt extends org.apache.struts.action.ActionForm {
         this.lista = lista;
     }
 
-    public String getLenguaMaterna() {
-        return lenguaMaterna;
-    }
-
-    public void setLenguaMaterna(String lenguaMaterna) {
-        this.lenguaMaterna = lenguaMaterna;
-    }
 
     public String getIdiomaDest() {
         return idiomaDest;
@@ -384,14 +376,6 @@ public class PlanillaExt extends org.apache.struts.action.ActionForm {
 
     public void setNivelConversacional(String nivelConversacional) {
         this.nivelConversacional = nivelConversacional;
-    }
-
-    public boolean isTomarCursoDeEspaniol() {
-        return tomarCursoDeEspaniol;
-    }
-
-    public void setTomarCursoDeEspaniol(boolean tomarCursoDeEspaniol) {
-        this.tomarCursoDeEspaniol = tomarCursoDeEspaniol;
     }
 
     public String getFechaSolicitud() {

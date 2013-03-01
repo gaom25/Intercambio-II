@@ -18,7 +18,8 @@ public class Idiomas extends org.apache.struts.action.ActionForm {
      Ademas se disponen de 3 indices para poder agregar cada formulario a su arraylist
      asociado y en la posicion que concuerden con el resto de los arraylist*/
     
-    
+    private String lenguaMaterna;
+    private String tomarCursoDeEspaniol;
     private String idiomaDest;
     private ArrayList listIdio;
     private String nivelVerbal;  
@@ -52,7 +53,23 @@ public class Idiomas extends org.apache.struts.action.ActionForm {
         del formulario, insertarlos en el arraylist asociado, aumentar su indice
         y poner un metodo para obtener el arraylist completo cuando se necesite.
         Ademas de proveer el getter y el setter del nombreusuario asociado al idioma.*/
-    
+
+    public String getLenguaMaterna() {
+        return lenguaMaterna;
+    }
+
+    public void setLenguaMaterna(String lenguaMaterna) {
+        this.lenguaMaterna = lenguaMaterna;
+    }
+
+    public String getTomarCursoDeEspaniol() {
+        return tomarCursoDeEspaniol;
+    }
+
+    public void setTomarCursoDeEspaniol(String tomarCursoDeEspaniol) {
+        this.tomarCursoDeEspaniol = tomarCursoDeEspaniol;
+    }
+
     public String getNombreusuario() {
         return nombreusuario;
     }
