@@ -881,6 +881,66 @@ public class DBMS {
         return false;
     }
 
+    
+    private ArrayList<Idiomas> obtenerIdiomas(Usuario u){
+    
+        ArrayList<Idiomas> idims = new ArrayList<Idiomas>();
+        
+        try {
+        String sqlquery = "SELECT * FROM \"dycicle\".idiomas "
+                    + " WHERE nombreusuario ='" + u.getNombreusuario() + "';";
+        
+        Statement stmt = conexion.createStatement();
+        ResultSet rs = stmt.executeQuery(sqlquery);
+        
+        while (rs.next()) {
+                Idiomas t = new Idiomas();
+                t.setIdiomaDest(rs.getString("nombreidioma"));
+                t.setNivelVerbal(rs.getString("nivelverbal"));
+                t.setNivelEscrito(rs.getString("nivelescrito"));
+                t.setNivelConversacional(rs.getString("niveleconversacional"));
+
+                idims.add(t);
+            }
+        
+        
+        }catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return idims;
+        
+    }
+    
+    private ArrayList<PlanDeEstudio> obtenerMaterias(Usuario u){
+    
+        ArrayList<PlanDeEstudio> matems = new ArrayList<PlanDeEstudio>();
+        
+        try {
+        String sqlquery = "SELECT * FROM \"dycicle\".planestudio "
+                    + " WHERE nombreusuario ='" + u.getNombreusuario() + "';";
+        
+        Statement stmt = conexion.createStatement();
+        ResultSet rs = stmt.executeQuery(sqlquery);
+        
+        while (rs.next()) {
+                PlanDeEstudio t = new PlanDeEstudio();
+                t.setMateriaUSB(0,rs.getString("materiausb"));
+                t.setCodigoUSB(0,rs.getString("codigousb"));
+                t.setCreditosUSB(0,rs.getInt("creditousb"));
+                t.setMateriaUniv(0,rs.getString("materiauniv"));
+                t.setCodigoUniv(0,rs.getString("codigouniv"));
+                t.setCreditosUniv(0,rs.getInt("creditouniv"));
+
+                matems.add(t);
+            }
+        
+        }catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return matems;
+        
+    }
+    
     public PlanillaUSB obtenerPlanillaUSB(Usuario u) {
 
         PlanillaUSB datos = new PlanillaUSB();
