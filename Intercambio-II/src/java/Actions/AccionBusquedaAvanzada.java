@@ -46,7 +46,7 @@ public class AccionBusquedaAvanzada extends org.apache.struts.action.Action {
         String priv=null;
         priv = DBMS.getInstance().getPrivilegioUsuario(busq.getNombreSolicitante());
         ArrayList<Usuario> users = DBMS.getInstance().listarBusquedaAvanzada(busq);
-        request.setAttribute("usuario", users);
+        request.setAttribute("usuarios", users);
         
         if(priv==null){
             return mapping.findForward(FAIL);
