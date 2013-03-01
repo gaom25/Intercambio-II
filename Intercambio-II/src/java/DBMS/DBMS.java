@@ -959,8 +959,7 @@ public class DBMS {
             ResultSet rs = stmt.executeQuery(sqlquery);
 
             boolean primeraUni = rs.next();
-            rs.next();
-            
+
             datos.setNombreUsuario(rs.getString("NombreUsuario"));
             datos.setApellido1(rs.getString("PrimerApellido"));
             datos.setApellido2(rs.getString("SegundoApellido"));
@@ -1024,6 +1023,70 @@ public class DBMS {
             datos.setMesFechaFin2(rs.getString("MesFechaFin"));
             datos.setAnoFechaFin2(rs.getString("AnioFechaFin"));
 
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
+        return datos;
+    }
+    
+     public PlanillaExt obtenerPlanillaExt(Usuario u) {
+
+        PlanillaExt datos = new PlanillaExt();
+
+        try {
+
+            String sqlquery = "SELECT * FROM \"dycicle\".estudiante NATURAL JOIN "
+                    + "\"dycicle\".estudianteusb NATURAL JOIN "
+                    + " \"dycicle\".AntecedenteAcademico NATURAL JOIN "
+                    + "\"dycicle\".Universidades NATURAL JOIN "
+                    + "\"dycicle\".Representante NATURAL JOIN "
+                    + " WHERE nombreusuario ='" + u.getNombreusuario() + "';";
+
+            Statement stmt = conexion.createStatement();
+            ResultSet rs = stmt.executeQuery(sqlquery);
+
+            boolean primeraUni = rs.next();
+
+            datos.setNombreUsuario(rs.getString("NombreUsuario"));
+            datos.setApellido1(rs.getString("PrimerApellido"));
+            datos.setApellido2(rs.getString("SegundoApellido"));
+            datos.setNombre1(rs.getString("PrimerNombre"));
+            datos.setNombre2(rs.getString("SegundoNombre"));
+            datos.setSexo(rs.getString("Sexo"));
+            datos.setCalle(rs.getString("Calle"));
+            datos.setEdificio(rs.getString("Edificio"));
+            datos.setApartamento(rs.getString("Apartamento"));
+            datos.setCiudad(rs.getString("Ciudad"));
+            datos.setEstado(rs.getString("Estado"));
+            datos.setCodPostal(rs.getString("CodPostal"));
+            datos.setTelefonoCasa(rs.getString("TelefonoCasa"));
+            datos.setTelefonoCelular(rs.getString("TelefonoCel"));
+            datos.setEmail(rs.getString("Email"));
+            datos.setFechaNacimiento(rs.getString("FechaNac"));
+            datos.setNacionalidad(rs.getString("Nacionalidad"));
+            datos.setApellidoRep1(rs.getString("pApellido"));
+            datos.setApellidoRep2(rs.getString("sApellido"));
+            datos.setNombreRep1(rs.getString("pNombre"));
+            datos.setNombreRep2(rs.getString("sNombre"));
+            datos.setCelRep(rs.getString("TelefonoCel"));
+            datos.setTlfRepCasa(rs.getString("TelefonoHab"));
+            datos.setEmailRep(rs.getString("EmailRep"));
+            datos.setRelacion(rs.getString("TipoRelacion"));
+            datos.setDireccionRep(rs.getString("Direccion"));
+            datos.setAreaEstud(rs.getString("AreaDeEstudio"));
+            datos.setCarrera(rs.getString("Carrera"));
+            datos.setAnioIngreso(rs.getInt("AnioIngreso"));
+            datos.setAniosAprobados(rs.getInt("AniosAprob"));
+            datos.setPrograma(rs.getString("TipoPrograma"));
+            datos.setNombrePrograma(rs.getString("NombrePrograma"));
+            datos.setDuracionPrograma(rs.getString("Duracion"));
+            datos.setPaisOrigen(rs.getString("PaisOrigen"));
+            datos.setNombreCoordAcademico("CoordAcademico");
+            datos.setNombreCoordMovilidad("CoordMovilidad");
+            datos.setNombreUniOrigen("UniOrigen");
+            datos.setPaisOrigen("PaisOrgen");
 
         } catch (SQLException ex) {
             ex.printStackTrace();
