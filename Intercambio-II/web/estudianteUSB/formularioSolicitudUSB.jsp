@@ -259,6 +259,7 @@
             var check = document.createElement("input");
             var tr = document.createElement("tr");
             var td = document.createElement("td");
+            var td3 = document.createElement("td");
             var div1 = document.createElement("div");
             var div2 = document.createElement("div");
                 
@@ -293,8 +294,8 @@
                 
             var segundo_p = document.getElementById(tableID).getElementsByTagName('td');
                 
-                
-            fObject.appendChild(tr).insertBefore(td2, segundo_p);
+            fObject.appendChild(tr).appendChild(td3);    
+        fObject.appendChild(tr).insertBefore(td2, segundo_p);
        
         }
  
@@ -1178,29 +1179,29 @@
                                 <tr>
                                     <td> Decanato: </td>
                                     <td>
-                                        <select id="dec" onchange="cambia_area()" property="decanato"> 
-                                            <option value="0" selected>Seleccione
-                                            <option value="1"> Decanato de Estudios Profesionales
-                                            <option value="2"> Decanato de Estudios Tecnológicos 
-                                        </select>
+                                        <html:select styleId="dec" onchange="cambia_area()" property="decanato"> 
+                                            <html:option value="0">Seleccione</html:option>
+                                            <html:option value="1"> Decanato de Estudios Profesionales</html:option>
+                                            <html:option value="2"> Decanato de Estudios Tecnológicos </html:option>
+                                        </html:select>
                                     </td>
                                 </tr>        
 
                                 <tr>
                                     <td> Área de Estudio: </td>
                                     <td>
-                                        <select id="area" onchange="cambia_carrera()" property="areaEstud"> 
-                                            <option value="-">- 
-                                        </select>
+                                        <html:select styleId="area" onchange="cambia_carrera()" property="areaEstud"> 
+                                            <html:option value="-">- </html:option>
+                                        </html:select>
                                     </td>
                                 </tr>                        
 
                                 <tr>
                                     <td> Carrera: </td>
                                     <td>
-                                        <select id="carr" property="carrera"> 
-                                            <option value="-">- 
-                                        </select>
+                                        <html:select styleId="carr" property="carrera"> 
+                                            <html:option value="-">- </html:option>
+                                        </html:select>
                                     </td>
                                 </tr>                                       
 
@@ -1418,24 +1419,26 @@
                                 <tbody id="dataBody">
                                     <tr>
                                         <td><INPUT type="checkbox" name="chk[]"/></td>
+                                        <td>Foto:</td>
+                                        <td valign="left">
+                                            <div id="archivos" >
+                                                <div class="feed">  
+                                                <%--<a>Foto:</a>--%>
+                                                <html:file value="hola" property="theFile[0]">holjkahgkadjghsadkjghdsakjhgsadkjghakshga</html:file>
+                                                    <br />
+                                                </div>
+                                            </div>
 
+                                        </td> 
+                                    </tr>
+                                    <tr>
+                                        <td><INPUT type="checkbox" name="chk[]"/></td>
+                                        <td>Cedula:</td>
                                         <td valign="middle">
                                             <div id="archivos" >
                                                 <div class="feed">  
-                                                <html:file property="theFile[0]" />
-                                                <br />
-                                            </div>
-                                        </div>
-
-                                    </td> 
-                                </tr>
-                                <tr>
-                                    <td><INPUT type="checkbox" name="chk[]"/></td>
-
-                                    <td valign="middle">
-                                        <div id="archivos" >
-                                            <div class="feed">  
-                                                <html:file property="theFile[1]" />
+                                                    
+                                                <html:file value="chao" property="theFile[1]" />
                                                 <br />
                                             </div>
                                         </div>

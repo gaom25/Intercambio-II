@@ -78,7 +78,9 @@ public class GenerarCarpeta extends org.apache.struts.action.Action {
         Document document = new Document(PageSize.LETTER);
 
         // Archivo de salida
-        String OUTPUTFILE = "/home/dreabalbas/Desktop/prueba.pdf";
+        String filePath =
+                getServlet().getServletContext().getRealPath("/") + "Documentos/" + u.getNombreusuario();
+        String OUTPUTFILE = filePath+"/carpeta.pdf";
 
         PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream(OUTPUTFILE));
         document.open();
@@ -100,12 +102,13 @@ public class GenerarCarpeta extends org.apache.struts.action.Action {
             
             String archivo = (String) it.next();
             
-            if (archivo.endsWith(".jpg")){
+            if ((archivo.endsWith(".jpg") || archivo.endsWith(".png")) && !archivo.endsWith("Foto.png") && !archivo.endsWith("Cedula.png")){
                 img = Image.getInstance(archivo);
               
                         
                 document.add(img);
-            }else if (archivo.endsWith(".pdf")){
+       
+            }else if (archivo.endsWith(".pdf") && !archivo.endsWith("carpeta.pdf")){
                 PdfReader reader = new PdfReader(archivo);
                 cantPaginas = reader.getNumberOfPages();
                 

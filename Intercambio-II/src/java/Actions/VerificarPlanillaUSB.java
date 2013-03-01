@@ -4,10 +4,7 @@
  */
 package Actions;
 
-import Clases.GeneradorPlanillas;
-import Clases.Materias;
-import Clases.Usuario;
-import Clases.PlanillaUSB;
+import Clases.*;
 import DBMS.DBMS;
 import java.util.ArrayList;
 import java.util.regex.Matcher;
@@ -18,7 +15,7 @@ import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
-import org.apache.struts.action.ActionMessage;
+
 
 /**
  *
@@ -299,7 +296,7 @@ public class VerificarPlanillaUSB extends org.apache.struts.action.Action {
                 GeneradorPlanillas g = new GeneradorPlanillas();
                 boolean ha = g.generarPlanillaUSB(p, filePath);
 
-                if (p==null & !DBMS.getInstance().InsertarPath(filePath, u)) {
+                if (p==null & ha & !DBMS.getInstance().InsertarPath(filePath, u)) {
                     return mapping.findForward(ERROR);
                 }
 

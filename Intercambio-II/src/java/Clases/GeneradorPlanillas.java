@@ -97,7 +97,7 @@ public class GeneradorPlanillas {
 
             document.add(imagen); // agrega la imagen al pdf
 
-            imagen = Image.getInstance("/home/brahyam/Documents/Sistemas de Informacion II/Proyecto Sistemas/Intercambio-II/Intercambio-II/web/images/usb_logo.png");
+            imagen = Image.getInstance("/home/gustavo/NetBeansProjects/Intercambio-II/Intercambio-II/web/images/usb_logo.png");
             imagen.setAbsolutePosition(50f, 680f); // define la posicion de la imagen
             imagen.scaleAbsolute(200f, 80f); // define el tamano de la imagen
 
@@ -537,6 +537,7 @@ public class GeneradorPlanillas {
 
         } catch (IOException ex) {
             Logger.getLogger(GeneradorPlanillas.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
         }
 
         return true;

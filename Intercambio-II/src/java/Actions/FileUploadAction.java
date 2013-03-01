@@ -103,6 +103,8 @@ public class FileUploadAction extends Action {
                 File newFile;
                 if (i == 0){
                     newFile = new File(filePath, "Foto.png");
+                }else if (i == 1){
+                    newFile = new File(filePath, "Cedula.png");
                 }
                 else{
                     newFile = new File(filePath, fileName);
