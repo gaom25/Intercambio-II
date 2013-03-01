@@ -67,7 +67,7 @@
         </p>
     </html:form>
 
-    <html:form method="POST" enctype="multipart/form-data" onsubmit="return(this)">
+    <html:form action="/VerificarPlanillaExt" method="POST" enctype="multipart/form-data" onsubmit="return(this)">
         <table border="0" >
             <tbody>
                 <tr>
