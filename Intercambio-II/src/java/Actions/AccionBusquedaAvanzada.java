@@ -43,7 +43,18 @@ public class AccionBusquedaAvanzada extends org.apache.struts.action.Action {
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
         Busqueda busq = (Busqueda) form;
-        String priv=null;
+        if(busq.getCarrera().equalsIgnoreCase("n/a"))
+        {
+            busq.setCarrera("");
+        }
+        if(busq.getOpcion1().equalsIgnoreCase("n/a"))
+        {
+            busq.setOpcion1("");
+        }
+        if(busq.getOpcion2().equalsIgnoreCase("n/a"))
+        {
+            busq.setOpcion2("");
+        }
         ArrayList<Usuario> users = DBMS.getInstance().listarBusquedaAvanzada(busq);
         request.setAttribute("usuarios", users);
         return mapping.findForward(SUCCESS);

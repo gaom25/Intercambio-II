@@ -81,6 +81,7 @@
                             <td style="color: black">Carrera: </td>
                             <td>
                                 <html:select  property="carrera">
+                                <html:option value="N/A"></html:option>
                                 <html:option value="Licenciatura en Quimica"></html:option>
                                 <html:option value="Licenciatura en Matematicas"></html:option>
                                 <html:option value="Licenciatura en Fisica"></html:option>

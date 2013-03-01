@@ -1490,73 +1490,70 @@ public class DBMS {
      public ArrayList<Usuario> listarBusquedaAvanzada(Busqueda busqueda) {
 
         ArrayList<Usuario> usrs = new ArrayList<Usuario>(0);
-        String query2=" ";
+        String query2="";
         boolean iniciado=false;
         
-        if (busqueda.getNombre() != null || busqueda.getNombre().length() > 0) {
-                query2+="primernombre='"+busqueda.getNombre()+"' ";
+        if (!busqueda.getNombre().equalsIgnoreCase("")) {
+                query2+="PrimerNombre='"+busqueda.getNombre()+"'";
                 iniciado=true;
-        }
-        
-        if (busqueda.getApellido() != null || busqueda.getApellido().length() > 0) {
-            if(iniciado){
-                query2+=" AND ";
-            }
-            query2+="primerapellido='"+busqueda.getApellido()+"' ";
-        }
-        
-        if (busqueda.getCarnet() != null || busqueda.getCarnet().length() > 0) {
-            if(iniciado){
-                query2+=" AND ";
-            }
-            query2+="carnet='"+busqueda.getCarnet()+"' ";
-        }
-        
-        if (busqueda.getIndice() != null || busqueda.getIndice().length() > 0) {
-            if(iniciado){
-                query2+=" AND ";
-            }
-            query2+="indice "+busqueda.getIndice();
-        }
-        
-        if (busqueda.getIndicePonderado() != null || busqueda.getIndicePonderado().length() > 0) {
-            if(iniciado){
-                query2+=" AND ";
-            }
-            query2+="indiceponderado "+busqueda.getIndicePonderado();
-        }
-        
-        if (busqueda.getCarrera() != null || busqueda.getCarrera().length() > 0) {
-            if(iniciado){
-                query2+=" AND ";
-            }
-            query2+="carrera='"+busqueda.getCarrera()+"' ";
-        }
-        
-        if (busqueda.getOpcion1() != null || busqueda.getOpcion1().length() > 0) {
-            if(iniciado){
-                query2+=" AND ";
-            }
-            query2+="opcion1='"+busqueda.getOpcion1()+"' ";
-        }
-        
-        if (busqueda.getOpcion2() != null || busqueda.getOpcion2().length() > 0) {
-            if(iniciado){
-                query2+=" AND ";
-            }
-            query2+="opcion2='"+busqueda.getOpcion2()+"' ";
-        }
-        
-        try {
-            String sqlquery;
-            sqlquery = "SELECT * FROM \"dycicle\".estudiante NATURAL JOIN"
-             + "\"dycicle\".AntecedenteAcademico NATURAL JOIN "
-             + "\"dycicle\".PlanillaUSB NATURAL JOIN \"dycicle\".postulacion";
-            if(iniciado==true){
-                sqlquery+=" WHERE "+query2;
-            }
+                
             
-            query2+=";";
+        }
+        
+        if (!busqueda.getApellido().equalsIgnoreCase("")) {
+            if(iniciado){
+                query2+=" AND ";
+            }
+            query2+="PrimerApellido='"+busqueda.getApellido()+"'";
+            iniciado=true;
+            
+        }
+            
+        
+        if (!busqueda.getCarnet().equalsIgnoreCase("")) {
+            if(iniciado){
+                query2+=" AND ";
+            }
+            query2+="Carnet='"+busqueda.getCarnet()+"'";
+            iniciado=true;
+            
+        }
+        
+        if (!busqueda.getIndice().equalsIgnoreCase("")) {
+            if(iniciado){
+                query2+=" AND ";
+            }
+            query2+="Indice "+busqueda.getIndice();
+            iniciado=true;
+        }
+        
+        
+        if (!busqueda.getIndicePonderado().equalsIgnoreCase("")) {
+            if(iniciado){
+                query2+=" AND ";
+            }
+            query2+="IndicePonderado "+busqueda.getIndicePonderado();
+            iniciado=true;
+        }
+        
+        if (!busqueda.getCarrera().equalsIgnoreCase("")) {
+            if(iniciado){
+                query2+=" AND ";
+            }
+            query2+="Carrera='"+busqueda.getCarrera()+"'";
+            iniciado=true;
+        }
+        
+        if(iniciado){
+            try {
+            String sqlquery = "SELECT * FROM \"dycicle\".estudiante NATURAL JOIN "
+                    + "\"dycicle\".postulacion NATURAL JOIN "
+                    + "\"dycicle\".estudianteusb NATURAL JOIN "
+                    + "\"dycicle\".antecedenteacademico ";
+            
+                sqlquery+="WHERE "+query2;
+            
+            sqlquery+=";";
             Statement stmt = conexion.createStatement();
             ResultSet rs = stmt.executeQuery(sqlquery);
 
@@ -1564,15 +1561,55 @@ public class DBMS {
                 Usuario u = new Usuario();
                 u.setNombreusuario(rs.getString("nombreusuario"));
                 u.setEmail(rs.getString("email"));
+                u.setConfirmar(rs.getString("estadopostulacion"));
                 usrs.add(u);
+            };
+              } catch (SQLException ex) {
+                ex.printStackTrace();
             }
-
-        } catch (SQLException ex) {
+            return usrs;
         }
-        return usrs;
+        
+        
+        if (!busqueda.getOpcion1().equalsIgnoreCase("")) {
+            if(iniciado){
+                query2+=" AND ";
+            }
+            query2+="universidad1='"+busqueda.getOpcion1()+"'";
+            iniciado=true;
+        }
+        
+        if (!busqueda.getOpcion2().equalsIgnoreCase("")) {
+            if(iniciado){
+                query2+=" AND ";
+            }
+            query2+="universidad2='"+busqueda.getOpcion2()+"'";
+            iniciado=true;
+        }
+        
+            try {
+                String sqlquery = "SELECT * FROM \"dycicle\".estudiante NATURAL JOIN"
+                        + " \"dycicle\".postulacion";
+                Statement stmt = conexion.createStatement();
+                ResultSet rs = stmt.executeQuery(sqlquery);
+
+                while (rs.next()) {
+                    Usuario u = new Usuario();
+                    u.setNombreusuario(rs.getString("nombreusuario"));
+                    u.setEmail(rs.getString("email"));
+                    u.setConfirmar(rs.getString("estadopostulacion"));
+                    usrs.add(u);
+                };
+                
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
+                return usrs;
+
+            
+        
     }
-    
-    public String getPrivilegioUsuario(String nombreUsuario) {
+        public String getPrivilegioUsuario(String nombreUsuario) {
         String result = null;
         try {
             String sqlQuery = "SELECT privilegio FROM \"dycicle\".usuario WHERE"
