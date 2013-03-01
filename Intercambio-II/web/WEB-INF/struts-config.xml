@@ -169,11 +169,11 @@
             validate="false"
             parameter="cuentaEstExt"/>
         
-        <action path="/modificarperExt"
+<!--        <action path="/modificarperExt"
             type="org.apache.struts.actions.ForwardAction"
             scope="request"
             validate="false"
-            parameter="modificarperExt"/>
+            parameter="modificarperExt"/>-->
         
         <action path="/contactoEstExt"
             type="org.apache.struts.actions.ForwardAction"
@@ -316,10 +316,14 @@
        </action>       
        
        <action name="Usuario" path="/ModificarPerUSB" scope="session" type="Actions.ModificarPerUSB">
-           <forward name="failure" path="accFallo"/>
-           <forward name="success" path="accionesEstUSB" />
-           <forward name="error" path="modificarperUSB"/>
+           <forward name="failureusb" path="accFallo"/>
+           <forward name="usb" path="accionesEstUSB" />
+           <forward name="failureext" path="accFalloExt"/>
+           <forward name="ext" path="accionesEstExt" />
+           <forward name="errorusb" path="modificarperUSB"/>
+           <forward name="errorext" path="modificarperExt"/>
        </action> 
+      
        
        <action name="Usuario" path="/ObtenerDatos" scope="session" type="Actions.ObtenerDatos">
             <forward name="failure" path="accFallo"/>

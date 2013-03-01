@@ -20,7 +20,7 @@
     <h4>Modificaci&oacute;n de Datos de Usuario</h4>
     <h5>Actualice sus datos</h5>
     <body onload="ClearForms()" onunload="ClearForms()">
-        <html:form action="/ModificarPerExt" onsubmit="return(this)">
+        <html:form action="/ModificarPerUSB" onsubmit="return(this)">
             <table border="0">
                 <tbody>
                     <tr>
