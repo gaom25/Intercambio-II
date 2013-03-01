@@ -47,7 +47,7 @@
         </p>
     </html:form>
 
-    <html:form  method="POST" enctype="multipart/form-data" onsubmit="return(this)">
+    <html:form action="/ListarDocumentos" method="POST" enctype="multipart/form-data" onsubmit="return(this)">
         <p hidden="true"><html:text name="Usuario" property="nombreUsuario" maxlength="20" errorStyleClass="error" value ="<%=tmp.toString()%>"
                    errorKey="org.apache.struts.action.ERROR"></html:text></p>
             <p style="text-align: center">
@@ -57,7 +57,7 @@
         </p>
     </html:form>
 
-    <html:form method="POST" enctype="multipart/form-data" onsubmit="return(this)">
+    <html:form action="/GenerarCarpeta" method="POST" enctype="multipart/form-data" onsubmit="return(this)">
         <p hidden="true"><html:text name="Usuario" property="nombreUsuario" maxlength="20" errorStyleClass="error" value ="<%=tmp.toString()%>"
                    errorKey="org.apache.struts.action.ERROR"></html:text></p>
             <p style="text-align: center">

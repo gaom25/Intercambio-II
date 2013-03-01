@@ -500,10 +500,12 @@
        </action>
 
 
-       <action input="/" name="Usuario" path="/GenerarCarpeta" scope="session" type="Actions.GenerarCarpeta">
-           <forward name="success" path="creacionplanillacorrecta" />
+       <action name="Usuario" path="/GenerarCarpeta" scope="session" type="Actions.GenerarCarpeta">
+           <forward name="successUSB" path="creacionplanillacorrecta" />
+           <forward name="successExt" path="creacionplanillacorrectaExt" />
+           <forward name="vacioUSB" path="sinArchivos" />
+           <forward name="vacioExt" path="sinArchivosExt" />
            <forward name="error" path="planillaIncompleta" />
-           <forward name="vacio" path="sinArchivos" />
        </action>      
 
       <action name="PlanillaExt" path="/CargarLlenarPlanillaExt" scope="session" type="Actions.CargarLlenarPlanillaExt">
@@ -554,6 +556,11 @@
             <forward name ="fail" path = "cargaincorrectaExt" />
             <forward name="error" path="cargaincorrectaExt" />
       </action>
+      
+      <action name="Usuario" path="/VerificarPlanillaExt" scope="session" type="Actions.VerificarPlanillaExt">
+          <forward name="success" path="creacionplanillacorrectaExt" />
+          <forward name="error" path="planillaIncompletaExt" />
+       </action>
     
 
     

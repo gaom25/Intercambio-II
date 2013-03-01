@@ -56,8 +56,10 @@ import java.util.Iterator;
 public class GenerarCarpeta extends org.apache.struts.action.Action {
 
     /* forward name="success" path="" */
-    private static final String SUCCESS = "success";
-    private static final String VACIO = "vacio";
+    private static final String SUCCESS_USB = "successUSB";
+    private static final String SUCCESS_Ext = "successExt";
+    private static final String VACIO_USB = "vacioUSB";
+    private static final String VACIO_Ext = "vacioEXT";
 
     /**
      * This is the action called from the Struts framework.
@@ -87,41 +89,87 @@ public class GenerarCarpeta extends org.apache.struts.action.Action {
         
         ArrayList<String> files = DBMS.getInstance().listarDocumentos(u);
         
-        if (files == null){
-            return mapping.findForward(VACIO);
-        }
+        if (u.getPrivilegio() == 5){
+            if (files == null){
+                return mapping.findForward(VACIO_USB);
+            }else{
+                Iterator it = files.iterator();
         
-        Iterator it = files.iterator();
-        
-        Image img;
-        PdfImportedPage pagina;
-        int cantPaginas;
-        Image aux;
-        
-        while (it.hasNext()){
-            
-            String archivo = (String) it.next();
-            
-            if ((archivo.endsWith(".jpg") || archivo.endsWith(".png")) && !archivo.endsWith("Foto.png") && !archivo.endsWith("Cedula.png")){
-                img = Image.getInstance(archivo);
-              
-                        
-                document.add(img);
-       
-            }else if (archivo.endsWith(".pdf") && !archivo.endsWith("carpeta.pdf")){
-                PdfReader reader = new PdfReader(archivo);
-                cantPaginas = reader.getNumberOfPages();
-                
-                for (int i = 1; i <= cantPaginas; i++) {
-                    pagina = writer.getImportedPage(reader, i);
-                    aux = Image.getInstance(pagina);
-                    document.add(aux);     
+                Image img;
+                PdfImportedPage pagina;
+                int cantPaginas;
+                Image aux;
+
+                while (it.hasNext()){
+
+                    String archivo = (String) it.next();
+
+                    if ((archivo.endsWith(".jpg") || archivo.endsWith(".png")) && !archivo.endsWith("Foto.png") && !archivo.endsWith("Cedula.png")){
+                        img = Image.getInstance(archivo);
+
+
+                        document.add(img);
+
+                    }else if (archivo.endsWith(".pdf") && !archivo.endsWith("carpeta.pdf")){
+                        PdfReader reader = new PdfReader(archivo);
+                        cantPaginas = reader.getNumberOfPages();
+
+                        for (int i = 1; i <= cantPaginas; i++) {
+                            pagina = writer.getImportedPage(reader, i);
+                            aux = Image.getInstance(pagina);
+                            document.add(aux);     
+                        }
+                    }            
                 }
-            }            
+
+                document.close();
+
+                return mapping.findForward(SUCCESS_USB);
+           }
+            
         }
-    
-        document.close();
         
-        return mapping.findForward(SUCCESS);
+        if (u.getPrivilegio() == 6){
+            if (files == null){
+                return mapping.findForward(VACIO_Ext);
+            }else{
+                Iterator it = files.iterator();
+        
+                Image img;
+                PdfImportedPage pagina;
+                int cantPaginas;
+                Image aux;
+
+                while (it.hasNext()){
+
+                    String archivo = (String) it.next();
+
+                    if ((archivo.endsWith(".jpg") || archivo.endsWith(".png")) && !archivo.endsWith("Foto.png") && !archivo.endsWith("Cedula.png")){
+                        img = Image.getInstance(archivo);
+
+
+                        document.add(img);
+
+                    }else if (archivo.endsWith(".pdf") && !archivo.endsWith("carpeta.pdf")){
+                        PdfReader reader = new PdfReader(archivo);
+                        cantPaginas = reader.getNumberOfPages();
+
+                        for (int i = 1; i <= cantPaginas; i++) {
+                            pagina = writer.getImportedPage(reader, i);
+                            aux = Image.getInstance(pagina);
+                            document.add(aux);     
+                        }
+                    }            
+                }
+
+                document.close();
+
+                return mapping.findForward(SUCCESS_Ext);
+           }
+            
+        }
+        
+        return mapping.findForward("error");
     }
+    
 }

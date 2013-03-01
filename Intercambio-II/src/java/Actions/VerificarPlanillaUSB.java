@@ -46,7 +46,11 @@ public class VerificarPlanillaUSB extends org.apache.struts.action.Action {
         ActionErrors error = new ActionErrors();
         boolean huboError = false;
 
+        //KATTY AQUI ESTAN LAS COSAS QUE LES TIENES QUE PASAR COMO PARAMETRO
         Clases.PlanillaUSB p = DBMS.getInstance().obtenerPlanillaUSB(u);
+        ArrayList<Idiomas> idiomas; //= DBMS.getInstance().;
+        ArrayList<Materias> materias; //= DBMS.getInstance().;
+
 
         String nom = u.getNombreusuario();
         String filePath =
