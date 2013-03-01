@@ -725,19 +725,41 @@ public class DBMS {
             String sqlqueryEstudianteUSB = "UPDATE \"dycicle\".estudianteUSB SET "
                     + "Cedula = '" + p.getCedula() + "',"
                     + "Carnet = '" + p.getCarnet() + "';";
+            
+            //Verificamos si el estudiante tiene algun representante ya creado
+            String sqlqueryRep = "SELECT nombreusuario FROM \"dycicle\".representante WHERE"
+                    + " nombreusuario='" + p.getNombreUsuario() + "';";
+            Statement stmt = conexion.createStatement();
+            ResultSet rs = stmt.executeQuery(sqlqueryRep);
+            
+            String sqlqueryRepresentante;
+            if (rs.next()){
+                sqlqueryRepresentante = "UPDATE \"dycicle\".Representante SET "
+                    + "NombreUsuario = '" + p.getNombreUsuario() + "',"
+                    + "pNombre = '" + p.getNombreRep1() + "', "
+                    + "sNombre = '" + p.getNombreRep2() + "', "
+                    + "pApellido = '" + p.getApellidoRep1() + "', "
+                    + "sApellido = '" + p.getApellidoRep2() + "', "
+                    + "TelefonoCel= '" + p.getCelRep() + "', "
+                    + "TelefonoHab= '" + p.getTlfRepCasa() + "', "
+                    + "EmailRep= '" + p.getEmailRep() + "', "
+                    + "TipoRelacion= '" + p.getRelacion() + "', "
+                    + "Direccion = '" + p.getDireccionRep() + "';";
+            } else{
 
-            // Datos del representante
-            String sqlqueryRepresentante = "INSERT INTO \"dycicle\".Representante VALUES ("
-                    + "'" + p.getNombreUsuario() + "', "
-                    + "'" + p.getNombreRep1() + "', "
-                    + "'" + p.getNombreRep2() + "', "
-                    + "'" + p.getApellidoRep1() + "', "
-                    + "'" + p.getApellidoRep2() + "', "
-                    + "'" + p.getCelRep() + "', "
-                    + "'" + p.getTlfRepCasa() + "', "
-                    + "'" + p.getEmailRep() + "', "
-                    + "'" + p.getRelacion() + "', "
-                    + "'" + p.getDireccionRep() + "');";
+                // Datos del representante
+                sqlqueryRepresentante = "INSERT INTO \"dycicle\".Representante VALUES ("
+                        + "'" + p.getNombreUsuario() + "', "
+                        + "'" + p.getNombreRep1() + "', "
+                        + "'" + p.getNombreRep2() + "', "
+                        + "'" + p.getApellidoRep1() + "', "
+                        + "'" + p.getApellidoRep2() + "', "
+                        + "'" + p.getCelRep() + "', "
+                        + "'" + p.getTlfRepCasa() + "', "
+                        + "'" + p.getEmailRep() + "', "
+                        + "'" + p.getRelacion() + "', "
+                        + "'" + p.getDireccionRep() + "');";
+            }
 
             //Antecedentes Academicos
             String sqlqueryAntecedente = "UPDATE \"dycicle\".AntecedenteAcademico SET "
@@ -782,7 +804,7 @@ public class DBMS {
                     + "'" + p.getAyudaEc() + "', "
                     + "'" + p.getDescripcion2() + "');";
 
-            Statement stmt = conexion.createStatement();
+            stmt = conexion.createStatement();
 
 
             Integer i = stmt.executeUpdate(sqlqueryEstudiante);
@@ -911,9 +933,9 @@ public class DBMS {
         
     }
     
-    private ArrayList<PlanDeEstudio> obtenerMaterias(Usuario u){
+    private ArrayList<Materias> obtenerMaterias(Usuario u){
     
-        ArrayList<PlanDeEstudio> matems = new ArrayList<PlanDeEstudio>();
+        ArrayList<Materias> matems = new ArrayList<Materias>();
         
         try {
         String sqlquery = "SELECT * FROM \"dycicle\".planestudio "
@@ -923,13 +945,13 @@ public class DBMS {
         ResultSet rs = stmt.executeQuery(sqlquery);
         
         while (rs.next()) {
-                PlanDeEstudio t = new PlanDeEstudio();
-                t.setMateriaUSB(0,rs.getString("materiausb"));
-                t.setCodigoUSB(0,rs.getString("codigousb"));
-                t.setCreditosUSB(0,rs.getInt("creditousb"));
-                t.setMateriaUniv(0,rs.getString("materiauniv"));
-                t.setCodigoUniv(0,rs.getString("codigouniv"));
-                t.setCreditosUniv(0,rs.getInt("creditouniv"));
+                Materias t = new Materias();
+                t.setDenominacionUSB(rs.getString("materiausb"));
+                t.setCodigoUSB(rs.getString("codigousb"));
+                t.setCreditosUSB(rs.getString("creditousb"));
+                t.setDenominacionExt(rs.getString("materiauniv"));
+                t.setCodigoExt(rs.getString("codigouniv"));
+                t.setCreditosExt(rs.getString("creditouniv"));
 
                 matems.add(t);
             }
