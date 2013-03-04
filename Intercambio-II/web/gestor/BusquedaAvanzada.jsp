@@ -29,7 +29,7 @@
                         <tr>
                             <td style="color: black">Nombre:</td>
                             <td>
-                                <html:text property="nombre" maxlength="20" errorStyleClass="error"
+                                <html:text property="nombre" maxlength="30" errorStyleClass="error"
                                            errorKey="org.apache.struts.action.ERROR"></html:text>
                                 </td>
                                 <td>
@@ -39,7 +39,7 @@
                         <tr>
                             <td style="color: black">Apellido:</td>
                             <td>
-                                <html:text property="apellido" maxlength="20" errorStyleClass="error"
+                                <html:text property="apellido" maxlength="30" errorStyleClass="error"
                                            errorKey="org.apache.struts.action.ERROR"></html:text>
                                 </td>
                                 <td>
@@ -59,7 +59,7 @@
                         <tr>
                             <td style="color: black">Indice:</td>
                             <td>
-                                <html:text property="indice" maxlength="5" errorStyleClass="error"
+                                <html:text property="indice" maxlength="7" errorStyleClass="error"
                                            errorKey="org.apache.struts.action.ERROR"></html:text>
                                 </td>
                                 <td>
@@ -69,7 +69,7 @@
                         <tr>
                             <td style="color: black">Indice Ponderado:</td>
                             <td>
-                                <html:text property="indicePonderado" maxlength="5" errorStyleClass="error"
+                                <html:text property="indicePonderado" maxlength="7" errorStyleClass="error"
                                            errorKey="org.apache.struts.action.ERROR"></html:text>
                                 </td>
                                 <td>
