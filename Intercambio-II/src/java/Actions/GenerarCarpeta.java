@@ -48,6 +48,7 @@ import com.itextpdf.text.pdf.PdfImportedPage;
 import com.itextpdf.text.pdf.PdfReader;
 import java.util.ArrayList;
 import java.util.Iterator;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -76,6 +77,7 @@ public class GenerarCarpeta extends org.apache.struts.action.Action {
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
         
+        HttpSession session = request.getSession(true);
         Usuario u = (Usuario) form;
         Document document = new Document(PageSize.LETTER);
 
@@ -124,6 +126,7 @@ public class GenerarCarpeta extends org.apache.struts.action.Action {
 
                 document.close();
 
+                session.setAttribute("carpeta",OUTPUTFILE );
                 return mapping.findForward(SUCCESS_USB);
            }
             
@@ -163,7 +166,7 @@ public class GenerarCarpeta extends org.apache.struts.action.Action {
                 }
 
                 document.close();
-
+                session.setAttribute("carpeta",OUTPUTFILE);
                 return mapping.findForward(SUCCESS_Ext);
            }
             
