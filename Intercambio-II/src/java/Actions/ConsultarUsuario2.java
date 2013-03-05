@@ -38,7 +38,9 @@ public class ConsultarUsuario2 extends org.apache.struts.action.Action {
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
             Usuario user = (Usuario) form;
+            String redi = user.getConfirmar();
             user = DBMS.getInstance().obtenerDatos(user);
+            
         if( user.getNombreusuario() != null){
             Integer tmp = user.getPrivilegio();
             if (tmp == 1){
@@ -56,6 +58,13 @@ public class ConsultarUsuario2 extends org.apache.struts.action.Action {
             }
             
             request.setAttribute("usuario", user);
+            
+            if(redi.equals("postulante")){
+                return mapping.findForward("postu");  
+            }else if(redi.equals("gestor")){
+                return mapping.findForward("gestor");  
+            }
+            
             return mapping.findForward(SUCCESS);  
         }else{
             return mapping.findForward(FAIL); 

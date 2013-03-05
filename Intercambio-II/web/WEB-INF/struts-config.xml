@@ -333,6 +333,8 @@
        <action name="Usuario" path="/ConsultarUsuario2" scope="session" type="Actions.ConsultarUsuario2">
             <forward name="failure" path="accFallo"/>
             <forward name="success" path="mostrarUsuario" />
+            <forward name="postu" path="mostrarUsuarioPostulante" />
+            <forward name="gestor" path="mostrarUsuarioGestor" />
        </action>       
        
        <action name="Usuario" path="/ConsultarPreregistro" scope="session" type="Actions.ConsultarPreregistro">

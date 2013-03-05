@@ -26,15 +26,16 @@
     <p hidden="true"><bean:write name="Usuario" property="email"></bean:write></p>
     <p hidden="true"><bean:write name="Usuario" property="nombreusuario"></bean:write></p>
 
-    <h4 align ="center">Postulante</h4>
-    <h5 align ="center">¿Qu&eacute; desea hacer?</h5>
+        <h4 align ="center">Postulante</h4>
+        <h5 align ="center">¿Qu&eacute; desea hacer?</h5>
 
     <html:link action="/AgregarEstudiantes">
         <p align ="center">Agregar Estudiante</p>
     </html:link>
-
-    <html:link action="/ListarEstudiantes">
-        <p align ="center">Consultar Estudiantes</p>
-    </html:link> 
-
+        <div align="center">
+        <html:form action="/ListarEstudiantes">
+            <html:hidden name="Usuario" property="nombreusuario" value="<%=var2.toString()%>"/>
+            <html:submit style=";">Consultar Estudiantes</html:submit>
+        </html:form> 
+    </div>
 </html:html>

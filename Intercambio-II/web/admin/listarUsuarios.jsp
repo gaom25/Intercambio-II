@@ -46,6 +46,7 @@
                             <td align="center" width="150px">
                                 <html:form action="/ConsultarUsuario2" onsubmit="return(this)">
                                     <html:hidden name = "usuarios" property="nombreusuario"/>
+                                    <html:hidden name = "usuarios" property="confirmar" value="admin"/>
                                     <html:image src="images/verDatos.png" styleClass="button" value="" property="" style=""/> 
                                 </html:form>
                             </td>

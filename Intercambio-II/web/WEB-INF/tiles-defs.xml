@@ -374,6 +374,10 @@
             <definition name="busquedaAvanzada" extends="baseGestor">
                 <put name="body" value="/gestor/BusquedaAvanzada.jsp"/>
             </definition>
+            
+            <definition name="mostrarUsuarioGestor" extends="baseGestor"> <!-- pagina de listar usuarios -->
+                <put name="body" value="/gestor/mostrarUsuario.jsp" />
+            </definition>
 
         
  
@@ -429,6 +433,10 @@
             
             <definition name="elimExitoCoord" extends="baseCoordinaciones"> <!-- pagina de exito al eliminar usuario -->
                 <put name="body" value="/postulante/elimExitoCoord.jsp"/>
+            </definition>
+            
+            <definition name="mostrarUsuarioPostulante" extends="baseCoordinaciones"> <!-- pagina de listar usuarios -->
+                <put name="body" value="/postulante/mostrarUsuario.jsp" />
             </definition>
         
         
