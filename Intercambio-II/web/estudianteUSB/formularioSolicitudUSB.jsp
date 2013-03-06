@@ -17,7 +17,7 @@
 <html:html lang="true">
 
     <script language="javascript">
-        var fCount = 0;
+        var fCount = 1;
         var Count = 0;
         var mCount = 0;
         
@@ -317,6 +317,7 @@
                         table.deleteRow(i);
                         rowCount--;
                         i--;
+                        fCount--;
                     }
 	
                 }
@@ -325,6 +326,35 @@
                 alert(e);
             }
         }
+        
+        function deleteRow2(tableID) {
+            try {
+
+                var table = document.getElementById(tableID);
+                var rowCount = table.rows.length;
+	
+                for(var i=0; i<rowCount; i++) {
+                    var row = table.rows[i];
+                    var chkbox = row.cells[0].childNodes[0];
+                    if(null != chkbox && true == chkbox.checked) {
+				
+                        if(rowCount <= 1) {
+                            alert("No puede borrar todas las opciones");
+                            break;
+                        }
+                        table.deleteRow(i);
+                        rowCount--;
+                        i--;
+                        Count--;
+                    }
+	
+                }
+		
+            } catch(e) {
+                alert(e);
+            }
+        }
+        
         
         function deletePlan(tableID) {
             try {
@@ -345,6 +375,7 @@
                         table.deleteRow(i);
                         rowCount--;
                         i--;
+                        mCount--;
                     }
 	
                 }
@@ -1607,7 +1638,7 @@ function cambia_universidad2(){
                         </tbody>
                     </table>
                     <input type="button"  value="Especificar Otro Idioma" style="font-size:16px; padding:4px 6px;" onclick="addIdi('IdioBody')"/>
-                    <input type="button" value="Eliminar Seleccionados" style="font-size:16px; padding:4px 6px" onclick="deleteRow('IdioBody')"/>
+                    <input type="button" value="Eliminar Seleccionados" style="font-size:16px; padding:4px 6px" onclick="deleteRow2('IdioBody')"/>
 
                     <p  align=center>
                         <html:submit> Enviar Formulario </html:submit>
