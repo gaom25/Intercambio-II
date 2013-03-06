@@ -510,7 +510,7 @@
        
        
        <action input="/" path="/AccionPlanDeEstudio" type="Actions.AccionPlanDeEstudio" scope="request" name="PlanDeEstudio" >
-           <forward name ="success" path="cargaplancorrectaExt" />
+           <forward name ="success" path="cargaplancorrecta" />
        </action>
 
 
