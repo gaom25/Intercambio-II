@@ -41,7 +41,7 @@
                     <tr>
                         <td style="color: black">Email</td>
                         <td>
-                            <html:text name="Usuario" property="email" value="" maxlength="30" errorStyleClass="error" value=""
+                            <html:text name="Usuario" property="email" value="" maxlength="30" errorStyleClass="error"
                                        errorKey="org.apache.struts.action.ERROR"></html:text>
                         </td>
                         <td>

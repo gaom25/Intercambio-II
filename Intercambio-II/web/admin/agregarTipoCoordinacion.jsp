@@ -30,7 +30,7 @@
                     <tr>
                         <td style="color: black">Nombre de usuario</td>
                         <td>
-                            <html:text name="Postulante" property="nombreusuario" maxlength="30" value="" errorStyleClass="error"
+                            <html:text name="Postulante" property="nombreusuario" maxlength="100" value="" errorStyleClass="error"
                                        errorKey="org.apache.struts.action.ERROR"></html:text>
                             </td>
                             <td>
