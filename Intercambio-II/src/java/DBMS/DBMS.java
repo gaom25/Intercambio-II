@@ -775,6 +775,7 @@ public class DBMS {
             // Opciones de uni de intercambios
             String sqlqueryUni1 = "INSERT INTO \"dycicle\".Universidades VALUES ("
                     + "'" + p.getNombreUsuario() + "', "
+                    + "'1', "                           //Prioridad 
                     + "'" + p.getNombreOpcion1() + "', "
                     + "'" + p.getPaisOpcion1() + "', "
                     + "'" + p.getProgramaOpcion1() + "', "
@@ -787,6 +788,7 @@ public class DBMS {
 
             String sqlqueryUni2 = "INSERT INTO \"dycicle\".Universidades VALUES ("
                     + "'" + p.getNombreUsuario() + "', "
+                    + "'2', "                           //Prioridad
                     + "'" + p.getNombreOpcion2() + "', "
                     + "'" + p.getPaisOpcion2() + "', "
                     + "'" + p.getProgramaOpcion2() + "', "
@@ -879,6 +881,7 @@ public class DBMS {
             // Opciones de uni de intercambios
             String sqlqueryUni1 = "INSERT INTO \"dycicle\".Universidades VALUES ("
                     + "'" + p.getNombreUsuario() + "', "
+                    + "'1', "                           //Prioridad
                     + "'Universidad Simon Bolivar', "
                     + "'Venezuela', "
                     + "'" + p.getPrograma() + "', "
@@ -972,7 +975,6 @@ public class DBMS {
             String sqlquery = "SELECT * FROM \"dycicle\".estudiante NATURAL JOIN "
                     + "\"dycicle\".estudianteusb NATURAL JOIN "
                     + " \"dycicle\".AntecedenteAcademico NATURAL JOIN "
-                    + "\"dycicle\".Universidades NATURAL JOIN "
                     + "\"dycicle\".Financiamiento "
                     + " WHERE nombreusuario ='" + u.getNombreusuario() + "';";
 
@@ -984,7 +986,15 @@ public class DBMS {
             
             stmt = conexion.createStatement();
             ResultSet rs2 = stmt.executeQuery(sqlquery);
-            rs2.next();
+            rs2.next(); //Informacion del representante
+            
+            sqlquery = "SELECT * FROM \"dycicle\".universidades "
+                    + "WHERE nombreusuario = '" + u.getNombreusuario() + "' "
+                    + "ORDER BY prioridad;";
+            
+            stmt = conexion.createStatement();
+            ResultSet rs3 = stmt.executeQuery(sqlquery);
+            rs3.next(); //Informacion de la primera opcion de universidad
 
             boolean primeraUni = rs.next();
             datos.setNombreUsuario(rs.getString("NombreUsuario"));
@@ -1029,26 +1039,26 @@ public class DBMS {
             datos.setAyudaEc(rs.getString("TieneBecaDe"));
             datos.setDescripcion1(rs.getString("DescrFuente"));
             datos.setDescripcion2(rs.getString("DescrBeca"));
-            datos.setProgramaOpcion1(rs.getString("TipoPrograma"));
-            datos.setNombreProgramaOpcion1(rs.getString("NombrePrograma"));
-            datos.setDuracionProgramaOpcion1(rs.getString("Duracion"));
-            datos.setPaisOpcion1(rs.getString("Pais"));
-            datos.setNombreOpcion1(rs.getString("NombreUni"));
-            datos.setMesFechaIni1(rs.getString("MesFechaIni"));
-            datos.setAnoFechaIni1(rs.getString("AnioFechaIni"));
-            datos.setMesFechaFin1(rs.getString("MesFechaFin"));
-            datos.setAnoFechaFin1(rs.getString("AnioFechaFin"));
+            datos.setProgramaOpcion1(rs3.getString("TipoPrograma"));
+            datos.setNombreProgramaOpcion1(rs3.getString("NombrePrograma"));
+            datos.setDuracionProgramaOpcion1(rs3.getString("Duracion"));
+            datos.setPaisOpcion1(rs3.getString("Pais"));
+            datos.setNombreOpcion1(rs3.getString("NombreUni"));
+            datos.setMesFechaIni1(rs3.getString("MesFechaIni"));
+            datos.setAnoFechaIni1(rs3.getString("AnioFechaIni"));
+            datos.setMesFechaFin1(rs3.getString("MesFechaFin"));
+            datos.setAnoFechaFin1(rs3.getString("AnioFechaFin"));
 
-            boolean segundaUni = rs.next();
-            datos.setProgramaOpcion2(rs.getString("TipoPrograma"));
-            datos.setNombreProgramaOpcion2(rs.getString("NombrePrograma"));
-            datos.setDuracionProgramaOpcion2(rs.getString("Duracion"));
-            datos.setPaisOpcion2(rs.getString("Pais"));
-            datos.setNombreOpcion2(rs.getString("NombreUni"));
-            datos.setMesFechaIni2(rs.getString("MesFechaIni"));
-            datos.setAnoFechaIni2(rs.getString("AnioFechaIni"));
-            datos.setMesFechaFin2(rs.getString("MesFechaFin"));
-            datos.setAnoFechaFin2(rs.getString("AnioFechaFin"));
+            boolean segundaUni = rs3.next();
+            datos.setProgramaOpcion2(rs3.getString("TipoPrograma"));
+            datos.setNombreProgramaOpcion2(rs3.getString("NombrePrograma"));
+            datos.setDuracionProgramaOpcion2(rs3.getString("Duracion"));
+            datos.setPaisOpcion2(rs3.getString("Pais"));
+            datos.setNombreOpcion2(rs3.getString("NombreUni"));
+            datos.setMesFechaIni2(rs3.getString("MesFechaIni"));
+            datos.setAnoFechaIni2(rs3.getString("AnioFechaIni"));
+            datos.setMesFechaFin2(rs3.getString("MesFechaFin"));
+            datos.setAnoFechaFin2(rs3.getString("AnioFechaFin"));
 
 
         } catch (SQLException ex) {
