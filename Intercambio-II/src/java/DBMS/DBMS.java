@@ -348,7 +348,7 @@ public class DBMS {
 
             //Insercion dentro de la tabla estudianteInternacional
             String sqlquery2 = "INSERT INTO \"dycicle\".estudianteInternacional VALUES('" + e.getNombreusuario()
-                    + "', '" + e.getPasaporte() + "', 'null', 'null', 'null', 'no');";
+                    + "', '" + e.getPasaporte() + "', 'null', 'null', 'null', 'No');";
 
             //Insercion dentro de la tabla AntecedenteAcademico
             String sqlqueryAntecedente = "INSERT INTO \"dycicle\".AntecedenteAcademico VALUES ('"

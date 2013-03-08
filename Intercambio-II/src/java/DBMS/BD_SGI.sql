@@ -11,7 +11,7 @@ CREATE TABLE "dycicle".USUARIO(
 	Privilegio	NUMERIC(2)	NOT NULL,
 	Nombre		VARCHAR(100)	NOT NULL,
 	Contrasena	VARCHAR(30)	NOT NULL,
-        FechaCreacion	timestamp with time zone NOT NULL default CURRENT_TIMESTAMP(2),
+    FechaCreacion	timestamp with time zone NOT NULL default CURRENT_TIMESTAMP(2),
 	CONSTRAINT 	PK_Usuario	PRIMARY KEY (NombreUsuario)
 )
 WITH (
@@ -23,30 +23,29 @@ OIDS = FALSE
  * para  postularse  a  un  intercambio             */
 CREATE TABLE "dycicle".ESTUDIANTE(
 	NombreUsuario	VARCHAR(20)	NOT NULL,
-        Origen          VARCHAR(50),
+    Origen          VARCHAR(50),
  	PrimerNombre 	VARCHAR(30)	NOT NULL,
-        SegundoNombre 	VARCHAR(30),
+    SegundoNombre 	VARCHAR(30),
 	PrimerApellido	VARCHAR(30)	NOT NULL,
-        SegundoApellido	VARCHAR(30),
-        Carrera         VARCHAR(30),
-        CodCarrera      NUMERIC(4),
- 	Sexo		VARCHAR(10),
-        Urbanizacion    VARCHAR(30), /*O sector o barrio*/
-        Calle           VARCHAR(30),
-        Edificio        VARCHAR(30), /*O numero de casa*/
-        Apartamento     VARCHAR(20),
-        Ciudad          VARCHAR(30),
-        Estado          VARCHAR(30),
-        CodPostal       VARCHAR(30),
+    SegundoApellido	VARCHAR(30),
+    Carrera         VARCHAR(30),
+    CodCarrera      NUMERIC(4),
+ 	Sexo		    VARCHAR(10),
+    Urbanizacion    VARCHAR(30), /*O sector o barrio*/
+    Calle           VARCHAR(30),
+    Edificio        VARCHAR(30), /*O numero de casa*/
+    Apartamento     VARCHAR(20),
+    Ciudad          VARCHAR(30),
+    Estado          VARCHAR(30),
+    CodPostal       VARCHAR(30),
 	TelefonoCel	VARCHAR(30),
 	TelefonoCasa	VARCHAR(30),
 	Fax		VARCHAR(30),
-        Email           VARCHAR(30),
+    Email           VARCHAR(30),
 	FechaNac	VARCHAR(40),
-        Nacionalidad    VARCHAR(100),
+    Nacionalidad    VARCHAR(100),
 	Comentario	TEXT,
 	CONSTRAINT	PK_Estudiante	PRIMARY KEY (NombreUsuario)
-
 )
 WITH (
 OIDS = FALSE
@@ -61,7 +60,6 @@ CREATE TABLE "dycicle".EstudianteUSB(
 	CONSTRAINT	PK_EstudianteUSB	
 		PRIMARY KEY (NombreUsuario, Cedula, Carnet)
 );
-
 
 /* En esta tabla se tienen todos los datos particulares
  * de  los  estudiantes  internacionales             */
@@ -92,7 +90,7 @@ CREATE TABLE "dycicle".ArchivosEstudiante(
  * los archivos que han cargado al sistema */
 
 CREATE TABLE "dycicle".Carga(
-        NombreUsuario	VARCHAR(20)	NOT NULL,	
+    NombreUsuario	VARCHAR(20)	NOT NULL,	
 	Nombre		VARCHAR(30)	NOT NULL,
         CONSTRAINT	PK_Carga	
 		PRIMARY KEY (NombreUsuario, Nombre)
@@ -126,28 +124,10 @@ CREATE TABLE "dycicle".PlanEstudio(
 	CreditoUSB	INT     	NOT NULL,
 	CodigoUniv	VARCHAR(10)	NOT NULL,
 	MateriaUniv	VARCHAR(50)	NOT NULL,
-        CreditoUniv     INT             NOT NULL,
+    CreditoUniv     INT             NOT NULL,
 	CONSTRAINT	PK_PlanEstudio	
 		PRIMARY KEY (NombreUsuario,CodigoUSB)
 );
-
-
-/* En esta tabla se tienen todos los datos correspondientes
- * a  los  periodos  de  cada  materia del plan de estudios
- * de  cada  estudiante                                  */
-CREATE TABLE "dycicle".PeriodosPlan(
-	NombreUsuario	VARCHAR(20)	NOT NULL,
-	Periodo		VARCHAR(20),
-	DenominacionExt	VARCHAR(30)	NOT NULL,
-        DenominacionUSB	VARCHAR(30)	NOT NULL,
-	CodigoExt	VARCHAR(15)	NOT NULL,
-        CodigoUSB	VARCHAR(15)	NOT NULL,
-	CreditosExt	NUMERIC(2)	NOT NULL,
-        CreditosUSB	NUMERIC(2)	NOT NULL,
-	CONSTRAINT	PK_PeriodosPlan	
-		PRIMARY KEY (NombreUsuario, DenominacionUSB, CodigoUSB)
-);
-
 
 /* En  esta  tabla  se  tienen  todos los datos necesarios
  * de los representantes de un estudiante en particular */
@@ -166,34 +146,16 @@ CREATE TABLE "dycicle".REPRESENTANTE(
                PRIMARY KEY (NombreUsuario)
 );
 
-/* Tabla que guarda las relaciones existentes entre los
- * estudiantes  y  sus  respectivos  representantes  */
-CREATE TABLE "dycicle".esRepresentado(
-	NombreUsuario	VARCHAR(20)	NOT NULL,
-	EmailRep	VARCHAR(30)	NOT NULL,
-	CONSTRAINT	PK_esRepresentado
-		PRIMARY KEY (NombreUsuario,EmailRep)
-);
-
 /* Tabla que almacena la forma de financiamiento de un estudiante  */
 CREATE TABLE "dycicle".FINANCIAMIENTO(
 	NombreUsuario	VARCHAR(20)	NOT NULL,
 	PpalFuente      VARCHAR(30)     NOT NULL,
-        DescrFuente     TEXT,
-        TieneBecaDe     VARCHAR(30)     NOT NULL,
-        DescrBeca       TEXT,
+    DescrFuente     TEXT,
+    TieneBecaDe     VARCHAR(30)     NOT NULL,
+    DescrBeca       TEXT,
 	CONSTRAINT	PK_FINANCIAMIENTO
 		PRIMARY KEY (NombreUsuario,PpalFuente)
 );
-
-/* Tabla que almacena la relacion entre un financiamiento y un estudiante */
-CREATE TABLE "dycicle".Recibe(
-        NombreUsuario	VARCHAR(20)	NOT NULL,
-	PpalFuente      VARCHAR(30)     NOT NULL,
-        CONSTRAINT	PK_Recibe
-		PRIMARY KEY (NombreUsuario,PpalFuente)
-);
-
 
 /* Tabla que almacena los administradores del sistema */
 CREATE TABLE "dycicle".ADMINISTRADOR(
@@ -259,6 +221,30 @@ WITH (
 OIDS = FALSE
 );
 
+/* Un postulante puede postular a un estudiante */
+CREATE TABLE "dycicle".Postula(
+	NombreUsuarioPostulante	VARCHAR(20)	NOT NULL,
+	CodigoPostulante	VARCHAR(30)	NOT NULL,
+	NombreUsuarioEstudiante	VARCHAR(20)	NOT NULL,
+	CONSTRAINT		PK_Postula	PRIMARY KEY (NombreUsuarioPostulante, CodigoPostulante, NombreUsuarioEstudiante)
+)
+WITH (
+OIDS = FALSE
+);
+
+/* Entidad POSTULACION identificada por el usuario al que pertenece */
+CREATE TABLE "dycicle".POSTULACION(
+	NombreUsuario       VARCHAR(20)     NOT NULL,
+	EstadoPostulacion   VARCHAR(30)     NOT NULL,
+        Recomendacion       VARCHAR(30)     NOT NULL,
+        ComentRecomend      TEXT,
+        FechaCreacion       timestamp with time zone NOT NULL default CURRENT_TIMESTAMP(2),
+	CONSTRAINT          PK_Postulacion	PRIMARY KEY (NombreUsuario)
+)
+WITH (
+OIDS = FALSE
+);
+
 /* Entidad GESTOR la cual comprende la DRIC y decanatos
  * En  esta  tabla  se   encuentran  todos  los   datos
  * pertenecientes   al   gestor                      */
@@ -283,19 +269,6 @@ WITH (
 OIDS = FALSE
 );
 
-/* Entidad POSTULACION identificada por el usuario al que pertenece */
-CREATE TABLE "dycicle".POSTULACION(
-	NombreUsuario       VARCHAR(20)     NOT NULL,
-	EstadoPostulacion   VARCHAR(30)     NOT NULL,
-        Recomendacion       VARCHAR(30)     NOT NULL,
-        ComentRecomend      TEXT,
-        FechaCreacion       timestamp with time zone NOT NULL default CURRENT_TIMESTAMP(2),
-	CONSTRAINT          PK_Postulacion	PRIMARY KEY (NombreUsuario)
-)
-WITH (
-OIDS = FALSE
-);
-
  CREATE TABLE "dycicle".Universidades(
        NombreUsuario   VARCHAR(20)     NOT NULL,
        Prioridad       NUMERIC(1)      NOT NULL,
@@ -311,18 +284,6 @@ OIDS = FALSE
        CONSTRAINT      PK_Universidades    PRIMARY KEY (NombreUsuario, NombreUni)
 )
 WITH(
-OIDS = FALSE
-);
- 
-
-/* Un postulante puede postular a un estudiante */
-CREATE TABLE "dycicle".Postula(
-	NombreUsuarioPostulante	VARCHAR(20)	NOT NULL,
-	CodigoPostulante	VARCHAR(30)	NOT NULL,
-	NombreUsuarioEstudiante	VARCHAR(20)	NOT NULL,
-	CONSTRAINT		PK_Postula	PRIMARY KEY (NombreUsuarioPostulante, CodigoPostulante, NombreUsuarioEstudiante)
-)
-WITH (
 OIDS = FALSE
 );
 
@@ -375,138 +336,120 @@ WITH (
 OIDS = FALSE
 );
 
-CREATE TABLE "dycicle".Domina(
-        NombreUsuario   VARCHAR(20)     NOT NULL,
-        NombreIdioma    VARCHAR(30)     NOT NULL,
-        CONSTRAINT      PK_Domina       PRIMARY KEY(NombreUsuario, NombreIdioma)
-)
-WITH(
-OIDS = FALSE
-);
-
+-------------------------------------------------------------
 ----------------------RESTRICCIONES--------------------------
+-------------------------------------------------------------
 
+-------------------------USUARIO---------------------------------
 /* Rango de los Privilegios */
 ALTER TABLE "dycicle".USUARIO  ADD
-	CHECK ((0 < Privilegio) AND (Privilegio < 7));
-
+  CHECK ((0 < Privilegio) AND (Privilegio < 7));
 
 /* Longitud de contrasena mayor a 6 caracteres para un usuario*/
 ALTER TABLE "dycicle".USUARIO ADD
-	CHECK (char_length(Contrasena) > 5);
-
-/* Longitud de contrasena mayor a 6 caracteres para el preregistro*/
-ALTER TABLE "dycicle".PREREGISTRO ADD
-	CHECK (char_length(Contrasena) > 6);
+  CHECK (char_length(Contrasena) > 5);
 
 /* El email de un usuario debe contener un @ */
 ALTER TABLE "dycicle".USUARIO ADD
-	CHECK (Email ~~ '%@%');
+  CHECK (Email ~~ '%@%');
 
-/* El sexo del estudiante puede ser Masculino o Femenino 
+-------------------------ESTUDIANTE--------------------------------
+/* Claves foraneas de ESTUDIANTE a USUARIO */
 ALTER TABLE "dycicle".ESTUDIANTE ADD
-	CHECK ((Sexo = 'Masculino') OR (Sexo = 'Femenino')); */
+  CONSTRAINT FK_Estudiante_Usuario FOREIGN KEY (NombreUsuario)
+    REFERENCES "dycicle".USUARIO;
 
-/* El indice debe estar entre 1 y 5 */
-ALTER TABLE "dycicle".AntecedenteAcademico ADD
-	CHECK ((1.0000 <= Indice) AND (Indice <= 5.0000));
-
-/* El indice ponderado es un numero positivo */
-ALTER TABLE "dycicle".AntecedenteAcademico ADD
-	CHECK (IndicePonderado >= 0.0000);
-
-/* La cantidad de creditos aprobados es mayor que 0 */
-ALTER TABLE "dycicle".AntecedenteAcademico ADD
-	CHECK (CredAprob >= 0);
-
-/* La fecha de ida debe ser anterior a la fecha de regreso */
-ALTER TABLE "dycicle".Universidades ADD
-	CHECK (AnioFechaIni <= AnioFechaFin);
-
-/* El email de un representante debe contener un @ */
-ALTER TABLE "dycicle".REPRESENTANTE ADD
-	CHECK (EmailRep ~~ '%@%');
-
-/* En POSTULANTE: Si Tipo=Coordinacion => NombreUniExt=NULL */
-ALTER TABLE "dycicle".POSTULANTE ADD
-    CHECK ((Tipo='Coordinacion' AND NombreUniExt=NULL) OR
-           (Tipo='UnivExtranjera' AND NombreCarrera=NULL));
-
--- Claves foraneas
-
-/* Claves foraneas de ESTUDIANTE */
-ALTER TABLE "dycicle".ESTUDIANTE ADD
-	CONSTRAINT FK_Estudiante_Usuario FOREIGN KEY (NombreUsuario)
-		REFERENCES "dycicle".USUARIO;
-
+----------------------ESTUDIANTE USB--------------------------------- 
 /* Claves foraneas de EstudianteUSB */
 ALTER TABLE "dycicle".EstudianteUSB ADD
-	CONSTRAINT FK_EstudianteUSB_Estudiante FOREIGN KEY (NombreUsuario)
-		REFERENCES "dycicle".ESTUDIANTE;
+  CONSTRAINT FK_EstudianteUSB_Estudiante FOREIGN KEY (NombreUsuario)
+    REFERENCES "dycicle".ESTUDIANTE;
 
-/* Claves foraneas de ArchivosEstudiante */
-ALTER TABLE "dycicle".ArchivosEstudiante ADD
-	CONSTRAINT FK_ArchivosEstudiante_Estudiante FOREIGN KEY (NombreUsuario)
-		REFERENCES "dycicle".Estudiante;
-
-/* Claves foraneas de Carga*/
-ALTER TABLE "dycicle".Carga ADD
-	CONSTRAINT FK_Carga_Archivo FOREIGN KEY (NombreUsuario, Nombre)
-		REFERENCES "dycicle".ArchivosEstudiante;
+---------------------ESTUDIANTE Internacional---------------------------
+/*Las opciones sobre tomar un curso de español son Si o No 
+ALTER TABLE "dycicle".EstudianteInternacional ADD
+  CHECK (CursoEspaniol ~~ 'Sí' OR CursoEspaniol ~~ 'No')*/
 
 /* Claves foraneas de EstudianteInternacional */
 ALTER TABLE "dycicle".EstudianteInternacional ADD
-	CONSTRAINT FK_EstudianteInternacional_Estudiante FOREIGN KEY (NombreUsuario)
-		REFERENCES "dycicle".Estudiante;
+  CONSTRAINT FK_EstudianteInternacional_Estudiante FOREIGN KEY (NombreUsuario)
+    REFERENCES "dycicle".Estudiante;
+
+------------------------Archivos estudiante------------------------------
+/* Claves foraneas de ArchivosEstudiante */
+ALTER TABLE "dycicle".ArchivosEstudiante ADD
+  CONSTRAINT FK_ArchivosEstudiante_Estudiante FOREIGN KEY (NombreUsuario)
+    REFERENCES "dycicle".Estudiante;  
+
+------------------------------Carga-------------------------------------
+/* Claves foraneas de Carga*/
+ALTER TABLE "dycicle".Carga ADD
+  CONSTRAINT FK_Carga_Archivo FOREIGN KEY (NombreUsuario, Nombre)
+    REFERENCES "dycicle".ArchivosEstudiante;
+  
+----------------------ANTECEDENTE ACADEMICO-----------------------------
+/* El indice debe estar entre 1 y 5 */
+ALTER TABLE "dycicle".AntecedenteAcademico ADD
+  CHECK ((1.0000 <= Indice) AND (Indice <= 5.0000));
+
+/* El indice ponderado es un numero positivo */
+ALTER TABLE "dycicle".AntecedenteAcademico ADD
+  CHECK (IndicePonderado >= 0.0000);
+
+/* La cantidad de creditos aprobados es mayor que 0 */
+ALTER TABLE "dycicle".AntecedenteAcademico ADD
+  CHECK (CredAprob >= 0);
+
+/*La cantidad de años aprobados debe ser mayor que cero*/
+ALTER TABLE "dycicle".AntecedenteAcademico ADD
+    CHECK (AniosAprob >= 0);
 
 /* Claves foraneas de AntecedenteAcademico */
 ALTER TABLE "dycicle".AntecedenteAcademico ADD
-	CONSTRAINT FK_AntecedenteAcademico_Estudiante FOREIGN KEY (NombreUsuario)
-		REFERENCES "dycicle".Estudiante;
+  CONSTRAINT FK_AntecedenteAcademico_Estudiante FOREIGN KEY (NombreUsuario)
+    REFERENCES "dycicle".Estudiante;
+    
+--------------------------PLAN DE ESTUDIO------------------------------
+/*La cantidad de creditos debe ser mayor que 0*/
+ALTER TABLE "dycicle".PlanEstudio ADD
+  CHECK (CreditoUSB > 0);
+
+ALTER TABLE "dycicle".PlanEstudio ADD
+  CHECK (CreditoUniv > 0);
 
 /* Claves foraneas de PlanEstudio */
 ALTER TABLE "dycicle".PlanEstudio ADD
-	CONSTRAINT FK_PlanEstudio_Estudiante FOREIGN KEY (NombreUsuario)
-		REFERENCES "dycicle".Estudiante;
-
-/* Claves foraneas de PeriodosPlan */
-ALTER TABLE "dycicle".PeriodosPlan ADD
-	CONSTRAINT FK_PeriodosPlan_PlanEstudio FOREIGN KEY (NombreUsuario,CodigoUSB)
-		REFERENCES "dycicle".PlanEstudio;
+  CONSTRAINT FK_PlanEstudio_Estudiante FOREIGN KEY (NombreUsuario)
+    REFERENCES "dycicle".Estudiante;    
+  
+----------------------------REPRESENTANTE------------------------------ 
+/* El email de un representante debe contener un @ */
+ALTER TABLE "dycicle".REPRESENTANTE ADD
+  CHECK (EmailRep ~~ '%@%');
 
 /* Claves foraneas de Representante */
 ALTER TABLE "dycicle".Representante ADD
-	CONSTRAINT FK_Representante_Estudiante FOREIGN KEY (NombreUsuario)
-		REFERENCES "dycicle".Estudiante;
+  CONSTRAINT FK_Representante_Estudiante FOREIGN KEY (NombreUsuario)
+    REFERENCES "dycicle".Estudiante;
 
-/* Claves foraneas de esRepresentado */
-ALTER TABLE "dycicle".esRepresentado ADD
-	CONSTRAINT FK_esRepresentado_Estudiante FOREIGN KEY (NombreUsuario)
-		REFERENCES "dycicle".Estudiante;
-
-ALTER TABLE "dycicle".esRepresentado ADD
-	CONSTRAINT FK_esRepresentado_Representante FOREIGN KEY (NombreUsuario)
-		REFERENCES "dycicle".REPRESENTANTE(NombreUsuario);
-
+----------------------------FINANCIAMIENTO------------------------------    
 /*Claves foraneas de Financiamiento */
 ALTER TABLE "dycicle".FINANCIAMIENTO ADD
         CONSTRAINT FK_Financiamiento_Estudiante FOREIGN KEY (NombreUsuario)
                 REFERENCES "dycicle".Estudiante;
 
-/* Claves foraneas de Recibe */
-ALTER TABLE "dycicle".Recibe ADD
-        CONSTRAINT FK_Recibe_Estudiante FOREIGN KEY (NombreUsuario)
-                REFERENCES "dycicle".Estudiante;
-
-ALTER TABLE "dycicle".Recibe ADD
-        CONSTRAINT FK_Recibe_Financiamiento FOREIGN KEY (NombreUsuario, PpalFuente)
-                REFERENCES "dycicle".Financiamiento;
-
+----------------------------ADMINISTRADOR------------------------------
 /*Claves foraneas de Administrador*/
 ALTER TABLE "dycicle".ADMINISTRADOR ADD
         CONSTRAINT FK_ADMINISTRADOR_USUARIO FOREIGN KEY (NombreUsuario)
-                REFERENCES "dycicle".USUARIO;
+                REFERENCES "dycicle".USUARIO;   
 
+----------------------------PREREGISTRO--------------------------------
+/* Longitud de contrasena mayor a 6 caracteres para el preregistro*/
+ALTER TABLE "dycicle".PREREGISTRO ADD
+  CHECK (char_length(Contrasena) > 6);
+  
+----------------------------APRUEBA------------------------------
 /*Claves foraneas de Aprueba*/
 ALTER TABLE "dycicle".Aprueba ADD
         CONSTRAINT FK_Aprueba_Admin FOREIGN KEY (NombreUsuarioAdmin)
@@ -516,85 +459,89 @@ ALTER TABLE "dycicle".Aprueba ADD
         CONSTRAINT FK_Aprueba_PreReg FOREIGN KEY (NombreUsuarioPreReg)
                 REFERENCES "dycicle".Preregistro(NombreUsuario);
 
+----------------------------MANEJA------------------------------
 /* Claves foraneas de Maneja */
 ALTER TABLE "dycicle".Maneja ADD
-	CONSTRAINT FK_Maneja_USUARIO FOREIGN KEY (NombreUsuario)
-		REFERENCES "dycicle".ADMINISTRADOR;
+  CONSTRAINT FK_Maneja_USUARIO FOREIGN KEY (NombreUsuario)
+    REFERENCES "dycicle".ADMINISTRADOR;
 
 ALTER TABLE "dycicle".Maneja ADD
-	CONSTRAINT FK_Maneja_NOTICIAS FOREIGN KEY (Nombre, Fecha)
-		REFERENCES "dycicle".NOTICIAS;
+  CONSTRAINT FK_Maneja_NOTICIAS FOREIGN KEY (Nombre, Fecha)
+    REFERENCES "dycicle".NOTICIAS;
+    
+----------------------------POSTULANTE------------------------------
+/* En POSTULANTE: Si Tipo=Coordinacion => NombreUniExt=NULL 
+          Si Tipo=UnivExtranjera => NombreCarrera=NULL*/
+ALTER TABLE "dycicle".POSTULANTE ADD
+    CHECK ((Tipo='Coordinacion' AND NombreUniExt=NULL) OR
+           (Tipo='UnivExtranjera' AND NombreCarrera=NULL));   
 
 /* Claves foraneas de POSTULANTE */
 ALTER TABLE "dycicle".POSTULANTE ADD
-	CONSTRAINT FK_Postulante_Usuario FOREIGN KEY (NombreUsuario)
-		REFERENCES "dycicle".USUARIO;
+  CONSTRAINT FK_Postulante_Usuario FOREIGN KEY (NombreUsuario)
+    REFERENCES "dycicle".USUARIO;
 
+-------------------------------POSTULA----------------------------------
+/* Claves foraneas de Postula */
+ALTER TABLE "dycicle".Postula ADD
+  CONSTRAINT FK_Postula_Estudiante FOREIGN KEY (NombreUsuarioEstudiante)
+    REFERENCES "dycicle".ESTUDIANTE (NombreUsuario);
+
+ALTER TABLE "dycicle".Postula ADD
+  CONSTRAINT FK_Postula_Postulante FOREIGN KEY (NombreUsuarioPostulante, CodigoPostulante)
+    REFERENCES "dycicle".POSTULANTE (NombreUsuario, Codigo);
+
+-----------------------------POSTULACION--------------------------------    
+/*Claves foraneas de postulacion*/
+ALTER TABLE "dycicle".POSTULACION ADD
+  CONSTRAINT FK_Postulacion_Estudiante FOREIGN KEY (NombreUsuario)
+    REFERENCES "dycicle".Estudiante(NombreUsuario);
+    
+-----------------------------GESTOR----------------------------------
 /* Claves foraneas de GESTOR */
 ALTER TABLE "dycicle".GESTOR ADD
-	CONSTRAINT FK_GESTOR_Usuario FOREIGN KEY (NombreUsuario)
-		REFERENCES "dycicle".USUARIO;
-
+  CONSTRAINT FK_GESTOR_Usuario FOREIGN KEY (NombreUsuario)
+    REFERENCES "dycicle".USUARIO;
+    
+-----------------------------NOTIFICAR--------------------------------    
 /* Claves foraneas de Notificar */
 ALTER TABLE "dycicle".Notificar ADD
-	CONSTRAINT FK_Notificar_UsuarioEmisor FOREIGN KEY (Nom_Emisor)
-		REFERENCES "dycicle".USUARIO (NombreUsuario);
+  CONSTRAINT FK_Notificar_UsuarioEmisor FOREIGN KEY (Nom_Emisor)
+    REFERENCES "dycicle".USUARIO (NombreUsuario);
 
 ALTER TABLE "dycicle".Notificar ADD
-	CONSTRAINT FK_Notificar_UsuarioDestinatario FOREIGN KEY (Nom_Dest)
-		REFERENCES "dycicle".USUARIO (NombreUsuario);
+  CONSTRAINT FK_Notificar_UsuarioDestinatario FOREIGN KEY (Nom_Dest)
+    REFERENCES "dycicle".USUARIO (NombreUsuario);
+    
+-----------------------------UNIVERSIDADES------------------------------
+/*La prioridad de una universidad es 1 o 2 segun sea primera o segunda opcion*/
+ALTER TABLE "dycicle".Universidades ADD
+  CHECK (Prioridad = '1' OR Prioridad = '2');
 
-
-/* Claves foraneas de ComentarioPostulacion 
-ALTER TABLE "dycicle".ComentarioPostulacion ADD
-	CONSTRAINT FK_ComentarioPostulacion FOREIGN KEY (Numero)
-		REFERENCES "dycicle".POSTULACION;
-*/
-
-
-
-/* Claves foraneas de Postula 
-ALTER TABLE "dycicle".Postula ADD
-	CONSTRAINT FK_Postula_Estudiante FOREIGN KEY (NomEst, CarnetEst)
-		REFERENCES "dycicle".ESTUDIANTE (NombreUsuario, Carnet);
-
-
-ALTER TABLE "dycicle".Postula ADD
-	CONSTRAINT FK_Postula_Postulante FOREIGN KEY (NomPost, CodigoPost)
-		REFERENCES "dycicle".POSTULANTE (NombreUsuario, Codigo);
-*/
-
-/* Claves foraneas de Gestiona */
-ALTER TABLE "dycicle".Gestiona ADD
-	CONSTRAINT FK_Gestiona_GESTOR FOREIGN KEY (NombreUsuarioGestor)
-		REFERENCES "dycicle".GESTOR(NombreUsuario);
-
-ALTER TABLE "dycicle".Gestiona ADD
-	CONSTRAINT FK_Gestiona_Postulacion FOREIGN KEY (NombreUsuarioEstudiante)
-		REFERENCES "dycicle".POSTULACION(NombreUsuario);
-
-/* Claves foraneas de Persiste */
-ALTER TABLE "dycicle".Persiste ADD
-	CONSTRAINT FK_Persiste_LogAuditoria FOREIGN KEY (Fecha, Hora, Accion)
-		REFERENCES "dycicle".LogAuditoria;
-
-/* Clave foranea de Domina */
-ALTER TABLE "dycicle".Domina ADD
-	CONSTRAINT FK_Domina_Usuario FOREIGN KEY (NombreUsuario)
-		REFERENCES "dycicle".ESTUDIANTE;
-
-ALTER TABLE "dycicle".Domina ADD
-        CONSTRAINT FK_Domina_Idiomas FOREIGN KEY (NombreUsuario,NombreIdioma)
-                REFERENCES "dycicle".IDIOMAS;
-
+/*El año de inicio tiene que ser menor o igual que el año de fin*/
+ALTER TABLE "dycicle".Universidades ADD
+  CHECK (AnioFechaIni <= AnioFechaFin);
 
 /* Clave foranea de Universidades*/
 ALTER TABLE "dycicle".Universidades ADD
        CONSTRAINT FK_Universidades_Estudiante FOREIGN KEY (NombreUsuario)
                REFERENCES "dycicle".ESTUDIANTE;
- 
 
+-------------------------------GESTIONA--------------------------------
+/* Claves foraneas de Gestiona */
+ALTER TABLE "dycicle".Gestiona ADD
+  CONSTRAINT FK_Gestiona_GESTOR FOREIGN KEY (NombreUsuarioGestor)
+    REFERENCES "dycicle".GESTOR(NombreUsuario);
 
+ALTER TABLE "dycicle".Gestiona ADD
+  CONSTRAINT FK_Gestiona_Postulacion FOREIGN KEY (NombreUsuarioEstudiante)
+    REFERENCES "dycicle".POSTULACION(NombreUsuario);
+
+-------------------------------PERSISTE--------------------------------
+/* Claves foraneas de Persiste */
+ALTER TABLE "dycicle".Persiste ADD
+  CONSTRAINT FK_Persiste_LogAuditoria FOREIGN KEY (Fecha, Hora, Accion)
+    REFERENCES "dycicle".LogAuditoria;
 
 /* INSERT de un usuario administrador por defecto */
 INSERT INTO "dycicle".USUARIO VALUES ( 'admin','email@gmail.com', 1, 'Administrador', 'admin1234');
