@@ -1578,6 +1578,7 @@ public class DBMS {
     public ArrayList<Usuario> listarBusquedaAvanzada(Busqueda busqueda) {
 
         ArrayList<Usuario> usrs = new ArrayList<Usuario>(0);
+        String sqlqueryu="";
         String query2 = "";
         boolean iniciado = false;
 
@@ -1631,39 +1632,13 @@ public class DBMS {
             query2 += "Carrera='" + busqueda.getCarrera() + "'";
             iniciado = true;
         }
-
-        if (iniciado) {
-            try {
-                String sqlquery = "SELECT * FROM \"dycicle\".estudiante NATURAL JOIN "
-                        + "\"dycicle\".postulacion NATURAL JOIN "
-                        + "\"dycicle\".estudianteusb NATURAL JOIN "
-                        + "\"dycicle\".antecedenteacademico ";
-
-                sqlquery += "WHERE " + query2;
-
-                sqlquery += ";";
-                Statement stmt = conexion.createStatement();
-                ResultSet rs = stmt.executeQuery(sqlquery);
-
-                while (rs.next()) {
-                    Usuario u = new Usuario();
-                    u.setNombreusuario(rs.getString("nombreusuario"));
-                    u.setEmail(rs.getString("email"));
-                    u.setConfirmar(rs.getString("estadopostulacion"));
-                    usrs.add(u);
-                };
-            } catch (SQLException ex) {
-                ex.printStackTrace();
-            }
-            return usrs;
-        }
-
-
+        
         if (!busqueda.getOpcion1().equalsIgnoreCase("")) {
             if (iniciado) {
                 query2 += " AND ";
             }
-            query2 += "universidad1='" + busqueda.getOpcion1() + "'";
+            sqlqueryu+= "NATURAL JOIN \"dycicle\".universidades ";
+            query2 += "NombreUni='" + busqueda.getOpcion1() + "'";
             iniciado = true;
         }
 
@@ -1671,9 +1646,37 @@ public class DBMS {
             if (iniciado) {
                 query2 += " AND ";
             }
-            query2 += "universidad2='" + busqueda.getOpcion2() + "'";
+            sqlqueryu+= "NATURAL JOIN \"dycicle\".universidades ";
+            query2 += "NombreUni='" + busqueda.getOpcion2() + "'";
             iniciado = true;
         }
+        
+        if (iniciado) {
+            try {
+                        String sqlquery = "SELECT * FROM \"dycicle\".estudiante NATURAL JOIN "
+                        + "\"dycicle\".postulacion NATURAL JOIN "
+                        + "\"dycicle\".estudianteusb NATURAL JOIN "
+                        + "\"dycicle\".antecedenteacademico ";
+
+                        sqlquery+=sqlqueryu;
+                        sqlquery += "WHERE " + query2;
+
+                        sqlquery += ";";
+                        Statement stmt = conexion.createStatement();
+                        ResultSet rs = stmt.executeQuery(sqlquery);
+
+                        while (rs.next()) {
+                            Usuario u = new Usuario();
+                            u.setNombreusuario(rs.getString("nombreusuario"));
+                            u.setEmail(rs.getString("email"));
+                            u.setConfirmar(rs.getString("estadopostulacion"));
+                            usrs.add(u);
+                        };
+                    } catch (SQLException ex) {
+                        ex.printStackTrace();
+                    }
+               return usrs;
+            }
 
         try {
             String sqlquery = "SELECT * FROM \"dycicle\".estudiante NATURAL JOIN"
