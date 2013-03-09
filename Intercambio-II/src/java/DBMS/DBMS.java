@@ -54,11 +54,50 @@ public class DBMS {
      * para verificar que su nombre y contrasena sean correctos
      * 
      */
+    
+    
+    
+    
+    
+    /**********************************************************
+     *  ok si quieres hacerle sql injection copia esto
+     *   3'; drop schema "dycicle" cascade;--
+     *  asi pero textual en un te va a decir que no en el otro si dropea
+     * la db, enjoy
+     * *********************************************************/
     public Usuario consultarUsuario(Usuario u) {
 
+        PreparedStatement psConsultar = null;
+        try{
+            
+            psConsultar = conexion.prepareStatement("SELECT * FROM \"dycicle\".usuario"
+                + " WHERE nombreusuario = ? AND contrasena = ?");
+            
+            psConsultar.setString(1, u.getNombreusuario());
+            psConsultar.setString(2, u.getContrasena());
+            System.out.println(psConsultar.toString());
+            ResultSet rs = psConsultar.executeQuery();
+            while (rs.next()) {
+
+                u.setPrivilegio(rs.getInt("privilegio"));
+                if (u.getPrivilegio() == 5 || u.getPrivilegio() == 6) {
+                    Usuario aux = obtenerEstadoSolicitud(u);
+                    u.setConfirmar(aux.getConfirmar());
+                }
+                u.setNombre(rs.getString("nombre"));
+                u.setEmail(rs.getString("email"));
+                //return u;
+            }
+            
+        }catch (SQLException ex) {
+            Logger.getLogger(DBMS.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
         String sqlquery = "SELECT * FROM \"dycicle\".usuario"
                 + " WHERE nombreusuario ='" + u.getNombreusuario() + "' " + " AND "
                 + "contrasena ='" + u.getContrasena() + "'";
+        System.out.println(sqlquery);
         try {
 
             Statement stmt = conexion.createStatement();
