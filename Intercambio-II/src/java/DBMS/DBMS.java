@@ -86,7 +86,7 @@ public class DBMS {
                 }
                 u.setNombre(rs.getString("nombre"));
                 u.setEmail(rs.getString("email"));
-                //return u;
+                return u;
             }
             
         }catch (SQLException ex) {
@@ -94,7 +94,7 @@ public class DBMS {
         }
         
         
-        String sqlquery = "SELECT * FROM \"dycicle\".usuario"
+        /*String sqlquery = "SELECT * FROM \"dycicle\".usuario"
                 + " WHERE nombreusuario ='" + u.getNombreusuario() + "' " + " AND "
                 + "contrasena ='" + u.getContrasena() + "'";
         System.out.println(sqlquery);
@@ -117,7 +117,7 @@ public class DBMS {
 
         } catch (SQLException ex) {
             Logger.getLogger(DBMS.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }*/
 
         u.setNombreusuario(null);
 
@@ -126,7 +126,25 @@ public class DBMS {
 
     public Usuario consultarPreregistro(Usuario u) {
 
-        String sqlquery = "SELECT * FROM \"dycicle\".preregistro"
+        PreparedStatement psConsultar = null;
+        
+        try{
+            psConsultar = conexion.prepareStatement("SELECT * FROM \"dycicle\".preregistro"
+                + " WHERE nombreusuario = ?");
+            psConsultar.setString(1, u.getNombreusuario());
+            System.out.println(psConsultar.toString());
+            ResultSet rs = psConsultar.executeQuery();
+            while (rs.next()) {
+                u.setNombre(rs.getString("nombre"));
+                return u;
+            }
+        
+        } catch (SQLException ex) {
+            Logger.getLogger(DBMS.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        /*String sqlquery = "SELECT * FROM \"dycicle\".preregistro"
                 + " WHERE nombreusuario ='" + u.getNombreusuario() + "'";
         try {
 
@@ -139,14 +157,32 @@ public class DBMS {
 
         } catch (SQLException ex) {
             Logger.getLogger(DBMS.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }*/
 
         u.setNombreusuario(null);
         return u;
     }
 
     public Boolean agregarUsuario(Usuario u) {
-        try {
+        
+        PreparedStatement psAgregar = null;
+        
+        try{
+            psAgregar = conexion.prepareStatement("INSERT INTO \"dycicle\".usuario VALUES (?,?,?,?,?);");
+            psAgregar.setString(1, u.getNombreusuario());
+            psAgregar.setString(2, u.getEmail());
+            psAgregar.setInt(3, u.getPrivilegio());
+            psAgregar.setString(4, u.getNombre());
+            psAgregar.setString(5, u.getContrasena());
+            System.out.println(psAgregar.toString());
+            Integer i = psAgregar.executeUpdate();
+            return i > 0;
+        
+        } catch (SQLException ex){
+            ex.printStackTrace();
+        }
+        
+        /*try {
             String sqlquery = "INSERT INTO \"dycicle\".usuario VALUES ('" + u.getNombreusuario()
                     + "', '" + u.getEmail() + "', '" + u.getPrivilegio()
                     + "', '" + u.getNombre() + "','" + u.getContrasena() + "');";
@@ -155,7 +191,7 @@ public class DBMS {
             return i > 0;
         } catch (SQLException ex) {
             ex.printStackTrace();
-        }
+        }*/
         return false;
     }
 
@@ -269,7 +305,20 @@ public class DBMS {
     }
 
     public boolean agregarGestor(Usuario g) {
-        try {
+        PreparedStatement psAgregar = null;
+        
+        try{
+            psAgregar = conexion.prepareStatement("INSERT INTO \"dycicle\".gestor VALUES (?,?);");
+            psAgregar.setString(1, g.getNombreusuario());
+            psAgregar.setString(2, g.getNombreusuario());
+            System.out.println(psAgregar.toString());
+            Integer i = psAgregar.executeUpdate();
+            return i > 0;
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        
+        /*try {
             String sqlquery = "INSERT INTO \"dycicle\".gestor VALUES ('" + g.getNombreusuario()
                     + "', '" + g.getNombre() + "');";
             Statement stmt = conexion.createStatement();
@@ -277,12 +326,27 @@ public class DBMS {
             return i > 0;
         } catch (SQLException ex) {
             ex.printStackTrace();
-        }
+        }*/
         return false;
     }
 
     public boolean agregarCoordUSB(Postulante p) {
-        try {
+        PreparedStatement psAgregar = null;
+        try{
+            psAgregar = conexion.prepareStatement("INSERT INTO \"dycicle\".postulante VALUES (?,?,?, 'null',?);");
+            psAgregar.setString(1, p.getNombreusuario());
+            psAgregar.setString(2, p.getCodigo());
+            psAgregar.setString(3, p.getTipo());
+            psAgregar.setString(4, p.getNombreCarrera());;
+            System.out.println(psAgregar.toString());
+            Integer i = psAgregar.executeUpdate();
+            return i > 0;
+        
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        
+        /*try {
             String sqlquery = "INSERT INTO \"dycicle\".postulante VALUES ('" + p.getNombreusuario()
                     + "', '" + p.getCodigo() + "', '" + p.getTipo() + "', 'null', '"
                     + p.getNombreCarrera() + "');";
@@ -291,12 +355,28 @@ public class DBMS {
             return i > 0;
         } catch (SQLException ex) {
             ex.printStackTrace();
-        }
+        }*/
         return false;
     }
 
     public boolean agregarUniExt(Postulante p) {
-        try {
+        
+        PreparedStatement psAgregar = null;
+        
+        try{
+            psAgregar = conexion.prepareStatement("INSERT INTO \"dycicle\".postulante VALUES (?,?,?,?, 'null');");
+            psAgregar.setString(1, p.getNombreusuario());
+            psAgregar.setString(2, p.getNombreUniExt());
+            psAgregar.setString(3, p.getTipo());
+            psAgregar.setString(4, p.getNombreUniExt());
+            System.out.println(psAgregar.toString());
+            Integer i = psAgregar.executeUpdate();
+            return i > 0;
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        
+        /*try {
             String sqlquery = "INSERT INTO \"dycicle\".postulante VALUES ('" + p.getNombreusuario()
                     + "', '" + p.getNombreUniExt() + "', '" + p.getTipo() + "',  '" + p.getNombreUniExt()
                     + "', 'null');";
@@ -305,7 +385,7 @@ public class DBMS {
             return i > 0;
         } catch (SQLException ex) {
             ex.printStackTrace();
-        }
+        }*/
         return false;
     }
 
@@ -441,18 +521,33 @@ public class DBMS {
         return false;
     }
 
+    
+    
+    /*AL aceptar el pre-registro no deberia hacerle el inserte a las demas tablas tambien???*/
     public Boolean aceptarPreregistro(Usuario u) {
+        PreparedStatement psAceptar = null;
         try {
-            Usuario user = consultarPreregistro(u);
+            
+             Usuario user = consultarPreregistro(u);
             user.setPrivilegio(u.getPrivilegio());
-            String sqlquery = "INSERT INTO \"dycicle\".usuario VALUES ('" + user.getNombreusuario()
+            
+            psAceptar = conexion.prepareStatement("INSERT INTO \"dycicle\".usuario VALUES (?,?,?,?,?);");
+            psAceptar.setString(1, user.getNombreusuario());
+            psAceptar.setString(2, user.getEmail());
+            psAceptar.setInt(3, user.getPrivilegio());
+            psAceptar.setString(4, user.getNombre());
+            psAceptar.setString(5, user.getContrasena());
+            System.out.println(psAceptar.toString());
+            Integer i = psAceptar.executeUpdate();
+            eliminarPreregistro(u);
+            return i > 0;
+            
+           /*String sqlquery = "INSERT INTO \"dycicle\".usuario VALUES ('" + user.getNombreusuario()
                     + "','" + user.getEmail() + "','" + user.getPrivilegio() + "','" + user.getNombre()
                     + "','" + user.getContrasena() + "'); ";
             Statement stmt = conexion.createStatement();
 
-            Integer i = stmt.executeUpdate(sqlquery);
-            eliminarPreregistro(u);
-            return i > 0;
+            Integer i = stmt.executeUpdate(sqlquery);*/
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
@@ -460,11 +555,17 @@ public class DBMS {
     }
 
     public Boolean eliminarPreregistro(Usuario u) {
+        PreparedStatement psEliminar = null;
+        
         try {
-            String sqlquery = "DELETE FROM \"dycicle\".preregistro" + " WHERE nombreusuario = '"
+            
+            psEliminar = conexion.prepareStatement("DELETE FROM \"dycicle\".preregistro WHERE nombreusuario = ?");
+            /*String sqlquery = "DELETE FROM \"dycicle\".preregistro" + " WHERE nombreusuario = '"
                     + u.getNombreusuario() + "'";
             Statement stmt = conexion.createStatement();
-            Integer i = stmt.executeUpdate(sqlquery);
+            Integer i = stmt.executeUpdate(sqlquery);*/
+            psEliminar.setString(1, u.getNombreusuario());
+            Integer i = psEliminar.executeUpdate();
             return i > 0;
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -473,14 +574,22 @@ public class DBMS {
     }
 
     public Boolean modificarUsuario(Usuario u) {
+        PreparedStatement psModificar = null;
         try {
-            String sqlquery = "UPDATE \"dycicle\".usuario SET email='" + u.getEmail()
+            psModificar = conexion.prepareStatement("UPDATE \"dycicle\".usuario SET email= ?, nombre= ?, privilegio= ?"
+                    + "WHERE nombreusuario =? ");
+            psModificar.setString(1, u.getEmail());
+            psModificar.setString(2, u.getNombre());
+            psModificar.setInt(3, u.getPrivilegio());
+            psModificar.setString(4, u.getNombreusuario());
+            /*String sqlquery = "UPDATE \"dycicle\".usuario SET email='" + u.getEmail()
                     + "', nombre='" + u.getNombre()
                     + "', privilegio='" + u.getPrivilegio()
                     + "' WHERE nombreusuario = '"
                     + u.getNombreusuario() + "'";
             Statement stmt = conexion.createStatement();
-            Integer i = stmt.executeUpdate(sqlquery);
+            Integer i = stmt.executeUpdate(sqlquery);*/
+            Integer i = psModificar.executeUpdate();
             return i > 0;
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -489,14 +598,17 @@ public class DBMS {
     }
 
     public Usuario obtenerEstadoSolicitud(Usuario u) {
+        PreparedStatement ps = null;
         try {
-
-            String sqlquery = "SELECT estadopostulacion"
+            ps = conexion.prepareStatement("SELECT estadopostulacion FROM \"dycicle\".POSTULACION WHERE nombreusuario = ?");
+            ps.setString(1, u.getNombreusuario());
+            /*String sqlquery = "SELECT estadopostulacion"
                     + " FROM \"dycicle\".POSTULACION"
                     + " WHERE nombreusuario = '" + u.getNombreusuario() + "'";
 
             Statement stmt = conexion.createStatement();
-            ResultSet rs = stmt.executeQuery(sqlquery);
+            ResultSet rs = stmt.executeQuery(sqlquery);*/
+            ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
                 u.setConfirmar(rs.getString("estadopostulacion"));
@@ -511,14 +623,21 @@ public class DBMS {
     }
 
     public Boolean cambiarEstadoSolicitud(Usuario u) {
+        PreparedStatement ps = null;
         try {
-            String sqlquery = "UPDATE \"dycicle\".POSTULACION SET estadopostulacion ='"
+            
+            ps = conexion.prepareStatement("UPDATE \"dycicle\".POSTULACION SET estadopostulacion = ? "
+                    + "WHERE nombreusuario = ?");
+            ps.setString(1, u.getConfirmar());
+            ps.setString(2, u.getNombreusuario());
+            /*String sqlquery = "UPDATE \"dycicle\".POSTULACION SET estadopostulacion ='"
                     + u.getConfirmar()
                     + "' WHERE nombreusuario = '"
                     + u.getNombreusuario() + "'";
 
             Statement stmt = conexion.createStatement();
-            Integer i = stmt.executeUpdate(sqlquery);
+            Integer i = stmt.executeUpdate(sqlquery);*/
+            Integer i = ps.executeUpdate();
 
             return i > 0;
 
@@ -529,8 +648,16 @@ public class DBMS {
     }
 
     public Boolean modificarPerfil(Usuario u) {
+        PreparedStatement ps = null;
         try {
-            String sqlquery = "UPDATE \"dycicle\".usuario SET contrasena ='" + u.getConfirmar()
+            ps = conexion.prepareStatement("UPDATE \"dycicle\".usuario SET contrasena = ?"
+                    +", email= ?, nombre= ? , privilegio= ?  WHERE nombreusuario = ?");
+            ps.setString(1, u.getConfirmar());
+            ps.setString(2, u.getEmail());
+            ps.setString(3, u.getNombre());
+            ps.setInt(4, u.getPrivilegio());
+            ps.setString(5, u.getNombreusuario());
+            /*String sqlquery = "UPDATE \"dycicle\".usuario SET contrasena ='" + u.getConfirmar()
                     + "', email='" + u.getEmail()
                     + "', nombre='" + u.getNombre()
                     + "', privilegio='" + u.getPrivilegio()
@@ -538,7 +665,8 @@ public class DBMS {
                     + u.getNombreusuario() + "'";
 
             Statement stmt = conexion.createStatement();
-            Integer i = stmt.executeUpdate(sqlquery);
+            Integer i = stmt.executeUpdate(sqlquery);*/
+            Integer i = ps.executeUpdate();
             return i > 0;
 
         } catch (SQLException ex) {
@@ -550,11 +678,10 @@ public class DBMS {
     public ArrayList<Usuario> listarUsuarios() {
 
         ArrayList<Usuario> usrs = new ArrayList<Usuario>(0);
-
+        PreparedStatement ps = null;
         try {
-            String sqlquery = "SELECT * FROM \"dycicle\".usuario";
-            Statement stmt = conexion.createStatement();
-            ResultSet rs = stmt.executeQuery(sqlquery);
+            ps = conexion.prepareStatement("SELECT * FROM \"dycicle\".usuario");
+            ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 Usuario u = new Usuario();
                 u.setNombreusuario(rs.getString("nombreusuario"));
@@ -570,13 +697,19 @@ public class DBMS {
 
     public ArrayList<String> listarDocumentos(Usuario u) throws SQLException {
 
-        String sqlquery = "SELECT * FROM \"dycicle\".archivosestudiante WHERE nombreusuario='"
+        ArrayList<String> archivos = new ArrayList<String>(0);
+        try{
+            PreparedStatement ps = null;
+            ps = conexion.prepareStatement("SELECT * FROM \"dycicle\".archivosestudiante WHERE nombreusuario= ?;");
+            ps.setString(1, u.getNombreusuario());
+        /*String sqlquery = "SELECT * FROM \"dycicle\".archivosestudiante WHERE nombreusuario='"
                 + u.getNombreusuario() + "';";
 
         Statement stmt = conexion.createStatement();
-        ResultSet rs = stmt.executeQuery(sqlquery);
+        ResultSet rs = stmt.executeQuery(sqlquery);*/
+            ResultSet rs = ps.executeQuery();
         String p = null;
-        ArrayList<String> archivos = new ArrayList<String>(0);
+        
 
         while (rs.next()) {
             p = rs.getString("direccion");
@@ -594,18 +727,23 @@ public class DBMS {
             }
         }
 
-
+        return archivos;
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
         return archivos;
     }
 
     public ArrayList<Usuario> listarEstudiantesPostulados() {
 
         ArrayList<Usuario> usrs = new ArrayList<Usuario>(0);
+        PreparedStatement ps = null;
 
         try {
-            String sqlquery = "SELECT * FROM \"dycicle\".estudiante NATURAL JOIN \"dycicle\".postulacion";
-            Statement stmt = conexion.createStatement();
-            ResultSet rs = stmt.executeQuery(sqlquery);
+            ps = conexion.prepareStatement("SELECT * FROM \"dycicle\".estudiante NATURAL JOIN \"dycicle\".postulacion");
+            /*String sqlquery = "SELECT * FROM \"dycicle\".estudiante NATURAL JOIN \"dycicle\".postulacion";
+            Statement stmt = conexion.createStatement();*/
+            ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
                 Usuario u = new Usuario();
@@ -662,11 +800,13 @@ public class DBMS {
     public ArrayList<Usuario> listarPreregistro() {
 
         ArrayList<Usuario> usrs = new ArrayList<Usuario>(0);
-
+        PreparedStatement ps = null;
         try {
-            String sqlquery = "SELECT * FROM \"dycicle\".preregistro";
+            ps = conexion.prepareStatement("SELECT * FROM \"dycicle\".preregistro");
+            /*String sqlquery = "SELECT * FROM \"dycicle\".preregistro";
             Statement stmt = conexion.createStatement();
-            ResultSet rs = stmt.executeQuery(sqlquery);
+            ResultSet rs = stmt.executeQuery(sqlquery);*/
+            ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 Usuario u = new Usuario();
                 u.setNombreusuario(rs.getString("nombreusuario"));
@@ -712,13 +852,17 @@ public class DBMS {
     public Usuario obtenerDatos(Usuario u) {
 
         Usuario datos = new Usuario();
-
+        PreparedStatement ps = null;
         try {
-            String sqlquery = "SELECT * FROM \"dycicle\".usuario"
+            ps = conexion.prepareStatement("SELECT * FROM \"dycicle\".usuario"
+                    + " WHERE nombreusuario = ?");
+            ps.setString(1, u.getNombreusuario());
+            /*String sqlquery = "SELECT * FROM \"dycicle\".usuario"
                     + " WHERE nombreusuario ='" + u.getNombreusuario() + "'";
 
             Statement stmt = conexion.createStatement();
-            ResultSet rs = stmt.executeQuery(sqlquery);
+            ResultSet rs = stmt.executeQuery(sqlquery);*/
+            ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 datos.setNombre(rs.getString("nombre"));
                 datos.setNombreusuario(rs.getString("nombreusuario"));
@@ -946,6 +1090,8 @@ public class DBMS {
         return false;
     }
 
+    
+    /*NetBeans me dice que no es usado*/
     private ArrayList<Idiomas> obtenerIdiomas(Usuario u) {
 
         ArrayList<Idiomas> idims = new ArrayList<Idiomas>();
@@ -975,6 +1121,8 @@ public class DBMS {
 
     }
 
+    
+    /*NetBeans me dice que no es usado*/
     private ArrayList<Materias> obtenerMaterias(Usuario u) {
 
         ArrayList<Materias> matems = new ArrayList<Materias>();
@@ -1329,14 +1477,19 @@ public class DBMS {
     public String[] existeEmail(String email) {
 
         String[] info = new String[3];
+        PreparedStatement ps = null;
 
         try {
-            String sqlquery = "SELECT nombreusuario, contrasena, email "
+            ps = conexion.prepareStatement("SELECT nombreusuario, contrasena, email "
+                    + "FROM \"dycicle\".usuario WHERE email = ?");
+            ps.setString(1, email);
+            /*String sqlquery = "SELECT nombreusuario, contrasena, email "
                     + "FROM \"dycicle\".usuario"
                     + " WHERE email = '" + email + "'";
 
             Statement stmt = conexion.createStatement();
-            ResultSet rs = stmt.executeQuery(sqlquery);
+            ResultSet rs = stmt.executeQuery(sqlquery);*/
+            ResultSet rs = ps.executeQuery();
 
             if (rs.next()) {
 
@@ -1363,14 +1516,19 @@ public class DBMS {
     public String[] existeUsuario(String usuario) {
 
         String[] info = new String[3];
+        PreparedStatement ps = null;
 
         try {
-            String sqlquery = "SELECT nombreusuario, contrasena, email "
+            ps = conexion.prepareStatement("SELECT nombreusuario, contrasena, email "
+                    + "FROM \"dycicle\".usuario WHERE nombreusuario = ?");
+            ps.setString(1, usuario);
+            /*String sqlquery = "SELECT nombreusuario, contrasena, email "
                     + "FROM \"dycicle\".usuario"
                     + " WHERE nombreusuario = '" + usuario + "'";
 
             Statement stmt = conexion.createStatement();
-            ResultSet rs = stmt.executeQuery(sqlquery);
+            ResultSet rs = stmt.executeQuery(sqlquery);*/
+            ResultSet rs = ps.executeQuery();
 
             if (rs.next()) {
 
@@ -1397,14 +1555,18 @@ public class DBMS {
     public String[] getInfoPostulante(String usuario) {
 
         String info[] = new String[4];
-
+    PreparedStatement ps = null;
         try {
-            String sqlquery = "SELECT Tipo, Codigo, NombreUniExt, NombreCarrera "
+            ps = conexion.prepareStatement("SELECT Tipo, Codigo, NombreUniExt, NombreCarrera "
+                    + "FROM \"dycicle\".postulante WHERE nombreusuario = ?");
+            ps.setString(1, usuario);
+            /*String sqlquery = "SELECT Tipo, Codigo, NombreUniExt, NombreCarrera "
                     + "FROM \"dycicle\".postulante"
                     + " WHERE nombreusuario = '" + usuario + "'";
 
             Statement stmt = conexion.createStatement();
-            ResultSet rs = stmt.executeQuery(sqlquery);
+            ResultSet rs = stmt.executeQuery(sqlquery);*/
+            ResultSet rs = ps.executeQuery();
 
             if (rs.next()) {
 
@@ -1430,13 +1592,18 @@ public class DBMS {
     public EstudianteUSB obtenerDatosUSB(Usuario u) {
 
         EstudianteUSB datos = new EstudianteUSB();
+        PreparedStatement ps = null;
 
         try {
-            String sqlquery = "SELECT * FROM \"dycicle\".estudianteusb"
+            ps = conexion.prepareStatement("SELECT * FROM \"dycicle\".estudianteusb"
+                    + " WHERE nombreusuario =?");
+            ps.setString(1, u.getNombreusuario());
+            /*String sqlquery = "SELECT * FROM \"dycicle\".estudianteusb"
                     + " WHERE nombreusuario ='" + u.getNombreusuario() + "'";
 
             Statement stmt = conexion.createStatement();
-            ResultSet rs = stmt.executeQuery(sqlquery);
+            ResultSet rs = stmt.executeQuery(sqlquery);*/
+            ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 datos.setNombreusuario(rs.getString("nombreusuario"));
                 datos.setCarnet(rs.getString("carnet"));
@@ -1455,6 +1622,13 @@ public class DBMS {
         try {
 
             EstudianteUSB usuario = obtenerDatosUSB(user);
+            
+            PreparedStatement ps = null;
+            ps = conexion.prepareStatement("INSERT INTO \"dycicle\".archivosestudiante"
+                    +"VALUES(?,?,?,'la','2');");
+            ps.setString(1, user.getNombreusuario());
+            ps.setString(2, usuario.getNombre());
+            ps.setString(3, path);
 
             String sqlquery = "INSERT INTO \"dycicle\".archivosestudiante VALUES("
                     + "'" + user.getNombreusuario() + "','" + usuario.getNombre()
@@ -1515,9 +1689,10 @@ public class DBMS {
      * USBistas que estan aplicando
      */
     public boolean InsertarPlan(PlanDeEstudio plan) {
-
+        PreparedStatement ps = null;
         try {
-
+            
+            
             ArrayList codusb = plan.getListCodigoUSB();
             ArrayList coduniv = plan.getListCodigoUniv();
             ArrayList creusb = plan.getListCreditoUSB();
@@ -1526,7 +1701,16 @@ public class DBMS {
             ArrayList nomuniv = plan.getListMateriaUniv();
             String nombre = plan.getNombreUsuario();
             for (int i = 0; i < codusb.size(); i++) {
-                String sqlquery = "INSERT INTO \"dycicle\".planestudio VALUES("
+                ps = conexion.prepareStatement("INSERT INTO \"dycicle\".planestudio"+
+                    "VALUES(?,?,?,?,?,?,?);");
+                ps.setString(1, nombre);
+                ps.setString(2, (String)codusb.get(i));
+                ps.setString(3, (String)nomusb.get(i));
+                ps.setInt(4, (Integer)creusb.get(i));
+                ps.setString(5, (String)coduniv.get(i));
+                ps.setString(6, (String)nomuniv.get(i));
+                ps.setInt(7, (Integer)creuniv.get(i));
+                /*String sqlquery = "INSERT INTO \"dycicle\".planestudio VALUES("
                         + "'" + nombre
                         + "','" + codusb.get(i)
                         + "','" + nomusb.get(i)
@@ -1536,7 +1720,8 @@ public class DBMS {
                         + "','" + creuniv.get(i)
                         + "');";
                 Statement stmt = conexion.createStatement();
-                Integer j = stmt.executeUpdate(sqlquery);
+                Integer j = stmt.executeUpdate(sqlquery);*/
+                Integer j = ps.executeUpdate();
 
             }
             return true;
@@ -1551,20 +1736,27 @@ public class DBMS {
     public boolean InsertarPlan(PlanExtranjero plan) {
 
         try {
-
+            PreparedStatement ps = null;
             ArrayList codusb = plan.getListCodigoUSB();
             ArrayList creusb = plan.getListCreditoUSB();
             ArrayList nomusb = plan.getListMateriaUSB();
             String nombre = plan.getNombreUsuario();
             for (int i = 0; i < codusb.size(); i++) {
-                String sqlquery = "INSERT INTO \"dycicle\".planestudio VALUES("
+                ps = conexion.prepareStatement("INSERT INTO \"dycicle\".planestudio"+
+                        "VALUES(?,?,?,?,'1', '1', '1');");
+                ps.setString(1, nombre);
+                ps.setString(2, (String)codusb.get(i));
+                ps.setString(3, (String)nomusb.get(i));
+                ps.setInt(4, (Integer)creusb.get(i));
+                /*String sqlquery = "INSERT INTO \"dycicle\".planestudio VALUES("
                         + "'" + nombre
                         + "','" + codusb.get(i)
                         + "','" + nomusb.get(i)
                         + "','" + creusb.get(i)
                         + "','1', '1', '1');";
                 Statement stmt = conexion.createStatement();
-                Integer j = stmt.executeUpdate(sqlquery);
+                Integer j = stmt.executeUpdate(sqlquery);*/
+                Integer j = ps.executeUpdate();
 
             }
 
@@ -1703,11 +1895,16 @@ public class DBMS {
 
     public String getPrivilegioUsuario(String nombreUsuario) {
         String result = null;
+        PreparedStatement ps = null;
         try {
-            String sqlQuery = "SELECT privilegio FROM \"dycicle\".usuario WHERE"
+            ps = conexion.prepareStatement("SELECT privilegio FROM \"dycicle\".usuario WHERE"
+                    + " nombreusuario=?;");
+            ps.setString(1, nombreUsuario);
+            /*String sqlQuery = "SELECT privilegio FROM \"dycicle\".usuario WHERE"
                     + " nombreusuario='" + nombreUsuario + "';";
             Statement stmt = conexion.createStatement();
-            ResultSet rs = stmt.executeQuery(sqlQuery);
+            ResultSet rs = stmt.executeQuery(sqlQuery);*/
+            ResultSet rs = ps.executeQuery();
             if (rs.next()) {
                 result = rs.getString("privilegio");
             }
@@ -1717,12 +1914,18 @@ public class DBMS {
     }
 
     public boolean Comentar(Usuario u) {
+        PreparedStatement ps = null;
         try {
-            String sqlquery = "UPDATE \"dycicle\".estudiante SET comentario='" + u.getConfirmar()
+            ps = conexion.prepareStatement("UPDATE \"dycicle\".estudiante SET"
+                    +"comentario= ? WHERE nombreusuario = ?");
+            ps.setString(1, u.getConfirmar());
+            ps.setString(2, u.getNombreusuario());
+            /*String sqlquery = "UPDATE \"dycicle\".estudiante SET comentario='" + u.getConfirmar()
                     + "' WHERE nombreusuario = '"
                     + u.getNombreusuario() + "'";
             Statement stmt = conexion.createStatement();
-            Integer i = stmt.executeUpdate(sqlquery);
+            Integer i = stmt.executeUpdate(sqlquery);*/
+            Integer i = ps.executeUpdate();
             return i > 0;
 
         } catch (SQLException ex) {
