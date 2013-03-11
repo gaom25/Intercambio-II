@@ -546,12 +546,15 @@ ALTER TABLE "dycicle".Persiste ADD
 /* INSERT de un usuario administrador por defecto */
 INSERT INTO "dycicle".USUARIO VALUES ( 'admin','email@gmail.com', 1, 'Administrador', 'admin1234');
 INSERT INTO "dycicle".ADMINISTRADOR VALUES ('admin');
+--
 INSERT INTO "dycicle".USUARIO VALUES ( 'gestor','gestor@gmail.com', 2, 'Decanato', 'gestor1234');
 INSERT INTO "dycicle".GESTOR VALUES ('gestor','Decanato de Estudios Profesionales');
+--
 INSERT INTO "dycicle".USUARIO VALUES ( 'materiales','@gmail.com', 3, 'Administrador', 'materiales1234');
 INSERT INTO "dycicle".POSTULANTE VALUES ('materiales','1500','Coordinacion',null,'Ingenieria de Materiales');
 INSERT INTO "dycicle".USUARIO VALUES ( 'computacion','email@gmail.com', 3, 'Computacion', 'computacion1234');
 INSERT INTO "dycicle".POSTULANTE VALUES ('computacion','0800','Coordinacion',null,'Ingenieria de Computacion');
+--
 INSERT INTO "dycicle".USUARIO VALUES ( 'brahyam','brahyam@gmail.com', 5, 'Brahyam', 'brahyam1234');
 INSERT INTO "dycicle".ESTUDIANTE VALUES ( 'brahyam',null,'Brahyam','Steffano','Meneses','Moreno','Ingenieria de Computacion',0800,'Masculino','La Candelaria','Este 7','Jamarco','11-B','Caracas','Distrito Capital','1010','04264603899','02125518367','02125518367','brahyam@gmail.com','30/12/1990','Venezolano',null);
 INSERT INTO "dycicle".ESTUDIANTEUSB VALUES ( 'brahyam','19721013','08-10738');
@@ -588,3 +591,42 @@ INSERT INTO "dycicle".UNIVERSIDADES VALUES ('sofia',1,'Universidad Nacional de C
 INSERT INTO "dycicle".UNIVERSIDADES VALUES ('sofia',2,'Universidad Privada Santa Cruz de la Sierra','Bolivia','Intercambio','SMILE','Enero','2014','Enero','2015','Año Academico');
 INSERT INTO "dycicle".IDIOMAS VALUES ( 'sofia','Frances','Experto','Experto','Experto');
 INSERT INTO "dycicle".IDIOMAS VALUES ( 'sofia','Chino','Experto','Experto','Experto');
+--
+INSERT INTO "dycicle".USUARIO VALUES ( 'sofia','sofia@gmail.com', 5, 'sofia', 'sofia1234');
+INSERT INTO "dycicle".ESTUDIANTE VALUES ( 'sofia',null,'Sofia','Luisa','Vergara','Mendoza','Ingenieria de Materiales',1500,'Femenino','Baruta','Piedra Azul','Dolores','S/N','Caracas','Miranda','1010','04266783899','02120928367','02127768367','sofia@gmail.com','15/10/1993','Venezolano',null);
+INSERT INTO "dycicle".ESTUDIANTEUSB VALUES ( 'sofia','20721013','08-10760');
+INSERT INTO "dycicle".ANTECEDENTEACADEMICO VALUES ('sofia','3.3745','3.5094','Estudios Profesionales','Ingenieria','Ingenieria de Materiales','opcion','160','2008','4','Alexander Ramirez','Carlitos Machado');
+INSERT INTO "dycicle".POSTULACION VALUES ('sofia','En evaluacion','recomendacion','comentario','2013-03-09 09:58:11.53');
+INSERT INTO "dycicle".PLANESTUDIO VALUES ('sofia','MA-3425','Ingenieria de Materiales',4,'HJI878','Analisis Logico',5);
+INSERT INTO "dycicle".REPRESENTANTE VALUES ('sofia','Sancho','Alfonso','Panzas','Mendoza','04146239360','02126513367','sancho@gmail.com','Familiar','La Candelaria');
+INSERT INTO "dycicle".FINANCIAMIENTO VALUES ('sofia','Familiar','Ganancias de mis padres','Ninguna','Ninguna');
+INSERT INTO "dycicle".UNIVERSIDADES VALUES ('sofia',1,'Universidad Nacional de Cuyo','Argentina','Intercambio','SMILE','Enero','2014','Enero','2015','Año Academico');
+INSERT INTO "dycicle".UNIVERSIDADES VALUES ('sofia',2,'Universidad Privada Santa Cruz de la Sierra','Bolivia','Intercambio','SMILE','Enero','2014','Enero','2015','Año Academico');
+INSERT INTO "dycicle".IDIOMAS VALUES ( 'sofia','Frances','Experto','Experto','Experto');
+INSERT INTO "dycicle".IDIOMAS VALUES ( 'sofia','Chino','Experto','Experto','Experto');
+--
+INSERT INTO "dycicle".USUARIO VALUES ( 'daniel','daniel@gmail.com', 5, 'Daniel', 'daniel1234');
+INSERT INTO "dycicle".ESTUDIANTE VALUES ( 'daniel',null,'Daniel','Enrique','Moussa','Anaya','Ingenieria Mecanica',0200,'Masculino','El Silencio','Av. Lecuna','Edif. Granados','S','Caracas','Distrito Capital','1010','04264030368','02124816135','02125518367','daniel@gmail.com','30/12/1990','Venezolano',null);
+INSERT INTO "dycicle".ESTUDIANTEUSB VALUES ( 'daniel','20341098','08-87462');
+INSERT INTO "dycicle".ANTECEDENTEACADEMICO VALUES ('daniel','3.2345','3.4232','Estudios Profesionales','Ingenieria','Ingenieria Mecanica','opcion','130','2008','4','Alexander Ramirez','Juvencio Perez');
+INSERT INTO "dycicle".POSTULACION VALUES ('daniel','En evaluacion','recomendacion','comentario','2013-03-09 09:58:11.53');
+INSERT INTO "dycicle".PLANESTUDIO VALUES ('daniel','JS-4322','Aplicacion de Materiales',4,'HY1212','Aplicacion de Materiales',5);
+INSERT INTO "dycicle".REPRESENTANTE VALUES ('daniel','Jesus','Mauricio','Moussa','Anaya','04124762312','02123241242','jesus@gmail.com','Familiar','El Silencio');
+INSERT INTO "dycicle".FINANCIAMIENTO VALUES ('daniel','Familiar','Ganancias de mis padres','Ninguna','Ninguna');
+INSERT INTO "dycicle".UNIVERSIDADES VALUES ('daniel',1,'Universidad de Tohoku','Japon','Intercambio','SMILE','Enero','2014','Enero','2015','Año Academico');
+INSERT INTO "dycicle".UNIVERSIDADES VALUES ('daniel',2,'Universidad Tecnológica de Nagaoka','Japon','Intercambio','SMILE','Enero','2014','Enero','2015','Año Academico');
+INSERT INTO "dycicle".IDIOMAS VALUES ( 'daniel','Ingles','Medio','Medio','Medio');
+INSERT INTO "dycicle".IDIOMAS VALUES ( 'daniel','Japones','Basico','Basico','Basico');
+--
+
+
+
+
+
+
+
+
+
+
+
+

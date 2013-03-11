@@ -181,7 +181,7 @@
                                 <html:option value="Universidad Tecnológica de Nagaoka"></html:option>
                                 <html:option value="Universidad de Tohoku"></html:option>
                                 <html:option value="ITESM Monterrey"></html:option>
-                                <html:option value=" Universidad Autónoma Metropolitana"></html:option>
+                                <html:option value="Universidad Autónoma Metropolitana"></html:option>
                                 <html:option value="Instituto Tecnológico Superior de Cajeme(ITESCA)"></html:option>
                                 <html:option value="Universidad Veracruzana"></html:option>
                                 <html:option value="NTNU-Trondheim"></html:option>
