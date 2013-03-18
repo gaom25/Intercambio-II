@@ -393,10 +393,72 @@ public class DBMS {
      * Esta funcion es la de agregar estudiante desde el administrador
      */
     public boolean agregarEstudianteUSB(EstudianteUSB e) {
+        /*
+         * este va a tener rollback
+         */
+        PreparedStatement ps1 = null;
+        PreparedStatement ps2 = null;
+        PreparedStatement ps3 = null;
+        PreparedStatement ps4 = null;
+        PreparedStatement ps5 = null;
         try {
-
-
-            String sqlquerycod = "SELECT nombrecarrera,codigo FROM \"dycicle\".postulante where "
+            conexion.setAutoCommit(false);
+            ps1 = conexion.prepareStatement("SELECT nombrecarrera,codigo FROM \"dycicle\".postulante where "
+                    + "nombreusuario =?;");
+            ps1.setString(1, e.getCarrera());
+            ResultSet rs = ps1.executeQuery();
+            conexion.commit();
+            
+            while (rs.next()) {
+                e.setCodCarrera(rs.getString("codigo"));
+                e.setCarrera(rs.getString("nombrecarrera"));
+            }
+            
+            ps2 = conexion.prepareStatement("INSERT INTO \"dycicle\".estudiante VALUES (" 
+                    + "?, '" + "null" + "',?,?,?,?,?,?,"
+                    + " 'null','null', 'null',  'null', 'null', 'null', 'null', "
+                    + " 'null', 'null', 'null',?, '2012-11-27 23:43:11.080','null','null');");
+            ps2.setString(1, e.getNombreusuario());
+            ps2.setString(2, e.getpNombre());
+            ps2.setString(3, e.getsNombre());
+            ps2.setString(4, e.getpApellido());
+            ps2.setString(5, e.getsApellido());
+            ps2.setString(6, e.getCarrera());
+            ps2.setString(7, e.getCodCarrera());
+            ps2.setString(8, e.getEmail());
+            
+            ps3 = conexion.prepareStatement("INSERT INTO \"dycicle\".estudianteUSB VALUES("
+                    +" ?,  'null' ,?);");
+            ps3.setString(1, e.getNombreusuario());
+            ps3.setString(2, e.getCarnet());
+            
+            ps4 = conexion.prepareStatement("INSERT INTO \"dycicle\".AntecedenteAcademico VALUES ("
+                    +"?, '1.0000', '1.0000','null','null',?, "
+                    + "'opcion', '0', '0000', '0', 'null', 'null');");
+            
+           ps4.setString(1, e.getNombreusuario());
+           ps4.setString(2, e.getCarrera());
+           
+           ps5 = conexion.prepareStatement("INSERT INTO \"dycicle\".Postulacion VALUES ("
+                    +"?, 'En evaluacion', 'recomendacion', 'comentario');");
+           ps5.setString(1, e.getNombreusuario());
+           
+           
+           /*ejecuciones*/
+           
+           Integer i = ps2.executeUpdate();
+           conexion.commit();
+           Integer j = ps3.executeUpdate();
+           conexion.commit();
+           Integer k = ps4.executeUpdate();
+           conexion.commit();
+           Integer l = ps5.executeUpdate();
+           conexion.commit();
+           
+           /*volvemos a como estabamos*/
+           conexion.setAutoCommit(true);
+           
+            /*String sqlquerycod = "SELECT nombrecarrera,codigo FROM \"dycicle\".postulante where "
                     + "nombreusuario ='" + e.getCarrera() + "';";
 
             Statement stmt = conexion.createStatement();
@@ -439,13 +501,48 @@ public class DBMS {
             Integer i = stmt.executeUpdate(sqlquery1);
             Integer j = stmt.executeUpdate(sqlquery2);
             Integer k = stmt.executeUpdate(sqlqueryAntecedente);
-            Integer l = stmt.executeUpdate(sqlqueryPostulacion);
+            Integer l = stmt.executeUpdate(sqlqueryPostulacion);*/
 
+           
             return i > 0 && j > 0 && k > 0 && l > 0;
 
         } catch (SQLException ex) {
             ex.printStackTrace();
+            try{
+                System.out.println("haciendo rollback");
+                conexion.rollback();
+            }catch(SQLException excep){
+                System.out.println("No se pudo hacer rollback");
+                        
+            }
+        /*Cerramos las conexiones*/
         }
+        try{
+            if(ps1 != null){
+                ps1.close();
+            }
+            if(ps2 != null){
+                ps2.close();
+            }
+            if(ps3 != null){
+                ps3.close();
+            }
+            if(ps4 != null){
+                ps4.close();
+            }
+            if(ps5 != null){
+                ps5.close();
+            }
+            conexion.setAutoCommit(true);
+        }catch(SQLException excep){
+            System.out.println("No se cerro la conexion");
+            try{
+                conexion.setAutoCommit(true);
+            }catch(SQLException excep2){
+                System.out.println("fuuuuuuuuuuu");
+            }
+        }
+        
         return false;
     }
 
