@@ -17,7 +17,7 @@
 <html:html lang="true">
 
     <script language="javascript">
-        var fCount = 1;
+        var fCount = 3;
         var Count = 0;
         var mCount = 0;
         
@@ -295,7 +295,7 @@
             var segundo_p = document.getElementById(tableID).getElementsByTagName('td');
                 
             fObject.appendChild(tr).appendChild(td3);    
-        fObject.appendChild(tr).insertBefore(td2, segundo_p);
+            fObject.appendChild(tr).insertBefore(td2, segundo_p);
        
         }
  
@@ -437,154 +437,154 @@
         }
 
 
-// CAMBIA EL PAIS DE ACUERDO AL TIPO DE CONVENIO ELEGIDO
+        // CAMBIA EL PAIS DE ACUERDO AL TIPO DE CONVENIO ELEGIDO
 
-    // Convenios Bilaterales
-    var paises_Bilaterales=new Array("Seleccione", "Alemania","Australia", "Canadá", "Colombia", "España", "EstadosUnidos", "Finlandia", "Francia", "Italia", "Japón", "México", "Noruega", "Perú", "PuertoRico", "ReinoUnido", "Suecia")
-    // SMILE
-    var paises_SMILE=new Array("Seleccione", "Alemania", "Bélgica", "Brasil", "Chile", "Colombia", "España", "Polonia", "Portugal", "RepúblicaCheca")
-    // CINDA
-    var paises_Cinda=new Array("Seleccione", "Argentina", "Bolivia", "Brasil", "Chile", "Colombia", "CostaRica", "Ecuador", "España", "Italia", "México", "Panamá", "Paraguay", "Perú", "RepúblicaDominicana", "Uruguay", "Venezuela")
+        // Convenios Bilaterales
+        var paises_Bilaterales=new Array("Seleccione", "Alemania","Australia", "Canadá", "Colombia", "España", "EstadosUnidos", "Finlandia", "Francia", "Italia", "Japón", "México", "Noruega", "Perú", "PuertoRico", "ReinoUnido", "Suecia")
+        // SMILE
+        var paises_SMILE=new Array("Seleccione", "Alemania", "Bélgica", "Brasil", "Chile", "Colombia", "España", "Polonia", "Portugal", "RepúblicaCheca")
+        // CINDA
+        var paises_Cinda=new Array("Seleccione", "Argentina", "Bolivia", "Brasil", "Chile", "Colombia", "CostaRica", "Ecuador", "España", "Italia", "México", "Panamá", "Paraguay", "Perú", "RepúblicaDominicana", "Uruguay", "Venezuela")
 
-    function cambia_pais(){ 
-        //tomo el valor del select del pais elegido 
-        programa = document.getElementById("prog_princ")[document.getElementById("prog_princ").selectedIndex].value 
-        if (programa != 0) { 
-            mis_paises=eval("paises_" + programa) 
-            num_paises = mis_paises.length 
-            document.getElementById("pais_princ").length = num_paises
-            document.getElementById("pais_princ").options[0].value=0
-            document.getElementById("pais_princ").options[0].text="Seleccione"
-            for(i=1;i<num_paises;i++){ 
-              document.getElementById("pais_princ").options[i].value=mis_paises[i]
-              document.getElementById("pais_princ").options[i].text=mis_paises[i] 
-           } 
-        }else{ 
-           //si no había provincia seleccionada, elimino las universidades del select 
-           document.getElementById("pais_princ").length = 1 
-           document.getElementById("pais_princ").options[0].value = "-" 
-           document.getElementById("pais_princ").options[0].text = "-" 
-        } 
-        //marco como seleccionada la opción primera de provincia 
-        document.getElementById("pais_princ").options[0].selected = true 
-    }
+        function cambia_pais(){ 
+            //tomo el valor del select del pais elegido 
+            programa = document.getElementById("prog_princ")[document.getElementById("prog_princ").selectedIndex].value 
+            if (programa != 0) { 
+                mis_paises=eval("paises_" + programa) 
+                num_paises = mis_paises.length 
+                document.getElementById("pais_princ").length = num_paises
+                document.getElementById("pais_princ").options[0].value=0
+                document.getElementById("pais_princ").options[0].text="Seleccione"
+                for(i=1;i<num_paises;i++){ 
+                    document.getElementById("pais_princ").options[i].value=mis_paises[i]
+                    document.getElementById("pais_princ").options[i].text=mis_paises[i] 
+                } 
+            }else{ 
+                //si no había provincia seleccionada, elimino las universidades del select 
+                document.getElementById("pais_princ").length = 1 
+                document.getElementById("pais_princ").options[0].value = "-" 
+                document.getElementById("pais_princ").options[0].text = "-" 
+            } 
+            //marco como seleccionada la opción primera de provincia 
+            document.getElementById("pais_princ").options[0].selected = true 
+        }
 
-    function cambia_pais2(){ 
-        //tomo el valor del select del pais elegido 
-        programa = document.getElementById("prog_princ2")[document.getElementById("prog_princ2").selectedIndex].value 
-        if (programa != 0) { 
-            mis_paises=eval("paises_" + programa) 
-            num_paises = mis_paises.length 
-            document.getElementById("pais_princ2").length = num_paises
-            document.getElementById("pais_princ2").options[0].value=0
-            document.getElementById("pais_princ2").options[0].text="Seleccione"
-            for(i=1;i<num_paises;i++){ 
-              document.getElementById("pais_princ2").options[i].value=mis_paises[i]
-              document.getElementById("pais_princ2").options[i].text=mis_paises[i] 
-           } 
-        }else{ 
-           //si no había provincia seleccionada, elimino las universidades del select 
-           document.getElementById("pais_princ2").length = 1 
-           document.getElementById("pais_princ2").options[0].value = "-" 
-           document.getElementById("pais_princ2").options[0].text = "-" 
-        } 
-        //marco como seleccionada la opción primera de provincia 
-        document.getElementById("pais_princ2").options[0].selected = true 
-    }
+        function cambia_pais2(){ 
+            //tomo el valor del select del pais elegido 
+            programa = document.getElementById("prog_princ2")[document.getElementById("prog_princ2").selectedIndex].value 
+            if (programa != 0) { 
+                mis_paises=eval("paises_" + programa) 
+                num_paises = mis_paises.length 
+                document.getElementById("pais_princ2").length = num_paises
+                document.getElementById("pais_princ2").options[0].value=0
+                document.getElementById("pais_princ2").options[0].text="Seleccione"
+                for(i=1;i<num_paises;i++){ 
+                    document.getElementById("pais_princ2").options[i].value=mis_paises[i]
+                    document.getElementById("pais_princ2").options[i].text=mis_paises[i] 
+                } 
+            }else{ 
+                //si no había provincia seleccionada, elimino las universidades del select 
+                document.getElementById("pais_princ2").length = 1 
+                document.getElementById("pais_princ2").options[0].value = "-" 
+                document.getElementById("pais_princ2").options[0].text = "-" 
+            } 
+            //marco como seleccionada la opción primera de provincia 
+            document.getElementById("pais_princ2").options[0].selected = true 
+        }
 
-// CAMBIA LA UNIVERSIDAD DE ACUERDO AL PAIS ESCOGIDO 
+        // CAMBIA LA UNIVERSIDAD DE ACUERDO AL PAIS ESCOGIDO 
  
-// Universidad con Convenios Bilaterales
-var uni_BilateralesAlemania=new Array("Seleccione", "Universidad de Karlsruhe", "Universidad de Siegen")
-var uni_BilateralesAustralia=new Array("Seleccione", "Universidad Tecnológica de Swinburne")
-var uni_BilateralesCanadá=new Array("Seleccione", "Instituto de Tecnología de Ontario")
-var uni_BilateralesColombia=new Array("Seleccione", "Pontificia Universidad Bolivariana", "Universidad Externado")
-var uni_BilateralesEspaña=new Array("Seleccione", "Universidad de Granada", "Universidad de Zaragoza", "Universidad Politécnica de Valencia")
-var uni_BilateralesEstadosUnidos=new Array("Seleccione", "Universidad de Nuevo México", "Universidad de Oklahoma")
-var uni_BilateralesFinlandia=new Array("Seleccione", "Universidad Abo Akademi")
-var uni_BilateralesFrancia=new Array("Seleccione", "Arts et Métiers ParisTech", "EPF Escuela de Ingenieros", "Escuela de Minas de Nantes", "INSA – Lyon", "TELECOM – SudParis", "Universidad Paris Est Marne la Vallé", "Universidad Paris Ouest Nanterre", "Universidad Tecnológica de Compiègne")
-var uni_BilateralesItalia=new Array("Seleccione", "Politécnico de Milano", "Politécnico de Torino")
-var uni_BilateralesJapón=new Array("Seleccione", "Universidad de Tohoku", "Universidad Tecnológica de Nagaoka")
-var uni_BilateralesMéxico=new Array("Seleccione", "Instituto Tecnológico Superior de Cajeme (ITESCA)", "ITESM Monterrey", "Universidad Veracruzana")
-var uni_BilateralesNoruega=new Array("Seleccione", "NTNU- Trondheim")
-var uni_BilateralesPerú=new Array("Seleccione", "Universidad San Martín de Porres")
-var uni_BilateralesPuertoRico=new Array("Seleccione", "Universidad de Puerto Rico")
-var uni_BilateralesReinoUnido=new Array("Seleccione", "Universidad de Ulster")
-var uni_BilateralesSuecia=new Array("Seleccione", "Real Instituto de Estocolmo KTH", "Universidad de Lund", "Universidad de Uppsala")
+        // Universidad con Convenios Bilaterales
+        var uni_BilateralesAlemania=new Array("Seleccione", "Universidad de Karlsruhe", "Universidad de Siegen")
+        var uni_BilateralesAustralia=new Array("Seleccione", "Universidad Tecnológica de Swinburne")
+        var uni_BilateralesCanadá=new Array("Seleccione", "Instituto de Tecnología de Ontario")
+        var uni_BilateralesColombia=new Array("Seleccione", "Pontificia Universidad Bolivariana", "Universidad Externado")
+        var uni_BilateralesEspaña=new Array("Seleccione", "Universidad de Granada", "Universidad de Zaragoza", "Universidad Politécnica de Valencia")
+        var uni_BilateralesEstadosUnidos=new Array("Seleccione", "Universidad de Nuevo México", "Universidad de Oklahoma")
+        var uni_BilateralesFinlandia=new Array("Seleccione", "Universidad Abo Akademi")
+        var uni_BilateralesFrancia=new Array("Seleccione", "Arts et Métiers ParisTech", "EPF Escuela de Ingenieros", "Escuela de Minas de Nantes", "INSA – Lyon", "TELECOM – SudParis", "Universidad Paris Est Marne la Vallé", "Universidad Paris Ouest Nanterre", "Universidad Tecnológica de Compiègne")
+        var uni_BilateralesItalia=new Array("Seleccione", "Politécnico de Milano", "Politécnico de Torino")
+        var uni_BilateralesJapón=new Array("Seleccione", "Universidad de Tohoku", "Universidad Tecnológica de Nagaoka")
+        var uni_BilateralesMéxico=new Array("Seleccione", "Instituto Tecnológico Superior de Cajeme (ITESCA)", "ITESM Monterrey", "Universidad Veracruzana")
+        var uni_BilateralesNoruega=new Array("Seleccione", "NTNU- Trondheim")
+        var uni_BilateralesPerú=new Array("Seleccione", "Universidad San Martín de Porres")
+        var uni_BilateralesPuertoRico=new Array("Seleccione", "Universidad de Puerto Rico")
+        var uni_BilateralesReinoUnido=new Array("Seleccione", "Universidad de Ulster")
+        var uni_BilateralesSuecia=new Array("Seleccione", "Real Instituto de Estocolmo KTH", "Universidad de Lund", "Universidad de Uppsala")
 
-// Universidad con SMILE
-var uni_SMILEAlemania=new Array("Seleccione", "Universidad de Stuttgart")
-var uni_SMILEBélgica=new Array("Seleccione", "Universidad Católica de Lovaina")
-var uni_SMILEBrasil=new Array("Seleccione", "PSML - BRA - Universidad de Sao Paulo", "PSML - BRA - Universidad Federal de Río de Janeiro")
-var uni_SMILEChile=new Array("Seleccione", "PSML - CHI - Pontifica Universidad Católica de Chile")
-var uni_SMILEColombia=new Array("Seleccione", "PSML - COL - Pontificia Universidad Javeriana")
-var uni_SMILEEspaña=new Array("Seleccione", "PSML - ESP - Universidad Politécnica de Cataluña", "PSML - ESP - Universidad Politécnica de Madrid")
-var uni_SMILEPolonia=new Array("Seleccione", "PSML - POL - AGH Universidad de Ciencias y Tecnología")
-var uni_SMILEPortugal=new Array("Seleccione", "PSML - POR - Universidad Técnica de Lisboa")
-var uni_SMILERepúblicaCheca=new Array("Seleccione", "PSML - RPC - Universidad Técnica Checa en Praga")
+        // Universidad con SMILE
+        var uni_SMILEAlemania=new Array("Seleccione", "Universidad de Stuttgart")
+        var uni_SMILEBélgica=new Array("Seleccione", "Universidad Católica de Lovaina")
+        var uni_SMILEBrasil=new Array("Seleccione", "PSML - BRA - Universidad de Sao Paulo", "PSML - BRA - Universidad Federal de Río de Janeiro")
+        var uni_SMILEChile=new Array("Seleccione", "PSML - CHI - Pontifica Universidad Católica de Chile")
+        var uni_SMILEColombia=new Array("Seleccione", "PSML - COL - Pontificia Universidad Javeriana")
+        var uni_SMILEEspaña=new Array("Seleccione", "PSML - ESP - Universidad Politécnica de Cataluña", "PSML - ESP - Universidad Politécnica de Madrid")
+        var uni_SMILEPolonia=new Array("Seleccione", "PSML - POL - AGH Universidad de Ciencias y Tecnología")
+        var uni_SMILEPortugal=new Array("Seleccione", "PSML - POR - Universidad Técnica de Lisboa")
+        var uni_SMILERepúblicaCheca=new Array("Seleccione", "PSML - RPC - Universidad Técnica Checa en Praga")
 
-// Universidad con CINDA
-var uni_CindaArgentina=new Array("Seleccione", "Universidad Nacional de Cuyo", "Universidad Nacional de Quilmes", "Universidad Nacional de San Martín")
-var uni_CindaBolivia=new Array("Seleccione", "Universidad Católica Boliviana San Pablo", "Universidad Privada Santa Cruz de la Sierra")
-var uni_CindaBrasil=new Array("Seleccione", "Universidad de Sao Paulo ", "Universidad Estadual de Campinas")
-var uni_CindaChile=new Array("Seleccione", "Pontificia Universidad Católica de Chile", "Pontificia Universidad Católica de Valparaíso", "Universidad Austral de Chile", "Universidad de Concepción", "Universidad de Talca", "Universidad de Tarapacá")
-var uni_CindaColombia=new Array("Seleccione", "Pontificia Universidad Javeriana ", "Universidad de los Andes", "Universidad del Norte", "Universidad del Valle")
-var uni_CindaCostaRica=new Array("Seleccione", "Universidad de Costa Rica ")
-var uni_CindaEcuador=new Array("Seleccione", "Escuela Superior Politécnica del Litoral")
-var uni_CindaEspaña=new Array("Seleccione", "Universidad Carlos III de Madrid", "Universidad de Barcelona", "Universidad de las Islas Baleares", "Universidad de Santiago de Compostela", "Universitat Oberta de Catalunya", "Universitat Politécnica de Catalunya")
-var uni_CindaItalia=new Array("Seleccione", "Universidad Degli Studi Di Genova")
-var uni_CindaMéxico=new Array("Seleccione", "ITESM Monterrey ", "Universidad Autónoma Metropolitana")
-var uni_CindaPanamá=new Array("Seleccione", "Universidad de Panamá ")
-var uni_CindaParaguay=new Array("Seleccione", "Universidad Católica de Nuestra Señora de la Asunción")
-var uni_CindaPerú=new Array("Seleccione", "Pontificia Universidad Católica del Perú ", "Universidad de Lima", "Universidad del Pacífico ", "Universidad Peruana Cayetano Heredia")
-var uni_CindaRepúbicaDominicana=new Array("Seleccione", "Instituto Tecnológico de Santo Domingo", "Pontificia Universidad Católica Madre Maestra ")
-var uni_CindaUruguay=new Array("Seleccione", "Universidad Católica del Uruguay")
-var uni_CindaVenezuela=new Array("Seleccione", "Universidad Centroccidental Lisandro Alvarado", "Universidad Metropolitana")
+        // Universidad con CINDA
+        var uni_CindaArgentina=new Array("Seleccione", "Universidad Nacional de Cuyo", "Universidad Nacional de Quilmes", "Universidad Nacional de San Martín")
+        var uni_CindaBolivia=new Array("Seleccione", "Universidad Católica Boliviana San Pablo", "Universidad Privada Santa Cruz de la Sierra")
+        var uni_CindaBrasil=new Array("Seleccione", "Universidad de Sao Paulo ", "Universidad Estadual de Campinas")
+        var uni_CindaChile=new Array("Seleccione", "Pontificia Universidad Católica de Chile", "Pontificia Universidad Católica de Valparaíso", "Universidad Austral de Chile", "Universidad de Concepción", "Universidad de Talca", "Universidad de Tarapacá")
+        var uni_CindaColombia=new Array("Seleccione", "Pontificia Universidad Javeriana ", "Universidad de los Andes", "Universidad del Norte", "Universidad del Valle")
+        var uni_CindaCostaRica=new Array("Seleccione", "Universidad de Costa Rica ")
+        var uni_CindaEcuador=new Array("Seleccione", "Escuela Superior Politécnica del Litoral")
+        var uni_CindaEspaña=new Array("Seleccione", "Universidad Carlos III de Madrid", "Universidad de Barcelona", "Universidad de las Islas Baleares", "Universidad de Santiago de Compostela", "Universitat Oberta de Catalunya", "Universitat Politécnica de Catalunya")
+        var uni_CindaItalia=new Array("Seleccione", "Universidad Degli Studi Di Genova")
+        var uni_CindaMéxico=new Array("Seleccione", "ITESM Monterrey ", "Universidad Autónoma Metropolitana")
+        var uni_CindaPanamá=new Array("Seleccione", "Universidad de Panamá ")
+        var uni_CindaParaguay=new Array("Seleccione", "Universidad Católica de Nuestra Señora de la Asunción")
+        var uni_CindaPerú=new Array("Seleccione", "Pontificia Universidad Católica del Perú ", "Universidad de Lima", "Universidad del Pacífico ", "Universidad Peruana Cayetano Heredia")
+        var uni_CindaRepúbicaDominicana=new Array("Seleccione", "Instituto Tecnológico de Santo Domingo", "Pontificia Universidad Católica Madre Maestra ")
+        var uni_CindaUruguay=new Array("Seleccione", "Universidad Católica del Uruguay")
+        var uni_CindaVenezuela=new Array("Seleccione", "Universidad Centroccidental Lisandro Alvarado", "Universidad Metropolitana")
 
 
-function cambia_universidad(){ 
-        //tomo el valor del select del pais elegido 
-        programa = document.getElementById("prog_princ")[document.getElementById("prog_princ").selectedIndex].value 
-        pais = document.getElementById("pais_princ")[document.getElementById("pais_princ").selectedIndex].value 
-        if (programa != 0) { 
-           mis_universidades=eval("uni_" + programa + pais) 
-           num_universidades = mis_universidades.length 
-           document.getElementById("uni_princ").length = num_universidades 
-           for(i=0;i<num_universidades;i++){ 
-              document.getElementById("uni_princ").options[i].value=mis_universidades[i] 
-              document.getElementById("uni_princ").options[i].text=mis_universidades[i] 
-           } 
-        }else{ 
-           //si no había provincia seleccionada, elimino las universidades del select 
-           document.getElementById("uni_princ").length = 1 
-           document.getElementById("uni_princ").options[0].value = "-" 
-           document.getElementById("uni_princ").options[0].text = "-" 
-        } 
-        //marco como seleccionada la opción primera de provincia 
-        document.getElementById("uni_princ").options[0].selected = true 
-    }    
+        function cambia_universidad(){ 
+            //tomo el valor del select del pais elegido 
+            programa = document.getElementById("prog_princ")[document.getElementById("prog_princ").selectedIndex].value 
+            pais = document.getElementById("pais_princ")[document.getElementById("pais_princ").selectedIndex].value 
+            if (programa != 0) { 
+                mis_universidades=eval("uni_" + programa + pais) 
+                num_universidades = mis_universidades.length 
+                document.getElementById("uni_princ").length = num_universidades 
+                for(i=0;i<num_universidades;i++){ 
+                    document.getElementById("uni_princ").options[i].value=mis_universidades[i] 
+                    document.getElementById("uni_princ").options[i].text=mis_universidades[i] 
+                } 
+            }else{ 
+                //si no había provincia seleccionada, elimino las universidades del select 
+                document.getElementById("uni_princ").length = 1 
+                document.getElementById("uni_princ").options[0].value = "-" 
+                document.getElementById("uni_princ").options[0].text = "-" 
+            } 
+            //marco como seleccionada la opción primera de provincia 
+            document.getElementById("uni_princ").options[0].selected = true 
+        }    
 
-function cambia_universidad2(){ 
-        //tomo el valor del select del pais elegido 
-        programa = document.getElementById("prog_princ2")[document.getElementById("prog_princ2").selectedIndex].value 
-        pais = document.getElementById("pais_princ2")[document.getElementById("pais_princ2").selectedIndex].value 
-        if (programa != 0) { 
-           mis_universidades=eval("uni_" + programa + pais) 
-           num_universidades = mis_universidades.length 
-           document.getElementById("uni_princ2").length = num_universidades 
-           for(i=0;i<num_universidades;i++){ 
-              document.getElementById("uni_princ2").options[i].value=mis_universidades[i] 
-              document.getElementById("uni_princ2").options[i].text=mis_universidades[i] 
-           } 
-        }else{ 
-           //si no había provincia seleccionada, elimino las universidades del select 
-           document.getElementById("uni_princ2").length = 1 
-           document.getElementById("uni_princ2").options[0].value = "-" 
-           document.getElementById("uni_princ2").options[0].text = "-" 
-        } 
-        //marco como seleccionada la opción primera de provincia 
-        document.getElementById("uni_princ2").options[0].selected = true 
-    }    
+        function cambia_universidad2(){ 
+            //tomo el valor del select del pais elegido 
+            programa = document.getElementById("prog_princ2")[document.getElementById("prog_princ2").selectedIndex].value 
+            pais = document.getElementById("pais_princ2")[document.getElementById("pais_princ2").selectedIndex].value 
+            if (programa != 0) { 
+                mis_universidades=eval("uni_" + programa + pais) 
+                num_universidades = mis_universidades.length 
+                document.getElementById("uni_princ2").length = num_universidades 
+                for(i=0;i<num_universidades;i++){ 
+                    document.getElementById("uni_princ2").options[i].value=mis_universidades[i] 
+                    document.getElementById("uni_princ2").options[i].text=mis_universidades[i] 
+                } 
+            }else{ 
+                //si no había provincia seleccionada, elimino las universidades del select 
+                document.getElementById("uni_princ2").length = 1 
+                document.getElementById("uni_princ2").options[0].value = "-" 
+                document.getElementById("uni_princ2").options[0].text = "-" 
+            } 
+            //marco como seleccionada la opción primera de provincia 
+            document.getElementById("uni_princ2").options[0].selected = true 
+        }    
 
         // Estudios Profesionales
         var area_1=new Array("Seleccione", "Áreas de Ciencias Básicas", "Área de Arquitectura y Urbanismo", "Área de Ingeniería", "Área de Ciencias Administrativas")
@@ -663,36 +663,36 @@ function cambia_universidad2(){
                 <html:form action="/LlenarPlanilla_EstUSB"  method="POST" enctype="multipart/form-data" onsubmit="return(this)">
                     <p hidden="true"><html:text name="PlanillaUSB" property="nombreUsuario" maxlength="20" errorStyleClass="error" value ="<%=var.toString()%>"
                                errorKey="org.apache.struts.action.ERROR"></html:text></p>
-                        <br>
+                    <br>
 
-                        <!-- pestañas -->
+                    <!-- pestañas -->
 
-                        <div>
-                            <span style="background-color: #F9F4CF; border-radius: 5px;"><a href='javascript:seleccion(1);'> Datos </a></span>
-                            <span style="background-color: #ADFFAD; border-radius: 5px;"><a href='javascript:seleccion(2);'> Domicilio </a></span>
-                            <span style="background-color: #B8B8FF; border-radius: 5px;"><a href='javascript:seleccion(3);'> Contacto </a></span>
-                            <span style="background-color: #FFFF94; border-radius: 5px;"><a href='javascript:seleccion(4);'> Programa </a></span>
-                            <span style="background-color: #F2D8FF; border-radius: 5px;"><a href='javascript:seleccion(5);'> Info. Académica </a></span>                        
-                            <span style="background-color: #D6D6C2; border-radius: 5px;"><a href='javascript:seleccion(6);'> Financiamiento </a></span>                        
-                            <span style="background-color: #ADD6FF; border-radius: 5px;"><a href='javascript:seleccion(7);'> Contac. Emergencia</a></span>
-                        </div>
+                    <div>
+                        <span style="background-color: #F9F4CF; border-radius: 5px;"><a href='javascript:seleccion(1);'> Datos </a></span>
+                        <span style="background-color: #ADFFAD; border-radius: 5px;"><a href='javascript:seleccion(2);'> Domicilio </a></span>
+                        <span style="background-color: #B8B8FF; border-radius: 5px;"><a href='javascript:seleccion(3);'> Contacto </a></span>
+                        <span style="background-color: #FFFF94; border-radius: 5px;"><a href='javascript:seleccion(4);'> Programa </a></span>
+                        <span style="background-color: #F2D8FF; border-radius: 5px;"><a href='javascript:seleccion(5);'> Info. Académica </a></span>                        
+                        <span style="background-color: #D6D6C2; border-radius: 5px;"><a href='javascript:seleccion(6);'> Financiamiento </a></span>                        
+                        <span style="background-color: #ADD6FF; border-radius: 5px;"><a href='javascript:seleccion(7);'> Contac. Emergencia</a></span>
+                    </div>
 
-                        <!-- contenido de las pestañas -->
+                    <!-- contenido de las pestañas -->
 
 
-                        <div id="opci1" style="display:block;width:650px;height:300px; border: 5px solid #F9F4CF; border-width:5px; border-radius: 10px">
-                            <table border="0"  align="center">
-                                <tbody>
-                                <br>
-                                <tr>
-                                    <td>Primer Apellido</td>
+                    <div id="opci1" style="display:block;width:650px;height:300px; border: 5px solid #F9F4CF; border-width:5px; border-radius: 10px">
+                        <table border="0"  align="center">
+                            <tbody>
+                            <br>
+                            <tr>
+                                <td>Primer Apellido</td>
 
-                                    <td>
+                                <td>
                                     <html:text name="PlanillaUSB" property="apellido1" maxlength="80" errorStyleClass="error"
                                                errorKey="org.apache.struts.action.ERROR"></html:text>
-                                    </td>
+                                </td>
 
-                                    <td>
+                                <td>
                                     <html:errors property="apellido1" />
                                 </td>
                             </tr>
@@ -703,9 +703,9 @@ function cambia_universidad2(){
                                 <td>
                                     <html:text name="PlanillaUSB" property="apellido2" maxlength="80" errorStyleClass="error"
                                                errorKey="org.apache.struts.action.ERROR"></html:text>
-                                    </td>
+                                </td>
 
-                                    <td>
+                                <td>
                                     <html:errors property="apellido2" />
                                 </td>
                             </tr>
@@ -716,9 +716,9 @@ function cambia_universidad2(){
                                 <td>
                                     <html:text name="PlanillaUSB" property="nombre1" maxlength="80" errorStyleClass="error"
                                                errorKey="org.apache.struts.action.ERROR"></html:text>
-                                    </td>
+                                </td>
 
-                                    <td>
+                                <td>
                                     <html:errors property="nombre1" />
                                 </td>
                             </tr>
@@ -729,9 +729,9 @@ function cambia_universidad2(){
                                 <td>
                                     <html:text name="PlanillaUSB" property="nombre2" maxlength="80" errorStyleClass="error"
                                                errorKey="org.apache.struts.action.ERROR"></html:text>
-                                    </td>
+                                </td>
 
-                                    <td>
+                                <td>
                                     <html:errors property="nombre2" />
                                 </td>
 
@@ -821,39 +821,39 @@ function cambia_universidad2(){
                                     <td>
                                         <html:text name="PlanillaUSB" property="urbanizacion" maxlength="80" errorStyleClass="error"
                                                    errorKey="org.apache.struts.action.ERROR"></html:text>
-                                        </td>
-                                    </tr>                                
+                                    </td>
+                                </tr>                                
 
-                                    <tr>
-                                        <td>Calle</td>
+                                <tr>
+                                    <td>Calle</td>
 
-                                        <td>
+                                    <td>
                                         <html:text name="PlanillaUSB" property="calle" maxlength="80" errorStyleClass="error"
                                                    errorKey="org.apache.struts.action.ERROR"></html:text>
-                                        </td>
-                                    </tr>    
-                                    <tr>
-                                        <td>Edificio / Casa </td>
+                                    </td>
+                                </tr>    
+                                <tr>
+                                    <td>Edificio / Casa </td>
 
-                                        <td>
+                                    <td>
                                         <html:text name="PlanillaUSB" property="edificio" maxlength="80" errorStyleClass="error"
                                                    errorKey="org.apache.struts.action.ERROR"></html:text>
-                                        </td>
-                                    </tr>                                    
-                                    <tr>
-                                        <td>Apartamento / Núm. Casa</td>
+                                    </td>
+                                </tr>                                    
+                                <tr>
+                                    <td>Apartamento / Núm. Casa</td>
 
-                                        <td>
+                                    <td>
                                         <html:text name="PlanillaUSB" property="apartamento" maxlength="80" errorStyleClass="error"
                                                    errorKey="org.apache.struts.action.ERROR"></html:text>
-                                        </td>
-                                    </tr>                                    
+                                    </td>
+                                </tr>                                    
 
-                                    <tr>
+                                <tr>
 
-                                        <td>Ciudad</td>
+                                    <td>Ciudad</td>
 
-                                        <td>
+                                    <td>
                                         <html:text name="PlanillaUSB" property="ciudad"  maxlength="30" errorStyleClass="error"
                                                    errorKey="org.apache.struts.action.ERROR">
                                         </html:text>
@@ -1190,7 +1190,7 @@ function cambia_universidad2(){
                                         <html:errors property="duracionProgramaOpcion2" />
                                     </td>
                                 </tr>  
-  
+
                             </tbody>
                         </table>
                     </div>
@@ -1417,7 +1417,7 @@ function cambia_universidad2(){
                     <br>
                     <p  align=center>
                         <html:submit> Enviar Formulario </html:submit>
-                        </p>            
+                    </p>            
 
                 </html:form>
             </div>
@@ -1438,31 +1438,58 @@ function cambia_universidad2(){
                     <br />
                     <p hidden="true"><html:text name="FileUploadForm" property="nombreusuario" maxlength="20" errorStyleClass="error" value ="<%=var.toString()%>"
                                errorKey="org.apache.struts.action.ERROR"></html:text></p>
-                        <div style="width:auto;height:auto;">
-                            <table id="dataTable" width="350px" cellspacing="14px">
-                                <tbody id="dataBody">
-                                    <tr>
-                                        <td><INPUT type="checkbox" name="chk[]"/></td>
-                                        <td>Foto:</td>
-                                        <td valign="left">
-                                            <div id="archivos" >
-                                                <div class="feed">  
-                                                <%--<a>Foto:</a>--%>
+                    <div style="width:auto;height:auto;">
+                        <table id="dataTable" width="350px" cellspacing="14px">
+                            <tbody id="dataBody">
+                                <tr>
+                                    <td><INPUT type="checkbox" name="chk[]"/></td>
+                                    <td>Foto:</td>
+                                    <td valign="left">
+                                        <div id="archivos" >
+                                            <div class="feed">  
                                                 <html:file value="hola" property="theFile[0]"></html:file>
-                                                    <br />
-                                                </div>
+                                                <br />
                                             </div>
+                                        </div>
 
-                                        </td> 
-                                    </tr>
-                                    <tr>
-                                        <td><INPUT type="checkbox" name="chk[]"/></td>
-                                        <td>Cedula:</td>
-                                        <td valign="middle">
-                                            <div id="archivos" >
-                                                <div class="feed">  
-                                                    
+                                    </td> 
+                                </tr>
+                                <tr>
+                                    <td><INPUT type="checkbox" name="chk[]"/></td>
+                                    <td>Informe Academico:</td>
+                                    <td valign="middle">
+                                        <div id="archivos" >
+                                            <div class="feed">  
+
                                                 <html:file value="chao" property="theFile[1]" />
+                                                <br />
+                                            </div>
+                                        </div>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><INPUT type="checkbox" name="chk[]"/></td>
+                                    <td>Carta de Motivacion:</td>
+                                    <td valign="middle">
+                                        <div id="archivos" >
+                                            <div class="feed">  
+
+                                                <html:file value="hello" property="theFile[2]" />
+                                                <br />
+                                            </div>
+                                        </div>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><INPUT type="checkbox" name="chk[]"/></td>
+                                    <td>Planilla CINDA/SMILE:</td>
+                                    <td valign="middle">
+                                        <div id="archivos" >
+                                            <div class="feed">  
+
+                                                <html:file value="bye" property="theFile[3]" />
                                                 <br />
                                             </div>
                                         </div>
@@ -1479,7 +1506,7 @@ function cambia_universidad2(){
             </div>
             <p  align=center>
                 <html:submit>Cargar Documentos </html:submit>
-                </p>
+            </p>
         </html:form>
     </div>
     <br />
@@ -1499,27 +1526,27 @@ function cambia_universidad2(){
                     <p hidden="true"><html:text name="PlanDeEstudio" property="nombreUsuario" maxlength="20" errorStyleClass="error" value ="<%=var.toString()%>"
                                errorKey="org.apache.struts.action.ERROR"></html:text></p>
 
-                        <table border="0"  align="center" style="margin-left: auto;margin-right: auto">
-                            <tbody id ="MateBody">
-                                <tr>
-                                    <td></td>
-                                    <td> Codigo-USB</td>
+                    <table border="0"  align="center" style="margin-left: auto;margin-right: auto">
+                        <tbody id ="MateBody">
+                            <tr>
+                                <td></td>
+                                <td> Codigo-USB</td>
 
-                                    <td> Nombre-USB</td>
+                                <td> Nombre-USB</td>
 
-                                    <td> Creditos-USB</td>
+                                <td> Creditos-USB</td>
 
-                                    <td> Codigo-Univ. Destino</td>
+                                <td> Codigo-Univ. Destino</td>
 
-                                    <td> Nombre-Univ. Destino</td>                                
+                                <td> Nombre-Univ. Destino</td>                                
 
-                                    <td> Creditos-Univ. Destino</td>
+                                <td> Creditos-Univ. Destino</td>
 
-                                </tr>
+                            </tr>
 
-                                <tr>
-                                    <td> <input type="checkbox" name="c[]"></td>
-                                    <td>
+                            <tr>
+                                <td> <input type="checkbox" name="c[]"></td>
+                                <td>
                                     <html:text name="PlanDeEstudio" property="codigoUSB[0]" maxlength="45" errorStyleClass="error" value="" style="width:80%;"
                                                errorKey="org.apache.struts.action.ERROR">
                                     </html:text>
@@ -1566,7 +1593,7 @@ function cambia_universidad2(){
             </div>
             <p  align=center>
                 <html:submit>Cargar Plan </html:submit>
-                </p>
+            </p>
         </html:form>
     </div>
 
@@ -1586,14 +1613,14 @@ function cambia_universidad2(){
                                errorKey="org.apache.struts.action.ERROR"></html:text></p>
 
 
-                        <table border="0"  align="center" style="margin-left: auto;margin-right: auto">
-                            <tbody id ="IdioBody">
+                    <table border="0"  align="center" style="margin-left: auto;margin-right: auto">
+                        <tbody id ="IdioBody">
 
-                                <tr>
-                                    <td><INPUT type="checkbox" name="ch[]"/></td>
-                                    <td> Idioma que maneja:</td>
+                            <tr>
+                                <td><INPUT type="checkbox" name="ch[]"/></td>
+                                <td> Idioma que maneja:</td>
 
-                                    <td>
+                                <td>
                                     <html:text name="Idiomas" property="idiomaDest[0]" maxlength="45" errorStyleClass="error"
                                                errorKey="org.apache.struts.action.ERROR">
                                     </html:text>
@@ -1642,7 +1669,7 @@ function cambia_universidad2(){
 
                     <p  align=center>
                         <html:submit> Enviar Formulario </html:submit>
-                        </p>
+                    </p>
                 </html:form>
             </div>
         </div>

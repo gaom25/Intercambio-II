@@ -107,13 +107,16 @@ public class FileUploadAction extends Action {
                  */
                 System.out.println("Server path:" + filePath);
                 File newFile;
-                if (i == 0){
-                    newFile = new File(filePath, "Foto.png");
-                }else if (i == 1){
-                    newFile = new File(filePath, "Cedula.png");
-                }
-                else{
-                    newFile = new File(filePath, fileName);
+                switch(i){
+                    case 0:
+                        newFile = new File(filePath, "Foto.png");
+                        break;
+                    case 1:
+                        newFile = new File(filePath, "Informe.pdf");
+                        break;
+                    default:
+                        newFile = new File(filePath, fileName);
+                        break;
                 }
 
                 // si existe el archivo lo sobreescribe
