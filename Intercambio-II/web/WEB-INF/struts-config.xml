@@ -95,6 +95,8 @@
         <action name="BusquedaAvanzada" path="/AccionBusquedaAvanzada" scope="session" type="Actions.AccionBusquedaAvanzada">
            <forward name="failure" path="accFallo"/>
            <forward name="success" path="listarEstudiantesPostulados"/>
+           <forward name="busqueda" path="redactarmensaje"/>
+           
         </action>
         
         
@@ -356,7 +358,21 @@
             <forward name="error" path="contactoEstExt"/>
      </action>
      
+     <action path="/Anuncios" type="Actions.Anuncios" name="Anuncio">
+         <forward name="success" path="vistanuncios"/>
+     </action>
      
+     <action path="/verAnuncio" type="Actions.verAnuncio" name="Anuncio">
+         <forward name="success" path="verAnuncio"/>
+     </action>
+     
+     <action path="/BuscarDestinatarios" type="Actions.BuscarDestinatarios" name="BusquedaAvanzada">
+         <forward name="success" path="Buscar"/>
+     </action>
+     
+     <action name="Anuncio" path="/RedactarMensaje" scope="session" type="Actions.RedactarMensaje">
+         <forward name ="success" path="accExito"/>
+     </action>
        
      <!-- Acciones en Gestor -->
      
@@ -512,8 +528,7 @@
        <action input="/" path="/AccionPlanDeEstudio" type="Actions.AccionPlanDeEstudio" scope="request" name="PlanDeEstudio" >
            <forward name ="success" path="cargaplancorrecta" />
        </action>
-
-
+       
        <action name="Usuario" path="/GenerarCarpeta" scope="session" type="Actions.GenerarCarpeta">
            <forward name="successUSB" path="/vista_carpeta.jsp" />
            <forward name="successExt" path="/vista_carpeta.jsp" />
@@ -576,9 +591,7 @@
           <forward name="success" path="creacionplanillacorrectaExt" />
           <forward name="error" path="planillaIncompletaExt" />
        </action>
-    
 
-    
       <action path="/Descarga" type="Actions.Descarga" parameter="images/descarga.png" />
       
       <action input="/" name="EstUSB" path="/ListarSolicitudes" scope="session" type="Actions.ListarSolicitudes"/>

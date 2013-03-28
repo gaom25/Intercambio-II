@@ -15,14 +15,13 @@ public class Anuncio extends org.apache.struts.validator.ValidatorForm {
     private String titulo;
     private String mensaje;
     private String fecha;
-    private ArrayList usuarios;
+    private String[] emails;
 
     public Anuncio() {
 
         titulo = "";
         mensaje= "";
         fecha ="";
-        usuarios = new ArrayList<Usuario>();
     }
 
     public String getTitulo() {
@@ -41,13 +40,15 @@ public class Anuncio extends org.apache.struts.validator.ValidatorForm {
         this.mensaje = mensaje;
     }
 
-     public ArrayList getUsuarios() {
-        return usuarios;
+    public String[] getEmails() {
+        return emails;
     }
 
-    public void setUsuarios(ArrayList usuarios) {
-        this.usuarios = usuarios;
+    public void setEmails(String[] emails) {
+        this.emails = emails;
     }
+
+     
     public String getFecha() {
         return fecha;
     }

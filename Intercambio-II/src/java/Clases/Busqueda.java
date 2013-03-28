@@ -18,6 +18,7 @@ public class Busqueda extends org.apache.struts.validator.ValidatorForm {
     private String carrera;
     private String opcion1;
     private String opcion2;
+    private String confirmar;
     
     public Busqueda(){
         super();
@@ -137,4 +138,12 @@ public class Busqueda extends org.apache.struts.validator.ValidatorForm {
         this.opcion2 = opcion2;
     }
     
+    
+    public String getConfirmar() {
+        return confirmar;
+    }
+
+    public void setConfirmar(String confirmar) {
+        this.confirmar = confirmar;
+    }
 }

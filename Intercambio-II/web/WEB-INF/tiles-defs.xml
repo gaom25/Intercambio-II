@@ -184,6 +184,18 @@
             <definition name="listarPreregistro" extends="baseAdmin"> <!-- pagina de cuenta del administrador -->
                 <put name="body" value="/admin/listarPreregistro.jsp"/>
             </definition>
+            
+            <definition name="vistanuncios" extends ="baseAdmin">
+                <put name="body" value="/admin/anuncios.jsp"/>
+            </definition>
+            
+            <definition name="Buscar" extends ="baseAdmin">
+                <put name="body" value="/admin/Buscar.jsp"/>
+            </definition>
+            
+            <definition name="redactarmensaje" extends ="baseAdmin">
+                <put name="body" value="/admin/redactarmensaje.jsp"/>
+            </definition>
        
         
         <!-- ESTUDIANTE USB -->

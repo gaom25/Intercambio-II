@@ -1,21 +1,21 @@
+<%-- 
+    Document   : Buscar
+    Created on : 28-mar-2013, 11:41:23
+    Author     : gustavo
+--%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://struts.apache.org/tags-bean" prefix="bean" %>
 <%@ taglib uri="http://struts.apache.org/tags-html" prefix="html" %>
 <%@ taglib uri="http://struts.apache.org/tags-logic" prefix="logic" %>
+<%@ taglib uri="http://struts.apache.org/tags-bean" prefix="bean" %>
 <%@ taglib uri="http://struts.apache.org/tags-tiles" prefix="tiles" %>
-
-<% Object var = session.getAttribute("nombreusuario");
-    if (var != "") {%>
+<% Object var = session.getAttribute("nombreusuario");%>
+<!DOCTYPE html>
 <html>
-
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Sistema de Gestión de Intercambio</title>
-        <html:base/>
+        <title>JSP Page</title>
     </head>
-
-
     <body onload ="clearForms()" onUnload="clearForms()">  
 
         <h4>Búsqueda Avanzada</h4>
@@ -24,7 +24,7 @@
         <div id="login-form">
             <html:form action="/AccionBusquedaAvanzada"  method="POST" enctype="multipart/form-data" onsubmit="return(this)">
                 <html:hidden property="nombreSolicitante" value="<%=var.toString()%>"/>
-                <html:hidden property="confirmar" value="busqueda"/>
+                <html:hidden property="confirmar" value="anuncios"/>
                 <table border="0" >
                     <tbody>
                         <tr>
@@ -309,11 +309,5 @@
         </div>
 
     </body>
+    
 </html>
-<%} else {%>
-<html>
-
-    <title> hello</title>
-</html>
-<% }%>
-

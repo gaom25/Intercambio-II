@@ -3,31 +3,23 @@
  * and open the template in the editor.
  */
 package Actions;
-
-
-import Clases.Busqueda;
-import Clases.Usuario;
+import Clases.Anuncio;
 import DBMS.DBMS;
-import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
-
 /**
  *
- * @author brahyam
+ * @author gustavo
  */
-public class AccionBusquedaAvanzada extends org.apache.struts.action.Action {
-    
-    
+public class verAnuncio extends org.apache.struts.action.Action {
+
     /* forward name="success" path="" */
     private static final String SUCCESS = "success";
-    private static final String FAIL = "failure";
-    
-    
+
     /**
      * This is the action called from the Struts framework.
      *
@@ -42,27 +34,11 @@ public class AccionBusquedaAvanzada extends org.apache.struts.action.Action {
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
-        Busqueda busq = (Busqueda) form;
-        if(busq.getCarrera().equalsIgnoreCase("n/a"))
-        {
-            busq.setCarrera("");
-        }
-        if(busq.getOpcion1().equalsIgnoreCase("n/a"))
-        {
-            busq.setOpcion1("");
-        }
-        if(busq.getOpcion2().equalsIgnoreCase("n/a"))
-        {
-            busq.setOpcion2("");
-        }
-        ArrayList<Usuario> users = DBMS.getInstance().listarBusquedaAvanzada(busq);
-        request.setAttribute("usuarios", users);
-        if(busq.getConfirmar().compareTo("busqueda") == 0){
+        Anuncio anun = (Anuncio) form;
+        
+        String mensaje = DBMS.getInstance().verAnuncio(anun);
+        anun.setMensaje(mensaje);
+        request.setAttribute("anuncio", anun);
         return mapping.findForward(SUCCESS);
-        }else{
-            return mapping.findForward("busqueda");
-        }
-
     }
-    
 }
