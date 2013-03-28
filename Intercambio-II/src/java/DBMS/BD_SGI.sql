@@ -189,7 +189,7 @@ CREATE TABLE "dycicle".Aprueba(
  * gestor ,  asi  como  sus  modificaciones   */
 CREATE TABLE "dycicle".NOTICIAS(
 	Nombre		VARCHAR(30)	NOT NULL,
-	Fecha		DATE            NOT NULL default CURRENT_DATE,
+	Fecha		timestamp with time zone NOT NULL default CURRENT_TIMESTAMP(2),
 	Informacion	TEXT		NOT NULL,
 	CONSTRAINT	PK_NOTICIAS
 		PRIMARY KEY (Nombre, Fecha)

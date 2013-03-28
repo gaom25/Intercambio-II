@@ -1505,6 +1505,29 @@ public class DBMS {
         return anuncios;
     }
 
+    public String verAnuncio(Anuncio a){
+        
+        String mensaje = new String();
+        try{
+            String sqlquery = "SELECT informacion "
+                    + "FROM Noticias "
+                    + "WHERE titulo = '" + a.getTitulo() + "' "
+                    + "AND fecha = '" + a.getFecha() + "';";
+            
+            Statement stmt = conexion.createStatement();
+            ResultSet rs = stmt.executeQuery(sqlquery);
+            
+            while(rs.next()){
+                mensaje = rs.getString("informacion");
+            }
+            
+        }catch(SQLException ex){
+           ex.printStackTrace();
+        }
+        
+            return mensaje;
+        
+    }
     public int obtenerNumeroPlanilla() {
 
         try {
