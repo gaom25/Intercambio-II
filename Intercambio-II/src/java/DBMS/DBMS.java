@@ -54,17 +54,7 @@ public class DBMS {
      * para verificar que su nombre y contrasena sean correctos
      * 
      */
-    
-    
-    
-    
-    
-    /**********************************************************
-     *  ok si quieres hacerle sql injection copia esto
-     *   3'; drop schema "dycicle" cascade;--
-     *  asi pero textual en un te va a decir que no en el otro si dropea
-     * la db, enjoy
-     * *********************************************************/
+
     public Usuario consultarUsuario(Usuario u) {
 
         PreparedStatement psConsultar = null;
@@ -1489,65 +1479,30 @@ public class DBMS {
         return false;
     }
 
-    public boolean agregarAnuncio(Anuncio a) {
-
-        int insert = 0;
-        Integer i = 0;
-
-        try {
-
+    public ArrayList<Anuncio> consultarAnuncios(){
+        
+        ArrayList<Anuncio> anuncios = new ArrayList<Anuncio>();
+        
+        try{
+            String sqlquery = "SELECT nombre,fecha FROM \"dycicle\".noticias"
+                    + "ORDER BY fecha ;";
+            
             Statement stmt = conexion.createStatement();
-            String sqlquery = "INSERT INTO \"dycicle\".noticias VALUES ('" + a.getTitulo()
-                    + "', '" + a.getMensaje() + "', '";
-            String tmp;
-
-            if (!a.getDRIC().equals("")) {
-
-                insert++;
-                tmp = sqlquery + a.getDRIC() + "');";
-                stmt = conexion.createStatement();
-                i = i + stmt.executeUpdate(tmp);
+            ResultSet rs = stmt.executeQuery(sqlquery);
+            Anuncio a = new Anuncio();
+           
+            while (rs.next()){
+                a.setTitulo(rs.getString("nombre"));
+                a.setFecha(rs.getString("fecha"));
+                
+                anuncios.add(a);
             }
-
-            if (!a.getDecanatos().equals("")) {
-
-                insert++;
-                tmp = sqlquery + a.getDecanatos() + "');";
-                stmt = conexion.createStatement();
-                i = i + stmt.executeUpdate(tmp);
-            }
-
-            if (!a.getCoordinaciones().equals("")) {
-
-                insert++;
-                tmp = sqlquery + a.getCoordinaciones() + "');";
-                stmt = conexion.createStatement();
-                i = i + stmt.executeUpdate(tmp);
-            }
-
-            if (!a.getEstExt().equals("")) {
-
-                insert++;
-                tmp = sqlquery + a.getEstExt() + "');";
-                stmt = conexion.createStatement();
-                i = i + stmt.executeUpdate(tmp);
-            }
-
-            if (!a.getEstUSB().equals("")) {
-
-                insert++;
-                tmp = sqlquery + a.getEstUSB() + "');";
-                stmt = conexion.createStatement();
-                i = i + stmt.executeUpdate(tmp);
-            }
-
-            return (insert == i.intValue());
-
-        } catch (SQLException ex) {
+        
+        } catch (SQLException ex){
             ex.printStackTrace();
         }
-
-        return false;
+        
+        return anuncios;
     }
 
     public int obtenerNumeroPlanilla() {
