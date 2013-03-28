@@ -407,7 +407,7 @@ public class DBMS {
             ps2 = conexion.prepareStatement("INSERT INTO \"dycicle\".estudiante VALUES (" 
                     + "?, '" + "null" + "',?,?,?,?,?,?,"
                     + " 'null','null', 'null',  'null', 'null', 'null', 'null', "
-                    + " 'null', 'null', 'null',?, '2012-11-27 23:43:11.080','null','null');");
+                    + " 'null', 'null', 'null',?, '2012-11-27','null','null');");
             ps2.setString(1, e.getNombreusuario());
             ps2.setString(2, e.getpNombre());
             ps2.setString(3, e.getsNombre());
@@ -465,7 +465,7 @@ public class DBMS {
                     + "', '" + e.getsNombre() + "', '" + e.getpApellido()
                     + "', '" + e.getsApellido() + "', '" + e.getCarrera()
                     + "', '" + e.getCodCarrera() + "', 'null','null', 'null',  'null', 'null', 'null', 'null', "
-                    + " 'null', 'null', 'null', '" + e.getEmail() + "', '2012-11-27 23:43:11.080','null','null');";
+                    + " 'null', 'null', 'null', '" + e.getEmail() + "', '2012-11-27','null','null');";
 
             // la fecha de nacimiento colocada es temporal, se coloca para que no de error la insercion.
             // La direccion de la foto tambien es temporal.
@@ -529,7 +529,7 @@ public class DBMS {
             try{
                 conexion.setAutoCommit(true);
             }catch(SQLException excep2){
-                System.out.println("fuuuuuuuuuuu");
+                System.out.println("falla");
             }
         }
         
@@ -547,7 +547,7 @@ public class DBMS {
                     + "', '" + "null" + "', '" + e.getpNombre()
                     + "', '" + e.getsNombre() + "', '" + e.getpApellido()
                     + "', '" + e.getsApellido() + "', 'null', '0000', 'null','null', 'null',  'null', 'null', 'null', 'null', "
-                    + " 'null', 'null', 'null', '" + e.getEmail() + "', '2012-11-27 23:43:11.080','null','null');";
+                    + " 'null', 'null', 'null', '" + e.getEmail() + "', '2012-11-27','null','null');";
 
             // la fecha de nacimiento colocada es temporal, se coloca para que no de error la insercion.
             // La direccion de la foto tambien es temporal.
@@ -1478,7 +1478,26 @@ public class DBMS {
         }
         return false;
     }
-
+    
+    public boolean agregarAnuncio(Anuncio a){
+       
+       try{
+           String sqlquery = "INSERT INTO \"dycicle\".Noticias VALUES"
+                   + "('" + a.getTitulo() + "', '" + a.getFecha() + "', '"
+                   + a.getMensaje() + "');";
+           
+           Statement stmt = conexion.createStatement();
+           Integer i = stmt.executeUpdate(sqlquery);
+           
+           return i > 0;
+           
+       }catch(SQLException ex){
+           ex.printStackTrace();
+        }
+        
+       return false;
+    }
+     
     public ArrayList<Anuncio> consultarAnuncios(){
         
         ArrayList<Anuncio> anuncios = new ArrayList<Anuncio>();
@@ -1505,6 +1524,30 @@ public class DBMS {
         return anuncios;
     }
 
+    public String verAnuncio(Anuncio a){
+        
+        String mensaje = new String();
+        try{
+            String sqlquery = "SELECT informacion "
+                    + "FROM Noticias "
+                    + "WHERE titulo = '" + a.getTitulo() + "' "
+                    + "AND fecha = '" + a.getFecha() + "';";
+            
+            Statement stmt = conexion.createStatement();
+            ResultSet rs = stmt.executeQuery(sqlquery);
+            
+            while(rs.next()){
+                mensaje = rs.getString("informacion");
+            }
+            
+        }catch(SQLException ex){
+           ex.printStackTrace();
+        }
+        
+            return mensaje;
+        
+    }
+    
     public int obtenerNumeroPlanilla() {
 
         try {
