@@ -29,7 +29,7 @@
 </div>
             
 <div id="twitterInt" style="position:absolute;right:50px;top:530px;" > 
-    <a class="twitter-timeline" width="250" height="300" href="https://twitter.com/IntercambioUSB" data-widget-id="317086117033811968"> </a>
+    <a class="twitter-timeline" width="250" height="200" href="https://twitter.com/IntercambioUSB" data-widget-id="317086117033811968"> </a>
     <script>!function(d,s,id){
         var js,fjs=d.getElementsByTagName(s)[0];
         if(!d.getElementById(id)){js=d.createElement(s);
