@@ -1484,7 +1484,7 @@ public class DBMS {
         ArrayList<Anuncio> anuncios = new ArrayList<Anuncio>();
         
         try{
-            String sqlquery = "SELECT nombre,fecha FROM \"dycicle\".noticias"
+            String sqlquery = "SELECT nombre,fecha FROM \"dycicle\".noticias "
                     + "ORDER BY fecha ;";
             
             Statement stmt = conexion.createStatement();
