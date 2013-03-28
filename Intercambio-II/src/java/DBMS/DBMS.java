@@ -529,7 +529,7 @@ public class DBMS {
             try{
                 conexion.setAutoCommit(true);
             }catch(SQLException excep2){
-                System.out.println("fuuuuuuuuuuu");
+                System.out.println("falla");
             }
         }
         
@@ -1478,7 +1478,26 @@ public class DBMS {
         }
         return false;
     }
-
+    
+    public boolean agregarAnuncio(Anuncio a){
+       
+       try{
+           String sqlquery = "INSERT INTO \"dycicle\".Noticias VALUES"
+                   + "('" + a.getTitulo() + "', '" + a.getFecha() + "', '"
+                   + a.getMensaje() + "');";
+           
+           Statement stmt = conexion.createStatement();
+           Integer i = stmt.executeUpdate(sqlquery);
+           
+           return i > 0;
+           
+       }catch(SQLException ex){
+           ex.printStackTrace();
+        }
+        
+       return false;
+    }
+     
     public ArrayList<Anuncio> consultarAnuncios(){
         
         ArrayList<Anuncio> anuncios = new ArrayList<Anuncio>();
@@ -1528,6 +1547,7 @@ public class DBMS {
             return mensaje;
         
     }
+    
     public int obtenerNumeroPlanilla() {
 
         try {
