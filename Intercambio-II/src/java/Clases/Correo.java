@@ -13,6 +13,8 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author dreabalbas
@@ -202,5 +204,49 @@ public class Correo extends org.apache.struts.action.ActionForm{
             e.printStackTrace();
             return false;
         }
-    } 
+    }
+    
+    public boolean enviarAnuncio(ArrayList<Usuario> dst){
+        
+        Properties p = new Properties();
+        p.put("mail.smtp.host", "smtp.gmail.com");
+        p.put("mail.smtp.socketFactory.port", "465");
+        p.put("mail.smtp.socketFactory.class",
+                "javax.net.ssl.SSLSocketFactory");
+        p.put("mail.smtp.auth", "true");
+        p.put("mail.smtp.port", "465");
+
+        Session session = Session.getDefaultInstance(p,
+                new javax.mail.Authenticator() {
+                    protected PasswordAuthentication getPasswordAuthentication() {
+                        return new PasswordAuthentication(getMailSistema(), getClaveMail());
+                    }
+                });
+        
+        try{
+        
+            Message message = new MimeMessage(session);
+            String destinatario = new String();
+            
+            for (int i=-1;i < dst.size();++i){
+                
+                destinatario = dst.get(i).getEmail();
+                message.setFrom(new InternetAddress(getMailSistema()));
+                message.setRecipients(Message.RecipientType.TO,
+                        InternetAddress.parse(destinatario));
+                message.setSubject(getAsunto());
+                String contenido = getMensaje() + getFirma();
+
+                message.setText(contenido);
+                Transport.send(message);
+            }
+            
+            return true;
+
+        } catch (MessagingException e) {
+            e.printStackTrace();
+            return false;
+        }
+        
+    }
 }
