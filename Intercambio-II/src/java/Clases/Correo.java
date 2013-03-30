@@ -205,8 +205,8 @@ public class Correo extends org.apache.struts.action.ActionForm{
             return false;
         }
     }
-    
-    public boolean enviarAnuncio(ArrayList<Usuario> dst){
+ 
+    public boolean enviarAnuncio(ArrayList<String> dst){
         
         Properties p = new Properties();
         p.put("mail.smtp.host", "smtp.gmail.com");
@@ -218,6 +218,7 @@ public class Correo extends org.apache.struts.action.ActionForm{
 
         Session session = Session.getDefaultInstance(p,
                 new javax.mail.Authenticator() {
+                    @Override
                     protected PasswordAuthentication getPasswordAuthentication() {
                         return new PasswordAuthentication(getMailSistema(), getClaveMail());
                     }
@@ -228,9 +229,9 @@ public class Correo extends org.apache.struts.action.ActionForm{
             Message message = new MimeMessage(session);
             String destinatario = new String();
             
-            for (int i=-1;i < dst.size();++i){
+            for (int i=0;i < dst.size();i++){
                 
-                destinatario = dst.get(i).getEmail();
+                destinatario = dst.get(i);
                 message.setFrom(new InternetAddress(getMailSistema()));
                 message.setRecipients(Message.RecipientType.TO,
                         InternetAddress.parse(destinatario));

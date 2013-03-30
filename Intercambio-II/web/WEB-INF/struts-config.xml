@@ -364,6 +364,7 @@
      
      <action path="/verAnuncio" type="Actions.verAnuncio" name="Anuncio">
          <forward name="success" path="verAnuncio"/>
+         <forward name="error" path="accFallo"/>
      </action>
      
      <action path="/BuscarDestinatarios" type="Actions.BuscarDestinatarios" name="BusquedaAvanzada">

@@ -196,6 +196,10 @@
             <definition name="redactarmensaje" extends ="baseAdmin">
                 <put name="body" value="/admin/redactarmensaje.jsp"/>
             </definition>
+            
+            <definition name="verAnuncio" extends ="baseAdmin">
+                <put name="body" value="/admin/verAnuncio.jsp"/>
+            </definition>
        
         
         <!-- ESTUDIANTE USB -->

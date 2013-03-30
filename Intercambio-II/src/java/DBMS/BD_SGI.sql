@@ -189,8 +189,8 @@ CREATE TABLE "dycicle".Aprueba(
  * gestor ,  asi  como  sus  modificaciones   */
 CREATE TABLE "dycicle".NOTICIAS(
 	Nombre		VARCHAR(30)	NOT NULL,
-	Fecha		timestamp with time zone NOT NULL default CURRENT_TIMESTAMP(2),
 	Informacion	TEXT		NOT NULL,
+        Fecha		timestamp with time zone NOT NULL default CURRENT_TIMESTAMP(2),
 	CONSTRAINT	PK_NOTICIAS
 		PRIMARY KEY (Nombre, Fecha)
 );
@@ -611,7 +611,9 @@ INSERT INTO "dycicle".UNIVERSIDADES VALUES ('daniel',2,'Universidad Tecnológica
 INSERT INTO "dycicle".IDIOMAS VALUES ( 'daniel','Ingles','Medio','Medio','Medio');
 INSERT INTO "dycicle".IDIOMAS VALUES ( 'daniel','Japones','Basico','Basico','Basico');
 --
-INSERT INTO "dycicle".Noticias VALUES ('Inicio','2013-03-09 09:58:11.53','holaaaaa')
+INSERT INTO "dycicle".Noticias VALUES ('Inicio','holaaaaa');
+INSERT INTO "dycicle".Noticias VALUES ('Inicio2','chaoooo');
+INSERT INTO "dycicle".Noticias VALUES ('Inicio3','Adiossss');
 
 
 

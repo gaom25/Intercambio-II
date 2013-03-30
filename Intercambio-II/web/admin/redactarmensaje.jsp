@@ -25,7 +25,8 @@
 
         
         <logic:iterate id="usuarios" name="usuarios">  
-            <input type="hidden" name="emails" value=<bean:write name="usuarios" property="email" />/>
+            <bean:write name="usuarios" property="nombreusuario"></bean:write>
+            <input type="hidden" name="emails" value=<bean:write name="usuarios" property="email"></bean:write>/>
             
         </logic:iterate>   
 

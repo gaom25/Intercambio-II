@@ -4,6 +4,10 @@
  */
 package Actions;
 import Clases.Anuncio;
+import Clases.Correo;
+import DBMS.DBMS;
+import java.util.ArrayList;
+import java.util.Arrays;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.struts.action.ActionForm;
@@ -35,14 +39,23 @@ public class RedactarMensaje extends org.apache.struts.action.Action {
             throws Exception {
         
         Anuncio a = (Anuncio) form;
+        Correo c = new Correo();
+        
         System.out.println(a.getTitulo());
         System.out.println(a.getMensaje());
-        String[] hola = a.getEmails();
+        String[] emails = a.getEmails();
+        ArrayList<String> pasaje = new ArrayList<String>(Arrays.asList(emails));
         int i;
-        for(i=0;i<hola.length;i++){
-            System.out.println(hola[i]);
+        //las cosas estan malas pues apararece un "/" al final de cada correo
+        for(i=0;i<emails.length;i++){
+            System.out.println(pasaje.get(i));
         }
         
-        return mapping.findForward(SUCCESS);
+        if(DBMS.getInstance().agregarAnuncio(a)){
+            c.enviarAnuncio(pasaje);
+            return mapping.findForward(SUCCESS);
+        }
+        return mapping.findForward("error");
+        
     }
 }
