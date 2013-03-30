@@ -20,6 +20,38 @@
         var fCount = 3;
         var Count = 0;
         var mCount = 0;
+        var direccionPlanillaSMILE='/public/planillaSMILE.pdf'
+        var direccionPlanillaCINDA='/public/planillaCINDA.pdf'
+        
+        function cambiar_link1(){
+            
+            var seleccion=document.getElementById('prog_princ');
+            if(seleccion.value == "SMILE"){
+                document.getElementById('planilla1').href=direccionPlanillaSMILE;
+                document.getElementById('planilla1').innerHTML='Por Favor Descargue la Planilla del Programa SMILE';
+            }
+            
+            if(seleccion.value == "CINDA"){
+                document.getElementById('planilla1').href=direccionPlanillaCINDA;
+                document.getElementById('planilla1').innerHTML='Por Favor Descargue la Planilla del Programa CINDA';
+            }
+            
+        }
+        
+        
+        function cambiar_link2(){
+            
+            var seleccion=document.getElementById('prog_princ2');
+            if(seleccion.value == "SMILE"){
+                document.getElementById('planilla2').href=direccionPlanillaSMILE;
+                document.getElementById('planilla2').innerHTML='Por Favor Descargue la Planilla del Programa SMILE';
+            }
+            
+            if(seleccion.value == "CINDA"){
+                document.getElementById('planilla2').href=direccionPlanillaCINDA;
+                document.getElementById('planilla2').innerHTML='Por Favor Descargue la Planilla del Programa CINDA';
+            }
+        }
         
         
         function addMate(tableID) {
@@ -964,12 +996,17 @@
                                 <tr>
                                     <td> Nombre de Programa: </td>
                                     <td>
-                                        <html:select styleId="prog_princ" onchange="cambia_pais()" property="nombreProgramaOpcion1"> 
+                                        <html:select styleId="prog_princ" onchange="cambia_pais();cambiar_link1()" property="nombreProgramaOpcion1"> 
                                             <html:option value="0">Seleccione </html:option>
                                             <html:option value="Bilaterales">Convenios Bilaterales </html:option>
                                             <html:option value="SMILE">Programa SMILE </html:option>
                                             <html:option value="CINDA">Programa de Movilidad Estudiantil CINDA </html:option>
                                         </html:select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a href="#" id="planilla1"> </a>
                                     </td>
                                 </tr>
 
@@ -1086,7 +1123,7 @@
                                 <tr>
                                     <td> Nombre de Programa: </td>
                                     <td>
-                                        <html:select styleId="prog_princ2" onchange="cambia_pais2()" property="nombreProgramaOpcion2"> 
+                                        <html:select styleId="prog_princ2" onchange="cambia_pais2();cambiar_link2()" property="nombreProgramaOpcion2"> 
                                             <html:option value="0">Seleccione </html:option>
                                             <html:option value="Bilaterales">Convenios Bilaterales </html:option>
                                             <html:option value="SMILE">Programa SMILE </html:option>
@@ -1094,12 +1131,17 @@
                                         </html:select>
                                     </td>
                                 </tr>
+                                <tr>
+                                    <td>
+                                        <a href="#" id="planilla2"> </a>
+                                    </td>
+                                </tr>
 
                                 <tr>
                                     <td> Pais Destino: </td>
                                     <td>
                                         <html:select styleId="pais_princ2" onchange="cambia_universidad2()" property="paisOpcion2"> 
-                                            <html:option value="-">- </html:option>
+                                            <html:option value="-">-</html:option>
                                         </html:select>
                                     </td>
                                 </tr>
