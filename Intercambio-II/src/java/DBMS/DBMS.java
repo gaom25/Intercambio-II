@@ -1174,10 +1174,10 @@ public class DBMS {
         return false;
     }
 
-    /*NetBeans me dice que no es usado*/
-    private ArrayList<Idiomas> obtenerIdiomas(Usuario u) {
+        //Clase para obtener idiomas de estudiantes nacionales 
+    public Idiomas obtenerIdiomas(Usuario u) {
 
-        ArrayList<Idiomas> idims = new ArrayList<Idiomas>();
+        Idiomas idims = new Idiomas();
 
         try {
             String sqlquery = "SELECT * FROM \"dycicle\".idiomas "
@@ -1187,13 +1187,54 @@ public class DBMS {
             ResultSet rs = stmt.executeQuery(sqlquery);
 
             while (rs.next()) {
-                Idiomas t = new Idiomas();
-                t.setIdiomaDest(rs.getString("nombreidioma"));
-                t.setNivelVerbal(rs.getString("nivelverbal"));
-                t.setNivelEscrito(rs.getString("nivelescrito"));
-                t.setNivelConversacional(rs.getString("niveleconversacional"));
+                
+                idims.setIdiomaDest(rs.getString("NombreIdioma"));
+                idims.setNivelVerbal(rs.getString("NivelVerbal"));
+                idims.setNivelEscrito(rs.getString("NivelEscrito"));
+                idims.setNivelConversacional(rs.getString("NivelConversacional"));
 
-                idims.add(t);
+                
+            }
+
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return idims;
+
+    }
+    
+    //Clase para obtener idiomas de estudiantes internacionales
+    public Idiomas obtenerIdiomas2(Usuario u) {
+
+        Idiomas idims = new Idiomas();
+
+        try {
+
+            String sqlquery = "SELECT nombreusuario FROM \"dycicle\".estudianteInternacional" +
+                              " WHERE nombreusuario ='" + u.getNombreusuario() + "';";
+            Statement stmt = conexion.createStatement();
+            ResultSet rs = stmt.executeQuery(sqlquery);
+
+            if (rs.next()) {
+				idims.setLenguaMaterna(rs.getString("LenguaMaterna"));
+				idims.setTomarCursoDeEspaniol(rs.getString("CursoEspaniol"));
+            }
+///////////////////////////////// 
+            sqlquery = "SELECT * FROM \"dycicle\".idiomas "
+                    + " WHERE nombreusuario ='" + u.getNombreusuario() + "';";
+
+            stmt = conexion.createStatement();
+            rs = stmt.executeQuery(sqlquery);
+
+            while (rs.next()) {
+                
+                idims.setIdiomaDest(rs.getString("NombreIdioma"));
+                idims.setNivelVerbal(rs.getString("NivelVerbal"));
+                idims.setNivelEscrito(rs.getString("NivelEscrito"));
+                idims.setNivelConversacional(rs.getString("NivelConversacional"));
+
+                
             }
 
 
@@ -1204,11 +1245,11 @@ public class DBMS {
 
     }
 
-    /*NetBeans me dice que no es usado*/
-    private ArrayList<Materias> obtenerMaterias(Usuario u) {
+    //Clase Nueva para obtener plan de estudios
+    public PlanDeEstudio obtenerMaterias(Usuario u) {
 
-        ArrayList<Materias> matems = new ArrayList<Materias>();
-
+        PlanDeEstudio plan = new PlanDeEstudio();
+               
         try {
             String sqlquery = "SELECT * FROM \"dycicle\".planestudio "
                     + " WHERE nombreusuario ='" + u.getNombreusuario() + "';";
@@ -1217,21 +1258,48 @@ public class DBMS {
             ResultSet rs = stmt.executeQuery(sqlquery);
 
             while (rs.next()) {
-                Materias t = new Materias();
-                t.setDenominacionUSB(rs.getString("materiausb"));
-                t.setCodigoUSB(rs.getString("codigousb"));
-                t.setCreditosUSB(rs.getString("creditousb"));
-                t.setDenominacionExt(rs.getString("materiauniv"));
-                t.setCodigoExt(rs.getString("codigouniv"));
-                t.setCreditosExt(rs.getString("creditouniv"));
+        
+                plan.setMateriaUSB(rs.getString("MateriaUsb"));
+                plan.setCodigoUSB(rs.getString("CodigoUsb"));
+                plan.setCreditosUSB(rs.getInt("CreditoUsb"));
+                plan.setMateriaUniv(rs.getString("MateriaUniv"));
+                plan.setCodigoUniv(rs.getString("CodigoUniv"));
+                plan.setCreditosUniv(rs.getInt("CreditoUniv"));
 
-                matems.add(t);
             }
 
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
-        return matems;
+        
+        return plan;
+
+    }
+// Clase para obtener plan de estudio extranjero    
+    public PlanExtranjero obtenerMateriasExt(Usuario u) {
+
+        PlanExtranjero plan = new PlanExtranjero();
+               
+        try {
+            String sqlquery = "SELECT * FROM \"dycicle\".planestudio "
+                    + " WHERE nombreusuario ='" + u.getNombreusuario() + "';";
+
+            Statement stmt = conexion.createStatement();
+            ResultSet rs = stmt.executeQuery(sqlquery);
+
+            while (rs.next()) {
+        
+                plan.setMateriaUSB(rs.getString("MateriaUsb"));
+                plan.setCodigoUSB(rs.getString("CodigoUsb"));
+                plan.setCreditosUSB(rs.getInt("CreditoUsb"));
+                
+            }
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        
+        return plan;
 
     }
 
