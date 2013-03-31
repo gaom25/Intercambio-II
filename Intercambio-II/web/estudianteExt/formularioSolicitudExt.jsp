@@ -1191,7 +1191,7 @@
             <div align=center>
                 <html:form action="/AccionPlanEstudioExt" method="post" enctype="multipart/form-data">
                     <br />
-                    <p hidden="true"><html:text name="PlanDeEstudio" property="nombreUsuario" maxlength="20" errorStyleClass="error" value ="<%=var.toString()%>"
+                    <p hidden="true"><html:text name="PlanExtranjero" property="nombreUsuario" maxlength="20" errorStyleClass="error" value ="<%=var.toString()%>"
                                errorKey="org.apache.struts.action.ERROR"></html:text></p>
 
                         <table border="0"  align="center" style="margin-left: auto;margin-right: auto">
@@ -1208,19 +1208,19 @@
                                 <tr>
                                     <td> <input type="checkbox" name="c[]"></td>
                                     <td>
-                                    <html:text name="PlanDeEstudio" property="codigoUSB[0]" maxlength="45" errorStyleClass="error" value="" style="width:80%;"
+                                    <html:text name="PlanExtranjero" property="codigoUSB[0]" maxlength="45" errorStyleClass="error" value="" style="width:80%;"
                                                errorKey="org.apache.struts.action.ERROR">
                                     </html:text>
                                 </td>
 
                                 <td>
-                                    <html:text name="PlanDeEstudio" property="materiaUSB[0]" maxlength="45" errorStyleClass="error" value="" style="width:80%;"
+                                    <html:text name="PlanExtranjero" property="materiaUSB[0]" maxlength="45" errorStyleClass="error" value="" style="width:80%;"
                                                errorKey="org.apache.struts.action.ERROR">
                                     </html:text>
                                 </td>
 
                                 <td>
-                                    <html:text name="PlanDeEstudio" property="creditosUSB[0]" maxlength="45" errorStyleClass="error" value="" style="width:80%;"
+                                    <html:text name="PlanExtranjero" property="creditosUSB[0]" maxlength="45" errorStyleClass="error" value="" style="width:80%;"
                                                errorKey="org.apache.struts.action.ERROR">
                                     </html:text>
                                 </td>
