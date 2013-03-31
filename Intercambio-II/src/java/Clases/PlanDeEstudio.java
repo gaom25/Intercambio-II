@@ -8,7 +8,7 @@ import java.util.*;
 
 /**
  *
- * @author karen
+ * @author katty
  */
 public class PlanDeEstudio extends org.apache.struts.action.ActionForm {
 
@@ -40,7 +40,7 @@ public class PlanDeEstudio extends org.apache.struts.action.ActionForm {
 
     public PlanDeEstudio() {
 
-        /*Se crea un plan de estudio con los arraylist, limpios y los indices en 0*/
+        /*Se crea un plan de estudio con los arraylistset, limpios y los indices en 0*/
         listCodigoUSB = new ArrayList();
         listCodigoUniv = new ArrayList();
         listCreditosUSB = new ArrayList();
@@ -61,7 +61,7 @@ public class PlanDeEstudio extends org.apache.struts.action.ActionForm {
         y poner un metodo para obtener el arraylist completo cuando se necesite.
         Ademas de proveer el getter y el setter del nombreusuario asociado al
         * Plan de estudio.*/
-    
+  
     public String getNombreUsuario() {
         return nombreUsuario;
     }
@@ -71,10 +71,10 @@ public class PlanDeEstudio extends org.apache.struts.action.ActionForm {
     }
 
     public String getMateriaUSB(int index) {
-        return this.materiaUSB;
+        return (String)this.listMateriaUSB.get(index);
     }
 
-    public void setMateriaUSB(int index, String materia) {
+    public void setMateriaUSB(String materia) {
 
         this.materiaUSB = materia;
         setListMateriaUSB(materiaUSB);
@@ -90,10 +90,10 @@ public class PlanDeEstudio extends org.apache.struts.action.ActionForm {
     }
 
     public String getCodigoUSB(int index) {
-        return this.codigoUSB;
+        return (String)this.listCodigoUSB.get(index);
     }
 
-    public void setCodigoUSB(int index, String codigo) {
+    public void setCodigoUSB(String codigo) {
 
         this.codigoUSB = codigo;
         setListCodigoUSB(codigoUSB);
@@ -109,10 +109,10 @@ public class PlanDeEstudio extends org.apache.struts.action.ActionForm {
     }
 
     public String getCodigoUniv(int index) {
-        return this.codigoUniv;
+        return (String)this.listCodigoUniv.get(index);
     }
 
-    public void setCodigoUniv(int index, String codigo) {
+    public void setCodigoUniv(String codigo) {
 
         this.codigoUniv = codigo;
         setListCodigoUniv(codigoUniv);
@@ -128,10 +128,10 @@ public class PlanDeEstudio extends org.apache.struts.action.ActionForm {
     }
 
     public String getMateriaUniv(int index) {
-        return this.materiaUniv;
+        return (String)this.listMateriaUniv.get(index);
     }
 
-    public void setMateriaUniv(int index, String materia) {
+    public void setMateriaUniv(String materia) {
 
         this.materiaUniv = materia;
         setListMateriaUniv(materiaUniv);
@@ -148,10 +148,10 @@ public class PlanDeEstudio extends org.apache.struts.action.ActionForm {
     }
 
     public int getCreditosUSB(int index) {
-        return this.creditosUSB;
+      return (Integer)this.listCreditosUSB.get(index);
     }
 
-    public void setCreditosUSB(int index, int credito) {
+    public void setCreditosUSB(int credito) {
 
         this.creditosUSB = credito;
         setListCreditosUSB(creditosUSB);
@@ -168,10 +168,10 @@ public class PlanDeEstudio extends org.apache.struts.action.ActionForm {
     }
 
     public int getCreditosUniv(int index) {
-        return this.creditosUniv;
+        return (Integer)this.listCreditosUniv.get(index);
     }
 
-    public void setCreditosUniv(int index, int credito) {
+    public void setCreditosUniv(int credito) {
 
         this.creditosUniv = credito;
         setListCreditosUniv(creditosUniv);
@@ -185,5 +185,5 @@ public class PlanDeEstudio extends org.apache.struts.action.ActionForm {
     public void setListCreditosUniv(int credito) {
         this.listCreditosUniv.add(indexCreUniv, credito);
 
-    }
+    }    
 }

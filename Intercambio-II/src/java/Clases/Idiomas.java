@@ -34,7 +34,7 @@ public class Idiomas extends org.apache.struts.action.ActionForm {
     private Integer indexEsc = 0;
     private Integer indexVer = 0;
     private Integer indexConv = 0;
-
+    
     public Idiomas() {
         
         /*Se crea un Idioma con los arraylist, limpios y los indices en 0*/
@@ -80,10 +80,11 @@ public class Idiomas extends org.apache.struts.action.ActionForm {
     }
 
     public String getIdiomaDest(int index) {
-        return this.idiomaDest;
+        //return this.idiomaDest;
+        return (String)this.listIdio.get(index);
     }
 
-    public void setIdiomaDest(int index, String idioma) {
+    public void setIdiomaDest(String idioma) {
 
         this.idiomaDest = idioma;
         setListIdio(idiomaDest);
@@ -99,10 +100,11 @@ public class Idiomas extends org.apache.struts.action.ActionForm {
     }
 
     public String getNivelVerbal(int index) {
-        return this.nivelVerbal;
+        //return this.nivelVerbal;
+        return (String)this.listVerb.get(index);
     }
 
-    public void setNivelVerbal(int index, String verb) {
+    public void setNivelVerbal(String verb) {
 
         this.nivelVerbal = verb;
         setListVerbal(nivelVerbal);
@@ -118,10 +120,11 @@ public class Idiomas extends org.apache.struts.action.ActionForm {
     }
 
     public String getNivelEscrito(int index) {
-        return this.nivelEscrito;
+        //return this.nivelEscrito;
+        return (String)this.listEscr.get(index);
     }
 
-    public void setNivelEscrito(int index, String escri) {
+    public void setNivelEscrito(String escri) {
 
         this.nivelEscrito = escri;
         setListEscrito(nivelEscrito);
@@ -136,43 +139,43 @@ public class Idiomas extends org.apache.struts.action.ActionForm {
         this.listEscr.add(indexEsc, escri);
     }
 
-    public String getIdiomaDest() {
+    /*public String getIdiomaDest() {
         return idiomaDest;
-    }
+    }*/
 
-    public void setIdiomaDest(String idiomaDest) {
+    /*public void setIdiomaDest(String idiomaDest) {
         this.idiomaDest = idiomaDest;
-    }
+    }*/
 
-    public ArrayList getListIdio() {
+    /*public ArrayList getListIdio() {
         return listIdio;
     }
 
     public void setListIdio(ArrayList listIdio) {
         this.listIdio = listIdio;
-    }
+    }*/
 
-    public String getNivelVerbal() {
+    /*public String getNivelVerbal() {
         return nivelVerbal;
-    }
+    }*/
 
-    public void setNivelVerbal(String nivelVerbal) {
+    /*public void setNivelVerbal(String nivelVerbal) {
         this.nivelVerbal = nivelVerbal;
-    }
+    }*/
 
-    public ArrayList getListVerb() {
-        return listVerb;
+    /*public ArrayList getListVerb() {
+        return this.listVerb;
     }
 
     public void setListVerb(ArrayList listVerb) {
         this.listVerb = listVerb;
-    }
+    }*/
 
-    public String getNivelEscrito() {
+    /*public String getNivelEscrito() {
         return nivelEscrito;
-    }
+    }*/
 
-    public void setNivelEscrito(String nivelEscrito) {
+    /*public void setNivelEscrito(String nivelEscrito) {
         this.nivelEscrito = nivelEscrito;
     }
 
@@ -182,21 +185,22 @@ public class Idiomas extends org.apache.struts.action.ActionForm {
 
     public void setListEscr(ArrayList listEscr) {
         this.listEscr = listEscr;
-    }
+    }*/
 
     public String getNivelConversacional(int index) {
-        return this.nivelConversacional;
+        //return this.nivelConversacional;
+        return (String)this.listConver.get(index);
     }
     
-    public String getNivelConversacional() {
+    /*public String getNivelConversacional() {
         return nivelConversacional;
-    }
+    }*/
 
-    public void setNivelConversacional(String nivelConversacional) {
+    /*public void setNivelConversacional(String nivelConversacional) {
         this.nivelConversacional = nivelConversacional;
-    }
+    }*/
     
-    public void setNivelConversacional(int index, String conv) {
+    public void setNivelConversacional(String conv) {
 
         this.nivelConversacional = conv;
         setListConversacional(nivelConversacional);
@@ -242,5 +246,5 @@ public class Idiomas extends org.apache.struts.action.ActionForm {
     public void setIndexConv(Integer indexConv) {
         this.indexConv = indexConv;
     }
-    
+
 }

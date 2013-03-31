@@ -57,10 +57,10 @@ public class PlanExtranjero extends org.apache.struts.action.ActionForm {
     }
 
     public String getMateriaUSB(int index) {
-        return this.materiaUSB;
+        return (String)this.listMateriaUSB.get(index);
     }
 
-    public void setMateriaUSB(int index, String materia) {
+    public void setMateriaUSB(String materia) {
 
         this.materiaUSB = materia;
         setListMateriaUSB(materiaUSB);
@@ -76,10 +76,10 @@ public class PlanExtranjero extends org.apache.struts.action.ActionForm {
     }
 
     public String getCodigoUSB(int index) {
-        return this.codigoUSB;
+        return (String)this.listCodigoUSB.get(index);
     }
 
-    public void setCodigoUSB(int index, String codigo) {
+    public void setCodigoUSB(String codigo) {
 
         this.codigoUSB = codigo;
         setListCodigoUSB(codigoUSB);
@@ -95,10 +95,10 @@ public class PlanExtranjero extends org.apache.struts.action.ActionForm {
     }
 
     public int getCreditosUSB(int index) {
-        return this.creditosUSB;
+      return (Integer)this.listCreditosUSB.get(index);
     }
 
-    public void setCreditosUSB(int index, int credito) {
+    public void setCreditosUSB(int credito) {
 
         this.creditosUSB = credito;
         setListCreditosUSB(creditosUSB);

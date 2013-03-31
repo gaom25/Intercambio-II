@@ -46,10 +46,10 @@ public class GeneradorPlanillas {
      */
     /**
      *
-     * @author caponte
+     * @author katty
      */
-    public Boolean generarPlanillaUSB(PlanillaUSB p, String path) throws BadElementException, DocumentException {
-//public Boolean generarPlanillaUSB(PlanillaUSB p, String path, ArrayList<Idiomas> idiomas, ArrayList<Materias> materias) throws BadElementException, DocumentException {
+    //public Boolean generarPlanillaUSB(PlanillaUSB p, String path) throws BadElementException, DocumentException {
+    public Boolean generarPlanillaUSB(PlanillaUSB p, String path, PlanDeEstudio plan, Idiomas idim) throws BadElementException, DocumentException {
         Document document = new Document(PageSize.LETTER); // Pdf de tamano carta
         DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
 
@@ -67,17 +67,17 @@ public class GeneradorPlanillas {
             document.setMargins(36, 72, 108, 180);
             
             // FONTS
-            // BaseFont areas = FontFactory.getFont(FontFactory.TIMES_ROMAN).getCalculatedBaseFont(false);
-            //Para Titulo Principal
-	    Font fontTitulos1 = new Font(Font.FontFamily.HELVETICA, 12, Font.BOLD, BaseColor.BLACK);
-            //Para Titulo de Áreas
-            Font fontTitulos = new Font(Font.FontFamily.HELVETICA, 10, Font.BOLD, BaseColor.BLACK);
+            Font fontTitulos1 = new Font(FontFamily.HELVETICA, 12, Font.BOLD, BaseColor.BLACK);
+            //PAra titulos de bloque
+            Font fontTitulos = new Font(FontFamily.HELVETICA, 10, Font.BOLD, BaseColor.BLACK);
             //PAra Subtitulos de bloque
-            Font fontTitulos2 = new Font(Font.FontFamily.HELVETICA, 9, Font.BOLD, BaseColor.BLACK);
+            Font fontTitulos2 = new Font(FontFamily.HELVETICA, 7, Font.BOLD, BaseColor.BLACK);
+            //PAra Opciones
+            Font fontTitulos3 = new Font(FontFamily.HELVETICA, 9, Font.BOLD, BaseColor.BLACK);
             //Para texto normal
-            Font fontCampo = new Font(Font.FontFamily.HELVETICA, 8, Font.NORMAL, BaseColor.BLACK);
+            Font fontCampo = new Font(FontFamily.HELVETICA, 8, Font.NORMAL, BaseColor.BLACK);
             //para textos pequeños
-            Font fontPequena = new Font(Font.FontFamily.HELVETICA, 7, Font.NORMAL, BaseColor.BLACK);
+            Font fontPequena = new Font(FontFamily.HELVETICA, 6, Font.NORMAL, BaseColor.BLACK);
             
             //Apertura Documento
             document.open();
@@ -108,22 +108,14 @@ public class GeneradorPlanillas {
             // define el tamano de la imagen del aplicante
             imagen.scaleAbsolute(75f, 75f); 
             // agrega la imagen al pdf
-            document.add(imagen); 
+            document.add(imagen);
+            
+            //Cebolla USB_Logo                                
+            imagen = Image.getInstance("/home/kattys/NetBeansProjects/Intercambio-II/Intercambio-II/web/images/cebollaUSB.jpg");
+            imagen.setAbsolutePosition(125f, 730f);
+            imagen.scalePercent(20f);
 
-            //PRUEBAS DE LA CEBOLLA
-            //imagen = Image.getInstance("/home/kattys/Escritorio/PRUEBAS_iTExtPDF/Dos/cebollaUSB.jpg");
-// define la posicion de la imagen
-//(X,Y)
-    //        imagen.setAbsolutePosition(50f, 100f); Sale abajoo a la izquierda
-//            imagen.setAbsolutePosition(0, 0);  sale en la misma posicion
-//            imagen.setAbsolutePosition(50, 680); // es indiferente si le pongo f o no
-           // imagen.setAbsolutePosition(125f, 730f); 
-
-// define el tamano de la imagen
-//            imagen.scaleAbsolute(300f, 70f); 
-            //imagen.scalePercent(20f);
-			
-
+            
             campo = new Phrase("                                             \n"
 					+	"Coordinación de Apoyo a los Programas de Intercambio\n"
                     + "Programa de Intercambio de Estudiantes", fontTitulos2);
@@ -137,8 +129,7 @@ public class GeneradorPlanillas {
                     + "Dirección de Relaciones Internacionales y de Cooperación", fontTitulos2);
             ct.setSimpleColumn(campo, 60, 625, 340, 730, 10, Element.ALIGN_LEFT);
             ct.go();
-
-
+            
             /* #################################
              * #      Datos Personales         #
              * #################################*/
@@ -238,78 +229,84 @@ public class GeneradorPlanillas {
             canvas.restoreState();
             
             //Subtitulo Area PRIMERA OPCION
-            titulo = new Phrase("12.- Primera Opción  ", fontTitulos2);
-            ct.setSimpleColumn(titulo, 70, 370, 450, 380, 10, Element.ALIGN_LEFT);
-            ct.go();
-            // País de Destino
-            campo = new Phrase("12.1-País de Destino:  " + p.getPaisOpcion1() , fontCampo);
-            ct.setSimpleColumn(campo, 70, 350, 300, 360, 10, Element.ALIGN_LEFT);
-            ct.go();
-            // Tipo de Programa
-            campo = new Phrase("12.2-Tipo de Programa:  " + p.getProgramaOpcion1() , fontCampo);
-            ct.setSimpleColumn(campo, 70, 330, 300, 340, 10, Element.ALIGN_LEFT);
-            ct.go();
-            // Duración del Programa
-            campo = new Phrase("12.3.-Duración del Programa:  " + p.getDuracionProgramaOpcion1() , fontCampo);
-            ct.setSimpleColumn(campo, 320, 350, 600, 360, 10, Element.ALIGN_LEFT);
-            ct.go();
-            // Programa
-            campo = new Phrase("12.4.-Nombre del Programa:  " + p.getNombreProgramaOpcion1(), fontCampo);
-            ct.setSimpleColumn(campo, 320, 330, 600, 340, 10, Element.ALIGN_LEFT);
-            ct.go();
-            //Nombre de la Universidad de Destino
-            campo = new Phrase("12.5.-Nombre de la Universidad de Destino:  " + p.getNombreOpcion1(), fontCampo);
-            ct.setSimpleColumn(campo, 70, 310, 600, 320, 10, Element.ALIGN_LEFT);
-            ct.go();
-            //Fechas Inicio y Fin
-            campo = new Phrase("12.5.-Fechas tentativas de Inicio y Fin(según calendario de la Universidad de Destino)", fontCampo);
-            ct.setSimpleColumn(campo, 70, 290, 600, 300, 10, Element.ALIGN_LEFT);
-            ct.go();
-            //aquivas
-            campo = new Phrase("12.5.1.-Inicio:  " + p.getMesFechaIni1()+ " "+ p.getAnoFechaIni1() , fontCampo);
-            ct.setSimpleColumn(campo, 90, 270, 300, 280, 10, Element.ALIGN_CENTER);
-            ct.go();
-            //aquivas1
-            campo = new Phrase("12.5.2.-Fin: "+p.getMesFechaFin1()+ " "+ p.getAnoFechaFin1() , fontCampo);
-            ct.setSimpleColumn(campo, 90, 250, 300, 260, 10, Element.ALIGN_CENTER);
+            titulo = new Phrase("12.- Primera Opción  ", fontTitulos3);
+            ct.setSimpleColumn(titulo, 70, 370, 445, 380, 10, Element.ALIGN_LEFT);
             ct.go();
             
-            //Subtitulo Area SEGUNDA OPCION
-            titulo = new Phrase("13.-Segunda Opción  ", fontTitulos2);
-            ct.setSimpleColumn(titulo, 70, 230, 450, 240, 10, Element.ALIGN_LEFT);
+            // País de Destino
+            campo = new Phrase("12.1-País de Destino: "+ p.getPaisOpcion1() , fontCampo);
+            ct.setSimpleColumn(campo, 70, 350, 300, 360, 10, Element.ALIGN_LEFT);
             ct.go();
+            
+            // Tipo de Programa
+            campo = new Phrase("12.3-Tipo de Programa: "+p.getProgramaOpcion1()  , fontCampo);
+            ct.setSimpleColumn(campo, 70, 330, 600, 340, 10, Element.ALIGN_LEFT);
+            ct.go();
+            
+            // Duracion
+            campo = new Phrase("12.2.-Duración del Programa: "+ p.getDuracionProgramaOpcion1(), fontCampo);
+            ct.setSimpleColumn(campo, 320, 350, 600, 360, 10, Element.ALIGN_LEFT);
+            ct.go();
+
+            //Universidad Destino 1
+            campo = new Phrase("12.4.-Nombre de la Universidad de Destino: " + p.getNombreOpcion1(), fontCampo);
+            ct.setSimpleColumn(campo, 70, 310, 600, 320, 10, Element.ALIGN_LEFT);
+            ct.go();
+            
+            //Nombre Programa
+            campo = new Phrase("12.5.-Nombre del Programa: "+ p.getNombreProgramaOpcion1(), fontCampo);
+            ct.setSimpleColumn(campo, 70, 290, 600, 300, 10, Element.ALIGN_LEFT);
+            ct.go();
+            
+            //Fechas Tentativas 1:
+            campo = new Phrase("12.6.-Fechas tentativas de Inicio y Fin(según calendario de la Universidad de Destino)", fontCampo);
+            ct.setSimpleColumn(campo, 70, 270, 600, 280, 10, Element.ALIGN_LEFT);
+            ct.go();
+
+            campo = new Phrase("12.6.1.-Inicio: "+ p.getMesFechaIni1()+ " "+ p.getAnoFechaIni1() +"     "+ "12.6.2.-Fin: "+p.getMesFechaFin1()+ " "+ p.getAnoFechaFin1(), fontCampo);
+            ct.setSimpleColumn(campo, 90, 250, 500, 260, 10, Element.ALIGN_CENTER);
+            ct.go();
+			
+			
+            //Subtitulo Area SEGUNDA OPCION
+            titulo = new Phrase("13.-Segunda Opción  ", fontTitulos3);
+            ct.setSimpleColumn(titulo, 70, 230, 445, 240, 10, Element.ALIGN_LEFT);
+            ct.go();
+			
             campo = new Phrase("En caso de no ser aceptado en la Universidad seleccionada favor indique una segunda opción  ", fontPequena);
             ct.setSimpleColumn(campo, 70, 220, 550, 230, 10, Element.ALIGN_LEFT);
             ct.go();
-            // País de Destino
-            campo = new Phrase("13.1.-País de Destino:  "+ p.getPaisOpcion2() , fontCampo);
+            
+            // País de Destino 2
+            campo = new Phrase("13.1.-País de Destino: "+ p.getPaisOpcion2() , fontCampo);
             ct.setSimpleColumn(campo, 70, 200, 300, 210, 10, Element.ALIGN_LEFT);
             ct.go();
+			
             // Tipo de Programa
-            campo = new Phrase("13.2.-Tipo de Programa:  " + p.getProgramaOpcion2(), fontCampo);
-            ct.setSimpleColumn(campo, 70, 180, 300, 190, 10, Element.ALIGN_LEFT);
+            campo = new Phrase("13.3.-Tipo de Programa: "+ p.getProgramaOpcion2() , fontCampo);
+            ct.setSimpleColumn(campo, 70, 180, 600, 190, 10, Element.ALIGN_LEFT);
             ct.go();
+			
             //Duracion del Programa
-            campo = new Phrase("13.3.-Duración del Programa:  "+ p.getDuracionProgramaOpcion2(), fontCampo);
+            campo = new Phrase("13.2.-Duración del Programa: "+ p.getDuracionProgramaOpcion2() , fontCampo);
             ct.setSimpleColumn(campo, 320, 200, 600, 210, 10, Element.ALIGN_LEFT);
             ct.go();
-            // Programa
-            campo = new Phrase("13.4.-Nombre del Programa:  " + p.getNombreProgramaOpcion2(), fontCampo);
-            ct.setSimpleColumn(campo, 320, 180, 600, 190, 10, Element.ALIGN_LEFT);
-            ct.go();
+            
             // Universidad de Destino
-            campo = new Phrase("12.5.-Nombre Universidad de Destino:  " + p.getNombreOpcion2() , fontCampo);
+            campo = new Phrase("13.4.-Nombre Universidad de Destino: "+ p.getNombreOpcion2(), fontCampo);
             ct.setSimpleColumn(campo, 70, 160, 600, 170, 10, Element.ALIGN_LEFT);
             ct.go();
-            //Fechas Inicio y Fin
-            campo = new Phrase("13.5.-Fechas tentativas de Inicio y Fin(Según calendario de la Universidad de Destino) ", fontCampo);
+            //Nombre Programa
+            campo = new Phrase("13.5.-Nombre del Programa: "+ p.getNombreProgramaOpcion2(), fontCampo);
             ct.setSimpleColumn(campo, 70, 140, 600, 150, 10, Element.ALIGN_LEFT);
             ct.go();
-            campo = new Phrase("13.5.1.-Inicio:  " + p.getMesFechaIni2()+" "+ p.getAnoFechaIni2() , fontCampo);
-            ct.setSimpleColumn(campo, 90, 120, 300, 130, 10, Element.ALIGN_CENTER);
+            
+            campo = new Phrase("13.6.-Fechas tentativas de Inicio y Fin(Según calendario de la Universidad de Destino: ", fontCampo);		
+            ct.setSimpleColumn(campo, 70, 120, 600, 130, 10, Element.ALIGN_LEFT);
             ct.go();
-            campo = new Phrase("13.5.2.-Fin:  " +p.getMesFechaFin2() +" "+ p.getAnoFechaFin2() , fontCampo);
-            ct.setSimpleColumn(campo, 90, 100, 300, 110, 10, Element.ALIGN_CENTER);
+            
+            campo = new Phrase("13.6.1.-Inicio: "+ p.getMesFechaIni2()+" "+ p.getAnoFechaIni2() +"     "+ "13.6.2.-Fin: " + p.getMesFechaFin2() +" "+ p.getAnoFechaFin2() , fontCampo);		
+            ct.setSimpleColumn(campo, 90, 100, 500, 110, 10, Element.ALIGN_CENTER);
             ct.go();
             
             
@@ -366,22 +363,23 @@ public class GeneradorPlanillas {
             canvas.stroke();
             canvas.restoreState();
             canvas.saveState();
-            //Rectangulo pequeño
-            canvas.rectangle(70, 580, 450, 0);
+            
+            //RECtangulo pequeño,
+            canvas.rectangle(70, 580, 455, 0);
             canvas.stroke();
             canvas.restoreState();
 
             // Tabla de la seccion 20
             canvas.saveState();
-            canvas.rectangle(150, 420, 0, 190);
+            canvas.rectangle(130, 420, 0, 190);
             canvas.stroke();
             canvas.restoreState();
             canvas.saveState();
-            canvas.rectangle(220, 420, 0, 190);
+            canvas.rectangle(257, 420, 0, 190);
             canvas.stroke();
             canvas.restoreState();
             canvas.saveState();
-            canvas.rectangle(295, 420, 0, 190);
+            canvas.rectangle(297, 420, 0, 190);
             canvas.stroke();
             canvas.restoreState();
 
@@ -392,11 +390,11 @@ public class GeneradorPlanillas {
             canvas.stroke();
             canvas.restoreState();
             canvas.saveState();
-            canvas.rectangle(360, 420, 0, 190);
+            canvas.rectangle(357, 420, 0, 190);
             canvas.stroke();
             canvas.restoreState();
             canvas.saveState();
-            canvas.rectangle(430, 420, 0, 190);
+            canvas.rectangle(485, 420, 0, 190);
             canvas.stroke();
             canvas.restoreState();
 
@@ -406,35 +404,78 @@ public class GeneradorPlanillas {
                              + "sean convalidadas u otorgadas en equivalencia:  ", fontCampo);
             ct.setSimpleColumn(campo, 70, 620, 350, 640, 10, Element.ALIGN_LEFT);
             ct.go();
-// SACAR DEL ArrayList LISTA las materias y colocarlas
+
+            // Vaceado de Materias
             campo = new Phrase("Código", fontCampo);
-            ct.setSimpleColumn(campo, 90, 590, 500, 610, 10, Element.ALIGN_LEFT);
+            ct.setSimpleColumn(campo, 80, 590, 115, 610, 10, Element.ALIGN_CENTER);
             ct.go();
-
+            
+            int vacea=0;
+            int topeAr= plan.getListCodigoUSB().size();
+            int valorH= 570;       
+            while (vacea!=topeAr && valorH!=430){
+            //System.out.println("Aqui esta vacea "+ vacea);
+            //System.out.println("Aqui esta topeAr "+ topeAr);
+            //Lleno por fila
+            // Codigo USB    
+            //System.out.println("Aqui esta codUSB "+ plan.getCodigoUSB(vacea));
+            
+            campo = new Phrase(plan.getCodigoUSB(vacea), fontCampo);
+            ct.setSimpleColumn(campo, 90, valorH, 115, (valorH+10), 10, Element.ALIGN_LEFT);
+            ct.go();
+            //Nombre USB
+            campo = new Phrase(plan.getMateriaUSB(vacea), fontCampo);
+            ct.setSimpleColumn(campo, 140, valorH, 256, (valorH+10), 10, Element.ALIGN_LEFT);
+            ct.go();
+            // Creditos USB
+            campo = new Phrase(String.valueOf(plan.getCreditosUSB(vacea)), fontCampo);
+            ct.setSimpleColumn(campo, 256, valorH, 288, (valorH+10), 10, Element.ALIGN_CENTER);
+            ct.go();
+            // Codigo Ext
+            campo = new Phrase(plan.getCodigoUniv(vacea), fontCampo);
+            ct.setSimpleColumn(campo, 308, valorH, 358, (valorH+10), 10, Element.ALIGN_LEFT);
+            ct.go();
+            // Nombre Ext
+            campo = new Phrase(plan.getMateriaUniv(vacea), fontCampo);
+            ct.setSimpleColumn(campo, 368, valorH, 485, (valorH+10), 10, Element.ALIGN_LEFT);
+            ct.go();
+            // Creditos Ext    
+            campo = new Phrase(String.valueOf(plan.getCreditosUniv(vacea)), fontCampo);
+            ct.setSimpleColumn(campo, 485, valorH, 525, (valorH+10), 10, Element.ALIGN_CENTER);
+            ct.go();
+            
+            valorH=valorH-20;
+            vacea=vacea+1;
+                           
+            }
+            
+            
             campo = new Phrase("Denominación", fontCampo);
-            ct.setSimpleColumn(campo, 160, 590, 500, 610, 10, Element.ALIGN_LEFT);
+            ct.setSimpleColumn(campo, 115, 590, 256, 610, 10, Element.ALIGN_CENTER);
             ct.go();
 
-            campo = new Phrase("Nro Créditos USB", fontCampo);
-            ct.setSimpleColumn(campo, 230, 590, 500, 610, 10, Element.ALIGN_LEFT);
+            campo = new Phrase("Créditos \n USB", fontCampo);
+            ct.setSimpleColumn(campo, 258, 590, 288, 610, 10, Element.ALIGN_CENTER);
+            ct.go();
+            
+            campo = new Phrase("Código", fontCampo);
+            ct.setSimpleColumn(campo, 288, 590, 358, 610, 10, Element.ALIGN_CENTER);
             ct.go();
 
 
             // Asignaturas a cursar
             campo = new Phrase("21.-Asignaturas a cursar en la Universidad de Destino:  ", fontCampo);
+
             ct.setSimpleColumn(campo, 310, 620, 600, 640, 10, Element.ALIGN_LEFT);
             ct.go();
 
-            campo = new Phrase("Código", fontCampo);
-            ct.setSimpleColumn(campo, 315, 590, 500, 610, 10, Element.ALIGN_LEFT);
-            ct.go();
 
             campo = new Phrase("Denominación", fontCampo);
-            ct.setSimpleColumn(campo, 370, 590, 500, 610, 10, Element.ALIGN_LEFT);
+            ct.setSimpleColumn(campo, 358, 590, 485, 610, 10, Element.ALIGN_CENTER);
             ct.go();
-
-            campo = new Phrase("Nro Créditos \n Nro Horas x Semana", fontCampo);
-            ct.setSimpleColumn(campo, 400, 580, 550, 610, 10, Element.ALIGN_CENTER);
+            
+            campo = new Phrase("Créditos \n Ext", fontCampo);
+            ct.setSimpleColumn(campo, 485, 590, 525, 610, 10, Element.ALIGN_CENTER);
             ct.go();
             
             //Cuadro de Aprobación de la Coordinación
@@ -442,6 +483,7 @@ public class GeneradorPlanillas {
             canvas.rectangle(70, 390, 455, 30);
             canvas.stroke();
             canvas.restoreState();
+            
             // Mensaje Aprobación
             campo = new Phrase("Aprobación Coordinación de la Carrera  " , fontCampo);
             ct.setSimpleColumn(campo, 70, 400, 300, 410, 10, Element.ALIGN_CENTER);
@@ -451,6 +493,7 @@ public class GeneradorPlanillas {
             canvas.rectangle(310, 400, 170, 0);
             canvas.stroke();
             canvas.restoreState();
+
             
             /* ##############################
              * #  FUENTE DE FINANCIAMIENTOO #
@@ -467,12 +510,21 @@ public class GeneradorPlanillas {
             ct.go();
             
             //Fuente de Ingresos
-            titulo = new Phrase("22.- Principal Fuente de Ingresos:  " + p.getFuenteFinanciamiento(), fontCampo);
-            ct.setSimpleColumn(titulo, 70, 330, 500, 340, 10, Element.ALIGN_LEFT);
+            titulo = new Phrase("22.- Principal Fuente de Ingresos: ", fontCampo);
+            ct.setSimpleColumn(titulo, 70, 330, 320, 350, 10, Element.ALIGN_LEFT);
             ct.go();
+            
+            titulo = new Phrase("Otro: " + p.getDescripcion2(), fontCampo);
+            ct.setSimpleColumn(titulo, 320, 330, 500, 350, 10, Element.ALIGN_LEFT);
+            ct.go();
+            
             //Becado o no
-            campo = new Phrase("23.-¿Recibe ayuda económica por parte de la universidad u otro organismo?  " + p.getAyudaEc() , fontCampo);
-            ct.setSimpleColumn(campo, 70, 310, 550, 320, 10, Element.ALIGN_LEFT);
+            campo = new Phrase("23.-¿Recibe ayuda económica por \n parte de la universidad u otro organismo?  " , fontCampo);
+            ct.setSimpleColumn(campo, 70, 310, 320, 330, 10, Element.ALIGN_LEFT);
+            ct.go();
+            
+            campo = new Phrase("Especifique: "+p.getDescripcion1()  , fontCampo);
+            ct.setSimpleColumn(campo, 320, 310, 550, 330, 10, Element.ALIGN_LEFT);
             ct.go();
             
             /* ##############################
@@ -488,20 +540,24 @@ public class GeneradorPlanillas {
             titulo = new Phrase("CONOCIMIENTO DE IDIOMAS  ", fontTitulos);
             ct.setSimpleColumn(titulo, 70, 280, 450, 300, 20, Element.ALIGN_LEFT);
             ct.go();
+            // TEMPORAL: AQUI CAMBIARE POR TABLA DE IDIOMAS:
             // Idioma de destino
-            campo = new Phrase("24.-Idioma a emplear en la Universidad de Destino:  " + p.getIdiomaDest() , fontCampo);
+            campo = new Phrase("24.-Idioma a emplear en la Universidad de Destino:  "+idim.getIdiomaDest(0) , fontCampo);
             ct.setSimpleColumn(campo, 70, 260, 450, 270, 10, Element.ALIGN_LEFT);
             ct.go();
             //Nivel de Suficiencia
-            campo = new Phrase("25.-Nivel de Suficiencia del idioma a emplear:  ", fontCampo);
+            campo = new Phrase("25.-Nivel de Suficiencia del idioma a emplear: ", fontCampo);
             ct.setSimpleColumn(campo, 70, 240, 600, 250, 10, Element.ALIGN_LEFT);
             ct.go();
-            campo = new Phrase("25.1.-Verbal:  " + p.getNivelVerbal(), fontCampo);
-            ct.setSimpleColumn(campo, 90, 220, 550, 230, 10, Element.ALIGN_LEFT);
+            campo = new Phrase("25.1.-Verbal: "+ idim.getNivelVerbal(0) , fontCampo);
+            ct.setSimpleColumn(campo, 90, 220, 350, 230, 10, Element.ALIGN_LEFT);
             ct.go();
-            campo = new Phrase("25.2.-Escrito: " + p.getNivelEscrito(), fontCampo);
+            campo = new Phrase("25.2.-Conversacional: " + idim.getNivelConversacional(0)  , fontCampo);
+            ct.setSimpleColumn(campo, 320, 220, 550, 230, 10, Element.ALIGN_LEFT);
+            ct.go();
+            campo = new Phrase("25.3.-Escrito: " + idim.getNivelEscrito(0) , fontCampo);
             ct.setSimpleColumn(campo, 90, 200, 550, 210, 10, Element.ALIGN_LEFT);
-            ct.go();
+            ct.go(); 
             
             /* ##############################
              * #  	INFO CONTACTO       #
@@ -630,8 +686,8 @@ public class GeneradorPlanillas {
         return true;
     }
     
-public Boolean generarPlanillaExt(PlanillaExt p, String path) throws BadElementException, DocumentException {
-//public Boolean generarPlanillaExt(PlanillaExt p, String path, ArrayList<Idiomas> idiomas, ArrayList<Materias> materias) throws BadElementException, DocumentException {
+//public Boolean generarPlanillaExt(PlanillaExt p, String path) throws BadElementException, DocumentException {
+public Boolean generarPlanillaExt(PlanillaExt p, String path, PlanExtranjero plane, Idiomas idim ) throws BadElementException, DocumentException {
         Document document = new Document(PageSize.LETTER); // Pdf de tamano carta
         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
         Calendar cal = Calendar.getInstance();
@@ -700,7 +756,7 @@ public Boolean generarPlanillaExt(PlanillaExt p, String path) throws BadElementE
 
 //PRUEBAS DE LA CEBOLLA
             
-            imagen = Image.getInstance("/home/dreabalbas/NetBeansProjects/Intercambio-II/Intercambio-II/web/images/cebollaUSB.jpg");
+            imagen = Image.getInstance("/home/kattys/NetBeansProjects/Intercambio-II/Intercambio-II/web/images/cebollaUSB.jpg");
             imagen.setAbsolutePosition(125f, 730f); 
 
 // define el tamano de la imagen
@@ -1019,33 +1075,60 @@ public Boolean generarPlanillaExt(PlanillaExt p, String path) throws BadElementE
             canvas.stroke();
             canvas.restoreState();
 
-
+            // Vaceado de Materias:
 
             campo = new Phrase("Código", fontCampo);
-            ct.setSimpleColumn(campo, 240, 670, 280, 680, 10, Element.ALIGN_LEFT);
+            ct.setSimpleColumn(campo, 220, 670, 260, 680, 10, Element.ALIGN_LEFT);
             ct.go();
             campo = new Phrase("  Code", fontPequena);
-            ct.setSimpleColumn(campo, 240, 663, 280, 673, 10, Element.ALIGN_LEFT);
-            ct.go();
-//####################################
-            
-// Código para vaciar materias
-            
-            
-//####################################
-            campo = new Phrase("  Denominación", fontCampo);
-            ct.setSimpleColumn(campo, 290, 670, 350, 680, 10, Element.ALIGN_LEFT);
-            ct.go();
-            campo = new Phrase("      Name", fontPequena);
-            ct.setSimpleColumn(campo, 290, 663, 350, 673, 10, Element.ALIGN_LEFT);
+            ct.setSimpleColumn(campo, 220, 663, 260, 673, 10, Element.ALIGN_LEFT);
             ct.go();
 
-            campo = new Phrase("Nro Créditos USB", fontCampo);
-            ct.setSimpleColumn(campo, 355, 670, 600, 680, 10, Element.ALIGN_LEFT);
+            campo = new Phrase("  Denominación", fontCampo);
+            ct.setSimpleColumn(campo, 270, 670, 386, 680, 10, Element.ALIGN_LEFT);
+            ct.go();
+            campo = new Phrase("      Name", fontPequena);
+            ct.setSimpleColumn(campo, 270, 663, 390, 673, 10, Element.ALIGN_LEFT);
+            ct.go();
+
+            campo = new Phrase("# Créditos", fontCampo);
+            ct.setSimpleColumn(campo, 386, 670, 425, 680, 10, Element.ALIGN_LEFT);
             ct.go();
             campo = new Phrase("# Credits USB", fontPequena);
-            ct.setSimpleColumn(campo, 370, 663, 600, 673, 10, Element.ALIGN_LEFT);
+            ct.setSimpleColumn(campo, 385, 663, 500, 673, 10, Element.ALIGN_LEFT);
             ct.go();
+            
+            campo = new Phrase("Prueba", fontCampo);
+            ct.setSimpleColumn(campo, 425, 670, 500, 660, 10, Element.ALIGN_LEFT);
+            ct.go();
+            
+            int vacea=0;
+            int topeAr= plane.getListCodigoUSB().size();
+            int valorH= 650;       
+            while (vacea!=topeAr && valorH!=430){
+            
+            //Lleno por fila
+            // Codigo USB    
+            //System.out.println("Aqui esta codUSB "+ plane.getCodigoUSB(vacea));
+            
+            campo = new Phrase(plane.getCodigoUSB(vacea), fontCampo);
+            ct.setSimpleColumn(campo, 220, valorH, 260, (valorH+10), 10, Element.ALIGN_LEFT);
+            ct.go();
+            
+            //Nombre USB
+            campo = new Phrase(plane.getMateriaUSB(vacea), fontCampo);
+            ct.setSimpleColumn(campo, 270, valorH, 386, (valorH+10), 10, Element.ALIGN_LEFT);
+            ct.go();
+            
+            // Creditos USB
+            campo = new Phrase(String.valueOf(plane.getCreditosUSB(vacea)), fontCampo);
+            ct.setSimpleColumn(campo, 386, valorH, 425, (valorH+10), 10, Element.ALIGN_CENTER);
+            ct.go();
+            
+            valorH=valorH-20;
+            vacea=vacea+1;
+                           
+            }
             
             //Cuadro de Aprobación de la Coordinación
             
@@ -1087,19 +1170,14 @@ public Boolean generarPlanillaExt(PlanillaExt p, String path) throws BadElementE
             canvas.restoreState();
             
             // Idioma de destino
-            campo = new Phrase("20.-Lengua Materna:  " , fontCampo);
+            campo = new Phrase("20.-Lengua Materna: " + idim.getLenguaMaterna() , fontCampo);
             ct.setSimpleColumn(campo, 70, 380, 450, 390, 10, Element.ALIGN_LEFT);
             ct.go();
             campo = new Phrase("Native Language" , fontPequena);
             ct.setSimpleColumn(campo, 90, 373, 450, 383, 10, Element.ALIGN_LEFT);
             ct.go();
-            
-            //#############################
-            
-            // Código para vaciar lenguajes
-            //##################################
-            
-            //Nivel de Suficiencia
+
+			//Nivel de Suficiencia
             campo = new Phrase("21.-Nivel de Suficiencia del idioma a emplear:  ", fontCampo);
             ct.setSimpleColumn(campo, 70, 360, 600, 370, 10, Element.ALIGN_LEFT);
             ct.go();
@@ -1108,28 +1186,28 @@ public Boolean generarPlanillaExt(PlanillaExt p, String path) throws BadElementE
             ct.go();
 
 
-            campo = new Phrase("21.1.-Verbal:  " , fontCampo);
+            campo = new Phrase("21.1.-Verbal:  " + idim.getNivelVerbal(0) , fontCampo);
             ct.setSimpleColumn(campo, 90, 340, 550, 350, 10, Element.ALIGN_LEFT);
             ct.go();
             campo = new Phrase("Verbal  " , fontPequena);
             ct.setSimpleColumn(campo, 120, 333, 550, 343, 10, Element.ALIGN_LEFT);
             ct.go();
 
-            campo = new Phrase("21.2.-Escrito: " , fontCampo);
+            campo = new Phrase("21.2.-Escrito: " + idim.getNivelEscrito(0) , fontCampo);
             ct.setSimpleColumn(campo, 90, 320, 550, 330, 10, Element.ALIGN_LEFT);
             ct.go();
             campo = new Phrase("Writing" , fontPequena);
             ct.setSimpleColumn(campo, 120, 313, 550, 323, 10, Element.ALIGN_LEFT);
             ct.go();
 
-            campo = new Phrase("21.3.-Conversacional: " , fontCampo);
+            campo = new Phrase("21.3.-Conversacional: " + idim.getNivelConversacional(0) , fontCampo);
             ct.setSimpleColumn(campo, 90, 300, 550, 310, 10, Element.ALIGN_LEFT);
             ct.go();
             campo = new Phrase("Conversational " , fontPequena);
             ct.setSimpleColumn(campo, 120, 293, 550, 303, 10, Element.ALIGN_LEFT);
             ct.go();
 
-            campo = new Phrase("22.-¿Desea tomar algún curso de español?: " , fontCampo);
+            campo = new Phrase("22.-¿Desea tomar algún curso de español?: " + idim.getTomarCursoDeEspaniol() , fontCampo);
             ct.setSimpleColumn(campo, 70, 280, 550, 290, 10, Element.ALIGN_LEFT);
             ct.go();
             campo = new Phrase("Do you wish to take an spanish course? " , fontPequena);
