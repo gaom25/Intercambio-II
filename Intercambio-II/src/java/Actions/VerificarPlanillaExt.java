@@ -47,9 +47,13 @@ public class VerificarPlanillaExt extends org.apache.struts.action.Action {
         boolean huboError = false;
 
         //KATTY AQUI ESTAN LAS COSAS QUE LES TIENES QUE PASAR COMO PARAMETRO
+        
+        // Instanciacion de la clase PlanillaExtranjera
         PlanillaExt p = DBMS.getInstance().obtenerPlanillaExt(u);
-        ArrayList<Idiomas> idiomas; //= DBMS.getInstance().;
-        ArrayList<Materias> materias; //= DBMS.getInstance().;
+        // Instanciacion de la clase Idiomas
+        Idiomas idiomas= DBMS.getInstance().obtenerIdiomas2(u);
+        // Instanciacion de la clase PlanDeEstudio
+        PlanExtranjero materias = DBMS.getInstance().obtenerMateriasExt(u);
 
         String nom = u.getNombreusuario();
         String filePath =
@@ -297,8 +301,8 @@ public class VerificarPlanillaExt extends org.apache.struts.action.Action {
             } else {
 
                 GeneradorPlanillas g = new GeneradorPlanillas();
-                boolean ha = g.generarPlanillaExt(p, filePath);
-
+                //boolean ha = g.generarPlanillaExt(p, filePath);
+                boolean ha = g.generarPlanillaExt(p, filePath, materias,idiomas);
                 if (p==null & ha & !DBMS.getInstance().InsertarPath(filePath, u)) {
                     return mapping.findForward(ERROR);
                 }
@@ -308,4 +312,3 @@ public class VerificarPlanillaExt extends org.apache.struts.action.Action {
             }
         }
     }
-

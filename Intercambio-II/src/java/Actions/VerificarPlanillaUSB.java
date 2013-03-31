@@ -47,9 +47,12 @@ public class VerificarPlanillaUSB extends org.apache.struts.action.Action {
         boolean huboError = false;
 
         //KATTY AQUI ESTAN LAS COSAS QUE LES TIENES QUE PASAR COMO PARAMETRO
+        // Instanciacion de la clase PlanillaUSB
         Clases.PlanillaUSB p = DBMS.getInstance().obtenerPlanillaUSB(u);
-        ArrayList<Idiomas> idiomas; //= DBMS.getInstance().;
-        ArrayList<Materias> materias; //= DBMS.getInstance().;
+        // Instanciacion de la clase Idiomas
+        Clases.Idiomas idiomas= DBMS.getInstance().obtenerIdiomas(u);
+        // Instanciacion de la clase PlanDeEstudio
+        Clases.PlanDeEstudio materias = DBMS.getInstance().obtenerMaterias(u);
 
 
         String nom = u.getNombreusuario();
@@ -298,8 +301,9 @@ public class VerificarPlanillaUSB extends org.apache.struts.action.Action {
             } else {
 
                 GeneradorPlanillas g = new GeneradorPlanillas();
-                boolean ha = g.generarPlanillaUSB(p, filePath);
-
+                //boolean ha = g.generarPlanillaUSB(p, filePath);
+                boolean ha = g.generarPlanillaUSB(p, filePath, materias, idiomas);
+                
                 if (p==null & ha & !DBMS.getInstance().InsertarPath(filePath, u)) {
                     return mapping.findForward(ERROR);
                 }
@@ -309,4 +313,3 @@ public class VerificarPlanillaUSB extends org.apache.struts.action.Action {
             }
         }
     }
-

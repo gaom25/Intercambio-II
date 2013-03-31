@@ -36,9 +36,10 @@ public class CargarIdioma extends Action {
         
         u2 = DBMS.getInstance().obtenerDatos(u);
         /*obtenemos los arraylist para los campos de cada idioma*/
+        
         ArrayList archivos = idioma.getListEscrito();
-        ArrayList archivo = idioma.getListVerb();
-        ArrayList archiv = idioma.getListIdio();
+        ArrayList archivo = idioma.getListVerbal();
+        ArrayList archiv = idioma.getListIdioma();
         ArrayList archi = idioma.getListConversacional();
         
         /*por ultimo ejecutamos la funcion que inserta en la base de datos los
