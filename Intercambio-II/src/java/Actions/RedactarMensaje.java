@@ -5,6 +5,7 @@
 package Actions;
 import Clases.Anuncio;
 import Clases.Correo;
+import Clases.HiloCorreo;
 import DBMS.DBMS;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -40,6 +41,7 @@ public class RedactarMensaje extends org.apache.struts.action.Action {
         
         Anuncio a = (Anuncio) form;
         Correo c = new Correo();
+        HiloCorreo c2 = new HiloCorreo(a);
         
         System.out.println(a.getTitulo());
         System.out.println(a.getMensaje());
@@ -52,7 +54,7 @@ public class RedactarMensaje extends org.apache.struts.action.Action {
         }
         
         if(DBMS.getInstance().agregarAnuncio(a)){
-            c.enviarAnuncio(pasaje);
+            c2.start();
             return mapping.findForward(SUCCESS);
         }
         return mapping.findForward("error");

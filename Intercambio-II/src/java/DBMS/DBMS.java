@@ -413,9 +413,10 @@ public class DBMS {
             ps2.setString(4, e.getpApellido());
             ps2.setString(5, e.getsApellido());
             ps2.setString(6, e.getCarrera());
-            ps2.setString(7, e.getCodCarrera());
+            ps2.setInt(7, Integer.parseInt(e.getCodCarrera()));
             ps2.setString(8, e.getEmail());
 
+            //falta el carnet el en jsp
             ps3 = conexion.prepareStatement("INSERT INTO \"dycicle\".estudianteUSB VALUES("
                     + " ?,  'null' ,?);");
             ps3.setString(1, e.getNombreusuario());
