@@ -81,7 +81,11 @@ public class Idiomas extends org.apache.struts.action.ActionForm {
 
     public String getIdiomaDest(int index) {
         //return this.idiomaDest;
+        if(listIdio.isEmpty()){
+            return this.idiomaDest;
+        }else{
         return (String)this.listIdio.get(index);
+        }
     }
 
     public void setIdiomaDest(String idioma) {
@@ -101,7 +105,11 @@ public class Idiomas extends org.apache.struts.action.ActionForm {
 
     public String getNivelVerbal(int index) {
         //return this.nivelVerbal;
+        if(listVerb.isEmpty()){
+            return this.nivelVerbal;
+        }else{
         return (String)this.listVerb.get(index);
+        }
     }
 
     public void setNivelVerbal(String verb) {
@@ -121,7 +129,11 @@ public class Idiomas extends org.apache.struts.action.ActionForm {
 
     public String getNivelEscrito(int index) {
         //return this.nivelEscrito;
+        if(listEscr.isEmpty()){
+            return this.nivelEscrito;
+        }else{
         return (String)this.listEscr.get(index);
+        }
     }
 
     public void setNivelEscrito(String escri) {
@@ -189,7 +201,11 @@ public class Idiomas extends org.apache.struts.action.ActionForm {
 
     public String getNivelConversacional(int index) {
         //return this.nivelConversacional;
+        if(listConver.isEmpty()){
+            return this.nivelConversacional;
+        }else{
         return (String)this.listConver.get(index);
+        }
     }
     
     /*public String getNivelConversacional() {
