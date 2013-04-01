@@ -66,6 +66,15 @@
                             <html:errors property="apellidos" />
                         </td>
                     </tr>
+                    <tr>
+                        <td style="color: black">Carnet</td>       
+                        <td><html:text name="EstUSB" property="carnet" maxlength="100" errorStyleClass="error"
+                                   errorKey="org.apache.struts.action.ERROR"></html:text>
+                            </td>
+                            <td>
+                            <html:errors property="apellidos" />
+                        </td>
+                    </tr>
 
                     <tr hidden="true">
                         <td style="color: black">Carrera</td>

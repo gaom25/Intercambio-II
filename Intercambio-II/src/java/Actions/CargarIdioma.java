@@ -30,23 +30,54 @@ public class CargarIdioma extends Action {
         // aqui recibimos los idiomas puestos en el form
         
         Idiomas idioma = (Idiomas) form;
+        Idiomas iditmp = new Idiomas();
+        Idiomas idiDB = new Idiomas();
         Usuario u = new Usuario();
         Usuario u2 = new Usuario();
         u.setNombreusuario(idioma.getNombreusuario());
-        
+        int i;
         u2 = DBMS.getInstance().obtenerDatos(u);
+        idiDB = DBMS.getInstance().obtenerIdiomas(u);
+        
         /*obtenemos los arraylist para los campos de cada idioma*/
         
-        ArrayList archivos = idioma.getListEscrito();
-        ArrayList archivo = idioma.getListVerbal();
-        ArrayList archiv = idioma.getListIdioma();
-        ArrayList archi = idioma.getListConversacional();
+        ArrayList escri = idioma.getListEscrito();
+        ArrayList verb = idioma.getListVerbal();
+        ArrayList idi = idioma.getListIdioma();
+        ArrayList conv = idioma.getListConversacional();
+        
+        ArrayList idiomaDB = idiDB.getListIdioma();
+        
+        
         
         /*por ultimo ejecutamos la funcion que inserta en la base de datos los
          diferentes idiomas de un usuario*/
-        if(!DBMS.getInstance().InsertarIdioma(idioma)){
-            
-            System.out.println("Falloooooo");
+        
+        for(i = 0; i<escri.size();i++){
+            if( !idiomaDB.contains((String)idi.get(i))){
+
+                iditmp.setIdiomaDest(0,(String)idi.get(i));
+                iditmp.setNivelConversacional(0,(String)conv.get(i));
+                iditmp.setNivelEscrito(0,(String)escri.get(i));
+                iditmp.setNivelVerbal(0,(String)verb.get(i));
+                iditmp.setNombreusuario(idioma.getNombreusuario());
+                
+                if(!DBMS.getInstance().InsertarIdioma(iditmp)){
+
+                    System.out.println("Falloooooo");
+                }
+            }else{
+                iditmp.setIdiomaDest(0,(String)idi.get(i));
+                iditmp.setNivelConversacional(0,(String)conv.get(i));
+                iditmp.setNivelEscrito(0,(String)escri.get(i));
+                iditmp.setNivelVerbal(0,(String)verb.get(i));
+                iditmp.setNombreusuario(idioma.getNombreusuario());
+                
+                
+                if(!DBMS.getInstance().modificarIdioma(iditmp)){
+                    System.out.println("yey");
+                }
+            }
         }
 
         if(u2.getPrivilegio() == 5){

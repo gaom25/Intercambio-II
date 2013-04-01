@@ -58,7 +58,7 @@ CREATE TABLE "dycicle".EstudianteUSB(
 	Cedula		VARCHAR(10)	,
 	Carnet		VARCHAR(10)	,
 	CONSTRAINT	PK_EstudianteUSB	
-		PRIMARY KEY (NombreUsuario, Cedula, Carnet)
+		PRIMARY KEY (NombreUsuario, Carnet)
 );
 
 /* En esta tabla se tienen todos los datos particulares

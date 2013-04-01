@@ -678,7 +678,7 @@ public class GeneradorPlanillas {
 
             document.close();
 
-        } catch (IOException ex) {
+        } catch (Exception ex) {
             Logger.getLogger(GeneradorPlanillas.class.getName()).log(Level.SEVERE, null, ex);
             return false;
         }
@@ -1373,7 +1373,7 @@ public Boolean generarPlanillaExt(PlanillaExt p, String path, PlanExtranjero pla
         // step 5
         document.close();
 
-        } catch (IOException ex) {
+        } catch (Exception ex) {
             Logger.getLogger(GeneradorPlanillas.class.getName()).log(Level.SEVERE, null, ex);
             return false;
         }

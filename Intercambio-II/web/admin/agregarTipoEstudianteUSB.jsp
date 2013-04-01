@@ -68,6 +68,16 @@
                     </tr>
 
                     <tr>
+                        <td style="color: black">Carnet</td>       
+                        <td><html:text name="EstUSB" property="carnet" maxlength="100" value="" errorStyleClass="error"
+                                   errorKey="org.apache.struts.action.ERROR"></html:text>
+                            </td>
+                            <td>
+                            <html:errors property="apellidos" />
+                        </td>
+                    </tr>
+                    
+                    <tr>
                         <td style="color: black">Carrera</td>
                         
                         <td><html:select  property="carrera">
