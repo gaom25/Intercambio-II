@@ -54,7 +54,11 @@
             <definition name="reccontra" extends="basePublic"> <!-- pagina de recuperacion de contraseña -->
                 <put name="body" value="/public/recuperarContrasena.jsp"/>
             </definition>
-            
+
+            <definition name="infoImportante" extends="basePublic"> <!-- pagina de información importante -->
+                <put name="body" value="/public/infoImportante.jsp"/>
+            </definition>
+                                    
             <definition name="recConEnviada" extends="basePublic"> <!-- pagina de recuperacion de contraseña enviada -->
                 <put name="body" value="/public/recuperacionEnviada.jsp"/>
             </definition>
