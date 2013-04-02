@@ -1296,12 +1296,12 @@ public class DBMS {
 
             while (rs.next()) {
         
-                plan.setMateriaUSB(rs.getString("MateriaUsb"));
-                plan.setCodigoUSB(rs.getString("CodigoUsb"));
-                plan.setCreditosUSB(rs.getInt("CreditoUsb"));
-                plan.setMateriaUniv(rs.getString("MateriaUniv"));
-                plan.setCodigoUniv(rs.getString("CodigoUniv"));
-                plan.setCreditosUniv(rs.getInt("CreditoUniv"));
+                plan.setMateriaUSB(0,rs.getString("MateriaUsb"));
+                plan.setCodigoUSB(0,rs.getString("CodigoUsb"));
+                plan.setCreditosUSB(0,rs.getInt("CreditoUsb"));
+                plan.setMateriaUniv(0,rs.getString("MateriaUniv"));
+                plan.setCodigoUniv(0,rs.getString("CodigoUniv"));
+                plan.setCreditosUniv(0,rs.getInt("CreditoUniv"));
 
             }
 
@@ -1326,9 +1326,9 @@ public class DBMS {
 
             while (rs.next()) {
         
-                plan.setMateriaUSB(rs.getString("MateriaUsb"));
-                plan.setCodigoUSB(rs.getString("CodigoUsb"));
-                plan.setCreditosUSB(rs.getInt("CreditoUsb"));
+                plan.setMateriaUSB(0,rs.getString("MateriaUsb"));
+                plan.setCodigoUSB(0,rs.getString("CodigoUsb"));
+                plan.setCreditosUSB(0,rs.getInt("CreditoUsb"));
                 
             }
 
