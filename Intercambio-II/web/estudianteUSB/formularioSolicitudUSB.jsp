@@ -709,7 +709,7 @@
                                errorKey="org.apache.struts.action.ERROR"></html:text></p>
                     <br>
 
-                    <!-- pestañas -->
+                    <!-- pesteñas -->
 
                     <div>
                         <span style="background-color: #F9F4CF; border-radius: 5px;"><a href='javascript:seleccion(1);'> Datos </a></span>
@@ -1018,13 +1018,13 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <a href="#" id="planilla1-1"> </a>
+                                        <a href="#" id="planilla1-1" title="Debe llenar este formulario y luego cargarlo en el sistema"> </a>
                                     </td>
                                 </tr>
                                 
                                 <tr>
                                     <td>
-                                        <a href="#" id="planilla1-2"> </a>
+                                        <a href="#" id="planilla1-2" title="Debe llenar este formulario y luego cargarlo en el sistema"> </a>
                                     </td>
                                 </tr>
 
@@ -1151,13 +1151,13 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <a href="#" id="planilla2-1"> </a>
+                                        <a href="#" id="planilla2-1" title="Debe llenar este formulario y luego cargarlo en el sistema"> </a>
                                     </td>
                                 </tr>
                                 
                                 <tr>
                                     <td>
-                                        <a href="#" id="planilla2-2"> </a>
+                                        <a href="#" id="planilla2-2" title="Debe llenar este formulario y luego cargarlo en el sistema"> </a>
                                     </td>
                                 </tr>
 
