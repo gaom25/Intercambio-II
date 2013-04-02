@@ -38,7 +38,10 @@
     </script>
     
 </div>    
-            
+
+<div width="320" height="400" style="position:absolute;right:10px;top:460px;">
+    <img id="imgTweet" src="/Intercambio-II/images/tuit.jpg" >
+</div>            
             
 
 </div>
