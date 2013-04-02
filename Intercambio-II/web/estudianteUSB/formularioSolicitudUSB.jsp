@@ -28,12 +28,12 @@
             var seleccion=document.getElementById('prog_princ');
             if(seleccion.value == "SMILE"){
                 document.getElementById('planilla1').href=direccionPlanillaSMILE;
-                document.getElementById('planilla1').innerHTML='Por Favor Descargue la Planilla del Programa SMILE';
+                document.getElementById('planilla1').innerHTML='Descargue la Planilla del Programa SMILE';
             }
             
             if(seleccion.value == "CINDA"){
                 document.getElementById('planilla1').href=direccionPlanillaCINDA;
-                document.getElementById('planilla1').innerHTML='Por Favor Descargue la Planilla del Programa CINDA';
+                document.getElementById('planilla1').innerHTML='Descargue la Planilla del Programa CINDA';
             }
             
         }
@@ -44,12 +44,12 @@
             var seleccion=document.getElementById('prog_princ2');
             if(seleccion.value == "SMILE"){
                 document.getElementById('planilla2').href=direccionPlanillaSMILE;
-                document.getElementById('planilla2').innerHTML='Por Favor Descargue la Planilla del Programa SMILE';
+                document.getElementById('planilla2').innerHTML='Descargue la Planilla del Programa SMILE';
             }
             
             if(seleccion.value == "CINDA"){
                 document.getElementById('planilla2').href=direccionPlanillaCINDA;
-                document.getElementById('planilla2').innerHTML='Por Favor Descargue la Planilla del Programa CINDA';
+                document.getElementById('planilla2').innerHTML='Descargue la Planilla del Programa CINDA';
             }
         }
         
@@ -1005,6 +1005,7 @@
                                     </td>
                                 </tr>
                                 <tr>
+                                    <td></td>
                                     <td>
                                         <a href="#" id="planilla1"> </a>
                                     </td>
@@ -1132,6 +1133,7 @@
                                     </td>
                                 </tr>
                                 <tr>
+                                    <td></td>
                                     <td>
                                         <a href="#" id="planilla2"> </a>
                                     </td>
