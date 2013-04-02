@@ -74,7 +74,7 @@ public class PlanDeEstudio extends org.apache.struts.action.ActionForm {
         return (String)this.listMateriaUSB.get(index);
     }
 
-    public void setMateriaUSB(String materia) {
+    public void setMateriaUSB(int index, String materia) {
 
         this.materiaUSB = materia;
         setListMateriaUSB(materiaUSB);
@@ -93,7 +93,7 @@ public class PlanDeEstudio extends org.apache.struts.action.ActionForm {
         return (String)this.listCodigoUSB.get(index);
     }
 
-    public void setCodigoUSB(String codigo) {
+    public void setCodigoUSB(int index, String codigo) {
 
         this.codigoUSB = codigo;
         setListCodigoUSB(codigoUSB);
@@ -112,7 +112,7 @@ public class PlanDeEstudio extends org.apache.struts.action.ActionForm {
         return (String)this.listCodigoUniv.get(index);
     }
 
-    public void setCodigoUniv(String codigo) {
+    public void setCodigoUniv(int index, String codigo) {
 
         this.codigoUniv = codigo;
         setListCodigoUniv(codigoUniv);
@@ -131,7 +131,7 @@ public class PlanDeEstudio extends org.apache.struts.action.ActionForm {
         return (String)this.listMateriaUniv.get(index);
     }
 
-    public void setMateriaUniv(String materia) {
+    public void setMateriaUniv(int index, String materia) {
 
         this.materiaUniv = materia;
         setListMateriaUniv(materiaUniv);
@@ -151,7 +151,7 @@ public class PlanDeEstudio extends org.apache.struts.action.ActionForm {
       return (Integer)this.listCreditosUSB.get(index);
     }
 
-    public void setCreditosUSB(int credito) {
+    public void setCreditosUSB(int index, int credito) {
 
         this.creditosUSB = credito;
         setListCreditosUSB(creditosUSB);
@@ -171,7 +171,7 @@ public class PlanDeEstudio extends org.apache.struts.action.ActionForm {
         return (Integer)this.listCreditosUniv.get(index);
     }
 
-    public void setCreditosUniv(int credito) {
+    public void setCreditosUniv(int index, int credito) {
 
         this.creditosUniv = credito;
         setListCreditosUniv(creditosUniv);

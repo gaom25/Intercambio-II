@@ -102,6 +102,7 @@ public class GeneradorPlanillas {
 
             //IMAGEN APLICANTE
             //Cambiar Path
+            
             Image imagen = Image.getInstance(path+"/Foto.png");
             // define la posicion de la imagen del aplicante
             imagen.setAbsolutePosition(500f, 680f); 
@@ -301,7 +302,7 @@ public class GeneradorPlanillas {
             ct.setSimpleColumn(campo, 70, 140, 600, 150, 10, Element.ALIGN_LEFT);
             ct.go();
             
-            campo = new Phrase("13.6.-Fechas tentativas de Inicio y Fin(Según calendario de la Universidad de Destino: ", fontCampo);		
+            campo = new Phrase("13.6.-Fechas tentativas de Inicio y Fin(Según calendario de la Universidad de Destino) ", fontCampo);		
             ct.setSimpleColumn(campo, 70, 120, 600, 130, 10, Element.ALIGN_LEFT);
             ct.go();
             
@@ -340,6 +341,8 @@ public class GeneradorPlanillas {
             ct.setSimpleColumn(campo, 310, 690, 600, 700, 10, Element.ALIGN_LEFT);
             ct.go();
             //Carrera
+            
+            
             campo = new Phrase("15.-Carrera que estudia en la USB:  " + p.getCarrera() , fontCampo);
             ct.setSimpleColumn(campo, 70, 670, 350, 680, 10, Element.ALIGN_LEFT);
             ct.go();
@@ -414,14 +417,14 @@ public class GeneradorPlanillas {
             int topeAr= plan.getListCodigoUSB().size();
             int valorH= 570;       
             while (vacea!=topeAr && valorH!=430){
-            //System.out.println("Aqui esta vacea "+ vacea);
-            //System.out.println("Aqui esta topeAr "+ topeAr);
+            System.out.println("Aqui esta vacea "+ vacea);
+            System.out.println("Aqui esta topeAr "+ topeAr);
             //Lleno por fila
             // Codigo USB    
-            //System.out.println("Aqui esta codUSB "+ plan.getCodigoUSB(vacea));
+            System.out.println("Aqui esta codUSB "+ plan.getCodigoUSB(vacea));
             
             campo = new Phrase(plan.getCodigoUSB(vacea), fontCampo);
-            ct.setSimpleColumn(campo, 90, valorH, 115, (valorH+10), 10, Element.ALIGN_LEFT);
+            ct.setSimpleColumn(campo, 80, valorH, 140, (valorH+10), 10, Element.ALIGN_LEFT);
             ct.go();
             //Nombre USB
             campo = new Phrase(plan.getMateriaUSB(vacea), fontCampo);
@@ -510,7 +513,7 @@ public class GeneradorPlanillas {
             ct.go();
             
             //Fuente de Ingresos
-            titulo = new Phrase("22.- Principal Fuente de Ingresos: ", fontCampo);
+            titulo = new Phrase("22.- Principal Fuente de Ingresos: " + p.getFuenteFinanciamiento(), fontCampo);
             ct.setSimpleColumn(titulo, 70, 330, 320, 350, 10, Element.ALIGN_LEFT);
             ct.go();
             
@@ -519,7 +522,7 @@ public class GeneradorPlanillas {
             ct.go();
             
             //Becado o no
-            campo = new Phrase("23.-¿Recibe ayuda económica por \n parte de la universidad u otro organismo?  " , fontCampo);
+            campo = new Phrase("23.-¿Recibe ayuda económica por \n parte de la universidad u otro organismo?: "+ p.getAyudaEc() , fontCampo);
             ct.setSimpleColumn(campo, 70, 310, 320, 330, 10, Element.ALIGN_LEFT);
             ct.go();
             
@@ -577,27 +580,27 @@ public class GeneradorPlanillas {
             ct.setSimpleColumn(campo, 70, 150, 300, 160, 10, Element.ALIGN_LEFT);
             ct.go();
             //Apellido Contacto
-            campo = new Phrase("27.-Apellido Contacto:  " + p.getApellidoRep1() + p.getApellidoRep2() , fontCampo);
-            ct.setSimpleColumn(campo, 320, 150, 600, 160, 10, Element.ALIGN_LEFT);
-            //Tlf. Habitación Contacto
+            campo = new Phrase("27.-Apellido Contacto:  " + p.getApellidoRep1() + " " + p.getApellidoRep2() , fontCampo);
+            ct.setSimpleColumn(campo, 310, 150, 500, 160, 10, Element.ALIGN_LEFT);
+            //Tlf. Habitació    n Contacto
             campo = new Phrase("28.-Tlf. Habitación Contacto:  " + p.getTlfRepCasa() , fontCampo);
             ct.setSimpleColumn(campo, 70, 130, 300, 140, 10, Element.ALIGN_LEFT);
             ct.go();
             //Tlf. Celular Contacto
-            campo = new Phrase("29.-Tlf. Celular Contacto:  " + p.getCelRep() , fontCampo);
-            ct.setSimpleColumn(campo, 320, 130, 600, 140, 10, Element.ALIGN_LEFT);
+            campo = new Phrase("29.-Tlf. Celular Contacto: " + p.getCelRep(), fontCampo);
+            ct.setSimpleColumn(campo, 310, 130, 500, 140, 10, Element.ALIGN_LEFT);
             ct.go();
             //Relación con el Estudiante
-            campo = new Phrase("30.-Relación con el Estudiante:  " + p.getRelacion() , fontCampo);
+            campo = new Phrase("30.-Relación con el Estudiante: " + p.getRelacion(), fontCampo);
             ct.setSimpleColumn(campo, 70, 110, 300, 120, 10, Element.ALIGN_LEFT);
             ct.go();
             //Email Contacto
-            campo = new Phrase("31.-Email Contacto:  " + p.getEmailRep() , fontCampo);
-            ct.setSimpleColumn(campo, 320, 110, 600, 120, 10, Element.ALIGN_LEFT);
+            campo = new Phrase("31.-Email Contacto: " + p.getEmailRep(), fontCampo);
+            ct.setSimpleColumn(campo, 310, 110, 500, 120, 10, Element.ALIGN_LEFT);
             ct.go();
             //Domicilio Contacto
-            campo = new Phrase("32.-Domicilio Contacto:  " + p.getDireccionRep() , fontCampo);
-            ct.setSimpleColumn(campo, 70, 90, 600, 100, 10, Element.ALIGN_LEFT);
+            campo = new Phrase("32.-Domicilio Contacto: " + p.getDireccionRep(), fontCampo);
+            ct.setSimpleColumn(campo, 70, 90, 500, 100, 10, Element.ALIGN_LEFT);
             ct.go();
             
             //NUEVA PAGINA
@@ -746,12 +749,12 @@ public Boolean generarPlanillaExt(PlanillaExt p, String path, PlanExtranjero pla
             
            //FOTO APLICANTE 
             Image imagen = Image.getInstance(path+"/Foto.png");
-			
-// define la posicion de la imagen del aplicante
+            
+            // define la posicion de la imagen del aplicante
             imagen.setAbsolutePosition(500f, 680f); 
-// define el tamano de la imagen del aplicante
+            // define el tamano de la imagen del aplicante
             imagen.scaleAbsolute(75f, 75f); 
-// agrega la imagen al pdf
+            // agrega la imagen al pdf
             document.add(imagen); 
 
 //PRUEBAS DE LA CEBOLLA
