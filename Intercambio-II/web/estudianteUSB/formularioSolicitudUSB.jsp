@@ -342,7 +342,7 @@
                     var chkbox = row.cells[0].childNodes[0];
                     if(null != chkbox && true == chkbox.checked) {
 				
-                        if(rowCount <= 1) {
+                        if(rowCount <= 4) {
                             alert("No puede borrar todas las opciones");
                             break;
                         }
