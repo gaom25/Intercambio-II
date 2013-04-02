@@ -1,7 +1,7 @@
 <%-- 
-    Document   : recuperarContrasena
+    Document   : infoImportante
     Created on : Oct 25, 2012, 7:16:30 PM
-    Author     : caponte
+    Author     : Katy
 --%>
 
 <%@page contentType="text/html"%>
@@ -15,52 +15,86 @@
 
     <title>Sistema de Gesti&oacute;n de Intercambio</title>
 
-    <h4>Bienvenido</h4>
-    <h4>Para recuperar su contraseña por favor indique su nombre de usuario y/o e-mail:</h4>
-    <div align="center">
-        <html:form action="/recContrasena" onsubmit= "return(this)">
-            <table>
-                <tr>
-                    <td> Usuario </td>
-                    <td><html:text name="Usuario" property="nombreusuario" size="14"
-                               errorStyleClass="error" errorKey="org.apache.struts.action.ERROR"></html:text>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="2"><html:errors property="nombreusuario"/></td>
-                </tr>
+    <div style="position:relative;left:50px;margin-right: 150px;">
+    <h2>
+        Fecha Límite para Postulaciones:
+    </h2>
+    <p>
+    Inicio en Septiembre: 15 de mayo. 
+    <br>
+    Año Académico: Septiembre-Julio.
+    <br>
+    Trimestres: Septiembre-Diciembre y Enero-Marzo.
+    <br>
+    Sólo Trimestre: Septiembre-Diciembre.
+    <br>
+    <br>
+    Inicio en Enero: 15 de octubre.
+    <br>
+    Trimestres: Enero-Marzo y Abril-Julio.
+    <br>
+    Sólo Trimestre: Enero-Marzo.
+    <br>
+    <br>
+    Inicio en Abril: 30 enero.
+    <br>
+    Sólo Trimestre:Abril-Julio
+    </p>
 
-                <tr>
-                    <td> E-mail</td>
-                    <td><html:text name="Usuario" property="email" value="" size="14"
-                               errorStyleClass="error" errorKey="org.apache.struts.action.ERROR" ></html:text>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="2"><html:errors property="email"/></td>
-                </tr>
-            </table>
+    <h2>
+    Recaudos que deben Presentar los Estudiantes Internacionales para su Postulación:
+    </h2>
+    <p>
+    - Formulario de postulación al Programa de Intercambio de Estudiantes de la USB para estudiantes internacionales firmado y sellado por la Oficina de Relaciones Internacionales de la universidad de origen.
+    <br>
+    - Fotocopia del Pasaporte.
+    <br>
+    - Informe académico actualizado (Transcript Record) firmado y sellado por la Oficina de Relaciones Internacionales de la universidad de origen.
+    <br>
+    - Curriculum Vitae.
+    <br>
+    - Carta de motivación para los estudios en la USB.
+    <br>
+    - Carta de recomendación de un profesor de la universidad de origen.
+    <br>
+    - Seguro Médico Internacional obligatorio al llegar al país. 
+    </p>
 
-            <div  style="position: relative; height: 120px; bottom: -10px;">
-                <div id="Imagencita" style="height: 75px;">
-                    <img onloadstart="loadstart" src="/Intercambio-II/stickyImg"/>
-                    <br><br>
-                    <div>
-                        <a href="javascript:history.go(0)">Click para cambiar captcha</a>
-                    </div>
-                </div>
-                <br><br>
-                <div>
-                    Captcha <input name="answer" />
-                </div>
-            </div>
-                <br><br>
+    <h2>
+    Recaudos que deben Presentar los Estudiantes Nacionales para su Postulación:
+    </h2>
+    <p>
+    - Formulario de postulación al Programa de Intercambio de Estudiantes de la USB para estudiantes nacionales firmado y sellado por la DRIC.
+    <br>
+    - Fotocopia de la Cédula de Identidad
+    <br>
+    - Informe académico actualizado (Transcript Record).
+    <br>
+    - Curriculum Vitae.
+    <br>
+    - Carta de motivación para los estudios en el exterior.
+    <br>
+    - Fotocopia del Carnet    
+    </p>
 
-            <html:submit value="Recuperar">Recuperar contraseña</html:submit>
-        </html:form>
-
-
-
+    
+    <h3>
+    Requisitos Adicionales:
+    </h3>
+    <p>
+    Programa SMILE:
+    <br>
+    - Student Application-Form
+    <br>
+    - Student Learning Agreement
+    <br>
+    <br>
+    Programa de Movilidad Estudiantil CINDA:
+    <br>
+    - Ficha de Solicitud de Participación
+    <br>
+    - Ficha de Reconocimiento
+    </p>
     </div>
 
 </html:html>

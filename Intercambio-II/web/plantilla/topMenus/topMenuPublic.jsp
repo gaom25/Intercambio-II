@@ -43,5 +43,10 @@
     <img id="imgTweet" src="/Intercambio-II/images/tuit.jpg" >
 </div>            
             
-
+    <div id="info" style="position:absolute;left:85px;top:400px;">
+        <html:link action="infoImportante">
+            <img width="150" height="120" src="/Intercambio-II/images/info.jpg">        
+        </html:link>
+    </div>
+            
 </div>
