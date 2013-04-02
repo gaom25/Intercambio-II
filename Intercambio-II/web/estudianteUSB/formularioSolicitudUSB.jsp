@@ -20,20 +20,26 @@
         var fCount = 3;
         var Count = 0;
         var mCount = 0;
-        var direccionPlanillaSMILE='/public/planillaSMILE.pdf'
-        var direccionPlanillaCINDA='/public/planillaCINDA.pdf'
+        var direccionPlanillaSmile1='/Intercambio-II/estudianteUSB/Recursos/SMILE_Student_Learning-Agreement.doc'
+        var direccionPlanillaSmile2='/Intercambio-II/estudianteUSB/Recursos/SMILE_Student_Application-Form.doc'
+        var direccionPlanillaCinda1='/Intercambio-II/estudianteUSB/Recursos/CINDA_Ficha_de_reconocimiento.doc'
+        var direccionPlanillaCinda2='/Intercambio-II/estudianteUSB/Recursos/CINDA_Ficha_solicitud_de_participación.doc'
         
         function cambiar_link1(){
             
             var seleccion=document.getElementById('prog_princ');
             if(seleccion.value == "SMILE"){
-                document.getElementById('planilla1').href=direccionPlanillaSMILE;
-                document.getElementById('planilla1').innerHTML='Descargue la Planilla del Programa SMILE';
+                document.getElementById('planillaSmile1').href=direccionPlanillaSmile1;
+                document.getElementById('planillaSmile1').innerHTML='Descargue el Contrato de estudiantes para SMILE';
+                document.getElementById('planillaSmile2').href=direccionPlanillaSmile2;
+                document.getElementById('planillaSmile2').innerHTML='Descargue el formulario de Aplicacion SMILE'
             }
             
             if(seleccion.value == "CINDA"){
-                document.getElementById('planilla1').href=direccionPlanillaCINDA;
-                document.getElementById('planilla1').innerHTML='Descargue la Planilla del Programa CINDA';
+                document.getElementById('planillaCinda1').href=direccionPlanillaCINDA;
+                document.getElementById('planillaCinda1').innerHTML='Descargue el formulario de Reconocimiento para CINDA';
+                document.getElementById('planillaCinda2').href=direccionPlanillaCINDA;
+                document.getElementById('planillaCinda2').innerHTML='Descargue el formulario de participación para CINDA';
             }
             
         }
@@ -1005,9 +1011,14 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td></td>
                                     <td>
-                                        <a href="#" id="planilla1"> </a>
+                                        <a href="#" id="planillaSmile1"> </a>
+                                    </td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>
+                                        <a href="#" id="planillaSmile2"> </a>
                                     </td>
                                 </tr>
 
@@ -1133,9 +1144,14 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td></td>
                                     <td>
-                                        <a href="#" id="planilla2"> </a>
+                                        <a href="#" id="planillaCinda1"> </a>
+                                    </td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>
+                                        <a href="#" id="planillaCinda2"> </a>
                                     </td>
                                 </tr>
 
