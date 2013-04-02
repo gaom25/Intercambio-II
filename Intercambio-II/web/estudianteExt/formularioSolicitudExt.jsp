@@ -28,17 +28,17 @@
             
             var seleccion=document.getElementById('prog_princ');
             if(seleccion.value == "SMILE"){
-                document.getElementById('planilla1-1').href=direccionPlanillaSmile1;
-                document.getElementById('planilla1-1').innerHTML='Descargue el Contrato de estudiantes para SMILE';
-                document.getElementById('planilla1-2').href=direccionPlanillaSmile2;
-                document.getElementById('planilla1-2').innerHTML='Descargue el formulario de Aplicacion SMILE'
+                document.getElementById('planillaExt1').href=direccionPlanillaSmile1;
+                document.getElementById('planillaExt1').innerHTML='Descargue el Contrato de estudiantes para SMILE';
+                document.getElementById('planillaExt2').href=direccionPlanillaSmile2;
+                document.getElementById('planillaExt2').innerHTML='Descargue el formulario de Aplicacion SMILE'
             }
             
             if(seleccion.value == "CINDA"){
-                document.getElementById('planilla1-1').href=direccionPlanillaCINDA;
-                document.getElementById('planilla1-1').innerHTML='Descargue el formulario de Reconocimiento para CINDA';
-                document.getElementById('planilla1-2').href=direccionPlanillaCINDA;
-                document.getElementById('planilla1-2').innerHTML='Descargue el formulario de participación para CINDA';
+                document.getElementById('planillaExt1').href=direccionPlanillaCINDA;
+                document.getElementById('planillaExt1').innerHTML='Descargue el formulario de Reconocimiento para CINDA';
+                document.getElementById('planillaExt2').href=direccionPlanillaCINDA;
+                document.getElementById('planillaExt2').innerHTML='Descargue el formulario de participación para CINDA';
             }
             
         }
@@ -661,9 +661,6 @@
                                 <td>Nacionalidad</td>
 
                                 <td>
-                                    <html:text name="PlanillaExt" property="nacionalidad" maxlength="80" errorStyleClass="error"
-                                               errorKey="org.apache.struts.action.ERROR">
-                                    </html:text>
                                     <html:select name="PlanillaExt" property="nacionalidad" errorStyleClass="error" errorKey="org.apache.struts.action.ERROR">
                                         <option value="">Seleccione</option>
                                         <option value="afghan">Afghan</option>
@@ -1027,7 +1024,7 @@
                                 <tr>
                                     <td> Nombre de Programa: </td>
                                     <td>
-                                        <html:select styleId="prog_princ" onchange="cambia_pais()" property="nombrePrograma"> 
+                                        <html:select styleId="prog_princ" onchange="cambia_pais();cambiar_link1()" property="nombrePrograma"> 
                                             <html:option value="0">Seleccione </html:option>
                                             <html:option value="Bilaterales">Convenios Bilaterales </html:option>
                                             <html:option value="SMILE">Programa SMILE </html:option>
@@ -1038,13 +1035,13 @@
                                 
                                 <tr>
                                     <td>
-                                        <a href="#" id="planilla1-1"> </a>
+                                        <a href="#" id="planillaExt1"> </a>
                                     </td>
                                 </tr>
                                 
                                 <tr>
                                     <td>
-                                        <a href="#" id="planilla2-2"> </a>
+                                        <a href="#" id="planillaExt2"> </a>
                                     </td>
                                 </tr>
                                 

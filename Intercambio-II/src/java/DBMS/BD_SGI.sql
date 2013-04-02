@@ -613,7 +613,7 @@ INSERT INTO "dycicle".IDIOMAS VALUES ( 'daniel','Japones','Basico','Basico','Bas
 
 
 /*INSERT de estudiantes extranjeros*/
-INSERT INTO "dycicle".USUARIO VALUES ( 'extranjero','extranjerito@otrauniversidad.com', 5, 'Yuriv', 'extranjero1234');
+INSERT INTO "dycicle".USUARIO VALUES ( 'extranjero','exx@gmail.com', 6, 'Yuriv', 'extranjero1234');
 INSERT INTO "dycicle".ESTUDIANTE VALUES ( 'extranjero','Rusia','Yuriv','Pdqwi','Smirnoff','Stalifnaya','Ingenieria de Producción',0200,'Masculino','El Silencio','Av. Lecuna','Edif. Granados','S','Caracas','Distrito Capital','1010','+41782372712','+418123123123','+411231231','extranjero@gmail.com','4/08/1987a','Ruso',null);
 INSERT INTO "dycicle".ESTUDIANTEINTERNACIONAL VALUES ( 'extranjero','02267856','Ruso','Rusia','Universidad Tecnológica de Nagaoka','Si');
 INSERT INTO "dycicle".ANTECEDENTEACADEMICO VALUES ('extranjero','4.5345','4.9232','Estudios Profesionales','Ingenieria','Ingenieria de Producción','opcion','200','2007','4','Alexander Ramirez','Juvencio Perez');
@@ -631,15 +631,3 @@ INSERT INTO "dycicle".IDIOMAS VALUES ( 'extranjero','Japones','Basico','Basico',
 INSERT INTO "dycicle".Noticias VALUES ('Inicio','holaaaaa');
 INSERT INTO "dycicle".Noticias VALUES ('Inicio2','chaoooo');
 INSERT INTO "dycicle".Noticias VALUES ('Inicio3','Adiossss');
-
-
-
-
-
-
-
-
-
-
-
-
