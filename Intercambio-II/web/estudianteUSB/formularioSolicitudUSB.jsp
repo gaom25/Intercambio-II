@@ -29,17 +29,17 @@
             
             var seleccion=document.getElementById('prog_princ');
             if(seleccion.value == "SMILE"){
-                document.getElementById('planillaSmile1').href=direccionPlanillaSmile1;
-                document.getElementById('planillaSmile1').innerHTML='Descargue el Contrato de estudiantes para SMILE';
-                document.getElementById('planillaSmile2').href=direccionPlanillaSmile2;
-                document.getElementById('planillaSmile2').innerHTML='Descargue el formulario de Aplicacion SMILE'
+                document.getElementById('planilla1-1').href=direccionPlanillaSmile1;
+                document.getElementById('planilla1-1').innerHTML='Descargue el Contrato de estudiantes para SMILE';
+                document.getElementById('planilla1-2').href=direccionPlanillaSmile2;
+                document.getElementById('planilla1-2').innerHTML='Descargue el formulario de Aplicacion SMILE'
             }
             
             if(seleccion.value == "CINDA"){
-                document.getElementById('planillaCinda1').href=direccionPlanillaCINDA;
-                document.getElementById('planillaCinda1').innerHTML='Descargue el formulario de Reconocimiento para CINDA';
-                document.getElementById('planillaCinda2').href=direccionPlanillaCINDA;
-                document.getElementById('planillaCinda2').innerHTML='Descargue el formulario de participación para CINDA';
+                document.getElementById('planilla1-1').href=direccionPlanillaCINDA;
+                document.getElementById('planilla1-1').innerHTML='Descargue el formulario de Reconocimiento para CINDA';
+                document.getElementById('planilla1-2').href=direccionPlanillaCINDA;
+                document.getElementById('planilla1-2').innerHTML='Descargue el formulario de participación para CINDA';
             }
             
         }
@@ -47,17 +47,23 @@
         
         function cambiar_link2(){
             
+            
             var seleccion=document.getElementById('prog_princ2');
             if(seleccion.value == "SMILE"){
-                document.getElementById('planilla2').href=direccionPlanillaSMILE;
-                document.getElementById('planilla2').innerHTML='Descargue la Planilla del Programa SMILE';
+                document.getElementById('planilla2-1').href=direccionPlanillaSmile1;
+                document.getElementById('planilla2-1').innerHTML='Descargue el Contrato de estudiantes para SMILE';
+                document.getElementById('planilla2-2').href=direccionPlanillaSmile2;
+                document.getElementById('planilla2-2').innerHTML='Descargue el formulario de Aplicacion SMILE'
             }
             
             if(seleccion.value == "CINDA"){
-                document.getElementById('planilla2').href=direccionPlanillaCINDA;
-                document.getElementById('planilla2').innerHTML='Descargue la Planilla del Programa CINDA';
+                document.getElementById('planilla2-1').href=direccionPlanillaCINDA;
+                document.getElementById('planilla2-1').innerHTML='Descargue el formulario de Reconocimiento para CINDA';
+                document.getElementById('planilla2-2').href=direccionPlanillaCINDA;
+                document.getElementById('planilla2-2').innerHTML='Descargue el formulario de participación para CINDA';
             }
         }
+        
         
         
         function addMate(tableID) {
@@ -991,7 +997,7 @@
                         </table>
                     </div>                    
 
-                    <div id="opci4" style="display:none;width:650px;height:450px; border: 5px solid #FFFF94; border-radius: 10px; border-width:5px;">
+                    <div id="opci4" style="display:none;width:650px;height:570px; border: 5px solid #FFFF94; border-radius: 10px; border-width:5px;">
                         <br>
                         <table border="0"  align="center">
                             <tbody>
@@ -1012,13 +1018,13 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <a href="#" id="planillaSmile1"> </a>
+                                        <a href="#" id="planilla1-1"> </a>
                                     </td>
                                 </tr>
                                 
                                 <tr>
                                     <td>
-                                        <a href="#" id="planillaSmile2"> </a>
+                                        <a href="#" id="planilla1-2"> </a>
                                     </td>
                                 </tr>
 
@@ -1145,13 +1151,13 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <a href="#" id="planillaCinda1"> </a>
+                                        <a href="#" id="planilla2-1"> </a>
                                     </td>
                                 </tr>
                                 
                                 <tr>
                                     <td>
-                                        <a href="#" id="planillaCinda2"> </a>
+                                        <a href="#" id="planilla2-2"> </a>
                                     </td>
                                 </tr>
 

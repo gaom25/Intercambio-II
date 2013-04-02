@@ -19,7 +19,29 @@
         var fCount = 5;
         var Count = 0;
         var mCount = 0;
+        var direccionPlanillaSmile1='/Intercambio-II/estudianteUSB/Recursos/SMILE_Student_Learning-Agreement.doc'
+        var direccionPlanillaSmile2='/Intercambio-II/estudianteUSB/Recursos/SMILE_Student_Application-Form.doc'
+        var direccionPlanillaCinda1='/Intercambio-II/estudianteUSB/Recursos/CINDA_Ficha_de_reconocimiento.doc'
+        var direccionPlanillaCinda2='/Intercambio-II/estudianteUSB/Recursos/CINDA_Ficha_solicitud_de_participación.doc'
         
+        function cambiar_link1(){
+            
+            var seleccion=document.getElementById('prog_princ');
+            if(seleccion.value == "SMILE"){
+                document.getElementById('planilla1-1').href=direccionPlanillaSmile1;
+                document.getElementById('planilla1-1').innerHTML='Descargue el Contrato de estudiantes para SMILE';
+                document.getElementById('planilla1-2').href=direccionPlanillaSmile2;
+                document.getElementById('planilla1-2').innerHTML='Descargue el formulario de Aplicacion SMILE'
+            }
+            
+            if(seleccion.value == "CINDA"){
+                document.getElementById('planilla1-1').href=direccionPlanillaCINDA;
+                document.getElementById('planilla1-1').innerHTML='Descargue el formulario de Reconocimiento para CINDA';
+                document.getElementById('planilla1-2').href=direccionPlanillaCINDA;
+                document.getElementById('planilla1-2').innerHTML='Descargue el formulario de participación para CINDA';
+            }
+            
+        }
         
         function addMate(tableID) {
             mCount++;
@@ -818,7 +840,21 @@
                                         </html:select>
                                     </td>
                                 </tr>
+                                
+                                <tr>
+                                    <td>
+                                        <a href="#" id="planilla1-1"> </a>
+                                    </td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>
+                                        <a href="#" id="planilla2-2"> </a>
+                                    </td>
+                                </tr>
+                                
 
+                                <tr>
                                 <tr>
                                     <td> Pais de origen: </td>
                                     <td>
