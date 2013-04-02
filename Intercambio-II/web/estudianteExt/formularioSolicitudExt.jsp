@@ -1016,7 +1016,7 @@
                         </table>
                     </div>                    
 
-                    <div id="opci4" style="display:none;width:650px;height:250px; border: 5px solid #FFFF94; border-radius: 10px; border-width:5px;">
+                    <div id="opci4" style="display:none;width:650px;height:280px; border: 5px solid #FFFF94; border-radius: 10px; border-width:5px;">
                         <br>
                         <table border="0"  align="center">
                             <tbody>
