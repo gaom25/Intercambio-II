@@ -76,7 +76,8 @@ public class Login extends org.apache.struts.action.Action {
         if (huboError) {
             return mapping.findForward(ERROR);
         } else {
-
+            Usuario obj = (Usuario)session.getAttribute("Usuario");
+            boolean boo = DBMS.getInstance().registrar(obj.getNombreusuario(),"Inició sesión");
             Usuario tmp = DBMS.getInstance().consultarUsuario(u);
             Boolean sistema = DBMS.getInstance().Sistema();
 
