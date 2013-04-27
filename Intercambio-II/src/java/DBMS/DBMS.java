@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package DBMS;
 
 import Clases.*;
@@ -62,13 +58,15 @@ public class DBMS {
     }
     
     public boolean CambiarSistema(){
-    String psSistema = null;
+    
+        String psSistema = null;
         try{
             psSistema = "SELECT cerrado FROM \"dycicle\".sistema";
             Statement stm = conexion.createStatement();
             ResultSet salida = stm.executeQuery(psSistema);
             salida.next();
             boolean b = salida.getBoolean("cerrado");
+        
             if(b){
                 stm = conexion.createStatement();
                 psSistema = "UPDATE \"dycicle\".sistema SET cerrado= FALSE ";
@@ -78,6 +76,7 @@ public class DBMS {
                 psSistema = "UPDATE \"dycicle\".sistema SET cerrado= TRUE ";
                 b= true;
             }
+            
             int a = stm.executeUpdate(psSistema);
             return b;
             
@@ -190,7 +189,7 @@ public class DBMS {
         return u;
     }
 
-    public Boolean agregarUsuario(Usuario u) {
+    public boolean agregarUsuario(Usuario u) {
 
         PreparedStatement psAgregar = null;
 
@@ -222,7 +221,7 @@ public class DBMS {
         return false;
     }
 
-    public Boolean eliminarUsuario(Usuario u) {
+    public boolean eliminarUsuario(Usuario u) {
         try {
 
             String nombreusuario = u.getNombreusuario();
@@ -621,7 +620,7 @@ public class DBMS {
         return false;
     }
 
-    public Boolean preRegistroUsuario(Usuario u) {
+    public boolean preRegistroUsuario(Usuario u) {
         try {
 
 
@@ -648,7 +647,7 @@ public class DBMS {
     }
 
     /*AL aceptar el pre-registro no deberia hacerle el inserte a las demas tablas tambien???*/
-    public Boolean aceptarPreregistro(Usuario u) {
+    public boolean aceptarPreregistro(Usuario u) {
         PreparedStatement psAceptar = null;
         try {
 
@@ -678,7 +677,7 @@ public class DBMS {
         return false;
     }
 
-    public Boolean eliminarPreregistro(Usuario u) {
+    public boolean eliminarPreregistro(Usuario u) {
         PreparedStatement psEliminar = null;
 
         try {
@@ -697,7 +696,7 @@ public class DBMS {
         return false;
     }
 
-    public Boolean modificarUsuario(Usuario u) {
+    public boolean modificarUsuario(Usuario u) {
         PreparedStatement psModificar = null;
         try {
             psModificar = conexion.prepareStatement("UPDATE \"dycicle\".usuario SET email= ?, nombre= ?, privilegio= ? "
@@ -746,7 +745,7 @@ public class DBMS {
         return null;
     }
 
-    public Boolean cambiarEstadoSolicitud(Usuario u) {
+    public boolean cambiarEstadoSolicitud(Usuario u) {
         PreparedStatement ps = null;
         try {
 
@@ -771,7 +770,7 @@ public class DBMS {
         return false;
     }
 
-    public Boolean modificarPerfil(Usuario u) {
+    public boolean modificarPerfil(Usuario u) {
         PreparedStatement ps = null;
         try {
             ps = conexion.prepareStatement("UPDATE \"dycicle\".usuario SET contrasena = ?"
@@ -1001,7 +1000,7 @@ public class DBMS {
         return datos;
     }
 
-    public Boolean agregarPlanillaUSB(PlanillaUSB p) {
+    public boolean agregarPlanillaUSB(PlanillaUSB p) {
         try {
 
                 String sqlqueryEstudiante = "UPDATE \"dycicle\".estudiante SET "
@@ -1133,7 +1132,7 @@ public class DBMS {
         return false;
     }
 
-    public Boolean agregarPlanillaExt(PlanillaExt p) {
+    public boolean agregarPlanillaExt(PlanillaExt p) {
         try {
 
             String sqlqueryEstudiante = "UPDATE \"dycicle\".estudiante SET "
@@ -1556,7 +1555,7 @@ public class DBMS {
         return datos;
     }
 
-    public Boolean modificarPlanillaUSB(PlanillaUSB p) {
+    public boolean modificarPlanillaUSB(PlanillaUSB p) {
 
         try {
             String sqlqueryEstudiante = "UPDATE \"dycicle\".estudiante SET "
@@ -2239,5 +2238,147 @@ public class DBMS {
         } catch (SQLException ex) {
         }
         return true;
+    }
+    
+    public boolean registrar(String usuario, String accion){
+    
+        try{
+            
+            String sqlquery = "INSERT INTO \"dycicle\".LogAuditoria VALUES('" + usuario + "', '" + accion + "');";
+            Statement stmt = conexion.createStatement();
+            Integer i = stmt.executeUpdate(sqlquery);
+            return i > 0;
+            
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return false;
+    }
+    
+    public boolean agregarUniversidad (Universidad u){
+    
+        try{
+            String nombre = u.getNombre();
+            String pais = u.getPais();
+            String sqlquery = "SELECT * FROM ListaU WHERE NombreU = '" + nombre + "' AND "
+                    + "Pais = '" + pais + "';";
+            Statement stmt = conexion.createStatement();
+            ResultSet rs = stmt.executeQuery(sqlquery);
+            if (!rs.next()){
+               sqlquery = "INSERT INTO \"dycicle\".ListaU VALUES('" + nombre + "', "
+                       + "'" + pais + "');";
+               Integer i = stmt.executeUpdate(sqlquery);
+               
+               return i > 0;
+            }   
+                    
+        }catch (SQLException ex){
+            ex.printStackTrace();
+        }
+        return false;
+    }
+    
+    public boolean eliminarUniversidad (Universidad u){
+        
+        try{
+            String nombre = u.getNombre();
+            
+            String sqlquery = "DELETE FROM \"dycicle\".ListaU WHERE "
+                    + "nombreU = '" + nombre + "';";
+            String sqlquery2 = "DELETE FROM \"dycicle\".ASOCIA WHERE "
+                    + "nombreU = '" + nombre + "';";
+            
+            Statement stmt = conexion.createStatement();
+            Integer i = stmt.executeUpdate(sqlquery);
+            Integer j = stmt.executeUpdate(sqlquery2);
+            return i > 0 && j > 0;
+            
+        }catch (SQLException ex){
+            ex.printStackTrace();
+        }
+        return false;
+    }
+    
+    public boolean agregarPrograma(String nombreP){
+        
+        try{
+            String sqlquery = "SELECT * FROM \"dycicle\".PROGRAMAS WHERE = '" + nombreP + "'";
+            Statement stmt = conexion.createStatement();
+            ResultSet rs = stmt.executeQuery(sqlquery);
+            
+            if (!rs.next()){
+                sqlquery = "INSERT INTO \"dycicle\".PROGRAMAS VALUES ('" + nombreP + "');";
+                stmt = conexion.createStatement();
+                Integer i = stmt.executeUpdate(sqlquery);
+
+                return i > 0;
+            }
+            
+        }catch (SQLException ex){
+            ex.printStackTrace();
+        }
+        return false;
+    }
+    
+    public boolean eliminarPrograma(String nombreP){
+        
+        try{
+            String sqlquery = "DELETE FROM \"dycicle\".PROGRAMAS WHERE "
+                    + "nombreP = '" + nombreP + "');";
+            String sqlquery2 = "DELETE FROM \"dycicle\".ASOCIA WHERE "
+                    + "nombreP = '" + nombreP + "';";
+            Statement stmt = conexion.createStatement();
+            Integer i = stmt.executeUpdate(sqlquery);
+            Integer j = stmt.executeUpdate(sqlquery2);
+            
+            return i > 0 && j > 0;
+        }catch (SQLException ex){
+            ex.printStackTrace();
+        }
+        return false;
+    }
+    
+    public boolean agregarAsociacion(Universidad u, String programa){
+        try{
+            String uni = u.getNombre();
+            String pais = u.getPais();
+            
+            String sqlquery = "SELECT * FROM \"dycicle\".Asocia WHERE "
+                    + "NombreU = '" + uni + "' AND Pais = '" + pais + "' "
+                    + "AND NombreP = '" + programa + "';";
+            Statement stmt = conexion.createStatement();
+            ResultSet rs = stmt.executeQuery(sqlquery);
+            
+            if (!rs.next()){
+                sqlquery = "INSERT INTO \"dycicle\".Asocia VALUES ("
+                        + "'" + uni + "', '" + pais + "', '" + programa + "');";
+                Integer i = stmt.executeUpdate(sqlquery);
+                
+                return i > 0;
+            }
+        }catch (SQLException ex){
+            ex.printStackTrace();
+        }
+        return false;
+    }
+    
+    public boolean eliminarAsociacion(Universidad u, String programa){
+        
+        try{
+            String uni = u.getNombre();
+            String pais = u.getPais();
+            
+            String sqlquery = "DELETE FROM \"dycicle\".Asocia WHERE "
+                    + "NombreU = '" + uni + "' AND Pais = '" + pais + "' "
+                    + "AND NombreP = '" + programa + "';";
+            Statement stmt = conexion.createStatement();
+            Integer i = stmt.executeUpdate(sqlquery);
+                
+            return i > 0;
+        
+        }catch (SQLException ex){
+            ex.printStackTrace();
+        }
+        return false;
     }
 }
