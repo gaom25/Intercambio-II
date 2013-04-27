@@ -22,6 +22,7 @@
         <form-bean name="gestor" type="Clases.Gestor"/>
         <form-bean name="BusquedaAvanzada" type="Clases.Busqueda"/>
         <form-bean name="PlanExtranjero" type="Clases.PlanExtranjero" />
+        <form-bean name="SuperArray" type="Clases.SuperArray" />
  
     </form-beans>
        
@@ -95,8 +96,7 @@
         <action name="BusquedaAvanzada" path="/AccionBusquedaAvanzada" scope="session" type="Actions.AccionBusquedaAvanzada">
            <forward name="failure" path="accFallo"/>
            <forward name="success" path="listarEstudiantesPostulados"/>
-           <forward name="busqueda" path="redactarmensaje"/>
-           
+           <forward name="busqueda" path="listarDestinatarios"/>
         </action>
         
         
@@ -592,6 +592,10 @@
           <forward name="success" path="creacionplanillacorrectaExt" />
           <forward name="error" path="planillaIncompletaExt" />
        </action>
+       
+      <action input="/" name="SuperArray" path="/SeleccionarDestinatarios" scope="session" type="Actions.SeleccionarDestinatarios">
+          <forward name="success" path="redactarmensaje" />
+      </action>
 
       <action path="/Descarga" type="Actions.Descarga" parameter="images/descarga.png" />
       

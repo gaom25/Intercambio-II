@@ -200,6 +200,10 @@
             <definition name="verAnuncio" extends ="baseAdmin">
                 <put name="body" value="/admin/verAnuncio.jsp"/>
             </definition>
+            
+            <definition name="listarDestinatarios" extends ="baseAdmin">
+                <put name="body" value="/admin/listarDestinatarios.jsp"/>
+            </definition>
        
         
         <!-- ESTUDIANTE USB -->
