@@ -3,7 +3,7 @@ package Actions;
 import Clases.Correo;
 import Clases.Postulante;
 import Clases.Usuario;
-import DBMS.*;
+import DBMS.DBMS;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.servlet.http.HttpServletRequest;

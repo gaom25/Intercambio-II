@@ -14,6 +14,7 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.servlet.http.HttpSession;
 /**
  *
  * @author caponte
@@ -54,6 +55,12 @@ public class CambiarEstadoPostulacion extends org.apache.struts.action.Action {
         Usuario u = (Usuario) form;
 
         if (DBMS.getInstance().cambiarEstadoSolicitud(u)) {
+            
+            HttpSession session = request.getSession();
+            Usuario obj = (Usuario)session.getAttribute("Usuario");
+            String accion = "Cambió el estado de solicitud del estudiante " + u.getNombreusuario() + 
+                             "al estado: " + u.getConfirmar();
+            boolean boo = DBMS.getInstance().registrar(obj.getNombreusuario(),accion);
             
             Correo c = new Correo();
             String asunto = "Sistema de Gestión de Intercambios - Cambio en el estado de su postulación";

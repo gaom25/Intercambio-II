@@ -10,7 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
-import DBMS.*;
+import DBMS.DBMS;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -39,6 +40,12 @@ public class EliminarUsuario extends org.apache.struts.action.Action {
             Usuario u = (Usuario) form;
            
             if (DBMS.getInstance().eliminarUsuario(u)) {
+                
+                HttpSession session = request.getSession();
+                Usuario obj = (Usuario)session.getAttribute("Usuario");
+                String accion = "Eliminó del sistema al usuario " + u.getNombreusuario();
+                boolean boo = DBMS.getInstance().registrar(obj.getNombreusuario(),accion);
+                
                 return mapping.findForward(SUCCESS);
             }else{
                 return mapping.findForward(FAIL);  
