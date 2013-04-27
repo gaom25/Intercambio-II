@@ -82,22 +82,16 @@
             <definition name="errorI" extends="basePublic"> <!-- pagina de error al iniciar sesion -->
                 <put name="body" value="/public/error.jsp"/>
             </definition>
-            
-            
-            
-            
-            
+               
             <definition name="welcomeCoord" extends="basePublic"> <!-- pagina de recibimiento para usuarios coordinacion -->
                 <put name="body" value="/bienvenidoCoordinacion.jsp"/>
             </definition>
             
+            <definition name="SistemaCerrado" extends="basePublic"> <!-- pagina de recibimiento para usuarios coordinacion -->
+                <put name="body" value="/public/SistemaCerrado.jsp"/>
+            </definition>
             
-        
-       
-        
-        
-        
-        
+           
         <!-- ADMINISTRADOR -->
         <definition name="baseAdmin" extends="base"> <!-- base de todas las vistas de administrador -->
            <put name="topMenu" value="/plantilla/topMenus/topMenuAdmin.jsp"/>

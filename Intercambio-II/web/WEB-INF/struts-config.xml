@@ -233,6 +233,7 @@
             <forward name="univExt" path="welcomeCoord" />
             <forward name="estUSB" path="accionesEstUSB" />
             <forward name="estExt" path="accionesEstExt" />
+            <forward name="Cerrado" path="SistemaCerrado" />
             <forward name="error" path = "datosErrados"/>
         </action> 
                

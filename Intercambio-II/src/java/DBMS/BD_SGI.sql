@@ -18,6 +18,16 @@ WITH (
 OIDS = FALSE
 );
 
+CREATE TABLE "dycicle".SISTEMA(
+        Cerrado         Boolean         NOT NULL,
+        FechaIni        DATE            NULL,
+        FechaFin        DATE            NULL,
+        CONSTRAINT      PK_Sistema      PRIMARY KEY (Cerrado)
+)
+WITH (
+OIDS = FALSE
+);
+
 /* Entidad ESTUDIANTE la cual contiene todos los datos
  * correspondientes  a este tipo de usuario necesarios
  * para  postularse  a  un  intercambio             */
@@ -631,3 +641,5 @@ INSERT INTO "dycicle".IDIOMAS VALUES ( 'extranjero','Japones','Basico','Basico',
 INSERT INTO "dycicle".Noticias VALUES ('Inicio','holaaaaa');
 INSERT INTO "dycicle".Noticias VALUES ('Inicio2','chaoooo');
 INSERT INTO "dycicle".Noticias VALUES ('Inicio3','Adiossss');
+
+INSERT INTO "dycicle".Sistema VALUES (TRUE);

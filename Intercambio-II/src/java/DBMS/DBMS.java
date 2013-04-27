@@ -50,6 +50,21 @@ public class DBMS {
         return false;
     }
 
+    public boolean Sistema(){
+        PreparedStatement psSistema = null;
+        try{
+            psSistema = conexion.prepareStatement("SELECT * FROM \"dycicle\".sistema");
+            
+            ResultSet salida = psSistema.executeQuery();
+            return salida.next();
+            
+        }catch (SQLException ex) {
+            Logger.getLogger(DBMS.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+    
+    }
+    
     /* Esta funcion se utiliza cuando un usuario inicia sesion
      * para verificar que su nombre y contrasena sean correctos
      * 

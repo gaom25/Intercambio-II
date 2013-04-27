@@ -40,13 +40,13 @@ public class SeleccionarDestinatarios extends org.apache.struts.action.Action {
         String [] names = a.getOp1();
         String [] emails = a.getOp2();
         String [] conf = a.getOp3();
-        Usuario tmp = new Usuario();
         int i;
         
         for(i = 0; i< emails.length;i++){
             if(conf[i].equals("Enviar")){
-                tmp.setEmail(emails[i]);
-                tmp.setNombreusuario(names[i]);
+                Usuario tmp = new Usuario();
+                tmp.setEmail(emails[i].substring(0, emails[i].length()-1));
+                tmp.setNombreusuario(names[i].substring(0, names[i].length()-1));
                 usuarios.add(tmp);
             }
         

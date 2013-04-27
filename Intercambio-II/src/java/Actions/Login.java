@@ -78,6 +78,7 @@ public class Login extends org.apache.struts.action.Action {
         } else {
 
             Usuario tmp = DBMS.getInstance().consultarUsuario(u);
+            Boolean sistema = DBMS.getInstance().Sistema();
 
             if (tmp.getNombreusuario() != null) {
 
@@ -92,28 +93,43 @@ public class Login extends org.apache.struts.action.Action {
                     request.setAttribute("usuario", tmp);
                     session.setAttribute("nombre", tmp.getNombre());
                     session.setAttribute("nombreusuario", tmp.getNombreusuario());
+                    if(sistema){
+                        return mapping.findForward("Cerrado");
+                    }
                     return mapping.findForward(GESTOR);
                 } else if (tmp.getPrivilegio() == 3) {
                     request.setAttribute("usuario", tmp);
                     session.setAttribute("nombre", tmp.getNombre());
                     session.setAttribute("nombreusuario", tmp.getNombreusuario());
+                    if(sistema){
+                        return mapping.findForward("Cerrado");
+                    }
                     return mapping.findForward(COORD);
                 } else if (tmp.getPrivilegio() == 4) {
                     request.setAttribute("usuario", tmp);
                     session.setAttribute("nombre", tmp.getNombre());
                     session.setAttribute("nombreusuario", tmp.getNombreusuario());
+                    if(sistema){
+                        return mapping.findForward("Cerrado");
+                    }
                     return mapping.findForward(univExt);
                 } else if (tmp.getPrivilegio() == 5) {
                     session.setAttribute("confirmar", tmp.getConfirmar());
                     request.setAttribute("usuario", tmp);
                     session.setAttribute("nombre", tmp.getNombre());
                     session.setAttribute("nombreusuario", tmp.getNombreusuario());
+                    if(sistema){
+                        return mapping.findForward("Cerrado");
+                    }
                     return mapping.findForward(estUSB);
                 } else if (tmp.getPrivilegio() == 6) {
                     session.setAttribute("confirmar", tmp.getConfirmar());
                     request.setAttribute("usuario", tmp);
                     session.setAttribute("nombre", tmp.getNombre());
                     session.setAttribute("nombreusuario", tmp.getNombreusuario());
+                    if(sistema){
+                        return mapping.findForward("Cerrado");
+                    }
                     return mapping.findForward(estExt);
                 } else {
                     return mapping.findForward(FAIL);
