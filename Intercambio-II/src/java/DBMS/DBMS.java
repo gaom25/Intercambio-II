@@ -2166,6 +2166,7 @@ public class DBMS {
                 while (rs.next()) {
                     Usuario u = new Usuario();
                     u.setNombreusuario(rs.getString("nombreusuario"));
+                    u.setNombre(rs.getString("primernombre"));
                     u.setEmail(rs.getString("email"));
                     u.setConfirmar(rs.getString("estadopostulacion"));
                     usrs.add(u);
@@ -2185,6 +2186,7 @@ public class DBMS {
             while (rs.next()) {
                 Usuario u = new Usuario();
                 u.setNombreusuario(rs.getString("nombreusuario"));
+                u.setNombre(rs.getString("primernombre"));
                 u.setEmail(rs.getString("email"));
                 u.setConfirmar(rs.getString("estadopostulacion"));
                 usrs.add(u);
