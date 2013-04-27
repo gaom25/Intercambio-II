@@ -23,7 +23,7 @@ import org.apache.struts.action.ActionMessage;
  * @author gustavo
  */
 public class ModificarPerfil extends org.apache.struts.action.Action {
- 
+
     /* Patrones a Validar */
     private static final String patronEmail = "^([_A-Za-z0-9-\\.\\+])+@([A-Za-z0-9-])+\\.([A-Za-z0-9-])+$";
     /* forward name="success" path="" */
@@ -36,7 +36,6 @@ public class ModificarPerfil extends org.apache.struts.action.Action {
     private Pattern patron;
     private Matcher match;
 
-   
     public ModificarPerfil() {
         patron = Pattern.compile(patronEmail);
     }
@@ -47,7 +46,7 @@ public class ModificarPerfil extends org.apache.struts.action.Action {
         return match.matches();
     }
 
-     /**
+    /**
      * This is the action called from the Struts framework.
      *
      * @param mapping The ActionMapping used to select this instance.
@@ -58,8 +57,6 @@ public class ModificarPerfil extends org.apache.struts.action.Action {
      * @return
      *
      */
-    
-    
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
@@ -87,25 +84,25 @@ public class ModificarPerfil extends org.apache.struts.action.Action {
             saveErrors(request, error);
             huboError = true;
         }
-        
+
         //Verificar que el campo contrasena del usuario no sea vacio/.
-        
+
         if (u.getContrasena().equals("")) {
             error.add("contrasena", new ActionMessage("error.nombre.required"));
             saveErrors(request, error);
             huboError = true;
         }
-        
+
         //Verificar que el campo nuevacontrasena del usuario no sea vacio/.
-        
+
         if (u.getNuevacontra().equals("")) {
             error.add("nuevacontra", new ActionMessage("error.nuevacontra.required"));
             saveErrors(request, error);
             huboError = true;
         }
-        
+
         //Verificar que el campo confirmar del usuario no sea vacio/.
-        
+
         if (u.getConfirmar().equals("")) {
             error.add("confirmar", new ActionMessage("error.confirmar.required"));
             saveErrors(request, error);
@@ -123,18 +120,18 @@ public class ModificarPerfil extends org.apache.struts.action.Action {
             saveErrors(request, error);
             huboError = true;
         }
-        
-        if(!confPswd.equals(nuev)){
+
+        if (!confPswd.equals(nuev)) {
             error.add("nuevacontra", new ActionMessage("error.contrasena.distintas"));
             saveErrors(request, error);
             huboError = true;
         }
-        
-        if(!user.getContrasena().equals(u.getContrasena())){
-            error.add("contrasena",new ActionMessage("error.contrasena.diferente"));
-            saveErrors(request,error);
+
+        if (!user.getContrasena().equals(u.getContrasena())) {
+            error.add("contrasena", new ActionMessage("error.contrasena.diferente"));
+            saveErrors(request, error);
             huboError = true;
-        
+
         }
 
         // Si hubo error lo notifica, si no, procede a agregar en la BD.
@@ -142,21 +139,20 @@ public class ModificarPerfil extends org.apache.struts.action.Action {
             return mapping.findForward(ERROR);
 
         } else if (DBMS.getInstance().modificarPerfil(u)) {
-            if (u.getPrivilegio()==1){
+
+            boolean boo = DBMS.getInstance().registrar(u.getNombreusuario(), "Modificacion de perfil por parte del usuario");
+            if (u.getPrivilegio() == 1) {
                 return mapping.findForward(ADMIN);
-            }
-            else if (u.getPrivilegio()==2){
+            } else if (u.getPrivilegio() == 2) {
                 ArrayList<Usuario> users = DBMS.getInstance().listarEstudiantesPostulados();
                 request.setAttribute("usuarios", users);
                 request.setAttribute("usuario", u);
                 session.setAttribute("nombre", u.getNombre());
                 session.setAttribute("nombreusuario", u.getNombreusuario());
                 return mapping.findForward(GESTOR);
-            }
-            else if (u.getPrivilegio()==3){
+            } else if (u.getPrivilegio() == 3) {
                 return mapping.findForward(COORDINACION);
-            }
-            else{
+            } else {
                 return mapping.findForward(SUCCESS);
             }
 

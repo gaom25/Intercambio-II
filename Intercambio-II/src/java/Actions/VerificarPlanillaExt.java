@@ -7,15 +7,13 @@ package Actions;
 import Clases.*;
 import DBMS.DBMS;
 import java.util.ArrayList;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
-
 
 /**
  *
@@ -46,12 +44,15 @@ public class VerificarPlanillaExt extends org.apache.struts.action.Action {
         ActionErrors error = new ActionErrors();
         boolean huboError = false;
 
+
+        HttpSession session = request.getSession();
+
         //KATTY AQUI ESTAN LAS COSAS QUE LES TIENES QUE PASAR COMO PARAMETRO
-        
+
         // Instanciacion de la clase PlanillaExtranjera
         PlanillaExt p = DBMS.getInstance().obtenerPlanillaExt(u);
         // Instanciacion de la clase Idiomas
-        Idiomas idiomas= DBMS.getInstance().obtenerIdiomas2(u);
+        Idiomas idiomas = DBMS.getInstance().obtenerIdiomas2(u);
         // Instanciacion de la clase PlanDeEstudio
         PlanExtranjero materias = DBMS.getInstance().obtenerMateriasExt(u);
 
@@ -70,20 +71,17 @@ public class VerificarPlanillaExt extends org.apache.struts.action.Action {
 //                saveErrors(request, error);
 //                huboError = true;
 //            }
-
             //Verifica que los nombres no  esten vacios.
 //            if (p.getNombre1().equals("")) {
 //                error.add("nombres", new ActionMessage("error.nombres.required"));
 //                saveErrors(request, error);
 //                huboError = true;
 //            }
-
 //            if (p.getSexo().equals("")) {
 //                error.add("sexo", new ActionMessage("error.sexo.required"));
 //                saveErrors(request, error);
 //                huboError = true;
 //            }
-
             // Calle no  vacio.
 //            if (p.getCalle().equals("")) {
 //                error.add("calle", new ActionMessage("error.campo.required"));
@@ -286,29 +284,30 @@ public class VerificarPlanillaExt extends org.apache.struts.action.Action {
 //                saveErrors(request, error);
 //                huboError = true;
 //            }
-            } else {
+        } else {
 
-                huboError = true;
-            }
+            huboError = true;
+        }
 
 
 //##### ##### ##### ##### FIN DATOS ACADEMICOS #### ##### ##### #####    
 
 
-            if (huboError) {
+        if (huboError) {
+            return mapping.findForward(ERROR);
+
+        } else {
+
+            GeneradorPlanillas g = new GeneradorPlanillas();
+            //boolean ha = g.generarPlanillaExt(p, filePath);
+            boolean ha = g.generarPlanillaExt(p, filePath, materias, idiomas);
+            if (p == null & ha & !DBMS.getInstance().InsertarPath(filePath, u)) {
                 return mapping.findForward(ERROR);
-
-            } else {
-
-                GeneradorPlanillas g = new GeneradorPlanillas();
-                //boolean ha = g.generarPlanillaExt(p, filePath);
-                boolean ha = g.generarPlanillaExt(p, filePath, materias,idiomas);
-                if (p==null & ha & !DBMS.getInstance().InsertarPath(filePath, u)) {
-                    return mapping.findForward(ERROR);
-                }
-
-                return mapping.findForward(SUCCESS);
-
             }
+            Usuario obj = (Usuario) session.getAttribute("Usuario");
+            boolean boo = DBMS.getInstance().registrar(obj.getNombreusuario(), "Revision de planilla del usuario extranjero");
+            return mapping.findForward(SUCCESS);
+
         }
     }
+}

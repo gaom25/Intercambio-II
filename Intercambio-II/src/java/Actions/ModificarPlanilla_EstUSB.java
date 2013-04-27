@@ -191,7 +191,7 @@ public class ModificarPlanilla_EstUSB extends org.apache.struts.action.Action {
 //            huboError = true;
 //        }
 
-        
+
 //  ############### Comparar ambas fechas
 //        
 //        else if ((p.getFechaIni1().compareTo(p.getFechaFin1())) >= 0) {
@@ -201,7 +201,7 @@ public class ModificarPlanilla_EstUSB extends org.apache.struts.action.Action {
 //        }
 
 
-      
+
 
 // ############# Comparar ambas fechas.
 //        if ((p.getFechaIni2().compareTo(p.getFechaFin2())) >= 0) {
@@ -229,9 +229,11 @@ public class ModificarPlanilla_EstUSB extends org.apache.struts.action.Action {
             return mapping.findForward(ERROR);
 
         } else {
-            if (DBMS.getInstance().modificarPlanillaUSB(p)){
-               return mapping.findForward(SUCCESS); 
-            }else{
+            if (DBMS.getInstance().modificarPlanillaUSB(p)) {
+
+                boolean boo = DBMS.getInstance().registrar(p.getNombreUsuario(), "Modificion de la planilla por parte de un estudiante nacional");
+                return mapping.findForward(SUCCESS);
+            } else {
                 return mapping.findForward(FAIL);
             }
         }

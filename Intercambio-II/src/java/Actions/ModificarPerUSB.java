@@ -130,14 +130,15 @@ public class ModificarPerUSB extends org.apache.struts.action.Action {
 
         // Si hubo error lo notifica, si no, procede a agregar en la BD.
         if (huboError) {
-            if (user.getPrivilegio() == 5)
-            {
+            if (user.getPrivilegio() == 5) {
                 return mapping.findForward(ERROR);
             }
             return mapping.findForward("errorext");
-            
+
 
         } else if (DBMS.getInstance().modificarPerfil(u)) {
+
+            boolean boo = DBMS.getInstance().registrar(u.getNombreusuario(), "Modificacion del perfil de usuario nacional");
             if (user.getPrivilegio() == 5) {
                 return mapping.findForward("usb");
             }

@@ -16,7 +16,6 @@ import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
-import org.apache.struts.action.ActionMessage;
 
 /**
  *
@@ -39,7 +38,8 @@ public class LlenarPlanilla_EstUSB extends org.apache.struts.action.Action {
         match = patron.matcher(username);
         return match.matches();
     }
-    public boolean validate2 (final String pat){
+
+    public boolean validate2(final String pat) {
         patron = Pattern.compile(patronCedula);
         match = patron.matcher(pat);
         return match.matches();
@@ -253,11 +253,15 @@ public class LlenarPlanilla_EstUSB extends org.apache.struts.action.Action {
         } else if (hay.getNombreUsuario() != null) {
 
             if (DBMS.getInstance().modificarPlanillaUSB(p)) {
+
+                boolean boo = DBMS.getInstance().registrar(p.getNombreUsuario(), "Modificacion de la Planilla por parte del estudiante nacional");
                 return mapping.findForward(SUCCESS);
             } else {
                 return mapping.findForward(FAIL);
             }
         } else if (DBMS.getInstance().agregarPlanillaUSB(p)) {
+
+            boolean boo = DBMS.getInstance().registrar(p.getNombreUsuario(), "Creacion de la planilla por parte del estudiante nacional");
             return mapping.findForward(SUCCESS);
 
         } else {

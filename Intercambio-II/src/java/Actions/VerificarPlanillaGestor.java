@@ -5,49 +5,22 @@
 package Actions;
 
 import Clases.PlanillaUSB;
-import Clases.Postulacion;
 import Clases.Usuario;
 import DBMS.DBMS;
-import com.itextpdf.text.BaseColor;
-import com.itextpdf.text.Chapter;
-import com.itextpdf.text.Chunk;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import com.itextpdf.text.Document;
-import com.itextpdf.text.DocumentException;
-import com.itextpdf.text.Element;
-import com.itextpdf.text.Font;
-import com.itextpdf.text.Font.FontFamily;
-import com.itextpdf.text.FontFactory;
 import com.itextpdf.text.Image;
-import com.itextpdf.text.PageSize;
-import com.itextpdf.text.Paragraph;
-import com.itextpdf.text.Phrase;
-import com.itextpdf.text.pdf.BaseFont;
-import com.itextpdf.text.pdf.ColumnText;
-import com.itextpdf.text.pdf.PdfContentByte;
-import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfWriter;
-import java.awt.Color;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.sql.Date;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import org.apache.struts.action.ActionErrors;
-import org.apache.struts.action.ActionMessage;
-import java.io.IOException;
 import com.itextpdf.text.pdf.PdfImportedPage;
 import com.itextpdf.text.pdf.PdfReader;
 import java.util.ArrayList;
 import java.util.Iterator;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -72,48 +45,51 @@ public class VerificarPlanillaGestor extends org.apache.struts.action.Action {
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
-        
+
         Usuario u = (Usuario) form;
         Document document = new Document();
+        HttpSession session = request.getSession();
+
 
         // Archivo de salida
         String OUTPUTFILE = "/home/dreabalbas/Desktop/prueba.pdf";
 
         PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream(OUTPUTFILE));
         document.open();
-        
+
         ArrayList<String> files = DBMS.getInstance().listarDocumentos(u);
-        
+
         Iterator it = files.iterator();
-        
+
         Image img;
         PdfImportedPage pagina;
         int cantPaginas;
         Image aux;
-        
-        while (it.hasNext()){
-            
+
+        while (it.hasNext()) {
+
             String archivo = (String) it.next();
-            
-            if (archivo.endsWith(".jpg")){
+
+            if (archivo.endsWith(".jpg")) {
                 img = Image.getInstance(archivo);
-              
-                        
+
+
                 document.add(img);
-            }else if (archivo.endsWith(".pdf")){
+            } else if (archivo.endsWith(".pdf")) {
                 PdfReader reader = new PdfReader(archivo);
                 cantPaginas = reader.getNumberOfPages();
-                
+
                 for (int i = 1; i <= cantPaginas; i++) {
                     pagina = writer.getImportedPage(reader, i);
                     aux = Image.getInstance(pagina);
-                    document.add(aux);     
+                    document.add(aux);
                 }
-            }            
+            }
         }
-    
+
         document.close();
-        
+        Usuario obj = (Usuario) session.getAttribute("Usuario");
+        boolean boo = DBMS.getInstance().registrar(obj.getNombreusuario(), "Revision de planilla del usuario " + u.getNombreusuario());
         return mapping.findForward(SUCCESS);
     }
 }

@@ -16,7 +16,6 @@ import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
-import org.apache.struts.action.ActionMessage;
 
 /**
  *
@@ -274,6 +273,8 @@ public class LlenarPlanilla_EstExt extends org.apache.struts.action.Action {
                 return mapping.findForward(FAIL);
             }*/
         } else if (DBMS.getInstance().agregarPlanillaExt(p)) {
+            
+            boolean boo = DBMS.getInstance().registrar(p.getNombreUsuario(),"Creacion del planilla por parte del estudiante extranjero");
             return mapping.findForward(SUCCESS);
 
         } else {

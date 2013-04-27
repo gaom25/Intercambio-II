@@ -14,7 +14,7 @@ import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionMessage;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import DBMS.*;
+import DBMS.DBMS;
 
 /**
  *
@@ -99,6 +99,8 @@ public class ModificarUsuario extends org.apache.struts.action.Action {
             return mapping.findForward(ERROR);
 
         } else if (DBMS.getInstance().modificarUsuario(u)) {
+            
+            boolean boo = DBMS.getInstance().registrar(u.getNombreusuario(),"Modificacion del perfil del usuario");
             return mapping.findForward(SUCCESS);
 
         } else {

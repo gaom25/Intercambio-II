@@ -549,9 +549,7 @@
          <forward name="success" path="formularioExt" />
          <forward name="modificar" path="modificarPlanillaExt" />
       </action>  
-
-       <action input="/" name="PlanillaUSB" path="/LlenarSolicitud" scope="session" type="Actions.LlenarSolicitud"/>
-       
+     
        <action input="/" name="EstUSB" path="/ConsultarSolicitud" scope="session" type="Actions.ConsultarSolictud"/>
        
        <action input="/" name="EstUSB" path="/ConsultarEstado" scope="session" type="Actions.ConsultarEstado"/>

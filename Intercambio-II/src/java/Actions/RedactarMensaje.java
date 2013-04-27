@@ -3,14 +3,17 @@
  * and open the template in the editor.
  */
 package Actions;
+
 import Clases.Anuncio;
 import Clases.Correo;
 import Clases.HiloCorreo;
+import Clases.Usuario;
 import DBMS.DBMS;
 import java.util.ArrayList;
 import java.util.Arrays;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
@@ -38,26 +41,29 @@ public class RedactarMensaje extends org.apache.struts.action.Action {
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
-        
+
         Anuncio a = (Anuncio) form;
         Correo c = new Correo();
         HiloCorreo c2 = new HiloCorreo(a);
-        
-        System.out.println(a.getTitulo());
-        System.out.println(a.getMensaje());
+
+
+        HttpSession session = request.getSession();
+
         String[] emails = a.getEmails();
         ArrayList<String> pasaje = new ArrayList<String>(Arrays.asList(emails));
         int i;
         //las cosas estan malas pues apararece un "/" al final de cada correo
-        for(i=0;i<emails.length;i++){
+        for (i = 0; i < emails.length; i++) {
             System.out.println(pasaje.get(i));
         }
-        
-        if(DBMS.getInstance().agregarAnuncio(a)){
+
+        if (DBMS.getInstance().agregarAnuncio(a)) {
             c2.start();
+            Usuario obj = (Usuario) session.getAttribute("Usuario");
+            boolean boo = DBMS.getInstance().registrar(obj.getNombreusuario(), "Envio del anuncio " + a.getTitulo() + "a los usuarios seleccionados");
             return mapping.findForward(SUCCESS);
         }
         return mapping.findForward("error");
-        
+
     }
 }

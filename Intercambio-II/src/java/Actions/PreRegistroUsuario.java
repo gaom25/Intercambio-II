@@ -27,12 +27,10 @@ public class PreRegistroUsuario extends org.apache.struts.action.Action {
 
     /* Patrones a Validar */
     private static final String patronEmail = "^([_A-Za-z0-9-\\+])+@([A-Za-z0-9-])+\\.([A-Za-z0-9-])+$";
-//            "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*" + "@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
-    /* forward name="success" path="" */
     private static final String SUCCESS = "success";
     private static final String FAIL = "failure";
     private static final String ERROR = "error";
-      private Pattern patron;
+    private Pattern patron;
     private Matcher match;
 
     public PreRegistroUsuario() {
@@ -45,7 +43,6 @@ public class PreRegistroUsuario extends org.apache.struts.action.Action {
         return match.matches();
     }
 
-    
     /**
      * This is the action called from the Struts framework.
      *
@@ -63,7 +60,7 @@ public class PreRegistroUsuario extends org.apache.struts.action.Action {
 
         Usuario u = (Usuario) form;
         ActionErrors error = new ActionErrors();
-        HttpSession session = request.getSession(true);
+        HttpSession session = request.getSession();
         boolean huboError = false;
         String pswd = u.generarContrasena();
         String mail = u.getEmail();
@@ -74,10 +71,10 @@ public class PreRegistroUsuario extends org.apache.struts.action.Action {
         request.setCharacterEncoding("UTF-8");
         String answer = request.getParameter("answer");
         if (!captcha.isCorrect(answer)) {
-            huboError = true;      
+            huboError = true;
         }
-        
-        
+
+
         //Verifica que el username no  sea vacio.
         if (u.getNombreusuario().equals("")) {
             error.add("nombreusuario", new ActionMessage("error.nombreusuario.required"));
@@ -108,8 +105,10 @@ public class PreRegistroUsuario extends org.apache.struts.action.Action {
             return mapping.findForward(ERROR);
 
         } else if (DBMS.getInstance().preRegistroUsuario(u)) {
+            
+            boolean boo = DBMS.getInstance().registrar(u.getNombreusuario(), "Se ha pregistrado en el sistema");
             return mapping.findForward(SUCCESS);
-     
+
         } else {
             return mapping.findForward(FAIL);
         }

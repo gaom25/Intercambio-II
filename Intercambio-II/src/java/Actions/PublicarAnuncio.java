@@ -5,9 +5,11 @@
 package Actions;
 
 import Clases.Anuncio;
+import Clases.Usuario;
 import DBMS.DBMS;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
@@ -43,28 +45,33 @@ public class PublicarAnuncio extends org.apache.struts.action.Action {
         ActionErrors error = new ActionErrors();
         Anuncio datos = (Anuncio) form;
         boolean huboError = false;
-         
-        if (datos.getTitulo().equals("")){
-            
-                error.add("titulo", new ActionMessage("error.titulo.required"));
-                huboError = true;
+
+        HttpSession session = request.getSession();
+
+
+        if (datos.getTitulo().equals("")) {
+
+            error.add("titulo", new ActionMessage("error.titulo.required"));
+            huboError = true;
         }
-        
-        if (datos.getMensaje().equals("")){
-        
-                
-                error.add("mensaje", new ActionMessage("error.mensaje.required"));
-                huboError = true;
-            
+
+        if (datos.getMensaje().equals("")) {
+
+
+            error.add("mensaje", new ActionMessage("error.mensaje.required"));
+            huboError = true;
+
         }
-      
-        
-       if(huboError){
+
+
+        if (huboError) {
             return mapping.findForward(ERROR);
-            
+
         } else if (DBMS.getInstance().agregarAnuncio(datos)) {
+            Usuario obj = (Usuario) session.getAttribute("Usuario");
+            boolean boo = DBMS.getInstance().registrar(obj.getNombreusuario(), "Envio del anuncio " + datos.getTitulo() + "a los usuarios seleccionados");
             return mapping.findForward(SUCCESS);
-        
+
         } else {
             return mapping.findForward(FAIL);
         }
