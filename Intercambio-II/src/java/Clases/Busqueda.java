@@ -24,8 +24,6 @@ public class Busqueda extends org.apache.struts.validator.ValidatorForm {
         super();
     }
     
-    
-
     /**
      * @return the nombre
      */

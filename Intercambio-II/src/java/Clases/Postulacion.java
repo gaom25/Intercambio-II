@@ -4,8 +4,6 @@
  */
 package Clases;
 
-import java.sql.Date;
-
 /**
  *
  * @author karen

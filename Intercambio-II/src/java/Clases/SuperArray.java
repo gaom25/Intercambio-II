@@ -3,7 +3,6 @@
  * and open the template in the editor.
  */
 package Clases;
-import java.util.ArrayList;
 
 /**
  *
@@ -48,9 +47,5 @@ public class SuperArray extends org.apache.struts.action.ActionForm{
 
     public void setOp4(String[] op4) {
         this.op4 = op4;
-    }
-
-    
-    
-    
+    }   
 }

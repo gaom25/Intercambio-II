@@ -4,7 +4,6 @@
  */
 package Clases;
 
-
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -27,9 +26,7 @@ public class HiloCorreo extends Thread{
         c.setAsunto(anuncio.getTitulo());
         c.setMensaje(anuncio.getMensaje());
         ArrayList<String> pasaje = new ArrayList<String>(Arrays.asList(anuncio.getEmails()));
-        System.out.println("holaaaa");
         boolean enviado = c.enviarAnuncio(pasaje);
-        System.out.println(enviado);
         
     } 
     
