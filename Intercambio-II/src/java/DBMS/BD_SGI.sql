@@ -311,7 +311,7 @@ OIDS = FALSE
 /* Un usuario puede acceder al log de auditoria */
 CREATE TABLE "dycicle".LogAuditoria(
         NombreUsuario	VARCHAR(20)	NOT NULL,
-	Accion		VARCHAR(100)	NOT NULL,
+	Accion		TEXT    	NOT NULL,
         Fecha   	timestamp with time zone NOT NULL default CURRENT_TIMESTAMP(2),
 	CONSTRAINT	PK_LogAuditoria	PRIMARY KEY (NombreUsuario,Accion,Fecha)
 )
