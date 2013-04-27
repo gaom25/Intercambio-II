@@ -7,6 +7,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
@@ -85,6 +86,11 @@ public class AccionAgregarGestor extends org.apache.struts.action.Action {
         } else if (DBMS.getInstance().agregarUsuario(u)) {
             if (DBMS.getInstance().agregarGestor(u)) {
 
+                HttpSession session = request.getSession();
+                Usuario obj = (Usuario)session.getAttribute("Usuario");
+                String accion = "Agregó al sistema al gestor: " + u.getNombre();
+                boolean boo = DBMS.getInstance().registrar(obj.getNombreusuario(),accion);
+                
                 Correo c = new Correo();
                 String asunto = "Su usuario en el Sistema de Gestión de Intercambios ha sido creado";
                 String mensaje = "Su usuario en el Sistema de Gestión de Intercambios ha sido creado."
