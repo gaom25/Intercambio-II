@@ -319,18 +319,6 @@ WITH (
 OIDS = FALSE
 );
 
-/* Cada accion que realice un usuario, persiste en el log */
-CREATE TABLE "dycicle".Persiste(
-	NombreUsuario	VARCHAR(20)	NOT NULL,
-	Hora		TIME		NOT NULL,
-	Accion		VARCHAR(100)	NOT NULL,
-        Fecha		timestamp with time zone NOT NULL default CURRENT_TIMESTAMP(2),
-	CONSTRAINT	PK_Persiste	PRIMARY KEY (NombreUsuario, Fecha, Hora, Accion)
-)
-WITH (
-OIDS = FALSE
-);
-
 /* Entidad IDIOMAS la cual contiene, para cada idioma,
  * el nombre del idioma  y  su nivel tanto verbal como
  * escrito                                          */
