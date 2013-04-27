@@ -21,12 +21,12 @@
 
     <h4>Lista de Usuarios del Sistema:</h4>
 
-    <table style="margin: auto">
+    <table style="margin: auto" border=1>
         <tr>
-            <td width="220px">
-                NombreUsuario
-            </td>
             <td width="150px" align="center">
+                Nombre
+            </td>
+            <td width="220px" align="center">
                 Email
             </td>
             <td width="150px" align="center">
@@ -34,34 +34,36 @@
             </td>
 
         </tr>
-    </table>
 
-    <html:form action="/SeleccionarDestinatarios" method="POST" enctype="multipart/form-data" onsubmit="return(this)">
 
-        <logic:iterate name="usuarios" id="usuarios">
-            <table border="0" style="margin: auto">
-                <tbody>
-                    <tr>
-                        <td width="220px">
-                            <bean:write name="usuarios" property="nombreusuario" />
-                            <input type="hidden" name="op1" value=<bean:write name="usuarios" property="nombreusuario" />/>
-                            
-                        </td>
+        <html:form action="/SeleccionarDestinatarios" method="POST" enctype="multipart/form-data" onsubmit="return(this)">
 
-                        <td align="center" width="150px">
-                            <bean:write name="usuarios" property="email" />
-                            <input type="hidden" name="op2" value=<bean:write name="usuarios" property="email"></bean:write>/>
-                            </td>
+            <logic:iterate name="usuarios" id="usuarios">
 
-                            <td>
-                                <html:select name="SuperArray" property="op3"><html:option value=""></html:option><html:option value="Enviar">Enviar</html:option></html:select> 
 
-                            </td>
+                <tr>
+                    <td align="center" width="150px">
+                        <bean:write name="usuarios" property="nombre" />
+                        <input type="hidden" name="op1" value=<bean:write name="usuarios" property="nombreusuario" />/>
 
-                        </tr>
-                    </tbody>
-                </table>
-        </logic:iterate>
+                    </td>
+
+                    <td align="center" width="220px">
+                        <bean:write name="usuarios" property="email" />
+                        <input type="hidden" name="op2" value=<bean:write name="usuarios" property="email"></bean:write>/>
+                    </td>
+
+                    <td align="center" width="150px">
+                        <html:select name="SuperArray" property="op3"><html:option value=""></html:option><html:option value="Enviar">Enviar</html:option></html:select> 
+
+                    </td>
+
+                </tr>
+
+
+            </logic:iterate>
+        </table>
         <p style="text-align: center"><html:submit>Redactar Mensaje</html:submit></p>
     </html:form>
+
 </html>

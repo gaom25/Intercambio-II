@@ -9,12 +9,26 @@
 <%@ taglib uri="http://struts.apache.org/tags-logic" prefix="logic" %>
 <%@ taglib uri="http://struts.apache.org/tags-tiles" prefix="tiles" %>
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <div>
+<html:html>
+    <div align="center" id="texto">
         Actualmente el sistema se encuentra <bean:write name="usuario" property="confirmar"></bean:write>
     </div>
-</html>
+
+    <script language="javascript">
+        
+        text = document.getElementById("texto").innerText;
+        select = text.substr(36, 10);
+        if(select == "Inactivo"){
+            document.write('<div align="center"><img src="images/lock.png"/></div>')
+              
+        }else{
+            document.write('<div align="center"><img src="images/unlock.png"/></div>')
+        }   
+    </script>   
+    <br>
+    <div align="center">
+        <html:link action="accionesAdmin">
+            Continuar
+        </html:link>
+    </div>
+</html:html>
