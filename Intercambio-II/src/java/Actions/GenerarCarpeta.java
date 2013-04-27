@@ -106,7 +106,7 @@ public class GenerarCarpeta extends org.apache.struts.action.Action {
 
                     String archivo = (String) it.next();
 
-                    if ((archivo.endsWith(".jpg") || archivo.endsWith(".png")) && !archivo.endsWith("Foto.png") && !archivo.endsWith("Cedula.png")){
+                    if ((archivo.endsWith(".jpg") || archivo.endsWith(".png")) && !archivo.endsWith("Foto.png")){
                         img = Image.getInstance(archivo);
 
 
