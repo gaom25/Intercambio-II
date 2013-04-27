@@ -1,6 +1,6 @@
 <%-- 
-    Document   : SistemaCerrado
-    Created on : 27-abr-2013, 9:48:10
+    Document   : estadoSistema
+    Created on : 27-abr-2013, 10:19:44
     Author     : gustavo
 --%>
 
@@ -12,17 +12,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Sistema</title>
+        <title>JSP Page</title>
     </head>
-    
-    <div align="center">
-        <img  src="/Intercambio-II/images/alert.png">
+    <div>
+        Actualmente el sistema se encuentra <bean:write name="usuario" property="confirmar"></bean:write>
     </div>
-    
-    <div align="center">
-        <h1 style="color: red">Actualmente el sistema no está disponible, para más información haz click   <html:link action="contacto">
-                aquí
-            </html:link> </h1>
-    </div>
-    
 </html>

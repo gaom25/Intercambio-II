@@ -67,4 +67,9 @@
             Cerrar sesion
         </html:link>
     </div>
+    <div>
+        <html:link style="color:#126598" action="/ActDest">
+            Activar/Desactivar Sistema
+        </html:link>
+    </div>
 </html:html>

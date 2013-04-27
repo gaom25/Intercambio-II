@@ -65,6 +65,28 @@ public class DBMS {
     
     }
     
+    public boolean CambiarSistema(){
+    PreparedStatement psSistema = null;
+        try{
+            psSistema = conexion.prepareStatement("SELECT Cerrado FROM \"dycicle\".sistema");
+            
+            ResultSet salida = psSistema.executeQuery();
+            boolean b = salida.next();
+            if(b){
+                psSistema = conexion.prepareStatement("UPDATE \"dycicle\".sistema SET(Cerrado = FALSE)  ");
+            }else{
+                psSistema = conexion.prepareStatement("UPDATE \"dycicle\".sistema SET(Cerrado = TRUE)  ");
+            }
+            salida = psSistema.executeQuery();
+            return salida.next();
+            
+        }catch (SQLException ex) {
+            Logger.getLogger(DBMS.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+    
+    }
+    
     /* Esta funcion se utiliza cuando un usuario inicia sesion
      * para verificar que su nombre y contrasena sean correctos
      * 
