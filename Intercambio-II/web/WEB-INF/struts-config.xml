@@ -603,7 +603,9 @@
       <action input="/" name="SuperArray" path="/SeleccionarDestinatarios" scope="session" type="Actions.SeleccionarDestinatarios">
           <forward name="success" path="redactarmensaje" />
       </action>
-      <action input="/" name="Usuario" path="/ActDest" scope="session" type="Actions.ActDest"/>
+      <action input="/" name="Usuario" path="/ActDest" scope="session" type="Actions.ActDest">
+          <forward name="success" path="estadoSistema" />
+      </action>
 
       <action path="/Descarga" type="Actions.Descarga" parameter="images/descarga.png" />
       

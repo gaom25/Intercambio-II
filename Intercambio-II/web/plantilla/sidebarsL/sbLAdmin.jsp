@@ -61,15 +61,17 @@
             Anuncios
         </html:link>
     </div>
+    <div>
+        <html:link style="color:#126598" action="/ActDest">
+            Activar/Desactivar Sistema
+        </html:link>
+    </div>
+    
     <div style="height:20px"></div>
     <div>
         <html:link style="color:#126598" action="/CerrarSesion">
             Cerrar sesion
         </html:link>
     </div>
-    <div>
-        <html:link style="color:#126598" action="/ActDest">
-            Activar/Desactivar Sistema
-        </html:link>
-    </div>
+    
 </html:html>

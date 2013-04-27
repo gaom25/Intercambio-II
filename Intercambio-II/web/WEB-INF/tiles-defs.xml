@@ -202,6 +202,10 @@
             <definition name="listarDestinatarios" extends ="baseAdmin">
                 <put name="body" value="/admin/listarDestinatarios.jsp"/>
             </definition>
+            
+            <definition name="estadoSistema" extends ="baseAdmin">
+                <put name="body" value="/admin/estadoSistema.jsp"/>
+            </definition>
        
         
         <!-- ESTUDIANTE USB -->

@@ -5,16 +5,11 @@
 package DBMS;
 
 import Clases.*;
-import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.io.PrintStream;
-import java.io.PrintWriter;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.servlet.jsp.jstl.sql.Result;
-import java.util.Iterator;
 
 /**
  *
@@ -56,7 +51,8 @@ public class DBMS {
             psSistema = conexion.prepareStatement("SELECT * FROM \"dycicle\".sistema");
             
             ResultSet salida = psSistema.executeQuery();
-            return salida.next();
+            salida.next();
+            return salida.getBoolean("cerrado");
             
         }catch (SQLException ex) {
             Logger.getLogger(DBMS.class.getName()).log(Level.SEVERE, null, ex);
@@ -66,19 +62,24 @@ public class DBMS {
     }
     
     public boolean CambiarSistema(){
-    PreparedStatement psSistema = null;
+    String psSistema = null;
         try{
-            psSistema = conexion.prepareStatement("SELECT Cerrado FROM \"dycicle\".sistema");
-            
-            ResultSet salida = psSistema.executeQuery();
-            boolean b = salida.next();
+            psSistema = "SELECT cerrado FROM \"dycicle\".sistema";
+            Statement stm = conexion.createStatement();
+            ResultSet salida = stm.executeQuery(psSistema);
+            salida.next();
+            boolean b = salida.getBoolean("cerrado");
             if(b){
-                psSistema = conexion.prepareStatement("UPDATE \"dycicle\".sistema SET(Cerrado = FALSE)  ");
+                stm = conexion.createStatement();
+                psSistema = "UPDATE \"dycicle\".sistema SET cerrado= FALSE ";
+                b = false;
             }else{
-                psSistema = conexion.prepareStatement("UPDATE \"dycicle\".sistema SET(Cerrado = TRUE)  ");
+                stm = conexion.createStatement();
+                psSistema = "UPDATE \"dycicle\".sistema SET cerrado= TRUE ";
+                b= true;
             }
-            salida = psSistema.executeQuery();
-            return salida.next();
+            int a = stm.executeUpdate(psSistema);
+            return b;
             
         }catch (SQLException ex) {
             Logger.getLogger(DBMS.class.getName()).log(Level.SEVERE, null, ex);
