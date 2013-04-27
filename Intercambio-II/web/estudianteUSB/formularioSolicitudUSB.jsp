@@ -20,20 +20,26 @@
         var fCount = 3;
         var Count = 0;
         var mCount = 0;
-        var direccionPlanillaSMILE='/public/planillaSMILE.pdf'
-        var direccionPlanillaCINDA='/public/planillaCINDA.pdf'
+        var direccionPlanillaSmile1='/Intercambio-II/estudianteUSB/Recursos/SMILE_Student_Learning-Agreement.doc'
+        var direccionPlanillaSmile2='/Intercambio-II/estudianteUSB/Recursos/SMILE_Student_Application-Form.doc'
+        var direccionPlanillaCinda1='/Intercambio-II/estudianteUSB/Recursos/CINDA_Ficha_de_reconocimiento.doc'
+        var direccionPlanillaCinda2='/Intercambio-II/estudianteUSB/Recursos/CINDA_Ficha_solicitud_de_participación.doc'
         
         function cambiar_link1(){
             
             var seleccion=document.getElementById('prog_princ');
             if(seleccion.value == "SMILE"){
-                document.getElementById('planilla1').href=direccionPlanillaSMILE;
-                document.getElementById('planilla1').innerHTML='Por Favor Descargue la Planilla del Programa SMILE';
+                document.getElementById('planilla1-1').href=direccionPlanillaSmile1;
+                document.getElementById('planilla1-1').innerHTML='Descargue el Contrato de estudiantes para SMILE';
+                document.getElementById('planilla1-2').href=direccionPlanillaSmile2;
+                document.getElementById('planilla1-2').innerHTML='Descargue el formulario de Aplicacion SMILE'
             }
             
             if(seleccion.value == "CINDA"){
-                document.getElementById('planilla1').href=direccionPlanillaCINDA;
-                document.getElementById('planilla1').innerHTML='Por Favor Descargue la Planilla del Programa CINDA';
+                document.getElementById('planilla1-1').href=direccionPlanillaCINDA;
+                document.getElementById('planilla1-1').innerHTML='Descargue el formulario de Reconocimiento para CINDA';
+                document.getElementById('planilla1-2').href=direccionPlanillaCINDA;
+                document.getElementById('planilla1-2').innerHTML='Descargue el formulario de participación para CINDA';
             }
             
         }
@@ -41,17 +47,23 @@
         
         function cambiar_link2(){
             
+            
             var seleccion=document.getElementById('prog_princ2');
             if(seleccion.value == "SMILE"){
-                document.getElementById('planilla2').href=direccionPlanillaSMILE;
-                document.getElementById('planilla2').innerHTML='Por Favor Descargue la Planilla del Programa SMILE';
+                document.getElementById('planilla2-1').href=direccionPlanillaSmile1;
+                document.getElementById('planilla2-1').innerHTML='Descargue el Contrato de estudiantes para SMILE';
+                document.getElementById('planilla2-2').href=direccionPlanillaSmile2;
+                document.getElementById('planilla2-2').innerHTML='Descargue el formulario de Aplicacion SMILE'
             }
             
             if(seleccion.value == "CINDA"){
-                document.getElementById('planilla2').href=direccionPlanillaCINDA;
-                document.getElementById('planilla2').innerHTML='Por Favor Descargue la Planilla del Programa CINDA';
+                document.getElementById('planilla2-1').href=direccionPlanillaCINDA;
+                document.getElementById('planilla2-1').innerHTML='Descargue el formulario de Reconocimiento para CINDA';
+                document.getElementById('planilla2-2').href=direccionPlanillaCINDA;
+                document.getElementById('planilla2-2').innerHTML='Descargue el formulario de participación para CINDA';
             }
         }
+        
         
         
         function addMate(tableID) {
@@ -697,7 +709,7 @@
                                errorKey="org.apache.struts.action.ERROR"></html:text></p>
                     <br>
 
-                    <!-- pestañas -->
+                    <!-- pesteñas -->
 
                     <div>
                         <span style="background-color: #F9F4CF; border-radius: 5px;"><a href='javascript:seleccion(1);'> Datos </a></span>
@@ -985,7 +997,7 @@
                         </table>
                     </div>                    
 
-                    <div id="opci4" style="display:none;width:650px;height:450px; border: 5px solid #FFFF94; border-radius: 10px; border-width:5px;">
+                    <div id="opci4" style="display:none;width:650px;height:570px; border: 5px solid #FFFF94; border-radius: 10px; border-width:5px;">
                         <br>
                         <table border="0"  align="center">
                             <tbody>
@@ -1006,7 +1018,13 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <a href="#" id="planilla1"> </a>
+                                        <a href="#" id="planilla1-1" title="Debe llenar este formulario y luego cargarlo en el sistema"> </a>
+                                    </td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>
+                                        <a href="#" id="planilla1-2" title="Debe llenar este formulario y luego cargarlo en el sistema"> </a>
                                     </td>
                                 </tr>
 
@@ -1133,7 +1151,13 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <a href="#" id="planilla2"> </a>
+                                        <a href="#" id="planilla2-1" title="Debe llenar este formulario y luego cargarlo en el sistema"> </a>
+                                    </td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>
+                                        <a href="#" id="planilla2-2" title="Debe llenar este formulario y luego cargarlo en el sistema"> </a>
                                     </td>
                                 </tr>
 

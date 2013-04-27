@@ -60,6 +60,12 @@
             validate="false"
             parameter="reccontra"/>
         
+        <action path="/infoImportante"
+            type="org.apache.struts.actions.ForwardAction"
+            scope="request"
+            validate="false"
+            parameter="infoImportante"/>
+                
 <!--        <action path="/recConEnviada"
             type="org.apache.struts.actions.ForwardAction"
             scope="request"

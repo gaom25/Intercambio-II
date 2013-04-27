@@ -1,7 +1,7 @@
 <%-- 
     Document   : sidebarR
     Created on : Nov 14, 2012, 9:28:49 PM
-    Author     : kosmos
+    Modified by: Katy
 --%>
 <%@ taglib uri="http://struts.apache.org/tags-bean" prefix="bean" %>
 <%@ taglib uri="http://struts.apache.org/tags-html" prefix="html" %>
@@ -25,4 +25,6 @@
         </div>
         <div style="height:20px"></div>
     </div>
+    
+    
 </html>
