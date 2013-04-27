@@ -568,11 +568,6 @@ ALTER TABLE "dycicle".Gestiona ADD
   CONSTRAINT FK_Gestiona_Postulacion FOREIGN KEY (NombreUsuarioEstudiante)
     REFERENCES "dycicle".POSTULACION(NombreUsuario);
 
--------------------------------PERSISTE--------------------------------
-/* Claves foraneas de Persiste */
-ALTER TABLE "dycicle".Persiste ADD
-  CONSTRAINT FK_Persiste_LogAuditoria FOREIGN KEY (Fecha, Hora, Accion)
-    REFERENCES "dycicle".LogAuditoria;
 
 /* INSERT de un usuario administrador por defecto */
 INSERT INTO "dycicle".USUARIO VALUES ( 'admin','email@gmail.com', 1, 'Administrador', 'admin1234');
