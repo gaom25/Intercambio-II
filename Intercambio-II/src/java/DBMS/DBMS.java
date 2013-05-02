@@ -884,7 +884,11 @@ public class DBMS {
                     String tmp;
 
                     tmp = child.getAbsolutePath();
-                    archivos.add(tmp);
+                    if(tmp.endsWith("PlanillaIntercambio_USB.pdf"))
+                        archivos.add(0,tmp);
+                    else{
+                        archivos.add(tmp);
+                    }
                 }
             }
 

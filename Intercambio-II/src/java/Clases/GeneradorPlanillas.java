@@ -103,7 +103,7 @@ public class GeneradorPlanillas {
             document.add(imagen);
             
             //Cebolla USB_Logo                                
-            imagen = Image.getInstance("/home/kattys/NetBeansProjects/Intercambio-II/Intercambio-II/web/images/cebollaUSB.jpg");
+            imagen = Image.getInstance("/home/dreabalbas/NetBeansProjects/Intercambio-II/Intercambio-II/web/images/cebollaUSB.jpg");
             imagen.setAbsolutePosition(125f, 730f);
             imagen.scalePercent(20f);
 
@@ -750,7 +750,7 @@ public Boolean generarPlanillaExt(PlanillaExt p, String path, PlanExtranjero pla
 
 //PRUEBAS DE LA CEBOLLA
             
-            imagen = Image.getInstance("/home/kattys/NetBeansProjects/Intercambio-II/Intercambio-II/web/images/cebollaUSB.jpg");
+            imagen = Image.getInstance("/home/dreabalbas/NetBeansProjects/Intercambio-II/Intercambio-II/web/images/cebollaUSB.jpg");
             imagen.setAbsolutePosition(125f, 730f); 
 
 // define el tamano de la imagen
