@@ -2122,6 +2122,11 @@ public class DBMS {
         boolean iniciado = false;
 
         if (!busqueda.getNombre().equalsIgnoreCase("")) {
+            if(busqueda.getNombre().toLowerCase().equals(busqueda.getNombre())){
+                char [] arreglo=busqueda.getNombre().toCharArray();
+                arreglo[0]=Character.toUpperCase(arreglo[0]);
+                busqueda.setNombre(new String(arreglo));
+            }
             query2 += "PrimerNombre='" + busqueda.getNombre() + "'";
             iniciado = true;
 
@@ -2129,6 +2134,11 @@ public class DBMS {
         }
 
         if (!busqueda.getApellido().equalsIgnoreCase("")) {
+            if(busqueda.getApellido().toLowerCase().equals(busqueda.getApellido())){
+                char [] arreglo=busqueda.getApellido().toCharArray();
+                arreglo[0]=Character.toUpperCase(arreglo[0]);
+                busqueda.setApellido(new String(arreglo));
+            }
             if (iniciado) {
                 query2 += " AND ";
             }
