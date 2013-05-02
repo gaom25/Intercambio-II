@@ -2381,4 +2381,29 @@ public class DBMS {
         }
         return false;
     }
+    
+    
+    public ArrayList<Usuario> LogAuditoria(){
+    
+        String sql = "SELECT * FROM \"dycicle\".LogAuditoria ORDER BY fecha DESC";
+        ArrayList<Usuario> users = new ArrayList();
+        try{
+         Statement stmt = conexion.createStatement();
+         ResultSet set = stmt.executeQuery(sql);
+         
+         while(set.next()){
+             Usuario u = new Usuario();
+             u.setNombreusuario(set.getString("NombreUsuario"));
+             u.setConfirmar(set.getString("Accion"));
+             u.setNombre(set.getString("Fecha"));
+             users.add(u);
+         
+         }
+         
+        }catch(SQLException ex){
+            ex.printStackTrace();
+        }
+
+        return users;
+    }
 }

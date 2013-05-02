@@ -206,6 +206,10 @@
             <definition name="estadoSistema" extends ="baseAdmin">
                 <put name="body" value="/admin/estadoSistema.jsp"/>
             </definition>
+            
+            <definition name="LogAuditoria" extends ="baseAdmin">
+                <put name="body" value="/admin/LogAuditoria.jsp"/>
+            </definition>
        
         
         <!-- ESTUDIANTE USB -->

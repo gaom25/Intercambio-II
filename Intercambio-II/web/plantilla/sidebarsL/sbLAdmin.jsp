@@ -56,14 +56,22 @@
             Modificar perfil
         </html:link>
     </div>
+    <br/>
      <div style="margin-top: 5px;padding-right:5px">
         <html:link style="color:#126598" action="/Anuncios">
             Anuncios
         </html:link>
     </div>
+    <br/>
     <div>
         <html:link style="color:#126598" action="/ActDest">
             Activar/Desactivar Sistema
+        </html:link>
+    </div>
+    <br/>
+    <div>
+        <html:link style="color:#126598" action="/LogAuditoria">
+            Log de Auditoria
         </html:link>
     </div>
     
