@@ -2,7 +2,12 @@ package DBMS;
 
 import Clases.*;
 import java.io.File;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -233,7 +238,19 @@ public class DBMS {
 
             boolean prox = rs.next();
             int privilegio = rs.getInt("privilegio");
-
+            
+            Integer i,j,k,l,m,n,o,p,q,r;
+            i = 1;
+            j = 1;
+            k = 1;
+            l = 1;
+            m = 1;
+            n = 1;
+            o = 1;
+            p = 1;
+            q = 1;
+            r = 1;
+            
             if (privilegio == 2) {
                 sqlquery = "DELETE FROM \"dycicle\".gestor WHERE nombreusuario = '"
                         + nombreusuario + "'";
@@ -241,88 +258,109 @@ public class DBMS {
                 sqlquery = "DELETE FROM \"dycicle\".postulante WHERE nombreusuario = '"
                         + nombreusuario + "'";
             } else if (privilegio == 5) {
-                /*Eliminio de la tabla financiamiento*/
+                /*Elimino de la tabla financiamiento*/
                 sqlquery = "DELETE FROM \"dycicle\".financiamiento WHERE nombreusuario = '"
                         + nombreusuario + "'";
                 stmt = conexion.createStatement();
-                Integer i = stmt.executeUpdate(sqlquery);
-                /*Eliminio de la tabla antecedente*/
+                i = stmt.executeUpdate(sqlquery);
+                /*Elimino de la tabla antecedente*/
                 sqlquery = "DELETE FROM \"dycicle\".antecedenteacademico WHERE nombreusuario = '"
                         + nombreusuario + "'";
                 stmt = conexion.createStatement();
-                i = stmt.executeUpdate(sqlquery);
-                /*Eliminio de la tabla idiomas*/
+                j = stmt.executeUpdate(sqlquery);
+                /*Elimino de la tabla idiomas*/
                 sqlquery = "DELETE FROM \"dycicle\".idiomas WHERE nombreusuario = '"
                         + nombreusuario + "'";
                 stmt = conexion.createStatement();
-                i = stmt.executeUpdate(sqlquery);
-                /*Eliminio de la tabla representante*/
+                k = stmt.executeUpdate(sqlquery);
+                /*Elimino de la tabla representante*/
                 sqlquery = "DELETE FROM \"dycicle\".representante WHERE nombreusuario = '"
                         + nombreusuario + "'";
                 stmt = conexion.createStatement();
-                i = stmt.executeUpdate(sqlquery);
-                /*Eliminio de la tabla archivos*/
+                l = stmt.executeUpdate(sqlquery);
+                /*Elimino de la tabla archivos*/
                 sqlquery = "DELETE FROM \"dycicle\".archivosestudiante WHERE nombreusuario = '"
                         + nombreusuario + "'";
                 stmt = conexion.createStatement();
-                i = stmt.executeUpdate(sqlquery);
-                /*Eliminio de la tabla planestudio*/
+                m = stmt.executeUpdate(sqlquery);
+                /*Elimino de la tabla planestudio*/
                 sqlquery = "DELETE FROM \"dycicle\".planestudio WHERE nombreusuario = '"
                         + nombreusuario + "'";
                 stmt = conexion.createStatement();
-                i = stmt.executeUpdate(sqlquery);
-                /*Eliminio de la tabla estudianteusb*/
+                n = stmt.executeUpdate(sqlquery);
+                /*Elimino de la tabla universidades*/
+                sqlquery = "DELETE FROM \"dycicle\".universidades WHERE nombreusuario = '"
+                        + nombreusuario + "'";
+                stmt = conexion.createStatement();
+                o = stmt.executeUpdate(sqlquery);
+                 /*Elimino de la tabla postulacion*/
+                sqlquery = "DELETE FROM \"dycicle\".postulacion WHERE nombreusuario = '"
+                        + nombreusuario + "'";
+                stmt = conexion.createStatement();
+                p = stmt.executeUpdate(sqlquery);
+                /*Elimino de la tabla estudianteusb*/
                 sqlquery = "DELETE FROM \"dycicle\".estudianteusb WHERE nombreusuario = '"
                         + nombreusuario + "'";
                 stmt = conexion.createStatement();
-                i = stmt.executeUpdate(sqlquery);
+                r = stmt.executeUpdate(sqlquery);
                 /*Se deja el sql para que sea eliminado despues*/
                 sqlquery = "DELETE FROM \"dycicle\".estudiante WHERE nombreusuario = '"
                         + nombreusuario + "'";
+                
             } else if (privilegio == 6) {
-                /*Eliminio de la tabla antecedente*/
+                /*Elimino de la tabla antecedente*/
                 sqlquery = "DELETE FROM \"dycicle\".antecedenteacademico WHERE nombreusuario = '"
                         + nombreusuario + "'";
                 stmt = conexion.createStatement();
-                Integer i = stmt.executeUpdate(sqlquery);
-                /*Eliminio de la tabla idiomas*/
+                i = stmt.executeUpdate(sqlquery);
+                /*Elimino de la tabla idiomas*/
                 sqlquery = "DELETE FROM \"dycicle\".idiomas WHERE nombreusuario = '"
                         + nombreusuario + "'";
                 stmt = conexion.createStatement();
-                i = stmt.executeUpdate(sqlquery);
-                /*Eliminio de la tabla representante*/
+                j = stmt.executeUpdate(sqlquery);
+                /*Elimino de la tabla representante*/
                 sqlquery = "DELETE FROM \"dycicle\".representante WHERE nombreusuario = '"
                         + nombreusuario + "'";
                 stmt = conexion.createStatement();
-                i = stmt.executeUpdate(sqlquery);
-                /*Eliminio de la tabla archivos*/
+                k = stmt.executeUpdate(sqlquery);
+                /*Elimino de la tabla archivos*/
                 sqlquery = "DELETE FROM \"dycicle\".archivosestudiante WHERE nombreusuario = '"
                         + nombreusuario + "'";
                 stmt = conexion.createStatement();
-                i = stmt.executeUpdate(sqlquery);
-                /*Eliminio de la tabla planestudio*/
+                l = stmt.executeUpdate(sqlquery);
+                /*Elimino de la tabla planestudio*/
                 sqlquery = "DELETE FROM \"dycicle\".planestudio WHERE nombreusuario = '"
                         + nombreusuario + "'";
                 stmt = conexion.createStatement();
-                i = stmt.executeUpdate(sqlquery);
-
+                m = stmt.executeUpdate(sqlquery);
+                /*Elimino de la tabla universidades*/
+                sqlquery = "DELETE FROM \"dycicle\".universidades WHERE nombreusuario = '"
+                        + nombreusuario + "'";
+                stmt = conexion.createStatement();
+                n = stmt.executeUpdate(sqlquery);
+                /*Elimino de la tabla postulacion*/
+                sqlquery = "DELETE FROM \"dycicle\".postulacion WHERE nombreusuario = '"
+                        + nombreusuario + "'";
+                stmt = conexion.createStatement();
+                o = stmt.executeUpdate(sqlquery);
                 sqlquery = "DELETE FROM \"dycicle\".estudianteinternacional WHERE nombreusuario = '"
                         + nombreusuario + "'";
                 stmt = conexion.createStatement();
-                i = stmt.executeUpdate(sqlquery);
+                p = stmt.executeUpdate(sqlquery);
                 sqlquery = "DELETE FROM \"dycicle\".estudiante WHERE nombreusuario = '"
                         + nombreusuario + "'";
             }
 
             stmt = conexion.createStatement();
-            Integer i = stmt.executeUpdate(sqlquery);
+            q = stmt.executeUpdate(sqlquery);
 
+            Integer s = 1;
             sqlquery = "DELETE FROM \"dycicle\".usuario" + " WHERE nombreusuario = '"
                     + nombreusuario + "'";
             stmt = conexion.createStatement();
-            i = stmt.executeUpdate(sqlquery);
+            s = stmt.executeUpdate(sqlquery);
 
-            return i > 0;
+            return (i > 0 && j > 0 && k > 0 && l > 0 && m > 0 && n > 0 && o > 0 && p > 0 && q > 0 && r > 0) || s > 0;
 
         } catch (SQLException ex) {
             ex.printStackTrace();
