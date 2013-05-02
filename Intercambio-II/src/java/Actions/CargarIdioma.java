@@ -4,10 +4,9 @@
  */
 package Actions;
 
-import Clases.*;
+import Clases.Usuario;
+import Clases.Idiomas;
 import DBMS.DBMS;
-import java.io.File;
-import java.io.FileOutputStream;
 import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -15,7 +14,6 @@ import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
-import org.apache.struts.upload.FormFile;
 
 /**
  *
@@ -48,8 +46,6 @@ public class CargarIdioma extends Action {
         
         ArrayList idiomaDB = idiDB.getListIdioma();
         
-        
-        
         /*por ultimo ejecutamos la funcion que inserta en la base de datos los
          diferentes idiomas de un usuario*/
         
@@ -79,6 +75,9 @@ public class CargarIdioma extends Action {
                 }
             }
         }
+       
+        String accion = "Guardó en el sistema los idiomas que domina";
+        boolean boo = DBMS.getInstance().registrar(u2.getNombreusuario(),accion);
 
         if(u2.getPrivilegio() == 5){
             return mapping.findForward("usb");

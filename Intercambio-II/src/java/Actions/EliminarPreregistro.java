@@ -11,6 +11,7 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import DBMS.*;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -39,6 +40,9 @@ public class EliminarPreregistro extends org.apache.struts.action.Action {
             Usuario u = (Usuario) form;
            
             if (DBMS.getInstance().eliminarPreregistro(u)) {
+                HttpSession session = request.getSession();
+                Usuario obj = (Usuario)session.getAttribute("Usuario");
+                boolean boo = DBMS.getInstance().registrar(obj.getNombreusuario(),"Elimino al el preregistro "+u.getNombreusuario());
                 return mapping.findForward(SUCCESS);
             }else{
                 return mapping.findForward(FAIL);  
