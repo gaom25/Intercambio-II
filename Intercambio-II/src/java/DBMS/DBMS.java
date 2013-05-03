@@ -2181,6 +2181,16 @@ public class DBMS {
             query2 += "Carrera='" + busqueda.getCarrera() + "'";
             iniciado = true;
         }
+        
+        
+        if (!busqueda.getPais().equalsIgnoreCase("")) {
+            if (iniciado) {
+                query2 += " AND ";
+            }
+            sqlqueryu += "NATURAL JOIN \"dycicle\".universidades ";
+            query2 += "Pais='" + busqueda.getPais() + "'";
+            iniciado = true;
+        }
 
         if (!busqueda.getOpcion1().equalsIgnoreCase("")) {
             if (iniciado) {
@@ -2191,14 +2201,6 @@ public class DBMS {
             iniciado = true;
         }
 
-        if (!busqueda.getOpcion2().equalsIgnoreCase("")) {
-            if (iniciado) {
-                query2 += " AND ";
-            }
-            sqlqueryu += "NATURAL JOIN \"dycicle\".universidades ";
-            query2 += "NombreUni='" + busqueda.getOpcion2() + "'";
-            iniciado = true;
-        }
 
         if (iniciado) {
             try {
