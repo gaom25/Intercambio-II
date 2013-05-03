@@ -14,6 +14,7 @@ h1 {
     font-size: 1.4em;
     color: #369;
     font-weight: bold;
+    font-family: sans-serif;
 }
 
 h2 {
@@ -21,20 +22,23 @@ h2 {
     font-size: 1.2em;
     color: #369;
     font-weight: normal;
+    font-family: sans-serif;
 }
 
 h4 {
     letter-spacing: 3px;
-    font-size: 1.2em;
+    font-size: 1.5em;
     color: #369;
-    font-weight: normal;
+    font-weight: bold;
     text-align: center;
+    font-family: sans-serif;
 }
 
 h5 {
     letter-spacing: 1px;
     font-weight: normal;
     text-align: center;
+    font-family: sans-serif;
 }
 
 h6 {
@@ -43,6 +47,7 @@ h6 {
     text-align: center;
     font-size: 0.875em;
     color:#B22222;
+    font-family: sans-serif;
 }
 
 table {
@@ -52,6 +57,7 @@ table {
     margin-left: auto;
     margin-right: auto;
     alignment-adjust: auto;
+    font-family: sans-serif;
 }
 
 td {
@@ -59,23 +65,27 @@ td {
     margin-left: auto;
     margin-right: auto;
     color: black;
+    font-family: sans-serif;
 }
 
 tr{
     border: #00000;
     margin-left: auto;
     margin-right: auto;
+    font-family: sans-serif;
 }
 
 /* Links */
 a {
     color: #126598;
     text-decoration: none;
+    font-family: sans-serif;
 }
 
 a:hover {
     color: #198a15;
     text-decoration: underline;
+    font-family: sans-serif;
 }
 
 
@@ -190,7 +200,7 @@ a:hover {
 #Bienve{
     float: left;
     color:#369;
-    font-size: 0.8em;
+    font-size: 1.0em;
     /*top:280px;
     left:150px;
     position: absolute;*/
@@ -198,9 +208,9 @@ a:hover {
 
 #Bienve h1{
     letter-spacing: 1px;
-    font-weight: bold;
     color:#369;
-    font-size: 1.2em;
+    font-size: 0.9em;
+    margin-left: 50px;
 }
 
 #NombreUser{
@@ -209,7 +219,7 @@ a:hover {
     float: right;
     width: 640px;
     color:#369;
-    font-size: 0.8em;
+    font-size: 1.0em;
     /*top:280px;
     left:250px;
     position: absolute;*/
