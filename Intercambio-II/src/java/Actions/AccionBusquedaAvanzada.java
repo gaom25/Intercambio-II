@@ -53,9 +53,9 @@ public class AccionBusquedaAvanzada extends org.apache.struts.action.Action {
         {
             busq.setOpcion1("");
         }
-        if(busq.getOpcion2().equalsIgnoreCase("n/a"))
+        if(busq.getPais().equalsIgnoreCase("n/a"))
         {
-            busq.setOpcion2("");
+            busq.setPais("");
         }
         ArrayList<Usuario> users = DBMS.getInstance().listarBusquedaAvanzada(busq);
         request.setAttribute("usuarios", users);

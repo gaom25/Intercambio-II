@@ -538,8 +538,8 @@
        </action>
        
        <action name="Usuario" path="/GenerarCarpeta" scope="session" type="Actions.GenerarCarpeta">
-           <forward name="successUSB" path="/vista_carpeta.jsp" />
-           <forward name="successExt" path="/vista_carpeta.jsp" />
+           <forward name="successUSB" path="/estudianteUSB/vista_carpeta.jsp" />
+           <forward name="successExt" path="/estudianteExt/vista_carpeta.jsp" />
            <forward name="vacioUSB" path="sinArchivos" />
            <forward name="vacioExt" path="sinArchivosExt" />
            <forward name="error" path="planillaIncompleta" />

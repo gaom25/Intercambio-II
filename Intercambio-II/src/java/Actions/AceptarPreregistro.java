@@ -11,11 +11,10 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
-import org.apache.struts.action.ActionErrors;
-import org.apache.struts.action.ActionMessage;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import DBMS.*;
+import DBMS.DBMS;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -62,6 +61,11 @@ public class AceptarPreregistro extends org.apache.struts.action.Action {
         u.setContrasena(pass);
 
         if (DBMS.getInstance().aceptarPreregistro(u)) {
+            
+            HttpSession session = request.getSession();
+            Usuario obj = (Usuario)session.getAttribute("Usuario");
+            String accion = "Aceptó el preregistro del usuario " + u.getNombreusuario();
+            boolean boo = DBMS.getInstance().registrar(obj.getNombreusuario(),accion);
             
             u = DBMS.getInstance().obtenerDatos(u);
             

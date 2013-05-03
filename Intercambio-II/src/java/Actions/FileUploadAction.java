@@ -7,7 +7,6 @@ package Actions;
 import Clases.EstudianteUSB;
 import java.io.File;
 import java.io.FileOutputStream;
-import javax.servlet.http.HttpSession;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.*;
@@ -126,10 +125,14 @@ public class FileUploadAction extends Action {
                     fos.flush();
                     fos.close();
                 }
+           
+                String accion = "Adjuntó archivos a su solicitud";
+                boolean boo = DBMS.getInstance().registrar(u2.getNombreusuario(),accion);
 
             }
 
         }
+        
         if(u2.getPrivilegio() == 5){
             return mapping.findForward("usb");
         }

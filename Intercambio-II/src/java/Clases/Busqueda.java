@@ -16,8 +16,8 @@ public class Busqueda extends org.apache.struts.validator.ValidatorForm {
     private String indice;
     private String indicePonderado;
     private String carrera;
+    private String pais;
     private String opcion1;
-    private String opcion2;
     private String confirmar;
     
     public Busqueda(){
@@ -123,17 +123,17 @@ public class Busqueda extends org.apache.struts.validator.ValidatorForm {
     }
 
     /**
-     * @return the opcion2
+     * @return the pais
      */
-    public String getOpcion2() {
-        return opcion2;
+    public String getPais() {
+        return pais;
     }
 
     /**
-     * @param opcion2 the opcion2 to set
+     * @param pais the pais to set
      */
-    public void setOpcion2(String opcion2) {
-        this.opcion2 = opcion2;
+    public void setPais(String pais) {
+        this.pais = pais;
     }
     
     

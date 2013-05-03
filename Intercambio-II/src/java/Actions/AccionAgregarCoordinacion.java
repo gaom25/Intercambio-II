@@ -2,11 +2,13 @@ package Actions;
 
 import Clases.Correo;
 import Clases.Postulante;
-import DBMS.*;
+import Clases.Usuario;
+import DBMS.DBMS;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
@@ -92,6 +94,11 @@ public class AccionAgregarCoordinacion extends org.apache.struts.action.Action {
             return mapping.findForward(ERROR);
         }else if (DBMS.getInstance().agregarUsuario(p)) {
             if (DBMS.getInstance().agregarCoordUSB(p)) {
+                
+                HttpSession session = request.getSession();
+                Usuario obj = (Usuario)session.getAttribute("Usuario");
+                String accion = "Agregó al sistema a la " + p.getNombre();
+                boolean boo = DBMS.getInstance().registrar(obj.getNombreusuario(),accion);
 
                 Correo c = new Correo();
                 String asunto = "Su usuario en el Sistema de Gestión de Intercambios ha sido creado";
