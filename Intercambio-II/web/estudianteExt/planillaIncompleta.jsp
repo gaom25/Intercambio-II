@@ -41,7 +41,7 @@
         </h3>
     </font>
     
-    <html:form  action="/CargarLlenarPlanillaExt" method="POST" enctype="multipart/form-data" onsubmit="return(this)">
+    <html:form  action="/CargarLlenarPlanillaExt" method="POST" acceptCharset="ISO-8859-1" enctype="multipart/form-data" onsubmit="return(this)">
         <p hidden="true"><html:text name="PlanillaExt" property="nombreUsuario" maxlength="20" errorStyleClass="error" value ="<%=tmp.toString()%>"
                    errorKey="org.apache.struts.action.ERROR"></html:text></p>
             <p style="text-align: center">

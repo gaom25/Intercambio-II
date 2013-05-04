@@ -19,7 +19,7 @@
     <h4 align ="center">Cuenta Personal</h4>
     
     <html:link action="/CerrarSesion">
-        <p align ="center">Cerrar Sesion</p>
+        <p align ="center">Cerrar Sesión</p>
     </html:link>
 
 </html>

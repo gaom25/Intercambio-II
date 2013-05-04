@@ -26,7 +26,7 @@
         <h5>Por favor complete el formulario a continuación.</h5>
 
         <div id="login-form">
-            <html:form action="/EnviarCorreoEstUSB"  method="POST" enctype="multipart/form-data" onsubmit="return(this)">
+            <html:form action="/EnviarCorreoEstUSB" method="POST" acceptCharset="ISO-8859-1" enctype="multipart/form-data" onsubmit="return(this)">
                 <table border="0" >
                     <tbody>
                         <tr>
