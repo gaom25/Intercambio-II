@@ -31,7 +31,7 @@
 
     <div class="nav">
        <a href="#" style="color:#126598" onclick="if (document.getElementById('GestionDeUsuarios').style.display=='none') 
-               show('GestionDeUsuarios'); else hide('GestionDeUsuarios');">+ Gestion De Usuarios</a>
+               show('GestionDeUsuarios'); else hide('GestionDeUsuarios');">+ Gestión De Usuarios</a>
     </div>
 
     <div class="submenu" id="GestionDeUsuarios" style="background-color:#FFFFFF; display: none; margin-left: 15px"> 
@@ -58,7 +58,7 @@
     </div>
     <div style="margin-top: 5px;padding-right:5px">
         <html:link style="color:#126598" action="/contactoGestor">
-            Contactenos 
+            Contáctenos 
         </html:link>
     </div>
     <div style="margin-top: 5px;padding-right:5px">

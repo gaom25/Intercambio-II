@@ -15,7 +15,6 @@
     <!-- Aqui empiezan las definiciones para las vistas -->
     <definition name="base" path="/plantilla/basePlantilla.jsp"> <!-- base de todas las vistas -->
         <put name="banner" value="/plantilla/banner.jsp"/>
-        <put name="topMenu" value="/plantilla/topMenu.jsp"/>
         <put name="sidebarL" value="/plantilla/sidebarL.jsp"/>
         <put name="sidebarR" value="/plantilla/sidebarR.jsp"/>
         <put name="body" value="/plantilla/body.jsp"/>
@@ -25,7 +24,6 @@
         <!-- Bases para las vistas por tipo de usuario -->
         <!-- PUBLICAS -->
         <definition name="basePublic" extends="base"> <!-- base de todas las vistas publicas -->
-            <put name="topMenu" value="/plantilla/topMenus/topMenuPublic.jsp"/>
             <put name="sidebarL" value="/plantilla/sidebarsL/sbIndex.jsp"/>
         </definition>
         
@@ -94,7 +92,6 @@
            
         <!-- ADMINISTRADOR -->
         <definition name="baseAdmin" extends="base"> <!-- base de todas las vistas de administrador -->
-           <put name="topMenu" value="/plantilla/topMenus/topMenuAdmin.jsp"/>
            <put name="sidebarL" value="/plantilla/sidebarsL/sbLAdmin.jsp"/>
         </definition>
         
@@ -214,7 +211,6 @@
         
         <!-- ESTUDIANTE USB -->
         <definition name="baseEstudiante" extends="base"> <!-- base de todas las vistas de estudiantes -->
-            <put name="topMenu" value="/plantilla/topMenus/topMenuEstudiante.jsp"/>
             <put name="sidebarL" value="/plantilla/sidebarsL/sbLEstUSB.jsp"/>
         </definition>
         
@@ -286,18 +282,9 @@
                 <put name="body" value="/estudianteUSB/listarDocumentos.jsp" />
             </definition>
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
+       
         <!-- ESTUDIANTE EXT -->
         <definition name="baseEstudianteExt" extends="base"> <!-- base de todas las vistas de estudiantes extranjeros-->
-            <put name="topMenu" value="/plantilla/topMenus/topMenuEstudiante.jsp"/>
             <put name="sidebarL" value="/plantilla/sidebarsL/sbLEstExt.jsp"/>
         </definition>
         
@@ -373,7 +360,6 @@
         <!-- GESTOR -->
         
         <definition name="baseGestor" extends="base"> <!-- base de todas las vistas de gestores -->
-            <put name="topMenu" value="/plantilla/topMenus/topMenuGestor.jsp"/>
             <put name="sidebarL" value="/plantilla/sidebarsL/sbLGestor.jsp"/>
         </definition>
         
@@ -412,7 +398,6 @@
 
         <!-- COORDINACION -->        
         <definition name="baseCoordinaciones" extends="base"> <!-- base de todas las vistas de coordinaciones -->
-            <put name="topMenu" value="/plantilla/topMenus/topMenuCoord.jsp"/>
             <put name="sidebarL" value="/plantilla/sidebarsL/sbLCoord.jsp"/>
         </definition>
         
@@ -468,43 +453,10 @@
         
         <!-- UNIVERSIDAD EXTRANJERA -->
         <definition name="baseUniExtranjera" extends="base"> <!-- base de todas las vistas de universidades extranjeras -->
-            <put name="topMenu" value=""/>
             <put name="body" value=""/>
         </definition>
-    
-    
-    
-    
-    
+
     <!-- Aqui terminan las definiciones para generar herencia -->
-    
-    
-    
-    
-    <!-- sample tiles definitions
-    <definition name=".mainLayout" path="/common/layouts/classicLayout.jsp">
-        <put name="title"  value="Sample Page Title" />
-        <put name="header" value="/common/header.jsp" />
-        <put name="menu"   value=".mainMenu" />
-        <put name="footer" value="/common/footer.jsp" />
-        <put name="body"   value=".portal.body" />
-    </definition>
-
-    <definition name=".mainMenu" path="/common/layouts/vboxLayout.jsp" >
-        <putList name="list" >
-            <add value=".menu.links" />
-            <add value=".menu.taglib.references" />
-            <add value=".menu.printer.friendly" />
-            <add value=".menu.old.documents" />
-      </putList>
-    </definition>
-
-    <definition name="aPage" extends=".mainLayout">
-        <put name="title"  value="Another Title" />
-        <put name="body"   value=".aPage.body" />
-    </definition>
-
-    end samples -->
 
     <definition name="${YOUR_DEFINITION_HERE}">
     </definition> 

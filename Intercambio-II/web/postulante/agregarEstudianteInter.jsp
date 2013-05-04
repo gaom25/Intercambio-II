@@ -22,7 +22,7 @@
         <h4>Creaci&oacute;n de Nuevo Estudiante</h4>
         <h5>Por favor introduzca los datos del nuevo usuario.</h5>
 
-        <html:form action="/AccionAgregarEstudianteInter"  method="POST" enctype="multipart/form-data" onsubmit="return(this)">
+        <html:form action="/AccionAgregarEstudianteInter" method="POST" acceptCharset="ISO-8859-1" enctype="multipart/form-data" onsubmit="return(this)">
             <table border="0" >
                 <tbody>
                     <tr>

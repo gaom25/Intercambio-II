@@ -71,14 +71,14 @@
     <br/>
     <div>
         <html:link style="color:#126598" action="/LogAuditoria">
-            Log de Auditoria
+            Log de Auditoría
         </html:link>
     </div>
     
     <div style="height:20px"></div>
     <div>
         <html:link style="color:#126598" action="/CerrarSesion">
-            Cerrar sesion
+            Cerrar sesión
         </html:link>
     </div>
     

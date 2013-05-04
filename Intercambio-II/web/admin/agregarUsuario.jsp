@@ -19,42 +19,9 @@
         <h4>Creaci&oacute;n de Nuevo Usuario</h4>
         <h5>Por favor seleccione el tipo de usuario que desea crear</h5>
 
-        <html:form action="/AccionAgregarUsuario"  method="POST" enctype="multipart/form-data" onsubmit="return(this)">
+        <html:form action="/AccionAgregarUsuario" method="POST" acceptCharset="ISO-8859-1" enctype="multipart/form-data" onsubmit="return(this)">
             <table border="0" >
                 <tbody>
-                    <%--
-                    <tr>
-                        <td style="color: black">Usuario</td>
-                        <td>
-                            <html:text name="Usuario" property="nombreusuario" maxlength="20" errorStyleClass="error"
-                                       errorKey="org.apache.struts.action.ERROR"></html:text>
-                            </td>
-                            <td>
-                            <html:errors property="nombreusuario" />
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td style="color: black">Email</td>
-                        <td>
-                            <html:text name="Usuario" property="email" maxlength="30" errorStyleClass="error"
-                                       errorKey="org.apache.struts.action.ERROR"></html:text>
-                            </td>
-                            <td>
-                            <html:errors property="email" />
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td style="color: black">Nombre Completo</td>       
-                        <td><html:text name="Usuario" property="nombre" maxlength="100" errorStyleClass="error"
-                                   errorKey="org.apache.struts.action.ERROR"></html:text>
-                            </td>
-                            <td>
-                            <html:errors property="nombre" />
-                        </td>
-                    </tr>
-                    --%>
                     <tr>
                         <td style="color: black">Tipo de usuario</td>
                         <td><html:select  property="privilegio">

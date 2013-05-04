@@ -12,19 +12,19 @@
 
     <body onload ="clearForms()" onunload="clearForms()">
         <div id="Bienve">
-            <h1>Bienvenido:</h1>
+            <br>
+            <h1>Bienvenido, <a ><%=var.toString()%></a> </h1>
         </div>
-        <div id="NombreUser">
-            <h1><%=var.toString()%></h1>
-        </div>
+
 
         <p hidden="true"><bean:write name="Usuario" property="nombre"></bean:write></p>
         <p hidden="true"><bean:write name="Usuario" property="email"></bean:write></p>
         <p hidden="true"><bean:write name="Usuario" property="nombreusuario"></bean:write></p>
-            
+            <br>
+            <br>
+            <h4 align ="left">Administrador</h4>
 
-        <h4 align ="center">Administrador</h4>
-        <h5 align ="center">¿Qu&eacute; desea hacer?</h5>
+            <h5 align ="center">¿Qu&eacute; desea hacer?</h5>
 
         <html:link action="/AgregarUsuarios">
             <p align ="center">Agregar Usuario</p>
