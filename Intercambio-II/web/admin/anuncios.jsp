@@ -9,11 +9,33 @@
 <%@ taglib uri="http://struts.apache.org/tags-logic" prefix="logic" %>
 <%@ taglib uri="http://struts.apache.org/tags-bean" prefix="bean" %>
 <%@ taglib uri="http://struts.apache.org/tags-tiles" prefix="tiles" %>
+
 <!DOCTYPE html>
+<script type="text/javascript">
+function altRows(id){
+	if(document.getElementsByTagName){  
+		
+		var table = document.getElementById(id);  
+		var rows = table.getElementsByTagName("tr"); 
+		 
+		for(i = 0; i < rows.length; i++){          
+			if(i % 2 == 0){
+				rows[i].className = "evenrowcolor";
+			}else{
+				rows[i].className = "oddrowcolor";
+			}      
+		}
+	}
+}
+window.onload=function(){
+	altRows('alternatecolor');
+}
+</script>
+
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Redactar anuncio</title>
     </head>
     <br>
     <div>
@@ -22,38 +44,37 @@
             </html:link>
     </div>
     <br>
-    <table style="margin: auto">
-                <tr>
-                    <td width="220px">
-                        Asunto
-                    </td>
-                    <td width="150px" align="center">
-                        Fecha
-                    </td>
-                    <td width="150px" align="center">
-                        Más información
-                    </td>
-                </tr>
-            </table>
-   <logic:iterate name="anuncios" id="anuncios">
-                <table border="0" style="margin: auto">
-                    <tbody>
-                        <tr>
-                            <td width="220px">
-                                <bean:write name="anuncios" property="titulo" />
-                            </td>
-                            <td>
-                                <bean:write name="anuncios" property="fecha" />
-                            </td>
-                            <td align="center" width="150px">
-                                 <html:form action="/verAnuncio" onsubmit="return(this)">
-                                    <html:hidden name="anuncios" property="fecha"/>
-                                    <html:hidden name="anuncios" property="titulo"/>
-                                    <html:image src="images/view_data.png" styleClass="button" value="" property="" style=""/> 
-                                </html:form>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </logic:iterate>
+    <table border="0" style="margin: auto" class="altrowstable" id="alternatecolor">
+        <tr>
+            <th width="220px">
+                Asunto
+            </th>
+            <th width="150px" align="center">
+                Fecha
+            </th>
+            <th width="150px" align="center">
+                Más información
+            </th>
+        </tr>
+            
+         <logic:iterate name="anuncios" id="anuncios">
+    
+            <tr>
+                <td width="220px" align="center">
+                    <bean:write name="anuncios" property="titulo" />
+                </td>
+                <td align="center">
+                    <bean:write name="anuncios" property="fecha" />
+                </td>
+                <td align="center" width="150px">
+                     <html:form action="/verAnuncio" onsubmit="return(this)">
+                        <html:hidden name="anuncios" property="fecha"/>
+                        <html:hidden name="anuncios" property="titulo"/>
+                        <html:image src="images/view_data.png" styleClass="button" value="" property="" style=""/> 
+                    </html:form>
+                </td>
+            </tr>
+                    
+        </logic:iterate>
+    </table>
 </html>

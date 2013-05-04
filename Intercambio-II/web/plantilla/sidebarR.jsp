@@ -11,7 +11,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <div id="sidebarR" style="width:250px; height: 400px">
+    <div id="sidebarR" style="width:240px; height: 400px; margin-left: 15px">
         
         <div id="google_translate_element" style="margin-left: 75px">
         </div>
@@ -24,20 +24,20 @@
                 </script>  
         
                 <br>        
-        <div style="margin-left: 100px">
+        <div style="margin-left: 90px">
             <html:link href="http://www.usb.ve/">
                 <img width="150" height="50" src="/Intercambio-II/images/somosusb.gif">
             </html:link>
         </div>
         <br>
-        <div style="margin-left: 100px">
+        <div style="margin-left: 90px">
             <html:link href="http://www.internacionales.dsm.usb.ve/">
                 <img width="150" height="50" src="/Intercambio-II/images/DRIC.jpg">
             </html:link>
         </div>
         <br>
         
-        <div id="twitterInt" > 
+        <div id="twitterInt"> 
         <a class="twitter-timeline" height="300" href="https://twitter.com/IntercambioUSB" data-widget-id="317086117033811968"> </a>
         <script>!function(d,s,id){
             var js,fjs=d.getElementsByTagName(s)[0];

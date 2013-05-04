@@ -187,7 +187,7 @@ a:hover {
 }
 
 .submenu a{
-    color: #00000;
+    color: #000000;
 }
 
 #footer{
@@ -237,4 +237,36 @@ a:hover {
     font-weight: normal;
     color:#369;
     font-size: 1.2em;
+}
+
+table.altrowstable th {
+	background-color: #126598;
+	border-width: 1px;
+	border-color: #a9c6c9;
+	border-collapse: collapse;
+        color: #000000;
+        font-weight: bold;
+}
+
+table.altrowstable {
+	color:#333333;
+	border-width: 1px;
+	border-color: #a9c6c9;
+	border-collapse: collapse;
+}
+table.altrowstable tr {
+	border-width: 1px;
+	border-style: solid;
+	border-color: #a9c6c9;
+}
+table.altrowstable td {
+	border-width: 1px;
+	border-style: solid;
+	border-color: #a9c6c9;
+}
+.oddrowcolor{
+    background-color:#e6f0ef;
+}
+.evenrowcolor{
+	background-color:#c3dde0;
 }
