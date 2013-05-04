@@ -37,7 +37,7 @@
         <div align="center">
         <html:form action="/ListarEstudiantes">
             <html:hidden name="Usuario" property="nombreusuario" value="<%=var2.toString()%>"/>
-            <html:submit style=";">Consultar Estudiantes</html:submit>
+            <html:submit>Consultar Estudiantes</html:submit>
         </html:form> 
     </div>
 </html:html>
