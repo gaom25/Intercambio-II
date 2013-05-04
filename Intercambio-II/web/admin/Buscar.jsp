@@ -22,7 +22,7 @@
         <h5>Por favor complete los datos de los estudiantes a buscar.</h5>
 
         <div id="login-form">
-            <html:form action="/AccionBusquedaAvanzada"  method="POST" enctype="multipart/form-data" onsubmit="return(this)">
+            <html:form action="/AccionBusquedaAvanzada" acceptCharset="ISO-8859-1" method="POST" enctype="multipart/form-data" onsubmit="return(this)">
                 <html:hidden property="nombreSolicitante" value="<%=var.toString()%>"/>
                 <html:hidden property="confirmar" value="anuncios"/>
                 <table border="0" >

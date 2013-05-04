@@ -1,3 +1,3 @@
 <div id="footer">
-    <p>Copyright © dycicle Systems</p>
+    <p>Copyright © DyCicle Systems</p>
 </div>

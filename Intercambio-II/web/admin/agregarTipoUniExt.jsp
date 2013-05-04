@@ -23,7 +23,7 @@
 
         <h4>Creaci&oacute;n de nueva universidad extranjera</h4>
         <h5>Por favor introduzca los datos del nuevo usuario</h5>
-        <html:form action="/AccionAgregarUniExt"  method="POST" enctype="multipart/form-data" onsubmit="return(this)">
+        <html:form action="/AccionAgregarUniExt" method="POST" acceptCharset="ISO-8859-1" enctype="multipart/form-data" onsubmit="return(this)">
             <table border="0" >
                 <tbody>
                     

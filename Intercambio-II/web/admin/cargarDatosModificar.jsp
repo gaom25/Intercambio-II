@@ -19,7 +19,7 @@
     <h4>Modificaci&oacute;n de Datos de Usuarios</h4>
     <h5>Por favor escriba el nombre de usuario y los datos que desea modificar.</h5>
 
-    <html:form action="/ModificarUsuario" onsubmit="return(this)">
+    <html:form action="/ModificarUsuario" acceptCharset="ISO-8859-1" onsubmit="return(this)">
         <table border="0">
             <tbody>
                 <tr>
