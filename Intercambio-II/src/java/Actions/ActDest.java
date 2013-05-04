@@ -3,6 +3,7 @@
  * and open the template in the editor.
  */
 package Actions;
+
 import Clases.Usuario;
 import DBMS.DBMS;
 import javax.servlet.http.HttpServletRequest;
@@ -35,22 +36,29 @@ public class ActDest extends org.apache.struts.action.Action {
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
+        Usuario f = (Usuario) form;
         Usuario u = new Usuario();
-        boolean b = DBMS.getInstance().CambiarSistema();
+        boolean b;
+        if (f.getConfirmar().equalsIgnoreCase("desactivar")) {
+            b = DBMS.getInstance().CambiarSistema(false);
+        } else {
+            b = DBMS.getInstance().CambiarSistema(true);
+        }
+
         HttpSession session = request.getSession();
-        Usuario obj = (Usuario)session.getAttribute("Usuario");
+        Usuario obj = (Usuario) session.getAttribute("Usuario");
         String accion = null;
-        
-        if(b){
+
+        if (b) {
             u.setConfirmar("Inactivo");
             accion = "Desactivó el sistema";
-        }else{
+        } else {
             u.setConfirmar("Activado");
             accion = "Activó el sistema";
         }
-        
-        boolean boo = DBMS.getInstance().registrar(obj.getNombreusuario(),accion);
-        request.setAttribute("usuario",u);
+
+        boolean boo = DBMS.getInstance().registrar(obj.getNombreusuario(), accion);
+        request.setAttribute("usuario", u);
         return mapping.findForward(SUCCESS);
     }
 }

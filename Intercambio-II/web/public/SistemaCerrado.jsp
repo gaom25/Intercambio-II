@@ -20,7 +20,7 @@
     </div>
     
     <div align="center">
-        <h1 style="color: red">Actualmente el sistema no está disponible, para más información haz click   <html:link action="contacto">
+        <h1 style="color: red">Actualmente el período de postulacion no está disponible, para más información haz click   <html:link action="contacto">
                 aquí
             </html:link> </h1>
     </div>

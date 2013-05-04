@@ -59,12 +59,6 @@
     </div>
     <br/>
     <div>
-        <html:link style="color:#126598" action="/ActDest">
-            Activar/Desactivar Sistema
-        </html:link>
-    </div>
-    <br/>
-    <div>
         <html:link style="color:#126598" action="/LogAuditoria">
             Log de Auditoría
         </html:link>

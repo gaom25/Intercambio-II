@@ -62,16 +62,13 @@ public class DBMS {
     
     }
     
-    public boolean CambiarSistema(){
+    public boolean CambiarSistema(boolean b){
     
         String psSistema = null;
         try{
-            psSistema = "SELECT cerrado FROM \"dycicle\".sistema";
+            
             Statement stm = conexion.createStatement();
-            ResultSet salida = stm.executeQuery(psSistema);
-            salida.next();
-            boolean b = salida.getBoolean("cerrado");
-        
+            /*Si b es true es para activar el sistema si es false es para desactivarlo*/
             if(b){
                 stm = conexion.createStatement();
                 psSistema = "UPDATE \"dycicle\".sistema SET cerrado= FALSE ";

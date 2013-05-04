@@ -10,8 +10,9 @@
 <%@ taglib uri="http://struts.apache.org/tags-tiles" prefix="tiles" %>
 <!DOCTYPE html>
 <html:html>
+    <br/>
     <div align="center" id="texto">
-        Actualmente el sistema se encuentra <bean:write name="usuario" property="confirmar"></bean:write>
+        Actualmente el período de postulacion está <bean:write name="usuario" property="confirmar"></bean:write>
     </div>
 
     <script language="javascript">
