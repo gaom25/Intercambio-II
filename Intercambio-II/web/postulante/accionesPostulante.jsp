@@ -15,17 +15,19 @@
 
 <html:html lang="true">
     <title>Sistema de Gesti&oacute;n de Intercambio</title>
+    <br>
     <div id="Bienve">
-        <h1>Bienvenido:</h1>
+        <h1>Bienvenido: <a><%=var.toString()%></a></h1>
     </div>
     <div id="NombreUser">
-        <h1><%=var.toString()%></h1>
         <a hidden="true"> <%=var2.toString()%> </a>
     </div>
     <p hidden="true"><bean:write name="Usuario" property="nombre"></bean:write></p>
     <p hidden="true"><bean:write name="Usuario" property="email"></bean:write></p>
     <p hidden="true"><bean:write name="Usuario" property="nombreusuario"></bean:write></p>
 
+    <br>
+    
         <h4 align ="center">Postulante</h4>
         <h5 align ="center">¿Qu&eacute; desea hacer?</h5>
 

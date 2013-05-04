@@ -21,15 +21,15 @@
 
     <h4>Lista de Usuarios del Sistema:</h4>
 
-    <table style="margin: auto">
-        <tr>
-            <td width="220px">
+    <table >
+        <tr class="first">
+            <td width="150px">
                 Nombre
             </td>
-            <td width="150px" align="center">
+            <td width="110px" align="center">
                 Ver Usuario
             </td>
-            <td width="150px" align="center">
+            <td width="100px" align="center">
                 Consultar Solicitud
             </td>
             <td width="150px" align="center">
@@ -43,13 +43,13 @@
     </table>
 
     <logic:iterate name="usuarios" id="usuarios">
-        <table border="0" style="margin: auto">
+        <table>
             <tbody>
                 <tr>
-                    <td width="220px">
+                    <td width="150px">
                         <bean:write name="usuarios" property="nombreusuario" />
                     </td>
-                    <td align="center" width="150px">
+                    <td align="center" width="110px">
                         <html:form action="/ConsultarUsuario2" onsubmit="return(this)">
                             <html:hidden name = "usuarios" property="nombreusuario"/>
                             <html:hidden name = "usuarios" property="confirmar" value="gestor"/>
@@ -57,19 +57,19 @@
                         </html:form>
                     </td>
 
-                    <td align="center" width="150px">
+                    <td align="center" width="100px">
                         <html:form action="/GenerarCarpeta" onsubmit="return(this)">
                             <html:hidden name = "usuarios" property="nombreusuario"/>
                             <html:image src="images/archivador.png" style="width:32px;height:32px"  styleClass="button" value="" property="" /> 
                         </html:form>
                     </td>
 
-                    <td align="center" width="220px">
+                    <td align="center" width="150px">
 
                         <bean:write name="usuarios" property="confirmar" />
                     </td>
 
-                    <td>
+                    <td align="center" width="150px">
                         <html:form action="/CambiarEstadoPostulacion"  method="POST" enctype="multipart/form-data" onsubmit="return(this)">
 
                             <html:hidden name = "usuarios" property="nombreusuario"/>

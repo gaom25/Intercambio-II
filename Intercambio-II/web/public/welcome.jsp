@@ -13,24 +13,24 @@
     <h5>Para ingresar al sistema introduzca su usuario y contraseña.</h5>
     <div id="login-form">
         <html:form action="Login">
-            <table>
-                <tr>
-                    <td> Usuario </td>
-                    <td><html:text name="Usuario" property="nombreusuario" size="14" value=""
+            <table style="border: none">
+                <tr style="border: none">
+                    <td style="border: none"> Usuario </td>
+                    <td style="border: none"><html:text name="Usuario" property="nombreusuario" size="14" value=""
                                errorStyleClass="error" errorKey="org.apache.struts.action.ERROR"></html:text>
                     </td>
                 </tr>
-                <tr>
-                    <td colspan="2"><html:errors property="nombreusuario"/></td>
+                <tr style="border: none">
+                    <td style="border: none" colspan="2"><html:errors property="nombreusuario"/></td>
                 </tr>
-                <tr>
-                    <td> Contraseña </td>
-                    <td><html:password name="Usuario" property="contrasena" value="" size="14"
+                <tr style="border: none">
+                    <td style="border: none"> Contraseña </td>
+                    <td style="border: none"><html:password name="Usuario" property="contrasena" value="" size="14"
                                    errorStyleClass="error" errorKey="org.apache.struts.action.ERROR" ></html:password>
                     </td>
                 </tr>
-                <tr>
-                    <td colspan="2"><html:errors property="contrasena"/></td>
+                <tr style="border: none">
+                    <td style="border: none" colspan="2"><html:errors property="contrasena"/></td>
                 </tr>
             </table>
             <div  style="position: relative; height: 120px; bottom: -10px;">

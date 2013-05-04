@@ -51,8 +51,7 @@ h6 {
 }
 
 table {
-    background-color: #00000;
-    border: background;
+    border: blue 1px solid;
     color: black;
     margin-left: auto;
     margin-right: auto;
@@ -60,16 +59,24 @@ table {
     font-family: sans-serif;
 }
 
+.first td{
+    
+    background-color: rgba(0,0,255,0.1);
+}
 td {
-    border: #00000;
+    border: blue 1px double;
+/*    background-color: rgba(0,0,255,0.1);*/
     margin-left: auto;
     margin-right: auto;
     color: black;
     font-family: sans-serif;
 }
 
+caption {
+    color: #fff;
+}
 tr{
-    border: #00000;
+
     margin-left: auto;
     margin-right: auto;
     font-family: sans-serif;
