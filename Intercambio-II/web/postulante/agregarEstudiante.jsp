@@ -18,9 +18,9 @@
     <body onload ="clearForms()" onunload="clearForms()">
 
         <h4>Creaci&oacute;n de Nuevo Estudiante</h4>
-        <h5>Porfavor introduzca los datos del nuevo usuario.</h5>
+        <h5>Por favor introduzca los datos del nuevo usuario.</h5>
 
-        <html:form action="/AccionAgregarEstudiante"  method="POST" enctype="multipart/form-data" onsubmit="return(this)">
+        <html:form action="/AccionAgregarEstudiante" method="POST" acceptCharset="ISO-8859-1" enctype="multipart/form-data" onsubmit="return(this)">
             <div hidden="true">
                 <html:text name="EstUSB" property="origen" maxlength="20" errorStyleClass="error"
                  value ="<%=var.toString()%>" errorKey="org.apache.struts.action.ERROR" />

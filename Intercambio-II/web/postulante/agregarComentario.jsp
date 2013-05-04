@@ -17,7 +17,7 @@
     </head>
 
     <h1>Agregar Comentario para estudiante:</h1>
-    <html:form action="/AgregarComentario" onsubmit="return(this)">
+    <html:form action="/AgregarComentario"  acceptCharset="ISO-8859-1" onsubmit="return(this)">
         <html:hidden name="usuario" property="nombreusuario"/>
         <html:textarea style="width:500px;height:250px;" name="usuario" property="confirmar"/>
 <br>
