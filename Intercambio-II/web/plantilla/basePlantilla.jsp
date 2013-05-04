@@ -19,10 +19,6 @@
             <div>
                 <tiles:insert attribute="banner"/>
             </div>
-          
-            <div>
-                <tiles:insert attribute="topMenu"/>
-            </div>
             
 
             <div id="sidebarL">

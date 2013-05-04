@@ -58,7 +58,7 @@
     </div>
     <div style="margin-top: 5px;padding-right:5px">
         <html:link style="color:#126598" action="/contactoGestor">
-            Contactenos 
+            Contáctenos 
         </html:link>
     </div>
     <div style="margin-top: 5px;padding-right:5px">
