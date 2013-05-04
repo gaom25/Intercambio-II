@@ -44,11 +44,6 @@
                 Consultar Usuarios
             </html:link>
         </div>
-        <div>
-            <html:link style="color:#126598" action="/ListarPreregistro">
-                Consultar PreRegistro
-            </html:link>
-        </div>
     </div>
 
     <div style="margin-top: 5px;padding-right:5px">

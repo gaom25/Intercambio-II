@@ -155,45 +155,6 @@ public class DBMS {
         return u;
     }
 
-    public Usuario consultarPreregistro(Usuario u) {
-
-        PreparedStatement psConsultar = null;
-
-        try {
-            psConsultar = conexion.prepareStatement("SELECT * FROM \"dycicle\".preregistro"
-                    + " WHERE nombreusuario = ?");
-            psConsultar.setString(1, u.getNombreusuario());
-            System.out.println(psConsultar.toString());
-            ResultSet rs = psConsultar.executeQuery();
-            while (rs.next()) {
-                u.setNombre(rs.getString("nombre"));
-                return u;
-            }
-
-        } catch (SQLException ex) {
-            Logger.getLogger(DBMS.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-
-        /*String sqlquery = "SELECT * FROM \"dycicle\".preregistro"
-         + " WHERE nombreusuario ='" + u.getNombreusuario() + "'";
-         try {
-
-         Statement stmt = conexion.createStatement();
-         ResultSet rs = stmt.executeQuery(sqlquery);
-         while (rs.next()) {
-         u.setNombre(rs.getString("nombre"));
-         return u;
-         }
-
-         } catch (SQLException ex) {
-         Logger.getLogger(DBMS.class.getName()).log(Level.SEVERE, null, ex);
-         }*/
-
-        u.setNombreusuario(null);
-        return u;
-    }
-
     public boolean agregarUsuario(Usuario u) {
 
         PreparedStatement psAgregar = null;
@@ -658,81 +619,6 @@ public class DBMS {
         return false;
     }
 
-    public boolean preRegistroUsuario(Usuario u) {
-        try {
-
-
-            String confirmacion = "SELECT * FROM \"dycicle\".usuario"
-                    + " WHERE nombreusuario ='" + u.getNombreusuario() + "';";
-            Statement stmt = conexion.createStatement();
-            ResultSet rs = stmt.executeQuery(confirmacion);
-            if (rs.next()) {
-                return false;
-            } else {
-
-                String sqlquery = "INSERT INTO \"dycicle\".preregistro VALUES ('" + u.getNombreusuario()
-                        + "', '" + u.getEmail() + "', '"
-                        + u.getNombre() + "','" + u.getContrasena() + "');";
-                stmt = conexion.createStatement();
-                Integer i = stmt.executeUpdate(sqlquery);
-                return i > 0;
-            }
-
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        }
-        return false;
-    }
-
-    /*AL aceptar el pre-registro no deberia hacerle el inserte a las demas tablas tambien???*/
-    public boolean aceptarPreregistro(Usuario u) {
-        PreparedStatement psAceptar = null;
-        try {
-
-            Usuario user = consultarPreregistro(u);
-            user.setPrivilegio(u.getPrivilegio());
-
-            psAceptar = conexion.prepareStatement("INSERT INTO \"dycicle\".usuario VALUES (?,?,?,?,?);");
-            psAceptar.setString(1, user.getNombreusuario());
-            psAceptar.setString(2, user.getEmail());
-            psAceptar.setInt(3, user.getPrivilegio());
-            psAceptar.setString(4, user.getNombre());
-            psAceptar.setString(5, user.getContrasena());
-            System.out.println(psAceptar.toString());
-            Integer i = psAceptar.executeUpdate();
-            eliminarPreregistro(u);
-            return i > 0;
-
-            /*String sqlquery = "INSERT INTO \"dycicle\".usuario VALUES ('" + user.getNombreusuario()
-             + "','" + user.getEmail() + "','" + user.getPrivilegio() + "','" + user.getNombre()
-             + "','" + user.getContrasena() + "'); ";
-             Statement stmt = conexion.createStatement();
-
-             Integer i = stmt.executeUpdate(sqlquery);*/
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        }
-        return false;
-    }
-
-    public boolean eliminarPreregistro(Usuario u) {
-        PreparedStatement psEliminar = null;
-
-        try {
-
-            psEliminar = conexion.prepareStatement("DELETE FROM \"dycicle\".preregistro WHERE nombreusuario = ?");
-            /*String sqlquery = "DELETE FROM \"dycicle\".preregistro" + " WHERE nombreusuario = '"
-             + u.getNombreusuario() + "'";
-             Statement stmt = conexion.createStatement();
-             Integer i = stmt.executeUpdate(sqlquery);*/
-            psEliminar.setString(1, u.getNombreusuario());
-            Integer i = psEliminar.executeUpdate();
-            return i > 0;
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        }
-        return false;
-    }
 
     public boolean modificarUsuario(Usuario u) {
         PreparedStatement psModificar = null;
@@ -962,28 +848,6 @@ public class DBMS {
         return usrs;
     }
 
-    public ArrayList<Usuario> listarPreregistro() {
-
-        ArrayList<Usuario> usrs = new ArrayList<Usuario>(0);
-        PreparedStatement ps = null;
-        try {
-            ps = conexion.prepareStatement("SELECT * FROM \"dycicle\".preregistro");
-            /*String sqlquery = "SELECT * FROM \"dycicle\".preregistro";
-             Statement stmt = conexion.createStatement();
-             ResultSet rs = stmt.executeQuery(sqlquery);*/
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-                Usuario u = new Usuario();
-                u.setNombreusuario(rs.getString("nombreusuario"));
-                u.setEmail(rs.getString("email"));
-                usrs.add(u);
-            }
-
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        }
-        return usrs;
-    }
 
     public ArrayList<Usuario> listarIdiomas(Usuario u) {
 

@@ -36,10 +36,8 @@
             <div  style="position: relative; height: 120px; bottom: -10px;">
                 <div id="Imagencita" style="height: 75px;">
                     <img src="/Intercambio-II/stickyImg"/>
-                    <br><br>
-                    <div>
+                    <br/>
                         <a href="javascript:history.go(0)">Click para cambiar captcha</a>
-                    </div>
                 </div>
                 <br><br>
                 <div>
@@ -55,12 +53,6 @@
 
     <br /><br />
 
-    <div align="center" > 
-        <html:link action="preRegistro">
-            ¿No tiene una cuenta?<br />
-            Preregistrese.
-        </html:link>
-    </div>
 
     <div class="espacio" style="height:90px">
     </div>

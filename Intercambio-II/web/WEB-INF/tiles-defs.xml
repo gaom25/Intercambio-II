@@ -36,19 +36,6 @@
                 <put name="body" value="/public/FAQ.jsp"/>
             </definition>
             
-            
-            <definition name="preRegistro" extends="basePublic"> <!-- pagina de pre registro -->
-                <put name="body" value="/public/preRegistro.jsp"/>
-            </definition>
-            
-            <definition name="preRegExito" extends="basePublic"> <!-- pagina de pre registro -->
-                <put name="body" value="/public/preRegExito.jsp"/>
-            </definition>
-            
-            <definition name="preRegFallo" extends="basePublic"> <!-- pagina de pre registro -->
-                <put name="body" value="/public/preRegFallo.jsp"/>
-            </definition>
-            
             <definition name="reccontra" extends="basePublic"> <!-- pagina de recuperacion de contraseña -->
                 <put name="body" value="/public/recuperarContrasena.jsp"/>
             </definition>
@@ -123,10 +110,6 @@
                 <put name="body" value="/admin/mostrarUsuario.jsp" />
             </definition>
             
-            <definition name="mostrarPreRegistro" extends="baseAdmin"> <!-- pagina de listar usuarios -->
-                <put name="body" value="/admin/mostrarpreregistro.jsp" />
-            </definition>
-            
             <definition name="cargarDatosMod" extends="baseAdmin"> <!-- pagina de modificar usuario donde carga los datos -->
                 <put name="body" value="/admin/cargarDatosModificar.jsp" />
             </definition>
@@ -174,10 +157,6 @@
             
             <definition name="cuentaAdmin" extends="baseAdmin"> <!-- pagina de cuenta del administrador -->
                 <put name="body" value="/admin/cuentaAdmn.jsp"/>
-            </definition>
-            
-            <definition name="listarPreregistro" extends="baseAdmin"> <!-- pagina de cuenta del administrador -->
-                <put name="body" value="/admin/listarPreregistro.jsp"/>
             </definition>
             
             <definition name="vistanuncios" extends ="baseAdmin">

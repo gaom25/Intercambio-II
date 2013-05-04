@@ -48,12 +48,6 @@
             validate="false"
             parameter="faq"/>
         
-        <action path="/preRegistro"
-            type="org.apache.struts.actions.ForwardAction"
-            scope="request"
-            validate="false"
-            parameter="preRegistro"/>
-        
         <action path="/reccontra"
             type="org.apache.struts.actions.ForwardAction"
             scope="request"
@@ -236,12 +230,6 @@
             <forward name="Cerrado" path="SistemaCerrado" />
             <forward name="error" path = "datosErrados"/>
         </action> 
-               
-        <action name="Usuario" path="/PreRegistroUsuario" scope="session" type="Actions.PreRegistroUsuario">
-            <forward name="failure" path="preRegFallo"/>
-            <forward name="success" path="preRegExito" />
-            <forward name="error" path="preRegistro"/>
-        </action> 
         
         <action path="/EnviarCorreo" type="Actions.EnviarCorreo" name="Contacto">
             <forward name="failure" path="inicSesion"/>
@@ -270,22 +258,11 @@
             <forward name="failure" path="recConFallo"/>
             <forward name="success" path="recConEnviada"/>
             <forward name="error" path="recConFallo"/>
-       </action>        
-       
-       <action name="Usuario" path="/EliminarPreregistro" scope="session" type="Actions.EliminarPreregistro">
-            <forward name="failure" path="accFallo"/>
-            <forward name="success" path="accExito" />
-       </action>
-       
+       </action>               
        
        <action name="Usuario" path="/ListarUsuarios" scope="session" type="Actions.ListarUsuarios">
            <forward name="failure" path="listarUsuarios"/>
            <forward name="success" path="listarUsuarios" />
-       </action>
-       
-       <action name="Usuario" path="/ListarPreregistro" scope="session" type="Actions.ListarPreregistro">
-           <forward name="failure" path="accFallo"/>
-           <forward name="success" path="listarPreregistro" />
        </action>
        
        <action name="Usuario" path="/AccionAgregarUsuario" scope="request" type="Actions.AccionAgregarUsuario">
@@ -306,14 +283,7 @@
        
        <action name="Usuario" path="/AgregarUsuarios" scope="session" type="Actions.AgregarUsuarios">
             <forward name="success" path="agregUsuario" />
-       </action>
-       
-       <action name="Usuario" path="/AceptarPreregistro" scope="request" type="Actions.AceptarPreregistro">
-            <forward name="failure" path="accFallo"/>
-            <forward name="success" path="accExito" />
-            <forward name="error" path="agregUsuario"/>
-       </action>
-              
+       </action>             
 
        
        <action name="Usuario" path="/ModificarPerfil" scope="session" type="Actions.ModificarPerfil">
@@ -344,12 +314,7 @@
             <forward name="success" path="mostrarUsuario" />
             <forward name="postu" path="mostrarUsuarioPostulante" />
             <forward name="gestor" path="mostrarUsuarioGestor" />
-       </action>       
-       
-       <action name="Usuario" path="/ConsultarPreregistro" scope="session" type="Actions.ConsultarPreregistro">
-            <forward name="failure" path="accFallo"/>
-            <forward name="success" path="mostrarPreRegistro" />
-       </action>     
+       </action>          
        
      <!-- Acciones en Estudiante USB -->
      <action path="/EnviarCorreoEstUSB" type="Actions.EnviarCorreo" name="Contacto">

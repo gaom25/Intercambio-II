@@ -33,10 +33,7 @@
         <html:link action="/ListarUsuarios">
             <p align ="center">Consultar Usuarios</p>
         </html:link> 
-
-        <html:link action="/ListarPreregistro">
-            <p align ="center">Consultar Preregistro</p>
-        </html:link> 
+ 
     </body>
 </html:html>
 <%} else {%>

@@ -174,26 +174,6 @@ CREATE TABLE "dycicle".ADMINISTRADOR(
                 PRIMARY KEY(NombreUsuario)
 );
 
-/* Registro previo que realiza un visitante, para que luego el
- * administrador  le  cree  una  cuenta  como  Usuario      */
-CREATE TABLE "dycicle".PREREGISTRO(
-	NombreUsuario	VARCHAR(20)	NOT NULL,
-	Email		VARCHAR(30)	NOT NULL,
-	Nombre		VARCHAR(100)	NOT NULL,
-	Contrasena	VARCHAR(30)	NOT NULL,
-        FechaCreacion	DATE NOT NULL default CURRENT_DATE,
-	CONSTRAINT 	PK_PreUsuario	PRIMARY KEY (NombreUsuario)
-)
-WITH (
-OIDS = FALSE
-);
-
-/*Relacion que guarda el administrador con los preregistros que aprueba*/
-CREATE TABLE "dycicle".Aprueba(
-        NombreUsuarioAdmin  VARCHAR(20)    NOT NULL,
-        NombreUsuarioPreReg VARCHAR(20)    NOT NULL,
-        CONSTRAINT          PK_Aprueba PRIMARY KEY(NombreUsuarioAdmin, NombreUsuarioPreReg)      
-);
 
 /* Tabla almacena las noticias publicadas por un 
  * gestor ,  asi  como  sus  modificaciones   */
@@ -474,21 +454,6 @@ ALTER TABLE "dycicle".FINANCIAMIENTO ADD
 ALTER TABLE "dycicle".ADMINISTRADOR ADD
         CONSTRAINT FK_ADMINISTRADOR_USUARIO FOREIGN KEY (NombreUsuario)
                 REFERENCES "dycicle".USUARIO;   
-
-----------------------------PREREGISTRO--------------------------------
-/* Longitud de contrasena mayor a 6 caracteres para el preregistro*/
-ALTER TABLE "dycicle".PREREGISTRO ADD
-  CHECK (char_length(Contrasena) > 6);
-  
-----------------------------APRUEBA------------------------------
-/*Claves foraneas de Aprueba*/
-ALTER TABLE "dycicle".Aprueba ADD
-        CONSTRAINT FK_Aprueba_Admin FOREIGN KEY (NombreUsuarioAdmin)
-                REFERENCES "dycicle".ADMINISTRADOR(NombreUsuario);
-
-ALTER TABLE "dycicle".Aprueba ADD
-        CONSTRAINT FK_Aprueba_PreReg FOREIGN KEY (NombreUsuarioPreReg)
-                REFERENCES "dycicle".Preregistro(NombreUsuario);
 
 ----------------------------MANEJA------------------------------
 /* Claves foraneas de Maneja */

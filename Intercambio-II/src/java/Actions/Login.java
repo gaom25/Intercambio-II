@@ -58,9 +58,16 @@ public class Login extends org.apache.struts.action.Action {
         request.setCharacterEncoding("UTF-8");
         String answer = request.getParameter("answer");
         if (!captcha.isCorrect(answer)) {
+            error.add("captcha", new ActionMessage("error.captcha.invalido"));
+            saveErrors(request, error);
             huboError = true;
         }
 
+        if(answer.equals("")){
+            error.add("captcha", new ActionMessage("error.captcha.required"));
+            saveErrors(request, error);
+            huboError = true;
+        }
         if (u.getNombreusuario().equals("")) {
             error.add("nombreusuario", new ActionMessage("error.nombreusuario.required"));
             saveErrors(request, error);
