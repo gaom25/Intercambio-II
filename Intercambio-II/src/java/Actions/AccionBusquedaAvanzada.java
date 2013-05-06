@@ -60,9 +60,11 @@ public class AccionBusquedaAvanzada extends org.apache.struts.action.Action {
         ArrayList<Usuario> users = DBMS.getInstance().listarBusquedaAvanzada(busq);
         request.setAttribute("usuarios", users);
         if(busq.getConfirmar().compareTo("busqueda") == 0){
+            // Es una busqueda de Estudiantes Postulados
         return mapping.findForward(SUCCESS);
         }else{
-            return mapping.findForward("busqueda");
+            // Es una busqueda de Anuncios (Todos los Usuarios).
+            return mapping.findForward("anuncios");
         }
 
     }

@@ -2115,6 +2115,150 @@ public class DBMS {
 
     }
 
+     public ArrayList<Usuario> listarBusquedaAvanzadaAnuncios(Busqueda busqueda) {
+
+        ArrayList<Usuario> usrs = new ArrayList<Usuario>(0);
+        String sqlqueryu = "";
+        String query2 = "";
+        boolean iniciado = false;
+
+        if (!busqueda.getNombre().equalsIgnoreCase("")) {
+            if(busqueda.getNombre().toLowerCase().equals(busqueda.getNombre())){
+                char [] arreglo=busqueda.getNombre().toCharArray();
+                arreglo[0]=Character.toUpperCase(arreglo[0]);
+                busqueda.setNombre(new String(arreglo));
+            }
+            query2 += "PrimerNombre='" + busqueda.getNombre() + "'";
+            iniciado = true;
+
+
+        }
+
+        if (!busqueda.getApellido().equalsIgnoreCase("")) {
+            if(busqueda.getApellido().toLowerCase().equals(busqueda.getApellido())){
+                char [] arreglo=busqueda.getApellido().toCharArray();
+                arreglo[0]=Character.toUpperCase(arreglo[0]);
+                busqueda.setApellido(new String(arreglo));
+            }
+            if (iniciado) {
+                query2 += " AND ";
+            }
+            query2 += "PrimerApellido='" + busqueda.getApellido() + "'";
+            iniciado = true;
+
+        }
+
+
+        if (!busqueda.getCarnet().equalsIgnoreCase("")) {
+            if (iniciado) {
+                query2 += " AND ";
+            }
+            query2 += "Carnet='" + busqueda.getCarnet() + "'";
+            iniciado = true;
+
+        }
+
+        if (!busqueda.getIndice().equalsIgnoreCase("")) {
+            if (iniciado) {
+                query2 += " AND ";
+            }
+            query2 += "Indice " + busqueda.getIndice();
+            iniciado = true;
+        }
+
+
+        if (!busqueda.getIndicePonderado().equalsIgnoreCase("")) {
+            if (iniciado) {
+                query2 += " AND ";
+            }
+            query2 += "IndicePonderado " + busqueda.getIndicePonderado();
+            iniciado = true;
+        }
+
+        if (!busqueda.getCarrera().equalsIgnoreCase("")) {
+            if (iniciado) {
+                query2 += " AND ";
+            }
+            query2 += "Carrera='" + busqueda.getCarrera() + "'";
+            iniciado = true;
+        }
+        
+        
+        if (!busqueda.getPais().equalsIgnoreCase("")) {
+            if (iniciado) {
+                query2 += " AND ";
+            }
+            sqlqueryu += "NATURAL JOIN \"dycicle\".universidades ";
+            query2 += "Pais='" + busqueda.getPais() + "'";
+            iniciado = true;
+        }
+
+        if (!busqueda.getOpcion1().equalsIgnoreCase("")) {
+            if (iniciado) {
+                query2 += " AND ";
+            }
+            sqlqueryu += "NATURAL JOIN \"dycicle\".universidades ";
+            query2 += "NombreUni='" + busqueda.getOpcion1() + "'";
+            iniciado = true;
+        }
+
+
+        if (iniciado) {
+            try {
+                String sqlquery = "SELECT * FROM \"dycicle\".estudiante LEFT OUTER JOIN "
+                        + "\"dycicle\".usuario ON ("
+                        + "\"dycicle\".estudiante.primernombre = \"dycicle\".usuario.nombre)"
+                        + " NATURAL JOIN "
+                        + "\"dycicle\".postulacion NATURAL JOIN "
+                        + "\"dycicle\".estudianteusb NATURAL JOIN "
+                        + "\"dycicle\".antecedenteacademico ";
+
+                sqlquery += sqlqueryu;
+                sqlquery += "WHERE " + query2;
+
+                sqlquery += ";";
+                Statement stmt = conexion.createStatement();
+                ResultSet rs = stmt.executeQuery(sqlquery);
+
+                while (rs.next()) {
+                    Usuario u = new Usuario();
+                    u.setNombreusuario(rs.getString("nombreusuario"));
+                    u.setNombre(rs.getString("primernombre"));
+                    u.setEmail(rs.getString("email"));
+                    usrs.add(u);
+                };
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+            return usrs;
+        }
+
+        try {
+            String sqlquery = "SELECT * FROM \"dycicle\".estudiante LEFT OUTER JOIN "
+                        + "\"dycicle\".usuario ON ("
+                        + "\"dycicle\".estudiante.primernombre = \"dycicle\".usuario.nombre)"
+                        + " NATURAL JOIN "
+                    + " \"dycicle\".postulacion";
+            Statement stmt = conexion.createStatement();
+            ResultSet rs = stmt.executeQuery(sqlquery);
+
+            while (rs.next()) {
+                Usuario u = new Usuario();
+                u.setNombreusuario(rs.getString("nombreusuario"));
+                u.setNombre(rs.getString("primernombre"));
+                u.setEmail(rs.getString("email"));
+                usrs.add(u);
+            };
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return usrs;
+
+
+
+    }
+
     public String getPrivilegioUsuario(String nombreUsuario) {
         String result = null;
         PreparedStatement ps = null;

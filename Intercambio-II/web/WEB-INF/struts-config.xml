@@ -96,7 +96,7 @@
         <action name="BusquedaAvanzada" path="/AccionBusquedaAvanzada" scope="session" type="Actions.AccionBusquedaAvanzada">
            <forward name="failure" path="accFallo"/>
            <forward name="success" path="listarEstudiantesPostulados"/>
-           <forward name="busqueda" path="listarDestinatarios"/>
+           <forward name="anuncios" path="listarDestinatarios"/>
         </action>
         
         

@@ -575,7 +575,7 @@ INSERT INTO "dycicle".UNIVERSIDADES VALUES ('andrea',2,'Universidad del Valle','
 INSERT INTO "dycicle".IDIOMAS VALUES ( 'andrea','Ingles','Avanzado','Avanzado','Avanzado');
 
 /*INSERT de estudiantes de materiales*/
-INSERT INTO "dycicle".USUARIO VALUES ( 'sofia','sofia@gmail.com', 5, 'sofia', 'sofia1234');
+INSERT INTO "dycicle".USUARIO VALUES ( 'sofia','sofia@gmail.com', 5, 'Sofia', 'sofia1234');
 INSERT INTO "dycicle".ESTUDIANTE VALUES ( 'sofia',null,'Sofia','Luisa','Vergara','Mendoza','Ingenieria de Materiales',1500,'Femenino','Baruta','Piedra Azul','Dolores','S/N','Caracas','Miranda','1010','04266783899','02120928367','02127768367','sofia@gmail.com','15/10/1993','Venezolano',null);
 INSERT INTO "dycicle".ESTUDIANTEUSB VALUES ( 'sofia','20721013','08-10760');
 INSERT INTO "dycicle".ANTECEDENTEACADEMICO VALUES ('sofia','3.3745','3.5094','Estudios Profesionales','Ingenieria','Ingenieria de Materiales','opcion','160','2008','4','Alexander Ramirez','Carlitos Machado');
