@@ -2121,6 +2121,7 @@ public class DBMS {
         String sqlqueryu = "";
         String query2 = "";
         boolean iniciado = false;
+        boolean nombre = false;
 
         if (!busqueda.getNombre().equalsIgnoreCase("")) {
             if(busqueda.getNombre().toLowerCase().equals(busqueda.getNombre())){
@@ -2129,6 +2130,7 @@ public class DBMS {
                 busqueda.setNombre(new String(arreglo));
             }
             query2 += "PrimerNombre='" + busqueda.getNombre() + "'";
+            nombre=true;
             iniciado = true;
 
 
@@ -2205,18 +2207,13 @@ public class DBMS {
 
         if (iniciado) {
             try {
-                String sqlquery = "SELECT * FROM \"dycicle\".estudiante LEFT OUTER JOIN "
-                        + "\"dycicle\".usuario ON ("
-                        + "\"dycicle\".estudiante.primernombre = \"dycicle\".usuario.nombre)"
-                        + " NATURAL JOIN "
+                String sqlquery = "SELECT * FROM \"dycicle\".estudiante NATURAL JOIN "
                         + "\"dycicle\".postulacion NATURAL JOIN "
                         + "\"dycicle\".estudianteusb NATURAL JOIN "
                         + "\"dycicle\".antecedenteacademico ";
 
                 sqlquery += sqlqueryu;
-                sqlquery += "WHERE " + query2;
-
-                sqlquery += ";";
+                sqlquery += "WHERE " + query2 + ";";
                 Statement stmt = conexion.createStatement();
                 ResultSet rs = stmt.executeQuery(sqlquery);
 
@@ -2227,6 +2224,24 @@ public class DBMS {
                     u.setEmail(rs.getString("email"));
                     usrs.add(u);
                 };
+                
+                String sqlNoEstudiantes="SELECT * FROM \"dycicle\".usuario "
+                        + "WHERE privilegio <> 5";
+                if(nombre){
+                    sqlNoEstudiantes+=" AND nombre='"+busqueda.getNombre()+"';";
+                }
+                Statement stmt2 = conexion.createStatement();
+                ResultSet rs2 = stmt2.executeQuery(sqlNoEstudiantes);
+                
+                while (rs2.next()) {
+                    Usuario u = new Usuario();
+                    u.setNombreusuario(rs2.getString("nombreusuario"));
+                    u.setNombre(rs2.getString("nombre"));
+                    u.setEmail(rs2.getString("email"));
+                    usrs.add(u);
+                };
+                
+                
             } catch (SQLException ex) {
                 ex.printStackTrace();
             }
@@ -2234,18 +2249,14 @@ public class DBMS {
         }
 
         try {
-            String sqlquery = "SELECT * FROM \"dycicle\".estudiante LEFT OUTER JOIN "
-                        + "\"dycicle\".usuario ON ("
-                        + "\"dycicle\".estudiante.primernombre = \"dycicle\".usuario.nombre)"
-                        + " NATURAL JOIN "
-                    + " \"dycicle\".postulacion";
+            String sqlquery = "SELECT * FROM \"dycicle\".usuario;";
             Statement stmt = conexion.createStatement();
             ResultSet rs = stmt.executeQuery(sqlquery);
 
             while (rs.next()) {
                 Usuario u = new Usuario();
                 u.setNombreusuario(rs.getString("nombreusuario"));
-                u.setNombre(rs.getString("primernombre"));
+                u.setNombre(rs.getString("nombre"));
                 u.setEmail(rs.getString("email"));
                 usrs.add(u);
             };

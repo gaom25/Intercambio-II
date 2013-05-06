@@ -535,22 +535,22 @@ ALTER TABLE "dycicle".Gestiona ADD
 
 
 /* INSERT de un usuario administrador por defecto */
-INSERT INTO "dycicle".USUARIO VALUES ( 'admin','email@gmail.com', 1, 'Administrador', 'admin1234');
+INSERT INTO "dycicle".USUARIO VALUES ( 'admin','admin@sgi.com', 1, 'Administrador', 'admin1234');
 INSERT INTO "dycicle".ADMINISTRADOR VALUES ('admin');
 
 /*INSERT de gestor*/
 
-INSERT INTO "dycicle".USUARIO VALUES ( 'gestor','gestor@gmail.com', 2, 'Decanato', 'gestor1234');
+INSERT INTO "dycicle".USUARIO VALUES ( 'gestor','gestor@sgi.com', 2, 'Decanato', 'gestor1234');
 INSERT INTO "dycicle".GESTOR VALUES ('gestor','Decanato de Estudios Profesionales');
 
 /*INSERT de dos postulantes: Materiales y computacion*/
-INSERT INTO "dycicle".USUARIO VALUES ( 'materiales','@gmail.com', 3, 'Administrador', 'materiales1234');
+INSERT INTO "dycicle".USUARIO VALUES ( 'materiales','MaterialistasUnidos@gmail.com', 3, 'Materiales', 'materiales1234');
 INSERT INTO "dycicle".POSTULANTE VALUES ('materiales','1500','Coordinacion',null,'Ingenieria de Materiales');
-INSERT INTO "dycicle".USUARIO VALUES ( 'computacion','email@gmail.com', 3, 'Computacion', 'computacion1234');
+INSERT INTO "dycicle".USUARIO VALUES ( 'computacion','ComputistasLocos@gmail.com', 3, 'Computacion', 'computacion1234');
 INSERT INTO "dycicle".POSTULANTE VALUES ('computacion','0800','Coordinacion',null,'Ingenieria de Computacion');
 
 /*INSERT de estudiantes de computacion*/
-INSERT INTO "dycicle".USUARIO VALUES ( 'brahyam','ovasgus2508@gmail.com', 5, 'Brahyam', 'brahyam1234');
+INSERT INTO "dycicle".USUARIO VALUES ( 'brahyam','meneses.brahyam@gmail.com', 5, 'Brahyam', 'brahyam1234');
 INSERT INTO "dycicle".ESTUDIANTE VALUES ( 'brahyam',null,'Brahyam','Steffano','Meneses','Moreno','Ingenieria de Computacion',0800,'Masculino','La Candelaria','Este 7','Jamarco','11-B','Caracas','Distrito Capital','1010','04264603899','02125518367','02125518367','ovasgus2508@gmail.com','30/12/1990','Venezolano',null);
 INSERT INTO "dycicle".ESTUDIANTEUSB VALUES ( 'brahyam','19721013','08-10738');
 INSERT INTO "dycicle".ANTECEDENTEACADEMICO VALUES ('brahyam','3.6575','3.9565','Estudios Profesionales','Ingenieria','Ingenieria de Computacion','opcion','160','2008','4','Alexander Ramirez','Soraya Abad');

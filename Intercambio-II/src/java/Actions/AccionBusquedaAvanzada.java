@@ -57,13 +57,16 @@ public class AccionBusquedaAvanzada extends org.apache.struts.action.Action {
         {
             busq.setPais("");
         }
-        ArrayList<Usuario> users = DBMS.getInstance().listarBusquedaAvanzada(busq);
-        request.setAttribute("usuarios", users);
+        
         if(busq.getConfirmar().compareTo("busqueda") == 0){
             // Es una busqueda de Estudiantes Postulados
-        return mapping.findForward(SUCCESS);
+            ArrayList<Usuario> users = DBMS.getInstance().listarBusquedaAvanzada(busq);
+            request.setAttribute("usuarios", users);
+            return mapping.findForward(SUCCESS);
         }else{
             // Es una busqueda de Anuncios (Todos los Usuarios).
+            ArrayList<Usuario> users = DBMS.getInstance().listarBusquedaAvanzadaAnuncios(busq);
+            request.setAttribute("usuarios", users);
             return mapping.findForward("anuncios");
         }
 
