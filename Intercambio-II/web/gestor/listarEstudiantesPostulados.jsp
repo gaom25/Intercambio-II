@@ -43,7 +43,7 @@ window.onload=function(){
 
     <h4>Lista de Usuarios del Sistema:</h4>
 
-    <table order="0" style="margin: auto" class="altrowstable" id="alternatecolor">
+    <table style="margin: auto" class="altrowstable" id="alternatecolor">
         <tr>
             <th width="150px">
                 Nombre

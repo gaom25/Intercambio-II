@@ -17,20 +17,38 @@
 
     <script language="JavaScript">
         function submitForm() { document.ObtenerDatos.submit(); }
+        function altRows(id){
+            if(document.getElementsByTagName){  
+
+                    var table = document.getElementById(id);  
+                    var rows = table.getElementsByTagName("tr"); 
+
+                    for(i = 0; i < rows.length; i++){          
+                            if(i % 2 == 0){
+                                    rows[i].className = "evenrowcolor";
+                            }else{
+                                    rows[i].className = "oddrowcolor";
+                            }      
+                    }
+            }
+        }
+        window.onload=function(){
+            altRows('alternatecolor');
+        }
     </script>
 
     <h4>Lista de Usuarios del Sistema:</h4>
 
-    <table style="margin: auto" border=1>
+    <table  style="margin: auto" class="altrowstable" id="alternatecolor" >
         <tr>
             <td width="150px" align="center">
-                Nombre
+                <b>Nombre</b>
             </td>
             <td width="220px" align="center">
-                Email
+                <b>Email</b>
             </td>
             <td width="150px" align="center">
-                Destinatario
+                <b>Destinatario</b>
             </td>
 
         </tr>
