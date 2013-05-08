@@ -54,7 +54,7 @@
             <tr>
                 <td></td>
                 <td>
-                    <html:submit>Enviar Mensaje</html:submit></p>
+                    <html:submit>Enviar Mensaje</html:submit>
                 </td>
                 
             </tr>
