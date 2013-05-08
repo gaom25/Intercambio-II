@@ -60,7 +60,7 @@ table {
 }
 
 td {
-/*    background-color: rgba(0,0,255,0.1);*/
+    /*    background-color: rgba(0,0,255,0.1);*/
     margin-left: auto;
     margin-right: auto;
     color: black;
@@ -110,7 +110,7 @@ a:hover {
     height: 24px;
     padding-left: 4px;
     padding-right: 4px;
-    
+
 }
 
 #top-menu nav a{
@@ -128,7 +128,7 @@ a:hover {
     font-size: 0.8em;
     color: #1C6EA0;
 }
-			
+
 .nav li a:hover{
     color: white;
     background-color: #42a142;
@@ -136,7 +136,7 @@ a:hover {
 }
 
 .nav > li{
-	float:left;	
+    float:left;	
 }
 
 #login-form{
@@ -154,14 +154,14 @@ a:hover {
 }
 
 #sidebarR {
-    
+
     width: 150px;
     float: right;
     margin-top: 50px;
 }
 
 #sidebarL {
-    
+
     width: 170px;
     float: left;
     margin-top: 50px;
@@ -232,33 +232,63 @@ a:hover {
 }
 
 table.altrowstable th {
-	background-color: #126598;
-	border-width: 1px;
-	border-color: #a9c6c9;
-	border-collapse: collapse;
-        color: #000000;
-        font-weight: bold;
+    background-color: #126598;
+    border-width: 1px;
+    border-color: #a9c6c9;
+    border-collapse: collapse;
+    color: #000000;
+    font-weight: bold;
 }
 
 table.altrowstable {
-	color:#333333;
-	border-width: 1px;
-	border-color: #a9c6c9;
-	border-collapse: collapse;
+    color:#333333;
+    border-width: 1px;
+    border-color: #a9c6c9;
+    border-collapse: collapse;
 }
 table.altrowstable tr {
-	border-width: 1px;
-	border-style: solid;
-	border-color: #a9c6c9;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #a9c6c9;
 }
 table.altrowstable td {
-	border-width: 1px;
-	border-style: solid;
-	border-color: #a9c6c9;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #a9c6c9;
 }
 .oddrowcolor{
     background-color:#e6f0ef;
 }
 .evenrowcolor{
-	background-color:#c3dde0;
+    background-color:#c3dde0;
+}
+
+/*Paginacion*/
+#items
+{
+    list-style-type: none;
+    display: table;
+    text-align: center;
+}
+ol#pagination {
+    width: 700px;
+    position: static;
+    bottom: -10px;
+}
+
+.current{
+    color:#FF0000;
+}
+
+ol#pagination li {
+    display:block;
+    float: left;
+    width: 100px;
+    background-color:#00CCFF;
+    text-decoration-color: #000000;
+    border-width: 1px;
+    border-style:solid;
+    border-color:#000000;
+    text-align: center;
+
 }

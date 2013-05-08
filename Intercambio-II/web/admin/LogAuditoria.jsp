@@ -12,42 +12,57 @@
 
 <!DOCTYPE html>
 <html>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>SGI - Log Auditoria</title>
 
-        <script language="JavaScript">
-            function submitForm() { document.ObtenerDatos.submit(); }
-        </script>
+    <script src="/Intercambio-II/css/jquery-1.8.2.min.js"></script>
+    <script  src="/Intercambio-II/css/easypaginate.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>SGI - Log Auditoria</title>
 
-            <h4>Log de Auditoria</h4>
-            <table style="margin: auto">
-                <tr>
-                    <td width="150px">
-                        Usuario
-                    </td>
-                    <td width="220px" align="center">
-                        Fecha
-                    </td>
-                    <td width="220px" align="center">
-                        Accion
-                    </td>
-                </tr>
-            </table>
-            <logic:iterate name="usuario" id="usuarioid">
-                <table border="0" style="margin: auto">
-                    <tbody>
-                        <tr>
-                            <td width="150px">
-                                <bean:write name="usuarioid" property="nombreusuario" />
-                            </td>
-                            <td align="center" width="220px">
-                                <bean:write name="usuarioid" property="nombre" />
-                            </td>
-                            <td align="center" width="220px">
-                                <bean:write name="usuarioid" property="confirmar" />
-                            </td>
-                        </tr>
-                    </tbody>
+    <script type="text/javascript">
+  
+        jQuery(function($){ 
+            $('ul#items').easyPaginate({
+                step:6   
+            });
+        }); 
+  
+    </script>
+
+
+    <h4>Log de Auditoria</h4>
+    <table style="margin: auto">
+        <tr>
+            <td width="150px">
+                Usuario
+            </td>
+            <td width="220px" align="center">
+                Fecha
+            </td>
+            <td width="220px" align="center">
+                Accion
+            </td>
+        </tr>
+    </table>
+    <ul id="items" >
+        <logic:iterate name="usuario" id="usuarioid">
+            <li>
+                <table>
+                    <tr>
+                        <td width="200px">
+                            <bean:write name="usuarioid" property="nombreusuario" />
+                        </td>
+                        <td width="260px">
+                            <bean:write name="usuarioid" property="nombre" />
+                        </td>
+                        <td width="220px">
+                            <bean:write name="usuarioid" property="confirmar" />
+                        </td>
+
+                    </tr>
                 </table>
-            </logic:iterate>
+            </li>
+        </logic:iterate>
+    </ul>
+
+
 </html>
