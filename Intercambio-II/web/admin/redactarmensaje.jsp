@@ -15,26 +15,49 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Redactar mensaje</title>
     </head>
+    <br></br><br></br><br></br>
+    
     <html:form action="/RedactarMensaje" method="POST" acceptCharset="ISO-8859-1" enctype="multipart/form-data" onsubmit="return(this)">
-        <div>
-            Asunto
-        </div>
-        
-        <html:text name="Anuncio" property="titulo" value=""/>
-        <br/>
-
-        
-        <logic:iterate id="usuarios" name="usuarios">  
-            <bean:write name="usuarios" property="nombreusuario"></bean:write>
-            <input type="hidden" name="emails" value=<bean:write name="usuarios" property="email"></bean:write>/>
-            
-        </logic:iterate>   
-
-        <div>
-            Mensaje
-        </div>
-        <html:textarea name="Anuncio" property="mensaje"/>
-        
-         <p style="text-align: center"><html:submit>Enviar Mensaje</html:submit></p>
+        <table style=" alignment-baseline: central; border:none; vertical-align: middle">
+            <tr>
+                <td></td>
+                <td><h1 style="alignment-baseline: central">Envio de Anuncios</h3></td>
+            </tr>
+            <tr>
+                <td>
+                    <b>Asunto: </b>
+                </td>
+                <td>
+                    <html:text name="Anuncio" property="titulo" value=""/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>Destinatarios: </b>
+                </td>
+                <td>
+                     <logic:iterate id="usuarios" name="usuarios">
+                         <bean:write name="usuarios" property="nombreusuario"></bean:write>
+                         <input type="hidden" name="emails" value=<bean:write name="usuarios" property="email"></bean:write>/>
+                     </logic:iterate>   
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>Mensaje:</b>
+                </td>
+                <td>
+                    <html:textarea name="Anuncio" property="mensaje" rows="6" cols="30"/>
+                </td>
+                
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <html:submit>Enviar Mensaje</html:submit></p>
+                </td>
+                
+            </tr>
+        </table>
     </html:form>
 </html>
