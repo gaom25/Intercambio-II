@@ -1367,7 +1367,7 @@
                                 </tr>
                                 <tr>
                                     <td><INPUT type="checkbox" name="chk[]"/></td>
-                                    <td>Planilla CINDA/SMILE</td>
+                                    <td><a style="color: red; font-size: 14px; font-weight: bold">*</a>Planilla CINDA/SMILE</td>
                                     <td valign="middle">
                                         <div id="archivos" >
                                             <div class="feed">  
@@ -1381,6 +1381,7 @@
                             </tbody>
                         </table>  
                     </div>
+                    <p style="color: red; font-size: 12px; font-weight: bold">*Sólo para quienes hayan aplicado a uno de estos programas</p> 
                     <input type="button" value="Seleccionar Otro Documento" style="font-size:12px; padding:4px 6px" onclick="addRow('dataBody')">
                     <input type="button" value="Eliminar Documentos Seleccionados" style="font-size:12px; padding:4px 6px" onclick="deleteRow('dataTable')"/>
 
