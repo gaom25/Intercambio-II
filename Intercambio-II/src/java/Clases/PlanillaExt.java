@@ -68,10 +68,8 @@ public class PlanillaExt extends org.apache.struts.action.ActionForm {
 
     
     //Representante
-    private String apellidoRep1;  //db
-    private String apellidoRep2;  //db
-    private String nombreRep1;
-    private String nombreRep2;
+    private String apellidosRep;  //db
+    private String nombresRep;
     private String celRep;              //db
     private String tlfRepCasa;              //db    
     private String emailRep;            //db
@@ -391,36 +389,20 @@ public class PlanillaExt extends org.apache.struts.action.ActionForm {
         this.comentarioRecomendacion = comentarioRecomendacion;
     }
 
-    public String getApellidoRep1() {
-        return apellidoRep1;
+     public String getNombresRep() {
+        return nombresRep;
     }
 
-    public void setApellidoRep1(String apellidoRep1) {
-        this.apellidoRep1 = apellidoRep1;
+    public void setNombresRep(String nombresRep) {
+        this.nombresRep = nombresRep;
+    }
+    
+    public String getApellidosRep() {
+        return apellidosRep;
     }
 
-    public String getApellidoRep2() {
-        return apellidoRep2;
-    }
-
-    public void setApellidoRep2(String apellidoRep2) {
-        this.apellidoRep2 = apellidoRep2;
-    }
-
-    public String getNombreRep1() {
-        return nombreRep1;
-    }
-
-    public void setNombreRep1(String nombreRep1) {
-        this.nombreRep1 = nombreRep1;
-    }
-
-    public String getNombreRep2() {
-        return nombreRep2;
-    }
-
-    public void setNombreRep2(String nombreRep2) {
-        this.nombreRep2 = nombreRep2;
+    public void setApellidosRep(String apellidosRep) {
+        this.apellidosRep = apellidosRep;
     }
 
     public String getCelRep() {

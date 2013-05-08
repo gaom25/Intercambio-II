@@ -945,11 +945,9 @@ public class DBMS {
                 String sqlqueryRepresentante;
                 if (rs.next()) {
                     sqlqueryRepresentante = "UPDATE \"dycicle\".Representante SET "
-                            + "NombreUsuario = '" + p.getNombreUsuario() + "',"
-                            + "pNombre = '" + p.getNombreRep1() + "', "
-                            + "sNombre = '" + p.getNombreRep2() + "', "
-                            + "pApellido = '" + p.getApellidoRep1() + "', "
-                            + "sApellido = '" + p.getApellidoRep2() + "', "
+                            + "NombreUsuario = '" + p.getNombreUsuario() + "', "
+                            + "Nombres = '" + p.getNombresRep() + "', "
+                            + "Apellidos = '" + p.getApellidosRep() + "', "
                             + "TelefonoCel= '" + p.getCelRep() + "', "
                             + "TelefonoHab= '" + p.getTlfRepCasa() + "', "
                             + "EmailRep= '" + p.getEmailRep() + "', "
@@ -960,10 +958,8 @@ public class DBMS {
                     // Datos del representante
                     sqlqueryRepresentante = "INSERT INTO \"dycicle\".Representante VALUES ("
                             + "'" + p.getNombreUsuario() + "', "
-                            + "'" + p.getNombreRep1() + "', "
-                            + "'" + p.getNombreRep2() + "', "
-                            + "'" + p.getApellidoRep1() + "', "
-                            + "'" + p.getApellidoRep2() + "', "
+                            + "'" + p.getNombresRep() + "', "
+                            + "'" + p.getApellidosRep() + "', "
                             + "'" + p.getCelRep() + "', "
                             + "'" + p.getTlfRepCasa() + "', "
                             + "'" + p.getEmailRep() + "', "
@@ -1066,17 +1062,36 @@ public class DBMS {
                     + "UniOrigen = '" + p.getNombreUniOrigen() + "';";
 
             // Datos del representante
-            String sqlqueryRepresentante = "INSERT INTO \"dycicle\".Representante VALUES ("
-                    + "'" + p.getNombreUsuario() + "', "
-                    + "'" + p.getNombreRep1() + "', "
-                    + "'" + p.getNombreRep2() + "', "
-                    + "'" + p.getApellidoRep1() + "', "
-                    + "'" + p.getApellidoRep2() + "', "
-                    + "'" + p.getCelRep() + "', "
-                    + "'" + p.getTlfRepCasa() + "', "
-                    + "'" + p.getEmailRep() + "', "
-                    + "'" + p.getRelacion() + "', "
-                    + "'" + p.getDireccionRep() + "');";
+            //Verificamos si el estudiante tiene algun representante ya creado
+            
+            String sqlqueryRep = "SELECT nombreusuario FROM \"dycicle\".representante WHERE"
+                        + " nombreusuario='" + p.getNombreUsuario() + "';";
+            Statement stmt = conexion.createStatement();
+            ResultSet rs = stmt.executeQuery(sqlqueryRep);
+
+             String sqlqueryRepresentante;
+             if (rs.next()) {
+                sqlqueryRepresentante = "UPDATE \"dycicle\".Representante SET "
+                        + "NombreUsuario = '" + p.getNombreUsuario() + "', "
+                        + "Nombres = '" + p.getNombresRep() + "', "
+                        + "Apellidos = '" + p.getApellidosRep() + "', "
+                        + "TelefonoCel= '" + p.getCelRep() + "', "
+                        + "TelefonoHab= '" + p.getTlfRepCasa() + "', "
+                        + "EmailRep= '" + p.getEmailRep() + "', "
+                        + "TipoRelacion= '" + p.getRelacion() + "', "
+                        + "Direccion = '" + p.getDireccionRep() + "';";
+             } else {
+                sqlqueryRepresentante = "INSERT INTO \"dycicle\".Representante VALUES ("
+                + "'" + p.getNombreUsuario() + "', "
+                + "'" + p.getNombresRep() + "', "
+                + "'" + p.getApellidosRep() + "', "
+                + "'" + p.getCelRep() + "', "
+                + "'" + p.getTlfRepCasa() + "', "
+                + "'" + p.getEmailRep() + "', "
+                + "'" + p.getRelacion() + "', "
+                + "'" + p.getDireccionRep() + "');";
+             }
+            
 
             //Antecedentes Academicos
             String sqlqueryAntecedente = "UPDATE \"dycicle\".AntecedenteAcademico SET "
@@ -1097,9 +1112,6 @@ public class DBMS {
                     + "'" + p.getNombrePrograma() + "', "
                     + "'null', 'null', 'null', 'null', "
                     + "'" + p.getDuracionPrograma() + "');";
-
-
-            Statement stmt = conexion.createStatement();
 
 
             Integer i = stmt.executeUpdate(sqlqueryEstudiante);
@@ -1332,10 +1344,8 @@ public class DBMS {
             datos.setEmail(rs.getString("Email"));
             datos.setFechaNacimiento(rs.getString("FechaNac"));
             datos.setNacionalidad(rs.getString("Nacionalidad"));
-            datos.setApellidoRep1(rs2.getString("pApellido"));
-            datos.setApellidoRep2(rs2.getString("sApellido"));
-            datos.setNombreRep1(rs2.getString("pNombre"));
-            datos.setNombreRep2(rs2.getString("sNombre"));
+            datos.setApellidosRep(rs2.getString("Apellidos"));
+            datos.setNombresRep(rs2.getString("Nombres"));
             datos.setCelRep(rs2.getString("TelefonoCel"));
             datos.setTlfRepCasa(rs2.getString("TelefonoHab"));
             datos.setEmailRep(rs2.getString("EmailRep"));
@@ -1430,10 +1440,8 @@ public class DBMS {
             datos.setEmail(rs.getString("Email"));
             datos.setFechaNacimiento(rs.getString("FechaNac"));
             datos.setNacionalidad(rs.getString("Nacionalidad"));
-            datos.setApellidoRep1(rs2.getString("pApellido"));
-            datos.setApellidoRep2(rs2.getString("sApellido"));
-            datos.setNombreRep1(rs2.getString("pNombre"));
-            datos.setNombreRep2(rs2.getString("sNombre"));
+            datos.setApellidosRep(rs2.getString("Apellidos"));
+            datos.setNombresRep(rs2.getString("Nombres"));
             datos.setCelRep(rs2.getString("TelefonoCel"));
             datos.setTlfRepCasa(rs2.getString("TelefonoHab"));
             datos.setEmailRep(rs2.getString("EmailRep"));
@@ -1500,10 +1508,8 @@ public class DBMS {
                 String sqlqueryRepresentante;
                 if (rs.next()) {
                     sqlqueryRepresentante = "UPDATE \"dycicle\".Representante SET "
-                            + "pNombre = '" + p.getNombreRep1() + "', "
-                            + "sNombre = '" + p.getNombreRep2() + "', "
-                            + "pApellido = '" + p.getApellidoRep1() + "', "
-                            + "sApellido = '" + p.getApellidoRep2() + "', "
+                            + "Nombres = '" + p.getNombresRep() + "', "
+                            + "Apellidos = '" + p.getApellidosRep() + "', "
                             + "TelefonoCel= '" + p.getCelRep() + "', "
                             + "TelefonoHab= '" + p.getTlfRepCasa() + "', "
                             + "EmailRep= '" + p.getEmailRep() + "', "
@@ -1514,10 +1520,8 @@ public class DBMS {
                     // Datos del representante
                     sqlqueryRepresentante = "INSERT INTO \"dycicle\".Representante VALUES ("
                             + "'" + p.getNombreUsuario() + "', "
-                            + "'" + p.getNombreRep1() + "', "
-                            + "'" + p.getNombreRep2() + "', "
-                            + "'" + p.getApellidoRep1() + "', "
-                            + "'" + p.getApellidoRep2() + "', "
+                            + "'" + p.getNombresRep() + "', "
+                            + "'" + p.getApellidosRep() + "', "
                             + "'" + p.getCelRep() + "', "
                             + "'" + p.getTlfRepCasa() + "', "
                             + "'" + p.getEmailRep() + "', "

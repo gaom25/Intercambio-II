@@ -1203,37 +1203,23 @@
                             <tbody>
 
                                 <tr>
-                                    <td> Primer Apellido: </td>
+                                    <td> Apellidos: </td>
                                     <td>
-                                        <html:text name="PlanillaExt" property="apellidoRep1" maxlength="80"  errorStyleClass="error"
+                                        <html:text name="PlanillaExt" property="apellidosRep" maxlength="80"  errorStyleClass="error"
                                                    errorKey="org.apache.struts.action.ERROR">
                                         </html:text>
                                     </td>
                                 </tr>                     
+                                                                
                                 <tr>
-                                    <td> Segundo Apellido: </td>
+                                    <td> Nombres: </td>
                                     <td>
-                                        <html:text name="PlanillaExt" property="apellidoRep2" maxlength="80"  errorStyleClass="error"
-                                                   errorKey="org.apache.struts.action.ERROR">
-                                        </html:text>
-                                    </td>
-                                </tr>                                     
-                                <tr>
-                                    <td> Primer Nombre: </td>
-                                    <td>
-                                        <html:text name="PlanillaExt" property="nombreRep1" maxlength="80"  errorStyleClass="error"
+                                        <html:text name="PlanillaExt" property="nombresRep" maxlength="80"  errorStyleClass="error"
                                                    errorKey="org.apache.struts.action.ERROR">
                                         </html:text>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td> Segundo Nombre: </td>
-                                    <td>
-                                        <html:text name="PlanillaExt" property="nombreRep2" maxlength="80"  errorStyleClass="error"
-                                                   errorKey="org.apache.struts.action.ERROR">
-                                        </html:text>
-                                    </td>
-                                </tr> 
+                                
                                 <tr>
                                     <td> Teléfono Celular: </td>
                                     <td>
