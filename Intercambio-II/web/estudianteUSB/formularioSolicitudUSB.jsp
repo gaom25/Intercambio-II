@@ -700,7 +700,7 @@
         <a href="#" onclick=" if (true) show('datosplanilla'), hide('archivos'),hide('plan'),hide('idio')"> Llenar Formulario de Datos </a>
     </div>
 
-    <div id="datosplanilla" style="display: none">
+    <div id="datosplanilla" style="display: none ; width: 92%;">
         <div>
             <div align=center>
 
@@ -1482,7 +1482,7 @@
     <div class="nav" style="text-align: center;">
         <a href="#" onclick=" if (true) hide('datosplanilla'), show('archivos'),hide('plan'),hide('idio')"> Documentos requeridos </a>
     </div>
-    <div id="archivos" style="display: none">
+    <div id="archivos" style="display: none; width: 88%;">
         <div style="width:auto;height:auto;border:6px solid  #F9F4CF; border-color: #F9F4CF; border-radius: 10px; border-width:5px;">
 
             <div align=center>
@@ -1570,7 +1570,7 @@
         <a href="#" onclick=" if (true) hide('datosplanilla'), hide('archivos'),show('plan'),hide('idio')"> Plan de Estudio </a>
     </div>
 
-    <div id="plan" style="display: none">
+    <div id="plan" style="display: none; width: 88%;">
 
         <div style="width:auto;height:auto;border:6px solid #F9F4CF; border-color: #F9F4CF; border-radius: 10px; border-width:5px;">
             <div align=center>
@@ -1657,7 +1657,7 @@
         <a href="#" onclick=" if (true) hide('datosplanilla'), hide('archivos'),hide('plan'),show('idio')"> Dominio de idiomas</a>
     </div>
 
-    <div id="idio" style="display: none">
+    <div id="idio" style="display: none; width: 88%;">
         <div style="width:auto;height:auto;border:6px solid #F9F4CF; border-color: #F9F4CF; border-radius: 10px; border-width:5px;">
             <div align=center>
                 <html:form action="/CargarIdioma" method="post" acceptCharset="ISO-8859-1" enctype="multipart/form-data">
@@ -1674,7 +1674,7 @@
                                 <td> Idioma que maneja:</td>
 
                                 <td>
-                                    <html:text name="Idiomas" property="idiomaDest[0]" maxlength="45" errorStyleClass="error"
+                                    <html:text name="Idiomas" property="idiomaDest[0]" maxlength="45" style="width:77px;" errorStyleClass="error"
                                                errorKey="org.apache.struts.action.ERROR">
                                     </html:text>
                                 </td>
@@ -1683,7 +1683,7 @@
 
                                 <td>
 
-                                    <html:select property="nivelVerbal[0]" errorStyleClass="error" errorKey="org.apache.struts.action.ERROR">
+                                    <html:select property="nivelVerbal[0]" style="width:50px;" errorStyleClass="error" errorKey="org.apache.struts.action.ERROR">
                                         <html:option value=""></html:option>
                                         <html:option value="Basico">Basico</html:option>
                                         <html:option value="Intermedio">Intermedio</html:option>
@@ -1694,7 +1694,7 @@
                                 <td>Nivel Escrito</td>
 
                                 <td>
-                                    <html:select property="nivelEscrito[0]" errorStyleClass="error" errorKey="org.apache.struts.action.ERROR">
+                                    <html:select property="nivelEscrito[0]" style="width:50px;" errorStyleClass="error" errorKey="org.apache.struts.action.ERROR">
                                         <html:option value=""></html:option>
                                         <html:option value="Basico">Basico</html:option>
                                         <html:option value="Intermedio">Intermedio</html:option>
@@ -1705,7 +1705,7 @@
                                 <td>Nivel Conversacional</td>
 
                                 <td>
-                                    <html:select property="nivelConversacional[0]" errorStyleClass="error" errorKey="org.apache.struts.action.ERROR">
+                                    <html:select property="nivelConversacional[0]" style="width:50px;" errorStyleClass="error" errorKey="org.apache.struts.action.ERROR">
                                         <html:option value=""></html:option>
                                         <html:option value="Basico">Basico</html:option>
                                         <html:option value="Intermedio">Intermedio</html:option>
