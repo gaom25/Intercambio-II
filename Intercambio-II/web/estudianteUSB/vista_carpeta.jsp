@@ -16,6 +16,8 @@
     <div style="text-align: center;">
         <h1>Carpeta creada exitosamente</h1>
         
+        <embed src="<%=var%>"/>
+        
         <html:image src="images/correct.png" /> 
         <br />
         

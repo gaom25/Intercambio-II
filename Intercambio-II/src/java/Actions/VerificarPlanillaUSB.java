@@ -59,6 +59,8 @@ public class VerificarPlanillaUSB extends org.apache.struts.action.Action {
         String nom = u.getNombreusuario();
         String filePath =
                 getServlet().getServletContext().getRealPath("/") + "Documentos/" + nom;
+        String path =
+                getServlet().getServletContext().getRealPath("/") + "images/";
 
 
         // HACER AQUI LAS VALIDACIONES, PARA LUEGO REENVIAR A MODIFICAR PLANILLA
@@ -300,7 +302,7 @@ public class VerificarPlanillaUSB extends org.apache.struts.action.Action {
 
             GeneradorPlanillas g = new GeneradorPlanillas();
             //boolean ha = g.generarPlanillaUSB(p, filePath);
-            boolean ha = g.generarPlanillaUSB(p, filePath, materias, idiomas);
+            boolean ha = g.generarPlanillaUSB(p, filePath, materias, idiomas,path);
 
             if (p == null & ha & !DBMS.getInstance().InsertarPath(filePath, u)) {
                 return mapping.findForward(ERROR);
