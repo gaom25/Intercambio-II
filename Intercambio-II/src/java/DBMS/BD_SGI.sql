@@ -143,10 +143,8 @@ CREATE TABLE "dycicle".PlanEstudio(
  * de los representantes de un estudiante en particular */
 CREATE TABLE "dycicle".REPRESENTANTE(
        NombreUsuario   VARCHAR(20)     NOT NULL,
-       pNombre         VARCHAR(30)     NOT NULL,
-       sNombre         VARCHAR(30),
-       pApellido       VARCHAR(30)     NOT NULL,
-       sApellido       VARCHAR(30),
+       Nombres         VARCHAR(60)     NOT NULL,
+       Apellidos       VARCHAR(60)     NOT NULL,
        TelefonoCel     VARCHAR(30)     NOT NULL,
        TelefonoHab     VARCHAR(30),
        EmailRep        VARCHAR(30)     NOT NULL,
@@ -242,18 +240,6 @@ CREATE TABLE "dycicle".GESTOR(
 	NombreUsuario	VARCHAR(20)	NOT NULL,
         Nombre          VARCHAR(100)     NOT NULL,
 	CONSTRAINT	PK_GESTOR	PRIMARY KEY (NombreUsuario)
-)
-WITH (
-OIDS = FALSE
-);
-
-/* Un usuario puede enviarle una notificacion a otro usuario */
-CREATE TABLE "dycicle".Notificar(
-	Nom_Emisor	VARCHAR(20)	NOT NULL,
-	Nom_Dest	VARCHAR(20)	NOT NULL,
-        Fecha           DATE            NOT NULL default CURRENT_DATE,
-        Asunto          VARCHAR(30)     NOT NULL,
-	CONSTRAINT	PK_Notificar	PRIMARY KEY (Nom_Emisor, Nom_Dest)
 )
 WITH (
 OIDS = FALSE
@@ -498,16 +484,6 @@ ALTER TABLE "dycicle".POSTULACION ADD
 ALTER TABLE "dycicle".GESTOR ADD
   CONSTRAINT FK_GESTOR_Usuario FOREIGN KEY (NombreUsuario)
     REFERENCES "dycicle".USUARIO;
-    
------------------------------NOTIFICAR--------------------------------    
-/* Claves foraneas de Notificar */
-ALTER TABLE "dycicle".Notificar ADD
-  CONSTRAINT FK_Notificar_UsuarioEmisor FOREIGN KEY (Nom_Emisor)
-    REFERENCES "dycicle".USUARIO (NombreUsuario);
-
-ALTER TABLE "dycicle".Notificar ADD
-  CONSTRAINT FK_Notificar_UsuarioDestinatario FOREIGN KEY (Nom_Dest)
-    REFERENCES "dycicle".USUARIO (NombreUsuario);
     
 -----------------------------UNIVERSIDADES------------------------------
 /*La prioridad de una universidad es 1 o 2 segun sea primera o segunda opcion*/

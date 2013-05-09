@@ -1396,37 +1396,23 @@
                             <tbody>
 
                                 <tr>
-                                    <td> Primer Apellido: </td>
+                                    <td> Apellidos: </td>
                                     <td>
-                                        <html:text name="PlanillaUSB" property="apellidoRep1" maxlength="80"  errorStyleClass="error"
+                                        <html:text name="PlanillaUSB" property="apellidosRep" maxlength="80"  errorStyleClass="error"
                                                    errorKey="org.apache.struts.action.ERROR">
                                         </html:text>
                                     </td>
                                 </tr>                     
+                                                                    
                                 <tr>
-                                    <td> Segundo Apellido: </td>
+                                    <td> Nombres: </td>
                                     <td>
-                                        <html:text name="PlanillaUSB" property="apellidoRep2" maxlength="80"  errorStyleClass="error"
-                                                   errorKey="org.apache.struts.action.ERROR">
-                                        </html:text>
-                                    </td>
-                                </tr>                                     
-                                <tr>
-                                    <td> Primer Nombre: </td>
-                                    <td>
-                                        <html:text name="PlanillaUSB" property="nombreRep1" maxlength="80"  errorStyleClass="error"
+                                        <html:text name="PlanillaUSB" property="nombresRep" maxlength="80"  errorStyleClass="error"
                                                    errorKey="org.apache.struts.action.ERROR">
                                         </html:text>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td> Segundo Nombre: </td>
-                                    <td>
-                                        <html:text name="PlanillaUSB" property="nombreRep2" maxlength="80"  errorStyleClass="error"
-                                                   errorKey="org.apache.struts.action.ERROR">
-                                        </html:text>
-                                    </td>
-                                </tr> 
+                                 
                                 <tr>
                                     <td> Teléfono Celular: </td>
                                     <td>
@@ -1494,7 +1480,7 @@
     <!-- CARGA DE DOCUMENTOS -->
 
     <div class="nav" style="text-align: center;">
-        <a href="#" onclick=" if (true) hide('datosplanilla'), show('archivos'),hide('plan'),hide('idio')"> Adjuntar archivos </a>
+        <a href="#" onclick=" if (true) hide('datosplanilla'), show('archivos'),hide('plan'),hide('idio')"> Documentos requeridos </a>
     </div>
     <div id="archivos" style="display: none">
         <div style="width:auto;height:auto;border:6px solid  #F9F4CF; border-color: #F9F4CF; border-radius: 10px; border-width:5px;">
@@ -1550,7 +1536,7 @@
                                 </tr>
                                 <tr>
                                     <td><INPUT type="checkbox" name="chk[]"/></td>
-                                    <td>Planilla CINDA/SMILE:</td>
+                                    <td><a style="color: red; font-size: 14px; font-weight: bold">*</a>Planilla CINDA/SMILE</td>
                                     <td valign="middle">
                                         <div id="archivos" >
                                             <div class="feed">  
@@ -1565,6 +1551,7 @@
                             </tbody>
                         </table>  
                     </div>
+                    <p style="color: red; font-size: 12px; font-weight: bold">*Sólo para quienes hayan aplicado a uno de estos programas</p>  
                     <input type="button" value="Seleccionar Otro Documento" style="font-size:12px; padding:4px 6px" onclick="addRow('dataBody')">
                     <input type="button" value="Eliminar Documentos Seleccionados" style="font-size:12px; padding:4px 6px" onclick="deleteRow('dataTable')"/>
 
@@ -1580,7 +1567,7 @@
     <!--Carga Materias-->
 
     <div class="nav" style="text-align: center;">
-        <a href="#" onclick=" if (true) hide('datosplanilla'), hide('archivos'),show('plan'),hide('idio')"> Cargar Plan de Estudio </a>
+        <a href="#" onclick=" if (true) hide('datosplanilla'), hide('archivos'),show('plan'),hide('idio')"> Plan de Estudio </a>
     </div>
 
     <div id="plan" style="display: none">
@@ -1667,7 +1654,7 @@
 
 
     <div class="nav" style="text-align: center;">
-        <a href="#" onclick=" if (true) hide('datosplanilla'), hide('archivos'),hide('plan'),show('idio')"> Cargar Idiomas </a>
+        <a href="#" onclick=" if (true) hide('datosplanilla'), hide('archivos'),hide('plan'),show('idio')"> Dominio de idiomas</a>
     </div>
 
     <div id="idio" style="display: none">

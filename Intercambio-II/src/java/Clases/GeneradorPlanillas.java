@@ -566,12 +566,13 @@ public class GeneradorPlanillas {
             titulo = new Phrase("DATOS DE CONTACTO EN CASO DE EMERGENCIA  ", fontTitulos);
             ct.setSimpleColumn(titulo, 70, 170, 450, 190, 20, Element.ALIGN_LEFT);
             ct.go();
+            
             //Nombre Contacto
-            campo = new Phrase("26.-Nombre Contacto:  " + p.getNombreRep1() + " " + p.getNombreRep2(), fontCampo);
+            campo = new Phrase("26.-Nombre Contacto:  " + p.getNombresRep() , fontCampo);
             ct.setSimpleColumn(campo, 70, 150, 300, 160, 10, Element.ALIGN_LEFT);
             ct.go();
             //Apellido Contacto
-            campo = new Phrase("27.-Apellido Contacto:  " + p.getApellidoRep1() + " " + p.getApellidoRep2() , fontCampo);
+            campo = new Phrase("27.-Apellido Contacto:  " + p.getApellidosRep() , fontCampo);
             ct.setSimpleColumn(campo, 310, 150, 500, 160, 10, Element.ALIGN_LEFT);
             //Tlf. Habitació    n Contacto
             campo = new Phrase("28.-Tlf. Habitación Contacto:  " + p.getTlfRepCasa() , fontCampo);
@@ -1228,14 +1229,14 @@ public Boolean generarPlanillaExt(PlanillaExt p, String path, PlanExtranjero pla
             ct.go();
             
             //Nombre Contacto
-            campo = new Phrase("23.-Nombre Contacto:  "+ p.getNombreRep1() + " "+ p.getNombreRep2() , fontCampo);
+            campo = new Phrase("23.-Nombre Contacto:  "+ p.getNombresRep() , fontCampo);
             ct.setSimpleColumn(campo, 70, 220, 300, 230, 10, Element.ALIGN_LEFT);
             ct.go();
             campo = new Phrase("Contact Name" , fontPequena);
             ct.setSimpleColumn(campo, 90, 213, 300, 223, 10, Element.ALIGN_LEFT);
             ct.go();
 
-            campo = new Phrase("24.-Apellido Contacto:  " +p.getApellidoRep1()+" "+ p.getApellidoRep2() , fontCampo);
+            campo = new Phrase("24.-Apellido Contacto:  " +p.getApellidosRep(), fontCampo);
             ct.setSimpleColumn(campo, 320, 220, 600, 230, 10, Element.ALIGN_LEFT);
             ct.go();
             campo = new Phrase("Contact Last Name" , fontPequena);
