@@ -280,10 +280,15 @@ ol#pagination {
     color:#FF0000;
 }
 
+#pagination{
+    alignment-adjust: auto;
+    
+}
 ol#pagination li {
     display:block;
     float: left;
     width: 100px;
+    display: none;
     background-color:#00CCFF;
     text-decoration-color: #000000;
     border-width: 1px;

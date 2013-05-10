@@ -6,6 +6,7 @@ package Actions;
 
 import Clases.*;
 import DBMS.DBMS;
+import java.io.File;
 import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -46,6 +47,7 @@ public class VerificarPlanillaUSB extends org.apache.struts.action.Action {
 
         HttpSession session = request.getSession();
 
+        File folder;
 
         //KATTY AQUI ESTAN LAS COSAS QUE LES TIENES QUE PASAR COMO PARAMETRO
         // Instanciacion de la clase PlanillaUSB
@@ -61,7 +63,17 @@ public class VerificarPlanillaUSB extends org.apache.struts.action.Action {
                 getServlet().getServletContext().getRealPath("/") + "Documentos/" + nom;
         String path =
                 getServlet().getServletContext().getRealPath("/") + "images/";
-
+        
+        
+        folder = new File(getServlet().getServletContext().getRealPath("/")+"Documentos/");
+        if (!folder.exists()) {
+            folder.mkdir();
+        }
+        
+        folder = new File(filePath);
+        if (!folder.exists()) {
+            folder.mkdir();
+        }
 
         // HACER AQUI LAS VALIDACIONES, PARA LUEGO REENVIAR A MODIFICAR PLANILLA
         // PARA QUE LLENEN LOS DATOS FALTANTES
