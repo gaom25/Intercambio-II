@@ -73,7 +73,6 @@ public class FileUploadAction extends Action {
             System.out.println("No funciona el insertar");
         }
         
-        System.out.println(filePath);
         
         folder = new File(documentos);
         if (!folder.exists()) {

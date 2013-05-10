@@ -40,7 +40,7 @@ public class GeneradorPlanillas {
      * @author katty
      */
     //public Boolean generarPlanillaUSB(PlanillaUSB p, String path) throws BadElementException, DocumentException {
-    public Boolean generarPlanillaUSB(PlanillaUSB p, String path, PlanDeEstudio plan, Idiomas idim) throws BadElementException, DocumentException {
+    public Boolean generarPlanillaUSB(PlanillaUSB p, String path, PlanDeEstudio plan, Idiomas idim,String filepath) throws BadElementException, DocumentException {
         Document document = new Document(PageSize.LETTER); // Pdf de tamano carta
         DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
 
@@ -103,7 +103,7 @@ public class GeneradorPlanillas {
             document.add(imagen);
             
             //Cebolla USB_Logo                                
-            imagen = Image.getInstance("/home/dreabalbas/NetBeansProjects/Intercambio-II/Intercambio-II/web/images/cebollaUSB.jpg");
+            imagen = Image.getInstance(filepath+"cebollaUSB.jpg");
             imagen.setAbsolutePosition(125f, 730f);
             imagen.scalePercent(20f);
 
@@ -682,7 +682,7 @@ public class GeneradorPlanillas {
     }
     
 //public Boolean generarPlanillaExt(PlanillaExt p, String path) throws BadElementException, DocumentException {
-public Boolean generarPlanillaExt(PlanillaExt p, String path, PlanExtranjero plane, Idiomas idim ) throws BadElementException, DocumentException {
+public Boolean generarPlanillaExt(PlanillaExt p, String path, PlanExtranjero plane, Idiomas idim,String filepath ) throws BadElementException, DocumentException {
         Document document = new Document(PageSize.LETTER); // Pdf de tamano carta
         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
         Calendar cal = Calendar.getInstance();
@@ -751,7 +751,7 @@ public Boolean generarPlanillaExt(PlanillaExt p, String path, PlanExtranjero pla
 
 //PRUEBAS DE LA CEBOLLA
             
-            imagen = Image.getInstance("/home/dreabalbas/NetBeansProjects/Intercambio-II/Intercambio-II/web/images/cebollaUSB.jpg");
+            imagen = Image.getInstance(filepath+"cebollaUSB.jpg");
             imagen.setAbsolutePosition(125f, 730f); 
 
 // define el tamano de la imagen
@@ -1375,4 +1375,5 @@ public Boolean generarPlanillaExt(PlanillaExt p, String path, PlanExtranjero pla
 
         return true;
     }    
+
 }
