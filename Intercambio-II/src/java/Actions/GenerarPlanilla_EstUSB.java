@@ -527,11 +527,11 @@ public class GenerarPlanilla_EstUSB extends org.apache.struts.action.Action {
             ct.setSimpleColumn(titulo, 70, 170, 450, 190, 20, Element.ALIGN_LEFT);
             ct.go();
             //Nombre Contacto
-            campo = new Phrase("26.-Nombre Contacto:  " + p.getNombreRep1() + " " + p.getNombreRep2(), fontCampo);
+            campo = new Phrase("26.-Nombre Contacto:  " + p.getNombresRep(), fontCampo);
             ct.setSimpleColumn(campo, 70, 150, 300, 160, 10, Element.ALIGN_LEFT);
             ct.go();
             //Apellido Contacto
-            campo = new Phrase("27.-Apellido Contacto:  " + p.getApellidoRep1() + p.getApellidoRep2() , fontCampo);
+            campo = new Phrase("27.-Apellido Contacto:  " + p.getApellidosRep(), fontCampo);
             ct.setSimpleColumn(campo, 320, 150, 600, 160, 10, Element.ALIGN_LEFT);
             //Tlf. Habitación Contacto
             campo = new Phrase("28.-Tlf. Habitación Contacto:  " + p.getTlfRepCasa() , fontCampo);
