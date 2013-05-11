@@ -268,7 +268,7 @@ table.altrowstable td {
 {
     list-style-type: none;
     display: table;
-    text-align: center;
+    text-align: left;
 }
 ol#pagination {
     width: 700px;
