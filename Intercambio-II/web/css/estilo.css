@@ -1,5 +1,3 @@
-
-
 body {
     margin-left: auto;
     margin-right: auto;
@@ -105,25 +103,6 @@ a:hover {
     width: 1000px;
 }
 
-#top-menu{
-    background-color: white;
-    height: 24px;
-    padding-left: 4px;
-    padding-right: 4px;
-
-}
-
-#top-menu nav a{
-    font-size: 0.9em;
-    color: #1C6EA0;
-}
-
-#top-menu nav a:hover{
-    color: white;
-    background-color: #42a142;
-    text-decoration: none;
-}
-
 .nav li a{
     font-size: 0.8em;
     color: #1C6EA0;
@@ -168,18 +147,6 @@ a:hover {
     text-align: left;
     font-size: 0.9em;
     font-weight: bold;
-}
-
-#sidebarL div a{
-    color: #F0F0F0;
-}
-
-.submenu {
-    background-color: #9a9ab5;
-}
-
-.submenu a{
-    color: #000000;
 }
 
 #footer{
@@ -296,4 +263,67 @@ ol#pagination li {
     border-color:#000000;
     text-align: center;
 
+}
+
+.glossymenu{
+	margin: 0 auto;
+	padding: 0;
+	width: 170px;
+	border: solid;
+}
+
+a.menuitem{
+        background-color: #369;
+	color: white;
+	display: block;
+	position: relative; 
+	width: auto;
+	padding: 4px 0;
+	padding-left: 10px;
+	font-family: sans-serif;
+	font-weight: bold;
+        border-bottom-color: black;
+        border-collapse:collapse;
+        border-bottom-style: solid;
+        border-bottom-width: 1px;
+}
+
+.glossymenu a.menuitem.statusicon{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    border: none;
+}
+
+a.menuitem:hover{
+    background-color:midnightblue;
+}
+
+.glossymenu div.submenu{ 
+    background: white;
+}
+
+.glossymenu div.submenu ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.glossymenu div.submenu ul li{
+    border-bottom: 1px solid black;
+}
+
+.glossymenu submenu{
+	display: block;
+	color: #369;
+	text-decoration: none;
+	padding: 2px 2px;
+	padding-left: 10px;
+	font-family: sans-serif;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+        width: auto;
+	padding: 4px 0;
+	padding-left: 10px
 }
