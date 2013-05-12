@@ -10,82 +10,90 @@
 <%@ taglib uri="http://struts.apache.org/tags-bean" prefix="bean" %>
 <%@ taglib uri="http://struts.apache.org/tags-tiles" prefix="tiles" %>
 
+<script  src="/Intercambio-II/css/jquery.js"></script>
+<script  src="/Intercambio-II/css/jquery.tablePagination.0.5.js"></script>
 <script type="text/javascript">
-function altRows(id){
-	if(document.getElementsByTagName){  
+    function altRows(id){
+        if(document.getElementsByTagName){  
 		
-		var table = document.getElementById(id);  
-		var rows = table.getElementsByTagName("tr"); 
+            var table = document.getElementById(id);  
+            var rows = table.getElementsByTagName("tr"); 
 		 
-		for(i = 0; i < rows.length; i++){          
-			if(i % 2 == 0){
-				rows[i].className = "evenrowcolor";
-			}else{
-				rows[i].className = "oddrowcolor";
-			}      
-		}
-	}
-}
-window.onload=function(){
-	altRows('alternatecolor');
-}
+            for(i = 0; i < rows.length; i++){          
+                if(i % 2 == 0){
+                    rows[i].className = "evenrowcolor";
+                }else{
+                    rows[i].className = "oddrowcolor";
+                }      
+            }
+        }
+    }
+    $(document).ready(function() {
+        $('table').tablePagination({});
+    } );
+    window.onload=function(){
+        altRows('alternatecolor');
+    }
 </script>
 
 <!DOCTYPE html>
-<html>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>SGI - Listar Usuarios</title>
 
-        <script language="JavaScript">
-            function submitForm() { document.ObtenerDatos.submit(); }
-        </script>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>SGI - Listar Usuarios</title>
 
-            <h4>Lista de Usuarios del Sistema:</h4>
-            
-            <table border="0" style="margin: auto" class="altrowstable" id="alternatecolor">
-                <tr>
-                    <th width="155px" align="center">
-                        Nombre de usuario
-                    </th>
-                    <th width="150px" align="center">
-                        Ver Usuario
-                    </th>
-                    <th width="150px" align="center">
-                        Modificar Usuario
-                    </th>
-                    <th width="150px" align="center">
-                        Eliminar Usuario
-                    </th>
-                </tr>
-                
-                <logic:iterate name="usuario" id="usuarios">
-                <tr>
-                    <td width="150px" align="center">
-                        <bean:write name="usuarios" property="nombreusuario" />
-                    </td>
-                    <td align="center" width="150px">
-                        <html:form action="/ConsultarUsuario2" onsubmit="return(this)">
-                            <html:hidden name = "usuarios" property="nombreusuario"/>
-                            <html:hidden name = "usuarios" property="confirmar" value="admin"/>
-                            <html:image src="images/verDatos.png" styleClass="button" value="" property="" style=""/> 
-                        </html:form>
-                    </td>
-                    <td align="center" width="150px">
-                        <html:form action="/ObtenerDatos" onsubmit="return(this)">
-                            <html:hidden name = "usuarios" property="nombreusuario"/>
-                            <html:image src="images/document-edit.png" styleClass="button" value="" property="" /> 
-                        </html:form>
-                    </td>
-                    <td align="center" width="150px">
-                        <html:form action="/EliminarUsuario" onsubmit="return(this)">
-                            <html:hidden name = "usuarios" property="nombreusuario"/>
-                            <a onclick="javascript: return confirm('Seguro Que Deses Elmininar Este Usuario?')">
-                                <html:image src="images/trashcan-delete.png" styleClass="button" value="" property="" /> 
-                            </a>
-                        </html:form>
-                    </td>
-                </tr>
-         
-            </logic:iterate>
-                </table>
-</html>
+    <script language="JavaScript">
+        function submitForm() { document.ObtenerDatos.submit(); }
+    </script>
+
+    <h4>Lista de Usuarios del Sistema:</h4>
+  <div id="testTable">
+    <table border="0" style="margin: auto" class="altrowstable" id="alternatecolor">
+        <thead>
+            <tr>
+                <th width="155px" align="center">
+                    Nombre de usuario
+                </th>
+                <th width="150px" align="center">
+                    Ver Usuario
+                </th>
+                <th width="150px" align="center">
+                    Modificar Usuario
+                </th>
+                <th width="150px" align="center">
+                    Eliminar Usuario
+                </th>
+            </tr>
+        </thead>
+
+        <logic:iterate name="usuario" id="usuarios">
+            <tr>
+                <td width="150px" align="center">
+                    <bean:write name="usuarios" property="nombreusuario" />
+                </td>
+                <td align="center" width="150px">
+                    <html:form action="/ConsultarUsuario2" onsubmit="return(this)">
+                        <html:hidden name = "usuarios" property="nombreusuario"/>
+                        <html:hidden name = "usuarios" property="confirmar" value="admin"/>
+                        <html:image src="images/verDatos.png" styleClass="button" value="" property="" style=""/> 
+                    </html:form>
+                </td>
+                <td align="center" width="150px">
+                    <html:form action="/ObtenerDatos" onsubmit="return(this)">
+                        <html:hidden name = "usuarios" property="nombreusuario"/>
+                        <html:image src="images/document-edit.png" styleClass="button" value="" property="" /> 
+                    </html:form>
+                </td>
+                <td align="center" width="150px">
+                    <html:form action="/EliminarUsuario" onsubmit="return(this)">
+                        <html:hidden name = "usuarios" property="nombreusuario"/>
+                        <a onclick="javascript: return confirm('Seguro Que Deses Elmininar Este Usuario?')">
+                            <html:image src="images/trashcan-delete.png" styleClass="button" value="" property="" /> 
+                        </a>
+                    </html:form>
+                </td>
+            </tr>
+
+        </logic:iterate>
+    </table>
+  </div>
+
