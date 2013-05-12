@@ -63,7 +63,7 @@ ddmenu.init({
             </ul>
         </div>
         
-        <a style="border-bottom: none"> <html:link styleClass="menuitem" action="/LogAuditoria">Modificar perfil</html:link></a>
+        <a style="border-bottom: none"> <html:link styleClass="menuitem" action="/LogAuditoria">Log de Auditoría</html:link></a>
         <a style="border-bottom: solid"> <html:link styleClass="menuitem" action="/CerrarSesion">Cerrar sesión</html:link></a>
             
    </div>

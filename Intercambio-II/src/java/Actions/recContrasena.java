@@ -4,7 +4,8 @@
  */
 package Actions;
 
-import Clases.*;
+import Clases.Usuario;
+import Clases.Correo;
 import DBMS.DBMS;
 import java.util.ArrayList;
 import javax.servlet.http.HttpSession;
@@ -28,7 +29,8 @@ public class recContrasena extends org.apache.struts.action.Action {
     private final static String SUCCESS = "success";
     private final static String FAILURE = "failure";
     private final static String ERROR = "error";
-    private static final String patronEmail = "^([_A-Za-z0-9-\\.\\+])+@([A-Za-z0-9-])+\\.([A-Za-z0-9-])+$";
+    private static final String patronEmail =
+            "^([_A-Za-z0-9-\\.\\+])+@([A-Za-z0-9-])+\\.([A-Za-z0-9-])+$";
     private Pattern patron;
     private Matcher match;
 
@@ -68,10 +70,10 @@ public class recContrasena extends org.apache.struts.action.Action {
         if (!email.equals("")) {
 
             //Verifica si el email esta correcto o no
-            if (validate(email) == false) {
-                error.add("email", new ActionMessage("error.email.malformulado"));
-                saveErrors(request, error);
-                huboError = true;
+            if (validate(email)) {
+              error.add("email", new ActionMessage("error.email.malformulado"));
+              saveErrors(request, error);
+              huboError = true;
             } else {
                 datos = DBMS.getInstance().existeEmail(email);
             }
@@ -82,7 +84,8 @@ public class recContrasena extends org.apache.struts.action.Action {
 
             //Verifica si se dejaron ambos campos vacios
         } else if (nombreusuario.equals("") && email.equals("")) {
-            error.add("nombreusuario", new ActionMessage("error.nombreusuario.required"));
+            error.add("nombreusuario",
+                    new ActionMessage("error.nombreusuario.required"));
             saveErrors(request, error);
             error.add("email", new ActionMessage("error.email.required"));
             saveErrors(request, error);
@@ -106,7 +109,9 @@ public class recContrasena extends org.apache.struts.action.Action {
 
                 if (envio) {
                     Usuario obj = (Usuario) session.getAttribute("Usuario");
-                    boolean boo = DBMS.getInstance().registrar(obj.getNombreusuario(), "Recuperación de contraseña");
+                    boolean boo =
+                            DBMS.getInstance().registrar(obj.getNombreusuario(),
+                            "Recuperación de contraseña");
                     return mapping.findForward(SUCCESS);
                 }
             }

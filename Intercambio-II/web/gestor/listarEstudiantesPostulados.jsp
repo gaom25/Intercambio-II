@@ -32,7 +32,6 @@ window.onload=function(){
 	altRows('alternatecolor');
 }
 </script>
-
 <html>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>SGI - Listar Usuarios</title>
@@ -79,6 +78,8 @@ window.onload=function(){
             <td align="center" width="100px">
                 <html:form action="/GenerarCarpeta" onsubmit="return(this)">
                     <html:hidden name = "usuarios" property="nombreusuario"/>
+                    <input type="hidden" name="nuevacontra" value="<%=session.getAttribute("nombreusuario").toString()%>"/>
+                    <html:hidden name = "usuarios" property="confirmar" ></html:hidden>
                     <html:image src="images/archivador.png" style="width:32px;height:32px"  styleClass="button" value="" property="" /> 
                 </html:form>
             </td>

@@ -505,8 +505,9 @@
        <action name="Usuario" path="/GenerarCarpeta" scope="session" type="Actions.GenerarCarpeta">
            <forward name="successUSB" path="/estudianteUSB/vista_carpeta.jsp" />
            <forward name="successExt" path="/estudianteExt/vista_carpeta.jsp" />
-           <forward name="vacioUSB" path="sinArchivos" />
-           <forward name="vacioExt" path="sinArchivosExt" />
+           <forward name="vacioUSB" path="planillaIncompleta" />
+           <forward name="vacioExt" path="planillaIncompletaExt" />
+           <forward name="vacioGest" path="sinArchivos" />
            <forward name="error" path="planillaIncompleta" />
        </action>      
 

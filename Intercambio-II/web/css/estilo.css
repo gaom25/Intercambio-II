@@ -230,62 +230,69 @@ table.altrowstable td {
     background-color:#c3dde0;
 }
 
-/*Paginacion*/
-#items
-{
-    list-style-type: none;
-    display: table;
-    text-align: left;
-}
-ol#pagination {
-    width: 700px;
-    position: static;
-    bottom: -10px;
+/*Paginacion de las tablas*/
+#alternatecolor{
+    width: 100%;
 }
 
-.current{
-    color:#FF0000;
-}
-
-#pagination{
-    alignment-adjust: auto;
+#alternatecolor tr{
+    height: 70px;
+    text-align: center;
     
 }
-ol#pagination li {
-    display:block;
-    float: left;
-    width: 100px;
-    display: none;
-    background-color:#00CCFF;
-    text-decoration-color: #000000;
-    border-width: 1px;
-    border-style:solid;
-    border-color:#000000;
-    text-align: center;
 
+#testTable { 
+    width : 585px;
+    height: 500px;
+    margin-left: auto; 
+    margin-right: auto; 
+}
+
+#tablePagination { 
+    background-color: #DCDCDC; 
+    font-size: 0.8em; 
+    padding: 0px 5px; 
+    height: 20px
+}
+
+#tablePagination_paginater { 
+    margin-left: auto; 
+    margin-right: auto;
+}
+
+#tablePagination img { 
+    padding: 0px 2px; 
+}
+
+#tablePagination_perPage { 
+    float: left; 
+}
+
+#tablePagination_paginater { 
+    float: right; 
 }
 
 .glossymenu{
-	margin: 0 auto;
-	padding: 0;
-	width: 170px;
-	border: solid;
+    margin: 0 auto;
+    padding: 0;
+    width: 170px;
+    border: solid;
 }
 
 a.menuitem{
-        background-color: #369;
-	color: white;
-	display: block;
-	position: relative; 
-	width: auto;
-	padding: 4px 0;
-	padding-left: 10px;
-	font-family: sans-serif;
-	font-weight: bold;
-        border-bottom-color: black;
-        border-collapse:collapse;
-        border-bottom-style: solid;
-        border-bottom-width: 1px;
+    background-color: #369;
+    color: white;
+    display: block;
+    position: relative; 
+    width: auto;
+    padding: 4px 0;
+    padding-left: 10px;
+    font-family: sans-serif;
+    font-weight: bold;
+    border-bottom-color: black;
+    border-collapse:collapse;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
 }
 
 .glossymenu a.menuitem.statusicon{
@@ -314,16 +321,16 @@ a.menuitem:hover{
 }
 
 .glossymenu submenu{
-	display: block;
-	color: #369;
-	text-decoration: none;
-	padding: 2px 2px;
-	padding-left: 10px;
-	font-family: sans-serif;
-	font-style: normal;
-	font-weight: normal;
-	font-variant: normal;
-        width: auto;
-	padding: 4px 0;
-	padding-left: 10px
+    display: block;
+    color: #369;
+    text-decoration: none;
+    padding: 2px 2px;
+    padding-left: 10px;
+    font-family: sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    width: auto;
+    padding: 4px 0;
+    padding-left: 10px
 }
