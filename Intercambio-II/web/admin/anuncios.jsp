@@ -11,25 +11,30 @@
 <%@ taglib uri="http://struts.apache.org/tags-tiles" prefix="tiles" %>
 
 <!DOCTYPE html>
+<script  src="/Intercambio-II/css/jquery.js"></script>
+<script  src="/Intercambio-II/css/jquery.tablePagination.0.5.js"></script>
 <script type="text/javascript">
-function altRows(id){
-	if(document.getElementsByTagName){  
+    function altRows(id){
+        if(document.getElementsByTagName){  
 		
-		var table = document.getElementById(id);  
-		var rows = table.getElementsByTagName("tr"); 
+            var table = document.getElementById(id);  
+            var rows = table.getElementsByTagName("tr"); 
 		 
-		for(i = 0; i < rows.length; i++){          
-			if(i % 2 == 0){
-				rows[i].className = "evenrowcolor";
-			}else{
-				rows[i].className = "oddrowcolor";
-			}      
-		}
-	}
-}
-window.onload=function(){
-	altRows('alternatecolor');
-}
+            for(i = 0; i < rows.length; i++){          
+                if(i % 2 == 0){
+                    rows[i].className = "evenrowcolor";
+                }else{
+                    rows[i].className = "oddrowcolor";
+                }      
+            }
+        }
+    }
+    $(document).ready(function() {
+        $('table').tablePagination({});
+    } );
+    window.onload=function(){
+        altRows('alternatecolor');
+    }
 </script>
 
 <html>
@@ -40,41 +45,45 @@ window.onload=function(){
     <br>
     <div>
         <html:link style="color:#126598" action="/BuscarDestinatarios">
-                Redactar Anuncio
-            </html:link>
+            Redactar Anuncio
+        </html:link>
     </div>
     <br>
-    <table border="0" style="margin: auto" class="altrowstable" id="alternatecolor">
-        <tr>
-            <th width="220px">
-                Asunto
-            </th>
-            <th width="150px" align="center">
-                Fecha
-            </th>
-            <th width="150px" align="center">
-                Más información
-            </th>
-        </tr>
-            
-         <logic:iterate name="anuncios" id="anuncios">
-    
-            <tr>
-                <td width="220px" align="center">
-                    <bean:write name="anuncios" property="titulo" />
-                </td>
-                <td align="center">
-                    <bean:write name="anuncios" property="fecha" />
-                </td>
-                <td align="center" width="150px">
-                     <html:form action="/verAnuncio" onsubmit="return(this)">
-                        <html:hidden name="anuncios" property="fecha"/>
-                        <html:hidden name="anuncios" property="titulo"/>
-                        <html:image src="images/view_data.png" styleClass="button" value="" property="" style=""/> 
-                    </html:form>
-                </td>
-            </tr>
-                    
-        </logic:iterate>
-    </table>
+    <div id="testTable">
+        <table border="0" style="margin: auto" class="altrowstable" id="alternatecolor">
+            <thead>
+                <tr>
+                    <th width="220px">
+                        Asunto
+                    </th>
+                    <th width="150px" align="center">
+                        Fecha
+                    </th>
+                    <th width="150px" align="center">
+                        Más información
+                    </th>
+                </tr>
+            </thead>
+
+            <logic:iterate name="anuncios" id="anuncios">
+
+                <tr>
+                    <td width="220px" align="center">
+                        <bean:write name="anuncios" property="titulo" />
+                    </td>
+                    <td align="center">
+                        <bean:write name="anuncios" property="fecha" />
+                    </td>
+                    <td align="center" width="150px">
+                        <html:form action="/verAnuncio" onsubmit="return(this)">
+                            <html:hidden name="anuncios" property="fecha"/>
+                            <html:hidden name="anuncios" property="titulo"/>
+                            <html:image src="images/view_data.png" styleClass="button" value="" property="" style=""/> 
+                        </html:form>
+                    </td>
+                </tr>
+
+            </logic:iterate>
+        </table>
+    </div>
 </html>
