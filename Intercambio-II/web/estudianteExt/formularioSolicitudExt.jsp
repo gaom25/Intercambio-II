@@ -1315,7 +1315,7 @@
                                 </tr>
                                 <tr>
                                     <td><INPUT type="checkbox" name="chk[]"/></td>
-                                    <td>Informe Academico</td>
+                                    <td>Informe Académico</td>
                                     <td valign="middle">
                                         <div id="archivos" >
                                             <div class="feed">  
@@ -1328,7 +1328,7 @@
                                 </tr>
                                 <tr>
                                     <td><INPUT type="checkbox" name="chk[]"/></td>
-                                    <td>Curriculum</td>
+                                    <td>Currículum</td>
                                     <td valign="middle">
                                         <div id="archivos" >
                                             <div class="feed">  
@@ -1341,7 +1341,7 @@
                                 </tr>
                                 <tr>
                                     <td><INPUT type="checkbox" name="chk[]"/></td>
-                                    <td>Carta de Motivacion</td>
+                                    <td>Carta de Motivación</td>
                                     <td valign="middle">
                                         <div id="archivos" >
                                             <div class="feed">  
@@ -1381,7 +1381,7 @@
                             </tbody>
                         </table>  
                     </div>
-                    <p style="color: red; font-size: 12px; font-weight: bold">*Sólo para quienes hayan aplicado a uno de estos programas</p> 
+                    <p style="color: red; font-size: 12px; font-weight: bold">*Sólo para quienes apliquen a uno de estos programas</p> 
                     <input type="button" value="Seleccionar Otro Documento" style="font-size:12px; padding:4px 6px" onclick="addRow('dataBody')">
                     <input type="button" value="Eliminar Documentos Seleccionados" style="font-size:12px; padding:4px 6px" onclick="deleteRow('dataTable')"/>
 

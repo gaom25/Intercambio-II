@@ -1495,7 +1495,7 @@
                             <tbody id="dataBody">
                                 <tr>
                                     <td><INPUT type="checkbox" name="chk[]"/></td>
-                                    <td>Foto:</td>
+                                    <td>Foto</td>
                                     <td valign="left">
                                         <div id="archivos" >
                                             <div class="feed">  
@@ -1508,7 +1508,7 @@
                                 </tr>
                                 <tr>
                                     <td><INPUT type="checkbox" name="chk[]"/></td>
-                                    <td>Informe Academico:</td>
+                                    <td>Informe Académico</td>
                                     <td valign="middle">
                                         <div id="archivos" >
                                             <div class="feed">  
@@ -1522,7 +1522,7 @@
                                 </tr>
                                 <tr>
                                     <td><INPUT type="checkbox" name="chk[]"/></td>
-                                    <td>Carta de Motivacion:</td>
+                                    <td>Carta de Motivación</td>
                                     <td valign="middle">
                                         <div id="archivos" >
                                             <div class="feed">  
@@ -1548,10 +1548,25 @@
 
                                     </td>
                                 </tr>
+                                <tr>
+                                    <td><INPUT type="checkbox" name="chk[]"/></td>
+                                    <td><a style="color: red; font-size: 14px; font-weight: bold">**</a>Certificado de idiomas</td>
+                                    <td valign="middle">
+                                        <div id="archivos" >
+                                            <div class="feed">  
+
+                                                <html:file value="bye" property="theFile[4]" />
+                                                <br />
+                                            </div>
+                                        </div>
+
+                                    </td>
+                                </tr>
                             </tbody>
                         </table>  
                     </div>
-                    <p style="color: red; font-size: 12px; font-weight: bold">*Sólo para quienes hayan aplicado a uno de estos programas</p>  
+                    <p style="color: red; font-size: 12px; font-weight: bold">*Sólo para quienes apliquen a uno de estos programas</p>  
+                    <p style="color: red; font-size: 12px; font-weight: bold">**Sólo para quienes apliquen a países que NO sean de habla hispana</p>  
                     <input type="button" value="Seleccionar Otro Documento" style="font-size:12px; padding:4px 6px" onclick="addRow('dataBody')">
                     <input type="button" value="Eliminar Documentos Seleccionados" style="font-size:12px; padding:4px 6px" onclick="deleteRow('dataTable')"/>
 
