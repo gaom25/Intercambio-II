@@ -34,16 +34,7 @@ ddmenu.init({
 <html:html>
 
     <div class="glossymenu" style="width: 190px">
-        <a style="border-bottom: none;" ><html:link styleClass="menuitem" action="ListarEstudiantesPostulados">Inicio</html:link></a>
-        
-        <a class="menuitem submenuheader">Gestión de usuarios </a>
-        <div class="submenu">
-            <ul>
-                <li><a> <html:link action="/AgregarUsuarios">Agregar usuario</html:link></a></li>
-                <li><a> <html:link action="/ListarUsuarios">Consultar usuarios</html:link></a></li>
-            </ul>
-        </div>
-        
+         <a style="border-bottom: none;" ><html:link styleClass="menuitem" action="ListarEstudiantesPostulados">Inicio</html:link></a>
          <a style="border-bottom: none;"> <html:link styleClass="menuitem" action="/modPerfilAdm">Modificar perfil</html:link></a>
          <a style="border-bottom: none;"> <html:link styleClass="menuitem" action="/contactoGestor">Contáctenos</html:link></a>
          <a style="border-bottom: none;"> <html:link styleClass="menuitem" action="/BusquedaAvanzada"> Búsqueda Avanzada</html:link></a>
