@@ -12,62 +12,45 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+
+<script type="text/javascript" src="/Intercambio-II/css/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="/Intercambio-II/plantilla/sidebarsL/ddmenu.js"></script>
+<script type="text/javascript">
+
+
+ddmenu.init({
+	headerclass: "submenuheader", 
+	contentclass: "submenu", 
+	collapseprev: true,
+	defaultexpanded: [], 
+	animatedefault: false, 
+	persiststate: true, 
+	toggleclass: ["", ""], 
+	togglehtml: ["suffix", "<img src='/Intercambio-II/images/plus.png' class='statusicon' />", "<img src='/Intercambio-II/images/minus.png' class='statusicon' />"],
+	animatespeed: "normal" 
+})
+
+
+</script>
+
 <html:html>
 
-    <script language="javascript">
-        function show(target){
-            document.getElementById(target).style.display = 'block';
-        }
-
-        function hide(target){
-            document.getElementById(target).style.display = 'none';
-        }
-    </script>
-
-    <div style="margin-top: 5px;padding-right:5px">
-        <html:link style="color:#126598" action="/accionesEstExt">
-            Inicio
-        </html:link>
-    </div>
-
-    <div class="nav">
-       <a style="color:#126598" onclick="if (document.getElementById('GestionDeSolicitudes').style.display=='none') 
-               show('GestionDeSolicitudes'); else hide('GestionDeSolicitudes');">+ Gestión De Solicitudes</a>
-    </div>
-
-    <div class="submenu" id="GestionDeSolicitudes" style="background-color:#FFFFFF; display: none; margin-left: 15px"> 
-        <div>
-            <html:link style="color:#126598" action="/CargarLlenarPlanillaExt">
-                Llenar Formulario
-            </html:link>
+    <div class="glossymenu" style="width: 190px">
+        <a style="border-bottom: none;" ><html:link styleClass="menuitem" action="/accionesEstExt">Inicio</html:link></a>
+        
+        <a class="menuitem submenuheader">Gestión de solicitudes </a>
+        <div class="submenu">
+            <ul>
+                <li><a> <html:link action="/CargarLlenarPlanillaExt">Llenar formulario</html:link></a></li>
+                <li><a> <html:link action="/ObtenerDatos2">Modificar solicitud</html:link></a></li>
+                <li><a> <html:link action="/VerificarPlanillaExt">Generar planilla</html:link></a></li>
+                <li><a> <html:link action="/GenerarCarpeta">Generar carpeta</html:link></a></li>
+            </ul>
         </div>
-        <div>
-            <html:link style="color:#126598" action="/ObtenerDatos2">
-                Modificar Formulario
-            </html:link>
-        </div>
-
-        <div>
-            <html:link style="color:#126598" action="">
-                Generar Planilla
-            </html:link>
-        </div>
+        
+        <a style="border-bottom: none;"> <html:link styleClass="menuitem" action="/modificarperExt" >Modificar perfil</html:link></a>
+         <a style="border-bottom: none;"> <html:link styleClass="menuitem" action="/contactoEstExt">Contáctenos</html:link></a>
+         <a style="border-bottom: none;"> <html:link styleClass="menuitem" action="/CerrarSesion">Cerrar sesión</html:link></a>
     </div>
 
-    <div style="margin-top: 5px;padding-right:5px">
-        <html:link style="color:#126598" action="/modificarperUSB">
-            Modificar perfil
-        </html:link>
-    </div>
-    <div style="margin-top: 5px;padding-right:5px">
-        <html:link style="color:#126598" action="/contactoEstExt">
-            Contáctenos 
-        </html:link>
-    </div>
-    <div style="height:20px"></div>
-    <div>
-        <html:link style="color:#126598" action="/CerrarSesion">
-            Cerrar sesión
-        </html:link>
-    </div>
 </html:html>

@@ -308,7 +308,7 @@
             </definition>
             
             <definition name="modificarperExt" extends="baseEstudianteExt"> <!-- pagina acciones de estudiante usb -->
-                <put name="body" value="/estudianteExt/modificarperExt.jsp" />1
+                <put name="body" value="/estudianteExt/modificarperExt.jsp" />
             </definition>
         
             <definition name="formularioExt" extends="baseEstudianteExt"> <!-- pagina acciones de estudiante usb -->

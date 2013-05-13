@@ -1404,7 +1404,7 @@
 
         <div style="width:auto;height:auto;border:6px solid #F9F4CF; border-color: #F9F4CF; border-radius: 10px; border-width:5px;">
             <div align=center>
-                <html:form action="/AccionPlanEstudioExt" method="post" acceptCharset="ISO-8859-1"enctype="multipart/form-data">
+                <html:form action="/AccionPlanEstudioExt" method="post" acceptCharset="ISO-8859-1" enctype="multipart/form-data">
                     <br />
                     <p hidden="true"><html:text name="PlanExtranjero" property="nombreUsuario" maxlength="20" errorStyleClass="error" value ="<%=var.toString()%>"
                                errorKey="org.apache.struts.action.ERROR"></html:text></p>

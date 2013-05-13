@@ -32,16 +32,6 @@ ddmenu.init({
 </script>
 
 <html:html>
-
-    <script language="javascript">
-        function show(target){
-            document.getElementById(target).style.display = 'block';
-        }
-
-        function hide(target){
-            document.getElementById(target).style.display = 'none';
-        }
-    </script>
     
     <div class="glossymenu">
         <a style="border-bottom: none;" ><html:link styleClass="menuitem" action="/accionesAdmin">Inicio</html:link></a>

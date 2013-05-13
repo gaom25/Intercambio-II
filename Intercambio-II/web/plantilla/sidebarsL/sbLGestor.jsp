@@ -10,61 +10,44 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+
+<script type="text/javascript" src="/Intercambio-II/css/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="/Intercambio-II/plantilla/sidebarsL/ddmenu.js"></script>
+<script type="text/javascript">
+
+
+ddmenu.init({
+	headerclass: "submenuheader", 
+	contentclass: "submenu", 
+	collapseprev: true,
+	defaultexpanded: [], 
+	animatedefault: false, 
+	persiststate: true, 
+	toggleclass: ["", ""], 
+	togglehtml: ["suffix", "<img src='/Intercambio-II/images/plus.png' class='statusicon' />", "<img src='/Intercambio-II/images/minus.png' class='statusicon' />"],
+	animatespeed: "normal" 
+})
+
+
+</script>
+
 <html:html>
 
-    <script language="javascript">
-        function show(target){
-            document.getElementById(target).style.display = 'block';
-        }
-
-        function hide(target){
-            document.getElementById(target).style.display = 'none';
-        }
-    </script>
-
-    <div style="margin-top: 5px;padding-right:5px">
-        <html:link style="color:#126598" action="ListarEstudiantesPostulados">
-            Inicio
-        </html:link>
-    </div>
-
-
-    <div class="nav">
-       <a href="#" style="color:#126598" onclick="if (document.getElementById('GestionDeUsuarios').style.display=='none') 
-               show('GestionDeUsuarios'); else hide('GestionDeUsuarios');">+ Gestión De Usuarios</a>
-    </div>
-
-    <div class="submenu" id="GestionDeUsuarios" style="background-color:#FFFFFF; display: none; margin-left: 15px"> 
-        <div>
-            <html:link style="color:#126598" action="/AgregarUsuarios">
-                Agregar Usuario
-            </html:link>
+    <div class="glossymenu" style="width: 190px">
+        <a style="border-bottom: none;" ><html:link styleClass="menuitem" action="ListarEstudiantesPostulados">Inicio</html:link></a>
+        
+        <a class="menuitem submenuheader">Gestión de usuarios </a>
+        <div class="submenu">
+            <ul>
+                <li><a> <html:link action="/AgregarUsuarios">Agregar usuario</html:link></a></li>
+                <li><a> <html:link action="/ListarUsuarios">Consultar usuarios</html:link></a></li>
+            </ul>
         </div>
-        <div>
-            <html:link style="color:#126598" action="/ListarUsuarios">
-                Consultar Usuarios
-            </html:link>
-        </div>
+        
+         <a style="border-bottom: none;"> <html:link styleClass="menuitem" action="/modPerfilAdm">Modificar perfil</html:link></a>
+         <a style="border-bottom: none;"> <html:link styleClass="menuitem" action="/contactoGestor">Contáctenos</html:link></a>
+         <a style="border-bottom: none;"> <html:link styleClass="menuitem" action="/BusquedaAvanzada"> Búsqueda Avanazada</html:link></a>
+         <a style="border-bottom: none;"> <html:link styleClass="menuitem" action="/CerrarSesion">Cerrar sesión</html:link></a>
     </div>
-    <div style="margin-top: 5px;padding-right:5px">
-        <html:link style="color:#126598" action="/modPerfilAdm">
-            Modificar perfil
-        </html:link>
-    </div>
-    <div style="margin-top: 5px;padding-right:5px">
-        <html:link style="color:#126598" action="/contactoGestor">
-            Contáctenos 
-        </html:link>
-    </div>
-    <div style="margin-top: 5px;padding-right:5px">
-        <html:link style="color:#126598" action="/BusquedaAvanzada">
-            Búsqueda Avanzada 
-        </html:link>
-    </div>
-    <div style="height:20px"></div>
-    <div>
-        <html:link style="color:#126598" action="/CerrarSesion">
-            Cerrar sesión
-        </html:link>
-    </div>
+         
 </html:html>
