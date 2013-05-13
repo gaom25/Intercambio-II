@@ -1029,7 +1029,7 @@
                                 </tr>
 
                                 <tr>
-                                    <td> Pais Destino: </td>
+                                    <td> País Destino: </td>
                                     <td>
                                         <html:select styleId="pais_princ" onchange="cambia_universidad()" property="paisOpcion1"> 
                                             <html:option value="-">- </html:option>
@@ -1162,7 +1162,7 @@
                                 </tr>
 
                                 <tr>
-                                    <td> Pais Destino: </td>
+                                    <td> País Destino: </td>
                                     <td>
                                         <html:select styleId="pais_princ2" onchange="cambia_universidad2()" property="paisOpcion2"> 
                                             <html:option value="-">-</html:option>
@@ -1296,21 +1296,6 @@
                                 </tr>                                       
 
                                 <tr>
-                                    <td>Código de carrera: </td>
-
-
-                                    <td>
-                                        <html:text name="PlanillaUSB" property="codCarrera" maxlength="30" errorStyleClass="error"
-                                                   errorKey="org.apache.struts.action.ERROR">
-                                        </html:text>
-                                    </td>
-
-                                    <td>
-                                        <html:errors property="codCarrera" />
-                                    </td>
-
-                                </tr>
-                                <tr>
                                     <td> Número de Créditos Aprobados Hasta la Fecha</td>
 
                                     <td>
@@ -1338,19 +1323,6 @@
                                     </td>
                                 </tr>
 
-                                <tr>
-                                    <td> Índice Académico Ponderado: </td>
-
-                                    <td>
-                                        <html:text name="PlanillaUSB" property="indicePon" maxlength="60"  errorStyleClass="error"
-                                                   errorKey="org.apache.struts.action.ERROR">
-                                        </html:text>
-                                    </td>
-
-                                    <td>
-                                        <html:errors property="indicePon" />
-                                    </td>
-                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -1374,7 +1346,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td> ¿Recibe Algún Tipo de Ayuda Económica?: </td>
+                                    <td> ¿Recibe algún tipo de ayuda económica?: </td>
                                     <td><html:select name="PlanillaUSB" property="ayudaEc">
                                             <html:option value="Seleccione"></html:option>
                                             <html:option value="Si"></html:option>
@@ -1598,17 +1570,17 @@
                         <tbody id ="MateBody">
                             <tr>
                                 <td></td>
-                                <td> Codigo-USB</td>
+                                <td> Código-USB</td>
 
                                 <td> Nombre-USB</td>
 
-                                <td> Creditos-USB</td>
+                                <td> Créditos-USB</td>
 
                                 <td> Codigo-Univ. Destino</td>
 
                                 <td> Nombre-Univ. Destino</td>                                
 
-                                <td> Creditos-Univ. Destino</td>
+                                <td> Créditos-Univ. Destino</td>
 
                             </tr>
 

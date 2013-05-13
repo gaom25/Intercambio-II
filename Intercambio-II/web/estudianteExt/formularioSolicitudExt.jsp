@@ -1048,7 +1048,7 @@
 
                                 <tr>
                                 <tr>
-                                    <td> Pais de origen: </td>
+                                    <td> País de origen: </td>
                                     <td>
                                         <html:select styleId="pais_princ" onchange="cambia_universidad()" property="paisOrigen"> 
                                             <html:option value="-">-</html:option>
@@ -1413,11 +1413,11 @@
                             <tbody id ="MateBody">
                                 <tr>
                                     <td></td>
-                                    <td> Codigo-USB</td>
+                                    <td> Código-USB</td>
 
                                     <td> Nombre-USB</td>
 
-                                    <td> Creditos-USB</td>
+                                    <td> Créditos-USB</td>
                                 </tr>
 
                                 <tr>
