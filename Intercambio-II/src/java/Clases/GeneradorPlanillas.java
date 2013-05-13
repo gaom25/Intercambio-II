@@ -345,10 +345,6 @@ public class GeneradorPlanillas {
             campo = new Phrase("16.-Área de Estudio:  " + p.getAreaEstud() , fontCampo);
             ct.setSimpleColumn(campo, 70, 650, 350, 660, 10, Element.ALIGN_LEFT);
             ct.go();
-            // Índice Ponderado
-            campo = new Phrase("19.-Índice Ponderado a la Fecha de postulación:  " + p.getIndicePon() , fontCampo);
-            ct.setSimpleColumn(campo, 310, 650, 600, 660, 10, Element.ALIGN_LEFT);
-            ct.go();
 
             // Tabla de materias.
             canvas.saveState();

@@ -71,11 +71,9 @@ public class PlanillaUSB extends org.apache.struts.action.ActionForm {
     
     //Informacion Academica 
     private String carrera;         //db
-    private String codCarrera;         //db
     private String decanato;         //db
     private String areaEstud;         //db    
     private String indice;          //db
-    private String indicePon; //db    
     private String opcion;          //db
     private int creditosApro;       //db
     private ArrayList<Materias> lista;
@@ -541,14 +539,6 @@ public class PlanillaUSB extends org.apache.struts.action.ActionForm {
     public void setNombrePais1(String nombrePais1) {
         this.nombrePais1 = nombrePais1;
     }
-
-    public String getCodCarrera() {
-        return codCarrera;
-    }
-
-    public void setCodCarrera(String codCarrera) {
-        this.codCarrera = codCarrera;
-    }
     
     public String getIndice() {
         return indice;
@@ -556,14 +546,6 @@ public class PlanillaUSB extends org.apache.struts.action.ActionForm {
 
     public void setIndice(String indice) {
         this.indice = indice;
-    }
-
-    public String getIndicePon() {
-        return indicePon;
-    }
-
-    public void setIndicePon(String indicePon) {
-        this.indicePon = indicePon;
     }
 
     public String getAreaEstud() {

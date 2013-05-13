@@ -33,27 +33,26 @@ OIDS = FALSE
  * para  postularse  a  un  intercambio             */
 CREATE TABLE "dycicle".ESTUDIANTE(
 	NombreUsuario	VARCHAR(20)	NOT NULL,
-    Origen          VARCHAR(50),
+        Origen          VARCHAR(50),
  	PrimerNombre 	VARCHAR(30)	NOT NULL,
-    SegundoNombre 	VARCHAR(30),
+        SegundoNombre 	VARCHAR(30),
 	PrimerApellido	VARCHAR(30)	NOT NULL,
-    SegundoApellido	VARCHAR(30),
-    Carrera         VARCHAR(30),
-    CodCarrera      NUMERIC(4),
- 	Sexo		    VARCHAR(10),
-    Urbanizacion    VARCHAR(30), /*O sector o barrio*/
-    Calle           VARCHAR(30),
-    Edificio        VARCHAR(30), /*O numero de casa*/
-    Apartamento     VARCHAR(20),
-    Ciudad          VARCHAR(30),
-    Estado          VARCHAR(30),
-    CodPostal       VARCHAR(30),
+        SegundoApellido	VARCHAR(30),
+        Carrera         VARCHAR(30),
+ 	Sexo		VARCHAR(10),
+        Urbanizacion    VARCHAR(30), /*O sector o barrio*/
+        Calle           VARCHAR(30),
+        Edificio        VARCHAR(30), /*O numero de casa*/
+        Apartamento     VARCHAR(20),
+        Ciudad          VARCHAR(30),
+        Estado          VARCHAR(30),
+        CodPostal       VARCHAR(30),
 	TelefonoCel	VARCHAR(30),
 	TelefonoCasa	VARCHAR(30),
 	Fax		VARCHAR(30),
-    Email           VARCHAR(30),
+        Email           VARCHAR(30),
 	FechaNac	VARCHAR(40),
-    Nacionalidad    VARCHAR(100),
+        Nacionalidad    VARCHAR(100),
 	Comentario	TEXT,
 	CONSTRAINT	PK_Estudiante	PRIMARY KEY (NombreUsuario)
 )
@@ -111,7 +110,6 @@ CREATE TABLE "dycicle".Carga(
 CREATE TABLE "dycicle".AntecedenteAcademico(
 	NombreUsuario	VARCHAR(20)	NOT NULL,
 	Indice		NUMERIC(5,4),
-        IndicePonderado NUMERIC(5,4),
         Decanato        VARCHAR(50),
         AreaDeEstudio   VARCHAR(100)    NOT NULL,
 	Carrera		VARCHAR(30)	NOT NULL,

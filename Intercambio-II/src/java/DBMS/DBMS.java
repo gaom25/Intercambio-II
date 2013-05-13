@@ -912,7 +912,6 @@ public class DBMS {
                         + "PrimerApellido = '" + p.getApellido1() + "',"
                         + "SegundoApellido = '" + p.getApellido2() + "',"
                         + "Carrera = '" + p.getCarrera() + "', "
-                        + "CodCarrera = '" + p.getCodCarrera() + "', "
                         + "Sexo = '" + p.getSexo() + "', "
                         + "Urbanizacion = '" + p.getUrbanizacion() + "', "
                         + "Calle = '" + p.getCalle() + "', "
@@ -970,7 +969,6 @@ public class DBMS {
                 //Antecedentes Academicos
                 String sqlqueryAntecedente = "UPDATE \"dycicle\".AntecedenteAcademico SET "
                         + "Indice = '" + p.getIndice() + "', "
-                        + "IndicePonderado = '" + p.getIndicePon() + "', "
                         + "Decanato = '" + p.getDecanato() + "', "
                         + "AreaDeEstudio = '" + p.getAreaEstud() + "', "
                         + "Carrera = '" + p.getCarrera() + "', "
@@ -1352,11 +1350,9 @@ public class DBMS {
             datos.setRelacion(rs2.getString("TipoRelacion"));
             datos.setDireccionRep(rs2.getString("Direccion"));
             datos.setIndice(rs.getString("Indice"));
-            datos.setIndicePon(rs.getString("IndicePonderado"));
             datos.setDecanato(rs.getString("Decanato"));
             datos.setAreaEstud(rs.getString("AreaDeEstudio"));
             datos.setCarrera(rs.getString("Carrera"));
-            datos.setCodCarrera(rs.getString("CodCarrera"));
             datos.setOpcion(rs.getString("Opcion"));
             datos.setCreditosApro(rs.getInt("CredAprob"));
             datos.setFuenteFinanciamiento(rs.getString("PpalFuente"));
@@ -1475,7 +1471,6 @@ public class DBMS {
                         + "PrimerApellido = '" + p.getApellido1() + "',"
                         + "SegundoApellido = '" + p.getApellido2() + "',"
                         + "Carrera = '" + p.getCarrera() + "', "
-                        + "CodCarrera = '" + p.getCodCarrera() + "', "
                         + "Sexo = '" + p.getSexo() + "', "
                         + "Urbanizacion = '" + p.getUrbanizacion() + "', "
                         + "Calle = '" + p.getCalle() + "', "
@@ -1532,7 +1527,6 @@ public class DBMS {
                 //Antecedentes Academicos
                 String sqlqueryAntecedente = "UPDATE \"dycicle\".AntecedenteAcademico SET "
                         + "Indice = '" + p.getIndice() + "', "
-                        + "IndicePonderado = '" + p.getIndicePon() + "', "
                         + "Decanato = '" + p.getDecanato() + "', "
                         + "AreaDeEstudio = '" + p.getAreaEstud() + "', "
                         + "Carrera = '" + p.getCarrera() + "', "
