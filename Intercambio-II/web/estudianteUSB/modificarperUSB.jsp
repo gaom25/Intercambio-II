@@ -53,7 +53,7 @@
                         <td>Contraseña Actual</td>
                         <td><html:password name="Usuario" value="" property="contrasena" maxlength="100"  errorStyleClass="error"
                                        errorKey="org.apache.struts.action.ERROR"></html:password></td>
-                            <td>
+                            <td style="width: 100px;">
                             <html:errors property="contrasena" />
                         </td>
                     </tr>
@@ -61,7 +61,7 @@
                         <td>Contraseña Nueva</td>
                         <td><html:password name="Usuario" value="" property="nuevacontra" maxlength="100" errorStyleClass="error"
                                        errorKey="org.apache.struts.action.ERROR"></html:password></td>
-                            <td>
+                            <td style="width: 100px;">
                             <html:errors property="nuevacontra" />
                         </td>
                     </tr>
@@ -69,7 +69,7 @@
                         <td>Confirmar Nueva Contraseña</td>
                         <td><html:password name="Usuario" value="" property="confirmar" maxlength="100"  errorStyleClass="error"
                                        errorKey="org.apache.struts.action.ERROR"></html:password></td>
-                            <td>
+                            <td style="width: 100px;">
                             <html:errors property="confirmar" />
                         </td>
                     </tr>

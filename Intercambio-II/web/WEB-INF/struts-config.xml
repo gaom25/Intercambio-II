@@ -171,11 +171,11 @@
             validate="false"
             parameter="cuentaEstExt"/>
         
-<!--        <action path="/modificarperExt"
+        <action path="/modificarperExt"
             type="org.apache.struts.actions.ForwardAction"
             scope="request"
             validate="false"
-            parameter="modificarperExt"/>-->
+            parameter="modificarperExt"/>
         
         <action path="/contactoEstExt"
             type="org.apache.struts.actions.ForwardAction"
@@ -197,6 +197,12 @@
             validate="false"
             parameter="contactoCoord"/>
         
+       <action path="/modPerfilPos"
+            type="org.apache.struts.actions.ForwardAction"
+            scope="request"
+            validate="false"
+            parameter="modPerfilPos"/>
+        
         <!-- desde gestor usb -->
         <action path="/accionesGestor"
             type="org.apache.struts.actions.ForwardAction"
@@ -209,6 +215,12 @@
             scope="request"
             validate="false"
             parameter="contactoGestor"/>
+        
+        <action path="/modPerfilGes"
+            type="org.apache.struts.actions.ForwardAction"
+            scope="request"
+            validate="false"
+            parameter="modPerfilGes"/>
         
         <action path="/BusquedaAvanzada"
             type="org.apache.struts.actions.ForwardAction"
@@ -288,17 +300,17 @@
        
        <action name="Usuario" path="/ModificarPerfil" scope="session" type="Actions.ModificarPerfil">
            <forward name="failure" path="accFallo"/>
-           <forward name="admin" path="accionesAdmin" />
-           <forward name="gestor" path="listarEstudiantesPostulados"/>
-           <forward name="coordinacion" path="accionesPostulante"/>
+           <forward name="admin" path="accActua" />
+           <forward name="gestor" path="accActuaGes"/>
+           <forward name="coordinacion" path="accActuaPos"/>
            <forward name="error" path="modPerfilAdm"/>
        </action>       
        
        <action name="Usuario" path="/ModificarPerUSB" scope="session" type="Actions.ModificarPerUSB">
            <forward name="failureusb" path="accFallo"/>
-           <forward name="usb" path="accionesEstUSB" />
+           <forward name="usb" path="accActuaUSB" />
            <forward name="failureext" path="accFalloExt"/>
-           <forward name="ext" path="accionesEstExt" />
+           <forward name="ext" path="accActuaExt" />
            <forward name="errorusb" path="modificarperUSB"/>
            <forward name="errorext" path="modificarperExt"/>
        </action> 
