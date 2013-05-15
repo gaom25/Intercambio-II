@@ -29,18 +29,19 @@
 
 
     <h4 align ="center">Estudiante USB</h4>
-    
-    <html:image src="images/error.png" /> 
+    <div align="center">
+        <html:image src="images/error.png" /> 
+    </div>
     <br />
-        
+
     <font color="red">
-        <h3 align ="center">
-            Su planilla de solicitud todavia no tiene toda la información necesaria,
-            </br>
-            Por favor, haga click en "Completar Planilla"
-        </h3>
+    <h3 align ="center">
+        Su planilla de solicitud todavia no tiene toda la información necesaria,
+        </br>
+        Por favor, haga click en "Completar Planilla"
+    </h3>
     </font>
-    
+
     <html:form  action="/CargarLlenarPlanillaUSB" method="POST" enctype="multipart/form-data" onsubmit="return(this)">
         <p hidden="true"><html:text name="PlanillaUSB" property="nombreUsuario" maxlength="20" errorStyleClass="error" value ="<%=tmp.toString()%>"
                    errorKey="org.apache.struts.action.ERROR"></html:text></p>
@@ -50,5 +51,5 @@
             </html:submit>
         </p>
     </html:form>
-        
+
 </html:html>
