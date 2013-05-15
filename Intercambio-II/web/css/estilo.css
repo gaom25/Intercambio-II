@@ -334,3 +334,36 @@ a.menuitem:hover{
     padding: 4px 0;
     padding-left: 10px
 }
+
+/*Botones siguientes y anterior en formulario*/
+.button {
+   border-top: 1px solid #96d1f8;
+   background: #4686b0;
+   background: -webkit-gradient(linear, left top, left bottom, from(#4684b0), to(#4686b0));
+   background: -webkit-linear-gradient(top, #4684b0, #4686b0);
+   background: -moz-linear-gradient(top, #4684b0, #4686b0);
+   background: -ms-linear-gradient(top, #4684b0, #4686b0);
+   background: -o-linear-gradient(top, #4684b0, #4686b0);
+   padding: 4.5px 9px;
+   -webkit-border-radius: 11px;
+   -moz-border-radius: 11px;
+   border-radius: 11px;
+   -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   box-shadow: rgba(0,0,0,1) 0 1px 0;
+   text-shadow: rgba(0,0,0,.4) 0 1px 0;
+   color: white;
+   font-size: 14px;
+   font-family: 'Lucida Grande', Helvetica, Arial, Sans-Serif;
+   text-decoration: none;
+   vertical-align: middle;
+   }
+.button:hover {
+   border-top-color: #28597a;
+   background: #28597a;
+   color: #ffffff;
+   }
+.button:active {
+   border-top-color: #0a293d;
+   background: #0a293d;
+   }
