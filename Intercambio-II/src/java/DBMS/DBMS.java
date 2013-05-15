@@ -975,34 +975,85 @@ public class DBMS {
                         + "Opcion = '" + p.getOpcion() + "', "
                         + "CredAprob= '" + p.getCreditosApro() + "';";
 
-                // Opciones de uni de intercambios
-                String sqlqueryUni1 = "INSERT INTO \"dycicle\".Universidades VALUES ("
-                        + "'" + p.getNombreUsuario() + "', "
-                        + "'1', " //Prioridad 
-                        + "'" + p.getNombreOpcion1() + "', "
-                        + "'" + p.getPaisOpcion1() + "', "
-                        + "'" + p.getProgramaOpcion1() + "', "
-                        + "'" + p.getNombreProgramaOpcion1() + "', "
-                        + "'" + p.getMesFechaIni1() + "', "
-                        + "'" + p.getAnoFechaIni1() + "', "
-                        + "'" + p.getMesFechaFin1() + "', "
-                        + "'" + p.getAnoFechaFin1() + "', "
-                        + "'" + p.getDuracionProgramaOpcion1() + "');";
+                
+                //Verificamos si el estudiante ya habia seleccionado una
+                // universidad como primera opcion
+                String sqlqueryUni1 = "SELECT nombreusuario FROM \"dycicle\".universidades WHERE"
+                                    + " nombreusuario='" + p.getNombreUsuario() + "'"
+                                    + " AND Prioridad='1';";
+                stmt = conexion.createStatement();
+                rs = stmt.executeQuery(sqlqueryUni1);
+                
+                if (rs.next()) {
+                    
+                    sqlqueryUni1 = "UPDATE \"dycicle\".Universidades SET"
+                            + "NombreUsuario = '" + p.getNombreUsuario() + "', "
+                            + "Prioridad = '1', " //Prioridad 
+                            + "NombreUni = '" + p.getNombreOpcion1() + "', "
+                            + "Pais = '" + p.getPaisOpcion1() + "', "
+                            + "TipoPrograma = '" + p.getProgramaOpcion1() + "', "
+                            + "NombrePrograma = '" + p.getNombreProgramaOpcion1() + "', "
+                            + "MesFechaIni = '" + p.getMesFechaIni1() + "', "
+                            + "AnioFechaIni ='" + p.getAnoFechaIni1() + "', "
+                            + "MesFechaFin = '" + p.getMesFechaFin1() + "', "
+                            + "AnioFechaFin = '" + p.getAnoFechaFin1() + "', "
+                            + "Duracion = '" + p.getDuracionProgramaOpcion1() + "');"; 
+                }else{
+                    
+                    sqlqueryUni1 = "INSERT INTO \"dycicle\".Universidades VALUES ("
+                            + "'" + p.getNombreUsuario() + "', "
+                            + "'1', " //Prioridad 
+                            + "'" + p.getNombreOpcion1() + "', "
+                            + "'" + p.getPaisOpcion1() + "', "
+                            + "'" + p.getProgramaOpcion1() + "', "
+                            + "'" + p.getNombreProgramaOpcion1() + "', "
+                            + "'" + p.getMesFechaIni1() + "', "
+                            + "'" + p.getAnoFechaIni1() + "', "
+                            + "'" + p.getMesFechaFin1() + "', "
+                            + "'" + p.getAnoFechaFin1() + "', "
+                            + "'" + p.getDuracionProgramaOpcion1() + "');";
 
-                String sqlqueryUni2 = "INSERT INTO \"dycicle\".Universidades VALUES ("
-                        + "'" + p.getNombreUsuario() + "', "
-                        + "'2', " //Prioridad
-                        + "'" + p.getNombreOpcion2() + "', "
-                        + "'" + p.getPaisOpcion2() + "', "
-                        + "'" + p.getProgramaOpcion2() + "', "
-                        + "'" + p.getNombreProgramaOpcion2() + "', "
-                        + "'" + p.getMesFechaIni2() + "', "
-                        + "'" + p.getAnoFechaIni2() + "', "
-                        + "'" + p.getMesFechaFin2() + "', "
-                        + "'" + p.getAnoFechaFin2() + "', "
-                        + "'" + p.getDuracionProgramaOpcion2() + "');";
+                }
+                
+                 //Verificamos si el estudiante ya habia seleccionado una
+                // universidad como primera opcion
+                String sqlqueryUni2 = "SELECT nombreusuario FROM \"dycicle\".universidades WHERE"
+                                    + " nombreusuario='" + p.getNombreUsuario() + "'"
+                                    + " AND Prioridad='2';";
+                stmt = conexion.createStatement();
+                rs = stmt.executeQuery(sqlqueryUni2);
+                
+                if (rs.next()) {
+                    
+                    sqlqueryUni2 = "UPDATE \"dycicle\".Universidades SET"
+                            + "NombreUsuario = '" + p.getNombreUsuario() + "', "
+                            + "Prioridad = '2', " //Prioridad 
+                            + "NombreUni = '" + p.getNombreOpcion2() + "', "
+                            + "Pais = '" + p.getPaisOpcion2() + "', "
+                            + "TipoPrograma = '" + p.getProgramaOpcion2() + "', "
+                            + "NombrePrograma = '" + p.getNombreProgramaOpcion2() + "', "
+                            + "MesFechaIni = '" + p.getMesFechaIni2() + "', "
+                            + "AnioFechaIni ='" + p.getAnoFechaIni2() + "', "
+                            + "MesFechaFin = '" + p.getMesFechaFin2() + "', "
+                            + "AnioFechaFin = '" + p.getAnoFechaFin2() + "', "
+                            + "Duracion = '" + p.getDuracionProgramaOpcion2() + "');"; 
+                }else{
+                    
+                    sqlqueryUni2 = "INSERT INTO \"dycicle\".Universidades VALUES ("
+                            + "'" + p.getNombreUsuario() + "', "
+                            + "'2', " //Prioridad 
+                            + "'" + p.getNombreOpcion2() + "', "
+                            + "'" + p.getPaisOpcion2() + "', "
+                            + "'" + p.getProgramaOpcion2() + "', "
+                            + "'" + p.getNombreProgramaOpcion2() + "', "
+                            + "'" + p.getMesFechaIni2() + "', "
+                            + "'" + p.getAnoFechaIni2() + "', "
+                            + "'" + p.getMesFechaFin2() + "', "
+                            + "'" + p.getAnoFechaFin2() + "', "
+                            + "'" + p.getDuracionProgramaOpcion2() + "');";
 
-
+                }
+               
                 String sqlqueryFinanciamiento = "INSERT INTO \"dycicle\".Financiamiento VALUES ("
                         + "'" + p.getNombreUsuario() + "', "
                         + "'" + p.getFuenteFinanciamiento() + "', "
