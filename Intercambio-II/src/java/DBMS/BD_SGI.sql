@@ -156,9 +156,9 @@ CREATE TABLE "dycicle".REPRESENTANTE(
 CREATE TABLE "dycicle".FINANCIAMIENTO(
 	NombreUsuario	VARCHAR(20)	NOT NULL,
 	PpalFuente      VARCHAR(30)     NOT NULL,
-    DescrFuente     TEXT,
-    TieneBecaDe     VARCHAR(30)     NOT NULL,
-    DescrBeca       TEXT,
+        DescrFuente     TEXT,
+        TieneBecaDe     VARCHAR(30)     NOT NULL,
+        DescrBeca       TEXT,
 	CONSTRAINT	PK_FINANCIAMIENTO
 		PRIMARY KEY (NombreUsuario,PpalFuente)
 );

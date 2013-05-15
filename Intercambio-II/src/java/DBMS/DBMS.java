@@ -986,7 +986,7 @@ public class DBMS {
                 
                 if (rs.next()) {
                     
-                    sqlqueryUni1 = "UPDATE \"dycicle\".Universidades SET"
+                    sqlqueryUni1 = "UPDATE \"dycicle\".Universidades SET "
                             + "NombreUsuario = '" + p.getNombreUsuario() + "', "
                             + "Prioridad = '1', " //Prioridad 
                             + "NombreUni = '" + p.getNombreOpcion1() + "', "
@@ -1025,7 +1025,7 @@ public class DBMS {
                 
                 if (rs.next()) {
                     
-                    sqlqueryUni2 = "UPDATE \"dycicle\".Universidades SET"
+                    sqlqueryUni2 = "UPDATE \"dycicle\".Universidades SET "
                             + "NombreUsuario = '" + p.getNombreUsuario() + "', "
                             + "Prioridad = '2', " //Prioridad 
                             + "NombreUni = '" + p.getNombreOpcion2() + "', "
@@ -1053,13 +1053,30 @@ public class DBMS {
                             + "'" + p.getDuracionProgramaOpcion2() + "');";
 
                 }
+                
+                //Verificamos si el estudiante ya habia introducido informacion
+                // sobre el financiamiento
+                String sqlqueryFinanciamiento = "SELECT nombreusuario FROM \"dycicle\".Financiamiento WHERE"
+                                    + " nombreusuario='" + p.getNombreUsuario() + "';";
+                stmt = conexion.createStatement();
+                rs = stmt.executeQuery(sqlqueryFinanciamiento);
                
-                String sqlqueryFinanciamiento = "INSERT INTO \"dycicle\".Financiamiento VALUES ("
+                if (rs.next()){
+                    sqlqueryFinanciamiento = "UPDATE \"dycicle\".Financiamiento SET "
+                        + "NombreUsuario = '" + p.getNombreUsuario() + "', "
+                        + "PpalFuente = '" + p.getFuenteFinanciamiento() + "', "
+                        + "DescrFuente = '" + p.getDescripcion1() + "', "
+                        + "TieneBecaDe = '" + p.getAyudaEc() + "', "
+                        + "DescrBeca'" + p.getDescripcion2() + "');";
+                }else{
+                    sqlqueryFinanciamiento = "INSERT INTO \"dycicle\".Financiamiento VALUES ("
                         + "'" + p.getNombreUsuario() + "', "
                         + "'" + p.getFuenteFinanciamiento() + "', "
                         + "'" + p.getDescripcion1() + "', "
                         + "'" + p.getAyudaEc() + "', "
                         + "'" + p.getDescripcion2() + "');";
+                }
+                
 
                 stmt = conexion.createStatement();
 
