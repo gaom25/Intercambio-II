@@ -16,7 +16,7 @@
     <script  src="/Intercambio-II/css/jquery.js"></script>
     <script  src="/Intercambio-II/css/jquery.tablePagination.0.5.js"></script>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>SGI - Log Auditoria</title>
+    <title>SGI - Log Auditoría</title>
 
     <script type="text/javascript">
   
@@ -46,7 +46,8 @@
         }
     
     </script>
-
+    
+        
     <h4>Log de Auditoria</h4>
 
     <div id="testTable">
@@ -74,8 +75,7 @@
                 </tr>
             </logic:iterate>
         </table>
+        <br/><br/><br/><br/><br/><br/>
     </div>
-
-
 
 </html>

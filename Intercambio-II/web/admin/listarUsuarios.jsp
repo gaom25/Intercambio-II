@@ -74,20 +74,20 @@
                     <html:form action="/ConsultarUsuario2" onsubmit="return(this)">
                         <html:hidden name = "usuarios" property="nombreusuario"/>
                         <html:hidden name = "usuarios" property="confirmar" value="admin"/>
-                        <html:image src="images/verDatos.png" styleClass="button" value="" property="" style=""/> 
+                        <html:image src="images/verDatos.png" value="" property="" style=""/> 
                     </html:form>
                 </td>
                 <td align="center" width="150px">
                     <html:form action="/ObtenerDatos" onsubmit="return(this)">
                         <html:hidden name = "usuarios" property="nombreusuario"/>
-                        <html:image src="images/document-edit.png" styleClass="button" value="" property="" /> 
+                        <html:image src="images/document-edit.png" value="" property="" /> 
                     </html:form>
                 </td>
                 <td align="center" width="150px">
                     <html:form action="/EliminarUsuario" onsubmit="return(this)">
                         <html:hidden name = "usuarios" property="nombreusuario"/>
                         <a onclick="javascript: return confirm('Seguro Que Deses Elmininar Este Usuario?')">
-                            <html:image src="images/trashcan-delete.png" styleClass="button" value="" property="" /> 
+                            <html:image src="images/trashcan-delete.png" value="" property="" /> 
                         </a>
                     </html:form>
                 </td>
