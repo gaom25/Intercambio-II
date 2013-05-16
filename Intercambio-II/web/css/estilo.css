@@ -149,6 +149,12 @@ a:hover {
     font-weight: bold;
 }
 
+#contacto{
+    float:right;
+    margin-top: 240px;
+    margin-right: -150px
+}
+
 #footer{
     width:760px;
     margin:auto;
