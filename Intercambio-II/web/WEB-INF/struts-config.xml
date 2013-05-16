@@ -244,8 +244,8 @@
         </action> 
         
         <action path="/EnviarCorreo" type="Actions.EnviarCorreo" name="Contacto">
-            <forward name="failure" path="inicSesion"/>
             <forward name="success" path="accExitoPublico"/>
+            <forward name="failure" path="inicSesion"/>
             <forward name="error" path="contacto"/>
         </action>
         

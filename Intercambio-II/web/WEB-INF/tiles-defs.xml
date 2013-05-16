@@ -66,6 +66,10 @@
     <definition name="SistemaCerrado" extends="basePublic"> <!-- pagina de recibimiento para usuarios coordinacion -->
         <put name="body" value="/public/SistemaCerrado.jsp"/>
     </definition>
+    
+    <definition name="accExitoPublico" extends="basePublic"> <!-- pagina de exito de gestion de usuarios -->
+        <put name="body" value="/public/accionExitosa2.jsp"/>
+    </definition>
             
            
     <!-- ADMINISTRADOR -->
@@ -83,10 +87,6 @@
     
     <definition name="accActua" extends="baseAdmin"> <!-- pagina de exito de modificacion de perfil -->
         <put name="body" value="/admin/accActualizacion.jsp"/>
-    </definition>
-            
-    <definition name="accExitoPublico" extends="baseAdmin"> <!-- pagina de exito de gestion de usuarios -->
-        <put name="body" value="/public/accionExitosa2.jsp"/>
     </definition>
         
     <definition name="accionesAdmin" extends="baseAdmin"> <!-- pagina de gestion de usuarios -->
