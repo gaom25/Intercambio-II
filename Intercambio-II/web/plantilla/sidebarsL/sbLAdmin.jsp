@@ -57,5 +57,17 @@ ddmenu.init({
         <a style="border-bottom: solid"> <html:link styleClass="menuitem" action="/CerrarSesion">Cerrar sesión</html:link></a>
             
    </div>
+   <br>
+   <div id="twitterInt" style="width: 240px"> 
+         
+        <a class="twitter-timeline" height="300" href="https://twitter.com/IntercambioUSB" data-widget-id="317086117033811968"> </a>
+        <script>!function(d,s,id){
+            var js,fjs=d.getElementsByTagName(s)[0];
+            if(!d.getElementById(id)){js=d.createElement(s);
+                js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}
+        }(document,"script","twitter-wjs");
+        </script>
+
+    </div> 
     
 </html:html>
