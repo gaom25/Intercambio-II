@@ -24,13 +24,15 @@
             <div id="sidebarL">
                 <tiles:insert attribute="sidebarL"/>
             </div>
-
+            
             <tiles:insert attribute="sidebarR"/>
-
+            
+            <tiles:insert attribute="contacto"/>
+            
             <div style="width:760px;margin-left:auto;margin-right:auto;">
                 <tiles:insert attribute="body"/>
             </div>
-
+          
             <div>
                 <tiles:insert attribute="footer"/>
             </div>

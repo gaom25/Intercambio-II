@@ -186,6 +186,7 @@
     <!-- ESTUDIANTE USB -->
     <definition name="baseEstudiante" extends="base"> <!-- base de todas las vistas de estudiantes -->
         <put name="sidebarL" value="/plantilla/sidebarsL/sbLEstUSB.jsp"/>
+        <put name="contacto" value="/plantilla/sidebarsR/contactoEstudianteUSB.jsp"/>
     </definition>
         
     <definition name="errortam" extends="baseEstudiante"> <!-- pagina arror de tamano archivo de estudiante usb -->
@@ -344,6 +345,7 @@
         
     <definition name="baseGestor" extends="base"> <!-- base de todas las vistas de gestores -->
         <put name="sidebarL" value="/plantilla/sidebarsL/sbLGestor.jsp"/>
+        <put name="contacto" value="/plantilla/sidebarsR/contactoGestor.jsp"/>
     </definition>
         
     <definition name="accionesGestor" extends="baseGestor"> <!-- pagina de gestion de usuarios -->
