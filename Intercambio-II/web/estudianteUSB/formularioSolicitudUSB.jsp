@@ -697,27 +697,25 @@
     <!-- LLENAR EL FORMULARIO DE DATOS -->
 
     <div class="nav" style="text-align: center;">
-        <a href="#" onclick=" if (true) show('datosplanilla'), hide('archivos'),hide('plan'),hide('idio')"> Llenar Formulario de Datos </a>
+        <a href="#" onclick=" if (true) show('datosplanilla'), hide('archivos'),hide('plan'),hide('idio')"> 1. Llenar Formulario de Datos </a>
     </div>
 
     <div id="datosplanilla" style="display: none ; width: 92%;">
         
         <h5>El siguiente formulario consta de 7 pasos, todos los campos son obligatorios</h5>
         <div>
-            <div align=center>
+            <div align ="center">
 
                 <html:form action="/LlenarPlanilla_EstUSB"  method="POST" acceptCharset="ISO-8859-1" enctype="multipart/form-data" onsubmit="return(this)">
                     <p hidden="true"><html:text name="PlanillaUSB" property="nombreUsuario" maxlength="20" errorStyleClass="error" value ="<%=var.toString()%>"
                                errorKey="org.apache.struts.action.ERROR"></html:text></p>
                         <br>
 
-                        <!-- contenido de las pestañas -->
-
-
-                        <div id="opci1" style="display:block;width:650px; border: 5px solid #D6D6C2; border-width:5px; border-radius: 10px">
+                        <div id="opci1" style="display:block;width:450px; border: 5px solid #D6D6C2; border-width:5px; border-radius: 10px">
                             <br>
-                            <span><a> Datos </a></span>
-
+                            <span><a> Paso 1.1: </a><b><a style="text-decoration: underline">DATOS PERSONALES</a></b></span>
+                            <br>
+                            <br>
                             <table border="0"  align="center">
                                 <tbody>
                                     <tr>
@@ -844,6 +842,8 @@
                                 </tr>
                             </tbody>
                         </table>
+                        
+                        <br>
                         <div>      
                             <span style="float: right"><a class="button" href='javascript:seleccion(2);'> Siguiente </a></span>
                         </div>
@@ -851,14 +851,14 @@
 
                     </div>
 
-                    <div id="opci2" style="display:none;width:650px; border: 5px solid #D6D6C2; border-width:5px; border-radius: 10px">
+                    <div id="opci2" style="display:none;width:450px; border: 5px solid #D6D6C2; border-width:5px; border-radius: 10px">
 
 
                         <br>
 
-                        <span><a> Domicilio </a></span>
+                        <span><a>Paso 1.2: </a><b><a style="text-decoration: underline">INFORMACIÓN DE DOMICILIO</a></b></span>
 
-
+                        <br>
                         <br>
                         <table border="0"  align="center">
                             <tbody>                
@@ -943,6 +943,8 @@
 
                             </tbody>
                         </table>
+                        
+                        <br>
                         <div>      
                             <span style="float: left"><a class="button"  href='javascript:seleccion(1);'> Anterior </a></span>
                             <span style="float: right"><a class="button" href='javascript:seleccion(3);'> Siguiente </a></span>
@@ -950,19 +952,19 @@
                         <br><br>
                     </div>
 
-                    <div id="opci3" style="display:none;width:650px; border: 5px solid #D6D6C2; border-width:5px; border-radius: 10px">
+                    <div id="opci3" style="display:none;width:450px; border: 5px solid #D6D6C2; border-width:5px; border-radius: 10px">
 
                         <br>
 
-                        <span><a> Contacto </a></span>
-
+                        <span><a>Paso 1.3: </a><b><a style="text-decoration: underline">DATOS DE CONTACTO</a></b></span>
+                        <br>
                         <br>
                         <table border="0"  align="center">
                             <tbody>
 
                                 <tr>
 
-                                    <td> Tlf. Celular:</td>
+                                    <td> Teléfono celular:</td>
 
                                     <td>
                                         <html:text name="PlanillaUSB" property="telefonoCelular" maxlength="15" errorStyleClass="error"
@@ -977,7 +979,7 @@
 
                                 <tr>
 
-                                    <td> Tlf. Casa:</td>
+                                    <td> Teléfono fijo:</td>
 
                                     <td>
                                         <html:text name="PlanillaUSB" property="telefonoCasa" maxlength="15" errorStyleClass="error"
@@ -1008,6 +1010,8 @@
 
                             </tbody>
                         </table>
+                                    
+                        <br> 
                         <div>
                             <span style="float: left"><a class="button"  href='javascript:seleccion(2);'> Anterior </a></span>
                             <span style="float: right"><a class="button" href='javascript:seleccion(4);'> Siguiente </a></span>
@@ -1015,13 +1019,13 @@
                         <br><br>
                     </div>                    
 
-                    <div id="opci4" style="display:none;width:650px; border: 5px solid #D6D6C2; border-radius: 10px; border-width:5px;">
+                    <div id="opci4" style="display:none;width:450px; border: 5px solid #D6D6C2; border-radius: 10px; border-width:5px;">
 
                         <br>
 
-                        <span><a> Programa </a></span>
+                        <span><a>Paso 1.4: </a><b><a style="text-decoration: underline">PROGRAMAS</a></b></span>
 
-
+                        <br>
                         <br>
                         <table border="0"  align="center">
                             <tbody>
@@ -1042,13 +1046,13 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <a href="#" id="planilla1-1" title="Debe llenar este formulario y luego cargarlo en el sistema"> </a>
+                                        <a href="#" id="planilla1-1" title="Debe llenar este formulario y luego adjuntarlo en el área de documentos requeridos"> </a>
                                     </td>
                                 </tr>
 
                                 <tr>
                                     <td>
-                                        <a href="#" id="planilla1-2" title="Debe llenar este formulario y luego cargarlo en el sistema"> </a>
+                                        <a href="#" id="planilla1-2" title="Debe llenar este formulario y luego adjuntarlo en el área de documentos requeridos"> </a>
                                     </td>
                                 </tr>
 
@@ -1157,8 +1161,8 @@
                                     <td>
                                         <html:errors property="duracionProgramaOpcion1" />
                                     </td>
-                                </tr>  
-
+                                </tr>
+                                
                                 <tr>
                                     <td> <b>Opción 2</b> </td>
                                 </tr>
@@ -1175,13 +1179,13 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <a href="#" id="planilla2-1" title="Debe llenar este formulario y luego cargarlo en el sistema"> </a>
+                                        <a href="#" id="planilla2-1" title="Debe llenar este formulario y luego adjuntarlo en el área de documentos requeridos"> </a>
                                     </td>
                                 </tr>
 
                                 <tr>
                                     <td>
-                                        <a href="#" id="planilla2-2" title="Debe llenar este formulario y luego cargarlo en el sistema"> </a>
+                                        <a href="#" id="planilla2-2" title="Debe llenar este formulario y luego adjuntarlo en el área de documentos requeridos"> </a>
                                     </td>
                                 </tr>
 
@@ -1283,6 +1287,8 @@
 
                             </tbody>
                         </table>
+                                    
+                        <br>
                         <div>      
                             <span style="float: left"><a class="button"  href='javascript:seleccion(3);'> Anterior </a></span>
                             <span style="float: right"><a class="button" href='javascript:seleccion(5);'> Siguiente </a></span>
@@ -1290,12 +1296,13 @@
                         <br><br>
                     </div>
 
-                    <div id="opci5" style="display:none;width:650px; border: 5px solid #D6D6C2; border-radius: 10px; border-width:5px;">
+                    <div id="opci5" style="display:none;width:450px; border: 5px solid #D6D6C2; border-radius: 10px; border-width:5px;">
                         <br>
-                        <span><a> Info. Académica </a></span>
+                        <span><a>Paso 1.5: </a><b><a style="text-decoration: underline">INFORMACIÓN ACADÉMICA</a></b></span>
 
                         <br>
-                        <table border="0"  align="center">
+                        <br>
+                        <table border="0" align="center">
                             <tbody>
 
                                 <tr>
@@ -1357,6 +1364,8 @@
 
                             </tbody>
                         </table>
+                                    
+                        <br>
                         <div>
 
                             <span style="float: left"><a class="button"  href='javascript:seleccion(4);'> Anterior </a></span>
@@ -1365,9 +1374,12 @@
                         <br><br>
                     </div>
 
-                    <div id="opci6" style="display:none;width:650px; border: 5px solid #D6D6C2; border-radius: 10px; border-width:5px;">
+                    <div id="opci6" style="display:none;width:450px; border: 5px solid #D6D6C2; border-radius: 10px; border-width:5px;">
                         <br>
-                        <span><a> Financiamiento </a></span>
+                        
+                        <span><a>Paso 1.6: </a><b><a style="text-decoration: underline">DATOS DE FINANCIAMIENTO</a></b></span>
+                        <br>
+                        <br>
                         <table border="0"  align="center">
                             <tbody>
                                 <tr>
@@ -1399,6 +1411,8 @@
                                 </tr>
                             </tbody>
                         </table>
+                        
+                        <br>
                         <div>
 
                             <span style="float: left"><a class="button"  href='javascript:seleccion(5);'> Anterior </a></span>
@@ -1408,10 +1422,11 @@
                         <br>
                     </div>
 
-                    <div id="opci7" style="display:none;width:650px; border: 5px solid #D6D6C2; border-radius: 10px; border-width:5px;">
+                    <div id="opci7" style="display:none;width:450px; border: 5px solid #D6D6C2; border-radius: 10px; border-width:5px;">
                         <br>
 
-                        <span><a> Contacto de Emergencia </a></span>
+                        <span><a>Paso 1.7: </a><b><a style="text-decoration: underline">CONTACTO EN CASO DE EMERGENCIA</a></b></span>
+                        <br>
                         <br>
                         <table border="0"  align="center">
                             <tbody>
@@ -1473,7 +1488,7 @@
                                     <td>Dirección: </td>
 
                                     <td>
-                                        <html:textarea name="PlanillaUSB" property="direccionRep" cols="50" rows="5"  errorStyleClass="error"
+                                        <html:textarea name="PlanillaUSB" property="direccionRep" cols="20" rows="7"  errorStyleClass="error"
                                                        errorKey="org.apache.struts.action.ERROR">
                                         </html:textarea >
                                     </td>
@@ -1485,10 +1500,11 @@
 
                             </tbody>
                         </table>
+                        <br>
                         <span style="float: left"><a class="button"  href='javascript:seleccion(6);'> Anterior </a></span>
                         <br>
                         <p  align=center>
-                            <html:submit> Enviar Formulario </html:submit>
+                            <html:submit> GUARDAR  </html:submit>
                             </p> 
                         </div>                
 
@@ -1503,7 +1519,7 @@
     <!-- CARGA DE DOCUMENTOS -->
 
     <div class="nav" style="text-align: center;">
-        <a href="#" onclick=" if (true) hide('datosplanilla'), show('archivos'),hide('plan'),hide('idio')"> Documentos requeridos </a>
+        <a href="#" onclick=" if (true) hide('datosplanilla'), show('archivos'),hide('plan'),hide('idio')"> 2. Documentos requeridos </a>
     </div>
     <div id="archivos" style="display: none; width: 88%;">
         <div style="width:auto;height:auto;border:6px solid  #F9F4CF; border-color: #F9F4CF; border-radius: 10px; border-width:5px;">
@@ -1605,7 +1621,7 @@
     <!--Carga Materias-->
 
     <div class="nav" style="text-align: center;">
-        <a href="#" onclick=" if (true) hide('datosplanilla'), hide('archivos'),show('plan'),hide('idio')"> Plan de Estudio </a>
+        <a href="#" onclick=" if (true) hide('datosplanilla'), hide('archivos'),show('plan'),hide('idio')"> 3. Plan de Estudio </a>
     </div>
 
     <div id="plan" style="display: none; width: 88%;">
@@ -1692,7 +1708,7 @@
 
 
     <div class="nav" style="text-align: center;">
-        <a href="#" onclick=" if (true) hide('datosplanilla'), hide('archivos'),hide('plan'),show('idio')"> Dominio de idiomas</a>
+        <a href="#" onclick=" if (true) hide('datosplanilla'), hide('archivos'),hide('plan'),show('idio')"> 4. Dominio de idiomas</a>
     </div>
 
     <div id="idio" style="display: none; width: 88%;">
