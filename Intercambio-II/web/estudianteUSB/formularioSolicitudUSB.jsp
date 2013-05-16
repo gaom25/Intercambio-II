@@ -700,7 +700,7 @@
         <a href="#" onclick=" if (true) show('datosplanilla'), hide('archivos'),hide('plan'),hide('idio')"> 1. Llenar Formulario de Datos </a>
     </div>
 
-    <div id="datosplanilla" style="display: none ; width: 92%;">
+    <div id="datosplanilla" style="display: none ; width: 92%;margin-left: 8%">
         
         <h5>El siguiente formulario consta de 7 pasos, todos los campos son obligatorios</h5>
         <div>
@@ -711,7 +711,7 @@
                                errorKey="org.apache.struts.action.ERROR"></html:text></p>
                         <br>
 
-                        <div id="opci1" style="display:block;width:450px; border: 5px solid #D6D6C2; border-width:5px; border-radius: 10px">
+                        <div id="opci1" style="display:block;width:450px; border: 5px solid #96d1f8; border-width:5px; border-radius: 10px">
                             <br>
                             <span><a> Paso 1.1: </a><b><a style="text-decoration: underline">DATOS PERSONALES</a></b></span>
                             <br>
@@ -851,7 +851,7 @@
 
                     </div>
 
-                    <div id="opci2" style="display:none;width:450px; border: 5px solid #D6D6C2; border-width:5px; border-radius: 10px">
+                    <div id="opci2" style="display:none;width:450px; border: 5px solid #96d1f8; border-width:5px; border-radius: 10px">
 
 
                         <br>
@@ -952,7 +952,7 @@
                         <br><br>
                     </div>
 
-                    <div id="opci3" style="display:none;width:450px; border: 5px solid #D6D6C2; border-width:5px; border-radius: 10px">
+                    <div id="opci3" style="display:none;width:450px; border: 5px solid #96d1f8; border-width:5px; border-radius: 10px">
 
                         <br>
 
@@ -1019,7 +1019,7 @@
                         <br><br>
                     </div>                    
 
-                    <div id="opci4" style="display:none;width:450px; border: 5px solid #D6D6C2; border-radius: 10px; border-width:5px;">
+                    <div id="opci4" style="display:none;width:450px; border: 5px solid #96d1f8; border-radius: 10px; border-width:5px;">
 
                         <br>
 
@@ -1296,7 +1296,7 @@
                         <br><br>
                     </div>
 
-                    <div id="opci5" style="display:none;width:450px; border: 5px solid #D6D6C2; border-radius: 10px; border-width:5px;">
+                    <div id="opci5" style="display:none;width:450px; border: 5px solid #96d1f8; border-radius: 10px; border-width:5px;">
                         <br>
                         <span><a>Paso 1.5: </a><b><a style="text-decoration: underline">INFORMACIÓN ACADÉMICA</a></b></span>
 
@@ -1374,7 +1374,7 @@
                         <br><br>
                     </div>
 
-                    <div id="opci6" style="display:none;width:450px; border: 5px solid #D6D6C2; border-radius: 10px; border-width:5px;">
+                    <div id="opci6" style="display:none;width:450px; border: 5px solid #96d1f8; border-radius: 10px; border-width:5px;">
                         <br>
                         
                         <span><a>Paso 1.6: </a><b><a style="text-decoration: underline">DATOS DE FINANCIAMIENTO</a></b></span>
@@ -1422,7 +1422,7 @@
                         <br>
                     </div>
 
-                    <div id="opci7" style="display:none;width:450px; border: 5px solid #D6D6C2; border-radius: 10px; border-width:5px;">
+                    <div id="opci7" style="display:none;width:450px; border: 5px solid #96d1f8; border-radius: 10px; border-width:5px;">
                         <br>
 
                         <span><a>Paso 1.7: </a><b><a style="text-decoration: underline">CONTACTO EN CASO DE EMERGENCIA</a></b></span>
@@ -1521,8 +1521,8 @@
     <div class="nav" style="text-align: center;">
         <a href="#" onclick=" if (true) hide('datosplanilla'), show('archivos'),hide('plan'),hide('idio')"> 2. Documentos requeridos </a>
     </div>
-    <div id="archivos" style="display: none; width: 88%;">
-        <div style="width:auto;height:auto;border:6px solid  #F9F4CF; border-color: #F9F4CF; border-radius: 10px; border-width:5px;">
+    <div id="archivos" style="display: none; width: 60%;margin-left: 20%">
+        <div style="width:auto;height:auto;border:6px solid  #F9F4CF; border-color: #96d1f8; border-radius: 10px; border-width:5px;">
 
             <div align=center>
                 <html:form action="/FileUploadAction" method="post" enctype="multipart/form-data">
@@ -1624,9 +1624,9 @@
         <a href="#" onclick=" if (true) hide('datosplanilla'), hide('archivos'),show('plan'),hide('idio')"> 3. Plan de Estudio </a>
     </div>
 
-    <div id="plan" style="display: none; width: 88%;">
+    <div id="plan" style="display: none; width: 70%;margin-left: 20%">
 
-        <div style="width:auto;height:auto;border:6px solid #F9F4CF; border-color: #F9F4CF; border-radius: 10px; border-width:5px;">
+        <div style="width:auto;height:auto;border:6px solid #F9F4CF; border-color: #96d1f8; border-radius: 10px; border-width:5px;">
             <div align=center>
                 <html:form action="/AccionPlanDeEstudio" acceptCharset="ISO-8859-1" method="post" enctype="multipart/form-data">
                     <br />
@@ -1711,8 +1711,8 @@
         <a href="#" onclick=" if (true) hide('datosplanilla'), hide('archivos'),hide('plan'),show('idio')"> 4. Dominio de idiomas</a>
     </div>
 
-    <div id="idio" style="display: none; width: 88%;">
-        <div style="width:auto;height:auto;border:6px solid #F9F4CF; border-color: #F9F4CF; border-radius: 10px; border-width:5px;">
+    <div id="idio" style="display: none; width: 88%; margin-left: 10%">
+        <div style="width:auto;height:auto;border:6px solid #F9F4CF; border-color: #96d1f8; border-radius: 10px; border-width:5px;">
             <div align=center>
                 <html:form action="/CargarIdioma" method="post" acceptCharset="ISO-8859-1" enctype="multipart/form-data">
                     <br />
