@@ -16,6 +16,7 @@
     <definition name="base" path="/plantilla/basePlantilla.jsp"> <!-- base de todas las vistas -->
         <put name="banner" value="/plantilla/banner.jsp"/>
         <put name="sidebarR" value="/plantilla/sidebarR.jsp"/>
+        <put name="sidebarL" value="/plantilla/sidebarL.jsp"/>
         <put name="body" value="/plantilla/body.jsp"/>
         <put name="footer" value="/plantilla/footer.jsp"/>
     </definition>
@@ -75,7 +76,7 @@
     <!-- ADMINISTRADOR -->
     <definition name="baseAdmin" extends="base"> <!-- base de todas las vistas de administrador -->
         <put name="sidebarL" value="/plantilla/sidebarsL/sbLAdmin.jsp"/>
-        <put name="contacto" value="/plantilla/sidebarsR/contactoPublic.jsp"/>
+        <put name="contacto" value="" />
     </definition>
         
     <definition name="accFallo" extends="baseAdmin"> <!-- pagina de error al agregar usuario -->
