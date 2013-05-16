@@ -75,6 +75,7 @@
     <!-- ADMINISTRADOR -->
     <definition name="baseAdmin" extends="base"> <!-- base de todas las vistas de administrador -->
         <put name="sidebarL" value="/plantilla/sidebarsL/sbLAdmin.jsp"/>
+        <put name="contacto" value="/plantilla/sidebarsR/contactoPublic.jsp"/>
     </definition>
         
     <definition name="accFallo" extends="baseAdmin"> <!-- pagina de error al agregar usuario -->
