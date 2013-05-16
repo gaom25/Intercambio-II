@@ -1711,7 +1711,7 @@
         <a href="#" onclick=" if (true) hide('datosplanilla'), hide('archivos'),hide('plan'),show('idio')"> 4. Dominio de idiomas</a>
     </div>
 
-    <div id="idio" style="display: none; width: 88%; margin-left: 10%">
+    <div id="idio" style="display: none; width: 75%; margin-left: 10%">
         <div style="width:auto;height:auto;border:6px solid #F9F4CF; border-color: #96d1f8; border-radius: 10px; border-width:5px;">
             <div align=center>
                 <html:form action="/CargarIdioma" method="post" acceptCharset="ISO-8859-1" enctype="multipart/form-data">
