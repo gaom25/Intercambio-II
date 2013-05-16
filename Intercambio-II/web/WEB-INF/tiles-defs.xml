@@ -25,23 +25,15 @@
     <!-- PUBLICAS -->
     <definition name="basePublic" extends="base"> <!-- base de todas las vistas publicas -->
         <put name="sidebarL" value="/plantilla/sidebarsL/sbIndex.jsp"/>
+        <put name="contacto" value="/plantilla/sidebarsR/contactoPublic.jsp"/>
     </definition>
-        
-        
+               
     <definition name="inicSesion" extends="basePublic"> <!-- pagina de inicio del sistema -->
         <put name="body" value="/public/welcome.jsp"/>
     </definition>
-            
-    <definition name="faq" extends="basePublic"> <!-- pagina de inicio del sistema -->
-        <put name="body" value="/public/FAQ.jsp"/>
-    </definition>
-            
+
     <definition name="reccontra" extends="basePublic"> <!-- pagina de recuperacion de contraseña -->
         <put name="body" value="/public/recuperarContrasena.jsp"/>
-    </definition>
-
-    <definition name="infoImportante" extends="basePublic"> <!-- pagina de información importante -->
-        <put name="body" value="/public/infoImportante.jsp"/>
     </definition>
                                     
     <definition name="recConEnviada" extends="basePublic"> <!-- pagina de recuperacion de contraseña enviada -->
@@ -273,6 +265,7 @@
     <!-- ESTUDIANTE EXT -->
     <definition name="baseEstudianteExt" extends="base"> <!-- base de todas las vistas de estudiantes extranjeros-->
         <put name="sidebarL" value="/plantilla/sidebarsL/sbLEstExt.jsp"/>
+        <put name="contacto" value="/plantilla/sidebarsR/contactoEstudianteExt.jsp"/>
     </definition>
         
     <definition name="errortamExt" extends="baseEstudianteExt"> <!-- pagina arror de tamano archivo de estudiante usb -->
@@ -390,14 +383,10 @@
         <put name="body" value="/gestor/accActualizacion.jsp"/>
     </definition>
 
-        
- 
-        
-              
-
     <!-- COORDINACION -->        
     <definition name="baseCoordinaciones" extends="base"> <!-- base de todas las vistas de coordinaciones -->
         <put name="sidebarL" value="/plantilla/sidebarsL/sbLCoord.jsp"/>
+        <put name="contacto" value="/plantilla/sidebarsR/contactoPostulante.jsp"/>
     </definition>
 
     <definition name="accActuaPos" extends="baseCoordinaciones"> <!-- pagina de exito de modificar perfil -->
