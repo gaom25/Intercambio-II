@@ -13,7 +13,7 @@
         <html:image src="images/correct.png" /> 
         <br />
         
-        <html:link action="accionesGestor">
+        <html:link action="/ListarEstudiantesPostulados">
             Continuar
         </html:link>
     </div>
