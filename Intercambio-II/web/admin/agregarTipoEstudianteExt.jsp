@@ -32,7 +32,9 @@
                             <html:text name="EstInter" property="nombreusuario" value="" maxlength="20" errorStyleClass="error"
                                        errorKey="org.apache.struts.action.ERROR"></html:text>
                         </td>
-                        <td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
                             <html:errors property="nombreusuario" />
                         </td>
                     </tr>
@@ -43,7 +45,9 @@
                             <html:text name="EstInter" property="email" maxlength="30" value="" errorStyleClass="error" 
                                        errorKey="org.apache.struts.action.ERROR"></html:text>
                         </td>
-                        <td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
                             <html:errors property="email" />
                         </td>
                     </tr>
@@ -54,7 +58,9 @@
                             <html:text name="EstInter" property="pNombre" value="" maxlength="30" errorStyleClass="error"
                                        errorKey="org.apache.struts.action.ERROR"></html:text>
                         </td>
-                        <td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
                             <html:errors property="nombres" />
                         </td>
                     </tr>
@@ -64,7 +70,9 @@
                         <td><html:text name="EstInter" property="pApellido" value="" maxlength="100" errorStyleClass="error"
                                    errorKey="org.apache.struts.action.ERROR"></html:text>
                         </td>
-                        <td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
                             <html:errors property="apellidos" />
                         </td>
                     </tr>
@@ -74,11 +82,13 @@
                             <html:text name="EstInter" property="pasaporte" value="" maxlength="30" errorStyleClass="error"
                                        errorKey="org.apache.struts.action.ERROR"></html:text>
                         </td>
-                        <td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
                             <html:errors property="pasaporte" />
                         </td>
                     </tr>
-                    
+
                 </tbody>
             </table>
 

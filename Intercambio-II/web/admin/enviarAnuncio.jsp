@@ -27,7 +27,9 @@
                             <html:text name="Anuncio" property="titulo" maxlength="100" value="" errorStyleClass="error"
                                        errorKey="org.apache.struts.action.ERROR"></html:text>
                         </td>
-                        <td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
                             <html:errors property="titulo" />
                         </td>
                     </tr>
@@ -46,23 +48,24 @@
                             <html:checkbox name="Anuncio" property="uniExt" value="uniExt" > Universidades Extranjeras</html:checkbox>
                             <html:checkbox name="Anuncio" property="estUSB" value="estUSB" > Estudiante USB </html:checkbox>
                             <html:checkbox name="Anuncio" property="estExt" value="estExt"> Estudiante Extranjero</html:checkbox>
-                            
+
                         </td>
                     </tr>
 
-                <td>
-                    <html:errors property="mensaje"/>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+                    <tr>
+                        <td colspan="2">
+                            <html:errors property="mensaje"/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
 
-    <p style="text-align: center">
-        <html:submit onclick="javascript: return confirm('¿Está seguro que el anuncio esta correcto?')">
-            Enviar Notificacion
-        </html:submit>
-    </p>
-</html:form>
-</body>
+            <p style="text-align: center">
+                <html:submit onclick="javascript: return confirm('¿Está seguro que el anuncio esta correcto?')">
+                    Enviar Notificacion
+                </html:submit>
+            </p>
+        </html:form>
+    </body>
 </html>
 

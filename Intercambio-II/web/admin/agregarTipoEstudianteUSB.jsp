@@ -29,19 +29,23 @@
                         <td>
                             <html:text name="EstUSB" property="nombreusuario" value="" maxlength="20" errorStyleClass="error"
                                        errorKey="org.apache.struts.action.ERROR"></html:text>
-                            </td>
-                            <td>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
                             <html:errors property="nombreusuario" />
                         </td>
                     </tr>
-                    
+
                     <tr>
                         <td style="color: black">Email</td>
                         <td>
                             <html:text name="EstUSB" property="email" maxlength="30" errorStyleClass="error" value=""
                                        errorKey="org.apache.struts.action.ERROR"></html:text>
                         </td>
-                        <td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
                             <html:errors property="email" />
                         </td>
                     </tr>
@@ -51,8 +55,10 @@
                         <td>
                             <html:text name="EstUSB" property="pNombre" maxlength="30" value="" errorStyleClass="error"
                                        errorKey="org.apache.struts.action.ERROR"></html:text>
-                            </td>
-                            <td>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
                             <html:errors property="nombres" />
                         </td>
                     </tr>
@@ -61,8 +67,10 @@
                         <td style="color: black">Primer Apellido</td>       
                         <td><html:text name="EstUSB" property="pApellido" maxlength="100" value="" errorStyleClass="error"
                                    errorKey="org.apache.struts.action.ERROR"></html:text>
-                            </td>
-                            <td>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
                             <html:errors property="apellidos" />
                         </td>
                     </tr>
@@ -71,15 +79,17 @@
                         <td style="color: black">Carnet</td>       
                         <td><html:text name="EstUSB" property="carnet" maxlength="100" value="" errorStyleClass="error"
                                    errorKey="org.apache.struts.action.ERROR"></html:text>
-                            </td>
-                            <td>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
                             <html:errors property="apellidos" />
                         </td>
                     </tr>
-                    
+
                     <tr>
                         <td style="color: black">Carrera</td>
-                        
+
                         <td><html:select  property="carrera">
                                 <html:option value="Licenciatura en Quimica"></html:option>
                                 <html:option value="Licenciatura en Matematicas"></html:option>
@@ -113,13 +123,15 @@
                             </html:select>
                         </td>
                     </tr>
-                    
+
                     <tr>
                         <td style="color: black">Codigo de la carrera</td>       
                         <td><html:text name="EstUSB" property="codCarrera" maxlength="100" errorStyleClass="error"
                                    errorKey="org.apache.struts.action.ERROR"></html:text>
-                            </td>
-                            <td>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
                             <html:errors property="codCarrera" />
                         </td>
                     </tr>

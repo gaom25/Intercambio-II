@@ -33,8 +33,10 @@
                             <td>
                                 <html:text name="Nombre" property="nombreRemitente" maxlength="20" value="" errorStyleClass="error"
                                            errorKey="org.apache.struts.action.ERROR"></html:text>
-                                </td>
-                                <td>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
                                 <html:errors property="nombreRemitente" />
                             </td>
                         </tr>
@@ -44,8 +46,10 @@
                             <td>
                                 <html:text name="MailRemitente" property="correoRemitente" maxlength="30" value="" errorStyleClass="error"
                                            errorKey="org.apache.struts.action.ERROR"></html:text>
-                                </td>
-                                <td>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
                                 <html:errors property="email" />
                             </td>
                         </tr>
@@ -54,8 +58,10 @@
                             <td style="color: black">Asunto: </td>       
                             <td><html:text name="Asunto" property="asunto" maxlength="100" value="" errorStyleClass="error"
                                        errorKey="org.apache.struts.action.ERROR"></html:text>
-                                </td>
-                                <td>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
                                 <html:errors property="asunto" />
                             </td>
                         </tr>
@@ -63,8 +69,10 @@
                             <td style="color: black">Mensaje: </td>
                             <td><html:textarea name="Mensaje" property="mensaje"  value="" errorStyleClass="error"
                                            errorKey="org.apache.struts.action.ERROR" cols="30" rows="10"></html:textarea>
-                                </td>
-                                <td>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
                                 <html:errors property="mensaje" />
                             </td>
                         </tr>

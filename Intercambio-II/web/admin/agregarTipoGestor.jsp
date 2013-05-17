@@ -17,7 +17,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Agregar nuevo gestor</title>
     </head>
-    
+
     <body onload ="clearForms()" onunload="clearForms()">
 
         <h4>Creaci&oacute;n de Nuevo Gestor</h4>
@@ -32,19 +32,23 @@
                         <td>
                             <html:text name="Usuario" property="nombreusuario" value="" maxlength="20" errorStyleClass="error"
                                        errorKey="org.apache.struts.action.ERROR"></html:text>
-                            </td>
-                            <td>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
                             <html:errors property="nombreusuario" />
                         </td>
                     </tr>
-                    
+
                     <tr>
                         <td style="color: black">Email</td>
                         <td>
                             <html:text name="Usuario" property="email" value="" maxlength="30" errorStyleClass="error"
                                        errorKey="org.apache.struts.action.ERROR"></html:text>
                         </td>
-                        <td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
                             <html:errors property="email" />
                         </td>
                     </tr>
@@ -54,12 +58,14 @@
                         <td>
                             <html:text name="Usuario" property="nombre" value="" maxlength="30" errorStyleClass="error"
                                        errorKey="org.apache.struts.action.ERROR"></html:text>
-                            </td>
-                            <td>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
                             <html:errors property="nombre" />
                         </td>
                     </tr>
-                    
+
                 </tbody>
             </table>
 

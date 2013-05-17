@@ -18,7 +18,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Agregar nueva universidad extranjera</title>
     </head>
-    
+
     <body onload ="clearForms()" onunload="clearForms()">
 
         <h4>Creaci&oacute;n de nueva universidad extranjera</h4>
@@ -26,40 +26,46 @@
         <html:form action="/AccionAgregarUniExt" method="POST" acceptCharset="ISO-8859-1" enctype="multipart/form-data" onsubmit="return(this)">
             <table border="0" >
                 <tbody>
-                    
+
                     <tr>
                         <td style="color: black">Nombre de usuario</td>
                         <td>
                             <html:text name="Postulante" property="nombreusuario" value="" maxlength="30" errorStyleClass="error"
                                        errorKey="org.apache.struts.action.ERROR"></html:text>
                         </td>
-                        <td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
                             <html:errors property="nombreusuario" />
                         </td>
                     </tr>
-                    
+
                     <tr>
                         <td style="color: black">Email</td>
                         <td>
                             <html:text name="Postulante" property="email" value="" maxlength="30" errorStyleClass="error"
                                        errorKey="org.apache.struts.action.ERROR"></html:text>
                         </td>
-                        <td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
                             <html:errors property="email" />
                         </td>
                     </tr>
-                    
+
                     <tr>
                         <td style="color: black">Nombre de la universidad</td>
                         <td>
                             <html:text name="Postulante" property="nombreUniExt" value="" maxlength="30" errorStyleClass="error"
                                        errorKey="org.apache.struts.action.ERROR"></html:text>
-                            </td>
-                            <td>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
                             <html:errors property="nombreUniExt" />
                         </td>
                     </tr>
-                    
+
                 </tbody>
             </table>
 
@@ -69,6 +75,6 @@
                 </html:submit>
             </p>
         </html:form>
-        
+
     </body>
 </html>

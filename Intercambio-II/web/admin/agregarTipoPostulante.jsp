@@ -31,7 +31,9 @@
                             <html:text name="Postulante" property="nombreusuario" maxlength="20" errorStyleClass="error"
                                        errorKey="org.apache.struts.action.ERROR"></html:text>
                         </td>
-                        <td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
                             <html:errors property="nombreusuario" />
                         </td>
                     </tr>

@@ -23,7 +23,7 @@
         <html:form action="/AccionAgregarEstudiante" method="POST" acceptCharset="ISO-8859-1" enctype="multipart/form-data" onsubmit="return(this)">
             <div hidden="true">
                 <html:text name="EstUSB" property="origen" maxlength="20" errorStyleClass="error"
-                 value ="<%=var.toString()%>" errorKey="org.apache.struts.action.ERROR" />
+                value ="<%=var.toString()%>" errorKey="org.apache.struts.action.ERROR" />
             </div>
 
             <table border="0" >
@@ -34,7 +34,9 @@
                             <html:text name="EstUSB" property="nombreusuario" maxlength="20" errorStyleClass="error" value=""
                                        errorKey="org.apache.struts.action.ERROR"></html:text>
                         </td>
-                        <td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
                             <html:errors property="nombreusuario" />
                         </td>
                     </tr>
@@ -45,7 +47,9 @@
                             <html:text name="EstUSB" property="email" maxlength="30" errorStyleClass="error" value=""
                                        errorKey="org.apache.struts.action.ERROR"></html:text>
                         </td>
-                        <td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
                             <html:errors property="email" />
                         </td>
                     </tr>
@@ -55,7 +59,9 @@
                         <td><html:text name="EstUSB" property="nombre" maxlength="100" errorStyleClass="error" value=""
                                    errorKey="org.apache.struts.action.ERROR"></html:text>
                         </td>
-                        <td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
                             <html:errors property="nombre" />
                         </td>
                     </tr>
@@ -64,7 +70,9 @@
                         <td><html:text name="EstUSB" property="pApellido" maxlength="100" errorStyleClass="error" value=""
                                    errorKey="org.apache.struts.action.ERROR"></html:text>
                         </td>
-                        <td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
                             <html:errors property="nombre" />
                         </td>
                     </tr>

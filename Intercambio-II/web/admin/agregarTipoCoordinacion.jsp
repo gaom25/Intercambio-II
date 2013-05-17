@@ -18,7 +18,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Agregar nueva coordinacion</title>
     </head>
-    
+
     <body>
 
         <h4>Creaci&oacute;n de nueva coordinacion</h4>
@@ -26,43 +26,49 @@
         <html:form action="/AccionAgregarCoordinacion" method="POST" acceptCharset="ISO-8859-1" enctype="multipart/form-data" onsubmit="return(this)">
             <table border="0" >
                 <tbody>
-                    
+
                     <tr>
                         <td style="color: black">Nombre de usuario</td>
                         <td>
                             <html:text name="Postulante" property="nombreusuario" maxlength="100" value="" errorStyleClass="error"
                                        errorKey="org.apache.struts.action.ERROR"></html:text>
-                            </td>
-                            <td>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
                             <html:errors property="nombreusuario" />
                         </td>
                     </tr>
-                    
+
                     <tr>
                         <td style="color: black">Email</td>
                         <td>
                             <html:text name="Postulante" property="email" maxlength="30" value="" errorStyleClass="error"
                                        errorKey="org.apache.struts.action.ERROR"></html:text>
-                            </td>
-                            <td>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
                             <html:errors property="email" />
                         </td>
                     </tr>
-                    
+
                     <tr>
                         <td style="color: black">Codigo de la carrera</td>
                         <td>
                             <html:text name="Postulante" property="codigo" maxlength="30" value="" errorStyleClass="error"
                                        errorKey="org.apache.struts.action.ERROR"></html:text>
-                            </td>
-                            <td>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
                             <html:errors property="codigo" />
                         </td>
                     </tr>
-                    
+
                     <tr>
                         <td style="color: black">Carrera</td>
-                        
+
                         <td><html:select  property="nombreCarrera">
                                 <html:option value="Licenciatura en Quimica"></html:option>
                                 <html:option value="Licenciatura en Matematicas"></html:option>
@@ -96,7 +102,7 @@
                             </html:select>
                         </td>
                     </tr>
-                    
+
                 </tbody>
             </table>
 
@@ -106,6 +112,6 @@
                 </html:submit>
             </p>
         </html:form>
-        
+
     </body>
 </html>

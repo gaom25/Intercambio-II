@@ -28,7 +28,7 @@
                                errorKey="org.apache.struts.action.ERROR"></html:text></td>
                 </tr>
                 <tr>
-                    <td>
+                    <td colspan="2">
                         <html:errors property="nombreusuario" />
                     </td>
                 </tr>
@@ -39,7 +39,7 @@
                                errorKey="org.apache.struts.action.ERROR"></html:text></td>
                 </tr>
                 <tr>
-                    <td>
+                    <td colspan="2">
                         <html:errors property="email" />
                     </td>
 
@@ -50,7 +50,7 @@
                                errorKey="org.apache.struts.action.ERROR"></html:text></td>
                 </tr>
                 <tr>
-                    <td>
+                    <td colspan="2">
                         <html:errors property="nombre" />
                     </td>
                 </tr>
@@ -60,7 +60,7 @@
                                    errorKey="org.apache.struts.action.ERROR"></html:password></td>
                 </tr>
                 <tr>
-                    <td style="width: 100px;">
+                    <td style="width: 100px;" colspan="2">
                         <html:errors property="contrasena" />
                     </td>
                 </tr>
@@ -70,7 +70,7 @@
                                    errorKey="org.apache.struts.action.ERROR"></html:password></td>
                 </tr>
                 <tr>
-                    <td style="width: 100px;">
+                    <td style="width: 100px;" colspan="2">
                         <html:errors property="nuevacontra" />
                     </td>
                 </tr>
@@ -80,7 +80,7 @@
                                    errorKey="org.apache.struts.action.ERROR"></html:password></td>
                 </tr>
                 <tr>
-                    <td style="width: 100px;">
+                    <td style="width: 100px;" colspan="2">
                         <html:errors property="confirmar" />
                     </td>
                 </tr>

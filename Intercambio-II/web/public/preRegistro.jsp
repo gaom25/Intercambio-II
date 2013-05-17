@@ -30,7 +30,9 @@
                                 <html:text name="Usuario" property="nombreusuario" maxlength="20" value="" errorStyleClass="error"
                                            errorKey="org.apache.struts.action.ERROR"></html:text>
                             </td>
-                            <td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
                                 <html:errors property="nombreusuario" />
                             </td>
                         </tr>
@@ -41,7 +43,9 @@
                                 <html:text name="Email" property="email" maxlength="30" value="" errorStyleClass="error"
                                            errorKey="org.apache.struts.action.ERROR"></html:text>
                             </td>
-                            <td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
                                 <html:errors property="email" />
                             </td>
                         </tr>
@@ -51,7 +55,9 @@
                             <td><html:text name="Nombre" property="nombre" maxlength="100" value="" errorStyleClass="error"
                                        errorKey="org.apache.struts.action.ERROR"></html:text>
                             </td>
-                            <td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
                                 <html:errors property="nombre" />
                             </td>
                         </tr>

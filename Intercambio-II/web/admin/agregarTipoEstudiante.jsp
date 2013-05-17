@@ -29,8 +29,10 @@
                         <td>
                             <html:text name="EstUSB" property="nombreusuario" maxlength="20" errorStyleClass="error"
                                        errorKey="org.apache.struts.action.ERROR"></html:text>
-                            </td>
-                            <td>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
                             <html:errors property="nombreusuario" />
                         </td>
                     </tr>
@@ -40,8 +42,10 @@
                         <td>
                             <html:text name="EstUSB" property="nombres" maxlength="30" errorStyleClass="error"
                                        errorKey="org.apache.struts.action.ERROR"></html:text>
-                            </td>
-                            <td>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
                             <html:errors property="nombres" />
                         </td>
                     </tr>
@@ -50,8 +54,10 @@
                         <td style="color: black">Apellidos</td>       
                         <td><html:text name="EstUSB" property="apellidos" maxlength="100" errorStyleClass="error"
                                    errorKey="org.apache.struts.action.ERROR"></html:text>
-                            </td>
-                            <td>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
                             <html:errors property="apellidos" />
                         </td>
                     </tr>
