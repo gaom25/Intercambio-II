@@ -298,39 +298,6 @@ WITH (
 OIDS = FALSE
 );
 
-/* Tabla que almacena las universidades disponibles
- * para la seleccion en la postulacion*/
-CREATE TABLE "dycicle".LISTAU(
-    NombreU     VARCHAR(100)    NOT NULL,
-    Pais        VARCHAR(100)    NOT NULL,
-    CONSTRAINT      PK_LISTAU   PRIMARY KEY(NombreU,Pais)
-)
-WITH (
-OIDS = FALSE
-);
-
-/* Tabla que almacena los nombres de los programas
- * disponibles para la seleccion en la postulacion*/
-CREATE TABLE "dycicle".PROGRAMAS(
-    NombreP     VARCHAR(100)    NOT NULL,
-    CONSTRAINT PK_PROGRAMAS     PRIMARY KEY (NombreP)
-)
-WITH(
-OIDS = FALSE
-);
-
-/* Tabla que almacena los programas asociados a cada
-universidad*/
-CREATE TABLE "dycicle".ASOCIA(
-    NombreU     VARCHAR(100)    NOT NULL,
-    Pais        VARCHAR(100)    NOT NULL,
-    NombreP     VARCHAR(100)    NOT NULL,
-    CONSTRAINT PK_ASOCIA    PRIMARY KEY (NombreU,Pais,NombreP)
-)
-WITH(
-OIDS = FALSE
-);
-
 -------------------------------------------------------------
 ----------------------RESTRICCIONES--------------------------
 -------------------------------------------------------------
