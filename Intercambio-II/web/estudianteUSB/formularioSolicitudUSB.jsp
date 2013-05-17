@@ -697,10 +697,10 @@
     <!-- LLENAR EL FORMULARIO DE DATOS -->
 
     <div class="nav" style="text-align: center;">
-        <a href="#" onclick=" if (true) show('datosplanilla'), hide('archivos'),hide('plan'),hide('idio')"> 1. Llenar Formulario de Datos </a>
+        <a href="#" onclick=" if (true) show('datosplanilla'), hide('archivos'),hide('plan'),hide('idio')"> 1. Formulario de Datos </a>
     </div>
 
-    <div id="datosplanilla" style="display: none ; width: 92%;margin-left: 8%">
+    <div id="datosplanilla" style="display: none; width:92%; margin-left: 8%">
         
         <h5>El siguiente formulario consta de 7 pasos, todos los campos son obligatorios</h5>
         <div>
@@ -1019,7 +1019,7 @@
                         <br><br>
                     </div>                    
 
-                    <div id="opci4" style="display:none;width:450px; border: 5px solid #96d1f8; border-radius: 10px; border-width:5px;">
+                    <div id="opci4" style="display:none;width:75%; border: 5px solid #96d1f8; border-radius: 10px; border-width:5px;">
 
                         <br>
 
@@ -1624,7 +1624,7 @@
         <a href="#" onclick=" if (true) hide('datosplanilla'), hide('archivos'),show('plan'),hide('idio')"> 3. Plan de Estudio </a>
     </div>
 
-    <div id="plan" style="display: none; width: 70%;margin-left: 20%">
+    <div id="plan" style="display: none; width: 75%;margin-left: 20%">
 
         <div style="width:auto;height:auto;border:6px solid #F9F4CF; border-color: #96d1f8; border-radius: 10px; border-width:5px;">
             <div align=center>
