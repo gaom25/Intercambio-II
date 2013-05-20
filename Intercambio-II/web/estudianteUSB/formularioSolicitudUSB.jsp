@@ -711,7 +711,7 @@
                                errorKey="org.apache.struts.action.ERROR"></html:text></p>
                         <br>
 
-                        <div id="opci1" style="display:block;width:450px; border: 5px solid #96d1f8; border-width:5px; border-radius: 10px">
+                        <div id="opci1" style="display:block;width:450px; border: 5px solid #96d1f8; border-width:5px; border-radius: 10px; background: #dcebe8">
                             <br>
                             <span><a> Paso 1.1: </a><b><a style="text-decoration: underline">DATOS PERSONALES</a></b></span>
                             <br>
@@ -851,7 +851,7 @@
 
                     </div>
 
-                    <div id="opci2" style="display:none;width:450px; border: 5px solid #96d1f8; border-width:5px; border-radius: 10px">
+                    <div id="opci2" style="display:none;width:450px; border: 5px solid #96d1f8; border-width:5px; border-radius: 10px; background: #dcebe8">
 
 
                         <br>
@@ -952,7 +952,7 @@
                         <br><br>
                     </div>
 
-                    <div id="opci3" style="display:none;width:450px; border: 5px solid #96d1f8; border-width:5px; border-radius: 10px">
+                    <div id="opci3" style="display:none;width:450px; border: 5px solid #96d1f8; border-width:5px; border-radius: 10px; background: #dcebe8">
 
                         <br>
 
@@ -1019,7 +1019,7 @@
                         <br><br>
                     </div>                    
 
-                    <div id="opci4" style="display:none;width:75%; border: 5px solid #96d1f8; border-radius: 10px; border-width:5px;">
+                    <div id="opci4" style="display:none;width:75%; border: 5px solid #96d1f8; border-radius: 10px; border-width:5px;background: #dcebe8">
 
                         <br>
 
@@ -1296,7 +1296,7 @@
                         <br><br>
                     </div>
 
-                    <div id="opci5" style="display:none;width:450px; border: 5px solid #96d1f8; border-radius: 10px; border-width:5px;">
+                    <div id="opci5" style="display:none;width:450px; border: 5px solid #96d1f8; border-radius: 10px; border-width:5px;background: #dcebe8">
                         <br>
                         <span><a>Paso 1.5: </a><b><a style="text-decoration: underline">INFORMACIÓN ACADÉMICA</a></b></span>
 
@@ -1374,7 +1374,7 @@
                         <br><br>
                     </div>
 
-                    <div id="opci6" style="display:none;width:450px; border: 5px solid #96d1f8; border-radius: 10px; border-width:5px;">
+                    <div id="opci6" style="display:none;width:450px; border: 5px solid #96d1f8; border-radius: 10px; border-width:5px;background: #dcebe8">
                         <br>
                         
                         <span><a>Paso 1.6: </a><b><a style="text-decoration: underline">DATOS DE FINANCIAMIENTO</a></b></span>
@@ -1422,7 +1422,7 @@
                         <br>
                     </div>
 
-                    <div id="opci7" style="display:none;width:450px; border: 5px solid #96d1f8; border-radius: 10px; border-width:5px;">
+                    <div id="opci7" style="display:none;width:450px; border: 5px solid #96d1f8; border-radius: 10px; border-width:5px;background: #dcebe8">
                         <br>
 
                         <span><a>Paso 1.7: </a><b><a style="text-decoration: underline">CONTACTO EN CASO DE EMERGENCIA</a></b></span>
@@ -1522,7 +1522,7 @@
         <a href="#" onclick=" if (true) hide('datosplanilla'), show('archivos'),hide('plan'),hide('idio')"> 2. Documentos requeridos </a>
     </div>
     <div id="archivos" style="display: none; width: 75%;margin-left: 20%">
-        <div style="width:auto;height:auto;border:6px solid  #F9F4CF; border-color: #96d1f8; border-radius: 10px; border-width:5px;">
+        <div style="width:auto;height:auto;border:6px solid  #F9F4CF; border-color: #96d1f8; border-radius: 10px; border-width:5px;background: #dcebe8">
 
             <div align=center>
                 <html:form action="/FileUploadAction" method="post" enctype="multipart/form-data">
@@ -1626,7 +1626,7 @@
 
     <div id="plan" style="display: none; width: 75%;margin-left: 20%">
 
-        <div style="width:auto;height:auto;border:6px solid #F9F4CF; border-color: #96d1f8; border-radius: 10px; border-width:5px;">
+        <div style="width:auto;height:auto;border:6px solid #F9F4CF; border-color: #96d1f8; border-radius: 10px; border-width:5px;background: #dcebe8">
             <div align=center>
                 <html:form action="/AccionPlanDeEstudio" acceptCharset="ISO-8859-1" method="post" enctype="multipart/form-data">
                     <br />
@@ -1712,7 +1712,7 @@
     </div>
 
     <div id="idio" style="display: none; width: 88%; margin-left: 10%">
-        <div style="width:auto;height:auto;border:6px solid #F9F4CF; border-color: #96d1f8; border-radius: 10px; border-width:5px;">
+        <div style="width:auto;height:auto;border:6px solid #F9F4CF; border-color: #96d1f8; border-radius: 10px; border-width:5px;background: #dcebe8">
             <div align=center>
                 <html:form action="/CargarIdioma" method="post" acceptCharset="ISO-8859-1" enctype="multipart/form-data">
                     <br />
