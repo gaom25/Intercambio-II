@@ -38,7 +38,7 @@ CREATE TABLE "dycicle".ESTUDIANTE(
         SegundoNombre 	VARCHAR(30),
 	PrimerApellido	VARCHAR(30)	NOT NULL,
         SegundoApellido	VARCHAR(30),
-        Carrera         VARCHAR(30),
+        CarreraEst      VARCHAR(30),
  	Sexo		VARCHAR(10),
         Urbanizacion    VARCHAR(30), /*O sector o barrio*/
         Calle           VARCHAR(30),

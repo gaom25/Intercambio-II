@@ -711,7 +711,7 @@
                                errorKey="org.apache.struts.action.ERROR"></html:text></p>
                         <br>
 
-                        <div id="opci1" style="display:block;width:450px; border: 5px solid #96d1f8; border-width:5px; border-radius: 10px; background: #dcebe8">
+                        <div id="opci1" style="display:block;width:450px; border:3px solid #126598; border-radius: 10px; background: #dcebe8">
                             <br>
                             <span><a> Paso 1.1: </a><b><a style="text-decoration: underline">DATOS PERSONALES</a></b></span>
                             <br>
@@ -851,7 +851,7 @@
 
                     </div>
 
-                    <div id="opci2" style="display:none;width:450px; border: 5px solid #96d1f8; border-width:5px; border-radius: 10px; background: #dcebe8">
+                    <div id="opci2" style="display:none;width:450px; border:3px solid #126598; border-radius: 10px; background: #dcebe8">
 
 
                         <br>
@@ -952,7 +952,7 @@
                         <br><br>
                     </div>
 
-                    <div id="opci3" style="display:none;width:450px; border: 5px solid #96d1f8; border-width:5px; border-radius: 10px; background: #dcebe8">
+                    <div id="opci3" style="display:none;width:450px; border:3px solid #126598; border-radius: 10px; background: #dcebe8">
 
                         <br>
 
@@ -1019,7 +1019,7 @@
                         <br><br>
                     </div>                    
 
-                    <div id="opci4" style="display:none;width:75%; border: 5px solid #96d1f8; border-radius: 10px; border-width:5px;background: #dcebe8">
+                    <div id="opci4" style="display:none;width:75%; border:3px solid #126598; border-width:5px;background: #dcebe8">
 
                         <br>
 

@@ -677,8 +677,7 @@ public class DBMS {
 
         try {
             ps = conexion.prepareStatement("SELECT * FROM \"dycicle\".estudiante NATURAL JOIN \"dycicle\".postulacion");
-            /*String sqlquery = "SELECT * FROM \"dycicle\".estudiante NATURAL JOIN \"dycicle\".postulacion";
-             Statement stmt = conexion.createStatement();*/
+
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
@@ -717,7 +716,7 @@ public class DBMS {
             //Acomodar Query para que me devuelva los estudiantes con la misma carrera
             //que el que lo invoca
             String sqlquery = "SELECT * FROM \"dycicle\".estudiante WHERE "
-                    + "carrera = '" + u.getNombreusuario() + "';";
+                    + "carreraEst = '" + u.getNombreusuario() + "';";
 
             Statement stmt = conexion.createStatement();
             ResultSet rs = stmt.executeQuery(sqlquery);
@@ -770,11 +769,7 @@ public class DBMS {
             ps = conexion.prepareStatement("SELECT * FROM \"dycicle\".usuario"
                     + " WHERE nombreusuario = ?");
             ps.setString(1, u.getNombreusuario());
-            /*String sqlquery = "SELECT * FROM \"dycicle\".usuario"
-             + " WHERE nombreusuario ='" + u.getNombreusuario() + "'";
 
-             Statement stmt = conexion.createStatement();
-             ResultSet rs = stmt.executeQuery(sqlquery);*/
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 datos.setNombre(rs.getString("nombre"));
@@ -798,7 +793,7 @@ public class DBMS {
                     + "SegundoNombre = '" + p.getNombre2() + "', "
                     + "PrimerApellido = '" + p.getApellido1() + "',"
                     + "SegundoApellido = '" + p.getApellido2() + "',"
-                    + "Carrera = '" + p.getCarrera() + "', "
+                    + "CarreraEst = '" + p.getCarrera() + "', "
                     + "Sexo = '" + p.getSexo() + "', "
                     + "Urbanizacion = '" + p.getUrbanizacion() + "', "
                     + "Calle = '" + p.getCalle() + "', "
@@ -1427,7 +1422,7 @@ public class DBMS {
                     + "SegundoNombre = '" + p.getNombre2() + "', "
                     + "PrimerApellido = '" + p.getApellido1() + "',"
                     + "SegundoApellido = '" + p.getApellido2() + "',"
-                    + "Carrera = '" + p.getCarrera() + "', "
+                    + "CarreraEst = '" + p.getCarrera() + "', "
                     + "Sexo = '" + p.getSexo() + "', "
                     + "Urbanizacion = '" + p.getUrbanizacion() + "', "
                     + "Calle = '" + p.getCalle() + "', "
@@ -1721,12 +1716,6 @@ public class DBMS {
             ps = conexion.prepareStatement("SELECT Tipo, Codigo, NombreUniExt, NombreCarrera "
                     + "FROM \"dycicle\".postulante WHERE nombreusuario = ?");
             ps.setString(1, usuario);
-            /*String sqlquery = "SELECT Tipo, Codigo, NombreUniExt, NombreCarrera "
-             + "FROM \"dycicle\".postulante"
-             + " WHERE nombreusuario = '" + usuario + "'";
-
-             Statement stmt = conexion.createStatement();
-             ResultSet rs = stmt.executeQuery(sqlquery);*/
             ResultSet rs = ps.executeQuery();
 
             if (rs.next()) {
@@ -2169,7 +2158,7 @@ public class DBMS {
                     u.setEmail(rs.getString("email"));
                     usrs.add(u);
                 };
-
+                /*
                 String sqlNoEstudiantes = "SELECT * FROM \"dycicle\".usuario "
                         + "WHERE privilegio <> 5";
                 if (nombre) {
@@ -2184,7 +2173,7 @@ public class DBMS {
                     u.setNombre(rs2.getString("nombre"));
                     u.setEmail(rs2.getString("email"));
                     usrs.add(u);
-                };
+                };*/
 
 
             } catch (SQLException ex) {
