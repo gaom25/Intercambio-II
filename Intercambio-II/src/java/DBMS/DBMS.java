@@ -171,16 +171,6 @@ public class DBMS {
             ex.printStackTrace();
         }
 
-        /*try {
-         String sqlquery = "INSERT INTO \"dycicle\".usuario VALUES ('" + u.getNombreusuario()
-         + "', '" + u.getEmail() + "', '" + u.getPrivilegio()
-         + "', '" + u.getNombre() + "','" + u.getContrasena() + "');";
-         Statement stmt = conexion.createStatement();
-         Integer i = stmt.executeUpdate(sqlquery);
-         return i > 0;
-         } catch (SQLException ex) {
-         ex.printStackTrace();
-         }*/
         return false;
     }
 
@@ -340,15 +330,6 @@ public class DBMS {
             ex.printStackTrace();
         }
 
-        /*try {
-         String sqlquery = "INSERT INTO \"dycicle\".gestor VALUES ('" + g.getNombreusuario()
-         + "', '" + g.getNombre() + "');";
-         Statement stmt = conexion.createStatement();
-         Integer i = stmt.executeUpdate(sqlquery);
-         return i > 0;
-         } catch (SQLException ex) {
-         ex.printStackTrace();
-         }*/
         return false;
     }
 
@@ -368,16 +349,6 @@ public class DBMS {
             ex.printStackTrace();
         }
 
-        /*try {
-         String sqlquery = "INSERT INTO \"dycicle\".postulante VALUES ('" + p.getNombreusuario()
-         + "', '" + p.getCodigo() + "', '" + p.getTipo() + "', 'null', '"
-         + p.getNombreCarrera() + "');";
-         Statement stmt = conexion.createStatement();
-         Integer i = stmt.executeUpdate(sqlquery);
-         return i > 0;
-         } catch (SQLException ex) {
-         ex.printStackTrace();
-         }*/
         return false;
     }
 
@@ -398,16 +369,6 @@ public class DBMS {
             ex.printStackTrace();
         }
 
-        /*try {
-         String sqlquery = "INSERT INTO \"dycicle\".postulante VALUES ('" + p.getNombreusuario()
-         + "', '" + p.getNombreUniExt() + "', '" + p.getTipo() + "',  '" + p.getNombreUniExt()
-         + "', 'null');";
-         Statement stmt = conexion.createStatement();
-         Integer i = stmt.executeUpdate(sqlquery);
-         return i > 0;
-         } catch (SQLException ex) {
-         ex.printStackTrace();
-         }*/
         return false;
     }
 
@@ -481,52 +442,6 @@ public class DBMS {
 
             /*volvemos a como estabamos*/
             conexion.setAutoCommit(true);
-
-            /*String sqlquerycod = "SELECT nombrecarrera,codigo FROM \"dycicle\".postulante where "
-             + "nombreusuario ='" + e.getCarrera() + "';";
-
-             Statement stmt = conexion.createStatement();
-             ResultSet rs = stmt.executeQuery(sqlquerycod);
-
-             while (rs.next()) {
-             e.setCodCarrera(rs.getString("codigo"));
-             e.setCarrera(rs.getString("nombrecarrera"));
-             }
-
-             // Insercion dentro de la tabla estudiante
-             String sqlquery1 = "INSERT INTO \"dycicle\".estudiante VALUES ('" + e.getNombreusuario()
-             + "', '" + "null" + "', '" + e.getpNombre()
-             + "', '" + e.getsNombre() + "', '" + e.getpApellido()
-             + "', '" + e.getsApellido() + "', '" + e.getCarrera()
-             + "', '" + e.getCodCarrera() + "', 'null','null', 'null',  'null', 'null', 'null', 'null', "
-             + " 'null', 'null', 'null', '" + e.getEmail() + "', '2012-11-27','null','null');";
-
-             // la fecha de nacimiento colocada es temporal, se coloca para que no de error la insercion.
-             // La direccion de la foto tambien es temporal.
-
-             //Insercion dentro de la tabla estudianteUSB
-             String sqlquery2 = "INSERT INTO \"dycicle\".estudianteUSB VALUES('" + e.getNombreusuario()
-             + "',  'null' , '" + e.getCarnet() + "');";
-
-             String sqlqueryAntecedente = "INSERT INTO \"dycicle\".AntecedenteAcademico VALUES ('"
-             + e.getNombreusuario() + "', "
-             + "'1.0000', "
-             + "'1.0000', "
-             + "'null','null', "
-             + "'" + e.getCarrera() + "', "
-             + "'opcion', '0', '0000', '0', 'null', 'null');";
-
-             String sqlqueryPostulacion = "INSERT INTO \"dycicle\".Postulacion VALUES ('"
-             + e.getNombreusuario() + "', "
-             + "'En evaluacion', "
-             + "'recomendacion', "
-             + "'comentario');";
-
-             Integer i = stmt.executeUpdate(sqlquery1);
-             Integer j = stmt.executeUpdate(sqlquery2);
-             Integer k = stmt.executeUpdate(sqlqueryAntecedente);
-             Integer l = stmt.executeUpdate(sqlqueryPostulacion);*/
-
 
             return i > 0 && j > 0 && k > 0 && l > 0;
 
@@ -625,13 +540,7 @@ public class DBMS {
             psModificar.setString(2, u.getNombre());
             psModificar.setInt(3, u.getPrivilegio());
             psModificar.setString(4, u.getNombreusuario());
-            /*String sqlquery = "UPDATE \"dycicle\".usuario SET email='" + u.getEmail()
-             + "', nombre='" + u.getNombre()
-             + "', privilegio='" + u.getPrivilegio()
-             + "' WHERE nombreusuario = '"
-             + u.getNombreusuario() + "'";
-             Statement stmt = conexion.createStatement();
-             Integer i = stmt.executeUpdate(sqlquery);*/
+            
             Integer i = psModificar.executeUpdate();
             return i > 0;
         } catch (SQLException ex) {
@@ -673,13 +582,6 @@ public class DBMS {
                     + "WHERE nombreusuario = ?");
             ps.setString(1, u.getConfirmar());
             ps.setString(2, u.getNombreusuario());
-            /*String sqlquery = "UPDATE \"dycicle\".POSTULACION SET estadopostulacion ='"
-             + u.getConfirmar()
-             + "' WHERE nombreusuario = '"
-             + u.getNombreusuario() + "'";
-
-             Statement stmt = conexion.createStatement();
-             Integer i = stmt.executeUpdate(sqlquery);*/
             Integer i = ps.executeUpdate();
 
             return i > 0;
@@ -700,15 +602,6 @@ public class DBMS {
             ps.setString(3, u.getNombre());
             ps.setInt(4, u.getPrivilegio());
             ps.setString(5, u.getNombreusuario());
-            /*String sqlquery = "UPDATE \"dycicle\".usuario SET contrasena ='" + u.getConfirmar()
-             + "', email='" + u.getEmail()
-             + "', nombre='" + u.getNombre()
-             + "', privilegio='" + u.getPrivilegio()
-             + "' WHERE nombreusuario = '"
-             + u.getNombreusuario() + "'";
-
-             Statement stmt = conexion.createStatement();
-             Integer i = stmt.executeUpdate(sqlquery);*/
             Integer i = ps.executeUpdate();
             return i > 0;
 
@@ -925,10 +818,6 @@ public class DBMS {
                     + "FechaNac = '" + p.getFechaNacimiento() + "', "
                     + "Nacionalidad = '" + p.getNacionalidad() + "' WHERE "
                     + "NombreUsuario = '" + p.getNombreUsuario() + "';";
-            //$$$$$$$$$$$$$$$$$
-            // Falta la foto!!
-            //$$$$$$$$$$$$$$$$$
-
 
             String sqlqueryEstudianteUSB = "UPDATE \"dycicle\".estudianteUSB SET "
                     + "Cedula = '" + p.getCedula() + "',"
@@ -1558,10 +1447,6 @@ public class DBMS {
                     + "FechaNac = '" + p.getFechaNacimiento() + "', "
                     + "Nacionalidad = '" + p.getNacionalidad() + "' WHERE "
                     + "nombreusuario = '" + p.getNombreUsuario() + "';";
-            //$$$$$$$$$$$$$$$$$
-            // Falta la foto!!
-            //$$$$$$$$$$$$$$$$$
-
 
             String sqlqueryEstudianteUSB = "UPDATE \"dycicle\".estudianteUSB SET "
                     + "Cedula = '" + p.getCedula() + "',"
@@ -1910,12 +1795,25 @@ public class DBMS {
             ps.setString(2, usuario.getNombre());
             ps.setString(3, path);
 
-            String sqlquery = "INSERT INTO \"dycicle\".archivosestudiante VALUES("
-                    + "'" + user.getNombreusuario() + "','" + usuario.getNombre()
-                    + "','" + path
-                    + "','la','2');";
-
+            String sqlquery = "SELECT * FROM \"dycicle\".archivosestudiante WHERE "
+                    + "nombreusuario = '" + user.getNombreusuario() + "';";
+            
             Statement stmt = conexion.createStatement();
+            ResultSet rs = stmt.executeQuery(sqlquery);
+            
+            if (rs.next()){
+                sqlquery = "UPDATE \"dycicle\".archivosestudiante SET "
+                        + "nombre = '" + usuario.getNombre() + "', "
+                        + "direccion = '" + path + "', "
+                        + "extension = 'la', tamanio = '2' WHERE "
+                        + "nombreusuario = '" + user.getNombreusuario() + "';";
+            }else{
+                sqlquery = "INSERT INTO \"dycicle\".archivosestudiante VALUES("
+                        + "'" + user.getNombreusuario() + "','" + usuario.getNombre()
+                        + "','" + path
+                        + "','la','2');"; 
+            }
+            
             Integer i = stmt.executeUpdate(sqlquery);
             return i > 0;
 
@@ -1939,7 +1837,8 @@ public class DBMS {
             if (rs.next()) {
                 sqlquery = "UPDATE \"dycicle\".estudianteInternacional SET "
                         + "LenguaMaterna = '" + idioma.getLenguaMaterna() + "',"
-                        + "CursoEspaniol = '" + idioma.getTomarCursoDeEspaniol() + "';";
+                        + "CursoEspaniol = '" + idioma.getTomarCursoDeEspaniol() + "' "
+                        + "WHERE nombreusuario = '" + idioma.getNombreusuario() + "';";
                 stmt = conexion.createStatement();
                 Integer i = stmt.executeUpdate(sqlquery);
             }
@@ -1990,17 +1889,6 @@ public class DBMS {
                 ps.setString(5, (String) coduniv.get(i));
                 ps.setString(6, (String) nomuniv.get(i));
                 ps.setInt(7, (Integer) creuniv.get(i));
-                /*String sqlquery = "INSERT INTO \"dycicle\".planestudio VALUES("
-                 + "'" + nombre
-                 + "','" + codusb.get(i)
-                 + "','" + nomusb.get(i)
-                 + "','" + creusb.get(i)
-                 + "','" + coduniv.get(i)
-                 + "','" + nomuniv.get(i)
-                 + "','" + creuniv.get(i)
-                 + "');";
-                 Statement stmt = conexion.createStatement();
-                 Integer j = stmt.executeUpdate(sqlquery);*/
                 System.out.println(ps.toString());
                 Integer j = ps.executeUpdate();
                 return j > 0;
@@ -2030,14 +1918,6 @@ public class DBMS {
                 ps.setString(2, (String) codusb.get(i));
                 ps.setString(3, (String) nomusb.get(i));
                 ps.setInt(4, (Integer) creusb.get(i));
-                /*String sqlquery = "INSERT INTO \"dycicle\".planestudio VALUES("
-                 + "'" + nombre
-                 + "','" + codusb.get(i)
-                 + "','" + nomusb.get(i)
-                 + "','" + creusb.get(i)
-                 + "','1', '1', '1');";
-                 Statement stmt = conexion.createStatement();
-                 Integer j = stmt.executeUpdate(sqlquery);*/
                 Integer j = ps.executeUpdate();
 
             }
@@ -2351,10 +2231,6 @@ public class DBMS {
             ps = conexion.prepareStatement("SELECT privilegio FROM \"dycicle\".usuario WHERE"
                     + " nombreusuario=?;");
             ps.setString(1, nombreUsuario);
-            /*String sqlQuery = "SELECT privilegio FROM \"dycicle\".usuario WHERE"
-             + " nombreusuario='" + nombreUsuario + "';";
-             Statement stmt = conexion.createStatement();
-             ResultSet rs = stmt.executeQuery(sqlQuery);*/
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
                 result = rs.getString("privilegio");
@@ -2371,11 +2247,6 @@ public class DBMS {
                     + "comentario= ? WHERE nombreusuario = ?");
             ps.setString(1, u.getConfirmar());
             ps.setString(2, u.getNombreusuario());
-            /*String sqlquery = "UPDATE \"dycicle\".estudiante SET comentario='" + u.getConfirmar()
-             + "' WHERE nombreusuario = '"
-             + u.getNombreusuario() + "'";
-             Statement stmt = conexion.createStatement();
-             Integer i = stmt.executeUpdate(sqlquery);*/
             Integer i = ps.executeUpdate();
             return i > 0;
 
@@ -2391,133 +2262,6 @@ public class DBMS {
             String sqlquery = "INSERT INTO \"dycicle\".LogAuditoria VALUES('" + usuario + "', '" + accion + "');";
             Statement stmt = conexion.createStatement();
             Integer i = stmt.executeUpdate(sqlquery);
-            return i > 0;
-
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        }
-        return false;
-    }
-
-    public boolean agregarUniversidad(Universidad u) {
-
-        try {
-            String nombre = u.getNombre();
-            String pais = u.getPais();
-            String sqlquery = "SELECT * FROM ListaU WHERE NombreU = '" + nombre + "' AND "
-                    + "Pais = '" + pais + "';";
-            Statement stmt = conexion.createStatement();
-            ResultSet rs = stmt.executeQuery(sqlquery);
-            if (!rs.next()) {
-                sqlquery = "INSERT INTO \"dycicle\".ListaU VALUES('" + nombre + "', "
-                        + "'" + pais + "');";
-                Integer i = stmt.executeUpdate(sqlquery);
-
-                return i > 0;
-            }
-
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        }
-        return false;
-    }
-
-    public boolean eliminarUniversidad(Universidad u) {
-
-        try {
-            String nombre = u.getNombre();
-
-            String sqlquery = "DELETE FROM \"dycicle\".ListaU WHERE "
-                    + "nombreU = '" + nombre + "';";
-            String sqlquery2 = "DELETE FROM \"dycicle\".ASOCIA WHERE "
-                    + "nombreU = '" + nombre + "';";
-
-            Statement stmt = conexion.createStatement();
-            Integer i = stmt.executeUpdate(sqlquery);
-            Integer j = stmt.executeUpdate(sqlquery2);
-            return i > 0 && j > 0;
-
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        }
-        return false;
-    }
-
-    public boolean agregarPrograma(String nombreP) {
-
-        try {
-            String sqlquery = "SELECT * FROM \"dycicle\".PROGRAMAS WHERE = '" + nombreP + "'";
-            Statement stmt = conexion.createStatement();
-            ResultSet rs = stmt.executeQuery(sqlquery);
-
-            if (!rs.next()) {
-                sqlquery = "INSERT INTO \"dycicle\".PROGRAMAS VALUES ('" + nombreP + "');";
-                stmt = conexion.createStatement();
-                Integer i = stmt.executeUpdate(sqlquery);
-
-                return i > 0;
-            }
-
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        }
-        return false;
-    }
-
-    public boolean eliminarPrograma(String nombreP) {
-
-        try {
-            String sqlquery = "DELETE FROM \"dycicle\".PROGRAMAS WHERE "
-                    + "nombreP = '" + nombreP + "');";
-            String sqlquery2 = "DELETE FROM \"dycicle\".ASOCIA WHERE "
-                    + "nombreP = '" + nombreP + "';";
-            Statement stmt = conexion.createStatement();
-            Integer i = stmt.executeUpdate(sqlquery);
-            Integer j = stmt.executeUpdate(sqlquery2);
-
-            return i > 0 && j > 0;
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        }
-        return false;
-    }
-
-    public boolean agregarAsociacion(Universidad u, String programa) {
-        try {
-            String uni = u.getNombre();
-            String pais = u.getPais();
-
-            String sqlquery = "SELECT * FROM \"dycicle\".Asocia WHERE "
-                    + "NombreU = '" + uni + "' AND Pais = '" + pais + "' "
-                    + "AND NombreP = '" + programa + "';";
-            Statement stmt = conexion.createStatement();
-            ResultSet rs = stmt.executeQuery(sqlquery);
-
-            if (!rs.next()) {
-                sqlquery = "INSERT INTO \"dycicle\".Asocia VALUES ("
-                        + "'" + uni + "', '" + pais + "', '" + programa + "');";
-                Integer i = stmt.executeUpdate(sqlquery);
-
-                return i > 0;
-            }
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        }
-        return false;
-    }
-
-    public boolean eliminarAsociacion(Universidad u, String programa) {
-
-        try {
-            String uni = u.getNombre();
-            String pais = u.getPais();
-
-            String sqlquery = "DELETE FROM \"dycicle\".Asocia WHERE "
-                    + "NombreU = '" + uni + "' AND Pais = '" + pais + "' "
-                    + "AND NombreP = '" + programa + "';";
-            Statement stmt = conexion.createStatement();
-            Integer i = stmt.executeUpdate(sqlquery);
-
             return i > 0;
 
         } catch (SQLException ex) {
