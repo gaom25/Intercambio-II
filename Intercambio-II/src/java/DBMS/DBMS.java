@@ -2045,9 +2045,13 @@ public class DBMS {
         ArrayList<Usuario> usrs = new ArrayList<Usuario>(0);
         String sqlqueryu = "";
         String query2 = "";
+        String query3 = "";
+        String query4 = "";
         boolean iniciado = false;
-        boolean nombre = false;
+        boolean iniciadoP = false;
+        boolean iniciadoG = false;
 
+        // ARMANDO EL QUERY PARA LOS ESTUDIANTES
         if (!busqueda.getNombre().equalsIgnoreCase("")) {
             if (busqueda.getNombre().toLowerCase().equals(busqueda.getNombre())) {
                 char[] arreglo = busqueda.getNombre().toCharArray();
@@ -2055,9 +2059,7 @@ public class DBMS {
                 busqueda.setNombre(new String(arreglo));
             }
             query2 += "PrimerNombre='" + busqueda.getNombre() + "'";
-            nombre = true;
             iniciado = true;
-
 
         }
 
@@ -2074,7 +2076,6 @@ public class DBMS {
             iniciado = true;
 
         }
-
 
         if (!busqueda.getCarnet().equalsIgnoreCase("")) {
             if (iniciado) {
@@ -2120,7 +2121,35 @@ public class DBMS {
             iniciado = true;
         }
 
-
+        //ARMANDO EL QUERY PARA LOS POSTULANTES
+        String nombrePostu = busqueda.getNombrePostu();
+        if (!nombrePostu.equalsIgnoreCase("")){
+            query3 += "(NombreCarrera ='" + nombrePostu + "' OR "
+                    + "NombreUniExt = '" + nombrePostu + "')"; 
+            
+            iniciadoP = true;
+            
+        }
+        
+        String tipo = busqueda.getTipoPostu();
+        if (!tipo.equalsIgnoreCase("")){
+            if (iniciadoP){
+                query3 += " AND ";
+            }
+            query3 += "Tipo = '" + tipo + "'";
+            iniciadoP = true;
+        }
+        
+        //ARMANDO EL QUERY PARA LOS GESTORES
+        String nombreG = busqueda.getGestor();
+        if (!nombreG.equalsIgnoreCase("")){
+            query4 += "NombreG = '" + nombreG + "'"; 
+            
+            iniciadoG = true;
+            
+        }
+        
+       //Si se coloco informacion en los campos de los estudiantes 
         if (iniciado) {
             try {
                 String sqlquery = "SELECT * FROM \"dycicle\".estudiante NATURAL JOIN "
@@ -2139,15 +2168,20 @@ public class DBMS {
                     u.setNombre(rs.getString("primernombre"));
                     u.setEmail(rs.getString("email"));
                     usrs.add(u);
-                };
-                /*
-                String sqlNoEstudiantes = "SELECT * FROM \"dycicle\".usuario "
-                        + "WHERE privilegio <> 5";
-                if (nombre) {
-                    sqlNoEstudiantes += " AND nombre='" + busqueda.getNombre() + "';";
                 }
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        }
+        
+        // Si se coloco informacion en los campos de los postulantes
+        if (iniciadoP){
+            try{
+               String sqlquery = "SELECT * FROM \"dycicle\".usuario NATURAL JOIN "
+                        + "\"dycicle\".postulante ";
+                sqlquery += "WHERE " + query3 + ";";
                 Statement stmt2 = conexion.createStatement();
-                ResultSet rs2 = stmt2.executeQuery(sqlNoEstudiantes);
+                ResultSet rs2 = stmt2.executeQuery(sqlquery);
 
                 while (rs2.next()) {
                     Usuario u = new Usuario();
@@ -2155,12 +2189,35 @@ public class DBMS {
                     u.setNombre(rs2.getString("nombre"));
                     u.setEmail(rs2.getString("email"));
                     usrs.add(u);
-                };*/
-
-
+                } 
             } catch (SQLException ex) {
                 ex.printStackTrace();
             }
+                
+        }
+        
+        if (iniciadoG){
+            try{
+               String sqlquery = "SELECT * FROM \"dycicle\".usuario NATURAL JOIN "
+                        + "\"dycicle\".gestor ";
+                sqlquery += "WHERE " + query4 + ";";
+                Statement stmt3 = conexion.createStatement();
+                ResultSet rs3 = stmt3.executeQuery(sqlquery);
+
+                while (rs3.next()) {
+                    Usuario u = new Usuario();
+                    u.setNombreusuario(rs3.getString("nombreusuario"));
+                    u.setNombre(rs3.getString("nombre"));
+                    u.setEmail(rs3.getString("email"));
+                    usrs.add(u);
+                } 
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+                
+        }
+        
+        if (iniciado || iniciadoP || iniciadoG){
             return usrs;
         }
 
@@ -2181,8 +2238,6 @@ public class DBMS {
             ex.printStackTrace();
         }
         return usrs;
-
-
 
     }
 
