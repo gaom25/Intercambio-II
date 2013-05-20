@@ -1960,15 +1960,6 @@ public class DBMS {
             iniciado = true;
         }
 
-
-        if (!busqueda.getIndicePonderado().equalsIgnoreCase("")) {
-            if (iniciado) {
-                query2 += " AND ";
-            }
-            query2 += "IndicePonderado " + busqueda.getIndicePonderado();
-            iniciado = true;
-        }
-
         if (!busqueda.getCarrera().equalsIgnoreCase("")) {
             if (iniciado) {
                 query2 += " AND ";
@@ -2099,15 +2090,6 @@ public class DBMS {
                 query2 += " AND ";
             }
             query2 += "Indice " + busqueda.getIndice();
-            iniciado = true;
-        }
-
-
-        if (!busqueda.getIndicePonderado().equalsIgnoreCase("")) {
-            if (iniciado) {
-                query2 += " AND ";
-            }
-            query2 += "IndicePonderado " + busqueda.getIndicePonderado();
             iniciado = true;
         }
 
