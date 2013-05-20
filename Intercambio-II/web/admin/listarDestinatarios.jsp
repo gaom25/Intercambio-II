@@ -86,7 +86,7 @@
                 </logic:iterate>
             </table>
         </div>
-        <p style="text-align: center"><html:submit>Redactar Mensaje</html:submit></p>
+        <p style="text-align: center;clear: both;position: relative;"><html:submit>Redactar Mensaje</html:submit></p>
     </html:form>
 
 </html>

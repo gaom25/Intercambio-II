@@ -18,8 +18,7 @@
     <script language="javascript">
         
         text = document.getElementById("texto").innerText;
-        select = text.substr(36, 10);
-        if(select == "Inactivo"){
+        if(text.indexOf("Inactivo") != -1){
             document.write('<div align="center"><img src="images/lock.png"/></div>')
               
         }else{

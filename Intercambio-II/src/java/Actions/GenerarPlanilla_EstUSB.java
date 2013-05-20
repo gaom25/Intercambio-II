@@ -365,7 +365,7 @@ public class GenerarPlanilla_EstUSB extends org.apache.struts.action.Action {
             ct.setSimpleColumn(campo, 70, 650, 350, 660, 10, Element.ALIGN_LEFT);
             ct.go();
             // Índice Ponderado
-            campo = new Phrase("19.-Índice Ponderado a la Fecha de postulación:  " + p.getIndicePon() , fontCampo);
+            campo = new Phrase("19.-Índice Ponderado a la Fecha de postulación:  " , fontCampo);
             ct.setSimpleColumn(campo, 310, 650, 600, 660, 10, Element.ALIGN_LEFT);
             ct.go();
 

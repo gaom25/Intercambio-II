@@ -15,10 +15,10 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Redactar mensaje</title>
     </head>
-    <br></br><br></br><br></br>
+    <br><br><br>
     
     <html:form action="/RedactarMensaje" method="POST" acceptCharset="ISO-8859-1" enctype="multipart/form-data" onsubmit="return(this)">
-        <table style=" alignment-baseline: central; border:none; vertical-align: middle">
+        <table style=" alignment-baseline: central; border:none; vertical-align: middle;width: 70%; background: #dcebe8; border: 2px solid; border-color: #96d1f8;border-radius: 5px;">
             <tr>
                 <td></td>
                 <td><h1 style="alignment-baseline: central">Envio de Anuncios</h3></td>
@@ -37,7 +37,7 @@
                 </td>
                 <td>
                      <logic:iterate id="usuarios" name="usuarios">
-                         <bean:write name="usuarios" property="nombreusuario"></bean:write>
+                         <bean:write name="usuarios" property="nombreusuario"></bean:write><br>
                          <input type="hidden" name="emails" value=<bean:write name="usuarios" property="email"></bean:write>/>
                      </logic:iterate>   
                 </td>

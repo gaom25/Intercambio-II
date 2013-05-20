@@ -14,11 +14,13 @@ public class Busqueda extends org.apache.struts.validator.ValidatorForm {
     private String apellido;
     private String carnet;
     private String indice;
-    private String indicePonderado;
     private String carrera;
     private String pais;
     private String opcion1;
     private String confirmar;
+    private String nombrePostu;
+    private String tipoPostu;
+    private String Gestor;
     
     public Busqueda(){
         super();
@@ -81,20 +83,6 @@ public class Busqueda extends org.apache.struts.validator.ValidatorForm {
     }
 
     /**
-     * @return the indicePonderado
-     */
-    public String getIndicePonderado() {
-        return indicePonderado;
-    }
-
-    /**
-     * @param indicePonderado the indicePonderado to set
-     */
-    public void setIndicePonderado(String indicePonderado) {
-        this.indicePonderado = indicePonderado;
-    }
-
-    /**
      * @return the carrera
      */
     public String getCarrera() {
@@ -144,4 +132,30 @@ public class Busqueda extends org.apache.struts.validator.ValidatorForm {
     public void setConfirmar(String confirmar) {
         this.confirmar = confirmar;
     }
+
+    public String getNombrePostu() {
+        return nombrePostu;
+    }
+
+    public void setNombrePostu(String nombrePostu) {
+        this.nombrePostu = nombrePostu;
+    }
+
+    public String getTipoPostu() {
+        return tipoPostu;
+    }
+
+    public void setTipoPostu(String tipoPostu) {
+        this.tipoPostu = tipoPostu;
+    }
+
+    public String getGestor() {
+        return Gestor;
+    }
+
+    public void setGestor(String Gestor) {
+        this.Gestor = Gestor;
+    }
+
+    
 }

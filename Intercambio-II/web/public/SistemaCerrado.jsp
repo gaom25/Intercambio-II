@@ -14,15 +14,13 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Sistema</title>
     </head>
-    
-    <div align="center">
+
+    <div align="center" style="width: 100%">
         <img  src="/Intercambio-II/images/alert.png">
-    </div>
-    
-    <div align="center">
-        <h1 style="color: red">Actualmente el período de postulacion no está disponible, para más información haz click   <html:link action="contacto">
+
+        <h1 style="color: red;width: 80%">Actualmente el período de postulacion no está disponible, para más información haz click   <html:link action="contacto">
                 aquí
             </html:link> </h1>
     </div>
-    
+
 </html>
