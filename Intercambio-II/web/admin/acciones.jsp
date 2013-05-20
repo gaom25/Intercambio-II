@@ -39,7 +39,7 @@
 
                 <input type="hidden" name="confirmar" value=""/>
                 <html:submit onclick="javascript: return confirm('¿Está seguro que desea activar el período de postulación?')">
-                    Activar Período 
+                    Activar Período de Solicitudes 
                 </html:submit>
 
             </html:form>
@@ -48,7 +48,7 @@
 
                 <input type="hidden" name="confirmar" value="desactivar"/>
                 <html:submit onclick="javascript: return confirm('¿Está seguro que desea desactivar el período de postulación?')">
-                    Desactivar Período
+                    Desactivar Período de Solicitudes
                 </html:submit>
 
             </html:form>

@@ -51,12 +51,8 @@
                         <td>        
                             <p style="text-align: center">
                             <html:submit onclick="javascript: return confirm('¿Está seguro que los datos son correctos?')">
-                                Generar Planilla USB
+                                Descargar Planilla USB
                             </html:submit>
-                            <html:select  property="confirmar">
-                                <html:option value="2013-2014">2013-2014</html:option>
-                                <html:option value="2014-1015">2014-2015</html:option>
-                            </html:select>
                         </p>    
                     </td>
 
@@ -71,7 +67,7 @@
                    errorKey="org.apache.struts.action.ERROR"></html:text></p>
             <p style="text-align: center">
             <html:submit >
-                Generar Carpeta
+                Descargar Carpeta
             </html:submit>
         </p>
     </html:form>

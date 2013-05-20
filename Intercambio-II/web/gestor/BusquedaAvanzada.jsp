@@ -58,16 +58,10 @@
                             
                         </tr>
                         <tr>
-                            <td style="color: black">Indice Ponderado:</td>
                             <td style="color: black">Carrera: </td>
                         </tr>
 
                         <tr>
-                            <td>
-                                <html:text property="indicePonderado" maxlength="7" errorStyleClass="error"
-                                           title="Coloque Simbolo de Comparación >,< o ="
-                                           errorKey="org.apache.struts.action.ERROR"></html:text>
-                            </td>
                             
                             <td>
                                 <html:select  property="carrera">

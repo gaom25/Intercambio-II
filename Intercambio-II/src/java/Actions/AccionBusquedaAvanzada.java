@@ -57,6 +57,18 @@ public class AccionBusquedaAvanzada extends org.apache.struts.action.Action {
         {
             busq.setPais("");
         }
+        if(busq.getGestor() == null){
+            busq.setGestor("");
+        }
+        else if(busq.getGestor().equalsIgnoreCase("Seleccione")){
+            busq.setGestor("");
+        }
+        if(busq.getNombrePostu() == null){
+            busq.setNombrePostu("");
+        }
+        if(busq.getTipoPostu() == null){
+            busq.setTipoPostu("");
+        }
         
         if(busq.getConfirmar().compareTo("busqueda") == 0){
             // Es una busqueda de Estudiantes Postulados

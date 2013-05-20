@@ -39,7 +39,17 @@
                         $("#gesto").css("display", "none");
                     }
                 });
-            })
+            });
+            function deselecionar(id){
+                var filas = document.getElementById(id);
+                for (i=0;i<filas.children.length;i++){
+                    if(filas.children[i].type == "checkbox")	
+                        filas.children[i].checked=0 
+                }
+            }
+            window.onload=function(){
+                deselecionar('seleciones');
+            }
         </script>
     </head>
 
@@ -47,7 +57,7 @@
 
         <h4>Búsqueda Avanzada</h4>
         <h5>Seleccione los filtros que desee utilizar.</h5>
-        <div align="center">
+        <div align="center" id="seleciones">
             <input type="checkbox" value="1" id="estudia"> Estudiantes
             <input type="checkbox" value="2" id="corina"> Postulante
             <input type="checkbox" value="3" id="gestia"> Gestores
@@ -275,7 +285,7 @@
                             </td>
                             <td>
                                 <html:text property="nombrePostu" maxlength="30" errorStyleClass="error"
-                                           errorKey="org.apache.struts.action.ERROR"></html:text>
+                                           errorKey="org.apache.struts.action.ERROR" value=""></html:text>
                             </td>
                         </tr>
                         <tr>
@@ -284,7 +294,7 @@
                             </td>
                             <td>
                                 <html:text property="tipoPostu" maxlength="30" errorStyleClass="error"
-                                           errorKey="org.apache.struts.action.ERROR"></html:text>
+                                           errorKey="org.apache.struts.action.ERROR" value=""></html:text>
 
                             </td>
                         </tr>
@@ -299,6 +309,7 @@
                             </td>
                             <td>
                                 <html:select property="gestor">
+                                    <html:option value="Seleccione"></html:option>
                                     <html:option value="Decanato de Estudios Profesionales"></html:option>
                                     <html:option value="Decanato de Estudios Tecnologicos"></html:option>
                                 </html:select>
