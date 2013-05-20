@@ -638,11 +638,7 @@ public class DBMS {
             PreparedStatement ps = null;
             ps = conexion.prepareStatement("SELECT * FROM \"dycicle\".archivosestudiante WHERE nombreusuario= ?;");
             ps.setString(1, u.getNombreusuario());
-            /*String sqlquery = "SELECT * FROM \"dycicle\".archivosestudiante WHERE nombreusuario='"
-             + u.getNombreusuario() + "';";
 
-             Statement stmt = conexion.createStatement();
-             ResultSet rs = stmt.executeQuery(sqlquery);*/
             ResultSet rs = ps.executeQuery();
             String p = null;
 
@@ -1790,10 +1786,9 @@ public class DBMS {
 
             PreparedStatement ps = null;
             ps = conexion.prepareStatement("INSERT INTO \"dycicle\".archivosestudiante "
-                    + "VALUES(?,?,?,'la','2');");
+                    + "VALUES(?,?);");
             ps.setString(1, user.getNombreusuario());
-            ps.setString(2, usuario.getNombre());
-            ps.setString(3, path);
+            ps.setString(2, path);
 
             String sqlquery = "SELECT * FROM \"dycicle\".archivosestudiante WHERE "
                     + "nombreusuario = '" + user.getNombreusuario() + "';";
@@ -1803,15 +1798,11 @@ public class DBMS {
             
             if (rs.next()){
                 sqlquery = "UPDATE \"dycicle\".archivosestudiante SET "
-                        + "nombre = '" + usuario.getNombre() + "', "
-                        + "direccion = '" + path + "', "
-                        + "extension = 'la', tamanio = '2' WHERE "
-                        + "nombreusuario = '" + user.getNombreusuario() + "';";
+                        + "direccion = '" + path + "' "
+                        + "WHERE nombreusuario = '" + user.getNombreusuario() + "';";
             }else{
                 sqlquery = "INSERT INTO \"dycicle\".archivosestudiante VALUES("
-                        + "'" + user.getNombreusuario() + "','" + usuario.getNombre()
-                        + "','" + path
-                        + "','la','2');"; 
+                        + "'" + user.getNombreusuario() + "','" + path + "');"; 
             }
             
             Integer i = stmt.executeUpdate(sqlquery);

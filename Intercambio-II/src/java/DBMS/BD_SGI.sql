@@ -86,13 +86,10 @@ CREATE TABLE "dycicle".EstudianteInternacional(
 /* En esta tabla se tienen todos los datos referentes
  * a  los  archivos  de  los  estudiantes  USB     */
 CREATE TABLE "dycicle".ArchivosEstudiante(
-	NombreUsuario	VARCHAR(20)	NOT NULL,
-	Nombre		VARCHAR(30)	NOT NULL,	
+	NombreUsuario	VARCHAR(20)	NOT NULL,	
 	Direccion	VARCHAR(200)	NOT NULL,
-	Extension	VARCHAR(10)	NOT NULL,
-	Tamanio		VARCHAR(30)	NOT NULL,
 	CONSTRAINT	PK_ArchivosEstudiante	
-		PRIMARY KEY (NombreUsuario, Nombre)
+		PRIMARY KEY (NombreUsuario, Direccion)
 );
 
 /* En esta tabla se almacena la relacion de los estudiantes con
@@ -100,9 +97,9 @@ CREATE TABLE "dycicle".ArchivosEstudiante(
 
 CREATE TABLE "dycicle".Carga(
         NombreUsuario	VARCHAR(20)	NOT NULL,	
-	Nombre		VARCHAR(30)	NOT NULL,
+	Direccion	VARCHAR(30)	NOT NULL,
         CONSTRAINT	PK_Carga	
-		PRIMARY KEY (NombreUsuario, Nombre)
+		PRIMARY KEY (NombreUsuario, Direccion)
 );
 
 /* En esta tabla se tienen todos los datos correspondientes
@@ -236,7 +233,7 @@ OIDS = FALSE
  * pertenecientes   al   gestor                      */
 CREATE TABLE "dycicle".GESTOR(
 	NombreUsuario	VARCHAR(20)	NOT NULL,
-        Nombre          VARCHAR(100)     NOT NULL,
+        NombreG         VARCHAR(100)     NOT NULL,
 	CONSTRAINT	PK_GESTOR	PRIMARY KEY (NombreUsuario)
 )
 WITH (
@@ -346,7 +343,7 @@ ALTER TABLE "dycicle".ArchivosEstudiante ADD
 ------------------------------Carga-------------------------------------
 /* Claves foraneas de Carga*/
 ALTER TABLE "dycicle".Carga ADD
-  CONSTRAINT FK_Carga_Archivo FOREIGN KEY (NombreUsuario, Nombre)
+  CONSTRAINT FK_Carga_Archivo FOREIGN KEY (NombreUsuario, Direccion)
     REFERENCES "dycicle".ArchivosEstudiante;
   
 ----------------------ANTECEDENTE ACADEMICO-----------------------------
