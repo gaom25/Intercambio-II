@@ -15,6 +15,7 @@ import java.util.logging.Logger;
 /**
  *
  * @author gustavo
+ * @Modified by dreabalbas
  */
 public class DBMS {
 
@@ -120,32 +121,6 @@ public class DBMS {
         } catch (SQLException ex) {
             Logger.getLogger(DBMS.class.getName()).log(Level.SEVERE, null, ex);
         }
-
-
-        /*String sqlquery = "SELECT * FROM \"dycicle\".usuario"
-         + " WHERE nombreusuario ='" + u.getNombreusuario() + "' " + " AND "
-         + "contrasena ='" + u.getContrasena() + "'";
-         System.out.println(sqlquery);
-         try {
-
-         Statement stmt = conexion.createStatement();
-         ResultSet rs = stmt.executeQuery(sqlquery);
-         while (rs.next()) {
-
-         u.setPrivilegio(rs.getInt("privilegio"));
-         if (u.getPrivilegio() == 5 || u.getPrivilegio() == 6) {
-         Usuario aux = obtenerEstadoSolicitud(u);
-         u.setConfirmar(aux.getConfirmar());
-         }
-         u.setNombre(rs.getString("nombre"));
-         u.setEmail(rs.getString("email"));
-         return u;
-         }
-
-
-         } catch (SQLException ex) {
-         Logger.getLogger(DBMS.class.getName()).log(Level.SEVERE, null, ex);
-         }*/
 
         u.setNombreusuario(null);
 
@@ -554,12 +529,6 @@ public class DBMS {
         try {
             ps = conexion.prepareStatement("SELECT estadopostulacion FROM \"dycicle\".POSTULACION WHERE nombreusuario = ?");
             ps.setString(1, u.getNombreusuario());
-            /*String sqlquery = "SELECT estadopostulacion"
-             + " FROM \"dycicle\".POSTULACION"
-             + " WHERE nombreusuario = '" + u.getNombreusuario() + "'";
-
-             Statement stmt = conexion.createStatement();
-             ResultSet rs = stmt.executeQuery(sqlquery);*/
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
@@ -688,19 +657,6 @@ public class DBMS {
                 usrs.add(u);
             };
 
-
-            /* sqlquery = "SELECT * FROM \"dycicle\".planillausb WHERE nombreusuario='"
-             + u.getNombreusuario()+ "'";
-
-             stmt = conexion.createStatement();
-             System.out.println(sqlquery);
-             rs = stmt.executeQuery(sqlquery);
-             while (rs.next()) {
-             u.setNombreusuario(rs.getString("nombreusuario"));
-             u.setConfirmar(rs.getString("estadoPostulacion"));
-             usrs.add(u);
-             }*/
-
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
@@ -713,8 +669,6 @@ public class DBMS {
 
         try {
 
-            //Acomodar Query para que me devuelva los estudiantes con la misma carrera
-            //que el que lo invoca
             String sqlquery = "SELECT * FROM \"dycicle\".estudiante WHERE "
                     + "carreraEst = '" + u.getNombreusuario() + "';";
 
@@ -723,35 +677,6 @@ public class DBMS {
             while (rs.next()) {
                 Usuario t = new Usuario();
                 t.setNombreusuario(rs.getString("nombreusuario"));
-                usrs.add(t);
-            }
-
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        }
-        return usrs;
-    }
-
-    public ArrayList<Usuario> listarIdiomas(Usuario u) {
-
-        ArrayList<Usuario> usrs = new ArrayList<Usuario>(0);
-
-        try {
-
-            //  Acomodar Query para que me devuelva los estudiantes con la misma carrera
-            //  que el que lo invoca
-            String sqlquery = "SELECT * FROM \"dycicle\".idiomas WHERE "
-                    + "nombreusuario = '" + u.getNombreusuario() + "'";
-
-            Statement stmt = conexion.createStatement();
-            ResultSet rs = stmt.executeQuery(sqlquery);
-
-            while (rs.next()) {
-                Usuario t = new Usuario();
-                t.setNombre(rs.getString("nombreidioma"));
-                t.setConfirmar(rs.getString("nivelverbal"));
-                t.setEmail(rs.getString("nivelescrito"));
-
                 usrs.add(t);
             }
 
@@ -1079,7 +1004,7 @@ public class DBMS {
         return false;
     }
 
-    //Clase para obtener idiomas de estudiantes nacionales 
+    //Metodo para obtener los idiomas 
     public Idiomas obtenerIdiomas(Usuario u) {
 
         Idiomas idims = new Idiomas();
@@ -1142,7 +1067,7 @@ public class DBMS {
 
     }
 
-    //Clase para obtener idiomas de estudiantes internacionales
+    //Metodo para obtener idiomas de estudiantes internacionales
     public Idiomas obtenerIdiomas2(Usuario u) {
 
         Idiomas idims = new Idiomas();
@@ -1158,7 +1083,7 @@ public class DBMS {
                 idims.setLenguaMaterna(rs.getString("LenguaMaterna"));
                 idims.setTomarCursoDeEspaniol(rs.getString("CursoEspaniol"));
             }
-///////////////////////////////// 
+            
             sqlquery = "SELECT * FROM \"dycicle\".idiomas "
                     + " WHERE nombreusuario ='" + u.getNombreusuario() + "';";
 
@@ -1183,7 +1108,7 @@ public class DBMS {
 
     }
 
-    //Clase Nueva para obtener plan de estudios
+    //Metodo para obtener plan de estudios
     public PlanDeEstudio obtenerMaterias(Usuario u) {
 
         PlanDeEstudio plan = new PlanDeEstudio();
@@ -1213,7 +1138,8 @@ public class DBMS {
         return plan;
 
     }
-// Clase para obtener plan de estudio extranjero    
+  
+    //Metodo para obtener plan de estudio extranjero    
 
     public PlanExtranjero obtenerMateriasExt(Usuario u) {
 
@@ -1663,12 +1589,6 @@ public class DBMS {
             ps = conexion.prepareStatement("SELECT nombreusuario, contrasena, email "
                     + "FROM \"dycicle\".usuario WHERE email = ?");
             ps.setString(1, email);
-            /*String sqlquery = "SELECT nombreusuario, contrasena, email "
-             + "FROM \"dycicle\".usuario"
-             + " WHERE email = '" + email + "'";
-
-             Statement stmt = conexion.createStatement();
-             ResultSet rs = stmt.executeQuery(sqlquery);*/
             ResultSet rs = ps.executeQuery();
 
             if (rs.next()) {
@@ -1702,12 +1622,6 @@ public class DBMS {
             ps = conexion.prepareStatement("SELECT nombreusuario, contrasena, email "
                     + "FROM \"dycicle\".usuario WHERE nombreusuario = ?");
             ps.setString(1, usuario);
-            /*String sqlquery = "SELECT nombreusuario, contrasena, email "
-             + "FROM \"dycicle\".usuario"
-             + " WHERE nombreusuario = '" + usuario + "'";
-
-             Statement stmt = conexion.createStatement();
-             ResultSet rs = stmt.executeQuery(sqlquery);*/
             ResultSet rs = ps.executeQuery();
 
             if (rs.next()) {
@@ -1772,11 +1686,6 @@ public class DBMS {
             ps = conexion.prepareStatement("SELECT * FROM \"dycicle\".estudianteusb"
                     + " WHERE nombreusuario =?");
             ps.setString(1, u.getNombreusuario());
-            /*String sqlquery = "SELECT * FROM \"dycicle\".estudianteusb"
-             + " WHERE nombreusuario ='" + u.getNombreusuario() + "'";
-
-             Statement stmt = conexion.createStatement();
-             ResultSet rs = stmt.executeQuery(sqlquery);*/
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 datos.setNombreusuario(rs.getString("nombreusuario"));
