@@ -16,7 +16,7 @@
     <title>Sistema de Gesti&oacute;n de Intercambio</title>
 
     <h4>Bienvenido</h4>
-    <h4>Para recuperar su contraseña por favor indique su nombre de usuario y/o e-mail:</h4>
+    <h5>Para recuperar su contraseña por favor indique su nombre de usuario y/o e-mail:</h5>
     <div align="center">
         <html:form action="/recContrasena" onsubmit= "return(this)">
             <table>
