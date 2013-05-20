@@ -1242,6 +1242,30 @@ public class DBMS {
 
     }
 
+    public PlanDeEstudio obtenerPlanDeEstudio(Usuario u){
+        PlanDeEstudio datos = new PlanDeEstudio();
+        
+        try {
+            String sqlquery = "SELECT * FROM \"dycicle\".planestudio WHERE "
+                    +" nombreusuario ='"+u.getNombreusuario()+"';";
+            Statement stmt = conexion.createStatement();
+            ResultSet rs = stmt.executeQuery(sqlquery);
+            while(rs.next()){
+                datos.setCodigoUSB(0, rs.getString("codigousb"));
+                datos.setCreditosUSB(0, rs.getInt("creditousb"));
+                datos.setMateriaUSB(0, rs.getString("materiausb"));
+                datos.setCodigoUniv(0, rs.getString("codigouniv"));
+                datos.setCreditosUniv(0, rs.getInt("creditouniv"));
+                datos.setMateriaUniv(0, rs.getString("materiauniv"));
+            }
+            datos.setNombreUsuario(u.getNombreusuario());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return datos;
+    
+    }
+    
     public PlanillaUSB obtenerPlanillaUSB(Usuario u) {
 
         PlanillaUSB datos = new PlanillaUSB();
