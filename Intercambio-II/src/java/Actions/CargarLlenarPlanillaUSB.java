@@ -6,6 +6,7 @@ package Actions;
 
 import Clases.Usuario;
 import Clases.PlanillaUSB;
+import Clases.PlanDeEstudio;
 import DBMS.DBMS;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -44,13 +45,15 @@ public class CargarLlenarPlanillaUSB extends org.apache.struts.action.Action {
         u.setNombreusuario(p.getNombreUsuario());
         u.setConfirmar("2013-2014");
 
-//        Clases.PlanillaUSB hay = DBMS.getInstance().obtenerPlanillaUSB(u);
+        Clases.PlanillaUSB hay = DBMS.getInstance().obtenerPlanillaUSB(u);
 
-  //      if (hay.getNombreUsuario() != null) {
-    //        p = DBMS.getInstance().obtenerPlanillaUSB(u);
-      //      request.setAttribute("PlanillaUSB", p);
-        //    return mapping.findForward(MODIFICAR);
-        //}
+        if (hay.getNombreUsuario() != null) {
+            p = DBMS.getInstance().obtenerPlanillaUSB(u);
+            PlanDeEstudio plan = DBMS.getInstance().obtenerPlanDeEstudio(u);
+            request.setAttribute("PlanillaUSB", p);
+            request.setAttribute("PlanDeEstudio", plan);
+           return mapping.findForward(MODIFICAR);
+       }
 
         return mapping.findForward(SUCCESS);
     }

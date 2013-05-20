@@ -478,7 +478,7 @@
        
        <action name="PlanillaUSB" path="/CargarLlenarPlanillaUSB" scope="session" type="Actions.CargarLlenarPlanillaUSB">
             <forward name="success" path="formularioUSB" />
-            <forward name="modificar" path="modificarPlanillaUSB" />
+            <forward name="modificar" path="formularioUSB" />
        </action>
        
        <action name="PlanillaUSB" path="/LlenarPlanilla_EstUSB" scope="session" type="Actions.LlenarPlanilla_EstUSB">

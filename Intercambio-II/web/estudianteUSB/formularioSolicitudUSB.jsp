@@ -683,9 +683,8 @@
             } 
             //marco como seleccionada la opción primera de provincia 
             document.getElementById("carr").options[0].selected = true 
-        }    
-    
-    
+        }
+            
     </script>
 
     <title>Sistema de Gestión de Intercambio</title>
