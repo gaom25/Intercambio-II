@@ -484,7 +484,7 @@
        <action name="PlanillaUSB" path="/LlenarPlanilla_EstUSB" scope="session" type="Actions.LlenarPlanilla_EstUSB">
             <forward name="success" path="cargacorrecta" />
             <forward name ="fail" path = "cargaincorrecta" />
-            <forward name="error" path="cargaincorrecta" />
+            <forward name="error" path="formularioUSB" />
        </action>
        
         <action name = "Usuario" path="/ObtenerDatos2" scope="session" type="Actions.ObtenerDatos2">

@@ -16,6 +16,7 @@ import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
+import org.apache.struts.action.ActionMessage;
 
 /**
  *
@@ -70,69 +71,69 @@ public class LlenarPlanilla_EstUSB extends org.apache.struts.action.Action {
         // ####################################
 
         //Verifica que los apellidos no  esten vacios.
-//        if (p.getApellido1().equals("")) {
-//            error.add("apellidos", new ActionMessage("error.apellidos.required"));
-//            saveErrors(request, error);
-//            huboError = true;
-//        }
-//
-//        //Verifica que los nombres no  esten vacios.
-//        if (p.getNombre1().equals("")) {
-//            error.add("nombres", new ActionMessage("error.nombres.required"));
-//            saveErrors(request, error);
-//            huboError = true;
-//        }
-//        
-//        if (p.getApellido2().equals("")) {
-//            error.add("apellidos", new ActionMessage("error.apellidos.required"));
-//            saveErrors(request, error);
-//            huboError = true;
-//        }
-//
-//        //Verifica que los nombres no  esten vacios.
-//        if (p.getNombre2().equals("")) {
-//            error.add("nombres", new ActionMessage("error.nombres.required"));
-//            saveErrors(request, error);
-//            huboError = true;
-//        }
-//        
-//        // Verificar escogencia de Sexo
-//        if (p.getSexo().equals("")) {
-//            error.add("sexo", new ActionMessage("error.sexo.required"));
-//            saveErrors(request, error);
-//            huboError = true;
-//        }
-//
-//        //Verifica que la nacionalidad.
-//        if (p.getNacionalidad().equals("")) {
-//            error.add("nacionalidad", new ActionMessage("error.nacionalidad.required"));
-//            saveErrors(request, error);
-//            huboError = true;
-//        }
-//
-//
-//        // Cedula no vacia y bien estructurada (solo numeros)
-//        if (p.getCedula().equals("")) {
-//            error.add("cedula", new ActionMessage("error.cedula.required"));
-//            saveErrors(request, error);
-//            huboError = true;
-//        } else if (!validate2(p.getCedula())) {
-//
-//            error.add("cedula", new ActionMessage("error.cedula.malestructurada"));
-//            saveErrors(request, error);
-//            huboError = true;
-//        }
-//
-//        // Carnet no  vacio y bien estructurado
-//        if (p.getCarnet().equals("")) {
-//            error.add("carnet", new ActionMessage("error.carnet.required"));
-//            saveErrors(request, error);
-//            huboError = true;
-//        } else if (!p.getCarnet().matches("[0-9]{2}\\-[0-9]{5}")) {
-//            error.add("carnet", new ActionMessage("error.carnet.malestructurado"));
-//            saveErrors(request, error);
-//            huboError = true;
-//        }
+        if (p.getApellido1().equals("")) {
+            error.add("apellido1", new ActionMessage("error.apellidos.required"));
+            saveErrors(request, error);
+            huboError = true;
+        }
+
+        //Verifica que los nombres no  esten vacios.
+        if (p.getNombre1().equals("")) {
+            error.add("nombre1", new ActionMessage("error.nombres.required"));
+            saveErrors(request, error);
+            huboError = true;
+        }
+        
+        if (p.getApellido2().equals("")) {
+            error.add("apellido2", new ActionMessage("error.apellidos.required"));
+            saveErrors(request, error);
+            huboError = true;
+        }
+
+        //Verifica que los nombres no  esten vacios.
+        if (p.getNombre2().equals("")) {
+            error.add("nombre2", new ActionMessage("error.nombres.required"));
+            saveErrors(request, error);
+            huboError = true;
+        }
+        
+        // Verificar escogencia de Sexo
+        if (p.getSexo().contains("Seleccione")) {
+            error.add("sexo", new ActionMessage("error.sexo.required"));
+            saveErrors(request, error);
+            huboError = true;
+        }
+
+        //Verifica que la nacionalidad.
+        if (p.getNacionalidad().equals("")) {
+            error.add("nacionalidad", new ActionMessage("error.nacionalidad.required"));
+            saveErrors(request, error);
+            huboError = true;
+        }
+
+
+        // Cedula no vacia y bien estructurada (solo numeros)
+        if (p.getCedula().equals("")) {
+            error.add("cedula", new ActionMessage("error.cedula.required"));
+            saveErrors(request, error);
+            huboError = true;
+        } else if (!validate2(p.getCedula())) {
+
+            error.add("cedula", new ActionMessage("error.cedula.malestructurada"));
+            saveErrors(request, error);
+            huboError = true;
+        }
+
+        // Carnet no  vacio y bien estructurado
+        if (p.getCarnet().equals("")) {
+            error.add("carnet", new ActionMessage("error.carnet.required"));
+            saveErrors(request, error);
+            huboError = true;
+        } else if (!p.getCarnet().matches("[0-9]{2}\\-[0-9]{5}")) {
+            error.add("carnet", new ActionMessage("error.carnet.malestructurado"));
+            saveErrors(request, error);
+            huboError = true;
+        }
 //        
 //        // Calle no  vacio.
 //        if (p.getCalle().equals("")) {
