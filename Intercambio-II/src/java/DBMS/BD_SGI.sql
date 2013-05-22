@@ -558,3 +558,31 @@ INSERT INTO "dycicle".Noticias VALUES ('Inicio2','chaoooo');
 INSERT INTO "dycicle".Noticias VALUES ('Inicio3','Adiossss');
 
 INSERT INTO "dycicle".Sistema VALUES (TRUE);
+
+INSERT INTO "dycicle".usuario VALUES ('electronica', 'ovasgus2508@gmail.com', 3, 'Coordinacion de Ingenieria Electronica', 'electronica1234', '2013-05-21');
+INSERT INTO "dycicle".usuario VALUES ('luis', 'ovasgus2508@gmail.com', 5, 'Luis Roldao', 'luis1234', '2013-05-21');
+INSERT INTO "dycicle".usuario VALUES ('ricardo', 'ovasgus2508@gmail.com', 5, 'Ricardo martin', 'ricardo1234', '2013-05-21');
+INSERT INTO "dycicle".usuario VALUES ('diego', 'ovasgus2508@gmail.com', 5, 'Diego sanchez', 'diego1234', '2013-05-21');
+INSERT INTO "dycicle".usuario VALUES ('ivana', 'ovasgus2508@gmail.com', 6, 'Ivana Bratislava', '4Zg77Vfs', '2013-05-21');
+
+INSERT INTO "dycicle".estudiante VALUES ('luis', 'null', 'Luis', NULL, 'Roldao', NULL, 'Ingenieria Electronica', '1', 'null', 'null', 'null', 'null', 'null', 'null', 'null', 'null', 'null', 'null', 'ovasgus2508@gmail.com', '2012-11-27', 'null', 'null');
+INSERT INTO "dycicle".estudiante VALUES ('ricardo', 'null', 'Ricardo', NULL, 'martin', NULL, 'Ingenieria Electronica', '1', 'null', 'null', 'null', 'null', 'null', 'null', 'null', 'null', 'null', 'null', 'ovasgus2508@gmail.com', '2012-11-27', 'null', 'null');
+INSERT INTO "dycicle".estudiante VALUES ('diego', 'null', 'Diego', NULL, 'sanchez', NULL, 'Ingenieria Electronica', '1', 'null', 'null', 'null', 'null', 'null', 'null', 'null', 'null', 'null', 'null', 'ovasgus2508@gmail.com', '2012-11-27', 'null', 'null');
+INSERT INTO "dycicle".estudiante VALUES ('ivana', 'null', 'Ivana', 'null', 'Bratislava', 'null', 'null', '0000', 'null', 'null', 'null', 'null', 'null', 'null', 'null', 'null', 'null', 'null', 'ovasgus2508@gmail.com', '2012-11-27', 'null', 'null');
+
+INSERT INTO "dycicle".estudianteinternacional VALUES ('ivana', '0', 'null', 'null', 'null', 'No');
+INSERT INTO "dycicle".estudianteusb VALUES ('luis', 'null', '09-10000');
+INSERT INTO "dycicle".estudianteusb VALUES ('ricardo', 'null', '09-10001');
+INSERT INTO "dycicle".estudianteusb VALUES ('diego', 'null', '09-10002');
+
+INSERT INTO "dycicle".antecedenteacademico VALUES ('luis', 1.0000, 'null', 'null', 'Ingenieria Electronica', 'opcion', 0, 0, 0, 'null', 'null');
+INSERT INTO "dycicle".antecedenteacademico VALUES ('ricardo', 1.0000, 'null', 'null', 'Ingenieria Electronica', 'opcion', 0, 0, 0, 'null', 'null');
+INSERT INTO "dycicle".antecedenteacademico VALUES ('diego', 1.0000, 'null', 'null', 'Ingenieria Electronica', 'opcion', 0, 0, 0, 'null', 'null');
+INSERT INTO "dycicle".antecedenteacademico VALUES ('ivana', 1.0000, 'null', 'null', 'null', 'opcion', 0, 0, 0, 'null', 'null');
+
+INSERT INTO "dycicle".postulacion VALUES ('luis', 'En evaluacion', 'recomendacion', 'comentario', '2013-05-21');
+INSERT INTO "dycicle".postulacion VALUES ('ricardo', 'En evaluacion', 'recomendacion', 'comentario', '2013-05-21');
+INSERT INTO "dycicle".postulacion VALUES ('diego', 'En evaluacion', 'recomendacion', 'comentario', '2013-05-21');
+INSERT INTO "dycicle".postulacion VALUES ('ivana', 'En evaluacion', 'recomendacion', 'comentario', '2013-05-21');
+
+INSERT INTO "dycicle".postulante VALUES ('electronica', '1', 'Coordinacion', 'null', 'Ingenieria Electronica');
