@@ -38,6 +38,47 @@ public class AccionPlanDeEstudio extends Action {
         ArrayList codiuni = plan.getListCodigoUniv();
         ArrayList crediuni = plan.getListCreditoUniv();
         ArrayList nomuni = plan.getListMateriaUniv();
+        int count = 0;
+        for(int i = 0; i<codiusb.size(); i++){
+            String a = (String)codiusb.get(i);
+            if(a.equalsIgnoreCase("") ){
+                count++;
+            }
+        }
+        for(int i = 0; i<crediusb.size(); i++){
+            String a = (String)codiusb.get(i);
+            if(a.equalsIgnoreCase("") ){
+                count++;
+            }
+        }
+        for(int i = 0; i<nomusb.size(); i++){
+            String a = (String)codiusb.get(i);
+            if(a.equalsIgnoreCase("") ){
+                count++;
+            }
+        }
+        for(int i = 0; i<codiuni.size(); i++){
+            String a = (String)codiusb.get(i);
+            if(a.equalsIgnoreCase("") ){
+                count++;
+            }
+        }
+        for(int i = 0; i<crediuni.size(); i++){
+            String a = (String)codiusb.get(i);
+            if(a.equalsIgnoreCase("") ){
+                count++;
+            }
+        }
+        for(int i = 0; i<nomuni.size(); i++){
+            String a = (String)codiusb.get(i);
+            if(a.equalsIgnoreCase("") ){
+                count++;
+            }
+        }
+        if(count > 0){
+            return mapping.findForward("fail");
+        
+        }
         
         
         /*Llamamos a la funcion para que guarde en la base de datos el plan

@@ -1,12 +1,13 @@
 <%-- 
-    Document   : accionesEstUSB
-    Created on : Nov 13, 2012, 3:48:59 PM
-    Author     : dreabalbas
+    Document   : cargaplanincorrecto
+    Created on : 22-may-2013, 21:54:19
+    Author     : gustavo
 --%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%Object tmp = session.getAttribute("nombreusuario");%>
 <%Object var = session.getAttribute("nombre");%>
 <%@page import="javax.swing.text.html.HTML"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://struts.apache.org/tags-bean" prefix="bean" %>
 <%@ taglib uri="http://struts.apache.org/tags-html" prefix="html" %>
 <%@ taglib uri="http://struts.apache.org/tags-logic" prefix="logic" %>
@@ -29,7 +30,7 @@
 
     <font color="red">
     <h3 align ="center">
-        Su planilla de solicitud todavia no tiene toda la información necesaria,
+        Carga del Plan de Estudio incorrecta
         </br>
         Por favor, haga click en "Completar Planilla"
     </h3>

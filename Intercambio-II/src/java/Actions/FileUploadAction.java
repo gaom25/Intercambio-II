@@ -9,7 +9,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.*;
+import java.util.ArrayList;
 import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
@@ -33,23 +33,28 @@ public class FileUploadAction extends Action {
         Usuario u = new Usuario();
         Usuario u2 = new Usuario();
         u.setNombreusuario(nom);
-        boolean tipo = false;
+        boolean error = false;
         u2 = DBMS.getInstance().obtenerDatos(u);
         File folder;
         //obtenemos los archivos de un arraylist
         ArrayList archivos = fileUploadForm.getListFile();
         ArrayList tam = fileUploadForm.getListFile();
         int cant = 0;
+        int cantArchivos = 0;
         /*revizamos que haya introducio almenos un archivo y que sea la foto*/
-        if (tam.isEmpty()) {
-            u2.setNombre("Debe incluir algun archivo");
-            request.setAttribute("Usuario",u2);
-            return mapping.findForward("error");
-        }
+        for (int i = 0; i < tam.size(); i++) {
+            FormFile f = (FormFile) tam.get(i);
+            if (i == 0 && !(f.getFileName().contains("jpg") || f.getFileName().contains("png"))) {
+                u2.setNombre("La foto debe ser en formato PNG o JPG");
+                request.setAttribute("Usuario", u2);
+                return mapping.findForward("error");
 
-        FormFile f = (FormFile) tam.get(0);
-        if (!f.getFileName().contains("jpg") || !f.getFileName().contains("png")) {
-            u2.setNombre("La foto debe ser en formato PNG o JPG");
+            } else if (!f.getFileName().equalsIgnoreCase("")) {
+                cantArchivos++;
+            }
+        }
+        if (tam.size() != cantArchivos) {
+            u2.setNombre("Debe incluir todos archivos");
             request.setAttribute("Usuario", u2);
             return mapping.findForward("error");
         }
@@ -61,22 +66,22 @@ public class FileUploadAction extends Action {
         for (int i = 0; i < tam.size(); i++) {
             FormFile file2 = (FormFile) tam.get(i);
             cant = cant + file2.getFileSize();
-            if (!file2.getFileName().contains("pdf") || !file2.getFileName().contains("png") || !file2.getFileName().contains("jpg")) {
-                tipo = true;
+            if (!(file2.getFileName().contains("pdf") || file2.getFileName().contains("png") || file2.getFileName().contains("jpg"))) {
+                error = true;
             }
 
         }
         /*si la carga es mayor de 5000000 de bytes que es 5Mbytes no se cargan
          los archivos o los archivos no son pdf o png o jpg*/
-        if (cant > 50000000 || tipo) {
+        if (cant > 50000000 || error) {
             String noti = "";
-            if (tipo) {
+            if (error) {
                 noti = noti + "Los archivos deben ser de extension PDF, JPG o PGN\n";
             } else {
                 noti = noti + "Los archivos superaron la capacidad maxima intente de nuevo\n";
             }
             u2.setNombre(noti);
-            request.setAttribute("Usuario",u2);
+            request.setAttribute("Usuario", u2);
             return mapping.findForward("error");
         }
         /*en caso contrario*/

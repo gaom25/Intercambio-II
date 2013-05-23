@@ -262,6 +262,10 @@
     <definition name="listarDocumentos" extends="baseEstudiante"> <!-- pagina de listar usuarios -->
         <put name="body" value="/estudianteUSB/listarDocumentos.jsp" />
     </definition>
+    
+    <definition name="cargaplanincorrecta" extends="baseEstudiante"> <!-- pagina de listar usuarios -->
+        <put name="body" value="/estudianteUSB/cargaplanincorrecto.jsp" />
+    </definition>
         
        
     <!-- ESTUDIANTE EXT -->

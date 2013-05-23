@@ -18,7 +18,7 @@
         <title>Error</title>
     </head>
     <br>
-    <h1 style="text-align: center;color: #B22222"><bean:write name="Usuario" property="nombre"/></h1>
+    <h1 style="text-align: center;color: #B22222;width: 80%;margin-left: 4.0em"><bean:write name="Usuario" property="nombre"/></h1>
 
     <div align="center"><html:image src="images/error.png" /> </div>
     <br />
