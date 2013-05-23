@@ -33,25 +33,50 @@ public class FileUploadAction extends Action {
         Usuario u = new Usuario();
         Usuario u2 = new Usuario();
         u.setNombreusuario(nom);
-        
+        boolean tipo = false;
         u2 = DBMS.getInstance().obtenerDatos(u);
-        
         File folder;
-        
         //obtenemos los archivos de un arraylist
         ArrayList archivos = fileUploadForm.getListFile();
         ArrayList tam = fileUploadForm.getListFile();
         int cant = 0;
+        /*revizamos que haya introducio almenos un archivo y que sea la foto*/
+        if (tam.isEmpty()) {
+            u2.setNombre("Debe incluir algun archivo");
+            request.setAttribute("Usuario",u2);
+            return mapping.findForward("error");
+        }
+
+        FormFile f = (FormFile) tam.get(0);
+        if (!f.getFileName().contains("jpg") || !f.getFileName().contains("png")) {
+            u2.setNombre("La foto debe ser en formato PNG o JPG");
+            request.setAttribute("Usuario", u2);
+            return mapping.findForward("error");
+        }
+
+
+
         /*iteramos sobre la lista de archivos y sumamos sus tamaños para obtener
-        el peso de toda lac arga*/
-        for(int i =0; i<tam.size();i++){
+         el peso de toda la carga y revizamos y extension*/
+        for (int i = 0; i < tam.size(); i++) {
             FormFile file2 = (FormFile) tam.get(i);
             cant = cant + file2.getFileSize();
-        
+            if (!file2.getFileName().contains("pdf") || !file2.getFileName().contains("png") || !file2.getFileName().contains("jpg")) {
+                tipo = true;
+            }
+
         }
         /*si la carga es mayor de 5000000 de bytes que es 5Mbytes no se cargan
-         los archivos*/
-        if(cant > 50000000){
+         los archivos o los archivos no son pdf o png o jpg*/
+        if (cant > 50000000 || tipo) {
+            String noti = "";
+            if (tipo) {
+                noti = noti + "Los archivos deben ser de extension PDF, JPG o PGN\n";
+            } else {
+                noti = noti + "Los archivos superaron la capacidad maxima intente de nuevo\n";
+            }
+            u2.setNombre(noti);
+            request.setAttribute("Usuario",u2);
             return mapping.findForward("error");
         }
         /*en caso contrario*/
@@ -63,30 +88,30 @@ public class FileUploadAction extends Action {
 
         //buscamos el path real para guardar el archivo, 
         //este path lo guarda en el la capeta build/web/Documentos
-        
+
         String filePath =
                 getServlet().getServletContext().getRealPath("/") + "Documentos/" + nom;
         String documentos = getServlet().getServletContext().getRealPath("/") + "Documentos/";
         /*Guardamos el path de los archivos relacionados a un usuario en la base
          de datos*/
-        if(!DBMS.getInstance().InsertarPath(filePath,est)){
+        if (!DBMS.getInstance().InsertarPath(filePath, est)) {
             System.out.println("No funciona el insertar");
         }
-        
-        
+
+
         folder = new File(documentos);
         if (!folder.exists()) {
             folder.mkdir();
         }
-        
-        
+
+
         /*Creamos la carpeta donde se guardaran los archivos, si ya existe seguimos,
          si no la creamos*/
         folder = new File(filePath);
         if (!folder.exists()) {
             folder.mkdir();
         }
-        
+
         /*Para cada archivo*/
         for (int i = 0; i < archivos.size(); i++) {
 
@@ -105,7 +130,7 @@ public class FileUploadAction extends Action {
                  */
                 System.out.println("Server path:" + filePath);
                 File newFile;
-                switch(i){
+                switch (i) {
                     case 0:
                         newFile = new File(filePath, "Foto.png");
                         break;
@@ -124,15 +149,15 @@ public class FileUploadAction extends Action {
                     fos.flush();
                     fos.close();
                 }
-           
+
                 String accion = "Adjuntó archivos a su solicitud";
-                boolean boo = DBMS.getInstance().registrar(u2.getNombreusuario(),accion);
+                boolean boo = DBMS.getInstance().registrar(u2.getNombreusuario(), accion);
 
             }
 
         }
-        
-        if(u2.getPrivilegio() == 5){
+
+        if (u2.getPrivilegio() == 5) {
             return mapping.findForward("usb");
         }
         return mapping.findForward("ext");
