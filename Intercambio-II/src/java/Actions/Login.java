@@ -80,6 +80,8 @@ public class Login extends org.apache.struts.action.Action {
             huboError = true;
         }
 
+        System.out.println("Holaaaaaaaaa esto lo hizo patty");
+        
         if (huboError) {
             return mapping.findForward(ERROR);
         } else {
