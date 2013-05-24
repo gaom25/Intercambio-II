@@ -13,6 +13,7 @@
 <html:html>
     <div id="twitterInt" style="width: 240px"> 
         <a style="font-size: 1.4em; font-weight: bold; text-decoration: underline"  href="/Intercambio-II/">Inicio</a>
+        <br><br>
         <a class="twitter-timeline" height="300" href="https://twitter.com/IntercambioUSB" data-widget-id="317086117033811968"> </a>
         <script>!function(d,s,id){
             var js,fjs=d.getElementsByTagName(s)[0];

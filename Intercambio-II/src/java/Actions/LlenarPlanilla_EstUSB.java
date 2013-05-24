@@ -67,6 +67,9 @@ public class LlenarPlanilla_EstUSB extends org.apache.struts.action.Action {
         ActionErrors error = new ActionErrors();
         boolean huboError = false;
         boolean arre[] = new boolean[7];
+        String Datos[] = {"Datos Personales","Informacion de Domicilio",
+            "Datos de Contacto","Programas","Informacion Academica",
+        "Datos de Financiamiento","Contacto en Caso de Emergencia"};
         Arrays.fill(arre, false);
 
         // ####################################
@@ -335,10 +338,12 @@ public class LlenarPlanilla_EstUSB extends org.apache.struts.action.Action {
 
 
         if (huboError) {
-            String especial = "";
+            String especial = ",";
+            
             for (int i = 0; i < 7; i++) {
                 if (arre[i]) {
-                    especial = especial + "1." + (i + 1) + " ";
+                    especial = especial + Datos[i]+", ";
+                    
                 }
             }
             u.setNombre(especial);
