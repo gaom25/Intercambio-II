@@ -962,7 +962,7 @@
                             <table id="dataTable" width="350px" cellspacing="14px">
                                 <tbody id="dataBody">
                                     <tr>
-                                        <td><INPUT type="checkbox" name="chk[]"/></td>
+                                        <td></td>
                                         <td>Foto</td>
                                         <td valign="left">
                                             <div id="archivos" >
@@ -975,7 +975,7 @@
                                         </td> 
                                     </tr>
                                     <tr>
-                                        <td><INPUT type="checkbox" name="chk[]"/></td>
+                                        <td></td>
                                         <td>Informe Académico</td>
                                         <td valign="middle">
                                             <div id="archivos" >
@@ -989,7 +989,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td><INPUT type="checkbox" name="chk[]"/></td>
+                                    <td></td>
                                     <td>Carta de Motivación</td>
                                     <td valign="middle">
                                         <div id="archivos" >
@@ -1003,7 +1003,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td><INPUT type="checkbox" name="chk[]"/></td>
+                                    <td></td>
                                     <td><a style="color: red; font-size: 14px; font-weight: bold">*</a>Planilla CINDA/SMILE</td>
                                     <td valign="middle">
                                         <div id="archivos" >
@@ -1017,7 +1017,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td><INPUT type="checkbox" name="chk[]"/></td>
+                                    <td></td>
                                     <td><a style="color: red; font-size: 14px; font-weight: bold">**</a>Certificado de idiomas</td>
                                     <td valign="middle">
                                         <div id="archivos" >

@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
-        var fCount = 3;
+        var fCount = 4;
         var Count = 0;
         var mCount = 0;
         var direccionPlanillaSmile1='/Intercambio-II/estudianteUSB/Recursos/SMILE_Student_Learning-Agreement.doc'
@@ -340,7 +340,7 @@
                     var chkbox = row.cells[0].childNodes[0];
                     if(null != chkbox && true == chkbox.checked) {
 				
-                        if(rowCount <= 4) {
+                        if(rowCount <= 5) {
                             alert("No puede borrar todas las opciones");
                             break;
                         }
