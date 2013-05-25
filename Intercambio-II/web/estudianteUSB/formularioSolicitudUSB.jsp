@@ -1204,7 +1204,7 @@
                     <input type="button" value="Eliminar Seleccionados" style="font-size:16px; padding:4px 6px" onclick="deleteRow2('IdioBody')"/>
 
                     <p  align=center>
-                        <html:submit> Enviar Formulario </html:submit>
+                        <html:submit> GUARDAR </html:submit>
                         </p>
                 </html:form>
             </div>
