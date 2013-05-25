@@ -15,525 +15,7 @@
 
 <html:html lang="true">
 
-    <script language="javascript">
-        var fCount = 5;
-        var Count = 0;
-        var mCount = 0;
-        var direccionPlanillaSmile1='/Intercambio-II/estudianteUSB/Recursos/SMILE_Student_Learning-Agreement.doc'
-        var direccionPlanillaSmile2='/Intercambio-II/estudianteUSB/Recursos/SMILE_Student_Application-Form.doc'
-        var direccionPlanillaCinda1='/Intercambio-II/estudianteUSB/Recursos/CINDA_Ficha_de_reconocimiento.doc'
-        var direccionPlanillaCinda2='/Intercambio-II/estudianteUSB/Recursos/CINDA_Ficha_solicitud_de_participación.doc'
-        
-        function cambiar_link1(){
-            
-            var seleccion=document.getElementById('prog_princ');
-            if(seleccion.value == "SMILE"){
-                document.getElementById('planillaExt1').href=direccionPlanillaSmile1;
-                document.getElementById('planillaExt1').innerHTML='Descargue el Contrato de estudiantes para SMILE';
-                document.getElementById('planillaExt2').href=direccionPlanillaSmile2;
-                document.getElementById('planillaExt2').innerHTML='Descargue el formulario de Aplicacion SMILE'
-            }
-            
-            if(seleccion.value == "CINDA"){
-                document.getElementById('planillaExt1').href=direccionPlanillaCINDA;
-                document.getElementById('planillaExt1').innerHTML='Descargue el formulario de Reconocimiento para CINDA';
-                document.getElementById('planillaExt2').href=direccionPlanillaCINDA;
-                document.getElementById('planillaExt2').innerHTML='Descargue el formulario de participación para CINDA';
-            }
-            
-        }
-        
-        function addMate(tableID) {
-            mCount++;
-
-            var fObject = document.getElementById(tableID);
-            var checkbox2 = "checkbox";
-            var nomUSB = "materiaUSB[" +  mCount +  "]";
-            var codUSB = "codigoUSB[" +  mCount +  "]";
-            var creUSB = "creditosUSB[" +  mCount +  "]";
-            var arr2 = "c[]";
-            var type = "text";
-            
-            var style1 = "width:80%;";
-            var style2 = "width:60%;";
-            
-            var o2 = document.createElement("input");
-            var check2 = document.createElement("input");
-            var i1 = document.createElement("input");
-            var i2 = document.createElement("input");
-            var i3 = document.createElement("input");
-            var tr = document.createElement("tr");
-            var td = document.createElement("td");
-            var td2 = document.createElement("td");
-            var td4 = document.createElement("td");
-            var td6 = document.createElement("td");
-            var td8 = document.createElement("td");
-            var td10 = document.createElement("td");
-            var td12 = document.createElement("td");
-                
-            //Atributos para el checkbox
-            check2.setAttribute("type",checkbox2);
-            check2.setAttribute("name",arr2);
-            i1.setAttribute("type",type);
-            i1.setAttribute("name",codUSB);
-            i1.setAttribute("style",style1);
-            i2.setAttribute("type",type);
-            i2.setAttribute("name",nomUSB);
-            i2.setAttribute("style",style1);
-            i3.setAttribute("type",type);
-            i3.setAttribute("name",creUSB);
-            i3.setAttribute("style",style1);
-             
-            td.appendChild(check2);
-            td2.appendChild(i1);
-            td4.appendChild(i2);
-            td6.appendChild(i3);
-            
-            
-            tr.appendChild(td);
-            
-            tr.appendChild(td2);
-            
-            tr.appendChild(td4);
-            
-            tr.appendChild(td6);
-            
-            fObject.appendChild(tr);
-               
-        }
-        
-       
-        function addIdi(tableID) {
-            Count++;
-
-            var fObject = document.getElementById(tableID);
-            var checkbox = "checkbox";
-            var idioma = "idiomaDest[" +  Count +  "]";
-            var verbal = "nivelVerbal[" +  Count +  "]";
-            var escrito = "nivelEscrito[" +  Count +  "]";
-            var conversacional = "nivelConversacional[" + Count + "]";
-            var basico = "Basico";
-            var intermedio = "Intermedio";
-            var avanzado = "Avanzado";
-            var arr = "chk[]";
-            var type = "text";
-            
-            var tit1 = "Idioma que maneja";
-            var tit2 = "Nivel Verbal";
-            var tit3 = "Nivel Escrito";
-            var tit4 = "Nivel Conversacional";
-            var o2 = document.createElement("input");
-            var check = document.createElement("input");
-            
-            //Nivel Escrito
-            var op1 = document.createElement("option"); //basico
-            var op2 = document.createElement("option");//intermedio
-            var op3 = document.createElement("option");//avanzado
-            
-            //Nivel Verbal
-            var op4 = document.createElement("option");//basico
-            var op5 = document.createElement("option");//intermedio
-            var op6 = document.createElement("option");//avanzado
-            
-            //Nivel Conversacional
-            var op7 = document.createElement("option");//basico
-            var op8 = document.createElement("option"); //intermedio
-            var op9 = document.createElement("option"); //avanzado
-            
-            var op10 = document.createElement("option");
-            var op11 = document.createElement("option");
-            var op12 = document.createElement("option");
-            
-            
-            var tr = document.createElement("tr");
-            var select1 = document.createElement("select");
-            var select2 =document.createElement("select");
-            var select3 = document.createElement("select");
-            var td = document.createElement("td");
-            var td2 = document.createElement("td");
-            var td3 = document.createElement("td");
-            var td4 = document.createElement("td");
-            var td5 = document.createElement("td");
-            var td6 = document.createElement("td");
-            var td7 = document.createElement("td");
-            var td8 = document.createElement("td");
-            var td9 = document.createElement("td");
-            var td10 = document.createElement("td");
-            
-                
-            //Atributos para el checkbox
-            check.setAttribute("type",checkbox);
-            check.setAttribute("name",arr);
-            op1.setAttribute("value",basico);
-            op1.innerHTML = "Basico";
-            op4.setAttribute("value",basico);
-            op4.innerHTML = "Basico";
-            op7.setAttribute("value", basico);
-            op7.innerHTML = "Basico";
-            op2.setAttribute("value",intermedio);
-            op2.innerHTML = "Intermedio";
-            op5.setAttribute("value",intermedio);
-            op5.innerHTML = "Intermedio";
-            op8.setAttribute("value", intermedio);
-            op8.innerHTML = "Intermedio";
-            op3.setAttribute("value",avanzado);
-            op3.innerHTML = "Avanzado";
-            op6.setAttribute("value",avanzado);
-            op6.innerHTML = "Avanzado";
-            op9.setAttribute("value", avanzado);
-            op9.innerHTML = "Avanzado";
-            
-            op10.setAttribute("value","");
-            op11.setAttribute("value","");
-            op12.setAttribute("value","");
-            
-            o2.setAttribute("type",type);
-            o2.setAttribute("name",idioma);
-            op1.setAttribute("value",basico);
-            op2.setAttribute("value", intermedio);
-            op3.setAttribute("value",avanzado);
-            select1.setAttribute("name",verbal);
-            select2.setAttribute("name",escrito);
-            select3.setAttribute("name",conversacional);
-            
-            td7.appendChild(check);
-            tr.appendChild(td7);
-            td.innerHTML = tit1;
-            tr.appendChild(td);
-            td2.appendChild(o2);
-            tr.appendChild(td2);
-            
-            td3.innerHTML = tit2;
-            tr.appendChild(td3);
-            select1.appendChild(op10);
-            select1.appendChild(op7);
-            select1.appendChild(op1);
-            select1.appendChild(op2);
-            select1.appendChild(op3);
-            td4.appendChild(select1);
-            tr.appendChild(td4);
-            
-            td5.innerHTML = tit3;
-            tr.appendChild(td5);
-            select2.appendChild(op11);
-            select2.appendChild(op8);
-            select2.appendChild(op4);
-            select2.appendChild(op5);
-            select2.appendChild(op6);
-            td6.appendChild(select2);
-            tr.appendChild(td6);
-            
-            td8.innerHTML = tit4;
-            tr.appendChild(td8);
-            select3.appendChild(op12);
-            select3.appendChild(op7);
-            select3.appendChild(op8);
-            select3.appendChild(op9);
-            td10.appendChild(select3);
-            tr.appendChild(td10);
-            
-            fObject.appendChild(tr);
-               
-        }         
-        
-        function addRow(tableID) {
-            fCount++;
-
-            var fObject = document.getElementById(tableID);
-            var checkbox = "checkbox";
-            var tag='<input type="file" name="theFile[' +  fCount +  ']" value="">';
-            var name = "theFile[" +  fCount +  "]";
-            var file = "file";
-            var valgin = "middle";
-            var value = "";
-            var id = "archivos";
-            var clas = "feed";
-            var arr = "chk[]"
-            var style = "position:relative;"
-            var o3 = document.createElement("br");
-            var o2 = document.createElement("input");
-            var check = document.createElement("input");
-            var tr = document.createElement("tr");
-            var td = document.createElement("td");
-            var td3 = document.createElement("td");
-            var div1 = document.createElement("div");
-            var div2 = document.createElement("div");
-                
-                
-               
-            //Atributos para div1
-            div1.setAttribute("id",id);
-            //fin de atributos para div1
-                
-            //Atributos para div2
-            div2.setAttribute("class",clas);
-            //fin de atributos para div2
-                
-            //Atributos para el checkbox
-            check.setAttribute("type",checkbox);
-            check.setAttribute("name",arr)
-            //Fin de atributos para checkbox
-            //Atributos para el archivo
-            o2.setAttribute("type", file);
-            o2.setAttribute("name", name );
-            o2.setAttribute("value", value);
-            o2.setAttribute("styame", name );
-            o2.setAttribute("valule",style);
-            //Fin Atributos para el archivo
-            var td2 = document.createElement("td").appendChild(div1).appendChild(div2).appendChild(o2);
-                
-            //Atributos para el td interno
-            td2.setAttribute("valgin",valgin);
-            //Fin atributos del td
-                                
-            fObject.appendChild(tr).appendChild(td).appendChild(check);
-                
-            var segundo_p = document.getElementById(tableID).getElementsByTagName('td');
-                
-            fObject.appendChild(tr).appendChild(td3);    
-            fObject.appendChild(tr).insertBefore(td2, segundo_p);
-       
-        }
- 
-        function deleteRow(tableID) {
-            try {
-
-                var table = document.getElementById(tableID);
-                var rowCount = table.rows.length;
-	
-                for(var i=0; i<rowCount; i++) {
-                    var row = table.rows[i];
-                    var chkbox = row.cells[0].childNodes[0];
-                    if(null != chkbox && true == chkbox.checked) {
-				
-                        if(rowCount <= 1) {
-                            alert("No puede borrar todas las opciones");
-                            break;
-                        }
-                        table.deleteRow(i);
-                        rowCount--;
-                        i--;
-                        fCount--;
-                    }
-	
-                }
-		
-            } catch(e) {
-                alert(e);
-            }
-        }
-        
-        
-        
-        function deleteRow2(tableID) {
-            try {
-
-                var table = document.getElementById(tableID);
-                var rowCount = table.rows.length;
-	
-                for(var i=0; i<rowCount; i++) {
-                    var row = table.rows[i];
-                    var chkbox = row.cells[0].childNodes[0];
-                    if(null != chkbox && true == chkbox.checked) {
-				
-                        if(rowCount <= 1) {
-                            alert("No puede borrar todas las opciones");
-                            break;
-                        }
-                        table.deleteRow(i);
-                        rowCount--;
-                        i--;
-                        Count--;
-                        
-                    }
-	
-                }
-		
-            } catch(e) {
-                alert(e);
-            }
-        }
-        
-        function deletePlan(tableID) {
-            try {
-
-                var table = document.getElementById(tableID);
-                var rowCount = table.rows.length;
-        
-                for(var i=0; i<rowCount; i++) {
-                    var row = table.rows[i];
-                    var chkbox = row.cells[0].childNodes[0];
-                    
-                    if(null != chkbox && true == chkbox.checked) {	
-                        if(rowCount <= 2) {
-                            alert("No puede borrar todas las opciones");
-                            break;
-                        }
-                       
-                        table.deleteRow(i);
-                        rowCount--;
-                        i--;
-                        mCount--;
-                    }
-	
-                }
-		
-            } catch(e) {
-                alert(e);
-            }
-        }
-        
-        function show(target){
-            document.getElementById(target).style.display = 'block';
-        }
-
-        function hide(target){
-            document.getElementById(target).style.display = 'none';
-        }
-
-        function seleccion(opc)
-        {
-            //escondemos todos los contenidos
-            document.getElementById("opci1").style.display="none";
-            document.getElementById("opci2").style.display="none";
-            document.getElementById("opci3").style.display="none";
-            document.getElementById("opci4").style.display="none";
-            document.getElementById("opci5").style.display="none";
-            document.getElementById("opci6").style.display="none";
-            switch(opc)
-            {
-                case 1:
-                    //mostramos elcontenido de la primera opcion
-                    document.getElementById("opci1").style.display="block";
-                    break;
-                case 2:
-                    //mostramos elcontenido de la segunda opcion
-                    document.getElementById("opci2").style.display="block";
-                    break;
-                case 3:
-                    //mostramos elcontenido de la tercera opcion
-                    document.getElementById("opci3").style.display="block";
-                    break;
-                case 4:
-                    //mostramos elcontenido de la tercera opcion
-                    document.getElementById("opci4").style.display="block";
-                    break;
-                case 5:
-                    //mostramos elcontenido de la tercera opcion
-                    document.getElementById("opci5").style.display="block";
-                    break;
-                case 6:
-                    //mostramos elcontenido de la tercera opcion
-                    document.getElementById("opci6").style.display="block";
-                    break;                           
-            }
-        }
-
-        // CAMBIA EL PAIS DE ACUERDO AL TIPO DE CONVENIO ELEGIDO
-
-        // Convenios Bilaterales
-        var paises_Bilaterales=new Array("Seleccione", "Alemania","Australia", "Canadá", "Colombia", "España", "EstadosUnidos", "Finlandia", "Francia", "Italia", "Japón", "México", "Noruega", "Perú", "PuertoRico", "ReinoUnido", "Suecia")
-        // SMILE
-        var paises_SMILE=new Array("Seleccione", "Alemania", "Bélgica", "Brasil", "Chile", "Colombia", "España", "Polonia", "Portugal", "RepúblicaCheca")
-        // CINDA
-        var paises_Cinda=new Array("Seleccione", "Argentina", "Bolivia", "Brasil", "Chile", "Colombia", "CostaRica", "Ecuador", "España", "Italia", "México", "Panamá", "Paraguay", "Perú", "RepúblicaDominicana", "Uruguay", "Venezuela")
-
-        function cambia_pais(){ 
-            //tomo el valor del select del pais elegido 
-            programa = document.getElementById("prog_princ")[document.getElementById("prog_princ").selectedIndex].value 
-            if (programa != 0) { 
-                mis_paises=eval("paises_" + programa) 
-                num_paises = mis_paises.length 
-                document.getElementById("pais_princ").length = num_paises
-                document.getElementById("pais_princ").options[0].value=0
-                document.getElementById("pais_princ").options[0].text="Seleccione"
-                for(i=1;i<num_paises;i++){ 
-                    document.getElementById("pais_princ").options[i].value=mis_paises[i]
-                    document.getElementById("pais_princ").options[i].text=mis_paises[i] 
-                } 
-            }else{ 
-                //si no había provincia seleccionada, elimino las universidades del select 
-                document.getElementById("pais_princ").length = 1 
-                document.getElementById("pais_princ").options[0].value = "-" 
-                document.getElementById("pais_princ").options[0].text = "-" 
-            } 
-            //marco como seleccionada la opción primera de provincia 
-            document.getElementById("pais_princ").options[0].selected = true 
-        }
-
-        // CAMBIA LA UNIVERSIDAD DE ACUERDO AL PAIS ESCOGIDO 
- 
-        // Universidad con Convenios Bilaterales
-        var uni_BilateralesAlemania=new Array("Seleccione", "Universidad de Karlsruhe", "Universidad de Siegen")
-        var uni_BilateralesAustralia=new Array("Seleccione", "Universidad Tecnológica de Swinburne")
-        var uni_BilateralesCanadá=new Array("Seleccione", "Instituto de Tecnología de Ontario")
-        var uni_BilateralesColombia=new Array("Seleccione", "Pontificia Universidad Bolivariana", "Universidad Externado")
-        var uni_BilateralesEspaña=new Array("Seleccione", "Universidad de Granada", "Universidad de Zaragoza", "Universidad Politécnica de Valencia")
-        var uni_BilateralesEstadosUnidos=new Array("Seleccione", "Universidad de Nuevo México", "Universidad de Oklahoma")
-        var uni_BilateralesFinlandia=new Array("Seleccione", "Universidad Abo Akademi")
-        var uni_BilateralesFrancia=new Array("Seleccione", "Arts et Métiers ParisTech", "EPF Escuela de Ingenieros", "Escuela de Minas de Nantes", "INSA – Lyon", "TELECOM – SudParis", "Universidad Paris Est Marne la Vallé", "Universidad Paris Ouest Nanterre", "Universidad Tecnológica de Compiègne")
-        var uni_BilateralesItalia=new Array("Seleccione", "Politécnico de Milano", "Politécnico de Torino")
-        var uni_BilateralesJapón=new Array("Seleccione", "Universidad de Tohoku", "Universidad Tecnológica de Nagaoka")
-        var uni_BilateralesMéxico=new Array("Seleccione", "Instituto Tecnológico Superior de Cajeme (ITESCA)", "ITESM Monterrey", "Universidad Veracruzana")
-        var uni_BilateralesNoruega=new Array("Seleccione", "NTNU- Trondheim")
-        var uni_BilateralesPerú=new Array("Seleccione", "Universidad San Martín de Porres")
-        var uni_BilateralesPuertoRico=new Array("Seleccione", "Universidad de Puerto Rico")
-        var uni_BilateralesReinoUnido=new Array("Seleccione", "Universidad de Ulster")
-        var uni_BilateralesSuecia=new Array("Seleccione", "Real Instituto de Estocolmo KTH", "Universidad de Lund", "Universidad de Uppsala")
-
-        // Universidad con SMILE
-        var uni_SMILEAlemania=new Array("Seleccione", "Universidad de Stuttgart")
-        var uni_SMILEBélgica=new Array("Seleccione", "Universidad Católica de Lovaina")
-        var uni_SMILEBrasil=new Array("Seleccione", "PSML - BRA - Universidad de Sao Paulo", "PSML - BRA - Universidad Federal de Río de Janeiro")
-        var uni_SMILEChile=new Array("Seleccione", "PSML - CHI - Pontifica Universidad Católica de Chile")
-        var uni_SMILEColombia=new Array("Seleccione", "PSML - COL - Pontificia Universidad Javeriana")
-        var uni_SMILEEspaña=new Array("Seleccione", "PSML - ESP - Universidad Politécnica de Cataluña", "PSML - ESP - Universidad Politécnica de Madrid")
-        var uni_SMILEPolonia=new Array("Seleccione", "PSML - POL - AGH Universidad de Ciencias y Tecnología")
-        var uni_SMILEPortugal=new Array("Seleccione", "PSML - POR - Universidad Técnica de Lisboa")
-        var uni_SMILERepúblicaCheca=new Array("Seleccione", "PSML - RPC - Universidad Técnica Checa en Praga")
-
-        // Universidad con CINDA
-        var uni_CindaArgentina=new Array("Seleccione", "Universidad Nacional de Cuyo", "Universidad Nacional de Quilmes", "Universidad Nacional de San Martín")
-        var uni_CindaBolivia=new Array("Seleccione", "Universidad Católica Boliviana San Pablo", "Universidad Privada Santa Cruz de la Sierra")
-        var uni_CindaBrasil=new Array("Seleccione", "Universidad de Sao Paulo ", "Universidad Estadual de Campinas")
-        var uni_CindaChile=new Array("Seleccione", "Pontificia Universidad Católica de Chile", "Pontificia Universidad Católica de Valparaíso", "Universidad Austral de Chile", "Universidad de Concepción", "Universidad de Talca", "Universidad de Tarapacá")
-        var uni_CindaColombia=new Array("Seleccione", "Pontificia Universidad Javeriana ", "Universidad de los Andes", "Universidad del Norte", "Universidad del Valle")
-        var uni_CindaCostaRica=new Array("Seleccione", "Universidad de Costa Rica ")
-        var uni_CindaEcuador=new Array("Seleccione", "Escuela Superior Politécnica del Litoral")
-        var uni_CindaEspaña=new Array("Seleccione", "Universidad Carlos III de Madrid", "Universidad de Barcelona", "Universidad de las Islas Baleares", "Universidad de Santiago de Compostela", "Universitat Oberta de Catalunya", "Universitat Politécnica de Catalunya")
-        var uni_CindaItalia=new Array("Seleccione", "Universidad Degli Studi Di Genova")
-        var uni_CindaMéxico=new Array("Seleccione", "ITESM Monterrey ", "Universidad Autónoma Metropolitana")
-        var uni_CindaPanamá=new Array("Seleccione", "Universidad de Panamá ")
-        var uni_CindaParaguay=new Array("Seleccione", "Universidad Católica de Nuestra Señora de la Asunción")
-        var uni_CindaPerú=new Array("Seleccione", "Pontificia Universidad Católica del Perú ", "Universidad de Lima", "Universidad del Pacífico ", "Universidad Peruana Cayetano Heredia")
-        var uni_CindaRepúbicaDominicana=new Array("Seleccione", "Instituto Tecnológico de Santo Domingo", "Pontificia Universidad Católica Madre Maestra ")
-        var uni_CindaUruguay=new Array("Seleccione", "Universidad Católica del Uruguay")
-        var uni_CindaVenezuela=new Array("Seleccione", "Universidad Centroccidental Lisandro Alvarado", "Universidad Metropolitana")
-
-
-        function cambia_universidad(){ 
-            //tomo el valor del select del pais elegido 
-            programa = document.getElementById("prog_princ")[document.getElementById("prog_princ").selectedIndex].value 
-            pais = document.getElementById("pais_princ")[document.getElementById("pais_princ").selectedIndex].value 
-            if (programa != 0) { 
-                mis_universidades=eval("uni_" + programa + pais) 
-                num_universidades = mis_universidades.length 
-                document.getElementById("uni_princ").length = num_universidades 
-                for(i=0;i<num_universidades;i++){ 
-                    document.getElementById("uni_princ").options[i].value=mis_universidades[i] 
-                    document.getElementById("uni_princ").options[i].text=mis_universidades[i] 
-                } 
-            }else{ 
-                //si no había provincia seleccionada, elimino las universidades del select 
-                document.getElementById("uni_princ").length = 1 
-                document.getElementById("uni_princ").options[0].value = "-" 
-                document.getElementById("uni_princ").options[0].text = "-" 
-            } 
-            //marco como seleccionada la opción primera de provincia 
-            document.getElementById("uni_princ").options[0].selected = true 
-        }    
-    
-    </script>
+    <script  src="/Intercambio-II/css/formularioExt.js"></script>
 
     <title>Sistema de Gestión de Intercambio</title>
 
@@ -542,6 +24,26 @@
     <h5 align ="center"> Recuerde no dejar en blanco los campos obligatorios</h5>
 
     <!-- LLENAR EL FORMULARIO DE DATOS -->
+    <div id="error">
+    </div>
+    <script>
+        var a= '<bean:write name="Usuario" property="nombre"></bean:write>'</script>
+    <script>
+        function select(){
+            if(a != ""){
+                var z = a.split(",")
+                var pal=""
+                for(i=1;i<z.length-1;i++){
+                       pal = pal + z[i]+"\n"
+                }
+                document.getElementById('error').innerHTML='<div align="center" style="width:100%"><pre align="center" style="color: #B22222;font-family:san-serif">Contiene error en los pasos:\n '+pal+'</pre></div>'   
+            }
+        }
+        window.onload=function(){
+            select()
+        }
+    </script>
+    
 
     <div class="nav" style="text-align: center;">
         <a href="#" onclick=" if (true) show('datosplanilla'), hide('archivos'),hide('plan'),hide('idio')"> 1. Formulario de Datos </a>
@@ -565,73 +67,78 @@
                             <br>
                             <br>
                             <tr>
-                                <td>Primer Apellido</td>
+                                <td style="font-weight: bold">Primer Apellido</td>
 
                                 <td>
                                     <html:text name="PlanillaExt" property="apellido1" maxlength="80" errorStyleClass="error"
                                                errorKey="org.apache.struts.action.ERROR"></html:text>
                                 </td>
-
-                                <td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
                                     <html:errors property="apellido1" />
                                 </td>
                             </tr>
 
                             <tr>
-                                <td>Segundo Apellido</td>
+                                <td style="font-weight: bold">Segundo Apellido</td>
 
                                 <td>
                                     <html:text name="PlanillaExt" property="apellido2" maxlength="80" errorStyleClass="error"
                                                errorKey="org.apache.struts.action.ERROR"></html:text>
                                 </td>
-
-                                <td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
                                     <html:errors property="apellido2" />
                                 </td>
                             </tr>
 
                             <tr>
-                                <td>Primer Nombre</td>
+                                <td style="font-weight: bold">Primer Nombre</td>
 
                                 <td>
                                     <html:text name="PlanillaExt" property="nombre1" maxlength="80" errorStyleClass="error"
                                                errorKey="org.apache.struts.action.ERROR"></html:text>
                                 </td>
-
-                                <td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
                                     <html:errors property="nombre1" />
                                 </td>
                             </tr>
 
                             <tr>
-                                <td>Segundo Nombre</td>
+                                <td style="font-weight: bold">Segundo Nombre</td>
 
                                 <td>
                                     <html:text name="PlanillaExt" property="nombre2" maxlength="80" errorStyleClass="error"
                                                errorKey="org.apache.struts.action.ERROR"></html:text>
                                 </td>
-
-                                <td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
                                     <html:errors property="nombre2" />
                                 </td>
 
                             </tr>                                
 
                             <tr>
-                                <td>Fecha de Nacimiento</td>
+                                <td style="font-weight: bold">Fecha de Nacimiento</td>
 
                                 <td>
                                     <input type="date" name="fechaNacimiento" maxlength="80" errorStyleClass="error" />
                                     <!--                               errorKey="org.apache.struts.action.ERROR" />-->
                                 </td>
-
-                                <td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
                                     <html:errors name="fechaNacimiento" />
                                 </td>
                             </tr>
 
                             <tr>
-                                <td>Género</td>
+                                <td style="font-weight: bold">Género</td>
 
                                 <td>
                                     <html:select property="sexo" errorStyleClass="error" errorKey="org.apache.struts.action.ERROR">
@@ -640,7 +147,8 @@
                                         <html:option value="Masculino">Masculino</html:option>
                                     </html:select>
                                 </td>
-
+                            </tr>
+                            <tr>
                                 <td>
                                     <html:errors property="sexo" />
                                 </td>
@@ -648,7 +156,7 @@
                             </tr>
 
                             <tr>
-                                <td>Nacionalidad</td>
+                                <td style="font-weight: bold">Nacionalidad</td>
 
                                 <td>
                                     <html:select name="PlanillaExt" property="nacionalidad" errorStyleClass="error" errorKey="org.apache.struts.action.ERROR">
@@ -847,27 +355,29 @@
                                 <option value="zimbabwean">Zimbabwean</option>
                             </html:select>
                             </td>
-
-                            <td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
                                 <html:errors property="nacionalidad" />
                             </td>
-                            </tr>
+                        </tr>
 
-                            <tr>
-                                <td>Número de pasaporte</td>
+                        <tr>
+                            <td style="font-weight: bold">Número de pasaporte</td>
 
-                                <td>
-                                    <html:text name="PlanillaExt" property="pasaporte" maxlength="10" errorStyleClass="error"
-                                               errorKey="org.apache.struts.action.ERROR">
-                                    </html:text>
-                                </td>
+                            <td>
+                                <html:text name="PlanillaExt" property="pasaporte" maxlength="10" errorStyleClass="error"
+                                           errorKey="org.apache.struts.action.ERROR">
+                                </html:text>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <html:errors property="pasaporte" />
+                            </td>
+                        </tr>
 
-                                <td>
-                                    <html:errors property="pasaporte" />
-                                </td>
-                            </tr>
-
-                            </tbody>
+                        </tbody>
                         </table>
                         <br>
                         <div>      
@@ -884,73 +394,90 @@
                         <table border="0"  align="center">
                             <tbody>
 
-
                                 <tr>
-                                    <td>Calle</td>
-
-                                    <td>
+                                    <td style="font-weight: bold">Calle</td>
+                                
+                                    <td colspan="2">
                                         <html:text name="PlanillaExt" property="calle" maxlength="80" errorStyleClass="error"
                                                    errorKey="org.apache.struts.action.ERROR"></html:text>
                                     </td>
-                                </tr>    
+                                </tr>
                                 <tr>
-                                    <td>Edificio / Casa </td>
-
-                                    <td>
+                                    <td colspan="2">
+                                        <html:errors property="calle" />
+                                    </td>
+                                </tr>
+                                
+                                <tr>
+                                    <td style="font-weight: bold">Edificio / Casa </td>
+                                
+                                    <td colspan="2">
                                         <html:text name="PlanillaExt" property="edificio" maxlength="80" errorStyleClass="error"
                                                    errorKey="org.apache.struts.action.ERROR"></html:text>
                                     </td>
-                                </tr>                                    
+                                </tr>
                                 <tr>
-                                    <td>Apartamento / Núm. Casa</td>
-
-                                    <td>
+                                    <td colspan="2">
+                                        <html:errors property="edificio" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: bold">Apartamento / Núm. Casa</td>
+                                
+                                    <td colspan="2">
                                         <html:text name="PlanillaExt" property="apartamento" maxlength="80" errorStyleClass="error"
                                                    errorKey="org.apache.struts.action.ERROR"></html:text>
                                     </td>
-                                </tr>                                    
+                                </tr>  
+                                <tr>
+                                    <td colspan="2">
+                                        <html:errors property="apartamento" />
+                                    </td>
+                                </tr>
 
                                 <tr>
-
-                                    <td>Ciudad</td>
-
-                                    <td>
+                                    <td style="font-weight: bold">Ciudad</td>
+                                
+                                    <td colspan="2">
                                         <html:text name="PlanillaExt" property="ciudad"  maxlength="30" errorStyleClass="error"
                                                    errorKey="org.apache.struts.action.ERROR">
                                         </html:text>
                                     </td>
-
-                                    <td>
+                                </tr>
+                                 <tr>
+                                    <td colspan="2">
                                         <html:errors property="ciudad" />
                                     </td>
                                 </tr>
 
                                 <tr>
 
-                                    <td>Estado</td>
+                                    <td style="font-weight: bold">Estado</td>
 
                                     <td>
                                         <html:text name="PlanillaExt" property="estado" maxlength="30" errorStyleClass="error"
                                                    errorKey="org.apache.struts.action.ERROR">
                                         </html:text>
                                     </td>
-
-                                    <td>
+                                </tr>  
+                                <tr>
+                                    <td colspan="2">
                                         <html:errors property="estado" />
                                     </td>
                                 </tr>
 
                                 <tr>
 
-                                    <td>Código Postal</td>
+                                    <td style="font-weight: bold">Código Postal</td>
 
                                     <td>
                                         <html:text name="PlanillaExt" property="codPostal"  maxlength="30" errorStyleClass="error"
                                                    errorKey="org.apache.struts.action.ERROR">
                                         </html:text>
                                     </td>
-
-                                    <td>
+                                </tr>  
+                                <tr>
+                                    <td colspan="2">
                                         <html:errors property="codPostal" />
                                     </td>
                                 </tr>
@@ -976,30 +503,32 @@
 
                                 <tr>
 
-                                    <td> Teléfono Celular:</td>
+                                    <td style="font-weight: bold"> Teléfono Celular:</td>
 
                                     <td>
                                         <html:text name="PlanillaExt" property="telefonoCelular" maxlength="15" errorStyleClass="error"
                                                    errorKey="org.apache.struts.action.ERROR">
                                         </html:text>
                                     </td>
-
-                                    <td>
-                                        <html:errors property="telefonoCelular" />
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <html:errors property="telefono" />
                                     </td>
                                 </tr>
 
                                 <tr>
 
-                                    <td> Teléfono de casa:</td>
+                                    <td style="font-weight: bold"> Teléfono de casa:</td>
 
                                     <td>
                                         <html:text name="PlanillaExt" property="telefonoCasa" maxlength="15" errorStyleClass="error"
                                                    errorKey="org.apache.struts.action.ERROR">
                                         </html:text>
                                     </td>
-
-                                    <td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
                                         <html:errors property="telefonoCasa" />
                                     </td>
                                 </tr>
@@ -1007,15 +536,16 @@
 
                                 <tr>
 
-                                    <td> E-mail:</td>
+                                    <td style="font-weight: bold"> E-mail:</td>
 
                                     <td>
                                         <html:text name="PlanillaExt" property="email" maxlength="45"  errorStyleClass="error"
                                                    errorKey="org.apache.struts.action.ERROR">
                                         </html:text>
                                     </td>
-
-                                    <td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
                                         <html:errors property="email" />
                                     </td>
                                 </tr>
@@ -1039,7 +569,7 @@
                             <tbody>
 
                                 <tr>
-                                    <td> Nombre de Programa: </td>
+                                    <td style="font-weight: bold"> Nombre de Programa: </td>
                                     <td>
                                         <html:select styleId="prog_princ" onchange="cambia_pais();cambiar_link1()" property="nombrePrograma"> 
                                             <html:option value="0">Seleccione </html:option>
@@ -1065,7 +595,7 @@
 
                                 <tr>
                                 <tr>
-                                    <td> País de origen: </td>
+                                    <td style="font-weight: bold"> País de origen: </td>
                                     <td>
                                         <html:select styleId="pais_princ" onchange="cambia_universidad()" property="paisOrigen"> 
                                             <html:option value="-">-</html:option>
@@ -1074,7 +604,7 @@
                                 </tr>
 
                                 <tr>
-                                    <td> Universidad de origen: </td>
+                                    <td style="font-weight: bold"> Universidad de origen: </td>
                                     <td>
                                         <html:select styleId="uni_princ" property="nombreUniOrigen"> 
                                             <html:option value="-">- </html:option>
@@ -1083,33 +613,33 @@
                                 </tr>                        
 
                                 <tr>
-                                    <td>Nombre del coordinador de movilidad: </td>
+                                    <td style="font-weight: bold">Nombre del coordinador de movilidad: </td>
 
                                     <td>
                                         <html:text name="PlanillaExt" property="nombreCoordMovilidad" maxlength="80" errorStyleClass="error"
                                                    errorKey="org.apache.struts.action.ERROR"></html:text>
                                     </td>
 
-                                    <td>
+                                    <td colspan="2">
                                         <html:errors property="nombreCoordMovilidad" />
                                     </td>
                                 </tr>
 
                                 <tr>
-                                    <td>Nombre del coordinador académico: </td>
+                                    <td style="font-weight: bold">Nombre del coordinador académico: </td>
 
                                     <td>
                                         <html:text name="PlanillaExt" property="nombreCoordAcademico" maxlength="80" errorStyleClass="error"
                                                    errorKey="org.apache.struts.action.ERROR"></html:text>
                                     </td>
 
-                                    <td>
+                                    <td colspan="2">
                                         <html:errors property="nombreCoordAcademico" />
                                     </td>
                                 </tr>
 
                                 <tr>
-                                    <td> Tipo de Programa: </td>
+                                    <td style="font-weight: bold"> Tipo de Programa: </td>
                                     <td>
                                         <html:select  property="programa">
                                             <html:option value="Seleccione"></html:option>
@@ -1120,12 +650,12 @@
                                             <html:option value="Doble Titulación"></html:option>
                                         </html:select>
                                     </td>
-                                    <td>
+                                    <td colspan="2">
                                         <html:errors property="programa" />
                                     </td>
                                 </tr>                            
                                 <tr>
-                                    <td> Duración del intercambio: </td>
+                                    <td style="font-weight: bold"> Duración del intercambio: </td>
                                     <td>
                                         <html:select property="duracionPrograma" errorStyleClass="error" errorKey="org.apache.struts.action.ERROR">
                                             <html:option value="Septiembre - Diciembre"></html:option>
@@ -1137,7 +667,7 @@
 
                                         </html:select>
 
-                                    <td>
+                                    <td colspan="2">
                                         <html:errors property="duracionPrograma" />
                                     </td>
                                 </tr>      
@@ -1162,7 +692,7 @@
 
 
                                 <tr>
-                                    <td> Área de Estudio: </td>
+                                    <td style="font-weight: bold"> Área de Estudio: </td>
                                     <td>
                                         <html:select property="areaEstud"> 
                                             <html:option value="Seleccione"></html:option>                                                                
@@ -1178,42 +708,45 @@
 
 
                                 <tr>
-                                    <td>Carrera: </td>
+                                    <td style="font-weight: bold">Carrera: </td>
 
                                     <td>
                                         <html:text name="PlanillaExt" property="carrera" maxlength="80" errorStyleClass="error"
                                                    errorKey="org.apache.struts.action.ERROR"></html:text>
                                     </td>
-
-                                    <td>
-                                        <html:errors property="carrera" />
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <html:errors property="nombrecarrera" />
                                     </td>
                                 </tr>
 
                                 <tr>
-                                    <td> Año de ingreso a la carrera: </td>
+                                    <td style="font-weight: bold"> Año de ingreso a la carrera: </td>
 
                                     <td>
                                         <html:text name="PlanillaExt" property="anioIngreso" maxlength="60"  errorStyleClass="error"
                                                    errorKey="org.apache.struts.action.ERROR">
                                         </html:text>
                                     </td>
-
-                                    <td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
                                         <html:errors property="anioIngreso" />
                                     </td>
                                 </tr>
 
                                 <tr>
-                                    <td> Cantidad de años aprobados hasta la fecha: </td>
+                                    <td style="font-weight: bold"> Cantidad de años aprobados hasta la fecha: </td>
 
                                     <td>
                                         <html:text name="PlanillaExt" property="aniosAprobados" maxlength="60"  errorStyleClass="error"
                                                    errorKey="org.apache.struts.action.ERROR">
                                         </html:text>
                                     </td>
-
-                                    <td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
                                         <html:errors property="aniosAprobados" />
                                     </td>
                                 </tr>
@@ -1239,42 +772,62 @@
                             <tbody>
 
                                 <tr>
-                                    <td> Apellidos: </td>
+                                    <td style="font-weight: bold"> Apellidos: </td>
                                     <td>
                                         <html:text name="PlanillaExt" property="apellidosRep" maxlength="80"  errorStyleClass="error"
                                                    errorKey="org.apache.struts.action.ERROR">
                                         </html:text>
                                     </td>
-                                </tr>                     
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <html:errors property="apellidosRep" />
+                                    </td>
+                                </tr>
 
                                 <tr>
-                                    <td> Nombres: </td>
+                                    <td style="font-weight: bold"> Nombres: </td>
                                     <td>
                                         <html:text name="PlanillaExt" property="nombresRep" maxlength="80"  errorStyleClass="error"
                                                    errorKey="org.apache.struts.action.ERROR">
                                         </html:text>
                                     </td>
                                 </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <html:errors property="nombresRep" />
+                                    </td>
+                                </tr>
 
                                 <tr>
-                                    <td> Teléfono Celular: </td>
+                                    <td style="font-weight: bold"> Teléfono Celular: </td>
                                     <td>
                                         <html:text name="PlanillaExt" property="celRep" maxlength="80"  errorStyleClass="error"
                                                    errorKey="org.apache.struts.action.ERROR">
                                         </html:text>
                                     </td>
-                                </tr>                      
+                                </tr>
                                 <tr>
-                                    <td> Teléfono Casa: </td>
+                                    <td colspan="2">
+                                        <html:errors property="celRep" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: bold"> Teléfono Casa: </td>
                                     <td>
                                         <html:text name="PlanillaExt" property="tlfRepCasa" maxlength="80"  errorStyleClass="error"
                                                    errorKey="org.apache.struts.action.ERROR">
                                         </html:text>
                                     </td>
-                                </tr>                      
-
+                                </tr>
                                 <tr>
-                                    <td> E-mail: </td>
+                                    <td colspan="2">
+                                        <html:errors property="tlfRepCasa" />
+                                    </td>
+                                </tr>
+                                
+                                <tr>
+                                    <td style="font-weight: bold"> E-mail: </td>
                                     <td>
                                         <html:text name="PlanillaExt" property="emailRep" maxlength="80"  errorStyleClass="error"
                                                    errorKey="org.apache.struts.action.ERROR">
@@ -1282,17 +835,28 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td> Relación con el Estudiante: </td>
+                                    <td colspan="2">
+                                        <html:errors property="emailRep" />
+                                    </td>
+                                </tr>
+                                
+                                <tr>
+                                    <td style="font-weight: bold"> Relación con el Estudiante: </td>
                                     <td>
                                         <html:text name="PlanillaExt" property="relacion" maxlength="80"  errorStyleClass="error"
                                                    errorKey="org.apache.struts.action.ERROR">
                                         </html:text>
                                     </td>
-                                </tr>    
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <html:errors property="relacion" />
+                                    </td>
+                                </tr>
 
                                 <tr>
 
-                                    <td>Dirección: </td>
+                                    <td style="font-weight: bold">Dirección: </td>
 
                                     <td>
                                         <html:textarea name="PlanillaExt" property="direccionRep" cols="20" rows="7"  errorStyleClass="error"
@@ -1311,7 +875,7 @@
                         <span style="float: left"><a class="button"  href='javascript:seleccion(5);'> Anterior </a></span>
                         <br>
                         <p  align=center>
-                            <html:submit> Enviar Formulario </html:submit>
+                            <html:submit> GUARDAR </html:submit>
                             </p>     
                         </div>                
 
@@ -1593,7 +1157,7 @@
                     <input type="button" value="Eliminar Seleccionados" style="font-size:16px; padding:4px 6px" onclick="deleteRow2('IdioBody')"/>
 
                     <p  align=center>
-                        <html:submit> Enviar Formulario </html:submit>
+                        <html:submit> GUARDAR </html:submit>
                     </p>
                 </html:form>
             </div>
