@@ -67,8 +67,8 @@ public class LlenarPlanilla_EstUSB extends org.apache.struts.action.Action {
         ActionErrors error = new ActionErrors();
         boolean huboError = false;
         boolean arre[] = new boolean[7];
-        String Datos[] = {"Datos Personales","Informacion de Domicilio",
-            "Datos de Contacto","Programas","Informacion Academica",
+        String Datos[] = {"Datos Personales","Información de Domicilio",
+            "Datos de Contacto","Programas","Información Académica",
         "Datos de Financiamiento","Contacto en Caso de Emergencia"};
         Arrays.fill(arre, false);
 
@@ -76,10 +76,18 @@ public class LlenarPlanilla_EstUSB extends org.apache.struts.action.Action {
         //        Validacion de datos.
         // ####################################
 
+        //        PASO 1.1
         //Verifica que los apellidos no  esten vacios.
-//        PASO 1.1
+
         if (p.getApellido1().equals("")) {
             error.add("apellido1", new ActionMessage("error.apellidos.required"));
+            saveErrors(request, error);
+            huboError = true;
+            arre[0] = true;
+        }
+        
+        if (p.getApellido2().equals("")) {
+            error.add("apellido2", new ActionMessage("error.apellidos.required"));
             saveErrors(request, error);
             huboError = true;
             arre[0] = true;
@@ -93,14 +101,6 @@ public class LlenarPlanilla_EstUSB extends org.apache.struts.action.Action {
             arre[0] = true;
         }
 
-        if (p.getApellido2().equals("")) {
-            error.add("apellido2", new ActionMessage("error.apellidos.required"));
-            saveErrors(request, error);
-            huboError = true;
-            arre[0] = true;
-        }
-
-        //Verifica que los nombres no  esten vacios.
         if (p.getNombre2().equals("")) {
             error.add("nombre2", new ActionMessage("error.nombres.required"));
             saveErrors(request, error);
@@ -108,7 +108,7 @@ public class LlenarPlanilla_EstUSB extends org.apache.struts.action.Action {
             arre[0] = true;
         }
 
-        // Verificar escogencia de Sexo
+        // Verifica escogencia de Sexo
         if (p.getSexo().contains("Seleccione")) {
             error.add("sexo", new ActionMessage("error.sexo.required"));
             saveErrors(request, error);
@@ -162,6 +162,22 @@ public class LlenarPlanilla_EstUSB extends org.apache.struts.action.Action {
             huboError = true;
             arre[1] = true;
         }
+        
+        // Edificio/Casa no vacio
+        if (p.getEdificio().equals("")) {
+            error.add("edificio", new ActionMessage("error.edificio.required"));
+            saveErrors(request, error);
+            huboError = true;
+            arre[1] = true;
+        }
+        
+        // Apartamento no vacio
+        if (p.getApartamento().equals("")) {
+            error.add("apartamento", new ActionMessage("error.apartamento.required"));
+            saveErrors(request, error);
+            huboError = true;
+            arre[1] = true;
+        }
 
         // Ciudad no  vacio.
         if (p.getCiudad().equals("")) {
@@ -178,19 +194,8 @@ public class LlenarPlanilla_EstUSB extends org.apache.struts.action.Action {
             huboError = true;
             arre[1] = true;
         }
-        // Apartamento no vacio
-        if (p.getApartamento().equals("")) {
-            error.add("apartamento", new ActionMessage("error.apartamento.required"));
-            saveErrors(request, error);
-            huboError = true;
-            arre[1] = true;
-        }
-        if (p.getEdificio().equals("")) {
-            error.add("edificio", new ActionMessage("error.edificio.required"));
-            saveErrors(request, error);
-            huboError = true;
-            arre[1] = true;
-        }
+        
+        
         // Codigo postal no vacio
         if (p.getCodPostal().equals("")) {
             error.add("codPostal", new ActionMessage("error.codpostal.required"));
@@ -239,8 +244,10 @@ public class LlenarPlanilla_EstUSB extends org.apache.struts.action.Action {
         // ####################################
         //   Validacion del representante
         // ####################################
+        
+        //Paso 1.7
 
-        // Verifica que los nombres y apellidos del representante no esten vacios
+        // Verifica que los apellidos del representante no esten vacios
         if (p.getApellidosRep().equals("")) {
             error.add("apellidosRep", new ActionMessage("error.apellidosRep.required"));
             saveErrors(request, error);
@@ -248,6 +255,7 @@ public class LlenarPlanilla_EstUSB extends org.apache.struts.action.Action {
             arre[6] = true;
         }
 
+        // Verifica que los nombres del representante no esten vacios
         if (p.getNombresRep().equals("")) {
             error.add("nombresRep", new ActionMessage("error.nombresRep.required"));
             saveErrors(request, error);
@@ -255,6 +263,7 @@ public class LlenarPlanilla_EstUSB extends org.apache.struts.action.Action {
             arre[6] = true;
         }
 
+        // Verifica que el celular del representante no este vacio
         if (p.getCelRep().equals("")) {
             error.add("celRep", new ActionMessage("error.celRep.required"));
             saveErrors(request, error);
@@ -262,13 +271,15 @@ public class LlenarPlanilla_EstUSB extends org.apache.struts.action.Action {
             arre[6] = true;
         }
 
+        // Verifica que el telf local del representante no este vacio
         if (p.getTlfRepCasa().equals("")) {
             error.add("tlfRepCasa", new ActionMessage("error.tlfRepCasa.required"));
             saveErrors(request, error);
             huboError = true;
             arre[6] = true;
         }
-
+        
+        // Verifica que la relacion no este vacia
         if (p.getRelacion().equals("")) {
             error.add("relacion", new ActionMessage("error.relacion.required"));
             saveErrors(request, error);
@@ -276,12 +287,14 @@ public class LlenarPlanilla_EstUSB extends org.apache.struts.action.Action {
             arre[6] = true;
         }
 
+        // Verifica que la direccion no este vacia
         if (p.getDireccionRep().equals("")) {
             error.add("direccionRep", new ActionMessage("error.direccionRep.required"));
             saveErrors(request, error);
             huboError = true;
             arre[6] = true;
         }
+        
         //Verifica que el email del Representante no sea vacio y que este estructurado correctamente.
         if (p.getEmailRep().equals("")) {
             error.add("emailRep", new ActionMessage("error.email.required"));
