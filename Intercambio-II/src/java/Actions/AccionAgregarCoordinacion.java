@@ -80,6 +80,10 @@ public class AccionAgregarCoordinacion extends org.apache.struts.action.Action {
             error.add("email", new ActionMessage("error.email.required"));
             saveErrors(request, error);
             huboError = true;
+        }else if (!validate(p.getEmail())) {
+            error.add("email", new ActionMessage("error.email.malformulado"));
+            saveErrors(request, error);
+            huboError = true;
         }
         
         if (p.getNombreCarrera().equals("")) {

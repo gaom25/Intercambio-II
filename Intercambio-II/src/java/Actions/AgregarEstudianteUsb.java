@@ -35,6 +35,12 @@ public class AgregarEstudianteUsb extends org.apache.struts.action.Action {
         patron = Pattern.compile(patronEmail);
     }
 
+    public boolean validate(final String username) {
+
+        match = patron.matcher(username);
+        return match.matches();
+    }
+
     /**
      * This is the action called from the Struts framework.
      *
@@ -56,7 +62,7 @@ public class AgregarEstudianteUsb extends org.apache.struts.action.Action {
         String pswd = e.generarContrasena();
         String confPswd = pswd;
         String mail = e.getEmail();
-        
+
         String carrera = e.getCarrera();
         e.setCodCarrera("0800");
 
@@ -68,7 +74,7 @@ public class AgregarEstudianteUsb extends org.apache.struts.action.Action {
             error.add("nombreUsuario", new ActionMessage("error.nombreusuario.required"));
             saveErrors(request, error);
             huboError = true;
-        }else if(DBMS.getInstance().existeUsuario(e)){
+        } else if (DBMS.getInstance().existeUsuario(e)) {
             error.add("nombreusuario", new ActionMessage("error.nombreusuarioexiste"));
             saveErrors(request, error);
             huboError = true;
@@ -88,6 +94,10 @@ public class AgregarEstudianteUsb extends org.apache.struts.action.Action {
 
         if (e.getEmail().equals("")) {
             error.add("email", new ActionMessage("error.email.required"));
+            saveErrors(request, error);
+            huboError = true;
+        } else if (!validate(e.getEmail())) {
+            error.add("email", new ActionMessage("error.email.malformulado"));
             saveErrors(request, error);
             huboError = true;
         }
@@ -131,4 +141,3 @@ public class AgregarEstudianteUsb extends org.apache.struts.action.Action {
         return null;
     }
 }
-

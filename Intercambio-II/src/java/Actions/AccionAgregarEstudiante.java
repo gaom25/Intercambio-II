@@ -97,6 +97,10 @@ public class AccionAgregarEstudiante extends org.apache.struts.action.Action {
             error.add("email", new ActionMessage("error.email.required"));
             saveErrors(request, error);
             huboError = true;
+        } else if (!validate(e.getEmail())) {
+            error.add("email", new ActionMessage("error.email.malformulado"));
+            saveErrors(request, error);
+            huboError = true;
         }
         if (e.getCarnet().equals("")) {
             error.add("carnet", new ActionMessage("error.carnet.required"));

@@ -77,8 +77,18 @@ public class AccionAgregarEstudianteInter extends org.apache.struts.action.Actio
             error.add("nombreusuario", new ActionMessage("error.nombreusuario.required"));
             saveErrors(request, error);
             huboError = true;
-        }else if(DBMS.getInstance().existeUsuario(e)){
+        } else if (DBMS.getInstance().existeUsuario(e)) {
             error.add("nombreusuario", new ActionMessage("error.nombreusuarioexiste"));
+            saveErrors(request, error);
+            huboError = true;
+        }
+
+        if (e.getEmail().equalsIgnoreCase("")) {
+            error.add("email", new ActionMessage("error.email.required"));
+            saveErrors(request, error);
+            huboError = true;
+        } else if (!validate(e.getEmail())) {
+            error.add("email", new ActionMessage("error.email.malformulado"));
             saveErrors(request, error);
             huboError = true;
         }
@@ -94,6 +104,11 @@ public class AccionAgregarEstudianteInter extends org.apache.struts.action.Actio
             saveErrors(request, error);
             huboError = true;
         }
+        if(e.getPasaporte().toString().equalsIgnoreCase("")){
+            error.add("pasaporte", new ActionMessage("error.apellidos.required"));
+            saveErrors(request, error);
+            huboError = true;
+        }
 
         System.out.println();
 
@@ -104,34 +119,34 @@ public class AccionAgregarEstudianteInter extends org.apache.struts.action.Actio
             return mapping.findForward(ERROR);
 
         } else if (DBMS.getInstance().agregarUsuario(e)) {
-                    
-            if (DBMS.getInstance().agregarEstudianteExt(e)){
+
+            if (DBMS.getInstance().agregarEstudianteExt(e)) {
 
                 HttpSession session = request.getSession();
-                Usuario obj = (Usuario)session.getAttribute("Usuario");
+                Usuario obj = (Usuario) session.getAttribute("Usuario");
                 String accion = "Agregó al sistema al estudiante extranjero " + e.getNombre();
-                boolean boo = DBMS.getInstance().registrar(obj.getNombreusuario(),accion);
-                
+                boolean boo = DBMS.getInstance().registrar(obj.getNombreusuario(), accion);
+
                 Correo c = new Correo();
                 String asunto = "Su usuario en el Sistema de Gestión de Intercambios ha sido creado";
                 String mensaje = "Su usuario en el Sistema de Gestión de Intercambios ha sido creado."
-                              + "\nSu usuario es: " + e.getNombreusuario()
-                              + "\nSu clave de acceso temporal es: " + e.getContrasena();
+                        + "\nSu usuario es: " + e.getNombreusuario()
+                        + "\nSu clave de acceso temporal es: " + e.getContrasena();
                 c.setAsunto(asunto);
                 c.setMensaje(mensaje);
                 boolean correoEnviado = c.enviarUsuario(e.getEmail());
 
                 if (correoEnviado) {
-                   return mapping.findForward(SUCCESS);
+                    return mapping.findForward(SUCCESS);
                 } else {
-                   return mapping.findForward(FAIL);
+                    return mapping.findForward(FAIL);
                 }
             }
 
         } else {
             return mapping.findForward(FAIL);
         }
-        
+
         return null;
     }
 }

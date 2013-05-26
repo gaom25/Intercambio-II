@@ -2341,4 +2341,24 @@ public class DBMS {
 
         return users;
     }
+    
+    public boolean existeUsuario(Usuario u){
+     PreparedStatement psConsultar = null;
+
+        try {
+            psConsultar = conexion.prepareStatement("SELECT * FROM \"dycicle\".usuario"
+                    + " WHERE nombreusuario = ?;");
+            System.out.println(psConsultar.toString());
+            psConsultar.setString(1, u.getNombreusuario());
+            ResultSet set = psConsultar.executeQuery();
+            return set.next();
+            
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
+        return false;
+    
+    }
 }
