@@ -28,6 +28,7 @@ public class LlenarPlanilla_EstUSB extends org.apache.struts.action.Action {
     /* forward name="success" path="" */
     private static final String patronEmail = "^([_A-Za-z0-9-\\.\\+])+@([A-Za-z0-9-])+\\.([A-Za-z0-9-])+$";
     private static final String patronCedula = "[0-9]+";
+    private static final String patroncarnet = "[0-9]{2}-[0-9]{5}";
     private static final String SUCCESS = "success";
     private static final String FAIL = "fail";
     private static final String ERROR = "error";
@@ -67,10 +68,13 @@ public class LlenarPlanilla_EstUSB extends org.apache.struts.action.Action {
         ActionErrors error = new ActionErrors();
         boolean huboError = false;
         boolean arre[] = new boolean[7];
-        String Datos[] = {"Datos Personales","Información de Domicilio",
-            "Datos de Contacto","Programas","Información Académica",
-        "Datos de Financiamiento","Contacto en Caso de Emergencia"};
+        String Datos[] = {"Datos Personales", "Información de Domicilio",
+            "Datos de Contacto", "Programas", "Información Académica",
+            "Datos de Financiamiento", "Contacto en Caso de Emergencia"};
         Arrays.fill(arre, false);
+        String Meses[] = {"Enero", "Febrero", "Marzo", "Abril", "Mayo",
+            "Junio", "Julio", "Agosto", "Septiembre", "Octubre",
+            "Noviembre", "Diciembre"};
 
         // ####################################
         //        Validacion de datos.
@@ -85,7 +89,7 @@ public class LlenarPlanilla_EstUSB extends org.apache.struts.action.Action {
             huboError = true;
             arre[0] = true;
         }
-        
+
         if (p.getApellido2().equals("")) {
             error.add("apellido2", new ActionMessage("error.apellidos.required"));
             saveErrors(request, error);
@@ -162,7 +166,7 @@ public class LlenarPlanilla_EstUSB extends org.apache.struts.action.Action {
             huboError = true;
             arre[1] = true;
         }
-        
+
         // Edificio/Casa no vacio
         if (p.getEdificio().equals("")) {
             error.add("edificio", new ActionMessage("error.edificio.required"));
@@ -170,7 +174,7 @@ public class LlenarPlanilla_EstUSB extends org.apache.struts.action.Action {
             huboError = true;
             arre[1] = true;
         }
-        
+
         // Apartamento no vacio
         if (p.getApartamento().equals("")) {
             error.add("apartamento", new ActionMessage("error.apartamento.required"));
@@ -194,8 +198,8 @@ public class LlenarPlanilla_EstUSB extends org.apache.struts.action.Action {
             huboError = true;
             arre[1] = true;
         }
-        
-        
+
+
         // Codigo postal no vacio
         if (p.getCodPostal().equals("")) {
             error.add("codPostal", new ActionMessage("error.codpostal.required"));
@@ -241,10 +245,233 @@ public class LlenarPlanilla_EstUSB extends org.apache.struts.action.Action {
             arre[2] = true;
         }
 
+
+        //PASO 1.4 PROGRAMAS
+        if (p.getNombreProgramaOpcion1().equalsIgnoreCase("0")) {
+            error.add("nombreProgramaOpcion1", new ActionMessage("error.nombreprograma.required"));
+            saveErrors(request, error);
+            huboError = true;
+            arre[3] = true;
+        }
+        if (p.getNombreProgramaOpcion2().equalsIgnoreCase("0")) {
+            error.add("nombreProgramaOpcion2", new ActionMessage("error.nombreprograma.required"));
+            saveErrors(request, error);
+            huboError = true;
+            arre[3] = true;
+        }
+        if (p.getPaisOpcion1().equalsIgnoreCase("0")
+                || p.getPaisOpcion1().equalsIgnoreCase("-")) {
+            error.add("paisOpcion1", new ActionMessage("error.paisopcion.required"));
+            saveErrors(request, error);
+            huboError = true;
+            arre[3] = true;
+        }
+        if (p.getPaisOpcion2().equalsIgnoreCase("0")
+                || p.getPaisOpcion2().equalsIgnoreCase("-")) {
+            error.add("paisOpcion2", new ActionMessage("error.paisopcion.required"));
+            saveErrors(request, error);
+            huboError = true;
+            arre[3] = true;
+        }
+        if (p.getNombreOpcion1().equalsIgnoreCase("-")
+                || p.getNombreOpcion1().equalsIgnoreCase("Seleccione")) {
+            error.add("nombreOpcion1", new ActionMessage("error.nombreopcion.required"));
+            saveErrors(request, error);
+            huboError = true;
+            arre[3] = true;
+        }
+        if (p.getNombreOpcion2().equalsIgnoreCase("-")
+                || p.getNombreOpcion2().equalsIgnoreCase("Seleccione")) {
+            error.add("nombreOpcion2", new ActionMessage("error.nombreopcion.required"));
+            saveErrors(request, error);
+            huboError = true;
+            arre[3] = true;
+        }
+        if (p.getProgramaOpcion1().equalsIgnoreCase("Seleccione")) {
+            error.add("programaOpcion1", new ActionMessage("error.programaopcion.required"));
+            saveErrors(request, error);
+            huboError = true;
+            arre[3] = true;
+        }
+        if (p.getProgramaOpcion2().equalsIgnoreCase("Seleccione")) {
+            error.add("programaOpcion2", new ActionMessage("error.programaopcion.required"));
+            saveErrors(request, error);
+            huboError = true;
+            arre[3] = true;
+        }
+        //Primera fecha
+        if (p.getMesFechaIni1().equalsIgnoreCase("Mes")) {
+            error.add("mesFechaIni1", new ActionMessage("error.mes.required"));
+            saveErrors(request, error);
+            huboError = true;
+            arre[3] = true;
+        }
+        if (p.getMesFechaIni2().equalsIgnoreCase("Mes")) {
+            error.add("mesFechaIni2", new ActionMessage("error.mes.required"));
+            saveErrors(request, error);
+            huboError = true;
+            arre[3] = true;
+        }
+        if (p.getMesFechaFin1().equalsIgnoreCase("Mes")) {
+            error.add("mesFechaFin1", new ActionMessage("error.mes.required"));
+            saveErrors(request, error);
+            huboError = true;
+            arre[3] = true;
+        }
+        if (p.getMesFechaFin2().equalsIgnoreCase("Mes")) {
+            error.add("mesFechaFin2", new ActionMessage("error.mes.required"));
+            saveErrors(request, error);
+            huboError = true;
+            arre[3] = true;
+        }
+        //Segunda fecha
+        if (p.getAnoFechaIni1().equalsIgnoreCase("Año")) {
+            error.add("anoFechaIni1", new ActionMessage("error.ano.required"));
+            saveErrors(request, error);
+            huboError = true;
+            arre[3] = true;
+        }
+        if (p.getAnoFechaIni2().equalsIgnoreCase("Año")) {
+            error.add("anoFechaIni2", new ActionMessage("error.ano.required"));
+            saveErrors(request, error);
+            huboError = true;
+            arre[3] = true;
+        }
+        if (p.getAnoFechaFin1().equalsIgnoreCase("Año")) {
+            error.add("anoFechaFin1", new ActionMessage("error.ano.required"));
+            saveErrors(request, error);
+            huboError = true;
+            arre[3] = true;
+        }
+        if (p.getAnoFechaFin2().equalsIgnoreCase("Mes")) {
+            error.add("anoFechaFin2", new ActionMessage("error.ano.required"));
+            saveErrors(request, error);
+            huboError = true;
+            arre[3] = true;
+        }
+        //Corecciones de que la fecha de inicio sea menor a la fecha fin
+        if (p.getAnoFechaIni1().compareToIgnoreCase(
+                p.getAnoFechaFin1()) > 0) {
+            error.add("anoFechaIni1", new ActionMessage("error.menorano.required"));
+            saveErrors(request, error);
+            huboError = true;
+            arre[3] = true;
+        } else if (p.getAnoFechaIni1().compareToIgnoreCase(
+                p.getAnoFechaFin1()) == 0) {
+            if (java.util.Arrays.asList(Meses).indexOf(
+                    p.getMesFechaIni1()) >= java.util.Arrays.asList(
+                    Meses).indexOf(p.getMesFechaFin1())) {
+                error.add("mesFechaIni1", new ActionMessage("error.menormes.required"));
+                saveErrors(request, error);
+                huboError = true;
+                arre[3] = true;
+            }
+        }
+        if (p.getAnoFechaIni2().compareToIgnoreCase(
+                p.getAnoFechaFin2()) > 0) {
+            error.add("anoFechaIni2", new ActionMessage("error.menorano.required"));
+            saveErrors(request, error);
+            huboError = true;
+            arre[3] = true;
+        } else if (p.getAnoFechaIni2().compareToIgnoreCase(
+                p.getAnoFechaFin2()) == 0) {
+            if (java.util.Arrays.asList(Meses).indexOf(
+                    p.getMesFechaIni2()) >= java.util.Arrays.asList(
+                    Meses).indexOf(p.getMesFechaFin2())) {
+                error.add("mesFechaIni2", new ActionMessage("error.menormes.required"));
+                saveErrors(request, error);
+                huboError = true;
+                arre[3] = true;
+            }
+        }
+        if (p.getDuracionProgramaOpcion1().equalsIgnoreCase("Seleccione")) {
+            error.add("duracionProgramaOpcion1", new ActionMessage("error.duracionprograma.required"));
+            saveErrors(request, error);
+            huboError = true;
+            arre[3] = true;
+        }
+        if (p.getDuracionProgramaOpcion2().equalsIgnoreCase("Seleccione")) {
+            error.add("duracionProgramaOpcion2", new ActionMessage("error.duracionprograma.required"));
+            saveErrors(request, error);
+            huboError = true;
+            arre[3] = true;
+        }
+        
+        
+
+
+        // Paso 1.5 INFORMACION ACADEMICA
+        if (p.getDecanato().equalsIgnoreCase("0")) {
+            error.add("decanato", new ActionMessage("error.decanato.required"));
+            saveErrors(request, error);
+            huboError = true;
+            arre[4] = true;
+        }
+
+        if (p.getAreaEstud().equalsIgnoreCase("-")
+                || p.getAreaEstud().equalsIgnoreCase("0")) {
+            error.add("areaEstud", new ActionMessage("error.areaEstud.required"));
+            saveErrors(request, error);
+            huboError = true;
+            arre[4] = true;
+        }
+        if (p.getCarrera().equalsIgnoreCase("-")
+                || p.getCarrera().equalsIgnoreCase("0")) {
+            error.add("carrera", new ActionMessage("error.carrera.required"));
+            saveErrors(request, error);
+            huboError = true;
+            arre[4] = true;
+        }
+
+        if (p.getCreditosApro() < 130) {
+            error.add("creditosApro", new ActionMessage("error.creditosApro.required"));
+            saveErrors(request, error);
+            huboError = true;
+            arre[4] = true;
+        }
+
+        if (p.getIndice().equalsIgnoreCase("")) {
+            error.add("indice", new ActionMessage("error.indice.required"));
+            saveErrors(request, error);
+            huboError = true;
+            arre[4] = true;
+        } else if (!p.getIndice().matches("[0-4]\\.[0-9]{4}|5\\.0{4}")) {
+            error.add("indice", new ActionMessage("error.indice.malestructurado"));
+            saveErrors(request, error);
+            huboError = true;
+        }
+
+
+        //PASO 1.6
+        if (p.getFuenteFinanciamiento().equalsIgnoreCase("Seleccione")) {
+            error.add("fuenteFinanciamiento", new ActionMessage("error.fuentefinan.required"));
+            saveErrors(request, error);
+            huboError = true;
+            arre[5] = true;
+        }
+        if (p.getDescripcion1().equalsIgnoreCase("")) {
+            error.add("descripcion1", new ActionMessage("error.descripcion.required"));
+            saveErrors(request, error);
+            huboError = true;
+            arre[5] = true;
+        }
+        if (p.getAyudaEc().equalsIgnoreCase("Seleccione")) {
+            error.add("ayudaEc", new ActionMessage("error.ayuda.required"));
+            saveErrors(request, error);
+            huboError = true;
+            arre[5] = true;
+        }
+        if (p.getDescripcion2().equalsIgnoreCase("")) {
+            error.add("descripcion2", new ActionMessage("error.descripcion.required"));
+            saveErrors(request, error);
+            huboError = true;
+            arre[5] = true;
+        }
+
         // ####################################
         //   Validacion del representante
         // ####################################
-        
+
         //Paso 1.7
 
         // Verifica que los apellidos del representante no esten vacios
@@ -278,7 +505,7 @@ public class LlenarPlanilla_EstUSB extends org.apache.struts.action.Action {
             huboError = true;
             arre[6] = true;
         }
-        
+
         // Verifica que la relacion no este vacia
         if (p.getRelacion().equals("")) {
             error.add("relacion", new ActionMessage("error.relacion.required"));
@@ -294,7 +521,7 @@ public class LlenarPlanilla_EstUSB extends org.apache.struts.action.Action {
             huboError = true;
             arre[6] = true;
         }
-        
+
         //Verifica que el email del Representante no sea vacio y que este estructurado correctamente.
         if (p.getEmailRep().equals("")) {
             error.add("emailRep", new ActionMessage("error.email.required"));
@@ -308,6 +535,7 @@ public class LlenarPlanilla_EstUSB extends org.apache.struts.action.Action {
             huboError = true;
             arre[6] = true;
         }
+
 
 
 
@@ -352,11 +580,11 @@ public class LlenarPlanilla_EstUSB extends org.apache.struts.action.Action {
 
         if (huboError) {
             String especial = ",";
-            
+
             for (int i = 0; i < 7; i++) {
                 if (arre[i]) {
-                    especial = especial + Datos[i]+", ";
-                    
+                    especial = especial + Datos[i] + ", ";
+
                 }
             }
             u.setNombre(especial);
