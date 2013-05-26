@@ -580,7 +580,13 @@
                                             <html:option value="Bilaterales">Convenios Bilaterales </html:option>
                                             <html:option value="SMILE">Programa SMILE </html:option>
                                             <html:option value="CINDA">Programa de Movilidad Estudiantil CINDA </html:option>
-                                        </html:select>
+                                       </html:select>
+                                    </td>
+                                </tr>
+                                
+                                <tr>
+                                    <td colspan="2">
+                                        <html:errors property="nombrePrograma"/>
                                     </td>
                                 </tr>
 
@@ -596,14 +602,18 @@
                                     </td>
                                 </tr>
 
-
-                                <tr>
                                 <tr>
                                     <td style="font-weight: bold"> País de origen: </td>
                                     <td>
                                         <html:select styleId="pais_princ" onchange="cambia_universidad()" property="paisOrigen"> 
                                             <html:option value="-">-</html:option>
                                         </html:select>
+                                    </td>
+                                </tr>
+                                
+                                <tr>
+                                    <td colspan="2">
+                                        <html:errors property="paisOrigen"/>
                                     </td>
                                 </tr>
 
@@ -614,7 +624,13 @@
                                             <html:option value="-">- </html:option>
                                         </html:select>
                                     </td>
-                                </tr>                        
+                                </tr>
+                                
+                                <tr>
+                                    <td colspan="2">
+                                        <html:errors property="nombreUniOrigen"/>
+                                    </td>
+                                </tr>
 
                                 <tr>
                                     <td style="font-weight: bold">Nombre del coordinador de movilidad: </td>
@@ -623,7 +639,8 @@
                                         <html:text name="PlanillaExt" property="nombreCoordMovilidad" maxlength="80" errorStyleClass="error"
                                                    errorKey="org.apache.struts.action.ERROR"></html:text>
                                     </td>
-
+                                </tr>
+                                <tr>
                                     <td colspan="2">
                                         <html:errors property="nombreCoordMovilidad" />
                                     </td>
@@ -636,7 +653,8 @@
                                         <html:text name="PlanillaExt" property="nombreCoordAcademico" maxlength="80" errorStyleClass="error"
                                                    errorKey="org.apache.struts.action.ERROR"></html:text>
                                     </td>
-
+                                </tr>
+                                <tr>
                                     <td colspan="2">
                                         <html:errors property="nombreCoordAcademico" />
                                     </td>
@@ -654,6 +672,8 @@
                                             <html:option value="Doble Titulación"></html:option>
                                         </html:select>
                                     </td>
+                                </tr>
+                                <tr>
                                     <td colspan="2">
                                         <html:errors property="programa" />
                                     </td>
@@ -670,7 +690,9 @@
                                             <html:option value="Septiembre - Julio"></html:option>
 
                                         </html:select>
-
+                                    </td>
+                                </tr>
+                                <tr>
                                     <td colspan="2">
                                         <html:errors property="duracionPrograma" />
                                     </td>
@@ -709,7 +731,12 @@
                                         </html:select>
                                     </td>
                                 </tr>
-
+                                
+                                <tr>
+                                    <td colspan="2">
+                                        <html:errors property="areaEstud"/>
+                                    </td>
+                                </tr>
 
                                 <tr>
                                     <td style="font-weight: bold">Carrera: </td>
@@ -729,7 +756,7 @@
                                     <td style="font-weight: bold"> Año de ingreso a la carrera: </td>
 
                                     <td>
-                                        <html:text name="PlanillaExt" property="anioIngreso" maxlength="60"  errorStyleClass="error"
+                                        <html:text name="PlanillaExt" property="anioIngreso" maxlength="4"  errorStyleClass="error"
                                                    errorKey="org.apache.struts.action.ERROR">
                                         </html:text>
                                     </td>
