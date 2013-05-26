@@ -76,7 +76,7 @@
                         <html:form action="/ConsultarUsuario2" onsubmit="return(this)">
                             <html:hidden name = "usuarios" property="nombreusuario"/>
                             <html:hidden name = "usuarios" property="confirmar" value="gestor"/>
-                            <html:image src="images/verDatos.png" styleClass="button" value="" property="" style=""/> 
+                            <html:image src="images/verDatos.png" value="" property="" style=""/> 
                         </html:form>
                     </td>
 
@@ -85,7 +85,7 @@
                             <html:hidden name = "usuarios" property="nombreusuario"/>
                             <input type="hidden" name="nuevacontra" value="<%=session.getAttribute("nombreusuario").toString()%>"/>
                             <html:hidden name = "usuarios" property="confirmar" ></html:hidden>
-                            <html:image src="images/archivador.png" style="width:32px;height:32px"  styleClass="button" value="" property="" /> 
+                            <html:image src="images/archivador.png" style="width:32px;height:32px" value="" property="" /> 
                         </html:form>
                     </td>
 
@@ -106,7 +106,7 @@
                                 <html:option value="Aceptado">Aceptado</html:option>
                                 <html:option value="Rechazado">Rechazado</html:option>
                             </html:select>
-                            <html:image src="images/postulacion.png" styleClass="button" value="" property="" style=""/> 
+                            <html:image src="images/postulacion.png" value="" property="" style=""/> 
                         </html:form>
                     </td>
 
