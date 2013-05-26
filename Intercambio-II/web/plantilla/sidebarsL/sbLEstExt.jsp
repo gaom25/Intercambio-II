@@ -41,10 +41,9 @@ ddmenu.init({
         <a class="menuitem submenuheader">Gestión de solicitudes </a>
         <div class="submenu">
             <ul>
-                <li><a> <html:link action="/CargarLlenarPlanillaExt">Llenar formulario</html:link></a></li>
-                <li><a> <html:link action="/ObtenerDatos2">Modificar solicitud</html:link></a></li>
-                <li><a> <html:link action="/VerificarPlanillaExt">Generar planilla</html:link></a></li>
-                <li><a> <html:link action="/GenerarCarpeta">Generar carpeta</html:link></a></li>
+                <li><a> <html:link action="/CargarLlenarPlanillaExt">Formulario de solicitud</html:link></a></li>
+                <li><a> <html:link action="/VerificarPlanillaExt">Descargar planilla</html:link></a></li>
+                <li><a> <html:link action="/GenerarCarpeta">Descargar carpeta</html:link></a></li>
             </ul>
         </div>
         

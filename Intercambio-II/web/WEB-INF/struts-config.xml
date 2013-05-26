@@ -509,7 +509,6 @@
            <forward name ="ext" path="cargaidiomaExt" />
        </action>
        
-       
        <action input="/" path="/AccionPlanDeEstudio" type="Actions.AccionPlanDeEstudio" scope="request" name="PlanDeEstudio" >
            <forward name ="success" path="cargaplancorrecta" />
            <forward name ="fail" path="cargaplanincorrecta" />
@@ -569,7 +568,7 @@
       <action input="/" name="PlanillaExt" path="/LlenarPlanilla_EstExt" scope="session" type="Actions.LlenarPlanilla_EstExt" >
             <forward name="success" path="cargacorrectaExt" />
             <forward name ="fail" path = "cargaincorrectaExt" />
-            <forward name="error" path="cargaincorrectaExt" />
+            <forward name="error" path="formularioExt" />
       </action>
       
       <action name="Usuario" path="/VerificarPlanillaExt" scope="session" type="Actions.VerificarPlanillaExt">
