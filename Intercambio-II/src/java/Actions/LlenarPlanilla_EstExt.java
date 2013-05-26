@@ -207,6 +207,31 @@ public class LlenarPlanilla_EstExt extends org.apache.struts.action.Action {
         }
 
         /* ###### PASO 1.4 ######*/
+       
+       // Verifica que se haya seleccionado un programa
+       if (p.getNombrePrograma().equalsIgnoreCase("0")){
+            error.add("nombrePrograma", new ActionMessage("error.nombrePrograma.required"));
+            saveErrors(request, error);
+            huboError = true;
+            arre[3] = true;
+       }
+       
+       // Verifica que se haya seleccionado un pais de origen
+       if (p.getPaisOrigen().equalsIgnoreCase("-")){
+            error.add("paisOrigen", new ActionMessage("error.paisOrigen.required"));
+            saveErrors(request, error);
+            huboError = true;
+            arre[3] = true;
+       }
+       
+       // Verifica que se haya seleccionado una universidad de origen
+       if (p.getNombreUniOrigen().equalsIgnoreCase("-")){
+            error.add("nombreUniOrigen", new ActionMessage("error.nombreUniOrigen.required"));
+            saveErrors(request, error);
+            huboError = true;
+            arre[3] = true;
+       }
+       
        //Verifica que el nombre del coord de movilidad no sea vacio
        if (p.getNombreCoordMovilidad().equals("")){
             error.add("nombreCoordMovilidad", new ActionMessage("error.nombreCoordMovilidad.required"));
@@ -216,17 +241,58 @@ public class LlenarPlanilla_EstExt extends org.apache.struts.action.Action {
        }
 
        //Verifica que el nombre del coord academico no sea vacio
-       if (p.getNombreCoordMovilidad().equals("")){
+       if (p.getNombreCoordAcademico().equals("")){
             error.add("nombreCoordAcademico", new ActionMessage("error.nombreCoordAcademico.required"));
             saveErrors(request, error);
             huboError = true;
             arre[3] = true;
        }
        
+       // Verifica que se haya seleccionado un tipo de programa
+       if (p.getPrograma().equalsIgnoreCase("Seleccione")){
+            error.add("programa", new ActionMessage("error.programa.required"));
+            saveErrors(request, error);
+            huboError = true;
+            arre[3] = true;
+       }
+       
+       // Verifica que se haya seleccionado una duracion de intercambio
+       if (p.getDuracionPrograma().equalsIgnoreCase("-")){
+            error.add("duracionPrograma", new ActionMessage("error.duracionPrograma.required"));
+            saveErrors(request, error);
+            huboError = true;
+            arre[3] = true;
+       }
+       
        /* ###### PASO 1.5 ######*/
+       
+       // Verifica que se haya seleccionado un area de estudio
+       if (p.getAreaEstud().equalsIgnoreCase("Seleccione")){
+            error.add("areaEstud", new ActionMessage("error.areaEstud.required"));
+            saveErrors(request, error);
+            huboError = true;
+            arre[4] = true;
+       }
+       
        //Verifica que la carrera no sea vacia
        if (p.getCarrera().equals("")){
             error.add("nombreCarrera", new ActionMessage("error.nombrecarrera.required"));
+            saveErrors(request, error);
+            huboError = true;
+            arre[4] = true;
+       }
+       
+       // Verifica que se haya introducido el anio de ingreso a la carrera
+       if (p.getAnioIngreso() < 1980){
+            error.add("anioIngreso", new ActionMessage("error.anioIngreso.required"));
+            saveErrors(request, error);
+            huboError = true;
+            arre[4] = true;
+       }
+       
+       // Verifica que se haya introducido la cantidad de anios aprobados
+       if (p.getAniosAprobados()<= 0){
+            error.add("aniosAprobados", new ActionMessage("error.aniosAprobados.required"));
             saveErrors(request, error);
             huboError = true;
             arre[4] = true;
