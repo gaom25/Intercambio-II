@@ -1410,7 +1410,7 @@ public class DBMS {
                         + "EmailRep= '" + p.getEmailRep() + "', "
                         + "TipoRelacion= '" + p.getRelacion() + "', "
                         + "Direccion = '" + p.getDireccionRep() + "' WHERE "
-                        + "NombreUsario = '" + p.getNombreUsuario() + "';";
+                        + "NombreUsuario = '" + p.getNombreUsuario() + "';";
             } else {
 
                 // Datos del representante
@@ -1433,7 +1433,7 @@ public class DBMS {
                     + "Carrera = '" + p.getCarrera() + "', "
                     + "Opcion = '" + p.getOpcion() + "', "
                     + "CredAprob= '" + p.getCreditosApro() + "' WHERE "
-                    + "NombreUsario = '" + p.getNombreUsuario() + "';";
+                    + "NombreUsuario = '" + p.getNombreUsuario() + "';";
 
             // Opciones de uni de intercambios
             String sqlqueryUni1 = "UPDATE \"dycicle\".Universidades SET "
@@ -1534,7 +1534,7 @@ public class DBMS {
                         + "EmailRep= '" + p.getEmailRep() + "', "
                         + "TipoRelacion= '" + p.getRelacion() + "', "
                         + "Direccion = '" + p.getDireccionRep() + "' WHERE "
-                        + "NombreUsario = '" + p.getNombreUsuario() + "';";
+                        + "NombreUsuario = '" + p.getNombreUsuario() + "';";
             } else {
 
                 // Datos del representante
