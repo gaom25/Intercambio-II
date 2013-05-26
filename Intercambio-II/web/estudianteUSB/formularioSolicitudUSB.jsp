@@ -133,7 +133,7 @@
                                     <td style="font-weight: bold">Fecha de Nacimiento</td>
 
                                     <td>
-                                        <input type="date" name="fechaNacimiento" maxlength="80" errorStyleClass="error" />
+                                        <input type="date" min="1980-01-01" name="fechaNacimiento" maxlength="80" errorStyleClass="error" />
                                         <!--                               errorKey="org.apache.struts.action.ERROR" />-->
                                     </td>
 
@@ -416,7 +416,7 @@
                         <br><br>
                     </div>                    
 
-                    <div id="opci4" class="divformulario" style="display: none">
+                    <div id="opci4" class="divformulario" style="display: none; width: 500px">
 
                         <br>
 
@@ -1045,7 +1045,7 @@
     </div>
     <div id="archivos" style="display: none; width: 80%;margin-left: 15%">
         <h5>Los archivos permitidos a cargar son aquellos con formato
-            PDF JPG o PNG, sin excepcion</h5>
+            PDF JPG o PNG, sin excepción</h5>
         <div style="width:99%;height:auto;border:3px solid #126598; border-radius: 10px;background: #dcebe8">
             <div align=center>
                 <html:form action="/FileUploadAction" method="post" enctype="multipart/form-data">
