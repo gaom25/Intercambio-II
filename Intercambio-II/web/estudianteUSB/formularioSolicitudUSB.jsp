@@ -36,7 +36,10 @@
                     for(i=1;i<z.length-1;i++){
                            pal = pal + z[i]+"\n"
                     }
-                    document.getElementById('error').innerHTML='<div align="center" style="width:100%"><pre align="center" style="color: #B22222;font-family:san-serif">Contiene error en los pasos:\n '+pal+'</pre></div>'   
+                    
+                    if (pal != ""){
+                    document.getElementById('error').innerHTML='<div align="center" style="width:100%"><pre align="center" style="color: #B22222;font-family:san-serif">Contiene error en los pasos:\n '+pal+'</pre></div>'
+                    }
                 }
             }
             window.onload=function(){
