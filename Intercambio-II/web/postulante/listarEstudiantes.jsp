@@ -88,7 +88,9 @@
                     <td align="center" width="100px">
                         <html:form action="/Comentar" onsubmit="return(this)">
                             <html:hidden name="usuarios" property="nombreusuario"/>
-                            <html:submit value="Comentar">Comentar</html:submit>
+                            <a>
+                                <html:image src="images/comentar.png" styleClass="button" value="" property="" /> 
+                            </a>
                         </html:form>
                     </td>
                 </tr>
