@@ -63,7 +63,7 @@
                     <br>
 
                     <h5>El siguiente formulario consta de 7 pasos, todos los campos son obligatorios</h5>
-                    <div id="opci1" style="display:block;width:450px; border:3px solid #126598;  border-radius: 10px; background: #dcebe8">
+                    <div id="opci1" class="divformulario" style="display: block">
                         <table border="0"  align="center">
                             <br>
                             <span><a> Paso 1.1: </a><b><a style="text-decoration: underline">DATOS PERSONALES</a></b></span>
@@ -390,7 +390,7 @@
                                 <br><br>
                     </div>
 
-                    <div id="opci2" style="display:none;width:450px; border: 3px solid #126598; border-radius: 10px; background: #dcebe8">
+                    <div id="opci2" class="divformulario" style="display: none" >
                         <br>
                         <span><a>Paso 1.2: </a><b><a style="text-decoration: underline">INFORMACIÓN DE DOMICILIO</a></b></span>
                         <br>
@@ -496,7 +496,7 @@
                         <br><br>
                     </div>
 
-                    <div id="opci3" style="display:none;width:450px; border:3px solid #126598; border-radius: 10px; background: #dcebe8">
+                    <div id="opci3" class="divformulario" style="display: none">
                         <br>
 
                         <span><a>Paso 1.3: </a><b><a style="text-decoration: underline">DATOS DE CONTACTO</a></b></span>
@@ -564,7 +564,7 @@
                         <br><br>
                     </div>                    
 
-                    <div id="opci4" style="display:none;width:75%; border:3px solid #126598; border-radius: 10px;background: #dcebe8">
+                    <div id="opci4" class="divformulario" style="display: none">
                         <br>
                         <span><a>Paso 1.4: </a><b><a style="text-decoration: underline">PROGRAMAS</a></b></span>
                         <br>
@@ -686,7 +686,7 @@
                         <br><br>
                     </div>
 
-                    <div id="opci5" style="display:none;width:450px; border:3px solid #126598; border-radius: 10px;background: #dcebe8">
+                    <div id="opci5" class="divformulario" style="display: none">
                         <br>
                         <span><a>Paso 1.5: </a><b><a style="text-decoration: underline">INFORMACIÓN ACADÉMICA</a></b></span>
                         <br>
@@ -767,7 +767,7 @@
                     </div>
 
 
-                    <div id="opci6" style="display:none;width:450px; border:3px solid #126598; border-radius: 10px; background: #dcebe8">
+                    <div id="opci6" class="divformulario" style="display: none">
                         <br>
                         <span><a>Paso 1.6: </a><b><a style="text-decoration: underline">CONTACTO EN CASO DE EMERGENCIA</a></b></span>
                         <br>
