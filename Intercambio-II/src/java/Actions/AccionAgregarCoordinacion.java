@@ -70,6 +70,10 @@ public class AccionAgregarCoordinacion extends org.apache.struts.action.Action {
             error.add("nombreusuario", new ActionMessage("error.nombreusuario.required"));
             saveErrors(request, error);
             huboError = true;
+        }else if(DBMS.getInstance().existeUsuario(p)){
+            error.add("nombreusuario", new ActionMessage("error.nombreusuarioexiste"));
+            saveErrors(request, error);
+            huboError = true;
         }
          
         if (p.getEmail().equals("")) {

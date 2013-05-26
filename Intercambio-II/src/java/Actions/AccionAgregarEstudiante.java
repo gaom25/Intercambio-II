@@ -72,7 +72,11 @@ public class AccionAgregarEstudiante extends org.apache.struts.action.Action {
         e.setConfirmar(confPswd);
 
         if (e.getNombreusuario().equals("")) {
-            error.add("nombreUsuario", new ActionMessage("error.nombreusuario.required"));
+            error.add("nombreusuario", new ActionMessage("error.nombreusuario.required"));
+            saveErrors(request, error);
+            huboError = true;
+        }else if(DBMS.getInstance().existeUsuario(e)){
+            error.add("nombreusuario", new ActionMessage("error.nombreusuarioexiste"));
             saveErrors(request, error);
             huboError = true;
         }
@@ -95,7 +99,7 @@ public class AccionAgregarEstudiante extends org.apache.struts.action.Action {
             huboError = true;
         }
         if (e.getCarnet().equals("")) {
-            error.add("email", new ActionMessage("error.email.required"));
+            error.add("carnet", new ActionMessage("error.carnet.required"));
             saveErrors(request, error);
             huboError = true;
         }

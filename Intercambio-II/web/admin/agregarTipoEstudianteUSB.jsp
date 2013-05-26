@@ -83,7 +83,7 @@
                     </tr>
                     <tr>
                         <td colspan="2">
-                            <html:errors property="apellidos" />
+                            <html:errors property="carnet" />
                         </td>
                     </tr>
 

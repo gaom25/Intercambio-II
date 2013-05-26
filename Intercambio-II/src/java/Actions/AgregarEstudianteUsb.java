@@ -68,6 +68,10 @@ public class AgregarEstudianteUsb extends org.apache.struts.action.Action {
             error.add("nombreUsuario", new ActionMessage("error.nombreusuario.required"));
             saveErrors(request, error);
             huboError = true;
+        }else if(DBMS.getInstance().existeUsuario(e)){
+            error.add("nombreusuario", new ActionMessage("error.nombreusuarioexiste"));
+            saveErrors(request, error);
+            huboError = true;
         }
 
         if (e.getpNombre().equals("")) {

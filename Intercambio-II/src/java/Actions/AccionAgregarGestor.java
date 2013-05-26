@@ -66,6 +66,10 @@ public class AccionAgregarGestor extends org.apache.struts.action.Action {
             error.add("nombreusuario", new ActionMessage("error.nombreusuario.required"));
             saveErrors(request, error);
             huboError = true;
+        }else if(DBMS.getInstance().existeUsuario(u)){
+            error.add("nombreusuario", new ActionMessage("error.nombreusuarioexiste"));
+            saveErrors(request, error);
+            huboError = true;
         }
          
          if (u.getNombre().equals("")) {
