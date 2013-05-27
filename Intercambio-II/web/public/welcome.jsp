@@ -10,7 +10,7 @@
     <title>Sistema de Gesti&oacute;n de Intercambio</title>
 
     <h4>Bienvenido</h4>
-    <h5>Para ingresar al sistema introduzca su usuario y contraseña.</h5>
+    <h5>Para ingresar al sistemaw introduzca su usuario y contraseña.</h5>
     <div id="login-form">
         <html:form action="Login">
             <table style="border: none">
