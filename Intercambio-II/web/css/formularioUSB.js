@@ -145,16 +145,22 @@
             var verbal = "nivelVerbal[" +  Count +  "]";
             var escrito = "nivelEscrito[" +  Count +  "]";
             var conversacional = "nivelConversacional[" + Count + "]";
+            //auditivo
+            var auditivo = "nivelAuditivo[" + Count + "]";
             var basico = "Basico";
             var intermedio = "Intermedio";
             var avanzado = "Avanzado";
             var arr = "chk[]";
             var type = "text";
+            var style1 = "width:100%;";
+            //var style2 = "padding:1%;";
             
             var tit1 = "Idioma que maneja";
             var tit2 = "Nivel Verbal";
             var tit3 = "Nivel Escrito";
-            var tit4 = "Nivel Conversacional";
+            var tit4 = "Nivel Oral";
+            //auditivo
+            var tit5 = "Nivel Auditivo";
             var o2 = document.createElement("input");
             var check = document.createElement("input");
             
@@ -176,12 +182,21 @@
             var op10 = document.createElement("option");
             var op11 = document.createElement("option");
             var op12 = document.createElement("option");
+            //auditivo
+            var op16 = document.createElement("option");
+            
+            //Nivel Auditivo
+            var op13 = document.createElement("option");//basico
+            var op14 = document.createElement("option"); //intermedio
+            var op15 = document.createElement("option"); //avanzado
             
             
             var tr = document.createElement("tr");
             var select1 = document.createElement("select");
             var select2 =document.createElement("select");
             var select3 = document.createElement("select");
+            //auditivo
+            var select4 = document.createElement("select");
             var td = document.createElement("td");
             var td2 = document.createElement("td");
             var td3 = document.createElement("td");
@@ -192,6 +207,25 @@
             var td8 = document.createElement("td");
             var td9 = document.createElement("td");
             var td10 = document.createElement("td");
+            
+            //auditivo
+            var td11 = document.createElement("td");
+            var td12 = document.createElement("td");
+            
+            //paddings para todas las columnas
+            /*td.setAttribute("style",style2);
+            td2.setAttribute("style",style2);
+            td3.setAttribute("style",style2);
+            td4.setAttribute("style",style2);
+            td5.setAttribute("style",style2);
+            td6.setAttribute("style",style2);
+            td7.setAttribute("style",style2);
+            td8.setAttribute("style",style2);
+            td9.setAttribute("style",style2);
+            td10.setAttribute("style",style2);
+            td11.setAttribute("style",style2);
+            td12.setAttribute("style",style2);*/
+            
             
                 
             //Atributos para el checkbox
@@ -219,15 +253,34 @@
             op10.setAttribute("value","");
             op11.setAttribute("value","");
             op12.setAttribute("value","");
+            op16.setAttribute("value","");
+            
+            //auditivo
+            
+            op15.setAttribute("value",basico);
+            op15.innerHTML = "Basico";
+            op13.setAttribute("value",intermedio);
+            op13.innerHTML = "Intermedio";
+            op14.setAttribute("value",avanzado);
+            op14.innerHTML = "Avanzado";
+            
+            
             
             o2.setAttribute("type",type);
             o2.setAttribute("name",idioma);
+            o2.setAttribute("style",style1);
             op1.setAttribute("value",basico);
             op2.setAttribute("value", intermedio);
             op3.setAttribute("value",avanzado);
             select1.setAttribute("name",verbal);
+            select1.setAttribute("style",style1);
             select2.setAttribute("name",escrito);
+            select2.setAttribute("style",style1);
             select3.setAttribute("name",conversacional);
+            select3.setAttribute("style",style1);
+            //auditivo
+            select4.setAttribute("name",auditivo);
+            select4.setAttribute("style",style1);
             
             td7.appendChild(check);
             tr.appendChild(td7);
@@ -264,6 +317,15 @@
             select3.appendChild(op9);
             td10.appendChild(select3);
             tr.appendChild(td10);
+            
+            td11.innerHTML = tit5;
+            tr.appendChild(td11);
+            select4.appendChild(op16);
+            select4.appendChild(op13);
+            select4.appendChild(op14);
+            select4.appendChild(op15);
+            td12.appendChild(select4);
+            tr.appendChild(td12);
             
             fObject.appendChild(tr);
                

@@ -1251,7 +1251,7 @@
                                     <td> Idioma que maneja:</td>
 
                                     <td>
-                                    <html:text name="Idiomas" property="idiomaDest[0]" maxlength="45" style="width:76px;" errorStyleClass="error"
+                                    <html:text name="Idiomas" property="idiomaDest[0]" maxlength="45" style="width:100%;" errorStyleClass="error"
                                                errorKey="org.apache.struts.action.ERROR">
                                     </html:text>
                                 </td>
@@ -1260,7 +1260,7 @@
 
                                 <td>
 
-                                    <html:select property="nivelVerbal[0]" style="width:35px;" errorStyleClass="error" errorKey="org.apache.struts.action.ERROR">
+                                    <html:select property="nivelVerbal[0]" style="width:100%;" errorStyleClass="error" errorKey="org.apache.struts.action.ERROR">
                                     <!--html:select property="nivelVerbal[0]" style="width:50px;" errorStyleClass="error" errorKey="org.apache.struts.action.ERROR"-->
                                         <html:option value=""></html:option>
                                         <html:option value="Basico">Basico</html:option>
@@ -1272,7 +1272,7 @@
                                 <td>Nivel Escrito</td>
 
                                 <td>
-                                    <html:select property="nivelEscrito[0]" style="width:35px;" errorStyleClass="error" errorKey="org.apache.struts.action.ERROR">
+                                    <html:select property="nivelEscrito[0]" style="width:100%;" errorStyleClass="error" errorKey="org.apache.struts.action.ERROR">
                                     <!--html:select property="nivelEscrito[0]" style="width:50px;" errorStyleClass="error" errorKey="org.apache.struts.action.ERROR"-->
                                         <html:option value=""></html:option>
                                         <html:option value="Basico">Basico</html:option>
@@ -1284,7 +1284,7 @@
                                 <td>Nivel Oral</td>
 
                                 <td>
-                                    <html:select property="nivelConversacional[0]" style="width:35px;" errorStyleClass="error" errorKey="org.apache.struts.action.ERROR">
+                                    <html:select property="nivelConversacional[0]" style="width:100%;" errorStyleClass="error" errorKey="org.apache.struts.action.ERROR">
                                     <!--html:select property="nivelConversacional[0]" style="width:50px;" errorStyleClass="error" errorKey="org.apache.struts.action.ERROR"-->
                                         <html:option value=""></html:option>
                                         <html:option value="Basico">Basico</html:option>
@@ -1295,7 +1295,7 @@
                                 <td>Nivel Auditivo</td>
 
                                 <td>
-                                    <html:select property="nivelAuditivo[0]" style="width:35px;" errorStyleClass="error" errorKey="org.apache.struts.action.ERROR">
+                                    <html:select property="nivelAuditivo[0]" style="width:100%;" errorStyleClass="error" errorKey="org.apache.struts.action.ERROR">
                                     <!--html:select property="nivelAuditivo[0]" style="width:50px;" errorStyleClass="error" errorKey="org.apache.struts.action.ERROR"-->
                                         <html:option value=""></html:option>
                                         <html:option value="Basico">Basico</html:option>
