@@ -289,6 +289,7 @@ CREATE TABLE "dycicle".IDIOMAS(
 	NivelVerbal	VARCHAR(15)	NOT NULL,
 	NivelEscrito	VARCHAR(15)	NOT NULL,
         NivelConversacional VARCHAR(15) NOT NULL,
+        NivelAuditivo VARCHAR(15) NOT NULL,
 	CONSTRAINT 	PK_IDIOMAS	PRIMARY KEY (NombreUsuario,NombreIdioma)
 )
 WITH (
@@ -468,6 +469,7 @@ ALTER TABLE "dycicle".Gestiona ADD
     REFERENCES "dycicle".POSTULACION(NombreUsuario);
 
 
+
 /* INSERT de un usuario administrador por defecto */
 INSERT INTO "dycicle".USUARIO VALUES ( 'admin','admin@sgi.com', 1, 'Administrador', 'admin1234');
 INSERT INTO "dycicle".ADMINISTRADOR VALUES ('admin');
@@ -489,12 +491,16 @@ INSERT INTO "dycicle".ESTUDIANTE VALUES ( 'brahyam',null,'Brahyam','Steffano','M
 INSERT INTO "dycicle".ESTUDIANTEUSB VALUES ( 'brahyam','19721013','08-10738');
 INSERT INTO "dycicle".ANTECEDENTEACADEMICO VALUES ('brahyam','3.6575','Estudios Profesionales','Ingenieria','Ingenieria de Computacion','opcion','160','2008','4','Alexander Ramirez','Soraya Abad');
 INSERT INTO "dycicle".POSTULACION VALUES ('brahyam','En evaluacion','recomendacion','comentario','2013-03-09');
+
 INSERT INTO "dycicle".PLANESTUDIO VALUES ('brahyam','CI-2525','Ingenieria de Software',4,'HJI878','Analisis Cuantico',5);
+INSERT INTO "dycicle".PLANESTUDIO VALUES ('brahyam','CI-2525','Ingenier Software',4,'HJI8','Analisis Cuantico',5);
+INSERT INTO "dycicle".PLANESTUDIO VALUES ('brahyam','CI25','Ingenieria de Software',4,'HJ78','Anisis Cuano',3);
+
 INSERT INTO "dycicle".REPRESENTANTE VALUES ('brahyam','Jorge Luis','Meneses Arriba','04166119360','02125518367','jorge@gmail.com','Familiar','La Candelaria');
 INSERT INTO "dycicle".FINANCIAMIENTO VALUES ('brahyam','Familiar','Ganancias de mis padres','Ninguna','Ninguna');
 INSERT INTO "dycicle".UNIVERSIDADES VALUES ('brahyam',1,'Universidad de Siegen','Alemania','Intercambio','SMILE','Enero','2014','Enero','2015','Año Academico');
 INSERT INTO "dycicle".UNIVERSIDADES VALUES ('brahyam',2,'AGH Universidad de Ciencias y Tecnología','Polonia','Intercambio','SMILE','Enero','2014','Enero','2015','Año Academico');
-INSERT INTO "dycicle".IDIOMAS VALUES ( 'brahyam','Ingles','Avanzado','Avanzado','Avanzado');
+INSERT INTO "dycicle".IDIOMAS VALUES ( 'brahyam','Ingles','Avanzado','Avanzado','Avanzado','Avanzado');
 --
 INSERT INTO "dycicle".USUARIO VALUES ( 'andrea','drea.balbas@gmail.com', 5, 'Andrea', 'andrea1234');
 INSERT INTO "dycicle".ESTUDIANTE VALUES ( 'andrea',null,'Andrea','Carolina','Machado','Moreno','Ingenieria de Computacion','Femenino','Baruta','El Placer','Esmeralda','S/N','Caracas','Miranda','1010','04266783899','02120928367','02127768367','drea.balbas@gmail.com','12/11/1990','Venezolano',null);
@@ -506,7 +512,7 @@ INSERT INTO "dycicle".REPRESENTANTE VALUES ('andrea','Carlos Alfonso','Rivas Men
 INSERT INTO "dycicle".FINANCIAMIENTO VALUES ('andrea','Familiar','Ganancias de mis padres','Ninguna','Ninguna');
 INSERT INTO "dycicle".UNIVERSIDADES VALUES ('andrea',1,'Universidad Estadual de Campinas','Brasil','Intercambio','SMILE','Enero','2014','Enero','2015','Año Academico');
 INSERT INTO "dycicle".UNIVERSIDADES VALUES ('andrea',2,'Universidad del Valle','Colombia','Intercambio','SMILE','Enero','2014','Enero','2015','Año Academico');
-INSERT INTO "dycicle".IDIOMAS VALUES ( 'andrea','Ingles','Avanzado','Avanzado','Avanzado');
+INSERT INTO "dycicle".IDIOMAS VALUES ( 'andrea','Ingles','Avanzado','Avanzado','Avanzado','Avanzado');
 
 /*INSERT de estudiantes de materiales*/
 INSERT INTO "dycicle".USUARIO VALUES ( 'sofia','sofia@gmail.com', 5, 'Sofia', 'sofia1234');
@@ -519,8 +525,8 @@ INSERT INTO "dycicle".REPRESENTANTE VALUES ('sofia','Sancho Alfonso','Panzas Men
 INSERT INTO "dycicle".FINANCIAMIENTO VALUES ('sofia','Familiar','Ganancias de mis padres','Ninguna','Ninguna');
 INSERT INTO "dycicle".UNIVERSIDADES VALUES ('sofia',1,'Universidad Nacional de Cuyo','Argentina','Intercambio','SMILE','Enero','2014','Enero','2015','Año Academico');
 INSERT INTO "dycicle".UNIVERSIDADES VALUES ('sofia',2,'Universidad Privada Santa Cruz de la Sierra','Bolivia','Intercambio','SMILE','Enero','2014','Enero','2015','Año Academico');
-INSERT INTO "dycicle".IDIOMAS VALUES ( 'sofia','Frances','Avanzado','Avanzado','Avanzado');
-INSERT INTO "dycicle".IDIOMAS VALUES ( 'sofia','Chino','Avanzado','Avanzado','Avanzado');
+INSERT INTO "dycicle".IDIOMAS VALUES ( 'sofia','Frances','Avanzado','Avanzado','Avanzado','Avanzado');
+INSERT INTO "dycicle".IDIOMAS VALUES ( 'sofia','Chino','Avanzado','Avanzado','Avanzado','Avanzado');
 
 /*INSERT de estudiantes de mecanica*/
 INSERT INTO "dycicle".USUARIO VALUES ( 'daniel','daniel@gmail.com', 5, 'Daniel', 'extranjero1234');
@@ -533,8 +539,8 @@ INSERT INTO "dycicle".REPRESENTANTE VALUES ('daniel','Jesus Mauricio','Moussa An
 INSERT INTO "dycicle".FINANCIAMIENTO VALUES ('daniel','Familiar','Ganancias de mis padres','Ninguna','Ninguna');
 INSERT INTO "dycicle".UNIVERSIDADES VALUES ('daniel',1,'Universidad de Tohoku','Japón','Intercambio','SMILE','Enero','2014','Enero','2015','Año Academico');
 INSERT INTO "dycicle".UNIVERSIDADES VALUES ('daniel',2,'Universidad Privada Santa Cruz de la Sierra','Bolivia','Intercambio','SMILE','Enero','2014','Enero','2015','Año Academico');
-INSERT INTO "dycicle".IDIOMAS VALUES ( 'daniel','Ingles','Medio','Medio','Medio');
-INSERT INTO "dycicle".IDIOMAS VALUES ( 'daniel','Japones','Basico','Basico','Basico');
+INSERT INTO "dycicle".IDIOMAS VALUES ( 'daniel','Ingles','Medio','Medio','Medio','Avanzado');
+INSERT INTO "dycicle".IDIOMAS VALUES ( 'daniel','Japones','Basico','Basico','Basico','Avanzado');
 
 
 /*INSERT de estudiantes extranjeros*/
@@ -548,16 +554,16 @@ INSERT INTO "dycicle".REPRESENTANTE VALUES ('extranjero','Jesus Mauricio','Mouss
 INSERT INTO "dycicle".FINANCIAMIENTO VALUES ('extranjero','Familiar','Ganancias de mis padres','Ninguna','Ninguna');
 INSERT INTO "dycicle".UNIVERSIDADES VALUES ('extranjero',1,'Universidad de Tohoku','Japón','Intercambio','SMILE','Enero','2014','Enero','2015','Año Academico');
 INSERT INTO "dycicle".UNIVERSIDADES VALUES ('extranjero',2,'Universidad Estadual de Campinas','Brasil','Intercambio','SMILE','Enero','2014','Enero','2015','Año Academico');
-INSERT INTO "dycicle".IDIOMAS VALUES ( 'extranjero','Ingles','Medio','Medio','Medio');
-INSERT INTO "dycicle".IDIOMAS VALUES ( 'extranjero','Ruso','Alto','Alto','Alto');
-INSERT INTO "dycicle".IDIOMAS VALUES ( 'extranjero','Japones','Basico','Basico','Basico');
+INSERT INTO "dycicle".IDIOMAS VALUES ( 'extranjero','Ingles','Medio','Medio','Medio','Avanzado');
+INSERT INTO "dycicle".IDIOMAS VALUES ( 'extranjero','Ruso','Alto','Alto','Alto','Avanzado');
+INSERT INTO "dycicle".IDIOMAS VALUES ( 'extranjero','Japones','Basico','Basico','Basico','Avanzado');
 -----------------------------------------------------------------------
 /*PRUEBA DE NOTICIAS*/
 INSERT INTO "dycicle".Noticias VALUES ('Inicio','holaaaaa');
 INSERT INTO "dycicle".Noticias VALUES ('Inicio2','chaoooo');
 INSERT INTO "dycicle".Noticias VALUES ('Inicio3','Adiossss');
 
-INSERT INTO "dycicle".Sistema VALUES (TRUE);
+INSERT INTO "dycicle".Sistema VALUES (FALSE);
 
 INSERT INTO "dycicle".usuario VALUES ('electronica', 'ovasgus2508@gmail.com', 3, 'Coordinacion de Ingenieria Electronica', 'electronica1234', '2013-05-21');
 INSERT INTO "dycicle".usuario VALUES ('luis', 'ovasgus2508@gmail.com', 5, 'Luis Roldao', 'luis1234', '2013-05-21');

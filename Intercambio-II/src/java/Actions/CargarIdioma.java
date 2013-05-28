@@ -43,6 +43,7 @@ public class CargarIdioma extends Action {
         ArrayList verb = idioma.getListVerbal();
         ArrayList idi = idioma.getListIdioma();
         ArrayList conv = idioma.getListConversacional();
+        ArrayList audi = idioma.getListAuditivo();
         
         ArrayList idiomaDB = idiDB.getListIdioma();
         
@@ -56,6 +57,7 @@ public class CargarIdioma extends Action {
                 iditmp.setNivelConversacional(0,(String)conv.get(i));
                 iditmp.setNivelEscrito(0,(String)escri.get(i));
                 iditmp.setNivelVerbal(0,(String)verb.get(i));
+                iditmp.setNivelAuditivo(0,(String)audi.get(i));
                 iditmp.setNombreusuario(idioma.getNombreusuario());
                 
                 if(!DBMS.getInstance().InsertarIdioma(iditmp)){
@@ -67,6 +69,7 @@ public class CargarIdioma extends Action {
                 iditmp.setNivelConversacional(0,(String)conv.get(i));
                 iditmp.setNivelEscrito(0,(String)escri.get(i));
                 iditmp.setNivelVerbal(0,(String)verb.get(i));
+                iditmp.setNivelAuditivo(0,(String)audi.get(i));
                 iditmp.setNombreusuario(idioma.getNombreusuario());
                 
                 

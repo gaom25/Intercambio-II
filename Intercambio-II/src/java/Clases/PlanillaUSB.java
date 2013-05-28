@@ -580,13 +580,13 @@ public class PlanillaUSB extends org.apache.struts.action.ActionForm {
         this.creditosApro = creditosApro;
     }
 
-    public ArrayList<Materias> getLista() {
+    /*public ArrayList<Materias> getLista() {
         return lista;
     }
 
     public void setLista(ArrayList<Materias> lista) {
         this.lista = lista;
-    }
+    }*/
 
     public String getFechaSolicitud() {
         return fechaSolicitud;

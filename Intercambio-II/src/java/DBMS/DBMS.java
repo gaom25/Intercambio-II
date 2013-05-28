@@ -1022,6 +1022,7 @@ public class DBMS {
                 idims.setNivelVerbal(0, rs.getString("NivelVerbal"));
                 idims.setNivelEscrito(0, rs.getString("NivelEscrito"));
                 idims.setNivelConversacional(0, rs.getString("NivelConversacional"));
+                idims.setNivelAuditivo(0, rs.getString("NivelAuditivo"));
 
 
             }
@@ -1096,6 +1097,7 @@ public class DBMS {
                 idims.setNivelVerbal(0, rs.getString("NivelVerbal"));
                 idims.setNivelEscrito(0, rs.getString("NivelEscrito"));
                 idims.setNivelConversacional(0, rs.getString("NivelConversacional"));
+                idims.setNivelAuditivo(0, rs.getString("NivelAuditivo"));
 
 
             }
@@ -1858,10 +1860,11 @@ public class DBMS {
             ArrayList ver = idioma.getListVerbal();
             ArrayList idio = idioma.getListIdioma();
             ArrayList conver = idioma.getListConversacional();
+            ArrayList audi = idioma.getListAuditivo();
             for (int i = 0; i < idio.size(); i++) {
                 sqlquery = "INSERT INTO \"dycicle\".idiomas VALUES("
                         + "'" + idioma.getNombreusuario() + "','" + idio.get(i) + "','"
-                        + ver.get(i) + "','" + escri.get(i) + "','" + conver.get(i) + "');";
+                        + ver.get(i) + "','" + escri.get(i) + "','" + conver.get(i) + "','" + audi.get(i) + "');";
                 stmt = conexion.createStatement();
                 Integer j = stmt.executeUpdate(sqlquery);
             }

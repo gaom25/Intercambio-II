@@ -27,13 +27,15 @@ public class Idiomas extends org.apache.struts.action.ActionForm {
     private String nivelEscrito;    
     private ArrayList listEscr;
     private String nivelConversacional;
-
     private ArrayList listConver;
+    private String nivelAuditivo;
+    private ArrayList listAuditivo;
     private String nombreusuario;
     private Integer indexIdi = 0;
     private Integer indexEsc = 0;
     private Integer indexVer = 0;
     private Integer indexConv = 0;
+    private Integer indexAudi = 0;
     
     public Idiomas() {
         
@@ -42,10 +44,12 @@ public class Idiomas extends org.apache.struts.action.ActionForm {
         listIdio = new ArrayList();
         listVerb = new ArrayList();
         listConver = new ArrayList();
+        listAuditivo = new ArrayList();
         this.indexEsc = 0;
         this.indexIdi = 0;
         this.indexVer = 0;
         this.indexConv = 0;
+        this.indexAudi = 0;
 
     }
 
@@ -230,6 +234,44 @@ public class Idiomas extends org.apache.struts.action.ActionForm {
     public void setListConversacional(String conv) {
         this.listConver.add(indexConv, conv);
     }
+    
+    ///////////////////////////////////////////EMPIEZA AUDITIVO
+    
+    public String getNivelAuditivo(int index) {
+        if(listAuditivo.isEmpty()){
+            return this.nivelConversacional;
+        }else{
+            return (String)this.listAuditivo.get(index);
+        }
+    }
+    
+    public String getNivelAuditivo() {
+        return nivelAuditivo;
+    }
+    
+    public void setNivelAuditivo(String nivelAuditivo) {
+        this.nivelAuditivo = nivelAuditivo;
+    }
+    
+
+    public void setNivelAuditivo(int index,String audi) {
+
+        this.nivelAuditivo = audi;
+        setListAuditivo(nivelAuditivo);
+        this.indexAudi++;
+    }
+
+    public ArrayList getListAuditivo() {
+        return this.listAuditivo;
+    }
+
+    public void setListAuditivo(String audi) {
+        this.listAuditivo.add(indexAudi, audi);
+    }
+    
+///////////////////////////////////////////TERMINA AUDITIVO
+    
+    
 
     public Integer getIndexIdi() {
         return indexIdi;
@@ -261,6 +303,14 @@ public class Idiomas extends org.apache.struts.action.ActionForm {
 
     public void setIndexConv(Integer indexConv) {
         this.indexConv = indexConv;
+    }
+    ////////////////////////////////////////////////AGREGADOS setters y getters de indexAudi
+    public Integer getIndexAudi() {
+        return indexAudi;
+    }
+
+    public void setIndexAudi(Integer indexAudi) {
+        this.indexAudi = indexAudi;
     }
 
 }

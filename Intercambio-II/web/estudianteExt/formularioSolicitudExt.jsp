@@ -1141,7 +1141,7 @@
 
                                 <td> Idioma que maneja: </td>
                                 <td>
-                                    <html:text name="Idiomas" property="idiomaDest[0]" maxlength="45" errorStyleClass="error"
+                                    <html:text name="Idiomas" property="idiomaDest[0]" maxlength="45" style="width:76px;" errorStyleClass="error"
                                                errorKey="org.apache.struts.action.ERROR">
                                     </html:text>
                                 </td>
@@ -1150,7 +1150,8 @@
 
                                 <td>
 
-                                    <html:select name="Idiomas" property="nivelVerbal[0]" errorStyleClass="error" errorKey="org.apache.struts.action.ERROR">
+                                    <html:select name="Idiomas" property="nivelVerbal[0]" style="width:35px;" errorStyleClass="error" errorKey="org.apache.struts.action.ERROR">
+                                    <!--html:select name="Idiomas" property="nivelVerbal[0]" style="width:50px;" errorStyleClass="error" errorKey="org.apache.struts.action.ERROR"-->
                                         <html:option value=""></html:option>
                                         <html:option value="Basico">Basico</html:option>
                                         <html:option value="Intermedio">Intermedio</html:option>
@@ -1161,7 +1162,8 @@
                                 <td>Nivel Escrito</td>
 
                                 <td>
-                                    <html:select name="Idiomas" property="nivelEscrito[0]" errorStyleClass="error" errorKey="org.apache.struts.action.ERROR">
+                                    <html:select name="Idiomas" property="nivelEscrito[0]" style="width:35px;" errorStyleClass="error" errorKey="org.apache.struts.action.ERROR">
+                                    <!--html:select name="Idiomas" property="nivelEscrito[0]" style="width:50px;" errorStyleClass="error" errorKey="org.apache.struts.action.ERROR"-->
                                         <html:option value=""></html:option>
                                         <html:option value="Basico">Basico</html:option>
                                         <html:option value="Intermedio">Intermedio</html:option>
@@ -1169,10 +1171,22 @@
                                     </html:select>
                                 </td>
 
-                                <td>Nivel Conversacional</td>
+                                <td>Nivel Oral</td>
 
                                 <td>
-                                    <html:select name="Idiomas" property="nivelConversacional[0]" errorStyleClass="error" errorKey="org.apache.struts.action.ERROR">
+                                    <html:select property="nivelConversacional[0]" style="width:35px;" errorStyleClass="error" errorKey="org.apache.struts.action.ERROR">
+                                    <!--html:select property="nivelConversacional[0]" style="width:50px;" errorStyleClass="error" errorKey="org.apache.struts.action.ERROR"-->
+                                        <html:option value=""></html:option>
+                                        <html:option value="Basico">Basico</html:option>
+                                        <html:option value="Intermedio">Intermedio</html:option>
+                                        <html:option value="Avanzado">Avanzado</html:option>
+                                    </html:select>
+                                </td>
+                                <td>Nivel Auditivo</td>
+
+                                <td>
+                                    <html:select property="nivelAuditivo[0]" style="width:35px;" errorStyleClass="error" errorKey="org.apache.struts.action.ERROR">
+                                    <!--html:select property="nivelAuditivo[0]" style="width:50px;" errorStyleClass="error" errorKey="org.apache.struts.action.ERROR"-->
                                         <html:option value=""></html:option>
                                         <html:option value="Basico">Basico</html:option>
                                         <html:option value="Intermedio">Intermedio</html:option>
@@ -1185,7 +1199,7 @@
                         </tbody>
                     </table>
                     <input type="button"  value="Especificar Otro Idioma" style="font-size:16px; padding:4px 6px;" onclick="addIdi('IdioBody')"/>
-                    <input type="button" value="Eliminar Seleccionados" style="font-size:16px; padding:4px 6px" onclick="deleteRow2('IdioBody')"/>
+                    <input type="button" value="Eliminar Seleccionados" style="font-size:16px; padding:4px 6px;" onclick="deleteRow2('IdioBody')"/>
 
                     <p  align=center>
                         <html:submit> GUARDAR </html:submit>
