@@ -42,6 +42,8 @@
     </script>
 
     <h4>Lista de Usuarios del Sistema:</h4>
+    <div align="center"><html:link style="text-decoration: underline;font-weight: bold" action="/BuscarDestinatarios">Volver</html:link></div>
+    <br>
     <div id="testTable">
         <table  style="margin: auto" class="altrowstable" id="alternatecolor" >
             <thead>

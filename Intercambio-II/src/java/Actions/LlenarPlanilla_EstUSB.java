@@ -287,6 +287,19 @@ public class LlenarPlanilla_EstUSB extends org.apache.struts.action.Action {
             huboError = true;
             arre[3] = true;
         }
+
+        if (p.getNombreOpcion1().equalsIgnoreCase(p.getNombreOpcion2())
+                && !(p.getNombreOpcion2().equalsIgnoreCase("-")
+                || p.getNombreOpcion2().equalsIgnoreCase("Seleccione"))
+                && !(p.getNombreOpcion1().equalsIgnoreCase("-")
+                || p.getNombreOpcion1().equalsIgnoreCase("Seleccione"))) {
+            
+            error.add("nombreOpcion1", new ActionMessage("error.unisdifer.required"));
+            error.add("nombreOpcion2", new ActionMessage("error.unisdifer.required"));
+            saveErrors(request, error);
+            huboError = true;
+            arre[3] = true;
+        }
         if (p.getProgramaOpcion1().equalsIgnoreCase("Seleccione")) {
             error.add("programaOpcion1", new ActionMessage("error.programaopcion.required"));
             saveErrors(request, error);
@@ -396,8 +409,8 @@ public class LlenarPlanilla_EstUSB extends org.apache.struts.action.Action {
             huboError = true;
             arre[3] = true;
         }
-        
-        
+
+
 
 
         // Paso 1.5 INFORMACION ACADEMICA
