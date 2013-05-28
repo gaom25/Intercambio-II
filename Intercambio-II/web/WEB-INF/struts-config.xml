@@ -425,7 +425,7 @@
        </action>
            
        <action input="/" name="Usuario" path="/CambiarEstadoPostulacion" scope="session" type="Actions.CambiarEstadoPostulacion">
-           <forward name="success" path="listarEstudiantesPostulados"/>
+           <forward name="success" path="exitoContactoGestor"/>
            <forward name="failure" path="accFallo" />
        </action>
        
