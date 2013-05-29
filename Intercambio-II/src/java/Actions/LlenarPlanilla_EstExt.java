@@ -79,8 +79,8 @@ public class LlenarPlanilla_EstExt extends org.apache.struts.action.Action {
             arre[0] = true;
         }
         
-        if (p.getApellido1().equals("")) {
-            error.add("apellido1", new ActionMessage("error.apellidos.required"));
+        if (p.getApellido2().equals("")) {
+            error.add("apellido2", new ActionMessage("error.apellidos.required"));
             saveErrors(request, error);
             huboError = true;
             arre[0] = true;
@@ -129,7 +129,7 @@ public class LlenarPlanilla_EstExt extends org.apache.struts.action.Action {
         
         // Calle no  vacio.
         if (p.getCalle().equals("")) {
-            error.add("calle", new ActionMessage("error.campo.required"));
+            error.add("calle", new ActionMessage("error.calle.required"));
             saveErrors(request, error);
             huboError = true;
             arre[1] = true;
@@ -153,7 +153,7 @@ public class LlenarPlanilla_EstExt extends org.apache.struts.action.Action {
 
         // Ciudad no  vacio.
         if (p.getCiudad().equals("")) {
-            error.add("ciudad", new ActionMessage("error.campo.required"));
+            error.add("ciudad", new ActionMessage("error.ciudad.required"));
             saveErrors(request, error);
             huboError = true;
             arre[1] = true;
@@ -210,23 +210,25 @@ public class LlenarPlanilla_EstExt extends org.apache.struts.action.Action {
        
        // Verifica que se haya seleccionado un programa
        if (p.getNombrePrograma().equalsIgnoreCase("0")){
-            error.add("nombrePrograma", new ActionMessage("error.nombrePrograma.required"));
+            error.add("nombrePrograma", new ActionMessage("error.nombreprograma.required"));
             saveErrors(request, error);
             huboError = true;
             arre[3] = true;
        }
        
        // Verifica que se haya seleccionado un pais de origen
-       if (p.getPaisOrigen().equalsIgnoreCase("-")){
-            error.add("paisOrigen", new ActionMessage("error.paisOrigen.required"));
+       if (p.getPaisOrigen().equalsIgnoreCase("-") || 
+               p.getPaisOrigen().equalsIgnoreCase("0")){
+            error.add("paisOrigen", new ActionMessage("error.paisopcion.required"));
             saveErrors(request, error);
             huboError = true;
             arre[3] = true;
        }
        
        // Verifica que se haya seleccionado una universidad de origen
-       if (p.getNombreUniOrigen().equalsIgnoreCase("-")){
-            error.add("nombreUniOrigen", new ActionMessage("error.nombreUniOrigen.required"));
+       if (p.getNombreUniOrigen().equalsIgnoreCase("-")
+               || p.getNombreUniOrigen().equalsIgnoreCase("0")) {
+            error.add("nombreUniOrigen", new ActionMessage("error.nombreopcion.required"));
             saveErrors(request, error);
             huboError = true;
             arre[3] = true;
@@ -276,7 +278,7 @@ public class LlenarPlanilla_EstExt extends org.apache.struts.action.Action {
        
        //Verifica que la carrera no sea vacia
        if (p.getCarrera().equals("")){
-            error.add("nombreCarrera", new ActionMessage("error.nombrecarrera.required"));
+            error.add("carrera", new ActionMessage("error.nombrecarrera.required"));
             saveErrors(request, error);
             huboError = true;
             arre[4] = true;

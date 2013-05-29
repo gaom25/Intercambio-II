@@ -31,26 +31,27 @@
 
 
     <h4 align ="center">Estudiante Extranjero</h4>
-    
-    <html:image src="images/error.png" /> 
+    <div align="center">
+        <html:image src="images/error.png" /> 
+    </div>
     <br />
-        
+
     <font color="red">
-        <h3 align ="center">
-            Su planilla de solicitud todavia no tiene toda la informacion necesaria,
-            </br>
-            por favor presione el boton de completar planilla para llenar los datos faltantes.
-        </h3>
+    <h3 align ="center">
+        Su planilla de solicitud todavia no tiene toda la informacion necesaria,
+        </br>
+        por favor presione el boton de completar planilla para llenar los datos faltantes.
+    </h3>
     </font>
-    
+
     <html:form  action="/CargarLlenarPlanillaExt" method="POST" enctype="multipart/form-data" onsubmit="return(this)">
         <p hidden="true"><html:text name="PlanillaExt" property="nombreUsuario" maxlength="20" errorStyleClass="error" value ="<%=tmp.toString()%>"
                    errorKey="org.apache.struts.action.ERROR"></html:text></p>
-            <p style="text-align: center">
+        <p style="text-align: center">
             <html:submit >
                 Completar Planilla
             </html:submit>
         </p>
     </html:form>
-        
+
 </html:html>

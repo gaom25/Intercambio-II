@@ -26,7 +26,7 @@ public class CargarIdioma extends Action {
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
         // aqui recibimos los idiomas puestos en el form
-        
+
         Idiomas idioma = (Idiomas) form;
         Idiomas iditmp = new Idiomas();
         Idiomas idiDB = new Idiomas();
@@ -36,53 +36,95 @@ public class CargarIdioma extends Action {
         int i;
         u2 = DBMS.getInstance().obtenerDatos(u);
         idiDB = DBMS.getInstance().obtenerIdiomas(u);
-        
+
         /*obtenemos los arraylist para los campos de cada idioma*/
-        
+
         ArrayList escri = idioma.getListEscrito();
         ArrayList verb = idioma.getListVerbal();
         ArrayList idi = idioma.getListIdioma();
         ArrayList conv = idioma.getListConversacional();
         ArrayList audi = idioma.getListAuditivo();
-        
+
         ArrayList idiomaDB = idiDB.getListIdioma();
-        
+
+        /*Revisamos que todos los campos tenga almenos un valor*/
+        for (int j = 0; j < audi.size(); j++) {
+            if (audi.get(j).toString().equalsIgnoreCase("")) {
+                if (u2.getPrivilegio() == 5) {
+                    return mapping.findForward("usberror");
+                }
+                return mapping.findForward("exterror");
+            }
+        }
+        for (int j = 0; j < conv.size(); j++) {
+            if (conv.get(j).toString().equalsIgnoreCase("")) {
+                if (u2.getPrivilegio() == 5) {
+                    return mapping.findForward("usberror");
+                }
+                return mapping.findForward("exterror");
+            }
+        }
+        for (int j = 0; j < escri.size(); j++) {
+            if (escri.get(j).toString().equalsIgnoreCase("")) {
+                if (u2.getPrivilegio() == 5) {
+                    return mapping.findForward("usberror");
+                }
+                return mapping.findForward("exterror");
+            }
+        }
+        for (int j = 0; j < idi.size(); j++) {
+            if (idi.get(j).toString().equalsIgnoreCase("")) {
+                if (u2.getPrivilegio() == 5) {
+                    return mapping.findForward("usberror");
+                }
+                return mapping.findForward("exterror");
+            }
+        }
+        for (int j = 0; j < verb.size(); j++) {
+            if (verb.get(j).toString().equalsIgnoreCase("")) {
+                if (u2.getPrivilegio() == 5) {
+                    return mapping.findForward("usberror");
+                }
+                return mapping.findForward("exterror");
+            }
+        }
+
         /*por ultimo ejecutamos la funcion que inserta en la base de datos los
          diferentes idiomas de un usuario*/
-        
-        for(i = 0; i<escri.size();i++){
-            if( !idiomaDB.contains((String)idi.get(i))){
 
-                iditmp.setIdiomaDest(0,(String)idi.get(i));
-                iditmp.setNivelConversacional(0,(String)conv.get(i));
-                iditmp.setNivelEscrito(0,(String)escri.get(i));
-                iditmp.setNivelVerbal(0,(String)verb.get(i));
-                iditmp.setNivelAuditivo(0,(String)audi.get(i));
+        for (i = 0; i < escri.size(); i++) {
+            if (!idiomaDB.contains((String) idi.get(i))) {
+
+                iditmp.setIdiomaDest(0, (String) idi.get(i));
+                iditmp.setNivelConversacional(0, (String) conv.get(i));
+                iditmp.setNivelEscrito(0, (String) escri.get(i));
+                iditmp.setNivelVerbal(0, (String) verb.get(i));
+                iditmp.setNivelAuditivo(0, (String) audi.get(i));
                 iditmp.setNombreusuario(idioma.getNombreusuario());
-                
-                if(!DBMS.getInstance().InsertarIdioma(iditmp)){
+
+                if (!DBMS.getInstance().InsertarIdioma(iditmp)) {
 
                     System.out.println("Falloooooo");
                 }
-            }else{
-                iditmp.setIdiomaDest(0,(String)idi.get(i));
-                iditmp.setNivelConversacional(0,(String)conv.get(i));
-                iditmp.setNivelEscrito(0,(String)escri.get(i));
-                iditmp.setNivelVerbal(0,(String)verb.get(i));
-                iditmp.setNivelAuditivo(0,(String)audi.get(i));
+            } else {
+                iditmp.setIdiomaDest(0, (String) idi.get(i));
+                iditmp.setNivelConversacional(0, (String) conv.get(i));
+                iditmp.setNivelEscrito(0, (String) escri.get(i));
+                iditmp.setNivelVerbal(0, (String) verb.get(i));
+                iditmp.setNivelAuditivo(0, (String) audi.get(i));
                 iditmp.setNombreusuario(idioma.getNombreusuario());
-                
-                
-                if(!DBMS.getInstance().modificarIdioma(iditmp)){
+
+
+                if (!DBMS.getInstance().modificarIdioma(iditmp)) {
                     System.out.println("yey");
                 }
             }
         }
-       
-        String accion = "Guardó en el sistema los idiomas que domina";
-        boolean boo = DBMS.getInstance().registrar(u2.getNombreusuario(),accion);
 
-        if(u2.getPrivilegio() == 5){
+        String accion = "Guardó en el sistema los idiomas que domina";
+        boolean boo = DBMS.getInstance().registrar(u2.getNombreusuario(), accion);
+
+        if (u2.getPrivilegio() == 5) {
             return mapping.findForward("usb");
         }
         return mapping.findForward("ext");

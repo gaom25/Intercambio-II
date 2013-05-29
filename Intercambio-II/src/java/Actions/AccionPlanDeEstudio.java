@@ -39,38 +39,38 @@ public class AccionPlanDeEstudio extends Action {
         ArrayList crediuni = plan.getListCreditoUniv();
         ArrayList nomuni = plan.getListMateriaUniv();
         int count = 0;
-        for(int i = 0; i<codiusb.size(); i++){
-            String a = (String)codiusb.get(i);
-            if(a.equalsIgnoreCase("") ){
+        for (int i = 0; i < codiusb.size(); i++) {
+            String a = (String) codiusb.get(i);
+            if (a.equalsIgnoreCase("")) {
                 count++;
             }
         }
-        for(int i = 0; i<crediusb.size(); i++){
-            String a = (String)codiusb.get(i);
-            if(a.equalsIgnoreCase("") ){
+        for (int i = 0; i<crediusb.size(); i++){
+            Integer a = (Integer) crediusb.get(i);
+            if (a <= 0 ) {
                 count++;
             }
         }
-        for(int i = 0; i<nomusb.size(); i++){
-            String a = (String)codiusb.get(i);
-            if(a.equalsIgnoreCase("") ){
+        for (int i = 0; i<nomusb.size(); i++){
+            String a = (String) nomusb.get(i);
+            if (a.equalsIgnoreCase("") ){
                 count++;
             }
         }
-        for(int i = 0; i<codiuni.size(); i++){
-            String a = (String)codiusb.get(i);
-            if(a.equalsIgnoreCase("") ){
+        for (int i = 0; i<codiuni.size(); i++){
+            String a = (String) codiuni.get(i);
+            if (a.equalsIgnoreCase("") ){
                 count++;
             }
         }
-        for(int i = 0; i<crediuni.size(); i++){
-            String a = (String)codiusb.get(i);
-            if(a.equalsIgnoreCase("") ){
+        for (int i = 0; i<crediuni.size(); i++){
+            Integer a = (Integer) crediuni.get(i);
+            if (a <= 0 ){
                 count++;
             }
         }
         for(int i = 0; i<nomuni.size(); i++){
-            String a = (String)codiusb.get(i);
+            String a = (String)nomuni.get(i);
             if(a.equalsIgnoreCase("") ){
                 count++;
             }

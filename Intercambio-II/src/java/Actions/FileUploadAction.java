@@ -47,7 +47,10 @@ public class FileUploadAction extends Action {
             if (i == 0 && !(f.getFileName().contains("jpg") || f.getFileName().contains("png"))) {
                 u2.setNombre("La foto debe ser en formato PNG o JPG");
                 request.setAttribute("Usuario", u2);
-                return mapping.findForward("error");
+                if (u2.getPrivilegio() == 5) {
+                    return mapping.findForward("errorusb");
+                }
+                return mapping.findForward("errorext");
 
             } else if (!f.getFileName().equalsIgnoreCase("")) {
                 cantArchivos++;
@@ -56,7 +59,10 @@ public class FileUploadAction extends Action {
         if (tam.size() != cantArchivos) {
             u2.setNombre("Debe incluir todos archivos");
             request.setAttribute("Usuario", u2);
-            return mapping.findForward("error");
+            if (u2.getPrivilegio() == 5) {
+                return mapping.findForward("errorusb");
+            }
+            return mapping.findForward("errorext");
         }
 
 
@@ -82,7 +88,11 @@ public class FileUploadAction extends Action {
             }
             u2.setNombre(noti);
             request.setAttribute("Usuario", u2);
-            return mapping.findForward("error");
+            if (u2.getPrivilegio() == 5) {
+                return mapping.findForward("errorusb");
+            }
+            return mapping.findForward("errorext");
+
         }
         /*en caso contrario*/
         user.setNombreusuario(nom);

@@ -28,57 +28,57 @@
     </div>
     <script>
         var a= '<bean:write name="Usuario" property="nombre"></bean:write>'</script>
-        <script>
-            function select(){
-                if(a != ""){
-                    var z = a.split(",")
-                    var pal=""
-                    for(i=1;i<z.length-1;i++){
-                        pal = pal + z[i]+"\n"
-                    }
-                    if (pal != ""){
-                        document.getElementById('error').innerHTML='<div align="center" style="width:100%"><pre align="center" style="color: #B22222;font-family:san-serif">Contiene error en los pasos:\n '+pal+'</pre></div>'
-                    }
+    <script>
+        function select(){
+            if(a != ""){
+                var z = a.split(",")
+                var pal=""
+                for(i=1;i<z.length-1;i++){
+                    pal = pal + z[i]+"\n"
+                }
+                if (pal != ""){
+                    document.getElementById('error').innerHTML='<div align="center" style="width:100%"><pre align="center" style="color: #B22222;font-family:san-serif">Contiene error en los pasos:\n '+pal+'</pre></div>'
                 }
             }
-            window.onload=function(){
-                select()
-            }
-        </script>
+        }
+        window.onload=function(){
+            select()
+        }
+    </script>
 
 
-        <div class="nav" style="text-align: center;">
-            <a href="#" onclick=" if (true) show('datosplanilla'), hide('archivos'),hide('plan'),hide('idio')"> 1. Formulario de Datos </a>
-        </div>
+    <div class="nav" style="text-align: center;">
+        <a href="#" onclick=" if (true) show('datosplanilla'), hide('archivos'),hide('plan'),hide('idio')"> 1. Formulario de Datos </a>
+    </div>
 
-        <div id="datosplanilla" style="display: none; width:92%; margin-left: 8%">
+    <div id="datosplanilla" style="display: none; width:92%; margin-left: 8%">
 
-            <h5>El siguiente formulario consta de 7 pasos, todos los campos son obligatorios</h5>
-            <div>
-                <div align ="center">
+        <h5>El siguiente formulario consta de 7 pasos, todos los campos son obligatorios</h5>
+        <div>
+            <div align ="center">
 
                 <html:form action="/LlenarPlanilla_EstUSB"  method="POST" acceptCharset="ISO-8859-1" enctype="multipart/form-data" onsubmit="return(this)">
                     <p hidden="true"><html:text name="PlanillaUSB" property="nombreUsuario" maxlength="20" errorStyleClass="error" value ="<%=var.toString()%>"
                                errorKey="org.apache.struts.action.ERROR"></html:text></p>
+                    <br>
+
+                    <div id="opci1" class="divformulario" style="display: block">
                         <br>
+                        <span><a> Paso 1.1: </a><b><a style="text-decoration: underline">DATOS PERSONALES</a></b></span>
+                        <br>
+                        <br>
+                        <table border="0"  align="center">
+                            <tbody>
+                                <tr>
+                                    <td style="font-weight: bold">Primer Apellido</td>
 
-                        <div id="opci1" class="divformulario" style="display: block">
-                            <br>
-                            <span><a> Paso 1.1: </a><b><a style="text-decoration: underline">DATOS PERSONALES</a></b></span>
-                            <br>
-                            <br>
-                            <table border="0"  align="center">
-                                <tbody>
-                                    <tr>
-                                        <td style="font-weight: bold">Primer Apellido</td>
-
-                                        <td>
+                                    <td>
                                         <html:text name="PlanillaUSB" property="apellido1" maxlength="80" errorStyleClass="error"
                                                    errorKey="org.apache.struts.action.ERROR"></html:text>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="2">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
                                         <html:errors property="apellido1" />
                                     </td>
                                 </tr>
@@ -89,11 +89,11 @@
                                     <td>
                                         <html:text name="PlanillaUSB" property="apellido2" maxlength="80" errorStyleClass="error"
                                                    errorKey="org.apache.struts.action.ERROR"></html:text>
-                                        </td>
+                                    </td>
 
-                                    </tr>
-                                    <tr>
-                                        <td colspan="2">
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
                                         <html:errors property="apellido2" />
                                     </td>
                                 </tr>
@@ -104,11 +104,11 @@
                                     <td>
                                         <html:text name="PlanillaUSB" property="nombre1" maxlength="80" errorStyleClass="error"
                                                    errorKey="org.apache.struts.action.ERROR"></html:text>
-                                        </td>
+                                    </td>
 
-                                    </tr>
-                                    <tr>
-                                        <td colspan="2">
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
                                         <html:errors property="nombre1" />
                                     </td>
                                 </tr>
@@ -119,11 +119,11 @@
                                     <td>
                                         <html:text name="PlanillaUSB" property="nombre2" maxlength="80" errorStyleClass="error"
                                                    errorKey="org.apache.struts.action.ERROR"></html:text>
-                                        </td>
+                                    </td>
 
-                                    </tr>
-                                    <tr>
-                                        <td colspan="2">
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
                                         <html:errors property="nombre2" />
                                     </td>
 
@@ -236,10 +236,10 @@
                                     <td>
                                         <html:text name="PlanillaUSB" property="urbanizacion" maxlength="80" errorStyleClass="error"
                                                    errorKey="org.apache.struts.action.ERROR"></html:text>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="2">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
                                         <html:errors property="urbanizacion" />
                                     </td>
                                 </tr>                                
@@ -250,11 +250,11 @@
                                     <td>
                                         <html:text name="PlanillaUSB" property="calle" maxlength="80" errorStyleClass="error"
                                                    errorKey="org.apache.struts.action.ERROR"></html:text>
-                                        </td>
+                                    </td>
 
-                                    </tr>
-                                    <tr>
-                                        <td colspan="2">
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
                                         <html:errors property="calle" />
                                     </td>
                                 </tr>    
@@ -264,10 +264,10 @@
                                     <td>
                                         <html:text name="PlanillaUSB" property="edificio" maxlength="80" errorStyleClass="error"
                                                    errorKey="org.apache.struts.action.ERROR"></html:text>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="2">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
                                         <html:errors property="edificio" />
                                     </td>
                                 </tr>                                    
@@ -277,10 +277,10 @@
                                     <td>
                                         <html:text name="PlanillaUSB" property="apartamento" maxlength="80" errorStyleClass="error"
                                                    errorKey="org.apache.struts.action.ERROR"></html:text>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="2">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
                                         <html:errors property="apartamento" />
                                     </td>
                                 </tr>                                    
@@ -1027,8 +1027,8 @@
                         <br>
                         <p  align=center>
                             <html:submit> GUARDAR  </html:submit>
-                            </p> 
-                        </div>                
+                        </p> 
+                    </div>                
 
 
 
@@ -1052,28 +1052,28 @@
                     <br />
                     <p hidden="true"><html:text name="FileUploadForm" property="nombreusuario" maxlength="20" errorStyleClass="error" value ="<%=var.toString()%>"
                                errorKey="org.apache.struts.action.ERROR"></html:text></p>
-                        <div style="width:auto;height:auto;">
-                            <table id="dataTable" width="350px" cellspacing="14px">
-                                <tbody id="dataBody">
-                                    <tr>
-                                        <td></td>
-                                        <td>Foto</td>
-                                        <td valign="left">
-                                            <div id="archivos" >
-                                                <div class="feed">  
+                    <div style="width:auto;height:auto;">
+                        <table id="dataTable" width="350px" cellspacing="14px">
+                            <tbody id="dataBody">
+                                <tr>
+                                    <td></td>
+                                    <td>Foto</td>
+                                    <td valign="left">
+                                        <div id="archivos" >
+                                            <div class="feed">  
                                                 <html:file value="hola" property="theFile[0]"></html:file>
-                                                    <br />
-                                                </div>
+                                                <br />
                                             </div>
+                                        </div>
 
-                                        </td> 
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td>Informe Académico</td>
-                                        <td valign="middle">
-                                            <div id="archivos" >
-                                                <div class="feed">  
+                                    </td> 
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>Informe Académico</td>
+                                    <td valign="middle">
+                                        <div id="archivos" >
+                                            <div class="feed">  
 
                                                 <html:file value="chao" property="theFile[1]" />
                                                 <br />
@@ -1136,7 +1136,7 @@
             </div>
             <p  align=center>
                 <html:submit>Cargar Documentos </html:submit>
-                </p>
+            </p>
         </html:form>
     </div>
     <br />
@@ -1156,27 +1156,27 @@
                     <p hidden="true"><html:text name="PlanDeEstudio" property="nombreUsuario" maxlength="20" errorStyleClass="error" value ="<%=var.toString()%>"
                                errorKey="org.apache.struts.action.ERROR"></html:text></p>
 
-                        <table border="0"  align="center" style="margin-left: auto;margin-right: auto">
-                            <tbody id ="MateBody">
-                                <tr>
-                                    <td></td>
-                                    <td> Código-USB</td>
+                    <table border="0"  align="center" style="margin-left: auto;margin-right: auto">
+                        <tbody id ="MateBody">
+                            <tr>
+                                <td></td>
+                                <td> Código-USB</td>
 
-                                    <td> Nombre-USB</td>
+                                <td> Nombre-USB</td>
 
-                                    <td> Créditos-USB</td>
+                                <td> Créditos-USB</td>
 
-                                    <td> Codigo-Univ. Destino</td>
+                                <td> Codigo-Univ. Destino</td>
 
-                                    <td> Nombre-Univ. Destino</td>                                
+                                <td> Nombre-Univ. Destino</td>                                
 
-                                    <td> Créditos-Univ. Destino</td>
+                                <td> Créditos-Univ. Destino</td>
 
-                                </tr>
+                            </tr>
 
-                                <tr>
-                                    <td> <input type="checkbox" name="c[]"></td>
-                                    <td>
+                            <tr>
+                                <td> <input type="checkbox" name="c[]"></td>
+                                <td>
                                     <html:text name="PlanDeEstudio" property="codigoUSB[0]" maxlength="45" errorStyleClass="error" value="" style="width:80%;"
                                                errorKey="org.apache.struts.action.ERROR">
                                     </html:text>
@@ -1223,7 +1223,7 @@
             </div>
             <p  align=center>
                 <html:submit>Cargar Plan </html:submit>
-                </p>
+            </p>
         </html:form>
     </div>
 
@@ -1243,60 +1243,57 @@
                                errorKey="org.apache.struts.action.ERROR"></html:text></p>
 
 
-                        <table border="0"  align="center" style="margin-left: auto;margin-right: auto">
-                            <tbody id ="IdioBody">
+                    <table border="0"  align="center" style="margin-left: auto;margin-right: auto;width: 100%">
+                        <tbody id ="IdioBody">
 
-                                <tr>
-                                    <td><INPUT type="checkbox" name="ch[]"/></td>
-                                    <td> Idioma que maneja:</td>
+                            <tr>
+                                <td></td>
+                                <td> Idioma que maneja:</td>
+                                <td>Nivel Verbal</td>
+                                <td>Nivel Escrito</td>
+                                <td>Nivel Oral</td>
+                                <td>Nivel Auditivo</td>
+                            </tr>
+                            <tr>
+                                <td><INPUT type="checkbox" name="ch[]"/></td>
 
-                                    <td>
-                                    <html:text name="Idiomas" property="idiomaDest[0]" maxlength="45" style="width:100%;" errorStyleClass="error"
+
+                                <td>
+                                    <html:text name="Idiomas" property="idiomaDest[0]" maxlength="45" style="width:80%;" errorStyleClass="error"
                                                errorKey="org.apache.struts.action.ERROR">
                                     </html:text>
                                 </td>
-
-                                <td>Nivel Verbal</td>
-
                                 <td>
 
-                                    <html:select property="nivelVerbal[0]" style="width:100%;" errorStyleClass="error" errorKey="org.apache.struts.action.ERROR">
-                                    <!--html:select property="nivelVerbal[0]" style="width:50px;" errorStyleClass="error" errorKey="org.apache.struts.action.ERROR"-->
+                                    <html:select property="nivelVerbal[0]" style="width:80%;" errorStyleClass="error" errorKey="org.apache.struts.action.ERROR">
+                                        <!--html:select property="nivelVerbal[0]" style="width:50px;" errorStyleClass="error" errorKey="org.apache.struts.action.ERROR"-->
                                         <html:option value=""></html:option>
                                         <html:option value="Basico">Basico</html:option>
                                         <html:option value="Intermedio">Intermedio</html:option>
                                         <html:option value="Avanzado">Avanzado</html:option>
                                     </html:select>
                                 </td>
-
-                                <td>Nivel Escrito</td>
-
                                 <td>
-                                    <html:select property="nivelEscrito[0]" style="width:100%;" errorStyleClass="error" errorKey="org.apache.struts.action.ERROR">
-                                    <!--html:select property="nivelEscrito[0]" style="width:50px;" errorStyleClass="error" errorKey="org.apache.struts.action.ERROR"-->
+                                    <html:select property="nivelEscrito[0]" style="width:80%;" errorStyleClass="error" errorKey="org.apache.struts.action.ERROR">
+                                        <!--html:select property="nivelEscrito[0]" style="width:50px;" errorStyleClass="error" errorKey="org.apache.struts.action.ERROR"-->
                                         <html:option value=""></html:option>
                                         <html:option value="Basico">Basico</html:option>
                                         <html:option value="Intermedio">Intermedio</html:option>
                                         <html:option value="Avanzado">Avanzado</html:option>
                                     </html:select>
                                 </td>
-
-                                <td>Nivel Oral</td>
-
                                 <td>
-                                    <html:select property="nivelConversacional[0]" style="width:100%;" errorStyleClass="error" errorKey="org.apache.struts.action.ERROR">
-                                    <!--html:select property="nivelConversacional[0]" style="width:50px;" errorStyleClass="error" errorKey="org.apache.struts.action.ERROR"-->
+                                    <html:select property="nivelConversacional[0]" style="width:80%;" errorStyleClass="error" errorKey="org.apache.struts.action.ERROR">
+                                        <!--html:select property="nivelConversacional[0]" style="width:50px;" errorStyleClass="error" errorKey="org.apache.struts.action.ERROR"-->
                                         <html:option value=""></html:option>
                                         <html:option value="Basico">Basico</html:option>
                                         <html:option value="Intermedio">Intermedio</html:option>
                                         <html:option value="Avanzado">Avanzado</html:option>
                                     </html:select>
                                 </td>
-                                <td>Nivel Auditivo</td>
-
                                 <td>
-                                    <html:select property="nivelAuditivo[0]" style="width:100%;" errorStyleClass="error" errorKey="org.apache.struts.action.ERROR">
-                                    <!--html:select property="nivelAuditivo[0]" style="width:50px;" errorStyleClass="error" errorKey="org.apache.struts.action.ERROR"-->
+                                    <html:select property="nivelAuditivo[0]" style="width:80%;" errorStyleClass="error" errorKey="org.apache.struts.action.ERROR">
+                                        <!--html:select property="nivelAuditivo[0]" style="width:50px;" errorStyleClass="error" errorKey="org.apache.struts.action.ERROR"-->
                                         <html:option value=""></html:option>
                                         <html:option value="Basico">Basico</html:option>
                                         <html:option value="Intermedio">Intermedio</html:option>
@@ -1313,7 +1310,7 @@
 
                     <p  align=center>
                         <html:submit> GUARDAR </html:submit>
-                        </p>
+                    </p>
                 </html:form>
             </div>
         </div>

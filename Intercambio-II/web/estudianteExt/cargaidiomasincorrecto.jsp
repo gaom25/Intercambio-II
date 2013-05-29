@@ -1,16 +1,18 @@
 <%-- 
-    Document   : planillaIncompleta
-    Created on : Nov 13, 2012, 3:48:59 PM
+    Document   : llenadoplanillaincorrecto
+    Created on : 02-dic-2012, 11:45:01
     Author     : dreabalbas
 --%>
 <%Object tmp = session.getAttribute("nombreusuario");%>
 <%Object var = session.getAttribute("nombre");%>
 <%@page import="javax.swing.text.html.HTML"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://struts.apache.org/tags-tiles" prefix="tiles" %>
 <%@ taglib uri="http://struts.apache.org/tags-bean" prefix="bean" %>
 <%@ taglib uri="http://struts.apache.org/tags-html" prefix="html" %>
 <%@ taglib uri="http://struts.apache.org/tags-logic" prefix="logic" %>
-<%@ taglib uri="http://struts.apache.org/tags-tiles" prefix="tiles" %>
+
+
 
 <title>Sistema de Gesti&oacute;n de Intercambio</title>
 <html:html lang="true">
@@ -30,26 +32,26 @@
 
     <h4 align ="center">Estudiante Extranjero</h4>
     <div align="center">
-        <html:image src="images/error.png" /> 
+    <html:image src="images/error.png" /> 
     </div>
     <br />
-
+        
     <font color="red">
-    <h3 align ="center" style="width: 80%;margin-left: 13%">
-        Su planilla de solicitud todavia no tiene toda la informacion necesaria,
-        </br>
-        por favor presione el boton de completar planilla para llenar los datos faltantes.
-    </h3>
+    <h3 align ="center" style="width: 80%;margin-left: 12%">
+            Complete todos los campos de la seccion de idiomas
+            <br>
+            por favor presione el boton de completar planilla para llenar los datos faltantes.
+        </h3>
     </font>
-
-    <html:form  action="/CargarLlenarPlanillaExt" method="POST" acceptCharset="ISO-8859-1" enctype="multipart/form-data" onsubmit="return(this)">
+    
+    <html:form  action="/CargarLlenarPlanillaExt" method="POST" enctype="multipart/form-data" onsubmit="return(this)">
         <p hidden="true"><html:text name="PlanillaExt" property="nombreUsuario" maxlength="20" errorStyleClass="error" value ="<%=tmp.toString()%>"
                    errorKey="org.apache.struts.action.ERROR"></html:text></p>
-        <p style="text-align: center">
+            <p style="text-align: center">
             <html:submit >
                 Completar Planilla
             </html:submit>
         </p>
     </html:form>
-
+        
 </html:html>

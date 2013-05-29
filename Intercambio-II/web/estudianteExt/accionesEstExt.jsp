@@ -41,16 +41,6 @@
         </p>
     </html:form>
 
-    <%--<html:form action="/ListarDocumentos" method="POST" enctype="multipart/form-data" onsubmit="return(this)">
-        <p hidden="true"><html:text name="Usuario" property="nombreUsuario" maxlength="20" errorStyleClass="error" value ="<%=tmp.toString()%>"
-                   errorKey="org.apache.struts.action.ERROR"></html:text></p>
-            <p style="text-align: center">
-            <html:submit >
-                Ver Archivos Adjuntos
-            </html:submit>
-        </p>
-    </html:form>--%>
-
     <html:form action="/VerificarPlanillaExt" method="POST" enctype="multipart/form-data" onsubmit="return(this)">
         <table border="0" >
             <tbody>
@@ -62,12 +52,8 @@
                         <td>        
                             <p style="text-align: center">
                             <html:submit onclick="javascript: return confirm('¿Está seguro que los datos son correctos?')">
-                                Generar Planilla
+                                Descargar Planilla
                             </html:submit>
-                            <html:select  property="confirmar">
-                                <html:option value="2013-2014">2013-2014</html:option>
-                                <html:option value="2014-1015">2014-2015</html:option>
-                            </html:select>
                         </p>    
                     </td>
 
@@ -81,7 +67,7 @@
                    errorKey="org.apache.struts.action.ERROR"></html:text></p>
             <p style="text-align: center">
             <html:submit >
-                Generar Carpeta
+                Descargar Carpeta
             </html:submit>
         </p>
     </html:form>

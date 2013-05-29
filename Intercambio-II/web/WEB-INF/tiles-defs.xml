@@ -266,6 +266,10 @@
     <definition name="cargaplanincorrecta" extends="baseEstudiante"> <!-- pagina de listar usuarios -->
         <put name="body" value="/estudianteUSB/cargaplanincorrecto.jsp" />
     </definition>
+    
+    <definition name="cargaidiomaErr" extends="baseEstudiante"> 
+        <put name="body" value="/estudianteUSB/cargaidiomasincorrecto.jsp" />
+    </definition>
         
        
     <!-- ESTUDIANTE EXT -->
@@ -276,6 +280,9 @@
         
     <definition name="errortamExt" extends="baseEstudianteExt"> <!-- pagina arror de tamano archivo de estudiante usb -->
         <put name="body" value="/estudianteExt/errortam.jsp" />
+    </definition>
+    <definition name="cargaplanincorrectoExt" extends="baseEstudianteExt"> <!-- pagina arror de tamano archivo de estudiante usb -->
+        <put name="body" value="/estudianteExt/cargaplanincorrecto.jsp" />
     </definition>
         
     <definition name="accionesEstExt" extends="baseEstudianteExt"> <!-- pagina acciones de estudiante usb -->
@@ -344,6 +351,9 @@
         
     <definition name="listarDocumentosExt" extends="baseEstudianteExt"> <!-- pagina de listar usuarios -->
         <put name="body" value="/estudianteExt/listarDocumentos.jsp" />
+    </definition>
+    <definition name="cargaidiomaExtErr" extends="baseEstudianteExt"> <!-- pagina de listar usuarios -->
+        <put name="body" value="/estudianteExt/cargaidiomasincorrecto.jsp" />
     </definition>
         
         

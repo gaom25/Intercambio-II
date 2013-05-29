@@ -34,7 +34,7 @@
                 var z = a.split(",")
                 var pal=""
                 for(i=1;i<z.length-1;i++){
-                       pal = pal + z[i]+"\n"
+                    pal = pal + z[i]+"\n"
                 }
                 
                 if (pal != ""){
@@ -47,7 +47,7 @@
             select()
         }
     </script>
-    
+
 
     <div class="nav" style="text-align: center;">
         <a href="#" onclick=" if (true) show('datosplanilla'), hide('archivos'),hide('plan'),hide('idio')"> 1. Formulario de Datos </a>
@@ -359,35 +359,35 @@
                                 <option value="zimbabwean">Zimbabwean</option>
                             </html:select>
                             </td>
-                        </tr>
-                        <tr>
-                            <td colspan="2">
-                                <html:errors property="nacionalidad" />
-                            </td>
-                        </tr>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <html:errors property="nacionalidad" />
+                                </td>
+                            </tr>
 
-                        <tr>
-                            <td style="font-weight: bold">Número de pasaporte</td>
+                            <tr>
+                                <td style="font-weight: bold">Número de pasaporte</td>
 
-                            <td>
-                                <html:text name="PlanillaExt" property="pasaporte" maxlength="10" errorStyleClass="error"
-                                           errorKey="org.apache.struts.action.ERROR">
-                                </html:text>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <html:errors property="pasaporte" />
-                            </td>
-                        </tr>
+                                <td>
+                                    <html:text name="PlanillaExt" property="pasaporte" maxlength="10" errorStyleClass="error"
+                                               errorKey="org.apache.struts.action.ERROR">
+                                    </html:text>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <html:errors property="pasaporte" />
+                                </td>
+                            </tr>
 
-                        </tbody>
+                            </tbody>
                         </table>
                         <br>
                         <div>      
                             <span style="float: right"><a class="button" href='javascript:seleccion(2);'> Siguiente </a></span>
                         </div>
-                                <br><br>
+                        <br><br>
                     </div>
 
                     <div id="opci2" class="divformulario" style="display: none" >
@@ -400,7 +400,7 @@
 
                                 <tr>
                                     <td style="font-weight: bold">Calle</td>
-                                
+
                                     <td colspan="2">
                                         <html:text name="PlanillaExt" property="calle" maxlength="80" errorStyleClass="error"
                                                    errorKey="org.apache.struts.action.ERROR"></html:text>
@@ -411,10 +411,10 @@
                                         <html:errors property="calle" />
                                     </td>
                                 </tr>
-                                
+
                                 <tr>
                                     <td style="font-weight: bold">Edificio / Casa </td>
-                                
+
                                     <td colspan="2">
                                         <html:text name="PlanillaExt" property="edificio" maxlength="80" errorStyleClass="error"
                                                    errorKey="org.apache.struts.action.ERROR"></html:text>
@@ -427,7 +427,7 @@
                                 </tr>
                                 <tr>
                                     <td style="font-weight: bold">Apartamento / Núm. Casa</td>
-                                
+
                                     <td colspan="2">
                                         <html:text name="PlanillaExt" property="apartamento" maxlength="80" errorStyleClass="error"
                                                    errorKey="org.apache.struts.action.ERROR"></html:text>
@@ -441,14 +441,14 @@
 
                                 <tr>
                                     <td style="font-weight: bold">Ciudad</td>
-                                
+
                                     <td colspan="2">
                                         <html:text name="PlanillaExt" property="ciudad"  maxlength="30" errorStyleClass="error"
                                                    errorKey="org.apache.struts.action.ERROR">
                                         </html:text>
                                     </td>
                                 </tr>
-                                 <tr>
+                                <tr>
                                     <td colspan="2">
                                         <html:errors property="ciudad" />
                                     </td>
@@ -517,7 +517,7 @@
                                 </tr>
                                 <tr>
                                     <td colspan="2">
-                                        <html:errors property="telefono" />
+                                        <html:errors property="telefonoCelular" />
                                     </td>
                                 </tr>
 
@@ -580,10 +580,10 @@
                                             <html:option value="Bilaterales">Convenios Bilaterales </html:option>
                                             <html:option value="SMILE">Programa SMILE </html:option>
                                             <html:option value="CINDA">Programa de Movilidad Estudiantil CINDA </html:option>
-                                       </html:select>
+                                        </html:select>
                                     </td>
                                 </tr>
-                                
+
                                 <tr>
                                     <td colspan="2">
                                         <html:errors property="nombrePrograma"/>
@@ -610,7 +610,7 @@
                                         </html:select>
                                     </td>
                                 </tr>
-                                
+
                                 <tr>
                                     <td colspan="2">
                                         <html:errors property="paisOrigen"/>
@@ -625,7 +625,7 @@
                                         </html:select>
                                     </td>
                                 </tr>
-                                
+
                                 <tr>
                                     <td colspan="2">
                                         <html:errors property="nombreUniOrigen"/>
@@ -731,7 +731,7 @@
                                         </html:select>
                                     </td>
                                 </tr>
-                                
+
                                 <tr>
                                     <td colspan="2">
                                         <html:errors property="areaEstud"/>
@@ -748,7 +748,7 @@
                                 </tr>
                                 <tr>
                                     <td colspan="2">
-                                        <html:errors property="nombrecarrera" />
+                                        <html:errors property="carrera" />
                                     </td>
                                 </tr>
 
@@ -856,7 +856,7 @@
                                         <html:errors property="tlfRepCasa" />
                                     </td>
                                 </tr>
-                                
+
                                 <tr>
                                     <td style="font-weight: bold"> E-mail: </td>
                                     <td>
@@ -870,7 +870,7 @@
                                         <html:errors property="emailRep" />
                                     </td>
                                 </tr>
-                                
+
                                 <tr>
                                     <td style="font-weight: bold"> Relación con el Estudiante: </td>
                                     <td>
@@ -907,8 +907,8 @@
                         <br>
                         <p  align=center>
                             <html:submit> GUARDAR </html:submit>
-                            </p>     
-                        </div>                
+                        </p>     
+                    </div>                
 
                 </html:form>
             </div>
@@ -1094,8 +1094,8 @@
         <a href="#" onclick=" if (true) hide('datosplanilla'), hide('archivos'),hide('plan'),show('idio')"> 4. Dominio de idiomas </a>
     </div>
 
-     <div id="idio" style="display: none; width: 88%; margin-left: 10%">
-        <div style="width:850px;height:auto;border:3px solid #126598; border-radius: 10px; background: #dcebe8">
+    <div id="idio" style="display: none; width: 100%; margin-left: 13%">
+        <div style="width:80%;height:auto;border:3px solid #126598; border-radius: 10px; background: #dcebe8">
             <div align=center>
                 <html:form action="/CargarIdioma" method="post" acceptCharset="ISO-8859-1" enctype="multipart/form-data">
                     <br />
@@ -1103,7 +1103,7 @@
                                errorKey="org.apache.struts.action.ERROR"></html:text></p>
 
                     <table border="0"  align="center">
-                        <tbody id ="IdioBody">
+                        <tbody>
 
                             <tr>
                                 <td> </td>
@@ -1135,67 +1135,63 @@
                                     <html:errors property="tomarCursoDeEspaniol" />
                                 </td>
                             </tr>
-
+                        </tbody>
+                    </table>
+                    <table table border="0"  align="center">
+                        <tbody id ="IdioBody">
+                            <tr>
+                                <td></td>
+                                <td> Idioma que maneja: </td>
+                                <td>Nivel Verbal</td>
+                                <td>Nivel Escrito</td>
+                                <td>Nivel Oral</td>
+                                <td>Nivel Auditivo</td>
+                            </tr>
                             <tr>
                                 <td><INPUT type="checkbox" name="ch[]"/></td>
-
-                                <td> Idioma que maneja: </td>
                                 <td>
-                                    <html:text name="Idiomas" property="idiomaDest[0]" maxlength="45" style="width:76px;" errorStyleClass="error"
+                                    <html:text name="Idiomas" property="idiomaDest[0]" maxlength="45" style="width:80%;" errorStyleClass="error"
                                                errorKey="org.apache.struts.action.ERROR">
                                     </html:text>
                                 </td>
-
-                                <td>Nivel Verbal</td>
-
                                 <td>
 
-                                    <html:select name="Idiomas" property="nivelVerbal[0]" style="width:35px;" errorStyleClass="error" errorKey="org.apache.struts.action.ERROR">
-                                    <!--html:select name="Idiomas" property="nivelVerbal[0]" style="width:50px;" errorStyleClass="error" errorKey="org.apache.struts.action.ERROR"-->
+                                    <html:select name="Idiomas" property="nivelVerbal[0]" style="width:80%;" errorStyleClass="error" errorKey="org.apache.struts.action.ERROR">
+                                        <!--html:select name="Idiomas" property="nivelVerbal[0]" style="width:50px;" errorStyleClass="error" errorKey="org.apache.struts.action.ERROR"-->
                                         <html:option value=""></html:option>
                                         <html:option value="Basico">Basico</html:option>
                                         <html:option value="Intermedio">Intermedio</html:option>
                                         <html:option value="Avanzado">Avanzado</html:option>
                                     </html:select>
                                 </td>
-
-                                <td>Nivel Escrito</td>
-
                                 <td>
-                                    <html:select name="Idiomas" property="nivelEscrito[0]" style="width:35px;" errorStyleClass="error" errorKey="org.apache.struts.action.ERROR">
-                                    <!--html:select name="Idiomas" property="nivelEscrito[0]" style="width:50px;" errorStyleClass="error" errorKey="org.apache.struts.action.ERROR"-->
+                                    <html:select name="Idiomas" property="nivelEscrito[0]" style="width:80%;" errorStyleClass="error" errorKey="org.apache.struts.action.ERROR">
+                                        <!--html:select name="Idiomas" property="nivelEscrito[0]" style="width:50px;" errorStyleClass="error" errorKey="org.apache.struts.action.ERROR"-->
                                         <html:option value=""></html:option>
                                         <html:option value="Basico">Basico</html:option>
                                         <html:option value="Intermedio">Intermedio</html:option>
                                         <html:option value="Avanzado">Avanzado</html:option>
                                     </html:select>
                                 </td>
-
-                                <td>Nivel Oral</td>
-
                                 <td>
-                                    <html:select property="nivelConversacional[0]" style="width:35px;" errorStyleClass="error" errorKey="org.apache.struts.action.ERROR">
-                                    <!--html:select property="nivelConversacional[0]" style="width:50px;" errorStyleClass="error" errorKey="org.apache.struts.action.ERROR"-->
+                                    <html:select property="nivelConversacional[0]" style="width:80%;" errorStyleClass="error" errorKey="org.apache.struts.action.ERROR">
+                                        <!--html:select property="nivelConversacional[0]" style="width:50px;" errorStyleClass="error" errorKey="org.apache.struts.action.ERROR"-->
                                         <html:option value=""></html:option>
                                         <html:option value="Basico">Basico</html:option>
                                         <html:option value="Intermedio">Intermedio</html:option>
                                         <html:option value="Avanzado">Avanzado</html:option>
                                     </html:select>
                                 </td>
-                                <td>Nivel Auditivo</td>
-
                                 <td>
-                                    <html:select property="nivelAuditivo[0]" style="width:35px;" errorStyleClass="error" errorKey="org.apache.struts.action.ERROR">
-                                    <!--html:select property="nivelAuditivo[0]" style="width:50px;" errorStyleClass="error" errorKey="org.apache.struts.action.ERROR"-->
+                                    <html:select property="nivelAuditivo[0]" style="width:80%;" errorStyleClass="error" errorKey="org.apache.struts.action.ERROR">
+                                        <!--html:select property="nivelAuditivo[0]" style="width:50px;" errorStyleClass="error" errorKey="org.apache.struts.action.ERROR"-->
                                         <html:option value=""></html:option>
                                         <html:option value="Basico">Basico</html:option>
                                         <html:option value="Intermedio">Intermedio</html:option>
                                         <html:option value="Avanzado">Avanzado</html:option>
                                     </html:select>
                                 </td>
-
                             </tr>
-
                         </tbody>
                     </table>
                     <input type="button"  value="Especificar Otro Idioma" style="font-size:16px; padding:4px 6px;" onclick="addIdi('IdioBody')"/>

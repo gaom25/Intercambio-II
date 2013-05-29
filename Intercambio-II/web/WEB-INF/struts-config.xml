@@ -507,6 +507,8 @@
        <action path="/CargarIdioma" type="Actions.CargarIdioma" scope="request" name="Idiomas" >
            <forward name ="usb" path="cargaidioma" />
            <forward name ="ext" path="cargaidiomaExt" />
+           <forward name ="usberror" path="cargaidiomaErr" />
+           <forward name ="exterror" path="cargaidiomaExtErr" />
        </action>
        
        <action input="/" path="/AccionPlanDeEstudio" type="Actions.AccionPlanDeEstudio" scope="request" name="PlanDeEstudio" >
@@ -540,7 +542,8 @@
                scope="request">
             <forward name="usb" path="cargaarchivoscorrecta"/>
             <forward name="ext" path="cargaarchivoscorrectaExt"/>
-            <forward name="error" path="errortam"/>
+            <forward name="errorusb" path="errortam"/>
+            <forward name="errorext" path="errortamExt"/>
        </action>
        
       <action input="/" name="Usuario" path="/ListarEstudiantesPostulados" scope="session" type="Actions.ListarEstudiantesPostulados">
@@ -563,6 +566,7 @@
       
       <action name="PlanExtranjero" path="/AccionPlanEstudioExt" scope="session" type="Actions.AccionPlanEstudioExt">
            <forward name ="success" path="cargaplancorrectaExt" />
+           <forward name ="fail" path="cargaplanincorrectoExt" />
       </action>
        
       <action input="/" name="PlanillaExt" path="/LlenarPlanilla_EstExt" scope="session" type="Actions.LlenarPlanilla_EstExt" >

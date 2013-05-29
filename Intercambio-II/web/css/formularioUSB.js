@@ -152,7 +152,7 @@
             var avanzado = "Avanzado";
             var arr = "chk[]";
             var type = "text";
-            var style1 = "width:100%;";
+            var style1 = "width:80%;";
             //var style2 = "padding:1%;";
             
             var tit1 = "Idioma que maneja";
@@ -197,19 +197,14 @@
             var select3 = document.createElement("select");
             //auditivo
             var select4 = document.createElement("select");
-            var td = document.createElement("td");
             var td2 = document.createElement("td");
-            var td3 = document.createElement("td");
             var td4 = document.createElement("td");
-            var td5 = document.createElement("td");
             var td6 = document.createElement("td");
             var td7 = document.createElement("td");
-            var td8 = document.createElement("td");
             var td9 = document.createElement("td");
             var td10 = document.createElement("td");
             
             //auditivo
-            var td11 = document.createElement("td");
             var td12 = document.createElement("td");
             
             //paddings para todas las columnas
@@ -284,13 +279,13 @@
             
             td7.appendChild(check);
             tr.appendChild(td7);
-            td.innerHTML = tit1;
-            tr.appendChild(td);
+            //td.innerHTML = tit1;
+            //tr.appendChild(td);
             td2.appendChild(o2);
             tr.appendChild(td2);
             
-            td3.innerHTML = tit2;
-            tr.appendChild(td3);
+            //td3.innerHTML = tit2;
+            //tr.appendChild(td3);
             select1.appendChild(op10);
             select1.appendChild(op7);
             select1.appendChild(op1);
@@ -299,8 +294,8 @@
             td4.appendChild(select1);
             tr.appendChild(td4);
             
-            td5.innerHTML = tit3;
-            tr.appendChild(td5);
+            //td5.innerHTML = tit3;
+            //tr.appendChild(td5);
             select2.appendChild(op11);
             select2.appendChild(op8);
             select2.appendChild(op4);
@@ -309,8 +304,8 @@
             td6.appendChild(select2);
             tr.appendChild(td6);
             
-            td8.innerHTML = tit4;
-            tr.appendChild(td8);
+            //td8.innerHTML = tit4;
+            //tr.appendChild(td8);
             select3.appendChild(op12);
             select3.appendChild(op7);
             select3.appendChild(op8);
@@ -318,8 +313,8 @@
             td10.appendChild(select3);
             tr.appendChild(td10);
             
-            td11.innerHTML = tit5;
-            tr.appendChild(td11);
+            //td11.innerHTML = tit5;
+            //tr.appendChild(td11);
             select4.appendChild(op16);
             select4.appendChild(op13);
             select4.appendChild(op14);
@@ -430,7 +425,7 @@
                     var chkbox = row.cells[0].childNodes[0];
                     if(null != chkbox && true == chkbox.checked) {
 				
-                        if(rowCount <= 1) {
+                        if(rowCount <= 2) {
                             alert("No puede borrar todas las opciones");
                             break;
                         }

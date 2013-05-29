@@ -36,7 +36,28 @@ public class AccionPlanEstudioExt extends Action {
         ArrayList codiusb = plan.getListCodigoUSB();
         ArrayList crediusb = plan.getListCreditoUSB();
         ArrayList nomusb = plan.getListMateriaUSB();
-        
+        int count = 0;
+        for (int i = 0; i < codiusb.size(); i++) {
+            String a = (String) codiusb.get(i);
+            if (a.equalsIgnoreCase("")) {
+                count++;
+            }
+        }
+        for (int i = 0; i < crediusb.size(); i++) {
+            Integer a = (Integer) crediusb.get(i);
+            if (a <= 0) {
+                count++;
+            }
+        }
+        for (int i = 0; i < nomusb.size(); i++) {
+            String a = (String) nomusb.get(i);
+            if (a.equalsIgnoreCase("")) {
+                count++;
+            }
+        }
+        if (count > 0){
+            return mapping.findForward("fail");
+        }
         
         /*Llamamos a la funcion para que guarde en la base de datos el plan
          de estudio de un estudiante*/

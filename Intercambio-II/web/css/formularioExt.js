@@ -91,7 +91,7 @@
         
        
         function addIdi(tableID) {
-            Count++;
+              Count++;
 
             var fObject = document.getElementById(tableID);
             var checkbox = "checkbox";
@@ -99,16 +99,22 @@
             var verbal = "nivelVerbal[" +  Count +  "]";
             var escrito = "nivelEscrito[" +  Count +  "]";
             var conversacional = "nivelConversacional[" + Count + "]";
+            //auditivo
+            var auditivo = "nivelAuditivo[" + Count + "]";
             var basico = "Basico";
             var intermedio = "Intermedio";
             var avanzado = "Avanzado";
             var arr = "chk[]";
             var type = "text";
+            var style1 = "width:80%;";
+            //var style2 = "padding:1%;";
             
             var tit1 = "Idioma que maneja";
             var tit2 = "Nivel Verbal";
             var tit3 = "Nivel Escrito";
-            var tit4 = "Nivel Conversacional";
+            var tit4 = "Nivel Oral";
+            //auditivo
+            var tit5 = "Nivel Auditivo";
             var o2 = document.createElement("input");
             var check = document.createElement("input");
             
@@ -130,22 +136,45 @@
             var op10 = document.createElement("option");
             var op11 = document.createElement("option");
             var op12 = document.createElement("option");
+            //auditivo
+            var op16 = document.createElement("option");
+            
+            //Nivel Auditivo
+            var op13 = document.createElement("option");//basico
+            var op14 = document.createElement("option"); //intermedio
+            var op15 = document.createElement("option"); //avanzado
             
             
             var tr = document.createElement("tr");
             var select1 = document.createElement("select");
             var select2 =document.createElement("select");
             var select3 = document.createElement("select");
-            var td = document.createElement("td");
+            //auditivo
+            var select4 = document.createElement("select");
             var td2 = document.createElement("td");
-            var td3 = document.createElement("td");
             var td4 = document.createElement("td");
-            var td5 = document.createElement("td");
             var td6 = document.createElement("td");
             var td7 = document.createElement("td");
-            var td8 = document.createElement("td");
             var td9 = document.createElement("td");
             var td10 = document.createElement("td");
+            
+            //auditivo
+            var td12 = document.createElement("td");
+            
+            //paddings para todas las columnas
+            /*td.setAttribute("style",style2);
+            td2.setAttribute("style",style2);
+            td3.setAttribute("style",style2);
+            td4.setAttribute("style",style2);
+            td5.setAttribute("style",style2);
+            td6.setAttribute("style",style2);
+            td7.setAttribute("style",style2);
+            td8.setAttribute("style",style2);
+            td9.setAttribute("style",style2);
+            td10.setAttribute("style",style2);
+            td11.setAttribute("style",style2);
+            td12.setAttribute("style",style2);*/
+            
             
                 
             //Atributos para el checkbox
@@ -173,25 +202,44 @@
             op10.setAttribute("value","");
             op11.setAttribute("value","");
             op12.setAttribute("value","");
+            op16.setAttribute("value","");
+            
+            //auditivo
+            
+            op15.setAttribute("value",basico);
+            op15.innerHTML = "Basico";
+            op13.setAttribute("value",intermedio);
+            op13.innerHTML = "Intermedio";
+            op14.setAttribute("value",avanzado);
+            op14.innerHTML = "Avanzado";
+            
+            
             
             o2.setAttribute("type",type);
             o2.setAttribute("name",idioma);
+            o2.setAttribute("style",style1);
             op1.setAttribute("value",basico);
             op2.setAttribute("value", intermedio);
             op3.setAttribute("value",avanzado);
             select1.setAttribute("name",verbal);
+            select1.setAttribute("style",style1);
             select2.setAttribute("name",escrito);
+            select2.setAttribute("style",style1);
             select3.setAttribute("name",conversacional);
+            select3.setAttribute("style",style1);
+            //auditivo
+            select4.setAttribute("name",auditivo);
+            select4.setAttribute("style",style1);
             
             td7.appendChild(check);
             tr.appendChild(td7);
-            td.innerHTML = tit1;
-            tr.appendChild(td);
+            //td.innerHTML = tit1;
+            //tr.appendChild(td);
             td2.appendChild(o2);
             tr.appendChild(td2);
             
-            td3.innerHTML = tit2;
-            tr.appendChild(td3);
+            //td3.innerHTML = tit2;
+            //tr.appendChild(td3);
             select1.appendChild(op10);
             select1.appendChild(op7);
             select1.appendChild(op1);
@@ -200,8 +248,8 @@
             td4.appendChild(select1);
             tr.appendChild(td4);
             
-            td5.innerHTML = tit3;
-            tr.appendChild(td5);
+            //td5.innerHTML = tit3;
+            //tr.appendChild(td5);
             select2.appendChild(op11);
             select2.appendChild(op8);
             select2.appendChild(op4);
@@ -210,14 +258,23 @@
             td6.appendChild(select2);
             tr.appendChild(td6);
             
-            td8.innerHTML = tit4;
-            tr.appendChild(td8);
+            //td8.innerHTML = tit4;
+            //tr.appendChild(td8);
             select3.appendChild(op12);
             select3.appendChild(op7);
             select3.appendChild(op8);
             select3.appendChild(op9);
             td10.appendChild(select3);
             tr.appendChild(td10);
+            
+            //td11.innerHTML = tit5;
+            //tr.appendChild(td11);
+            select4.appendChild(op16);
+            select4.appendChild(op13);
+            select4.appendChild(op14);
+            select4.appendChild(op15);
+            td12.appendChild(select4);
+            tr.appendChild(td12);
             
             fObject.appendChild(tr);
                
@@ -323,7 +380,7 @@
                     var chkbox = row.cells[0].childNodes[0];
                     if(null != chkbox && true == chkbox.checked) {
 				
-                        if(rowCount <= 1) {
+                        if(rowCount <= 2) {
                             alert("No puede borrar todas las opciones");
                             break;
                         }

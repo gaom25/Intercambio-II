@@ -6,7 +6,10 @@ package Actions;
 
 import Clases.*;
 import DBMS.DBMS;
+import java.io.File;
+import java.io.FileInputStream;
 import java.util.ArrayList;
+import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -46,6 +49,7 @@ public class VerificarPlanillaExt extends org.apache.struts.action.Action {
 
 
         HttpSession session = request.getSession();
+        File folder;
 
         //KATTY AQUI ESTAN LAS COSAS QUE LES TIENES QUE PASAR COMO PARAMETRO
 
@@ -62,6 +66,16 @@ public class VerificarPlanillaExt extends org.apache.struts.action.Action {
         String path =
                 getServlet().getServletContext().getRealPath("/") + "images/";
 
+
+        folder = new File(getServlet().getServletContext().getRealPath("/") + "Documentos/");
+        if (!folder.exists()) {
+            folder.mkdir();
+        }
+
+        folder = new File(filePath);
+        if (!folder.exists()) {
+            folder.mkdir();
+        }
 
         // HACER AQUI LAS VALIDACIONES, PARA LUEGO REENVIAR A MODIFICAR PLANILLA
         // PARA QUE LLENEN LOS DATOS FALTANTES
@@ -302,12 +316,35 @@ public class VerificarPlanillaExt extends org.apache.struts.action.Action {
 
             GeneradorPlanillas g = new GeneradorPlanillas();
             //boolean ha = g.generarPlanillaExt(p, filePath);
-            boolean ha = g.generarPlanillaExt(p, filePath, materias, idiomas,path);
-            if (p == null & ha & !DBMS.getInstance().InsertarPath(filePath, u)) {
+            boolean ha = g.generarPlanillaExt(p, filePath, materias, idiomas, path);
+            if (p == null || !ha || !DBMS.getInstance().InsertarPath(filePath, u)) {
                 return mapping.findForward(ERROR);
             }
             Usuario obj = (Usuario) session.getAttribute("Usuario");
             boolean boo = DBMS.getInstance().registrar(obj.getNombreusuario(), "Revision de planilla del usuario extranjero");
+            response.setContentType("application/octet-stream");
+            response.setHeader("Content-Disposition", "attachment;filename=Planilla.pdf");
+            String OUTPUTFILE = filePath + "/PlanillaIntercambio_Ext.pdf";
+
+            try {
+                //Get it from file system
+                FileInputStream in =
+                        new FileInputStream(new File(OUTPUTFILE));
+
+                ServletOutputStream out = response.getOutputStream();
+
+                byte[] outputByte = new byte[4096];
+                //copy binary content to output stream
+                while (in.read(outputByte, 0, 4096) != -1) {
+                    out.write(outputByte, 0, 4096);
+                }
+                in.close();
+                out.flush();
+                out.close();
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
             return mapping.findForward(SUCCESS);
 
         }
