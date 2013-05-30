@@ -5,10 +5,12 @@
 <%@ taglib uri="http://struts.apache.org/tags-logic" prefix="logic" %>
 <%@ taglib uri="http://struts.apache.org/tags-tiles" prefix="tiles" %>
 <%@ page import="nl.captcha.Captcha" %>
+
 <html:html lang="true">
 
     <title>Sistema de Gesti&oacute;n de Intercambio</title>
-
+    <div id="loginDiv">
+        
     <h4>Bienvenido</h4>
     <h5>Para ingresar al sistema introduzca su usuario y contraseña.</h5>
     <div id="login-form">
@@ -52,6 +54,99 @@
     </div>
 
     <br /><br />
+    
+    </div>
+    
+    <div id="fechaPostulaciones" class="hidden">
+        <pre>
+        <h2>
+            Fecha Límite para Postulaciones:</h2>
+            Inicio en Septiembre: 15 de mayo. 
+            Año Académico: Septiembre-Julio.
+            Trimestres: Septiembre-Diciembre y Enero-Marzo.
+            Sólo Trimestre: Septiembre-Diciembre.
+
+
+            Inicio en Enero: 15 de octubre.
+            Trimestres: Enero-Marzo y Abril-Julio.
+            Sólo Trimestre: Enero-Marzo.
+
+
+            Inicio en Abril: 30 enero.
+            Sólo Trimestre:Abril-Julio
+
+
+            Una vez registrados en el sistema, los estudiantes
+            deberán proporcionar a través de la carga de
+            documentos los siguientes recaudos pautados por su
+            nacionalidad.
+        </pre>
+
+    </div>
+    
+    <div id="estudianteInter" class="hidden">
+        <pre>
+            <h2>
+                Recaudos que deben Presentar los Estudiantes
+                Internacionales para su Postulación</h2>
+
+            - Formulario de postulación al Programa de Intercambio de
+              Estudiantes de la USB para estudiantes internacionales 
+              firmado y sellado por la Oficina de Relaciones Internacionales
+              de la universidad de origen.
+
+            - Fotocopia del Pasaporte.
+
+            - Informe académico actualizado (Transcript Record) firmado y 
+              sellado por la Oficina de Relaciones Internacionales de la 
+              universidad de origen.
+
+            - Curriculum Vitae.
+
+            - Carta de recomendación de un profesor de la universidad de origen.
+        </pre>
+    </div>
+    
+    <div id="estudianteNac" class="hidden">
+        <pre>
+            <h2>
+            Recaudos que deben Presentar los Estudiantes
+            Nacionales para su Postulación</h2>
+            - Formulario de postulación al Programa de Intercambio
+              de Estudiantes de la USB para estudiantes nacionales
+              firmado y sellado por la DRIC.
+
+            - Fotocopia de la Cédula de Identidad.
+
+            - Informe académico actualizado (Transcript Record).
+
+            - Curriculum Vitae.
+
+            - Carta de motivación para los estudios en el exterior.
+
+            - Fotocopia del Carnet.
+        </pre>
+    </div>
+    
+    <div id="recaudosAdic" class="hidden">
+        <pre>
+            <h2>
+            Requisitos Adicionales:</h2>
+            <b>Programa SMILE:</b>
+
+            - Student Application-Form.
+
+            - Student Learning Agreement.
+
+
+            <b>Programa de Movilidad Estudiantil CINDA:</b>
+
+            - Ficha de Solicitud de Participación.
+
+            - Ficha de Reconocimiento.
+        </pre>
+
+    </div>
 
 
     <div class="espacio" style="height:90px">
