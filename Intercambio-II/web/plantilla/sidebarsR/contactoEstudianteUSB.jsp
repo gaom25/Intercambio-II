@@ -14,12 +14,12 @@
 <html>
 
     <body>
-
+<!--
         <div id="contacto">
             <html:link action="/contactoEstUSB">
                 <img src="/Intercambio-II/images/Contactenos.jpg">
             </html:link>
         </div>
-        
-    </body>
+-->      
+  </body>
 </html>

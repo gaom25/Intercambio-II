@@ -33,15 +33,19 @@
 
         Inicio en Abril: 30 enero.
         Sólo Trimestre:Abril-Julio
+
+
+        Una vez registrados en el sistema, los estudiantes
+        deberán proporcionar a través de la carga de
+        documentos los siguientes recaudos pautados por su
+        nacionalidad.
     </pre>
 
     <h2>
-        &nbsp;&nbsp;&nbsp;Recaudos que deben Presentar los Estudiantes<br>
-        &nbsp;&nbsp;&nbsp;Internacionales para su Postulación:
+        Recaudos que deben Presentar los Estudiantes Internacionales para su Postulación:
     </h2>
     <p>
-    &nbsp;&nbsp;&nbsp;- Formulario de postulación al Programa de Intercambio de Estudiantes de la <br>
-    &nbsp;&nbsp;&nbsp;USB para estudiantes internacionales firmado y sellado por la Oficina de Relaciones Internacionales de la universidad de origen.
+    - Formulario de postulación al Programa de Intercambio de Estudiantes de la USB para estudiantes internacionales firmado y sellado por la Oficina de Relaciones Internacionales de la universidad de origen.
     <br>
     - Fotocopia del Pasaporte.
     <br>
