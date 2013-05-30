@@ -19,33 +19,29 @@
     <h2>
         Fecha Límite para Postulaciones:
     </h2>
-    <p>
-    Inicio en Septiembre: 15 de mayo. 
-    <br>
-    Año Académico: Septiembre-Julio.
-    <br>
-    Trimestres: Septiembre-Diciembre y Enero-Marzo.
-    <br>
-    Sólo Trimestre: Septiembre-Diciembre.
-    <br>
-    <br>
-    Inicio en Enero: 15 de octubre.
-    <br>
-    Trimestres: Enero-Marzo y Abril-Julio.
-    <br>
-    Sólo Trimestre: Enero-Marzo.
-    <br>
-    <br>
-    Inicio en Abril: 30 enero.
-    <br>
-    Sólo Trimestre:Abril-Julio
-    </p>
+    <pre>
+        Inicio en Septiembre: 15 de mayo. 
+        Año Académico: Septiembre-Julio.
+        Trimestres: Septiembre-Diciembre y Enero-Marzo.
+        Sólo Trimestre: Septiembre-Diciembre.
+
+
+        Inicio en Enero: 15 de octubre.
+        Trimestres: Enero-Marzo y Abril-Julio.
+        Sólo Trimestre: Enero-Marzo.
+
+
+        Inicio en Abril: 30 enero.
+        Sólo Trimestre:Abril-Julio
+    </pre>
 
     <h2>
-    Recaudos que deben Presentar los Estudiantes Internacionales para su Postulación:
+        &nbsp;&nbsp;&nbsp;Recaudos que deben Presentar los Estudiantes<br>
+        &nbsp;&nbsp;&nbsp;Internacionales para su Postulación:
     </h2>
     <p>
-    - Formulario de postulación al Programa de Intercambio de Estudiantes de la USB para estudiantes internacionales firmado y sellado por la Oficina de Relaciones Internacionales de la universidad de origen.
+    &nbsp;&nbsp;&nbsp;- Formulario de postulación al Programa de Intercambio de Estudiantes de la <br>
+    &nbsp;&nbsp;&nbsp;USB para estudiantes internacionales firmado y sellado por la Oficina de Relaciones Internacionales de la universidad de origen.
     <br>
     - Fotocopia del Pasaporte.
     <br>
@@ -53,11 +49,7 @@
     <br>
     - Curriculum Vitae.
     <br>
-    - Carta de motivación para los estudios en la USB.
-    <br>
     - Carta de recomendación de un profesor de la universidad de origen.
-    <br>
-    - Seguro Médico Internacional obligatorio al llegar al país. 
     </p>
 
     <h2>

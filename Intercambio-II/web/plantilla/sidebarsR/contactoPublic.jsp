@@ -15,11 +15,7 @@
 
     <body>
 
-        <div id="contacto">
-            <html:link action="/contacto">
-                <img src="/Intercambio-II/images/Contactenos.jpg">
-            </html:link>
-        </div>
+        
         
     </body>
 </html>

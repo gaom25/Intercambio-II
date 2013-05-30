@@ -47,6 +47,10 @@
     <definition name="contacto" extends="basePublic"> <!-- pagina de contacto -->
         <put name="body" value="/public/contacto.jsp"/>
     </definition>
+    
+    <definition name="informacion" extends="basePublic"> <!-- pagina de informacion -->
+        <put name="body" value="/public/infoImportante.jsp"/>
+    </definition>
             
     <definition name="salida" extends="basePublic"> <!-- pagina a la que se llega al salir del sistema, es la misma que inicSesion asi -->
         <put name="body" value="/public/salidaDelSistema.jsp"/> <!--que deberiamos redirigir a Welcome.do y no a esta  pero la pongo por si acaso-->
