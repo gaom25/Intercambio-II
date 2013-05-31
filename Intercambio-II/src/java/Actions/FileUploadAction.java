@@ -44,7 +44,7 @@ public class FileUploadAction extends Action {
         /*revizamos que haya introducio almenos un archivo y que sea la foto*/
         for (int i = 0; i < tam.size(); i++) {
             FormFile f = (FormFile) tam.get(i);
-            if (i == 0 && !(f.getFileName().contains("jpg") || f.getFileName().contains("png"))) {
+            if (i == 0 && !(f.getContentType().contains("image/jpeg") || f.getContentType().contains("image/png"))) {
                 u2.setNombre("La foto debe ser en formato PNG o JPG");
                 request.setAttribute("Usuario", u2);
                 if (u2.getPrivilegio() == 5) {
@@ -56,8 +56,8 @@ public class FileUploadAction extends Action {
                 cantArchivos++;
             }
         }
-        if (tam.size() != cantArchivos) {
-            u2.setNombre("Debe incluir todos archivos");
+        if (cantArchivos < 3) {
+            u2.setNombre("Debe incluir todos archivos obligatorios");
             request.setAttribute("Usuario", u2);
             if (u2.getPrivilegio() == 5) {
                 return mapping.findForward("errorusb");
@@ -72,7 +72,9 @@ public class FileUploadAction extends Action {
         for (int i = 0; i < tam.size(); i++) {
             FormFile file2 = (FormFile) tam.get(i);
             cant = cant + file2.getFileSize();
-            if (!(file2.getFileName().contains("pdf") || file2.getFileName().contains("png") || file2.getFileName().contains("jpg"))) {
+            if (!(file2.getContentType().contains("application/pdf")
+                    || file2.getContentType().contains("image/png")
+                    || file2.getContentType().contains("image/jpeg")) && !file2.getFileName().equalsIgnoreCase("")) {
                 error = true;
             }
 
