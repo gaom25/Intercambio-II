@@ -30,7 +30,9 @@
     <font color="red">
     <h3 align ="center">
         Su planilla de solicitud todavia no tiene toda la información necesaria,
-        </br>
+        <br>
+        o no posee los archivos necesarios,
+        <br>
         Por favor, haga click en "Completar Planilla"
     </h3>
     </font>

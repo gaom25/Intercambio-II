@@ -57,7 +57,7 @@
          <a style="border-bottom: none;"> <html:link styleClass="menuitem" href="javascript:unhide('recaudosAdic');">Recaudos Adicionales</html:link></a>
     </div>
     
-    <div id="twitterInt" style="width: 240px"> 
+    <div id="twitterInt" style="width: 100%"> 
         <br><br>
         <a class="twitter-timeline" height="300" href="https://twitter.com/IntercambioUSB" data-widget-id="317086117033811968"> </a>
         <script>!function(d,s,id){

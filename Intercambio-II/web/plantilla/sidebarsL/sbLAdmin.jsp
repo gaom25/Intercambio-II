@@ -58,7 +58,7 @@ ddmenu.init({
             
    </div>
    <br>
-   <div id="twitterInt" style="width: 240px"> 
+   <div id="twitterInt" style="width: 100%"> 
          
         <a class="twitter-timeline" height="300" href="https://twitter.com/IntercambioUSB" data-widget-id="317086117033811968"> </a>
         <script>!function(d,s,id){

@@ -464,39 +464,46 @@ public class DBMS {
      * Esta funcion es la de agregar estudiante desde el administrador
      */
     public boolean agregarEstudianteExt(EstudianteInternacional e) {
+         PreparedStatement ps1 = null;
+         PreparedStatement ps2 = null;
+         PreparedStatement ps3 = null;
+         PreparedStatement ps4 = null;
         try {
 
+            ps1 = conexion.prepareStatement("INSERT INTO \"dycicle\".estudiante VALUES (?"
+                    + ", 'null',?,?,?,?, 'null', '0000', 'null','null', 'null',"
+                    + "'null', 'null', 'null', 'null',"
+                    + " 'null', 'null', 'null',?, '2012-11-27','null','null');");
+            ps1.setString(1, e.getNombreusuario());
+            ps1.setString(2, e.getpNombre());
+            ps1.setString(3, e.getsNombre());
+            ps1.setString(4, e.getpApellido());
+            ps1.setString(5, e.getsApellido());
+            ps1.setString(6, e.getEmail());
             // Insercion dentro de la tabla estudiante
-            String sqlquery1 = "INSERT INTO \"dycicle\".estudiante VALUES ('" + e.getNombreusuario()
-                    + "', '" + "null" + "', '" + e.getpNombre()
-                    + "', '" + e.getsNombre() + "', '" + e.getpApellido()
-                    + "', '" + e.getsApellido() + "', 'null', '0000', 'null','null', 'null',  'null', 'null', 'null', 'null', "
-                    + " 'null', 'null', 'null', '" + e.getEmail() + "', '2012-11-27','null','null');";
 
             // la fecha de nacimiento colocada es temporal, se coloca para que no de error la insercion.
             // La direccion de la foto tambien es temporal.
 
             //Insercion dentro de la tabla estudianteInternacional
-            String sqlquery2 = "INSERT INTO \"dycicle\".estudianteInternacional VALUES('" + e.getNombreusuario()
-                    + "', '" + e.getPasaporte() + "', 'null', 'null', 'null', 'No');";
+            ps2 = conexion.prepareStatement("INSERT INTO \"dycicle\".estudianteInternacional VALUES(?"
+                    + ",?, 'null', 'null', 'null', 'No');");
+            ps2.setString(1, e.getNombreusuario());
+            ps2.setInt(2, e.getPasaporte());
 
             //Insercion dentro de la tabla AntecedenteAcademico
-            String sqlqueryAntecedente = "INSERT INTO \"dycicle\".AntecedenteAcademico VALUES ('"
-                    + e.getNombreusuario() + "', "
-                    + "'1.0000', 'null','null', 'null', "
-                    + "'opcion', '0','0000' , '0', 'null', 'null');";
-
-            String sqlqueryPostulacion = "INSERT INTO \"dycicle\".Postulacion VALUES ('"
-                    + e.getNombreusuario() + "', "
-                    + "'En evaluacion', "
-                    + "'recomendacion', "
-                    + "'comentario');";
-
+            ps3 = conexion.prepareStatement("INSERT INTO \"dycicle\".AntecedenteAcademico"
+                    + " VALUES (?, '1.0000', 'null','null', 'null', "
+                    + "'opcion', '0','0000' , '0', 'null', 'null');");
+            ps3.setString(1, e.getNombreusuario());
+            ps4 = conexion.prepareStatement("INSERT INTO \"dycicle\".Postulacion"
+                    + " VALUES (?, 'En evaluacion', 'recomendacion', 'comentario');");
+            ps4.setString(1, e.getNombreusuario());
             Statement stmt = conexion.createStatement();
-            Integer i = stmt.executeUpdate(sqlquery1);
-            Integer j = stmt.executeUpdate(sqlquery2);
-            Integer k = stmt.executeUpdate(sqlqueryAntecedente);
-            Integer l = stmt.executeUpdate(sqlqueryPostulacion);
+            Integer i = ps1.executeUpdate();
+            Integer j = ps2.executeUpdate();
+            Integer k = ps3.executeUpdate();
+            Integer l = ps4.executeUpdate();
 
             return i > 0 && j > 0 && k > 0 && l > 0;
 
@@ -1590,14 +1597,18 @@ public class DBMS {
     }
 
     public boolean agregarAnuncio(Anuncio a) {
-
+        PreparedStatement ps = null; 
         try {
-            String sqlquery = "INSERT INTO \"dycicle\".Noticias VALUES"
+            ps = conexion.prepareStatement("INSERT INTO \"dycicle\".Noticias "
+                    + "VALUES(?,?);");
+            ps.setString(1, a.getTitulo());
+            ps.setString(2, a.getMensaje());
+            /*String sqlquery = "INSERT INTO \"dycicle\".Noticias VALUES"
                     + "('" + a.getTitulo() + "','"
-                    + a.getMensaje() + "');";
+                    + a.getMensaje() + "');";*/
 
-            Statement stmt = conexion.createStatement();
-            Integer i = stmt.executeUpdate(sqlquery);
+            //Statement stmt = conexion.createStatement();
+            Integer i = ps.executeUpdate();// stmt.executeUpdate(sqlquery);
 
             return i > 0;
 

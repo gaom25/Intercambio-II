@@ -37,7 +37,7 @@
                 </td>
                 <td>
                      <logic:iterate id="usuarios" name="usuarios">
-                         <bean:write name="usuarios" property="nombreusuario"></bean:write><br>
+                         <bean:write name="usuarios" property="nombreusuario"></bean:write>
                          <input type="hidden" name="emails" value=<bean:write name="usuarios" property="email"></bean:write>/>
                      </logic:iterate>   
                 </td>
@@ -47,7 +47,7 @@
                     <b>Mensaje:</b>
                 </td>
                 <td>
-                    <html:textarea name="Anuncio" property="mensaje" rows="6" cols="30"/>
+                    <html:textarea name="Anuncio" property="mensaje" rows="10" cols="45"/>
                 </td>
                 
             </tr>

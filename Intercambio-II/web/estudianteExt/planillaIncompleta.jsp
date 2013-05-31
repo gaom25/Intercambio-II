@@ -28,8 +28,8 @@
 
 
 
-    <h4 align ="center">Estudiante Extranjero</h4>
-    <div align="center">
+        <h4 align ="center">Estudiante Extranjero</h4>
+        <div align="center">
         <html:image src="images/error.png" /> 
     </div>
     <br />
@@ -37,7 +37,9 @@
     <font color="red">
     <h3 align ="center" style="width: 80%;margin-left: 13%">
         Su planilla de solicitud todavia no tiene toda la informacion necesaria,
-        </br>
+        <br>
+        o no posee los archivos necesarios,
+        <br>
         por favor presione el boton de completar planilla para llenar los datos faltantes.
     </h3>
     </font>
@@ -45,7 +47,7 @@
     <html:form  action="/CargarLlenarPlanillaExt" method="POST" acceptCharset="ISO-8859-1" enctype="multipart/form-data" onsubmit="return(this)">
         <p hidden="true"><html:text name="PlanillaExt" property="nombreUsuario" maxlength="20" errorStyleClass="error" value ="<%=tmp.toString()%>"
                    errorKey="org.apache.struts.action.ERROR"></html:text></p>
-        <p style="text-align: center">
+            <p style="text-align: center">
             <html:submit >
                 Completar Planilla
             </html:submit>
