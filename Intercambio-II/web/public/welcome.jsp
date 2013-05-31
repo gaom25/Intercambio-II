@@ -9,7 +9,7 @@
 <html:html lang="true">
 
     <title>Sistema de Gesti&oacute;n de Intercambio</title>
-    <div id="loginDiv">
+    <div id="loginDiv" title="especial">
         
     <h4>Bienvenido</h4>
     <h5>Para ingresar al sistema introduzca su usuario y contraseña.</h5>
@@ -57,7 +57,7 @@
     
     </div>
     
-    <div id="fechaPostulaciones" class="hidden">
+    <div id="fechaPostulaciones" class="hidden" title="especial">
         <pre>
         <h2>
             Fecha Límite para Postulaciones:</h2>
@@ -84,7 +84,7 @@
 
     </div>
     
-    <div id="estudianteInter" class="hidden">
+    <div id="estudianteInter" class="hidden" title="especial">
         <pre>
             <h2>
                 Recaudos que deben Presentar los Estudiantes
@@ -107,7 +107,7 @@
         </pre>
     </div>
     
-    <div id="estudianteNac" class="hidden">
+    <div id="estudianteNac" class="hidden" title="especial">
         <pre>
             <h2>
             Recaudos que deben Presentar los Estudiantes
@@ -128,7 +128,7 @@
         </pre>
     </div>
     
-    <div id="recaudosAdic" class="hidden">
+    <div id="recaudosAdic" class="hidden" title="especial">
         <pre>
             <h2>
             Requisitos Adicionales:</h2>

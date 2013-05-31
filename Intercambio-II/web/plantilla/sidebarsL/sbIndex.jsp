@@ -12,38 +12,19 @@
 <!DOCTYPE html>
 
 <script type="text/javascript">
-    function unhide(divID) {
+     function unhide(divID) {
        var item = document.getElementById(divID);
-       if (item) {
-           item.className=(item.className=='hidden')?'unhidden':'hidden';
-       }
-    }
- </script>
- 
- <script type="text/javascript">
-    function unhide2(divID) {
-       var target= document.getElementById(divID);
-       var next= document.getElementById('loginDiv');
-       if(target.className == 'hidden'){
-           hideAll();
-           target.className= 'unhidden';
-       }
-       else {
-           target.className= 'hidden';
-           next.className='unhidden';
-       }
-    }
- </script>
- 
- <script type="text/javascript">
-    function hideAll() {
-       var items = document.getElementByTagName('div');
-       for(var i=0;i<items.length;i++){
-           if(items[i].className=='unhidden'){
-               items[i].className='hidden';
+       var otros = document.getElementsByTagName('div');
+       if(otros){
+           for(var i=0;i<otros.length;i++){
+               if(otros[i].title == 'especial'){
+                   otros[i].className = 'hidden'
+               }
            }
        }
-       
+       if (item) {
+           item.className='unhidden';
+       }
     }
  </script>
 
