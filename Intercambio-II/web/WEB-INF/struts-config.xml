@@ -96,7 +96,7 @@
         <action name="BusquedaAvanzada" path="/AccionBusquedaAvanzada" scope="session" type="Actions.AccionBusquedaAvanzada">
            <forward name="failure" path="accFallo"/>
            <forward name="success" path="listarEstudiantesPostulados"/>
-           <forward name="anuncios" path="listarDestinatarios"/>
+           <forward name="anuncios" path="redactarmensaje"/>
         </action>
         
         
@@ -579,10 +579,6 @@
           <forward name="success" path="creacionplanillacorrectaExt" />
           <forward name="error" path="planillaIncompletaExt" />
        </action>
-       
-      <action input="/" name="SuperArray" path="/SeleccionarDestinatarios" scope="session" type="Actions.SeleccionarDestinatarios">
-          <forward name="success" path="redactarmensaje" />
-      </action>
       <action input="/" name="Usuario" path="/ActDest" scope="session" type="Actions.ActDest">
           <forward name="success" path="estadoSistema" />
       </action>

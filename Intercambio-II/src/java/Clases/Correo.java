@@ -231,7 +231,7 @@ public class Correo extends org.apache.struts.action.ActionForm{
             
             for (int i=0;i < dst.size();i++){
                 
-                destinatario = dst.get(i).substring(0, dst.get(i).length()-1);
+                destinatario = dst.get(i);
                 message.setFrom(new InternetAddress(getMailSistema()));
                 message.setRecipients(Message.RecipientType.TO,
                         InternetAddress.parse(destinatario));
