@@ -56,34 +56,43 @@ public class Login extends org.apache.struts.action.Action {
         Captcha captcha = (Captcha) session.getAttribute(Captcha.NAME);
         request.setCharacterEncoding("UTF-8");
         String answer = request.getParameter("answer");
-        if (!captcha.isCorrect(answer)) {
-            error.add("captcha", new ActionMessage("error.captcha.invalido"));
-            saveErrors(request, error);
-            huboError = true;
-        }
 
-        if(answer.equals("")){
-            error.add("captcha", new ActionMessage("error.captcha.required"));
-            saveErrors(request, error);
-            huboError = true;
-        }
-        if (u.getNombreusuario().equals("")) {
-            error.add("nombreusuario", new ActionMessage("error.nombreusuario.required"));
-            saveErrors(request, error);
-            huboError = true;
-        }
+        try {
+            if (!captcha.isCorrect(answer)) {
+                error.add("captcha",
+                        new ActionMessage("error.captcha.invalido"));
+                saveErrors(request, error);
+                huboError = true;
+            }
 
-        if (u.getContrasena().equals("")) {
-            error.add("contrasena", new ActionMessage("error.contrasena.required"));
-            saveErrors(request, error);
-            huboError = true;
+            if (answer.equals("")) {
+                error.add("captcha",
+                        new ActionMessage("error.captcha.required"));
+                saveErrors(request, error);
+                huboError = true;
+            }
+            if (u.getNombreusuario().equals("")) {
+                error.add("nombreusuario",
+                       new ActionMessage("error.nombreusuario.required"));
+                saveErrors(request, error);
+                huboError = true;
+            }
+
+            if (u.getContrasena().equals("")) {
+                error.add("contrasena",
+                        new ActionMessage("error.contrasena.required"));
+                saveErrors(request, error);
+                huboError = true;
+            }
+        } catch (Exception e) {
+            return mapping.findForward(ERROR);
         }
 
         if (huboError) {
             return mapping.findForward(ERROR);
         } else {
-            Usuario obj = (Usuario)session.getAttribute("Usuario");
-            boolean boo = DBMS.getInstance().registrar(obj.getNombreusuario(),"Inició sesión");
+            Usuario obj = (Usuario) session.getAttribute("Usuario");
+            boolean boo = DBMS.getInstance().registrar(obj.getNombreusuario(), "Inició sesión");
             Usuario tmp = DBMS.getInstance().consultarUsuario(u);
             Boolean sistema = DBMS.getInstance().Sistema();
 
@@ -100,7 +109,7 @@ public class Login extends org.apache.struts.action.Action {
                     request.setAttribute("usuario", tmp);
                     session.setAttribute("nombre", tmp.getNombre());
                     session.setAttribute("nombreusuario", tmp.getNombreusuario());
-                    if(sistema){
+                    if (sistema) {
                         return mapping.findForward("Cerrado");
                     }
                     return mapping.findForward(GESTOR);
@@ -108,7 +117,7 @@ public class Login extends org.apache.struts.action.Action {
                     request.setAttribute("usuario", tmp);
                     session.setAttribute("nombre", tmp.getNombre());
                     session.setAttribute("nombreusuario", tmp.getNombreusuario());
-                    if(sistema){
+                    if (sistema) {
                         return mapping.findForward("Cerrado");
                     }
                     return mapping.findForward(COORD);
@@ -116,7 +125,7 @@ public class Login extends org.apache.struts.action.Action {
                     request.setAttribute("usuario", tmp);
                     session.setAttribute("nombre", tmp.getNombre());
                     session.setAttribute("nombreusuario", tmp.getNombreusuario());
-                    if(sistema){
+                    if (sistema) {
                         return mapping.findForward("Cerrado");
                     }
                     return mapping.findForward(univExt);
@@ -125,7 +134,7 @@ public class Login extends org.apache.struts.action.Action {
                     request.setAttribute("usuario", tmp);
                     session.setAttribute("nombre", tmp.getNombre());
                     session.setAttribute("nombreusuario", tmp.getNombreusuario());
-                    if(sistema){
+                    if (sistema) {
                         return mapping.findForward("Cerrado");
                     }
                     return mapping.findForward(estUSB);
@@ -134,7 +143,7 @@ public class Login extends org.apache.struts.action.Action {
                     request.setAttribute("usuario", tmp);
                     session.setAttribute("nombre", tmp.getNombre());
                     session.setAttribute("nombreusuario", tmp.getNombreusuario());
-                    if(sistema){
+                    if (sistema) {
                         return mapping.findForward("Cerrado");
                     }
                     return mapping.findForward(estExt);
