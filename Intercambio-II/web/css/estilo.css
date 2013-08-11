@@ -53,6 +53,11 @@ h6 {
     font-family: sans-serif;
 }
 
+pre {
+    font-family: sans-serif;
+
+}
+
 table {
 
     color: black;
@@ -388,4 +393,12 @@ a.menuitem:hover{
     border:3px solid #126598;
     border-radius: 10px;
     background: #dcebe8
+}
+
+seleccAll{
+    letter-spacing: 3px;
+    font-size: 1.4em;
+    color: #369;
+    font-weight: bold;
+    font-family: sans-serif;   
 }

@@ -55,7 +55,7 @@
 
     <body onload ="clearForms()" onUnload="clearForms()">  
 
-        <h4>Búsqueda Avanzada</h4>
+        <h4>Búsqueda de Destinatarios</h4>
         <h5>Seleccione los filtros que desee utilizar.</h5>
         <div align="center" id="seleciones">
             <input type="checkbox" value="1" id="estudia"> Estudiantes

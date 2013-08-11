@@ -29,12 +29,12 @@
                 <img width="150" height="50" src="/Intercambio-II/images/somosusb.gif">
             </html:link>
         </div>
-                <br>
+                <%--<br>
                 <div>
                     <html:link action="/informacion">
                         <img width="150" height="150" src="/Intercambio-II/images/info.jpg">
                     </html:link>
-                </div>
+                </div>--%>
                 <br>
                 
         <div>
