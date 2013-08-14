@@ -81,7 +81,7 @@
                 </table>
                 <div  style="position: relative; height: 120px; bottom: -10px;">
                     <div id="Imagencita" style="height: 75px;">
-                        <img src="/Intercambio-II/stickyImg"/>
+                        <img src="/Intercambio/stickyImg"/>
                         <br><br>
                         <div>
                             <a href="javascript:history.go(0)">Click para cambiar captcha</a>

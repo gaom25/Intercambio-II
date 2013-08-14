@@ -15,7 +15,7 @@
 
 <html:html lang="true">
 
-    <script  src="/Intercambio-II/css/formularioExt.js"></script>
+    <script  src="/Intercambio/css/formularioExt.js"></script>
 
     <title>Sistema de Gestión de Intercambio</title>
 

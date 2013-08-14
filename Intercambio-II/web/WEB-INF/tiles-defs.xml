@@ -478,7 +478,7 @@
     <definition name="${YOUR_DEFINITION_HERE}">
     </definition> 
     
-    <definition name="footer" path="/Intercambio-II/plantilla/footer.jsp">
+    <definition name="footer" path="/Intercambio/plantilla/footer.jsp">
     </definition>
     
 </tiles-definitions>

@@ -16,7 +16,7 @@
 
 <html:html lang="true">
 
-    <script  src="/Intercambio-II/css/formularioUSB.js"></script>
+    <script  src="/Intercambio/css/formularioUSB.js"></script>
     <title>Sistema de Gestión de Intercambio</title>
 
     <h4 align ="center">Formulario de solicitud</h4>

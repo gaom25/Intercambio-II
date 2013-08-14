@@ -16,7 +16,7 @@
     </head>
 
     <div align="center" style="width: 100%">
-        <img  src="/Intercambio-II/images/alert.png">
+        <img  src="/Intercambio/images/alert.png">
 
         <h1 style="color: red;width: 80%">Actualmente el período de postulacion no está disponible, para más información haz click   <html:link action="contacto">
                 aquí

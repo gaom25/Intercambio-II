@@ -16,7 +16,6 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
     </head>
-    <a href="<%=var.toString()%>"></a>
 
-    <embed src="http://localhost:8080/Intercambio-II/" width="1500" height="1000">
+    <embed src="http://localhost:8080/Intercambio/" width="1500" height="1000">
 </html>

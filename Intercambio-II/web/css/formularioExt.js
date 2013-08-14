@@ -6,10 +6,10 @@
         var fCount = 5;
         var Count = 0;
         var mCount = 0;
-        var direccionPlanillaSmile1='/Intercambio-II/estudianteUSB/Recursos/SMILE_Student_Learning-Agreement.doc'
-        var direccionPlanillaSmile2='/Intercambio-II/estudianteUSB/Recursos/SMILE_Student_Application-Form.doc'
-        var direccionPlanillaCinda1='/Intercambio-II/estudianteUSB/Recursos/CINDA_Ficha_de_reconocimiento.doc'
-        var direccionPlanillaCinda2='/Intercambio-II/estudianteUSB/Recursos/CINDA_Ficha_solicitud_de_participación.doc'
+        var direccionPlanillaSmile1='/Intercambio/estudianteUSB/Recursos/SMILE_Student_Learning-Agreement.doc'
+        var direccionPlanillaSmile2='/Intercambio/estudianteUSB/Recursos/SMILE_Student_Application-Form.doc'
+        var direccionPlanillaCinda1='/Intercambio/estudianteUSB/Recursos/CINDA_Ficha_de_reconocimiento.doc'
+        var direccionPlanillaCinda2='/Intercambio/estudianteUSB/Recursos/CINDA_Ficha_solicitud_de_participación.doc'
         
         function cambiar_link1(){
             

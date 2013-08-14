@@ -13,8 +13,8 @@
 <!DOCTYPE html>
 <html>
 
-    <script  src="/Intercambio-II/css/jquery.js"></script>
-    <script  src="/Intercambio-II/css/jquery.tablePagination.0.5.js"></script>
+    <script  src="/Intercambio/css/jquery.js"></script>
+    <script  src="/Intercambio/css/jquery.tablePagination.0.5.js"></script>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>SGI - Log Auditoría</title>
 

@@ -76,7 +76,7 @@
 
                 <div  style="position: relative; height: 120px; bottom: -10px;">
                     <div id="Imagencita" style="height: 75px;">
-                        <img onloadstart="loadstart" src="/Intercambio-II/stickyImg"/>
+                        <img onloadstart="loadstart" src="/Intercambio/stickyImg"/>
                         <br><br>
                         <div>
                             <a href="javascript:history.go(0)">Click para cambiar captcha</a>

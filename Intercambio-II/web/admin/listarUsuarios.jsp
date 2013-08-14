@@ -10,8 +10,8 @@
 <%@ taglib uri="http://struts.apache.org/tags-bean" prefix="bean" %>
 <%@ taglib uri="http://struts.apache.org/tags-tiles" prefix="tiles" %>
 
-<script  src="/Intercambio-II/css/jquery.js"></script>
-<script  src="/Intercambio-II/css/jquery.tablePagination.0.5.js"></script>
+<script  src="/Intercambio/css/jquery.js"></script>
+<script  src="/Intercambio/css/jquery.tablePagination.0.5.js"></script>
 <script type="text/javascript">
     function altRows(id){
         if(document.getElementsByTagName){  

@@ -6,7 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%> 
 <!DOCTYPE html>
-<meta http-equiv="refresh" content="1; url=/Intercambio-II/Welcome.do" />
+<meta http-equiv="refresh" content="1; url=/Intercambio/Welcome.do" />
 
 <html>
     <head>
@@ -14,7 +14,7 @@
         <title>Sistema de Gesti&oacute;n de Intercambio</title>
     </head>
     <body>
-        <img src="/Intercambio-II/stickyImg" /> 
+        <img src="/Intercambio/stickyImg" /> 
 
     </body>
 

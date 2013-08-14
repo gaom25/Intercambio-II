@@ -12,8 +12,8 @@
 <!DOCTYPE html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <script  src="/Intercambio-II/css/jquery.js"></script>
-    <script  src="/Intercambio-II/css/jquery.tablePagination.0.5.js"></script>
+    <script  src="/Intercambio/css/jquery.js"></script>
+    <script  src="/Intercambio/css/jquery.tablePagination.0.5.js"></script>
     <title>Redactar mensaje</title>
     <script language="JavaScript">
         function Seleccionar(){
@@ -57,7 +57,7 @@
 <br><br><br>
 
 <div align="center"><html:link style="text-decoration: underline;font-weight: bold" action="/BuscarDestinatarios">Volver</html:link></div>
-
+<p>me pasaron <%=session.getAttribute("hola")%></p>
 <html:form action="/RedactarMensaje" method="POST" acceptCharset="ISO-8859-1" enctype="multipart/form-data" onsubmit="return(this)">
     <table style=" margin-left: 4.8em;alignment-baseline: central; border:none; vertical-align: middle;width: 80%; background: #dcebe8; border: 2px solid; border-color: #96d1f8;border-radius: 5px;">
         <tr>
@@ -78,8 +78,10 @@
             </td>
             <td>
                 <html:textarea name="Anuncio" property="mensaje" rows="10" cols="45"/>
+                <%Object mensaje;
+                %>
             </td>
-
+<c:set var="hola" value="hello" scope="session"/>
         </tr>
     </table>
     <br>

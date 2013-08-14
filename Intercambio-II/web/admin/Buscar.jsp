@@ -13,7 +13,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <script  src="/Intercambio-II/css/jquery.js"></script>
+        <script  src="/Intercambio/css/jquery.js"></script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Busqueda</title>
         <script>
@@ -56,6 +56,7 @@
     <body onload ="clearForms()" onUnload="clearForms()">  
 
         <h4>Búsqueda de Destinatarios</h4>
+        <h3 align="center">Para redactar un anuncio primero debe hacer la busqueda de los destinatarios </h3>
         <h5>Seleccione los filtros que desee utilizar.</h5>
         <div align="center" id="seleciones">
             <input type="checkbox" value="1" id="estudia"> Estudiantes

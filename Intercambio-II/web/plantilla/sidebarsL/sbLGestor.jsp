@@ -11,8 +11,8 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
-<script type="text/javascript" src="/Intercambio-II/css/jquery-1.8.2.min.js"></script>
-<script type="text/javascript" src="/Intercambio-II/plantilla/sidebarsL/ddmenu.js"></script>
+<script type="text/javascript" src="/Intercambio/css/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="/Intercambio/plantilla/sidebarsL/ddmenu.js"></script>
 <script type="text/javascript">
 
 
@@ -24,7 +24,7 @@ ddmenu.init({
 	animatedefault: false, 
 	persiststate: true, 
 	toggleclass: ["", ""], 
-	togglehtml: ["suffix", "<img src='/Intercambio-II/images/plus.png' class='statusicon' />", "<img src='/Intercambio-II/images/minus.png' class='statusicon' />"],
+	togglehtml: ["suffix", "<img src='/Intercambio/images/plus.png' class='statusicon' />", "<img src='/Intercambio/images/minus.png' class='statusicon' />"],
 	animatespeed: "normal" 
 })
 
