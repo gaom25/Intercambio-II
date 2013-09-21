@@ -15,9 +15,15 @@
 
 <html:html lang="true">
 
+    <script  src="/Intercambio/css/jquery.js"></script>
+    <script>
+        $(document).ready(function(){
+            if (!$('#captmal').is(':empty')){
+                $('#capt').addClass("error")
+            }
+        })
+    </script>
     <title>Sistema de Gesti&oacute;n de Intercambio</title>
-
-
     <h4></h4>
     <h6>Usuario/contraseña inválidos, por favor inténtelo nuevamente</h6>
     <div id="login-form">
@@ -47,23 +53,23 @@
                 <div id="Imagencita" style="height: 75px;">
                     <img src="/Intercambio/stickyImg"/>
                     <br/>
-                        <a href="javascript:history.go(0)">Click para cambiar captcha</a>
+                    <a href="javascript:history.go(0)">Click para cambiar captcha</a>
                 </div>
                 <br><br>
                 <table style="border: none;">
                     <tr style="border: none;">
                         <td style="border: none;" >Captcha</td> 
-                        <td style="border: none;" ><input name="answer" /></td>
+                        <td style="border: none;" ><input id="capt" name="answer" /></td>
                     </tr>
                     <tr style="border: none;" >
-                        <td style="border: none;" colspan="2"><html:errors property="captcha" /></td>
+                        <td id="captmal" style="border: none;" colspan="2"><html:errors property="captcha" /></td>
                     </tr>
                 </table>
 
             </div>
             <br><br><br><br/>
             <div>
-            <html:submit value = "Login"> Login</html:submit>   
+                <html:submit value = "Login"> Login</html:submit>   
             </div>
         </html:form>
         <html:link action="reccontra">¿Olvid&oacute; su contraseña?</html:link><br />

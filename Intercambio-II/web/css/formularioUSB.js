@@ -370,6 +370,7 @@
             o2.setAttribute("value", value);
             o2.setAttribute("styame", name );
             o2.setAttribute("valule",style);
+            o2.setAttribute("onchange",Sumar());
             //Fin Atributos para el archivo
             var td2 = document.createElement("td").appendChild(div1).appendChild(div2).appendChild(o2);
                 

@@ -7,7 +7,6 @@ package Actions;
 import Clases.Usuario;
 import Clases.Correo;
 import DBMS.DBMS;
-import java.util.ArrayList;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -62,31 +61,46 @@ public class recContrasena extends org.apache.struts.action.Action {
         Captcha captcha = (Captcha) session.getAttribute(Captcha.NAME);
         request.setCharacterEncoding("UTF-8");
         String answer = request.getParameter("answer");
-        if (!captcha.isCorrect(answer)) {
+        if (answer.equals("")) {
+            error.add("captcha",
+                    new ActionMessage("error.captcha.required"));
+            saveErrors(request, error);
+            huboError = true;
+        } else if (!captcha.isCorrect(answer)) {
+            error.add("captcha",
+                    new ActionMessage("error.captcha.invalido"));
+            saveErrors(request, error);
             huboError = true;
         }
 
-        //Verifica si se introdujo un correo
-        if (!email.equals("")) {
-
-            //Verifica si el email esta correcto o no
-            if (validate(email)) {
-              error.add("email", new ActionMessage("error.email.malformulado"));
-              saveErrors(request, error);
-              huboError = true;
-            } else {
-                datos = DBMS.getInstance().existeEmail(email);
-            }
-
-            //Verifica si se introdujo un usuario
-        } else if (!nombreusuario.equals("")) {
+        if (!nombreusuario.equals("")) {
             datos = DBMS.getInstance().existeUsuario(nombreusuario);
 
             //Verifica si se dejaron ambos campos vacios
-        } else if (nombreusuario.equals("") && email.equals("")) {
+        } else {
             error.add("nombreusuario",
                     new ActionMessage("error.nombreusuario.required"));
             saveErrors(request, error);
+            huboError = true;
+        }
+
+        //Verifica si se introdujo un correo      
+        if (!email.equals("")) {
+
+            //Verifica si el email esta correcto o no
+            if (!validate(email)) {
+                error.add("email", new ActionMessage("error.email.malformulado"));
+                saveErrors(request, error);
+                huboError = true;
+            } else {
+                datos = DBMS.getInstance().existeEmail(email, nombreusuario);
+                if (datos == null) {
+                    error.add("email", new ActionMessage("error.email.missmatch"));
+                    saveErrors(request, error);
+                    huboError = true;
+                }
+            }
+        } else {
             error.add("email", new ActionMessage("error.email.required"));
             saveErrors(request, error);
             huboError = true;
@@ -115,10 +129,8 @@ public class recContrasena extends org.apache.struts.action.Action {
                     return mapping.findForward(SUCCESS);
                 }
             }
+
+            return mapping.findForward(FAILURE);
         }
-
-        return mapping.findForward(FAILURE);
-
-
     }
 }

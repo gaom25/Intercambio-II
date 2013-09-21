@@ -50,7 +50,7 @@
                                errorKey="org.apache.struts.action.ERROR"></html:text></td>
                 </tr>
                 <tr>
-                    <td colspan="2">
+                    <td style="width: 100px;" colspan="2">
                         <html:errors property="nombre" />
                     </td>
                 </tr>

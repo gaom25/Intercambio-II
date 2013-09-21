@@ -22,7 +22,7 @@
         <html:image src="images/correct.png" /> 
         <br />
         
-        <html:link action="accionesEstExt">
+        <html:link action="/CargarLlenarPlanillaExt">
             Continuar
         </html:link>
         </div>

@@ -13,7 +13,8 @@
 <%@ taglib uri="http://struts.apache.org/tags-html" prefix="html" %>
 <%@ taglib uri="http://struts.apache.org/tags-logic" prefix="logic" %>
 <%@ taglib uri="http://struts.apache.org/tags-tiles" prefix="tiles" %>
-
+<script  src="/Intercambio/css/jquery.js"></script>
+<!DOCTYPE HTML>
 <html:html lang="true">
 
     <script  src="/Intercambio/css/formularioUSB.js"></script>
@@ -41,8 +42,29 @@
                 }
             }
         }
+            
+        function Sumar(){
+            var lo = 0;   
+            jQuery.each($(".feed"), function(key,value){
+                var pri = value.children[0]
+                if(pri.files.length != 0){
+                    lo = lo + pri.files[0].size
+                }
+        
+            })
+            var va=0;
+            if(lo/1024 >= 1024){
+                va = (lo/1048576).toFixed(2)+" Mb"
+            }else{
+                va = (lo/1024).toFixed(2) +" Kb"
+            }
+            
+            $("#parra").text("El tamaño de la carga es de:"+va+"");
+        }
+
         window.onload=function(){
-            select()
+            select();
+            Sumar()
         }
     </script>
 
@@ -1046,6 +1068,9 @@
     <div id="archivos" style="display: none; width: 80%;margin-left: 15%">
         <h5>Los archivos permitidos a cargar son aquellos con formato
             PDF JPG o PNG, sin excepción</h5>
+        <h5>El tamaño maximo de la carga de archivos es de 3Mb</h5>
+        
+        <h5 id="parra"></h5>
         <div style="width:99%;height:auto;border:3px solid #126598; border-radius: 10px;background: #dcebe8">
             <div align=center>
                 <html:form action="/FileUploadAction" method="post" enctype="multipart/form-data">
@@ -1060,8 +1085,8 @@
                                     <td>Foto</td>
                                     <td valign="left">
                                         <div id="archivos" >
-                                            <div class="feed">  
-                                                <html:file value="hola" property="theFile[0]"></html:file>
+                                            <div id="elarchi" class="feed">  
+                                                <html:file value="hola" onchange="Sumar()" property="theFile[0]"></html:file>
                                                 <br />
                                             </div>
                                         </div>
@@ -1074,8 +1099,7 @@
                                     <td valign="middle">
                                         <div id="archivos" >
                                             <div class="feed">  
-
-                                                <html:file value="chao" property="theFile[1]" />
+                                                <html:file value="chao" onchange="Sumar()" property="theFile[1]" />
                                                 <br />
                                             </div>
                                         </div>
@@ -1089,7 +1113,7 @@
                                         <div id="archivos" >
                                             <div class="feed">  
 
-                                                <html:file value="hello" property="theFile[2]" />
+                                                <html:file value="hello" onchange="Sumar()" property="theFile[2]" />
                                                 <br />
                                             </div>
                                         </div>
@@ -1103,7 +1127,7 @@
                                         <div id="archivos" >
                                             <div class="feed">  
 
-                                                <html:file value="bye" property="theFile[3]" />
+                                                <html:file value="bye" onchange="Sumar()" property="theFile[3]" />
                                                 <br />
                                             </div>
                                         </div>
@@ -1117,7 +1141,7 @@
                                         <div id="archivos" >
                                             <div class="feed">  
 
-                                                <html:file value="bye" property="theFile[4]" />
+                                                <html:file value="bye" onchange="Sumar()" property="theFile[4]" />
                                                 <br />
                                             </div>
                                         </div>
@@ -1315,5 +1339,4 @@
             </div>
         </div>
     </div>
-
 </html:html>

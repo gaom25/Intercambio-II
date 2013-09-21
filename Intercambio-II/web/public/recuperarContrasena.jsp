@@ -12,6 +12,14 @@
 <%@ taglib uri="http://struts.apache.org/tags-tiles" prefix="tiles" %>
 
 <html:html lang="true">
+    <script  src="/Intercambio/css/jquery.js"></script>
+    <script>
+        $(document).ready(function(){
+            if (!$('#captmal').is(':empty')){
+                $('#capt').addClass("error")
+            }
+        })
+    </script>
 
     <title>Sistema de Gesti&oacute;n de Intercambio</title>
 
@@ -51,11 +59,17 @@
                     </div>
                 </div>
                 <br><br>
-                <div>
-                    Captcha <input name="answer" />
-                </div>
+                <table style="border: none;">
+                    <tr style="border: none;">
+                        <td style="border: none;" >Captcha</td> 
+                        <td style="border: none;" ><input id="capt" name="answer" /></td>
+                    </tr>
+                    <tr style="border: none;" >
+                        <td id="captmal" style="border: none;" colspan="2"><html:errors property="captcha" /></td>
+                    </tr>
+                </table>
             </div>
-                <br><br>
+            <br><br><br><br>
 
             <html:submit value="Recuperar">Recuperar contraseña</html:submit>
         </html:form>

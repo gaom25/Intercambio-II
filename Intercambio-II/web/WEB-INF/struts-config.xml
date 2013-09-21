@@ -269,7 +269,7 @@
        <action name="Usuario" path="/recContrasena" scope="session" type="Actions.recContrasena">
             <forward name="failure" path="recConFallo"/>
             <forward name="success" path="recConEnviada"/>
-            <forward name="error" path="recConFallo"/>
+            <forward name="error" path="reccontra"/>
        </action>               
        
        <action name="Usuario" path="/ListarUsuarios" scope="session" type="Actions.ListarUsuarios">
@@ -301,20 +301,16 @@
        <action name="Usuario" path="/ModificarPerfil" scope="session" type="Actions.ModificarPerfil">
            <forward name="failure" path="accFallo"/>
            <forward name="admin" path="accActua" />
-           <forward name="gestor" path="accActuaGes"/>
-           <forward name="coordinacion" path="accActuaPos"/>
            <forward name="error" path="modPerfilAdm"/>
-       </action>       
-       
-       <action name="Usuario" path="/ModificarPerUSB" scope="session" type="Actions.ModificarPerUSB">
-           <forward name="failureusb" path="accFallo"/>
+           <forward name="gestor" path="accActuaGes"/>
+           <forward name="errorgest" path="modPerfilGes"/>
+           <forward name="coordinacion" path="accActuaPos"/>
+           <forward name="errorcord" path="modPerfilPos"/>
            <forward name="usb" path="accActuaUSB" />
-           <forward name="failureext" path="accFalloExt"/>
-           <forward name="ext" path="accActuaExt" />
            <forward name="errorusb" path="modificarperUSB"/>
+           <forward name="ext" path="accActuaExt" />
            <forward name="errorext" path="modificarperExt"/>
-       </action> 
-      
+       </action>       
        
        <action name="Usuario" path="/ObtenerDatos" scope="session" type="Actions.ObtenerDatos">
             <forward name="failure" path="accFallo"/>

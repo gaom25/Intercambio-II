@@ -66,7 +66,6 @@ public class ModificarPerfil extends org.apache.struts.action.Action {
         Usuario user = DBMS.getInstance().obtenerDatos(u);
         ActionErrors error = new ActionErrors();
         boolean huboError = false;
-        String pswd = u.getContrasena();
         String confPswd = u.getConfirmar();
         String mail = u.getEmail();
         String nuev = u.getNuevacontra();
@@ -88,9 +87,18 @@ public class ModificarPerfil extends org.apache.struts.action.Action {
         //Verificar que el campo contrasena del usuario no sea vacio/.
 
         if (u.getContrasena().equals("")) {
-            error.add("contrasena", new ActionMessage("error.nombre.required"));
+            error.add("contrasena", new ActionMessage("error.contrasena.required"));
             saveErrors(request, error);
             huboError = true;
+        } else if (u.getContrasena().length() < 6) {
+            error.add("contrasena", new ActionMessage("error.contrasena.corta"));
+            saveErrors(request, error);
+            huboError = true;
+        } else if (!user.getContrasena().equals(u.getContrasena())) {
+            error.add("contrasena", new ActionMessage("error.contrasena.diferente"));
+            saveErrors(request, error);
+            huboError = true;
+
         }
 
         //Verificar que el campo nuevacontrasena del usuario no sea vacio/.
@@ -99,12 +107,20 @@ public class ModificarPerfil extends org.apache.struts.action.Action {
             error.add("nuevacontra", new ActionMessage("error.nuevacontra.required"));
             saveErrors(request, error);
             huboError = true;
+        } else if (nuev.length() < 6) {
+            error.add("nuevacontra", new ActionMessage("error.contrasena.corta"));
+            saveErrors(request, error);
+            huboError = true;
         }
 
         //Verificar que el campo confirmar del usuario no sea vacio/.
 
         if (u.getConfirmar().equals("")) {
             error.add("confirmar", new ActionMessage("error.confirmar.required"));
+            saveErrors(request, error);
+            huboError = true;
+        } else if (confPswd.length() < 6) {
+            error.add("confirmar", new ActionMessage("error.contrasena.corta"));
             saveErrors(request, error);
             huboError = true;
         }
@@ -127,16 +143,26 @@ public class ModificarPerfil extends org.apache.struts.action.Action {
             huboError = true;
         }
 
-        if (!user.getContrasena().equals(u.getContrasena())) {
-            error.add("contrasena", new ActionMessage("error.contrasena.diferente"));
-            saveErrors(request, error);
-            huboError = true;
-
-        }
-
         // Si hubo error lo notifica, si no, procede a agregar en la BD.
         if (huboError) {
-            return mapping.findForward(ERROR);
+
+            switch (u.getPrivilegio()) {
+                case 1:
+                    return mapping.findForward(ERROR);
+                case 2:
+                    return mapping.findForward("errorgest");
+                case 3:
+                    return mapping.findForward("errorcord");
+                case 4:
+                    return mapping.findForward(ERROR);
+                case 5:
+                    return mapping.findForward("errorusb");
+                case 6:
+                    return mapping.findForward("errorext");
+                default:
+                    return mapping.findForward(ERROR);
+
+            }
 
         } else if (DBMS.getInstance().modificarPerfil(u)) {
 
@@ -152,6 +178,10 @@ public class ModificarPerfil extends org.apache.struts.action.Action {
                 return mapping.findForward(GESTOR);
             } else if (u.getPrivilegio() == 3) {
                 return mapping.findForward(COORDINACION);
+            } else if (u.getPrivilegio() == 5) {
+                return mapping.findForward("usb");
+            } else if (u.getPrivilegio() == 6) {
+                return mapping.findForward("ext");
             } else {
                 return mapping.findForward(SUCCESS);
             }
