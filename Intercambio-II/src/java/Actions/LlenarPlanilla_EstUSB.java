@@ -104,14 +104,14 @@ public class LlenarPlanilla_EstUSB extends org.apache.struts.action.Action {
             huboError = true;
             arre[0] = true;
         }
-
+/*
         if (p.getNombre2().equals("")) {
             error.add("nombre2", new ActionMessage("error.nombres.required"));
             saveErrors(request, error);
             huboError = true;
             arre[0] = true;
         }
-
+*/
         // Verifica escogencia de Sexo
         if (p.getSexo().contains("Seleccione")) {
             error.add("sexo", new ActionMessage("error.sexo.required"));

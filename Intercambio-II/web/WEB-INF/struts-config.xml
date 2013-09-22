@@ -42,6 +42,12 @@
             validate="false"
             parameter="inicSesion"/>
         
+        <action path="/inicSesion"
+            type="org.apache.struts.actions.ForwardAction"
+            scope="request"
+            validate="false"
+            parameter="inicSesion"/>
+        
         <action path="/faq"
             type="org.apache.struts.actions.ForwardAction"
             scope="request"

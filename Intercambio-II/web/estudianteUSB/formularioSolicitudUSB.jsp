@@ -1,4 +1,4 @@
-<%-- 
+m<%-- 
     Document   : formularioSolicitudUSB
     Created on : Nov 13, 2012, 10:13:53 AM
     Last Modif : Feb 21, 2013
@@ -1183,7 +1183,7 @@
                     <table border="0"  align="center" style="margin-left: auto;margin-right: auto">
                         <tbody id ="MateBody">
                             <tr>
-                                <td></td>
+                                <td> Marque para Eliminar</td>
                                 <td> Código-USB</td>
 
                                 <td> Nombre-USB</td>
@@ -1199,7 +1199,7 @@
                             </tr>
 
                             <tr>
-                                <td> <input type="checkbox" name="c[]"></td>
+                                <td> <input type="checkbox" name="c[]" style="align-center"></td>
                                 <td>
                                     <html:text name="PlanDeEstudio" property="codigoUSB[0]" maxlength="45" errorStyleClass="error" value="" style="width:80%;"
                                                errorKey="org.apache.struts.action.ERROR">
