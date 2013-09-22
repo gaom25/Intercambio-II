@@ -155,8 +155,8 @@ m<%--
                                     <td style="font-weight: bold">Fecha de Nacimiento</td>
 
                                     <td>
-                                        <input type="date" min="1980-01-01" name="fechaNacimiento" maxlength="80" errorStyleClass="error" />
-                                        <!--                               errorKey="org.apache.struts.action.ERROR" />-->
+                                        <input type="date" min="1980-01-01" name="PlanillaUSB" property="fechaNacimiento"/>
+                                        
                                     </td>
 
                                 </tr>
@@ -455,7 +455,7 @@ m<%--
                                 <tr>
                                     <td style="font-weight: bold"> Nombre de Programa: </td>
                                     <td>
-                                        <html:select styleId="prog_princ" onchange="cambia_pais();cambiar_link1()" property="nombreProgramaOpcion1"> 
+                                        <html:select styleId="prog_princ" onclick="cambia_pais();cambiar_link1()" property="nombreProgramaOpcion1"> 
                                             <html:option value="0">Seleccione </html:option>
                                             <html:option value="Bilaterales">Convenios Bilaterales </html:option>
                                             <html:option value="SMILE">Programa SMILE </html:option>
@@ -480,7 +480,7 @@ m<%--
                                 <tr>
                                     <td style="font-weight: bold"> País Destino: </td>
                                     <td>
-                                        <html:select styleId="pais_princ" onchange="cambia_universidad()" property="paisOpcion1"> 
+                                        <html:select styleId="pais_princ" onclick="cambia_universidad()" property="paisOpcion1"> 
                                             <html:option value="-">- </html:option>
                                         </html:select>
                                     </td>
@@ -608,7 +608,7 @@ m<%--
                                 <tr>
                                     <td style="font-weight: bold"> Nombre de Programa: </td>
                                     <td>
-                                        <html:select styleId="prog_princ2" onchange="cambia_pais2();cambiar_link2()" property="nombreProgramaOpcion2"> 
+                                        <html:select styleId="prog_princ2" onclick="cambia_pais2();cambiar_link2()" property="nombreProgramaOpcion2"> 
                                             <html:option value="0">Seleccione </html:option>
                                             <html:option value="Bilaterales">Convenios Bilaterales </html:option>
                                             <html:option value="SMILE">Programa SMILE </html:option>
@@ -633,7 +633,7 @@ m<%--
                                 <tr>
                                     <td style="font-weight: bold"> País Destino: </td>
                                     <td>
-                                        <html:select styleId="pais_princ2" onchange="cambia_universidad2()" property="paisOpcion2"> 
+                                        <html:select styleId="pais_princ2" onclick="cambia_universidad2()" property="paisOpcion2"> 
                                             <html:option value="-">-</html:option>
                                         </html:select>
                                     </td>
@@ -778,7 +778,7 @@ m<%--
                                 <tr>
                                     <td style="font-weight: bold"> Decanato: </td>
                                     <td>
-                                        <html:select styleId="dec" onchange="cambia_area()" property="decanato"> 
+                                        <html:select styleId="dec" onclick="cambia_area()" property="decanato"> 
                                             <html:option value="0">Seleccione</html:option>
                                             <html:option value="1"> Decanato de Estudios Profesionales</html:option>
                                             <html:option value="2"> Decanato de Estudios Tecnológicos </html:option>
@@ -794,7 +794,7 @@ m<%--
                                 <tr>
                                     <td style="font-weight: bold"> Área de Estudio: </td>
                                     <td>
-                                        <html:select styleId="area" onchange="cambia_carrera()" property="areaEstud"> 
+                                        <html:select styleId="area" onclick="cambia_carrera()" property="areaEstud"> 
                                             <html:option value="-">- </html:option>
                                         </html:select>
                                     </td>
@@ -1086,7 +1086,7 @@ m<%--
                                     <td valign="left">
                                         <div id="archivos" >
                                             <div id="elarchi" class="feed">  
-                                                <html:file value="hola" onchange="Sumar()" property="theFile[0]"></html:file>
+                                                <html:file value="hola" onclick="Sumar()" property="theFile[0]"></html:file>
                                                 <br />
                                             </div>
                                         </div>
@@ -1099,7 +1099,7 @@ m<%--
                                     <td valign="middle">
                                         <div id="archivos" >
                                             <div class="feed">  
-                                                <html:file value="chao" onchange="Sumar()" property="theFile[1]" />
+                                                <html:file value="chao" onclick="Sumar()" property="theFile[1]" />
                                                 <br />
                                             </div>
                                         </div>
@@ -1113,7 +1113,7 @@ m<%--
                                         <div id="archivos" >
                                             <div class="feed">  
 
-                                                <html:file value="hello" onchange="Sumar()" property="theFile[2]" />
+                                                <html:file value="hello" onclick="Sumar()" property="theFile[2]" />
                                                 <br />
                                             </div>
                                         </div>
@@ -1127,7 +1127,7 @@ m<%--
                                         <div id="archivos" >
                                             <div class="feed">  
 
-                                                <html:file value="bye" onchange="Sumar()" property="theFile[3]" />
+                                                <html:file value="bye" onclick="Sumar()" property="theFile[3]" />
                                                 <br />
                                             </div>
                                         </div>
@@ -1141,7 +1141,7 @@ m<%--
                                         <div id="archivos" >
                                             <div class="feed">  
 
-                                                <html:file value="bye" onchange="Sumar()" property="theFile[4]" />
+                                                <html:file value="bye" onclick="Sumar()" property="theFile[4]" />
                                                 <br />
                                             </div>
                                         </div>
