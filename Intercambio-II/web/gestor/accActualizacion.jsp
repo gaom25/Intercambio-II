@@ -16,7 +16,7 @@
 
 
     <div style="text-align: center;">
-        <h1>Perfíl Actualizado Correctamente</h1>
+        <h1>Perfil actualizado correctamente</h1>
         
         <html:image src="images/correct.png" /> 
         <br />

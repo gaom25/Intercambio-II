@@ -18,7 +18,7 @@
 
    <div id="Bienve">
         <h1>Bienvenido, <a ><%=var.toString()%></a> </h1>
-        <h1>El estado actual de su postulacion es: <%=confirm.toString()%></h1>
+        <h1>El estado actual de su postulaci&oacute;n es: <%=confirm.toString()%></h1>
    </div>
     
     <p hidden="true"><bean:write name="Usuario" property="nombre"></bean:write></p>
