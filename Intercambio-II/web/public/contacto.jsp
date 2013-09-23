@@ -7,6 +7,14 @@
 
 <html>
 
+    <script  src="/Intercambio/css/jquery.js"></script>
+    <script>
+        $(document).ready(function(){
+            if (!$('#captmal').is(':empty')){
+                $('#capt').addClass("error")
+            }
+        })
+    </script>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Sistema de Gestión de Intercambio</title>
@@ -15,8 +23,8 @@
 
 
     <body onload ="clearForms()" onUnload="clearForms()">  
-        
-        <div id="loginDiv" title=" ">
+
+        <div id="loginDiv">
 
             <h4>Contáctanos</h4>
             <h5>Por favor complete el formulario a continuación.</h5>
@@ -85,12 +93,18 @@
                             </div>
                         </div>
                         <br><br>
-                        <div>
-                            Captcha <input name="answer" />
-                        </div>
+                        <table style="border: none;">
+                            <tr style="border: none;">
+                                <td style="border: none;" >Captcha</td> 
+                                <td style="border: none;" ><input id="capt" name="answer" /></td>
+                            </tr>
+                            <tr style="border: none;" >
+                                <td id="captmal" style="border: none;" colspan="2"><html:errors property="captcha" /></td>
+                            </tr>
+                        </table>
                     </div>
 
-                    <br>
+                    <br><br><br><br>
                     <p style="text-align: center">
                         <html:submit onclick="javascript: return confirm('¿Está seguro que los datos son correctos?')">
                             Enviar mensaje
@@ -99,8 +113,8 @@
                 </html:form>
             </div>            
         </div>
-         <div id="fechaPostulaciones" class="hidden" title=" " style="padding-left: 10%">
-        <pre>
+        <div id="fechaPostulaciones" class="hidden" title=" " style="padding-left: 10%">
+            <pre>
         <h2>
             Fecha Límite para Postulaciones:</h2>
                             Inicio en Septiembre: 15 de mayo. 
@@ -122,12 +136,12 @@
                             deberán proporcionar a través de la carga de
                             documentos los siguientes recaudos pautados por su
                             nacionalidad.
-        </pre>
+            </pre>
 
-    </div>
-    
-    <div id="estudianteInter" class="hidden" title=" " style="padding-left: 5%">
-        <pre>
+        </div>
+
+        <div id="estudianteInter" class="hidden" title=" " style="padding-left: 5%">
+            <pre>
             <h2>
                 Recaudos que deben Presentar los Estudiantes
                 Internacionales para su Postulación</h2>
@@ -145,11 +159,11 @@
                                         - Curriculum Vitae.
 
                                         - Carta de recomendación de un profesor de la universidad de origen.
-        </pre>
-    </div>
-    
-    <div id="estudianteNac" class="hidden" title=" " style="padding-left: 10%">
-        <pre>
+            </pre>
+        </div>
+
+        <div id="estudianteNac" class="hidden" title=" " style="padding-left: 10%">
+            <pre>
             <h2>
             Recaudos que deben Presentar los Estudiantes
             Nacionales para su Postulación</h2>
@@ -166,11 +180,11 @@
                             - Carta de motivación para los estudios en el exterior.
 
                             - Fotocopia del Carnet.
-        </pre>
-    </div>
-    
-    <div id="recaudosAdic" class="hidden" title=" " style="padding-left: 10%">
-        <pre>
+            </pre>
+        </div>
+
+        <div id="recaudosAdic" class="hidden" title=" " style="padding-left: 10%">
+            <pre>
             <h2>
             Requisitos Adicionales:</h2>
                                 <b>Programa SMILE:</b>
@@ -185,12 +199,12 @@
                                 - Ficha de Solicitud de Participación.
 
                                 - Ficha de Reconocimiento.
-        </pre>
+            </pre>
 
         </div>
         <div class="espacio" style="height:90px">
         </div>
-        
+
 
     </body>
 

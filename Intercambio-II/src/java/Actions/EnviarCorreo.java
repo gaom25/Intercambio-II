@@ -5,20 +5,13 @@
 package Actions;
 
 import Clases.Correo;
-import java.util.Properties;
-import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
-import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import javax.mail.*;
-import javax.mail.internet.*;
-import javax.activation.*;
 import javax.servlet.http.HttpSession;
 import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionMessage;
@@ -66,7 +59,15 @@ public class EnviarCorreo extends org.apache.struts.action.Action {
         Captcha captcha = (Captcha) session.getAttribute(Captcha.NAME);
         request.setCharacterEncoding("UTF-8");
         String answer = request.getParameter("answer");
-        if (!captcha.isCorrect(answer)) {
+        if (answer.equals("")) {
+            error.add("captcha",
+                    new ActionMessage("error.captcha.required"));
+            saveErrors(request, error);
+            huboError = true;
+        } else if (!captcha.isCorrect(answer)) {
+            error.add("captcha",
+                    new ActionMessage("error.captcha.invalido"));
+            saveErrors(request, error);
             huboError = true;
         }
         
