@@ -17,7 +17,7 @@
 
     <script  src="/Intercambio/css/formularioExt.js"></script>
 
-    <title>Sistema de Gestión de Intercambio</title>
+    <title>Sistema de Gestión de Intercambios</title>
 
     <h4 align ="center"> Formulario de solicitud</h4>
     <h5 align ="center"> Por favor complete los datos que son requeridos a continuación</h5>
