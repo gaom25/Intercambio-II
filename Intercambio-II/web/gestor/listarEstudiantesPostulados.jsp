@@ -53,16 +53,16 @@
                         Nombre
                     </th>
                     <th width="110px" align="center">
-                        Ver Usuario
+                        Ver usuario
                     </th>
                     <th width="100px" align="center">
-                        Consultar Solicitud
+                        Consultar solicitud
                     </th>
                     <th width="150px" align="center">
                         Estado actual
                     </th>
                     <th width="150px" align="center">
-                        Cambiar Estado de la Solicitud
+                        Cambiar estado de la solicitud
                     </th>
                 </tr>
             </thead>
@@ -101,7 +101,7 @@
 
                             <html:select name="Usuario" property="confirmar">
                                 <html:option value="">Nvo Estado</html:option>
-                                <html:option value="En Evaluación">En Evaluacion</html:option>
+                                <html:option value="En Evaluación">En Evaluación</html:option>
                                 <html:option value="Retenido">Retenido</html:option>
                                 <html:option value="Aceptado">Aceptado</html:option>
                                 <html:option value="Rechazado">Rechazado</html:option>
