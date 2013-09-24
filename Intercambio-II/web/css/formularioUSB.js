@@ -336,7 +336,7 @@
             var name = "theFile[" +  fCount +  "]";
             var file = "file";
             var valgin = "middle";
-            var value = "";
+            var value = "value";
             var id = "archivos";
             var clas = "feed";
             var arr = "chk[]"
@@ -368,14 +368,17 @@
             o2.setAttribute("type", file);
             o2.setAttribute("name", name );
             o2.setAttribute("value", value);
-            o2.setAttribute("styame", name );
-            o2.setAttribute("valule",style);
-            o2.setAttribute("onchange",Sumar());
+            o2.setAttribute("name", name );
+            o2.setAttribute("style",style);
+            o2.setAttribute("onchange",'Sumar()');
             //Fin Atributos para el archivo
-            var td2 = document.createElement("td").appendChild(div1).appendChild(div2).appendChild(o2);
+            var td2 = document.createElement("td")
+            td2.appendChild(div1)
+            td2.appendChild(div2)
+            div2.appendChild(o2);
                 
             //Atributos para el td interno
-            td2.setAttribute("valgin",valgin);
+            //td2.setAttribute("valgin",valgin);
             //Fin atributos del td
                                 
             fObject.appendChild(tr).appendChild(td).appendChild(check);

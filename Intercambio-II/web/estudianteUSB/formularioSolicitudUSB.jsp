@@ -1086,7 +1086,7 @@ m<%--
                                     <td valign="left">
                                         <div id="archivos" >
                                             <div id="elarchi" class="feed">  
-                                                <html:file value="hola" onclick="Sumar()" property="theFile[0]"></html:file>
+                                                <html:file value="hola" onchange="Sumar()" property="theFile[0]"></html:file>
                                                 <br />
                                             </div>
                                         </div>
@@ -1099,7 +1099,7 @@ m<%--
                                     <td valign="middle">
                                         <div id="archivos" >
                                             <div class="feed">  
-                                                <html:file value="chao" onclick="Sumar()" property="theFile[1]" />
+                                                <html:file value="chao" onchange="Sumar()" property="theFile[1]" />
                                                 <br />
                                             </div>
                                         </div>
@@ -1112,12 +1112,10 @@ m<%--
                                     <td valign="middle">
                                         <div id="archivos" >
                                             <div class="feed">  
-
-                                                <html:file value="hello" onclick="Sumar()" property="theFile[2]" />
+                                                <html:file value="hello" onchange="Sumar()" property="theFile[2]" />
                                                 <br />
                                             </div>
                                         </div>
-
                                     </td>
                                 </tr>
                                 <tr>
@@ -1126,12 +1124,10 @@ m<%--
                                     <td valign="middle">
                                         <div id="archivos" >
                                             <div class="feed">  
-
-                                                <html:file value="bye" onclick="Sumar()" property="theFile[3]" />
+                                                <html:file value="bye" onchange="Sumar()" property="theFile[3]" />
                                                 <br />
                                             </div>
                                         </div>
-
                                     </td>
                                 </tr>
                                 <tr>
@@ -1140,8 +1136,7 @@ m<%--
                                     <td valign="middle">
                                         <div id="archivos" >
                                             <div class="feed">  
-
-                                                <html:file value="bye" onclick="Sumar()" property="theFile[4]" />
+                                                <html:file value="bye" onchange="Sumar()" property="theFile[4]" />
                                                 <br />
                                             </div>
                                         </div>

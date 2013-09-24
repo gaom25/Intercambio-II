@@ -44,7 +44,7 @@ ddmenu.init({
             </ul>
         </div>
         
-        <a style="border-bottom: none;"> <html:link styleClass="menuitem" action="/modPerfilAdm">Modificar perfil</html:link></a>
+        <a style="border-bottom: none;"> <html:link styleClass="menuitem" action="/modPerfilAdm">Ver/Modificar perfil</html:link></a>
 	<a class="menuitem submenuheader">Gestión de anuncios</a>
         <div class ="submenu">
             <ul>

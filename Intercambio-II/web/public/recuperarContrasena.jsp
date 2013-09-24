@@ -65,8 +65,8 @@
                             <td style="border: none;" >Captcha</td> 
                             <td style="border: none;" ><input id="capt" name="answer" /></td>
                         </tr>
-                        <tr style="border: none;color:firebrick" >
-                            <td id="captmal" style="border: none;" colspan="2"><html:errors property="captcha" /></td>
+                        <tr style="border: none;" >
+                            <td id="captmal" style="border: none;color:firebrick" colspan="2"><html:errors property="captcha" /></td>
                         </tr>
                     </table>
                 </div>
