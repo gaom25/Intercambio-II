@@ -10,6 +10,7 @@ import Clases.PlanDeEstudio;
 import DBMS.DBMS;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
@@ -40,9 +41,14 @@ public class CargarLlenarPlanillaUSB extends org.apache.struts.action.Action {
             throws Exception {
 
         PlanillaUSB p = (PlanillaUSB) form;
+        HttpSession session = request.getSession(true);
 
         Usuario u = new Usuario();
+        if(p.getNombreUsuario() == null){
+            u.setNombreusuario(session.getAttribute("nombreusuario").toString());
+        }else{
         u.setNombreusuario(p.getNombreUsuario());
+        }
         u.setConfirmar("2013-2014");
 
         Clases.PlanillaUSB hay = DBMS.getInstance().obtenerPlanillaUSB(u);
