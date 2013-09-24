@@ -1691,16 +1691,15 @@ public class DBMS {
         return 1;
     }
 
-    public String[] existeEmail(String email, String nombreusuario) {
+    public String[] existeEmail(String email) {
 
         String[] info = new String[3];
         PreparedStatement ps = null;
 
         try {
             ps = conexion.prepareStatement("SELECT nombreusuario, contrasena, email "
-                    + "FROM \"dycicle\".usuario WHERE email = ? AND nombreusuario = ? ");
+                    + "FROM \"dycicle\".usuario WHERE email = ?");
             ps.setString(1, email);
-            ps.setString(2, nombreusuario);
             ResultSet rs = ps.executeQuery();
 
             if (rs.next()) {

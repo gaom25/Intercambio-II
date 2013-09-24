@@ -72,65 +72,58 @@ public class recContrasena extends org.apache.struts.action.Action {
             saveErrors(request, error);
             huboError = true;
         }
-
-        if (!nombreusuario.equals("")) {
-            datos = DBMS.getInstance().existeUsuario(nombreusuario);
-
-            //Verifica si se dejaron ambos campos vacios
-        } else {
-            error.add("nombreusuario",
-                    new ActionMessage("error.nombreusuario.required"));
-            saveErrors(request, error);
-            huboError = true;
+        
+        //Verifica si se dejaron campos vacios
+        if (nombreusuario.equals("") && email.equals("")){
+                error.add("nombreusuario", new ActionMessage("error.reccontrasena.required"));
+                saveErrors(request, error);
+                error.add("email", new ActionMessage("error.reccontrasena.required"));
+                saveErrors(request, error);
+                huboError = true;
         }
-
-        //Verifica si se introdujo un correo      
+        
+        //Verifica si se introdujo un correo
         if (!email.equals("")) {
-
+            
             //Verifica si el email esta correcto o no
-            if (!validate(email)) {
+            if (!validate(email)){
                 error.add("email", new ActionMessage("error.email.malformulado"));
                 saveErrors(request, error);
                 huboError = true;
-            } else {
-                datos = DBMS.getInstance().existeEmail(email, nombreusuario);
-                if (datos == null) {
-                    error.add("email", new ActionMessage("error.email.missmatch"));
-                    saveErrors(request, error);
-                    huboError = true;
-                }
+            }else{
+                datos = DBMS.getInstance().existeEmail(email);
             }
-        } else {
-            error.add("email", new ActionMessage("error.email.required"));
-            saveErrors(request, error);
-            huboError = true;
         }
-
-        if (huboError) {
+        
+        //Si el correo que se introdujo no existe, verifica el usuario
+        if (datos == null){
+            if (!nombreusuario.equals("")) {
+            datos = DBMS.getInstance().existeUsuario(nombreusuario);
+            }
+           
+        }
+        
+        if (huboError){
             return mapping.findForward(ERROR);
-        } else {
-
-            if (datos != null) {
-
+        }else{
+            
+            if (datos != null){
+                
                 Correo c = new Correo();
                 String msj = "Su usuario es: " + datos[0] + ".\n"
                         + "Su contraseña es:" + datos[1] + ".\n";
                 String asunto = "Recuperación de contraseña";
                 c.setAsunto(asunto);
                 c.setMensaje(msj);
-                System.out.println(datos[2]);
                 boolean envio = c.enviarUsuario(datos[2]);
 
-                if (envio) {
-                    Usuario obj = (Usuario) session.getAttribute("Usuario");
-                    boolean boo =
-                            DBMS.getInstance().registrar(obj.getNombreusuario(),
-                            "Recuperación de contraseña");
-                    return mapping.findForward(SUCCESS);
+                if(envio){
+                return mapping.findForward(SUCCESS);
                 }
             }
-
-            return mapping.findForward(FAILURE);
         }
+        
+        return mapping.findForward(FAILURE);
+    
     }
 }
