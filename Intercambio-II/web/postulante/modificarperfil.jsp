@@ -86,6 +86,6 @@
                 </tr>
             </tbody>
         </table>
-        <p style="text-align: center"><html:submit>Modificar Perfil</html:submit></p>
+        <p style="text-align: center"><html:submit>Modificar usuario</html:submit></p>
     </html:form>
 </html>
