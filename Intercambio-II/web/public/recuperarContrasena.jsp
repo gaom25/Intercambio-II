@@ -68,7 +68,7 @@
                         <tr style="border: none;" >
                             <td id="captmal" style="border: none;color:firebrick" colspan="2"><html:errors property="captcha" /></td>
                         </tr>
-                    </table>0.
+                    </table>
                 </div>
                 <br><br><br><br>
 
