@@ -36,7 +36,7 @@
                     </td>
                 </tr>
                 <tr style="border: none;">
-                    <td style="border: none;" colspan="2"><html:errors property="nombreusuario"/></td>
+                    <td style="border: none;color:fireBrick;" colspan="2"><html:errors property="nombreusuario"/></td>
                 </tr>
                 <tr style="border: none;">
                     <td style="border: none;"> Password </td>
@@ -45,7 +45,7 @@
                     </td>
                 </tr>
                 <tr style="border: none;">
-                    <td style="border: none;" colspan="2"><html:errors property="contrasena"/></td>
+                    <td style="border: none;color:fireBrick;" colspan="2"><html:errors property="contrasena"/></td>
                 </tr>
             </table>
 
@@ -62,7 +62,9 @@
                         <td style="border: none;" ><input id="capt" name="answer" /></td>
                     </tr>
                     <tr style="border: none;" >
-                        <td id="captmal" style="border: none;" colspan="2"><html:errors property="captcha" /></td>
+                        <td id="captmal" style="border: none;color:fireBrick;" colspan="2">
+                            <html:errors property="captcha" />
+                        </td>
                     </tr>
                 </table>
 

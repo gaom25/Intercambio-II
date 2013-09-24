@@ -32,7 +32,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="2">
+                            <td style="color:firebrick" colspan="2">
                                 <html:errors property="nombreusuario" />
                             </td>
                         </tr>
@@ -45,7 +45,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="2">
+                            <td colspan="2" style="color:firebrick">
                                 <html:errors property="email" />
                             </td>
                         </tr>
@@ -57,7 +57,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="2">
+                            <td colspan="2" style="color:firebrick">
                                 <html:errors property="nombre" />
                             </td>
                         </tr>

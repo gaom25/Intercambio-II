@@ -33,7 +33,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td colspan="2">
+                        <td colspan="2" style="color:firebrick">
                             <html:errors property="nombreusuario" />
                         </td>
                     </tr>

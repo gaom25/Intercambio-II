@@ -37,7 +37,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="2"><html:errors property="nombreusuario"/></td>
+                            <td style="color:firebrick" colspan="2"><html:errors property="nombreusuario"/></td>
                     </tr>
 
                     <tr>
@@ -47,7 +47,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="2"><html:errors property="email"/></td>
+                            <td style="color:firebrick" colspan="2"><html:errors property="email"/></td>
                     </tr>
                 </table>
 
@@ -65,7 +65,7 @@
                             <td style="border: none;" >Captcha</td> 
                             <td style="border: none;" ><input id="capt" name="answer" /></td>
                         </tr>
-                        <tr style="border: none;" >
+                        <tr style="border: none;color:firebrick" >
                             <td id="captmal" style="border: none;" colspan="2"><html:errors property="captcha" /></td>
                         </tr>
                     </table>

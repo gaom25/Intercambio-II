@@ -32,7 +32,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="2">
+                            <td colspan="2" style="color:firebrick">
                                 <html:errors property="nombreRemitente" />
                             </td>
                         </tr>
@@ -45,7 +45,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="2">
+                            <td colspan="2" style="color:firebrick">
                                 <html:errors property="email" />
                             </td>
                         </tr>
@@ -57,7 +57,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="2">
+                            <td colspan="2" style="color:firebrick">
                                 <html:errors property="asunto" />
                             </td>
                         </tr>
@@ -68,7 +68,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="2">
+                            <td colspan="2" style="color:firebrick">
                                 <html:errors property="mensaje" />
                             </td>
                         </tr>

@@ -18,7 +18,7 @@
 <!--
         <div id="contacto">
             <html:link action="/contactoCoord">
-                <img src="/Intercambio-II/images/Contactenos.jpg">
+                <img src="/Intercambio/images/Contactenos.jpg">
             </html:link>
         </div>
 --> 

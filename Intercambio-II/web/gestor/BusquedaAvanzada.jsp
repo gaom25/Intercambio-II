@@ -97,7 +97,7 @@
                                 <html:option value="Administración Aduanera"></html:option>
                             </html:select>
                                 </td>
-                                <td>
+                                <td style="color:firebrick">
                                 <html:errors property="Carrera" />
                             </td>
                         </tr>

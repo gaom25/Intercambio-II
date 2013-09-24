@@ -27,7 +27,7 @@
                                errorKey="org.apache.struts.action.ERROR"></html:text></td>
                 </tr>
                 <tr>
-                    <td colspan="2">
+                    <td colspan="2" style="color:firebrick">
                         <html:errors property="nombreusuario" />
                     </td>
                 </tr>
@@ -38,7 +38,7 @@
                                errorKey="org.apache.struts.action.ERROR"></html:text></td>
                 </tr>
                 <tr>
-                    <td colspan="2">
+                    <td colspan="2" style="color:firebrick">
                         <html:errors property="email" />
                     </td>
 
@@ -49,7 +49,7 @@
                                errorKey="org.apache.struts.action.ERROR"></html:text></td>
                 </tr>
                 <tr>
-                    <td colspan="2">
+                    <td colspan="2" style="color:firebrick">
                         <html:errors property="nombre" />
                     </td>
                 </tr>

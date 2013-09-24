@@ -41,7 +41,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td colspan="2">
+                                <td colspan="2" style="color:firebrick">
                                     <html:errors property="nombreRemitente" />
                                 </td>
                             </tr>
@@ -54,7 +54,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td colspan="2">
+                                <td colspan="2" style="color:firebrick">
                                     <html:errors property="correoRemitente" />
                                 </td>
                             </tr>
@@ -66,7 +66,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td colspan="2">
+                                <td colspan="2" style="color:firebrick">
                                     <html:errors property="asunto" />
                                 </td>
                             </tr>
@@ -77,7 +77,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td colspan="2">
+                                <td colspan="2" style="color:firebrick">
                                     <html:errors property="mensaje" />
                                 </td>
                             </tr>
@@ -99,7 +99,7 @@
                                 <td style="border: none;" ><input id="capt" name="answer" /></td>
                             </tr>
                             <tr style="border: none;" >
-                                <td id="captmal" style="border: none;" colspan="2"><html:errors property="captcha" /></td>
+                                <td id="captmal" style="border: none;color:firebrick" colspan="2"><html:errors property="captcha" /></td>
                             </tr>
                         </table>
                     </div>

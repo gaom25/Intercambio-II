@@ -29,7 +29,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td colspan="2">
+                        <td colspan="2" style="color:firebrick">
                             <html:errors property="titulo" />
                         </td>
                     </tr>
@@ -53,7 +53,7 @@
                     </tr>
 
                     <tr>
-                        <td colspan="2">
+                        <td colspan="2" style="color:firebrick">
                             <html:errors property="mensaje"/>
                         </td>
                     </tr>
