@@ -29,7 +29,7 @@
                                    errorKey="org.apache.struts.action.ERROR"></html:text></td>
                     </tr>
                     <tr>
-                        <td colspan="2">
+                        <td colspan="2" style="color:firebrick">
                             <html:errors property="nombreusuario" />
                         </td>
                     </tr>
@@ -40,7 +40,7 @@
                                    errorKey="org.apache.struts.action.ERROR"></html:text></td>
                     </tr>
                     <tr>
-                        <td colspan="2">
+                        <td colspan="2" style="color:firebrick">
                             <html:errors property="email" />
                         </td>
 
@@ -51,7 +51,7 @@
                                    errorKey="org.apache.struts.action.ERROR"></html:text></td>
                     </tr>
                     <tr>
-                        <td colspan="2">
+                        <td colspan="2" style="color:firebrick">
                             <html:errors property="nombre" />
                         </td>
                     </tr>
@@ -61,7 +61,7 @@
                                        errorKey="org.apache.struts.action.ERROR"></html:password></td>
                     </tr>
                     <tr>
-                        <td style="width: 100px;" colspan="2">
+                        <td style="width: 100px;color:firebrick" colspan="2">
                             <html:errors property="contrasena" />
                         </td>
                     </tr>
@@ -71,7 +71,7 @@
                                        errorKey="org.apache.struts.action.ERROR"></html:password></td>
                     </tr>
                     <tr>
-                        <td style="width: 100px;" colspan="2">
+                        <td style="width: 100px;color:firebrick" colspan="2">
                             <html:errors property="nuevacontra" />
                         </td>
                     </tr>
@@ -81,7 +81,7 @@
                                        errorKey="org.apache.struts.action.ERROR"></html:password></td>
                     </tr>
                     <tr>
-                        <td style="width: 100px;" colspan="2">
+                        <td style="width: 100px;color:firebrick" colspan="2">
                             <html:errors property="confirmar" />
                         </td>
                     </tr>

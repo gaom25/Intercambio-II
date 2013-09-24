@@ -100,7 +100,7 @@ m<%--
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td colspan="2">
+                                    <td colspan="2" style="color:firebrick">
                                         <html:errors property="apellido1" />
                                     </td>
                                 </tr>
@@ -115,7 +115,7 @@ m<%--
 
                                 </tr>
                                 <tr>
-                                    <td colspan="2">
+                                    <td colspan="2" style="color:firebrick">
                                         <html:errors property="apellido2" />
                                     </td>
                                 </tr>
@@ -130,7 +130,7 @@ m<%--
 
                                 </tr>
                                 <tr>
-                                    <td colspan="2">
+                                    <td colspan="2" style="color:firebrick">
                                         <html:errors property="nombre1" />
                                     </td>
                                 </tr>
@@ -145,7 +145,7 @@ m<%--
 
                                 </tr>
                                 <tr>
-                                    <td colspan="2">
+                                    <td colspan="2" style="color:firebrick">
                                         <html:errors property="nombre2" />
                                     </td>
 
@@ -161,7 +161,7 @@ m<%--
 
                                 </tr>
                                 <tr>
-                                    <td colspan="2">
+                                    <td colspan="2" style="color:firebrick">
                                         <html:errors name="fechaNacimiento" />
                                     </td>
                                 </tr>
@@ -179,7 +179,7 @@ m<%--
 
                                 </tr>
                                 <tr>
-                                    <td colspan="2">
+                                    <td colspan="2" style="color:firebrick">
                                         <html:errors property="sexo" />
                                     </td>
 
@@ -196,7 +196,7 @@ m<%--
 
                                 </tr>
                                 <tr>
-                                    <td colspan="2">
+                                    <td colspan="2" style="color:firebrick">
                                         <html:errors property="nacionalidad" />
                                     </td>
                                 </tr>
@@ -212,7 +212,7 @@ m<%--
 
                                 </tr>
                                 <tr>
-                                    <td colspan="2">
+                                    <td colspan="2" style="color:firebrick">
                                         <html:errors property="cedula" />
                                     </td>
                                 </tr>
@@ -226,7 +226,7 @@ m<%--
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td colspan="2">
+                                    <td colspan="2" style="color:firebrick">
                                         <html:errors property="carnet" />
                                     </td>
                                 </tr>
@@ -261,7 +261,7 @@ m<%--
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td colspan="2">
+                                    <td colspan="2" style="color:firebrick">
                                         <html:errors property="urbanizacion" />
                                     </td>
                                 </tr>                                
@@ -276,7 +276,7 @@ m<%--
 
                                 </tr>
                                 <tr>
-                                    <td colspan="2">
+                                    <td colspan="2" style="color:firebrick">
                                         <html:errors property="calle" />
                                     </td>
                                 </tr>    
@@ -289,7 +289,7 @@ m<%--
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td colspan="2">
+                                    <td colspan="2" style="color:firebrick">
                                         <html:errors property="edificio" />
                                     </td>
                                 </tr>                                    
@@ -302,7 +302,7 @@ m<%--
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td colspan="2">
+                                    <td colspan="2" style="color:firebrick">
                                         <html:errors property="apartamento" />
                                     </td>
                                 </tr>                                    
@@ -318,7 +318,7 @@ m<%--
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td colspan="2">
+                                    <td colspan="2" style="color:firebrick">
                                         <html:errors property="ciudad" />
                                     </td>
                                 </tr>
@@ -334,7 +334,7 @@ m<%--
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td colspan="2">
+                                    <td colspan="2" style="color:firebrick">
                                         <html:errors property="estado" />
                                     </td>
                                 </tr>
@@ -350,7 +350,7 @@ m<%--
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td colspan="2">
+                                    <td colspan="2" style="color:firebrick">
                                         <html:errors property="codPostal" />
                                     </td>
                                 </tr>
@@ -387,7 +387,7 @@ m<%--
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td colspan="2">
+                                    <td colspan="2" style="color:firebrick">
                                         <html:errors property="telefonoCelular" />
                                     </td>
                                 </tr>
@@ -404,7 +404,7 @@ m<%--
 
                                 </tr>
                                 <tr>
-                                    <td colspan="2">
+                                    <td colspan="2" style="color:firebrick">
                                         <html:errors property="telefonoCasa" />
                                     </td>
                                 </tr>
@@ -422,7 +422,7 @@ m<%--
 
                                 </tr>
                                 <tr>
-                                    <td colspan="2">
+                                    <td colspan="2" style="color:firebrick">
                                         <html:errors property="email" />
                                     </td>
                                 </tr>
@@ -464,7 +464,7 @@ m<%--
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td colspan="2">
+                                    <td colspan="2" style="color:firebrick">
                                         <html:errors property="nombreProgramaOpcion1"/>
                                     </td>
                                 </tr>
@@ -486,7 +486,7 @@ m<%--
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td colspan="2">
+                                    <td colspan="2" style="color:firebrick">
                                         <html:errors property="paisOpcion1"/>
                                     </td>
                                 </tr>
@@ -500,7 +500,7 @@ m<%--
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td colspan="2">
+                                    <td colspan="2" style="color:firebrick">
                                         <html:errors property="nombreOpcion1"/>
                                     </td>
                                 </tr>
@@ -519,7 +519,7 @@ m<%--
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td colspan="2">
+                                    <td colspan="2" style="color:firebrick">
                                         <html:errors property="programaOpcion1" />
                                     </td>
                                 </tr>                            
@@ -549,7 +549,7 @@ m<%--
                                         </html:select>
                                 </tr>
                                 <tr>
-                                    <td colspan="2">
+                                    <td colspan="2" style="color:firebrick">
                                         <html:errors property="mesFechaIni1" />
                                         <html:errors property="anoFechaIni1" />
                                     </td>
@@ -580,7 +580,7 @@ m<%--
                                         </html:select>
                                 </tr>
                                 <tr>
-                                    <td colspan="2">
+                                    <td colspan="2" style="color:firebrick">
                                         <html:errors property="mesFechaFin1" />
                                         <html:errors property="anoFechaFin1" />
                                     </td>
@@ -597,7 +597,7 @@ m<%--
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td colspan="2">
+                                    <td colspan="2" style="color:firebrick">
                                         <html:errors property="duracionProgramaOpcion1" />
                                     </td>
                                 </tr>
@@ -617,7 +617,7 @@ m<%--
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td colspan="2">
+                                    <td colspan="2" style="color:firebrick">
                                         <html:errors property="nombreProgramaOpcion2"/>
                                     </td>
                                 </tr>
@@ -639,7 +639,7 @@ m<%--
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td colspan="2">
+                                    <td colspan="2" style="color:firebrick">
                                         <html:errors property="paisOpcion2"/>
                                     </td>
                                 </tr>
@@ -653,7 +653,7 @@ m<%--
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td colspan="2">
+                                    <td colspan="2" style="color:firebrick">
                                         <html:errors property="nombreOpcion2"/>
                                     </td>
                                 </tr>
@@ -672,7 +672,7 @@ m<%--
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td colspan="2">
+                                    <td colspan="2" style="color:firebrick">
                                         <html:errors property="programaOpcion2"/>
                                     </td>
                                 </tr>
@@ -702,7 +702,7 @@ m<%--
                                         </html:select>
                                 </tr>  
                                 <tr>
-                                    <td colspan="2">
+                                    <td colspan="2" style="color:firebrick">
                                         <html:errors property="mesFechaIni2"/>
                                         <html:errors property="anoFechaIni2"/>
                                     </td>
@@ -733,7 +733,7 @@ m<%--
                                         </html:select>
                                 </tr>
                                 <tr>
-                                    <td colspan="2">
+                                    <td colspan="2" style="color:firebrick">
                                         <html:errors property="mesFechaFin2"/>
                                         <html:errors property="anoFechaFin2"/>
                                     </td>
@@ -750,7 +750,7 @@ m<%--
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td colspan="2">
+                                    <td colspan="2" style="color:firebrick">
                                         <html:errors property="duracionProgramaOpcion2" />
                                     </td>
                                 </tr>  
@@ -786,7 +786,7 @@ m<%--
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td colspan="2">
+                                    <td colspan="2" style="color:firebrick">
                                         <html:errors property="decanato"/>
                                     </td>
                                 </tr>
@@ -800,7 +800,7 @@ m<%--
                                     </td>
                                 </tr>                        
                                 <tr>
-                                    <td colspan="2">
+                                    <td colspan="2" style="color:firebrick">
                                         <html:errors property="areaEstud"/>
                                     </td>
                                 </tr>
@@ -815,7 +815,7 @@ m<%--
                                 </tr>                                       
 
                                 <tr>
-                                    <td colspan="2">
+                                    <td colspan="2" style="color:firebrick">
                                         <html:errors property="carrera"/>
                                     </td>
                                 </tr>
@@ -829,7 +829,7 @@ m<%--
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td colspan="2">
+                                    <td colspan="2" style="color:firebrick">
                                         <html:errors property="creditosApro" />
                                     </td>
                                 </tr>
@@ -844,7 +844,7 @@ m<%--
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td colspan="2">
+                                    <td colspan="2" style="color:firebrick">
                                         <html:errors property="indice" />
                                     </td>
                                 </tr>
@@ -880,7 +880,7 @@ m<%--
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td colspan="2">
+                                    <td colspan="2" style="color:firebrick">
                                         <html:errors property="fuenteFinanciamiento"/>
                                     </td>
                                 </tr>
@@ -893,7 +893,7 @@ m<%--
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td colspan="2">
+                                    <td colspan="2" style="color:firebrick">
                                         <html:errors property="descripcion1"/>
                                     </td>
                                 </tr>
@@ -907,7 +907,7 @@ m<%--
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td colspan="2">
+                                    <td colspan="2" style="color:firebrick">
                                         <html:errors property="ayudaEc"/>
                                     </td>
                                 </tr>
@@ -920,7 +920,7 @@ m<%--
                                     </td>                    
                                 </tr>
                                 <tr>
-                                    <td colspan="2">
+                                    <td colspan="2" style="color:firebrick">
                                         <html:errors property="descripcion2"/>
                                     </td>
                                 </tr>
@@ -955,7 +955,7 @@ m<%--
                                     </td>
                                 </tr> 
                                 <tr>
-                                    <td colspan="2">
+                                    <td colspan="2" style="color:firebrick">
                                         <html:errors property="apellidosRep" />
                                     </td>
                                 </tr>
@@ -969,7 +969,7 @@ m<%--
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td colspan="2">
+                                    <td colspan="2" style="color:firebrick">
                                         <html:errors property="nombresRep" />
                                     </td>
                                 </tr>
@@ -982,7 +982,7 @@ m<%--
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td colspan="2">
+                                    <td colspan="2" style="color:firebrick">
                                         <html:errors property="celRep" />
                                     </td>
                                 </tr>
@@ -995,7 +995,7 @@ m<%--
                                     </td>
                                 </tr>                      
                                 <tr>
-                                    <td colspan="2">
+                                    <td colspan="2" style="color:firebrick">
                                         <html:errors property="tlfRepCasa" />
                                     </td>
                                 </tr>
@@ -1008,7 +1008,7 @@ m<%--
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td colspan="2">
+                                    <td colspan="2" style="color:firebrick">
                                         <html:errors property="emailRep" />
                                     </td>
                                 </tr>
@@ -1021,7 +1021,7 @@ m<%--
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td colspan="2">
+                                    <td colspan="2" style="color:firebrick">
                                         <html:errors property="relacion" />
                                     </td>
                                 </tr>
@@ -1037,7 +1037,7 @@ m<%--
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td colspan="2">
+                                    <td colspan="2" style="color:firebrick">
                                         <html:errors property="direccionRep" />
                                     </td>
                                 </tr>

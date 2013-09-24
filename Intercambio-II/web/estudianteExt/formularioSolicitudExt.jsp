@@ -79,7 +79,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td colspan="2">
+                                <td colspan="2" style="color:firebrick">
                                     <html:errors property="apellido1" />
                                 </td>
                             </tr>
@@ -93,7 +93,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td colspan="2">
+                                <td colspan="2" style="color:firebrick">
                                     <html:errors property="apellido2" />
                                 </td>
                             </tr>
@@ -107,7 +107,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td colspan="2">
+                                <td colspan="2" style="color:firebrick">
                                     <html:errors property="nombre1" />
                                 </td>
                             </tr>
@@ -121,7 +121,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td colspan="2">
+                                <td colspan="2" style="color:firebrick">
                                     <html:errors property="nombre2" />
                                 </td>
 
@@ -136,7 +136,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td colspan="2">
+                                <td colspan="2" style="color:firebrick">
                                     <html:errors name="fechaNacimiento" />
                                 </td>
                             </tr>
@@ -153,7 +153,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td>
+                                <td style="color:firebrick">
                                     <html:errors property="sexo" />
                                 </td>
 
@@ -361,7 +361,7 @@
                             </td>
                             </tr>
                             <tr>
-                                <td colspan="2">
+                                <td colspan="2" style="color:firebrick">
                                     <html:errors property="nacionalidad" />
                                 </td>
                             </tr>
@@ -376,7 +376,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td>
+                                <td style="color:firebrick">
                                     <html:errors property="pasaporte" />
                                 </td>
                             </tr>
@@ -407,7 +407,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td colspan="2">
+                                    <td colspan="2" style="color:firebrick">
                                         <html:errors property="calle" />
                                     </td>
                                 </tr>
@@ -421,7 +421,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td colspan="2">
+                                    <td colspan="2" style="color:firebrick">
                                         <html:errors property="edificio" />
                                     </td>
                                 </tr>
@@ -434,7 +434,7 @@
                                     </td>
                                 </tr>  
                                 <tr>
-                                    <td colspan="2">
+                                    <td colspan="2" style="color:firebrick">
                                         <html:errors property="apartamento" />
                                     </td>
                                 </tr>
@@ -449,7 +449,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td colspan="2">
+                                    <td colspan="2" style="color:firebrick">
                                         <html:errors property="ciudad" />
                                     </td>
                                 </tr>
@@ -465,7 +465,7 @@
                                     </td>
                                 </tr>  
                                 <tr>
-                                    <td colspan="2">
+                                    <td colspan="2" style="color:firebrick">
                                         <html:errors property="estado" />
                                     </td>
                                 </tr>
@@ -481,7 +481,7 @@
                                     </td>
                                 </tr>  
                                 <tr>
-                                    <td colspan="2">
+                                    <td colspan="2" style="color:firebrick">
                                         <html:errors property="codPostal" />
                                     </td>
                                 </tr>
@@ -516,7 +516,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td colspan="2">
+                                    <td colspan="2" style="color:firebrick">
                                         <html:errors property="telefonoCelular" />
                                     </td>
                                 </tr>
@@ -532,7 +532,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td colspan="2">
+                                    <td colspan="2" style="color:firebrick">
                                         <html:errors property="telefonoCasa" />
                                     </td>
                                 </tr>
@@ -549,7 +549,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td colspan="2">
+                                    <td colspan="2" style="color:firebrick">
                                         <html:errors property="email" />
                                     </td>
                                 </tr>
@@ -585,7 +585,7 @@
                                 </tr>
 
                                 <tr>
-                                    <td colspan="2">
+                                    <td colspan="2" style="color:firebrick">
                                         <html:errors property="nombrePrograma"/>
                                     </td>
                                 </tr>
@@ -612,7 +612,7 @@
                                 </tr>
 
                                 <tr>
-                                    <td colspan="2">
+                                    <td colspan="2" style="color:firebrick">
                                         <html:errors property="paisOrigen"/>
                                     </td>
                                 </tr>
@@ -627,7 +627,7 @@
                                 </tr>
 
                                 <tr>
-                                    <td colspan="2">
+                                    <td colspan="2" style="color:firebrick">
                                         <html:errors property="nombreUniOrigen"/>
                                     </td>
                                 </tr>
@@ -641,7 +641,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td colspan="2">
+                                    <td colspan="2" style="color:firebrick">
                                         <html:errors property="nombreCoordMovilidad" />
                                     </td>
                                 </tr>
@@ -655,7 +655,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td colspan="2">
+                                    <td colspan="2" style="color:firebrick">
                                         <html:errors property="nombreCoordAcademico" />
                                     </td>
                                 </tr>
@@ -674,7 +674,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td colspan="2">
+                                    <td colspan="2" style="color:firebrick">
                                         <html:errors property="programa" />
                                     </td>
                                 </tr>                            
@@ -693,7 +693,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td colspan="2">
+                                    <td colspan="2" style="color:firebrick">
                                         <html:errors property="duracionPrograma" />
                                     </td>
                                 </tr>      
@@ -733,7 +733,7 @@
                                 </tr>
 
                                 <tr>
-                                    <td colspan="2">
+                                    <td colspan="2" style="color:firebrick">
                                         <html:errors property="areaEstud"/>
                                     </td>
                                 </tr>
@@ -747,7 +747,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td colspan="2">
+                                    <td colspan="2" style="color:firebrick">
                                         <html:errors property="carrera" />
                                     </td>
                                 </tr>
@@ -762,7 +762,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td colspan="2">
+                                    <td colspan="2" style="color:firebrick">
                                         <html:errors property="anioIngreso" />
                                     </td>
                                 </tr>
@@ -777,7 +777,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td colspan="2">
+                                    <td colspan="2" style="color:firebrick">
                                         <html:errors property="aniosAprobados" />
                                     </td>
                                 </tr>
@@ -811,7 +811,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td colspan="2">
+                                    <td colspan="2" style="color:firebrick">
                                         <html:errors property="apellidosRep" />
                                     </td>
                                 </tr>
@@ -825,7 +825,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td colspan="2">
+                                    <td colspan="2" style="color:firebrick">
                                         <html:errors property="nombresRep" />
                                     </td>
                                 </tr>
@@ -839,7 +839,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td colspan="2">
+                                    <td colspan="2" style="color:firebrick">
                                         <html:errors property="celRep" />
                                     </td>
                                 </tr>
@@ -852,7 +852,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td colspan="2">
+                                    <td colspan="2" style="color:firebrick">
                                         <html:errors property="tlfRepCasa" />
                                     </td>
                                 </tr>
@@ -866,7 +866,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td colspan="2">
+                                    <td colspan="2" style="color:firebrick">
                                         <html:errors property="emailRep" />
                                     </td>
                                 </tr>
@@ -880,7 +880,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td colspan="2">
+                                    <td colspan="2" style="color:firebrick">
                                         <html:errors property="relacion" />
                                     </td>
                                 </tr>
@@ -895,7 +895,7 @@
                                         </html:textarea >
                                     </td>
 
-                                    <td>
+                                    <td style="color:firebrick">
                                         <html:errors property="direccionRep" />
                                     </td>
                                 </tr>
@@ -1114,7 +1114,7 @@
                                                errorKey="org.apache.struts.action.ERROR"></html:text>
                                 </td>
 
-                                <td>
+                                <td style="color:firebrick">
                                     <html:errors property="lenguaMaterna" />
                                 </td>
                             </tr>
@@ -1131,7 +1131,7 @@
                                 </td>
 
 
-                                <td>
+                                <td style="color:firebrick">
                                     <html:errors property="tomarCursoDeEspaniol" />
                                 </td>
                             </tr>
