@@ -80,27 +80,57 @@ public class recContrasena extends org.apache.struts.action.Action {
                 error.add("email", new ActionMessage("error.reccontrasena.required"));
                 saveErrors(request, error);
                 huboError = true;
-        }
-        
-        //Verifica si se introdujo un correo
-        if (!email.equals("")) {
-            
-            //Verifica si el email esta correcto o no
-            if (!validate(email)){
-                error.add("email", new ActionMessage("error.email.malformulado"));
-                saveErrors(request, error);
-                huboError = true;
+        }else{
+            //Si el nombre de usuario no esta vacio
+            if (!nombreusuario.equals("")){
+                // Intento extraer los datos del nombre de usuario introducido
+                datos = DBMS.getInstance().existeUsuario(nombreusuario);
+                System.out.println(datos);
+                //Si el nombre de usuario no existe y el correo esta vacio, error
+                if (datos == null && email.equals("")){
+                    error.add("nombreusuario", new ActionMessage("error.nombreusuariomiss.required"));
+                    saveErrors(request, error);
+                    huboError = true;
+                //Si el nombre de usuario no existe pero se introdujo un correo,
+                // se intenta con el correo
+                }else if (datos == null && !email.equals("")){
+                    // Se verfica si el email es valido o no
+                    if (!validate(email)){
+                        error.add("email", new ActionMessage("error.email.malformulado"));
+                        saveErrors(request, error);
+                        huboError = true;
+                    // Si es valido, intento extraer los datos asociados al correo
+                    }else{
+                        datos = DBMS.getInstance().existeEmail(email);
+                        //Si el correo no existe, error
+                        if (datos == null){
+                            error.add("nombreusuario", new ActionMessage("error.nombreusuariomiss.required"));
+                            saveErrors(request, error);
+                            huboError = true;
+                            error.add("email", new ActionMessage("error.emailmiss.required"));
+                            saveErrors(request, error);
+                            huboError = true;
+                        }
+                    }
+                }
+            //Si el nombre de usuario esta vacio, se verifica el correo
             }else{
-                datos = DBMS.getInstance().existeEmail(email);
+                //Se verifica si es valido o no
+                if (!validate(email)){
+                        error.add("email", new ActionMessage("error.email.malformulado"));
+                        saveErrors(request, error);
+                        huboError = true;
+                }else{
+                    //Si es valido, se intenta extraer los datos asociados
+                    datos = DBMS.getInstance().existeEmail(email);
+                    //Si no hay datos asociados, error.
+                    if (datos == null){
+                        error.add("email", new ActionMessage("error.emailmiss.required"));
+                        saveErrors(request, error);
+                        huboError = true;
+                    }
+                }
             }
-        }
-        
-        //Si el correo que se introdujo no existe, verifica el usuario
-        if (datos == null){
-            if (!nombreusuario.equals("")) {
-            datos = DBMS.getInstance().existeUsuario(nombreusuario);
-            }
-           
         }
         
         if (huboError){
