@@ -23,7 +23,7 @@
         <html:image src="images/correct.png" /> 
         <br />
         
-        <html:link action="accionesEstUSB">
+        <html:link action="/CargarLlenarPlanillaUSB">
             Continuar
         </html:link>
         </div>

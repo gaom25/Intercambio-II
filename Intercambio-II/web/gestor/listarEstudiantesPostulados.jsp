@@ -3,7 +3,7 @@
     Created on : Oct 18, 2012, 12:58:41 AM
     Author     : caponte
 --%>
-
+<%@page import="javax.swing.text.html.HTML"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://struts.apache.org/tags-html" prefix="html" %>
 <%@ taglib uri="http://struts.apache.org/tags-logic" prefix="logic" %>
@@ -36,7 +36,7 @@
         altRows('alternatecolor');
     }
 </script>
-<html>
+
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>SGI - Listar Usuarios</title>
 

@@ -38,6 +38,7 @@ public class ListarEstudiantesPostulados extends org.apache.struts.action.Action
             throws Exception {
 
         ArrayList<Usuario> users = DBMS.getInstance().listarEstudiantesPostulados();
+        
         request.setAttribute("usuarios", users);        
         return mapping.findForward(SUCCESS);
 
