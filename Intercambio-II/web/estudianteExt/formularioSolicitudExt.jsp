@@ -147,7 +147,7 @@
                                 <td>
                                     <html:select property="sexo" errorStyleClass="error" errorKey="org.apache.struts.action.ERROR">
                                         <html:option value="">Seleccione</html:option>
-                                        <html:option value="Femino">Femenino</html:option>
+                                        <html:option value="Femenino">Femenino</html:option>
                                         <html:option value="Masculino">Masculino</html:option>
                                     </html:select>
                                 </td>
