@@ -84,7 +84,7 @@ public class FileUploadAction extends Action {
         if (cant > 50000000 || error) {
             String noti = "";
             if (error) {
-                noti = noti + "Los archivos deben ser de extension PDF, JPG o PGN\n";
+                noti = noti + "Los archivos deben ser de extension PDF, JPG o PNG\n";
             } else {
                 noti = noti + "Los archivos superaron la capacidad maxima intente de nuevo\n";
             }
