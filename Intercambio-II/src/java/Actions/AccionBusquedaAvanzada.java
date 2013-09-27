@@ -45,6 +45,7 @@ public class AccionBusquedaAvanzada extends org.apache.struts.action.Action {
             throws Exception {
         HttpSession session = request.getSession();
         Busqueda busq = (Busqueda) form;
+        
         if(busq.getCarrera().equalsIgnoreCase("n/a"))
         {
             busq.setCarrera("");
@@ -63,12 +64,13 @@ public class AccionBusquedaAvanzada extends org.apache.struts.action.Action {
         else if(busq.getGestor().equalsIgnoreCase("Seleccione")){
             busq.setGestor("");
         }
-        if(busq.getNombrePostu() == null){
+        if(busq.getNombrePostu() == null) {
             busq.setNombrePostu("");
         }
-        if(busq.getTipoPostu() == null){
+        if( busq.getTipoPostu() == null) {
             busq.setTipoPostu("");
         }
+
         
         if(busq.getConfirmar().compareTo("busqueda") == 0){
             // Es una busqueda de Estudiantes Postulados

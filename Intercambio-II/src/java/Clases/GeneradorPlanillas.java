@@ -38,7 +38,7 @@ public class GeneradorPlanillas {
      */
     /**
      *
-     * @author kattys
+     * @author katty
      */
     //public Boolean generarPlanillaUSB(PlanillaUSB p, String path) throws BadElementException, DocumentException {
     public Boolean generarPlanillaUSB(PlanillaUSB p, String path, PlanDeEstudio plan, Idiomas idim,String filepath) throws BadElementException, DocumentException {
@@ -88,7 +88,7 @@ public class GeneradorPlanillas {
             ColumnText ct = new ColumnText(canvas);
             
             //Estampado de fecha y hora de creacion
-            Phrase campo = new Phrase("Solicitud Nro:"+ n + "      ||  Fecha Creacion:   "+ creacion, fontCampo);
+            Phrase campo = new Phrase("Fecha Creacion: "+ creacion, fontCampo);
             ct.setSimpleColumn(campo, 200, 70, 580, 80, 10, Element.ALIGN_RIGHT);
             ct.go();
 

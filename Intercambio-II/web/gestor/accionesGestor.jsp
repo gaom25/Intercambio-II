@@ -17,11 +17,12 @@
         <div id="NombreUser">
             <h1><%=var.toString()%></h1>
         </div>
-
-        <p hidden="true"><bean:write name="Usuario" property="nombre"></bean:write></p>
-        <p hidden="true"><bean:write name="Usuario" property="email"></bean:write></p>
-        <p hidden="true"><bean:write name="Usuario" property="nombreusuario"></bean:write></p>
-    
+        
+        <div acceptCharset="ISO-8859-1">
+            <p hidden="true"><bean:write name="Usuario" property="nombre"></bean:write></p>
+            <p hidden="true"><bean:write name="Usuario" property="email"></bean:write></p>
+            <p hidden="true"><bean:write name="Usuario" property="nombreusuario"></bean:write></p>
+        </div>
 
         <html:form action="/ListarEstudiantesPostulados" onsubmit="return(this)" >
         </html:form>

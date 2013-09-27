@@ -38,13 +38,13 @@
 </script>
 
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>SGI - Listar Usuarios</title>
+    <title>SGI - Listar estudiantes postulados</title>
 
     <script language="JavaScript">
         function submitForm() { document.ObtenerDatos.submit(); }
     </script>
 
-    <h4>Lista de Usuarios del Sistema:</h4>
+    <h4>Lista de estudiantes postulados:</h4>
     <div id="testTable">
         <table style="margin: auto" class="altrowstable" id="alternatecolor">
             <thead>
@@ -91,7 +91,7 @@
 
                     <td align="center" width="150px">
 
-                        <bean:write name="usuarios" property="confirmar" />
+                        <bean:write name="usuarios" property="confirmar" format="UTF-8"/>
                     </td>
 
                     <td align="center" width="150px">
