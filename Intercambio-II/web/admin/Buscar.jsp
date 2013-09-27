@@ -40,20 +40,21 @@
                     }
                 });
             });
-            function deselecionar(id){
-                var filas = document.getElementById(id);
-                for (i=0;i<filas.children.length;i++){
-                    if(filas.children[i].type == "checkbox")	
-                        filas.children[i].checked=0 
+            function deselecionar(){
+                var filas = document.getElementsByTagName('input');
+                for (i=0;i<filas.length;i++){
+                    if(filas[i].type == "checkbox"){
+                        filas[i].checked=0;
+                        
+                    }
+                        
                 }
             }
             window.onload=function(){
-                deselecionar('seleciones');
+                deselecionar();
             }
         </script>
     </head>
-
-    <body onload ="clearForms()" onUnload="clearForms()">  
 
         <h4>Búsqueda de Destinatarios</h4>
         <h3 align="center">Para redactar un anuncio primero debe hacer la busqueda de los destinatarios </h3>
@@ -79,35 +80,35 @@
                                 <td>
                                     <html:text property="nombre" maxlength="30" errorStyleClass="error"
                                                errorKey="org.apache.struts.action.ERROR"></html:text>
-                                </td>
-                                <td>
+                                    </td>
+                                    <td>
                                     <html:text property="apellido" maxlength="30" errorStyleClass="error"
                                                errorKey="org.apache.struts.action.ERROR"></html:text>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="color: black">Carnet:</td>
-                                <td style="color: black">Indice:</td>
-                            </tr>
-                            <tr>
-                                <td>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="color: black">Carnet:</td>
+                                    <td style="color: black">Indice:</td>
+                                </tr>
+                                <tr>
+                                    <td>
                                     <html:text property="carnet" maxlength="8" errorStyleClass="error"
                                                errorKey="org.apache.struts.action.ERROR"></html:text>
-                                </td>
-                                <td>
+                                    </td>
+                                    <td>
                                     <html:text property="indice" maxlength="7" errorStyleClass="error"
                                                title="Coloque Simbolo de Comparación >,< o ="
                                                errorKey="org.apache.struts.action.ERROR"></html:text>
-                                </td>
+                                    </td>
 
-                            </tr>
-                            <tr>
-                                <td style="color: black">Carrera: </td>
-                            </tr>
+                                </tr>
+                                <tr>
+                                    <td style="color: black">Carrera: </td>
+                                </tr>
 
-                            <tr>
+                                <tr>
 
-                                <td>
+                                    <td>
                                     <html:select  property="carrera">
                                         <html:option value="N/A"></html:option>
                                         <html:option value="Licenciatura en Quimica"></html:option>
@@ -276,39 +277,40 @@
                         <html:option value="Universidad de Uppsala"></html:option>
                         <html:option value="Universidad Centroccidental Lisandro Alvarado"></html:option>
                     </html:select>
-                </div>
-                <br>
-                <div id="cordi" align="center" style="display: none">
-                    <table border="0">
-                        <tr>
-                            <td>
-                                Nombre Postulante:
-                            </td>
-                            <td>
+                    </div>
+
+                    <br>
+                    <div id="cordi" align="center" style="display: none">
+                        <table border="0">
+                            <tr>
+                                <td>
+                                    Nombre Postulante:
+                                </td>
+                                <td>
                                 <html:text property="nombrePostu" maxlength="30" errorStyleClass="error"
                                            errorKey="org.apache.struts.action.ERROR" value=""></html:text>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                Tipo de Postulante
-                            </td>
-                            <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Tipo de Postulante
+                                </td>
+                                <td>
                                 <html:text property="tipoPostu" maxlength="30" errorStyleClass="error"
                                            errorKey="org.apache.struts.action.ERROR" value=""></html:text>
 
-                            </td>
-                        </tr>
-                    </table>
-                    <br>
-                </div>
-                <div id="gesto" align="center" style="display: none">
-                    <table>
-                        <tr>
-                            <td>
-                                Gestor:
-                            </td>
-                            <td>
+                                </td>
+                            </tr>
+                        </table>
+                        <br>
+                    </div>
+                    <div id="gesto" align="center" style="display: none">
+                        <table>
+                            <tr>
+                                <td>
+                                    Gestor:
+                                </td>
+                                <td>
                                 <html:select property="gestor">
                                     <html:option value="Seleccione"></html:option>
                                     <html:option value="Decanato de Estudios Profesionales"></html:option>
@@ -317,8 +319,8 @@
                             </td>
                         </tr>
                     </table>
-                </div>
-                <p style="text-align: center">
+                    </div>
+                    <p style="text-align: center">
                     <html:submit onclick="javascript: return confirm('¿Está seguro que los datos son correctos?')">
                         Realizar Búsqueda
                     </html:submit>

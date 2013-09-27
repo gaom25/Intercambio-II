@@ -379,6 +379,10 @@
     <definition name="listarEstudiantesPostulados" extends="baseGestor"> <!-- pagina de contacto de estudiante usb -->
         <put name="body" value="/gestor/listarEstudiantesPostulados.jsp"/>
     </definition>
+    
+    <definition name="accFalloGest" extends="baseGestor"> <!-- pagina de contacto de estudiante usb -->
+        <put name="body" value="/gestor/accionFallo.jsp"/>
+    </definition>
             
     <definition name="sinArchivos" extends="baseGestor">
         <put name="body" value="/gestor/sinArchivos.jsp"/>

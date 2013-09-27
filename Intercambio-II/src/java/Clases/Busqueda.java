@@ -9,7 +9,6 @@ package Clases;
  * @author brahyam
  */
 public class Busqueda extends org.apache.struts.validator.ValidatorForm {
-    
     private String nombre;
     private String apellido;
     private String carnet;
@@ -155,7 +154,7 @@ public class Busqueda extends org.apache.struts.validator.ValidatorForm {
 
     public void setGestor(String Gestor) {
         this.Gestor = Gestor;
-    }
+    }   
 
     
 }

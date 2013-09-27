@@ -160,7 +160,7 @@ public class FileUploadAction extends Action {
                 }
 
                 // si existe el archivo lo sobreescribe
-                if (!newFile.exists()) {
+                if (newFile.exists()) {
                     FileOutputStream fos = new FileOutputStream(newFile);
                     fos.write(file.getFileData());
                     fos.flush();

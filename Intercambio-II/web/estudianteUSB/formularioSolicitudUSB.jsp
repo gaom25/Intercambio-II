@@ -1274,7 +1274,7 @@
                                 <td>Nivel Auditivo</td>
                             </tr>
                             <tr>
-                                <td><INPUT type="checkbox" name="ch[]"/></td>
+                                <td><input type="checkbox" name="ch"/></td>
 
 
                                 <td>

@@ -150,7 +150,7 @@
             var basico = "Basico";
             var intermedio = "Intermedio";
             var avanzado = "Avanzado";
-            var arr = "chk[]";
+            var arr = "ch";
             var type = "text";
             var style1 = "width:80%;";
             //var style2 = "padding:1%;";
@@ -252,12 +252,12 @@
             
             //auditivo
             
-            op15.setAttribute("value",basico);
-            op15.innerHTML = "Basico";
-            op13.setAttribute("value",intermedio);
-            op13.innerHTML = "Intermedio";
-            op14.setAttribute("value",avanzado);
-            op14.innerHTML = "Avanzado";
+            op13.setAttribute("value",basico);
+            op13.innerHTML = "Basico";
+            op14.setAttribute("value",intermedio);
+            op14.innerHTML = "Intermedio";
+            op15.setAttribute("value",avanzado);
+            op15.innerHTML = "Avanzado";
             
             
             

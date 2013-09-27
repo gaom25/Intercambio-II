@@ -2261,8 +2261,7 @@ public class DBMS {
             }
                 
         }
-        
-        if (iniciado || iniciadoP || iniciadoG){
+        if (iniciado || iniciadoP || iniciadoG ){
             return usrs;
         }
 
