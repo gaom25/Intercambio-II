@@ -65,7 +65,7 @@
 <table style=" margin-left: 4.8em;alignment-baseline: central; border:none; vertical-align: middle;width: 80%; background: #dcebe8; border: 2px solid; border-color: #96d1f8;border-radius: 5px;">
     <tr>
         <td></td>
-        <td><h1 align="left">Envio de Anuncios</h1></td>
+        <td><h1 align="left">Envío de Anuncios</h1></td>
     </tr>
     <tr>
         <td>
