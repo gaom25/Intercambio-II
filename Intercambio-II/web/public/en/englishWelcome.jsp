@@ -20,7 +20,7 @@
     <h5>Currently, this page is under construction.</h5>
 
     <div align="center" > 
-        <img src="/Intercambio-II/images/Under-construction.png" width="128" height="128" alt="Under-construction"/>
+        <img src="/Intercambio/images/Under-construction.png" width="128" height="128" alt="Under-construction"/>
         <br /> <br />
         <html:link action="contacto">
             If you wish to contact the administrator<br />

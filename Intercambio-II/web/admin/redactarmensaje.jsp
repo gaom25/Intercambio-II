@@ -116,6 +116,7 @@
                 <td id="seleccion" align="center" width="150px">
                     <html:multibox property="emails"><bean:write name="usuarios" property="email" /></html:multibox>
 
+
                     </td>
                 </tr>
         </logic:iterate>
