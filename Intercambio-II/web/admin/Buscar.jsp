@@ -58,7 +58,7 @@
 
         <h4>Búsqueda de Destinatarios</h4>
         <h3 align="center">Para redactar un anuncio primero debe hacer la busqueda de los destinatarios </h3>
-        <h5>Seleccione los filtros que desee utilizar.</h5>
+        <h5>Seleccione el/los filtros que desea utilizar.</h5>
         <div align="center" id="seleciones">
             <input type="checkbox" value="1" id="estudia"> Estudiantes
             <input type="checkbox" value="2" id="corina"> Postulante
@@ -67,7 +67,6 @@
         </div>
         <div id="login-form" style="border: #126598 solid;width: 70%;border-radius: 5px;">
             <html:form action="/AccionBusquedaAvanzada" acceptCharset="ISO-8859-1" method="POST" enctype="multipart/form-data" onsubmit="return(this)">
-                <%--<html:hidden property="nombreSolicitante" value="<%=var.toString()%>"/>--%>
                 <html:hidden property="confirmar" value="anuncios"/>
                 <div style="display: none" id="estu">
                     <table border="0" >
