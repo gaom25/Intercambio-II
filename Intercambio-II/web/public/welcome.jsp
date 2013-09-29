@@ -9,7 +9,7 @@
 <html:html lang="true">
 
     <title>Sistema de Gesti&oacute;n de Intercambio</title>
-    <div id="loginDiv" >
+    <div id="loginDiv" class="unhidden">
         
     <h4>Bienvenido</h4>
     <h5>Para ingresar al sistema introduzca su usuario y contraseña.</h5>

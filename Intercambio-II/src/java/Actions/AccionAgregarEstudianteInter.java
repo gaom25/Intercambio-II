@@ -110,8 +110,6 @@ public class AccionAgregarEstudianteInter extends org.apache.struts.action.Actio
             huboError = true;
         }
 
-        System.out.println();
-
         String tmp = e.getNombre();
         e.setNombre(e.getpNombre() + " " + e.getpApellido());
         // Si hubo error lo notifica, si no, procede a agregar en la BD.

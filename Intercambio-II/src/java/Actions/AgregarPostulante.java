@@ -81,29 +81,21 @@ public class AgregarPostulante extends org.apache.struts.action.Action {
             saveErrors(request, error);
             huboError = true;
         }
-        System.out.println("");
         String t = p.getTipo();
         // Si hubo error lo notifica, si no, procede a agregar en la BD.
         if (huboError) {
-            System.out.println("");
             return mapping.findForward(ERROR);
 
             // Dependiendo del tipo de postulante, ejecuta una insercion u otra
         }else if (p.getTipo().equals("Coordinacion")) {
-
-            System.out.println("");
             if (DBMS.getInstance().agregarCoordUSB(p)) {
                 return mapping.findForward(SUCCESS);
             }
         }else if (p.getTipo().equals("Universidad Extranjera")) {
-
-            System.out.println("");
             if (DBMS.getInstance().agregarUniExt(p)) {
                 return mapping.findForward(SUCCESS);
             }
         }
-
-        System.out.println("");
         return mapping.findForward(FAIL);
     }
 }

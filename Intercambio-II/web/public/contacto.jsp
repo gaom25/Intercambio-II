@@ -24,7 +24,7 @@
 
     <body onload ="clearForms()" onUnload="clearForms()">  
 
-        <div id="loginDiv">
+        <div id="loginDiv" class="unhidden">
 
             <h4>Contáctanos</h4>
             <h5>Por favor complete el formulario a continuación.</h5>

@@ -23,7 +23,7 @@
 
     <title>Sistema de Gesti&oacute;n de Intercambio</title>
 
-    <div id="loginDiv" >
+    <div id="loginDiv" class="unhidden">
         <h4>Recuperación de contraseña</h4>
         <h5>Para recuperar su contraseña por favor indique</h5>
         <h5>su nombre de usuario y/o e-mail:</h5>

@@ -51,11 +51,6 @@ public class RedactarMensaje extends org.apache.struts.action.Action {
 
         String[] emails = a.getEmails();
         ArrayList<String> pasaje = new ArrayList<String>(Arrays.asList(emails));
-        int i;
-        //las cosas estan malas pues apararece un "/" al final de cada correo
-        for (i = 0; i < emails.length; i++) {
-            System.out.println(pasaje.get(i));
-        }
 
         if (DBMS.getInstance().agregarAnuncio(a)) {
             c2.start();

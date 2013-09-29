@@ -156,7 +156,7 @@
 
                                     <td>
                                         <input type="date" min="1980-01-01" name="PlanillaUSB" property="fechaNacimiento"/>
-                                        
+
                                     </td>
 
                                 </tr>
@@ -1069,7 +1069,7 @@
         <h5>Los archivos permitidos a cargar son aquellos con formato
             PDF JPG o PNG, sin excepción</h5>
         <h5>El tamaño maximo de la carga de archivos es de 3Mb</h5>
-        
+
         <h5 id="parra"></h5>
         <div style="width:99%;height:auto;border:3px solid #126598; border-radius: 10px;background: #dcebe8">
             <div align=center>
@@ -1176,9 +1176,11 @@
                                errorKey="org.apache.struts.action.ERROR"></html:text></p>
 
                     <table border="0"  align="center" style="margin-left: auto;margin-right: auto">
+
+
                         <tbody id ="MateBody">
                             <tr>
-                                <td> Marque para Eliminar</td>
+                                <td></td>
                                 <td> Código-USB</td>
 
                                 <td> Nombre-USB</td>
@@ -1192,7 +1194,38 @@
                                 <td> Créditos-Univ. Destino</td>
 
                             </tr>
-
+                            <logic:iterate name="plan" id="planid">
+                                <tr>
+                                    <td></td>
+                                    <td style="width: 150px; font-weight: bold;border-bottom: 1pt solid black">
+                                        <bean:write name="planid" property="camp1" />
+                                    </td>
+                                    <td style="width: 200px; font-weight: bold;border-bottom: 1pt solid black">
+                                        <bean:write name="planid" property="camp2" />
+                                    </td>
+                                    <td style="width: 220px; font-weight: bold;border-bottom: 1pt solid black">
+                                        <bean:write name="planid" property="camp3" />
+                                    </td>
+                                    <td style="width: 220px; font-weight: bold;border-bottom: 1pt solid black">
+                                        <bean:write name="planid" property="camp4" />
+                                    </td>
+                                    <td style="width: 220px; font-weight: bold;border-bottom: 1pt solid black">
+                                        <bean:write name="planid" property="camp5" />
+                                    </td>
+                                    <td style="width: 220px; font-weight: bold;border-bottom: 1pt solid black">
+                                        <bean:write name="planid" property="camp6" />
+                                    </td>
+                                </tr>
+                            </logic:iterate>
+                                <tr>
+                                    <td>Marque para Eliminar</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
                             <tr>
                                 <td> <input type="checkbox" name="c[]" style="align-center"></td>
                                 <td>
@@ -1247,7 +1280,7 @@
     </div>
 
     <br>
-
+<!--Carga Idiomas-->
 
     <div class="nav" style="text-align: center; width: 100%">
         <a href="#" onclick=" if (true) hide('datosplanilla'), hide('archivos'),hide('plan'),show('idio')"> 4. Dominio de idiomas</a>
@@ -1273,6 +1306,26 @@
                                 <td>Nivel Oral</td>
                                 <td>Nivel Auditivo</td>
                             </tr>
+                            <logic:iterate name="lang" id="langid">
+                                <tr>
+                                    <td></td>
+                                    <td style="width: 150px; font-weight: bold;border-bottom: 1pt solid black">
+                                        <bean:write name="langid" property="camp1" />
+                                    </td>
+                                    <td style="width: 200px; font-weight: bold;border-bottom: 1pt solid black">
+                                        <bean:write name="langid" property="camp2" />
+                                    </td>
+                                    <td style="width: 220px; font-weight: bold;border-bottom: 1pt solid black">
+                                        <bean:write name="langid" property="camp3" />
+                                    </td>
+                                    <td style="width: 220px; font-weight: bold;border-bottom: 1pt solid black">
+                                        <bean:write name="langid" property="camp4" />
+                                    </td>
+                                    <td style="width: 220px; font-weight: bold;border-bottom: 1pt solid black">
+                                        <bean:write name="langid" property="camp5" />
+                                    </td>
+                                </tr>
+                            </logic:iterate>
                             <tr>
                                 <td><input type="checkbox" name="ch"/></td>
 

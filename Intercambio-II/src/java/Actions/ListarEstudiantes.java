@@ -12,6 +12,7 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import DBMS.*;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -37,13 +38,15 @@ public class ListarEstudiantes extends org.apache.struts.action.Action {
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
+
+        HttpSession session = request.getSession();
         
         Usuario u = (Usuario) form;
         Usuario u2 = new Usuario();
-        System.out.println(u.getNombreusuario());
-        
+        if (u.getNombreusuario() == null) {
+            u.setNombreusuario(session.getAttribute("nombreusuario").toString());
+        }
         String[] info = DBMS.getInstance().getInfoPostulante(u.getNombreusuario());
-        System.out.println(info.length);
         u2.setNombreusuario(info[3]);
         ArrayList<Usuario> users = DBMS.getInstance().listarEstudiantes(u2);
         request.setAttribute("usuario", users);

@@ -17,7 +17,7 @@
        var otros = document.getElementsByTagName('div');
        if(otros){
            for(var i=0;i<otros.length;i++){
-               if(otros[i].title == ' '){
+               if(otros[i].className=="unhidden"){
                    otros[i].className = 'hidden'
                }
            }
