@@ -15,11 +15,11 @@
 <%@ taglib uri="http://struts.apache.org/tags-tiles" prefix="tiles" %>
 
 <html>
-    <title>SGI - Agregar Estudiante Extranjero</title>
+    <title>SGI - Agregar estudiante extranjero</title>
 
     <body onload ="clearForms()" onunload="clearForms()">
 
-        <h4>Creaci&oacute;n de Nuevo Estudiante</h4>
+        <h4>Creaci&oacute;n de nuevo estudiante</h4>
         <h5>Por favor introduzca los datos del nuevo usuario.</h5>
 
         <html:form action="/AccionAgregarEstudianteInter" method="POST" acceptCharset="ISO-8859-1" enctype="multipart/form-data" onsubmit="return(this)">
@@ -27,7 +27,7 @@
                 <tbody>
                     <tr>
 
-                        <td style="color: black">Nombre de Usuario</td>
+                        <td style="color: black">Nombre de usuario</td>
                         <td>
                             <html:text name="EstInter" property="nombreusuario" value="" maxlength="20" errorStyleClass="error"
                                        errorKey="org.apache.struts.action.ERROR"></html:text>
@@ -61,19 +61,19 @@
                     </tr>
                     <tr>
                         <td colspan="2" style="color:firebrick">
-                            <html:errors property="nombres" />
+                            <html:errors property="pNombre" />
                         </td>
                     </tr>
 
                     <tr>
-                        <td style="color: black">Primer Apellido</td>       
+                        <td style="color: black">Primer apellido</td>       
                         <td><html:text name="EstInter" property="pApellido" value="" maxlength="100" errorStyleClass="error"
                                    errorKey="org.apache.struts.action.ERROR"></html:text>
                         </td>
                     </tr>
                     <tr>
                         <td colspan="2" style="color:firebrick">
-                            <html:errors property="apellidos" />
+                            <html:errors property="pApellido" />
                         </td>
                     </tr>
                     <tr>
@@ -83,18 +83,13 @@
                                        errorKey="org.apache.struts.action.ERROR"></html:text>
                         </td>
                     </tr>
-                    <tr>
-                        <td colspan="2" style="color:firebrick">
-                            <html:errors property="pasaporte" />
-                        </td>
-                    </tr>
-
+                    
                 </tbody>
             </table>
 
             <p style="text-align: center">
-                <html:submit onclick="javascript: return confirm('¿Está seguro que los datos son correctos?')">
-                    Agregar Estudiante
+                <html:submit onclick="javascript: return confirm('¿Está seguro de que los datos son correctos?')">
+                    Agregar estudiante
                 </html:submit>
             </p>
         </html:form>

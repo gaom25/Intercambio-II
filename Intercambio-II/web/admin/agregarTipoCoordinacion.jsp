@@ -16,12 +16,12 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Agregar nueva coordinacion</title>
+        <title>Agregar nueva coordinación</title>
     </head>
 
-    <body>
+    <body onload ="clearForms()" onunload="clearForms()">
 
-        <h4>Creaci&oacute;n de nueva coordinacion</h4>
+        <h4>Creaci&oacute;n de nueva coordinación</h4>
         <h5>Por favor introduzca los datos del nuevo usuario</h5>
         <html:form action="/AccionAgregarCoordinacion" method="POST" acceptCharset="ISO-8859-1" enctype="multipart/form-data" onsubmit="return(this)">
             <table border="0" >
@@ -54,7 +54,7 @@
                     </tr>
 
                     <tr>
-                        <td style="color: black">Codigo de la carrera</td>
+                        <td style="color: black">Código de la carrera</td>
                         <td>
                             <html:text name="Postulante" property="codigo" maxlength="30" value="" errorStyleClass="error"
                                        errorKey="org.apache.struts.action.ERROR"></html:text>
@@ -107,8 +107,8 @@
             </table>
 
             <p style="text-align: center">
-                <html:submit onclick="javascript: return confirm('¿Está seguro que los datos son correctos?')">
-                    Agregar Coordinacion
+                <html:submit onclick="javascript: return confirm('¿Está seguro de que los datos son correctos?')">
+                    Agregar coordinación
                 </html:submit>
             </p>
         </html:form>

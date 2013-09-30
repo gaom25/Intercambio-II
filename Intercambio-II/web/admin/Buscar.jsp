@@ -76,7 +76,7 @@
     </head>
 
         <h4>Búsqueda de Destinatarios</h4>
-        <h3 align="center">Para redactar un anuncio primero debe hacer la busqueda de los destinatarios </h3>
+        <h3 align="center">Para redactar un anuncio primero debe hacer la búsqueda de los destinatarios </h3>
         <h5>Seleccione el/los filtros que desea utilizar.</h5>
         <div align="center" id="seleciones">
             <input type="checkbox" value="1" id="estudia"> Estudiantes
@@ -93,8 +93,8 @@
                     <table border="0" >
                         <tbody>
                             <tr>
-                                <td style="color: black">Nombre Estudiante:</td>
-                                <td style="color: black">Apellido Estudiante:</td>
+                                <td style="color: black">Nombre estudiante:</td>
+                                <td style="color: black">Apellido estudiante:</td>
                             </tr>
                             <tr>
                                 <td>
@@ -108,7 +108,7 @@
                                 </tr>
                                 <tr>
                                     <td style="color: black">Carnet:</td>
-                                    <td style="color: black">Indice:</td>
+                                    <td style="color: black">Índice:</td>
                                 </tr>
                                 <tr>
                                     <td>
@@ -211,7 +211,7 @@
 
                             </tr>
                             <tr>
-                                <td style="color: black">Primera Opción: </td>       
+                                <td style="color: black">Primera opción: </td>       
                             </tr>
 
 
@@ -304,7 +304,7 @@
                         <table border="0">
                             <tr>
                                 <td>
-                                    Nombre Postulante:
+                                    Nombre postulante:
                                 </td>
                                 <td>
                                 <html:text property="nombrePostu" maxlength="30" errorStyleClass="error"
@@ -342,7 +342,7 @@
                     </div>
                     <p style="text-align: center">
                     <html:submit onclick="javascript: return confirm('¿Está seguro que los datos son correctos?')">
-                        Realizar Búsqueda
+                        Realizar búsqueda
                     </html:submit>
                 </p>
             </html:form>

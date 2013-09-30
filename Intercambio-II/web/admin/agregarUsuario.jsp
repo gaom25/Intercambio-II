@@ -12,11 +12,11 @@
 <%@ taglib uri="http://struts.apache.org/tags-tiles" prefix="tiles" %>
 
 <html>
-    <title>SGI - Agregar Usuario</title>
+    <title>SGI - Agregar usuario</title>
 
     <body onload ="clearForms()" onunload="clearForms()">
 
-        <h4>Creaci&oacute;n de Nuevo Usuario</h4>
+        <h4>Creaci&oacute;n de nuevo usuario</h4>
         <h5>Por favor seleccione el tipo de usuario que desea crear</h5>
 
         <html:form action="/AccionAgregarUsuario" method="POST" acceptCharset="ISO-8859-1" enctype="multipart/form-data" onsubmit="return(this)">
@@ -28,9 +28,9 @@
                                 <html:option value="2">Decanato</html:option>
                                 <html:option value="2">DRIC</html:option>
                                 <html:option value="3">Coordinación</html:option>
-                                <html:option value="4">Universidad Extranjera</html:option>
+                                <html:option value="4">Universidad extranjera</html:option>
                                 <html:option value="5">Estudiante USB</html:option>
-                                <html:option value="6">Estudiante Extranjero</html:option>
+                                <html:option value="6">Estudiante extranjero</html:option>
                             </html:select>
                         </td>
                     </tr>
@@ -39,7 +39,7 @@
 
             <p style="text-align: center">
                 <html:submit>
-                    Agregar Usuario
+                    Agregar usuario
                 </html:submit>
             </p>
         </html:form>

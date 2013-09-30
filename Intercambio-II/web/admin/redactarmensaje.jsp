@@ -60,7 +60,9 @@
 
 <div align="center"><html:form action="/BuscarDestinatarios">
         <html:submit >Volver</html:submit></div>        
-</html:form></div>
+</html:form>
+
+<div>
 <html:form action="/RedactarMensaje" method="POST" acceptCharset="ISO-8859-1" enctype="multipart/form-data" onsubmit="return(this)">
 <table style=" margin-left: 4.8em;alignment-baseline: central; border:none; vertical-align: middle;width: 80%; background: #dcebe8; border: 2px solid; border-color: #96d1f8;border-radius: 5px;">
     <tr>
@@ -123,9 +125,10 @@
     </table>
     <table style="position: relative">
         <tr>
-            <td><html:submit>Enviar Mensaje</html:submit></td>
+            <td><html:submit>Enviar mensaje</html:submit></td>
             </tr>
         </table>
     </div>
+</div>
 </html:form>
 

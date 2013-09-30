@@ -94,18 +94,18 @@ public class AccionAgregarEstudianteInter extends org.apache.struts.action.Actio
         }
 
         if (e.getpNombre().equals("")) {
-            error.add("nombres", new ActionMessage("error.nombre.required"));
+            error.add("pNombre", new ActionMessage("error.nombre.required"));
             saveErrors(request, error);
             huboError = true;
         }
 
         if (e.getpApellido().equals("")) {
-            error.add("apellidos", new ActionMessage("error.apellidos.required"));
+            error.add("pApellido", new ActionMessage("error.apellidos.required"));
             saveErrors(request, error);
             huboError = true;
         }
         if(e.getPasaporte().toString().equalsIgnoreCase("")){
-            error.add("pasaporte", new ActionMessage("error.apellidos.required"));
+            error.add("pasaporte", new ActionMessage("error.pasaporte.required"));
             saveErrors(request, error);
             huboError = true;
         }

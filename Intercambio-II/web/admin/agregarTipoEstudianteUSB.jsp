@@ -17,7 +17,7 @@
 
     <body onload ="clearForms()" onunload="clearForms()">
 
-        <h4>Creaci&oacute;n de Nuevo Estudiante</h4>
+        <h4>Creaci&oacute;n de nuevo estudiante</h4>
         <h5>Por favor introduzca los datos del nuevo usuario.</h5>
 
         <html:form action="/AccionAgregarEstudiante" method="POST" enctype="multipart/form-data" acceptCharset="ISO-8859-1" onsubmit="return(this)">
@@ -25,7 +25,7 @@
                 <tbody>
                     <tr>
 
-                        <td style="color: black">Nombre de Usuario</td>
+                        <td style="color: black">Nombre de usuario</td>
                         <td>
                             <html:text name="EstUSB" property="nombreusuario" value="" maxlength="20" errorStyleClass="error"
                                        errorKey="org.apache.struts.action.ERROR"></html:text>
@@ -59,19 +59,19 @@
                     </tr>
                     <tr>
                         <td colspan="2" style="color:firebrick">
-                            <html:errors property="nombres" />
+                            <html:errors property="pNombre" />
                         </td>
                     </tr>
 
                     <tr>
-                        <td style="color: black">Primer Apellido</td>       
+                        <td style="color: black">Primer apellido</td>       
                         <td><html:text name="EstUSB" property="pApellido" maxlength="100" value="" errorStyleClass="error"
                                    errorKey="org.apache.struts.action.ERROR"></html:text>
                         </td>
                     </tr>
                     <tr>
                         <td colspan="2" style="color:firebrick">
-                            <html:errors property="apellidos" />
+                            <html:errors property="pApellido" />
                         </td>
                     </tr>
 
@@ -125,7 +125,7 @@
                     </tr>
 
                     <tr>
-                        <td style="color: black">Codigo de la carrera</td>       
+                        <td style="color: black">Código de la carrera</td>       
                         <td><html:text name="EstUSB" property="codCarrera" maxlength="100" errorStyleClass="error"
                                    errorKey="org.apache.struts.action.ERROR"></html:text>
                         </td>
@@ -139,8 +139,8 @@
             </table>
 
             <p style="text-align: center">
-                <html:submit onclick="javascript: return confirm('¿Está seguro que los datos son correctos?')">
-                    Agregar Estudiante
+                <html:submit onclick="javascript: return confirm('¿Está seguro de que los datos son correctos?')">
+                    Agregar estudiante
                 </html:submit>
             </p>
         </html:form>

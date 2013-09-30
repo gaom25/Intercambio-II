@@ -13,11 +13,11 @@
 <%@ taglib uri="http://struts.apache.org/tags-tiles" prefix="tiles" %>
 
 <html>
-    <title>SGI - Agregar Estudiante</title>
+    <title>SGI - Agregar estudiante</title>
 
     <body onload ="clearForms()" onunload="clearForms()">
 
-        <h4>Creaci&oacute;n de Nuevo Estudiante</h4>
+        <h4>Creaci&oacute;n de nuevo estudiante</h4>
         <h5>Por favor introduzca los datos del nuevo usuario.</h5>
 
         <html:form action="/AccionAgregarEstudiante" method="POST" acceptCharset="ISO-8859-1" enctype="multipart/form-data" onsubmit="return(this)">
@@ -81,7 +81,7 @@
 
             <p style="text-align: center">
                 <html:submit onclick="javascript: return confirm('¿Está seguro que los datos son correctos?')">
-                    Agregar Estudiante
+                    Agregar estudiante
                 </html:submit>
             </p>
         </html:form>

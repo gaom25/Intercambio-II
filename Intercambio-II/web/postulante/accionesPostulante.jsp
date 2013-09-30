@@ -32,12 +32,9 @@
         <h5 align ="center">¿Qu&eacute; desea hacer?</h5>
 
     <html:link action="/AgregarEstudiantes">
-        <p align ="center">Agregar Estudiante</p>
+        <p align ="center">Agregar estudiante</p>
     </html:link>
-        <div align="center">
-        <html:form action="/ListarEstudiantes">
-            <html:hidden name="Usuario" property="nombreusuario" value="<%=var2.toString()%>"/>
-            <html:submit>Consultar Estudiantes</html:submit>
-        </html:form> 
-    </div>
+    <html:link action="/ListarEstudiantes">
+        <p align ="center">Consultar estudiantes</p>
+    </html:link>
 </html:html>
