@@ -71,7 +71,7 @@ public class AgregarEstudianteUsb extends org.apache.struts.action.Action {
         e.setConfirmar(confPswd);
 
         if (e.getNombreusuario().equals("")) {
-            error.add("nombreUsuario", new ActionMessage("error.nombreusuario.required"));
+            error.add("nombreusuario", new ActionMessage("error.nombreusuario.required"));
             saveErrors(request, error);
             huboError = true;
         } else if (DBMS.getInstance().existeUsuario(e)) {
@@ -81,13 +81,13 @@ public class AgregarEstudianteUsb extends org.apache.struts.action.Action {
         }
 
         if (e.getpNombre().equals("")) {
-            error.add("nombres", new ActionMessage("error.nombre.required"));
+            error.add("pNombre", new ActionMessage("error.nombre.required"));
             saveErrors(request, error);
             huboError = true;
         }
 
         if (e.getpApellido().equals("")) {
-            error.add("apellidos", new ActionMessage("error.apellidos.required"));
+            error.add("pApellido", new ActionMessage("error.apellidos.required"));
             saveErrors(request, error);
             huboError = true;
         }
@@ -102,7 +102,11 @@ public class AgregarEstudianteUsb extends org.apache.struts.action.Action {
             huboError = true;
         }
         if (e.getCarnet().equals("")) {
-            error.add("email", new ActionMessage("error.email.required"));
+            error.add("carnet", new ActionMessage("error.email.required"));
+            saveErrors(request, error);
+            huboError = true;
+        }else if (!e.getCarnet().matches("[0-9]{2}\\-[0-9]{5}")) {
+            error.add("carnet", new ActionMessage("error.carnet.malestructurado"));
             saveErrors(request, error);
             huboError = true;
         }

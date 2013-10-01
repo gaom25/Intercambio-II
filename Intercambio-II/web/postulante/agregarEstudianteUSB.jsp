@@ -59,7 +59,7 @@
                     </tr>
                     <tr>
                         <td colspan="2" style="color:firebrick">
-                            <html:errors property="nombres" />
+                            <html:errors property="pNombre" />
                         </td>
                     </tr>
 
@@ -71,7 +71,7 @@
                     </tr>
                     <tr>
                         <td colspan="2" style="color:firebrick">
-                            <html:errors property="apellidos" />
+                            <html:errors property="pApellido" />
                         </td>
                     </tr>
                     <tr>
@@ -82,11 +82,11 @@
                     </tr>
                     <tr>
                         <td colspan="2" style="color:firebrick">
-                            <html:errors property="apellidos" />
+                            <html:errors property="carnet" />
                         </td>
                     </tr>
 
-                    <tr hidden="true">
+                    <tr>
                         <td style="color: black">Carrera</td>
 
                         <td>

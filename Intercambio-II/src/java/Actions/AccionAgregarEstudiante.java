@@ -106,6 +106,10 @@ public class AccionAgregarEstudiante extends org.apache.struts.action.Action {
             error.add("carnet", new ActionMessage("error.carnet.required"));
             saveErrors(request, error);
             huboError = true;
+        }else if (!e.getCarnet().matches("[0-9]{2}\\-[0-9]{5}")) {
+            error.add("carnet", new ActionMessage("error.carnet.malestructurado"));
+            saveErrors(request, error);
+            huboError = true;
         }
         
         if (e.getCodCarrera().equals("")) {

@@ -86,8 +86,7 @@ public class ModificarUsuario extends org.apache.struts.action.Action {
             error.add("email", new ActionMessage("error.email.required"));
             saveErrors(request, error);
             huboError = true;
-        }
-        if (validate(mail) == false) {
+        } else if (validate(mail) == false) {
             error.add("email", new ActionMessage("error.email.malformulado"));
             saveErrors(request, error);
             huboError = true;

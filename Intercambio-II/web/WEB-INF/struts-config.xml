@@ -359,6 +359,7 @@
      
      <action name="Anuncio" path="/RedactarMensaje" scope="session" type="Actions.RedactarMensaje">
          <forward name ="success" path="accExito"/>
+         <forward name ="error" path="redactarmensaje"/>
      </action>
        
      <!-- Acciones en Gestor -->
