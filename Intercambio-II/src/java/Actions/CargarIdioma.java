@@ -44,6 +44,11 @@ public class CargarIdioma extends Action {
         ArrayList idi = idioma.getListIdioma();
         ArrayList conv = idioma.getListConversacional();
         ArrayList audi = idioma.getListAuditivo();
+        
+        /* para ver si se instancia bien lengua materna y curso español*/
+        System.out.println("TIene lenguamaterna?: "+ idioma.getLenguaMaterna());
+        System.out.println("TIene curso español?: "+ idioma.getTomarCursoDeEspaniol());
+        
 
         ArrayList idiomaDB = idiDB.getListIdioma();
 
@@ -101,6 +106,10 @@ public class CargarIdioma extends Action {
                 iditmp.setNivelVerbal(0, (String) verb.get(i));
                 iditmp.setNivelAuditivo(0, (String) audi.get(i));
                 iditmp.setNombreusuario(idioma.getNombreusuario());
+                iditmp.setLenguaMaterna(idioma.getLenguaMaterna());
+                iditmp.setTomarCursoDeEspaniol(idioma.getTomarCursoDeEspaniol());
+                System.out.println("TIene lenguamaterna Guardar?: "+ iditmp.getLenguaMaterna());
+                System.out.println("TIene curso español GUARdar?: "+ iditmp.getTomarCursoDeEspaniol());
 
                 if (!DBMS.getInstance().InsertarIdioma(iditmp)) {
 
@@ -113,6 +122,10 @@ public class CargarIdioma extends Action {
                 iditmp.setNivelVerbal(0, (String) verb.get(i));
                 iditmp.setNivelAuditivo(0, (String) audi.get(i));
                 iditmp.setNombreusuario(idioma.getNombreusuario());
+                iditmp.setLenguaMaterna(idioma.getLenguaMaterna());
+                iditmp.setTomarCursoDeEspaniol(idioma.getTomarCursoDeEspaniol());
+                System.out.println("TIene lenguamaterna ENTRA?: "+ iditmp.getLenguaMaterna());
+                System.out.println("TIene curso español ENTRA?: "+ iditmp.getTomarCursoDeEspaniol());
 
 
                 if (!DBMS.getInstance().modificarIdioma(iditmp)) {

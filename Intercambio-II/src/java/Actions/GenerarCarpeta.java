@@ -4,6 +4,10 @@
  */
 package Actions;
 
+import Clases.GeneradorPlanillas;
+import Clases.Idiomas;
+import Clases.PlanExtranjero;
+import Clases.PlanillaExt;
 import Clases.Usuario;
 import DBMS.DBMS;
 import javax.servlet.http.HttpServletRequest;
@@ -59,36 +63,39 @@ public class GenerarCarpeta extends org.apache.struts.action.Action {
         Usuario u = (Usuario) form;
         Usuario UserData;
         Document document = new Document(PageSize.LETTER);
-                
-//        Document document = new Document(PageSize.LETTER, 10, 10, 10, 10);
-        //document.addCreator("dycicle Systems"); 
         document.setMargins( 10, 10, 10, 10);
        
         // Archivo de salida
         String filePath =
                 getServlet().getServletContext().getRealPath("/") + "Documentos/" + u.getNombreusuario();
         String OUTPUTFILE = filePath + "/carpeta.pdf";
+        /*Path para imagenes, lo usa generador de planillas*/
+        String path = getServlet().getServletContext().getRealPath("/") + "images/";
         
         PdfWriter writer;
         
         ArrayList<String> files = DBMS.getInstance().listarDocumentos(u);
-        System.out.println("Aqui vienen los archivos guardados");
-        System.out.print(files);
-        
         
         
         if (u.getNuevacontra() != null) {
             UserData = DBMS.getInstance().obtenerDatos(u);
-            System.out.println("que hay en usuario u");
-            System.out.print(u);
-            System.out.println("que hay en userdata");
             System.out.print(UserData.getPrivilegio());
             
             u.setPrivilegio(UserData.getPrivilegio());
         }
         
         if (u.getPrivilegio() == 5) {
-            System.out.println("entro a privilegio 5");
+            /*Nos aseguramos que actualice la informacion de la planilla*/
+            // Instanciacion de la clase PlanillaUSB
+            Clases.PlanillaUSB p = DBMS.getInstance().obtenerPlanillaUSB(u);
+            // Instanciacion de la clase Idiomas
+            Clases.Idiomas idiomas = DBMS.getInstance().obtenerIdiomas(u);
+            // Instanciacion de la clase PlanDeEstudio
+            Clases.PlanDeEstudio materias = DBMS.getInstance().obtenerMaterias(u);
+            GeneradorPlanillas g = new GeneradorPlanillas();
+            boolean ha = g.generarPlanillaUSB(p, filePath, materias, idiomas,path);
+            
+            
             if (files == null) {
                 if (u.getNuevacontra() != null) {
                     return mapping.findForward(VACIO_Gest);
@@ -96,6 +103,9 @@ public class GenerarCarpeta extends org.apache.struts.action.Action {
                     return mapping.findForward(VACIO_USB);
                 }
             } else {
+                if (!ha) {
+                return mapping.findForward(VACIO_USB);
+            }
                 writer = PdfWriter.getInstance(document, new FileOutputStream(OUTPUTFILE));
                 document.open();
                 Iterator it = files.iterator();
@@ -118,14 +128,8 @@ public class GenerarCarpeta extends org.apache.struts.action.Action {
             
                         if (img.getWidth()>650 & img.getHeight()>750){
                             img.scaleAbsolute(612,792);
-                            
                         }
                         document.add(img);
-//                      
-            
-                        
-                        
-                        
                         
                     } else if (archivo.endsWith(".pdf")
                             && !archivo.endsWith("carpeta.pdf")) {
@@ -184,6 +188,15 @@ public class GenerarCarpeta extends org.apache.struts.action.Action {
         }
         
         if (u.getPrivilegio() == 6) {
+            /* verificamos que genere la carpeta con la ultima actualizacion de la planilla*/
+            // Instanciacion de la clase PlanillaExtranjera
+            PlanillaExt p = DBMS.getInstance().obtenerPlanillaExt(u);
+            // Instanciacion de la clase Idiomas
+            Idiomas idiomas = DBMS.getInstance().obtenerIdiomas2(u);
+            // Instanciacion de la clase PlanDeEstudio
+            PlanExtranjero materias = DBMS.getInstance().obtenerMateriasExt(u);
+            GeneradorPlanillas g = new GeneradorPlanillas();
+            boolean ha = g.generarPlanillaExt(p, filePath, materias, idiomas, path);
             if (files == null) {
                 if (u.getNuevacontra() != null) {
                     return mapping.findForward(VACIO_Gest);
@@ -192,6 +205,10 @@ public class GenerarCarpeta extends org.apache.struts.action.Action {
                 }
                 
             } else {
+                if (!ha) {
+                return mapping.findForward(VACIO_Ext);
+            }
+                
                 writer = PdfWriter.getInstance(document, new FileOutputStream(OUTPUTFILE));
                 document.open();
                 Iterator it = files.iterator();
@@ -209,8 +226,9 @@ public class GenerarCarpeta extends org.apache.struts.action.Action {
                             && !archivo.endsWith("Foto.png")
                             && !archivo.endsWith("Cedula.png")) {
                         img = Image.getInstance(archivo);
-                        
-                        
+                        if (img.getWidth()>650 & img.getHeight()>750){
+                            img.scaleAbsolute(612,792);
+                        }
                         document.add(img);
                         
                     } else if (archivo.endsWith(".pdf")

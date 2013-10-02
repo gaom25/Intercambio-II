@@ -635,7 +635,7 @@ public class DBMS {
                      String tmp;
 
                     tmp = child.getAbsolutePath();
-                    if (tmp.endsWith("PlanillaIntercambio_USB.pdf")) {
+                    if (tmp.endsWith("PlanillaIntercambio_USB.pdf")||tmp.endsWith("PlanillaIntercambio_Ext.pdf")) {
                         archivos.add(0, tmp);
                     } else {
                         archivos.add(tmp);
@@ -1233,6 +1233,13 @@ public class DBMS {
             stmt = conexion.createStatement();
             ResultSet rs3 = stmt.executeQuery(sqlquery);
             rs3.next(); //Informacion de la primera opcion de universidad
+            
+            sqlquery = "SELECT * FROM \"dycicle\".estudiante "
+                    + "WHERE nombreusuario = '" + u.getNombreusuario() + "' ";
+
+            stmt = conexion.createStatement();
+            ResultSet rs4 = stmt.executeQuery(sqlquery);
+            rs4.next(); //Comentario sobre el estudiante
 
             boolean primeraUni = rs.next();
             datos.setNombreUsuario(rs.getString("NombreUsuario"));
@@ -1293,6 +1300,9 @@ public class DBMS {
             datos.setAnoFechaIni2(rs3.getString("AnioFechaIni"));
             datos.setMesFechaFin2(rs3.getString("MesFechaFin"));
             datos.setAnoFechaFin2(rs3.getString("AnioFechaFin"));
+            
+            datos.setComentarioRecomendacion(rs4.getString("Comentario"));
+            
 
 
         } catch (SQLException ex) {
