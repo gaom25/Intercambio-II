@@ -59,6 +59,10 @@ public class GenerarCarpeta extends org.apache.struts.action.Action {
         Usuario u = (Usuario) form;
         Usuario UserData;
         Document document = new Document(PageSize.LETTER);
+                
+//        Document document = new Document(PageSize.LETTER, 10, 10, 10, 10);
+        //document.addCreator("dycicle Systems"); 
+        document.setMargins( 10, 10, 10, 10);
        
         // Archivo de salida
         String filePath =
@@ -68,13 +72,23 @@ public class GenerarCarpeta extends org.apache.struts.action.Action {
         PdfWriter writer;
         
         ArrayList<String> files = DBMS.getInstance().listarDocumentos(u);
+        System.out.println("Aqui vienen los archivos guardados");
+        System.out.print(files);
+        
+        
         
         if (u.getNuevacontra() != null) {
             UserData = DBMS.getInstance().obtenerDatos(u);
+            System.out.println("que hay en usuario u");
+            System.out.print(u);
+            System.out.println("que hay en userdata");
+            System.out.print(UserData.getPrivilegio());
+            
             u.setPrivilegio(UserData.getPrivilegio());
         }
         
         if (u.getPrivilegio() == 5) {
+            System.out.println("entro a privilegio 5");
             if (files == null) {
                 if (u.getNuevacontra() != null) {
                     return mapping.findForward(VACIO_Gest);
@@ -99,9 +113,19 @@ public class GenerarCarpeta extends org.apache.struts.action.Action {
                             && !archivo.endsWith("Foto.png")
                             && !archivo.endsWith("Cedula.png")) {
                         img = Image.getInstance(archivo);
-                        
-                        
+                        System.out.println("Veo el tamaño del archivo "+archivo+ ": "  + img.getHeight()+img.getWidth());
+                        System.out.println("Veo la rotacion del archivo "+archivo+ ": "+ img.getImageRotation());
+            
+                        if (img.getWidth()>650 & img.getHeight()>750){
+                            img.scaleAbsolute(612,792);
+                            
+                        }
                         document.add(img);
+//                      
+            
+                        
+                        
+                        
                         
                     } else if (archivo.endsWith(".pdf")
                             && !archivo.endsWith("carpeta.pdf")) {

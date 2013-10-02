@@ -287,11 +287,7 @@ public class GeneradorPlanillas {
             titulo = new Phrase("  IDENTIFICACIÓN DEL PROGRAMA Y LAPSO DE ESTUDIO EN INTERCAMBIO:  ", fontTitulos);
             ct.setSimpleColumn(titulo, 70, 400, 450, 420, 20, Element.ALIGN_LEFT);
             ct.go();
-            // Linea divisoria del area  ( margen izq, borde inferior, margen der, borde superior)
-            canvas.saveState();
-            canvas.rectangle(70, 395, 455, 0);
-            canvas.stroke();
-            canvas.restoreState();
+            
             
             //Subtitulo Area PRIMERA OPCION
             titulo = new Phrase(" Primera Opción  ", fontTitulos);
@@ -432,7 +428,7 @@ public class GeneradorPlanillas {
             canvas.restoreState();
 
             // Titulo del area.
-            titulo = new Phrase("INFORMACIÓN ACADÉMICA:  ", fontTitulos);
+            titulo = new Phrase("  INFORMACIÓN ACADÉMICA:  ", fontTitulos);
             ct.setSimpleColumn(titulo, 70, 720, 450, 745, 25, Element.ALIGN_LEFT);
             ct.go();
             
