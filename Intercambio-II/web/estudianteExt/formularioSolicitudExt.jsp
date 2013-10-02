@@ -1004,10 +1004,9 @@
                                         <div id="archivos" >
                                             <div class="feed">  
                                                 <html:file property="theFile[5]" />
-                                                <br />
+                                                <br>
                                             </div>
                                         </div>
-
                                     </td>
                                 </tr>
                             </tbody>
@@ -1051,6 +1050,20 @@
 
                                 <td> Créditos-USB</td>
                             </tr>
+                            <logic:iterate name="plan" id="planid">
+                                <tr>
+                                    <td></td>
+                                    <td style="width: 150px; font-weight: bold;border-bottom: 1pt solid black">
+                                        <bean:write name="planid" property="camp1" />
+                                    </td>
+                                    <td style="width: 200px; font-weight: bold;border-bottom: 1pt solid black">
+                                        <bean:write name="planid" property="camp2" />
+                                    </td>
+                                    <td style="width: 220px; font-weight: bold;border-bottom: 1pt solid black">
+                                        <bean:write name="planid" property="camp3" />
+                                    </td>
+                                </tr>
+                            </logic:iterate>
 
                             <tr>
                                 <td> <input type="checkbox" name="c[]"></td>
@@ -1104,7 +1117,6 @@
 
                     <table border="0"  align="center">
                         <tbody>
-
                             <tr>
                                 <td> </td>
                                 <td>Lengua materna: </td>
@@ -1147,9 +1159,29 @@
                                 <td>Nivel Oral</td>
                                 <td>Nivel Auditivo</td>
                             </tr>
+                            <logic:iterate name="lang" id="langid">
+                                <tr>
+                                    <td></td>
+                                    <td style="width: 150px; font-weight: bold;border-bottom: 1pt solid black">
+                                        <bean:write name="langid" property="camp1" />
+                                    </td>
+                                    <td style="width: 200px; font-weight: bold;border-bottom: 1pt solid black">
+                                        <bean:write name="langid" property="camp2" />
+                                    </td>
+                                    <td style="width: 220px; font-weight: bold;border-bottom: 1pt solid black">
+                                        <bean:write name="langid" property="camp3" />
+                                    </td>
+                                    <td style="width: 220px; font-weight: bold;border-bottom: 1pt solid black">
+                                        <bean:write name="langid" property="camp4" />
+                                    </td>
+                                    <td style="width: 220px; font-weight: bold;border-bottom: 1pt solid black">
+                                        <bean:write name="langid" property="camp5" />
+                                    </td>
+                                </tr>
+                            </logic:iterate>
                             <tr>
                                 <td><INPUT type="checkbox" name="ch[]"/></td>
-                                <td>
+                                <td style="width: 150px">
                                     <html:text name="Idiomas" property="idiomaDest[0]" maxlength="45" style="width:80%;" errorStyleClass="error"
                                                errorKey="org.apache.struts.action.ERROR">
                                     </html:text>

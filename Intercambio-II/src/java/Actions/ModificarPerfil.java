@@ -66,16 +66,17 @@ public class ModificarPerfil extends org.apache.struts.action.Action {
         Usuario user = DBMS.getInstance().obtenerDatos(u);
         ActionErrors error = new ActionErrors();
         boolean huboError = false;
+        //campos para evitar el error
+
+        if (u.getConfirmar() == null) {
+            u.setConfirmar("");
+        }
+        if (u.getNuevacontra() == null) {
+            u.setNuevacontra("");
+        }
         String confPswd = u.getConfirmar();
         String mail = u.getEmail();
         String nuev = u.getNuevacontra();
-
-        //Verifica que el username no  sea vacio.
-        if (u.getNombreusuario().equals("")) {
-            error.add("nombreusuario", new ActionMessage("error.nombreusuario.required"));
-            saveErrors(request, error);
-            huboError = true;
-        }
 
         //Verifica que el nombre propio del usuario no sea vacio/.
         if (u.getNombre().equals("")) {
@@ -83,62 +84,61 @@ public class ModificarPerfil extends org.apache.struts.action.Action {
             saveErrors(request, error);
             huboError = true;
         }
+        if (!u.getConfirmar().equals("") || !u.getNuevacontra().equals("")
+                || !u.getContrasena().equals("")) {
+            if (u.getContrasena().equals("")) {
+                error.add("contrasena", new ActionMessage("error.contrasena.required"));
+                saveErrors(request, error);
+                huboError = true;
+            } else if (u.getContrasena().length() < 6) {
+                error.add("contrasena", new ActionMessage("error.contrasena.corta"));
+                saveErrors(request, error);
+                huboError = true;
+            } else if (!user.getContrasena().equals(u.getContrasena())) {
+                error.add("contrasena", new ActionMessage("error.contrasena.diferente"));
+                saveErrors(request, error);
+                huboError = true;
 
-        //Verificar que el campo contrasena del usuario no sea vacio/.
+            }
 
-        if (u.getContrasena().equals("")) {
-            error.add("contrasena", new ActionMessage("error.contrasena.required"));
-            saveErrors(request, error);
-            huboError = true;
-        } else if (u.getContrasena().length() < 6) {
-            error.add("contrasena", new ActionMessage("error.contrasena.corta"));
-            saveErrors(request, error);
-            huboError = true;
-        } else if (!user.getContrasena().equals(u.getContrasena())) {
-            error.add("contrasena", new ActionMessage("error.contrasena.diferente"));
-            saveErrors(request, error);
-            huboError = true;
+            //Verificar que el campo nuevacontrasena del usuario no sea vacio/.
 
+            if (u.getNuevacontra().equals("")) {
+                error.add("nuevacontra", new ActionMessage("error.nuevacontra.required"));
+                saveErrors(request, error);
+                huboError = true;
+            } else if (nuev.length() < 6) {
+                error.add("nuevacontra", new ActionMessage("error.contrasena.corta"));
+                saveErrors(request, error);
+                huboError = true;
+            }
+
+            //Verificar que el campo confirmar del usuario no sea vacio/.
+
+            if (u.getConfirmar().equals("")) {
+                error.add("confirmar", new ActionMessage("error.confirmar.required"));
+                saveErrors(request, error);
+                huboError = true;
+            } else if (confPswd.length() < 6) {
+                error.add("confirmar", new ActionMessage("error.contrasena.corta"));
+                saveErrors(request, error);
+                huboError = true;
+            }
+
+            if (!confPswd.equals(nuev)) {
+                error.add("nuevacontra", new ActionMessage("error.contrasena.distintas"));
+                saveErrors(request, error);
+                huboError = true;
+            }
         }
-
-        //Verificar que el campo nuevacontrasena del usuario no sea vacio/.
-
-        if (u.getNuevacontra().equals("")) {
-            error.add("nuevacontra", new ActionMessage("error.nuevacontra.required"));
-            saveErrors(request, error);
-            huboError = true;
-        } else if (nuev.length() < 6) {
-            error.add("nuevacontra", new ActionMessage("error.contrasena.corta"));
-            saveErrors(request, error);
-            huboError = true;
-        }
-
-        //Verificar que el campo confirmar del usuario no sea vacio/.
-
-        if (u.getConfirmar().equals("")) {
-            error.add("confirmar", new ActionMessage("error.confirmar.required"));
-            saveErrors(request, error);
-            huboError = true;
-        } else if (confPswd.length() < 6) {
-            error.add("confirmar", new ActionMessage("error.contrasena.corta"));
-            saveErrors(request, error);
-            huboError = true;
-        }
-
         //Verifica que el email no sea vacio y que este estructurado correctamente.
-        if (u.getEmail().equals("")) {
+        if ( u.getEmail().equals("")) {
             error.add("email", new ActionMessage("error.email.required"));
             saveErrors(request, error);
             huboError = true;
         }
-        if (validate(mail) == false) {
+        if ( validate(mail) == false) {
             error.add("email", new ActionMessage("error.email.malformulado"));
-            saveErrors(request, error);
-            huboError = true;
-        }
-
-        if (!confPswd.equals(nuev)) {
-            error.add("nuevacontra", new ActionMessage("error.contrasena.distintas"));
             saveErrors(request, error);
             huboError = true;
         }

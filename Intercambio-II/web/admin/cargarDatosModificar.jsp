@@ -37,7 +37,7 @@
                 </tr>
                 <tr>
                     <td>Privilegios</td>
-                    <td><html:select  property="privilegio">
+                    <td><html:select  property="confirmar">
                             <html:option value="1">Decanato</html:option>
                             <html:option value="1">DRIC</html:option>
                             <html:option value="2">Coordinación</html:option>

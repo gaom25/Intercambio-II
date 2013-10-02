@@ -15,14 +15,16 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Comentar</title>
     </head>
+    <div align="center">
+        <h1>Agregar Comentario para estudiante:</h1>
 
-    <h1>Agregar Comentario para estudiante:</h1>
-    <html:form action="/AgregarComentario"  acceptCharset="ISO-8859-1" onsubmit="return(this)">
-        <html:hidden name="usuario" property="nombreusuario"/>
-        <html:textarea style="width:500px;height:250px;" name="usuario" property="confirmar"/>
-<br>
-        <html:submit value="AgregarComentario"> Comentar </html:submit>
-    </html:form>
+        <html:form action="/AgregarComentario"  acceptCharset="ISO-8859-1" onsubmit="return(this)">
+            <html:hidden name="usuario" property="nombreusuario"/>
+            <html:textarea style="width:70%;height:40%;" name="usuario" property="confirmar"/>
+            <br>
+            <html:submit value="AgregarComentario"> Comentar </html:submit>
+        </html:form>
+    </div>
 
 
 

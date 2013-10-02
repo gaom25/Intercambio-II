@@ -93,7 +93,7 @@ public class AccionAgregarCoordinacion extends org.apache.struts.action.Action {
         }
         
         if (p.getCodigo().equals("")) {
-            error.add("nombrecarrera", new ActionMessage("error.codigo.required"));
+            error.add("codigo", new ActionMessage("error.codigo.required"));
             saveErrors(request, error);
             huboError = true;
         }

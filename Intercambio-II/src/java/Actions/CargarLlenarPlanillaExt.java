@@ -4,8 +4,13 @@
  */
 package Actions;
 
+import Clases.Idiomas;
+import Clases.PlanDeEstudio;
 import Clases.Usuario;
 import Clases.PlanillaExt;
+import Clases.SuperArray;
+import DBMS.DBMS;
+import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -41,6 +46,30 @@ public class CargarLlenarPlanillaExt extends org.apache.struts.action.Action {
         
         Usuario u = new Usuario();
         u.setNombreusuario(p.getNombreUsuario());
+        PlanDeEstudio plan = DBMS.getInstance().obtenerPlanDeEstudio(u);
+        Idiomas idio = DBMS.getInstance().obtenerIdiomas2(u);
+        ArrayList<SuperArray> arra = new ArrayList();
+        ArrayList<SuperArray> sup = new ArrayList();
+        for (int i = 0; i < plan.getListCodigoUSB().size(); i++) {
+            SuperArray a = new SuperArray();
+            a.setCamp1(plan.getCodigoUSB(i));
+            a.setCamp2(plan.getMateriaUSB(i));
+            a.setCamp3(Integer.toString(plan.getCreditosUSB(i)));
+            sup.add(a);
+        }
+
+        for (int i = 0; i < idio.getListIdio().size(); i++) {
+            SuperArray a = new SuperArray();
+            a.setCamp1((String) idio.getListIdio().get(i));
+            a.setCamp2((String) idio.getListVerb().get(i));
+            a.setCamp3((String) idio.getListEscr().get(i));
+            a.setCamp4((String) idio.getListConversacional().get(i));
+            a.setCamp5((String) idio.getListAuditivo().get(i));
+            arra.add(a);
+        }
+        request.setAttribute("plan", sup);
+        request.setAttribute("lang", arra);
+
         
         return mapping.findForward(SUCCESS);
     }

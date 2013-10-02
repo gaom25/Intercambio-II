@@ -16,6 +16,25 @@
     <script  src="/Intercambio/css/jquery.tablePagination.0.5.js"></script>
     <title>Redactar mensaje</title>
     <script language="JavaScript">
+        function Revizar(){
+            var table = document.getElementById('alternatecolor');
+            var checkboxes = table.getElementsByTagName('input');
+            var checks = 0;
+
+            for (i = 0; i < checkboxes.length; i++) {
+                if (checkboxes[i].checked == true)
+                {
+                    checks++
+                }
+            }
+            if(checks ==0 ){
+                alert("Debe Seleccionar almenos un destinatario");
+                document.forms[0].focus();
+                document.forms[0].select();
+                return false;
+            }
+            
+        }
         function Seleccionar() {
             var table = document.getElementById('alternatecolor');
             var checkboxes = table.getElementsByTagName('input');
@@ -60,72 +79,85 @@
 
 <div align="center"><html:form action="/BuscarDestinatarios">
         <html:submit >Volver</html:submit></div>        
-</html:form></div>
-<html:form action="/RedactarMensaje" method="POST" acceptCharset="ISO-8859-1" enctype="multipart/form-data" onsubmit="return(this)">
-<table style=" margin-left: 4.8em;alignment-baseline: central; border:none; vertical-align: middle;width: 80%; background: #dcebe8; border: 2px solid; border-color: #96d1f8;border-radius: 5px;">
-    <tr>
-        <td></td>
-        <td><h1 align="left">Envío de Anuncios</h1></td>
-    </tr>
-    <tr>
-        <td>
-            <b>Asunto: </b>
-        </td>
-        <td>
-            <html:text name="Anuncio" property="titulo" value=""/>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <b>Mensaje:</b>
-        </td>
-        <td>
-            <html:textarea name="Anuncio" property="mensaje" rows="10" cols="45"/>
-            <%Object mensaje;%>
-        </td>
-    <c:set var="hola" value="hello" scope="session"/>
-</tr>
-</table>
-<br>
-<div align="center" style="font-family: sans-serif;color: black;">
-    <input type="checkbox" onclick="Seleccionar()"/>Marcar/Desmarcar Todos
-</div>
-<div id="testTable">
-    <table  style="margin: auto" class="altrowstable" id="alternatecolor" >
-        <thead>
+    </html:form>
+
+<div>
+    <html:form action="/RedactarMensaje" method="POST" acceptCharset="ISO-8859-1" enctype="multipart/form-data" onsubmit="Revizar()">
+        <table style=" margin-left: 4.8em;alignment-baseline: central; border:none; vertical-align: middle;width: 80%; background: #dcebe8; border: 2px solid; border-color: #96d1f8;border-radius: 5px;">
             <tr>
-                <th width="150px" align="center">
-                    <b>Nombre</b>
-                </th>
-                <th width="220px" align="center">
-                    <b>Email</b>
-                </th>
-                <th width="150px" align="center">
-                    <b>Destinatario</b>
-                </th>
+                <td></td>
+                <td><h1 align="left">Envío de Anuncios</h1></td>
             </tr>
-        </thead>
-        <logic:iterate name="usuarios" id="usuarios">
             <tr>
-                <td align="center" width="150px">
-                    <bean:write name="usuarios" property="nombre" />
+                <td>
+                    <b>Asunto: </b>
                 </td>
-                <td align="center" width="220px">
-                    <bean:write name="usuarios" property="email" />
+                <td>
+                    <html:text name="Anuncio" property="titulo" value=""/>
                 </td>
-                <td id="seleccion" align="center" width="150px">
-                    <html:multibox property="emails"><bean:write name="usuarios" property="email" /></html:multibox>
-
-
-                    </td>
-                </tr>
-        </logic:iterate>
-    </table>
-    <table style="position: relative">
-        <tr>
-            <td><html:submit>Enviar Mensaje</html:submit></td>
+            </tr>
+            <tr>
+                <td colspan="2" style="color:firebrick">
+                    <html:errors property="titulo" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>Mensaje:</b>
+                </td>
+                <td>
+                    <html:textarea name="Anuncio" property="mensaje" rows="10" cols="45"/>
+                    <%Object mensaje;%>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="color:firebrick">
+                    <html:errors property="mensaje" />
+                </td>
+            <c:set var="hola" value="hello" scope="session"/>
             </tr>
         </table>
+        <br>
+        <div align="center" style="font-family: sans-serif;color: black;">
+            <input type="checkbox" onclick="Seleccionar()"/>Marcar/Desmarcar Todos
+        </div>
+        <div id="testTable">
+            <table  style="margin: auto" class="altrowstable" id="alternatecolor" >
+                <thead>
+                    <tr>
+                        <th width="150px" align="center">
+                            <b>Nombre</b>
+                        </th>
+                        <th width="220px" align="center">
+                            <b>Email</b>
+                        </th>
+                        <th width="150px" align="center">
+                            <b>Destinatario</b>
+                        </th>
+                    </tr>
+                </thead>
+                <logic:iterate name="usuarios" id="usuarios">
+                    <tr>
+                        <td align="center" width="150px">
+                            <bean:write name="usuarios" property="nombre" />
+                        </td>
+                        <td align="center" width="220px">
+                            <bean:write name="usuarios" property="email" />
+                        </td>
+                        <td id="seleccion" align="center" width="150px">
+                            <html:multibox property="emails"><bean:write name="usuarios" property="email" /></html:multibox>
+
+
+                        </td>
+                    </tr>
+                </logic:iterate>
+            </table>
+            <table style="position: relative">
+                <tr>
+                    <td><html:submit>Enviar mensaje</html:submit></td>
+                </tr>
+            </table>
+        </div>
     </div>
 </html:form>
 

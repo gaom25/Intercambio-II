@@ -85,7 +85,6 @@ public class recContrasena extends org.apache.struts.action.Action {
             if (!nombreusuario.equals("")){
                 // Intento extraer los datos del nombre de usuario introducido
                 datos = DBMS.getInstance().existeUsuario(nombreusuario);
-                System.out.println(datos);
                 //Si el nombre de usuario no existe y el correo esta vacio, error
                 if (datos == null && email.equals("")){
                     error.add("nombreusuario", new ActionMessage("error.nombreusuariomiss.required"));

@@ -39,13 +39,13 @@
 <!DOCTYPE html>
 
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>SGI - Listar Usuarios</title>
+    <title>SGI - Listar usuarios</title>
 
     <script language="JavaScript">
         function submitForm() { document.ObtenerDatos.submit(); }
     </script>
 
-    <h4>Lista de Usuarios del Sistema:</h4>
+    <h4>Lista de usuarios del sistema:</h4>
   <div id="testTable">
     <table border="0" style="margin: auto" class="altrowstable" id="alternatecolor">
         <thead>
@@ -54,13 +54,13 @@
                     Nombre de usuario
                 </th>
                 <th width="150px" align="center">
-                    Ver Usuario
+                    Ver usuario
                 </th>
                 <th width="150px" align="center">
-                    Modificar Usuario
+                    Modificar usuario
                 </th>
                 <th width="150px" align="center">
-                    Eliminar Usuario
+                    Eliminar usuario
                 </th>
             </tr>
         </thead>
@@ -86,7 +86,7 @@
                 <td align="center" width="150px">
                     <html:form action="/EliminarUsuario" onsubmit="return(this)">
                         <html:hidden name = "usuarios" property="nombreusuario"/>
-                        <a onclick="javascript: return confirm('Seguro Que Deses Elmininar Este Usuario?')">
+                        <a onclick="javascript: return confirm('¿Seguro que desea eliminar este usuario?')">
                             <html:image src="images/trashcan-delete.png" value="" property="" /> 
                         </a>
                     </html:form>

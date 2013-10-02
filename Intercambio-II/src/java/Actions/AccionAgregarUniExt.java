@@ -87,7 +87,7 @@ public class AccionAgregarUniExt extends org.apache.struts.action.Action {
         }
         
         if (p.getNombreUniExt().equals("")) {
-            error.add("nombrecarrera", new ActionMessage("error.nombrecarrera.required"));
+            error.add("nombreUniExt", new ActionMessage("error.nombreUniExt.required"));
             saveErrors(request, error);
             huboError = true;
         }

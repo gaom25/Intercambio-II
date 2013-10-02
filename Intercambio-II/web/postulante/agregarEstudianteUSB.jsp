@@ -13,12 +13,12 @@
 <%@ taglib uri="http://struts.apache.org/tags-tiles" prefix="tiles" %>
 
 <html>
-    <title>SGI - Agregar Estudiante USB</title>
+    <title>SGI - Agregar estudiante USB</title>
 
     <body onload ="clearForms()" onunload="clearForms()">
 
-        <h4>Creaci&oacute;n de Nuevo Estudiante</h4>
-        <h5>Por favor introduzca los datos del nuevo usuario.</h5>
+        <h4>Creaci&oacute;n de nuevo estudiante</h4>
+        <h5>Por favor introduzca los datos del nuevo estudiante.</h5>
 
         <html:form action="/AgregarEstudianteUsb" method="POST" acceptCharset="ISO-8859-1" enctype="multipart/form-data" onsubmit="return(this)">
             <table border="0" >
@@ -59,7 +59,7 @@
                     </tr>
                     <tr>
                         <td colspan="2" style="color:firebrick">
-                            <html:errors property="nombres" />
+                            <html:errors property="pNombre" />
                         </td>
                     </tr>
 
@@ -71,7 +71,7 @@
                     </tr>
                     <tr>
                         <td colspan="2" style="color:firebrick">
-                            <html:errors property="apellidos" />
+                            <html:errors property="pApellido" />
                         </td>
                     </tr>
                     <tr>
@@ -82,11 +82,11 @@
                     </tr>
                     <tr>
                         <td colspan="2" style="color:firebrick">
-                            <html:errors property="apellidos" />
+                            <html:errors property="carnet" />
                         </td>
                     </tr>
 
-                    <tr hidden="true">
+                    <tr>
                         <td style="color: black">Carrera</td>
 
                         <td>
@@ -105,7 +105,7 @@
 
             <p style="text-align: center">
                 <html:submit onclick="javascript: return confirm('¿Está seguro que los datos son correctos?')">
-                    Agregar Estudiante
+                    Agregar estudiante
                 </html:submit>
             </p>
         </html:form>

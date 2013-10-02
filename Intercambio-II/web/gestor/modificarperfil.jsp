@@ -12,80 +12,119 @@
 <%@ taglib uri="http://struts.apache.org/tags-logic" prefix="logic" %>
 <%@ taglib uri="http://struts.apache.org/tags-tiles" prefix="tiles" %>
 
-<html>
+<script  src="/Intercambio/css/jquery.js"></script>
+<script>
+    function Marcar(id){
+        jQuery.each($(id).children(),function(a,b){
+            if (b.disabled==true){
+                b.disabled=false
+            }else{
+                b.disabled=true
+            }
+        })
+    }
+</script>
+<script type="text/javascript">
+    
+    $(document).ready(function(){
+        jQuery.each($("input"),function(key,value){
+            if(value.type=="text" || value.type=="password"){
+                if(value.name!="nombreusuario"){
+                    value.disabled=true
+                }
+            }
+        })   
+    })
+</script>
 
-    <title>SGI - Modificar Perfil</title>
+<title>SGI - Modificar Perfil</title>
 
-    <h4>Modificaci&oacute;n de Datos de Usuario</h4>
-    <h5>Actualice sus datos. <strong>TODOS LOS CAMPOS SON OBLIGATORIOS</strong></h5>
+<h4>Modificaci&oacute;n de Datos de Usuario</h4>
+<h5>Actualice sus datos.</h5>
+<h5><strong>Seleccione el campo que desea actualizar</strong></h5>
 
-    <html:form action="/ModificarPerfil" onsubmit="return(this)">
-        <table border="0">
-            <tbody>
-                <tr>
-                    <td>Usuario </td>
-                    <td><html:text disabled="true" name="Usuario" property="nombreusuario"  errorStyleClass="error"
-                               errorKey="org.apache.struts.action.ERROR"></html:text></td>
-                </tr>
-                <tr>
-                    <td colspan="2" style="color:firebrick">
-                        <html:errors property="nombreusuario" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>E-mail</td>
+<html:form action="/ModificarPerfil" onsubmit="return(this)">
+    <table border="0">
+        <tbody>
+            <tr>
+                <td>Usuario </td>
+                <td><html:text disabled="true" name="Usuario" property="nombreusuario"  errorStyleClass="error"
+                           errorKey="org.apache.struts.action.ERROR"></html:text></td>
+            </tr>
+            <tr>
+                <td colspan="2" style="color:firebrick">
+                    <html:errors property="nombreusuario" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div align="center"><input type="checkbox" onclick="Marcar('.mail')"/> Actualizar el E-mail</div>
+                </td>
+            </tr>
+            <tr>
+                <td>E-mail</td>
 
-                    <td><html:text name="Usuario" property="email"  errorStyleClass="error"
-                               errorKey="org.apache.struts.action.ERROR"></html:text></td>
-                </tr>
-                <tr>
-                    <td colspan="2" style="color:firebrick">
-                        <html:errors property="email" />
-                    </td>
+                <td class="mail"><html:text name="Usuario" property="email"  errorStyleClass="error"
+                           errorKey="org.apache.struts.action.ERROR"></html:text></td>
+            </tr>
+            <tr>
+                <td colspan="2" style="color:firebrick">
+                    <html:errors property="email" />
+                </td>
 
-                </tr>
-                <tr>
-                    <td>Nombre completo</td>
-                    <td><html:text name="Usuario" property="nombre" maxlength="100"  errorStyleClass="error"
-                               errorKey="org.apache.struts.action.ERROR"></html:text></td>
-                </tr>
-                <tr>
-                    <td colspan="2" style="color:firebrick">
-                        <html:errors property="nombre" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>Contraseña actual</td>
-                    <td><html:password name="Usuario" value="" property="contrasena" maxlength="100"  errorStyleClass="error"
-                                   errorKey="org.apache.struts.action.ERROR"></html:password></td>
-                </tr>
-                <tr>
-                    <td style="width: 100px;color:firebrick" colspan="2">
-                        <html:errors property="contrasena" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>Contraseña nueva</td>
-                    <td><html:password name="Usuario" value="" property="nuevacontra" maxlength="100" errorStyleClass="error"
-                                   errorKey="org.apache.struts.action.ERROR"></html:password></td>
-                </tr>
-                <tr>
-                    <td style="width: 100px;color:firebrick" colspan="2">
-                        <html:errors property="nuevacontra" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>Confirmar nueva contraseña</td>
-                    <td><html:password name="Usuario" value="" property="confirmar" maxlength="100"  errorStyleClass="error"
-                                   errorKey="org.apache.struts.action.ERROR"></html:password></td>
-                </tr>
-                <tr>
-                    <td style="width: 100px;color:firebrick" colspan="2">
-                        <html:errors property="confirmar" />
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <p style="text-align: center"><html:submit>Modificar usuario</html:submit></p>
-    </html:form>
+            </tr>
+            <tr>
+                <td>
+                    <div align="center"><input type="checkbox" onclick="Marcar('.nom')"/> Actualizar el E-mail</div>
+                </td>
+            </tr>
+            <tr>
+                <td>Nombre completo</td>
+                <td class="nom"><html:text name="Usuario" property="nombre" maxlength="100"  errorStyleClass="error"
+                           errorKey="org.apache.struts.action.ERROR"></html:text></td>
+            </tr>
+            <tr>
+                <td colspan="2" style="color:firebrick">
+                    <html:errors property="nombre" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div align="center"><input type="checkbox" onclick="Marcar('.contra')"/> Actualizar el E-mail</div>
+                </td>
+            </tr>
+            <tr>
+                <td>Contraseña actual</td>
+                <td class="contra"><html:password name="Usuario" value="" property="contrasena" maxlength="100"  errorStyleClass="error"
+                               errorKey="org.apache.struts.action.ERROR"></html:password></td>
+            </tr>
+            <tr>
+                <td style="width: 100px;color:firebrick" colspan="2">
+                    <html:errors property="contrasena" />
+                </td>
+            </tr>
+            <tr>
+                <td>Contraseña nueva</td>
+                <td class="contra"><html:password name="Usuario" value="" property="nuevacontra" maxlength="100" errorStyleClass="error"
+                               errorKey="org.apache.struts.action.ERROR"></html:password></td>
+            </tr>
+            <tr>
+                <td style="width: 100px;color:firebrick" colspan="2">
+                    <html:errors property="nuevacontra" />
+                </td>
+            </tr>
+            <tr>
+                <td>Confirmar nueva contraseña</td>
+                <td class="contra"><html:password name="Usuario" value="" property="confirmar" maxlength="100"  errorStyleClass="error"
+                               errorKey="org.apache.struts.action.ERROR"></html:password></td>
+            </tr>
+            <tr>
+                <td style="width: 100px;color:firebrick" colspan="2">
+                    <html:errors property="confirmar" />
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <p style="text-align: center"><html:submit onclick="javascript: return confirm('¿Está seguro que los datos son correctos?')">Modificar usuario</html:submit></p>
+</html:form>
 </html>

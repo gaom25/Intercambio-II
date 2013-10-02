@@ -82,13 +82,13 @@ public class AccionAgregarEstudiante extends org.apache.struts.action.Action {
         }
 
         if (e.getpNombre().equals("")) {
-            error.add("nombres", new ActionMessage("error.nombre.required"));
+            error.add("pNombre", new ActionMessage("error.nombre.required"));
             saveErrors(request, error);
             huboError = true;
         }
 
         if (e.getpApellido().equals("")) {
-            error.add("apellidos", new ActionMessage("error.apellidos.required"));
+            error.add("pApellido", new ActionMessage("error.apellidos.required"));
             saveErrors(request, error);
             huboError = true;
         }
@@ -104,6 +104,16 @@ public class AccionAgregarEstudiante extends org.apache.struts.action.Action {
         }
         if (e.getCarnet().equals("")) {
             error.add("carnet", new ActionMessage("error.carnet.required"));
+            saveErrors(request, error);
+            huboError = true;
+        }else if (!e.getCarnet().matches("[0-9]{2}\\-[0-9]{5}")) {
+            error.add("carnet", new ActionMessage("error.carnet.malestructurado"));
+            saveErrors(request, error);
+            huboError = true;
+        }
+        
+        if (e.getCodCarrera().equals("")) {
+            error.add("codCarrera", new ActionMessage("error.codigo.required"));
             saveErrors(request, error);
             huboError = true;
         }

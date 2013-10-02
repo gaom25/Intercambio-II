@@ -13,10 +13,10 @@
 
 <html>
 
-    <title>SGI - Modificar Usuario</title>
+    <title>SGI - Modificar usuario</title>
 
-    <h4>Modificaci&oacute;n de Datos de Usuarios</h4>
-    <h5>Por favor escriba el nombre de usuario y los datos que desea modificar.</h5>
+    <h4>Modificaci&oacute;n de datos de usuarios</h4>
+    <h5>Por favor modifique los campos que desee.</h5>
 
     <html:form action="/ModificarUsuario" onsubmit="return(this)">
         <table border="0">
@@ -55,7 +55,7 @@
                 </tr>
                 <tr>
                     <td>Privilegios</td>
-                    <td><html:select  property="privilegio">
+                    <td><html:select  property="confirmar">
                             <html:option value="1">Decanato</html:option>
                             <html:option value="1">DRIC</html:option>
                             <html:option value="2">Coordinacion</html:option>

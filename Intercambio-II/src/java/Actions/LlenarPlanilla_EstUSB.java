@@ -4,10 +4,14 @@
  */
 package Actions;
 
+import Clases.Idiomas;
+import Clases.PlanDeEstudio;
 import Clases.PlanillaUSB;
+import Clases.SuperArray;
 import Clases.Usuario;
 
 import DBMS.DBMS;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -104,14 +108,14 @@ public class LlenarPlanilla_EstUSB extends org.apache.struts.action.Action {
             huboError = true;
             arre[0] = true;
         }
-/*
-        if (p.getNombre2().equals("")) {
-            error.add("nombre2", new ActionMessage("error.nombres.required"));
-            saveErrors(request, error);
-            huboError = true;
-            arre[0] = true;
-        }
-*/
+        /*
+         if (p.getNombre2().equals("")) {
+         error.add("nombre2", new ActionMessage("error.nombres.required"));
+         saveErrors(request, error);
+         huboError = true;
+         arre[0] = true;
+         }
+         */
         // Verifica escogencia de Sexo
         if (p.getSexo().contains("Seleccione")) {
             error.add("sexo", new ActionMessage("error.sexo.required"));
@@ -293,7 +297,7 @@ public class LlenarPlanilla_EstUSB extends org.apache.struts.action.Action {
                 || p.getNombreOpcion2().equalsIgnoreCase("Seleccione"))
                 && !(p.getNombreOpcion1().equalsIgnoreCase("-")
                 || p.getNombreOpcion1().equalsIgnoreCase("Seleccione"))) {
-            
+
             error.add("nombreOpcion1", new ActionMessage("error.unisdifer.required"));
             error.add("nombreOpcion2", new ActionMessage("error.unisdifer.required"));
             saveErrors(request, error);
@@ -587,8 +591,36 @@ public class LlenarPlanilla_EstUSB extends org.apache.struts.action.Action {
         Usuario u = new Usuario();
         u.setNombreusuario(p.getNombreUsuario());
         u.setConfirmar(p.getPeriodo());
+        
+        //Para cargar los idiomas y el plan de estudio ya que ya esta en la db
 
         PlanillaUSB hay = DBMS.getInstance().obtenerPlanillaUSB(u);
+        PlanDeEstudio plan = DBMS.getInstance().obtenerPlanDeEstudio(u);
+        Idiomas idio = DBMS.getInstance().obtenerIdiomas(u);
+        ArrayList<SuperArray> arra = new ArrayList();
+        ArrayList<SuperArray> sup = new ArrayList();
+        for (int i = 0; i < plan.getListCodigoUSB().size(); i++) {
+            SuperArray a = new SuperArray();
+            a.setCamp1(plan.getCodigoUSB(i));
+            a.setCamp2(plan.getMateriaUSB(i));
+            a.setCamp3(Integer.toString(plan.getCreditosUSB(i)));
+            a.setCamp4(plan.getCodigoUniv(i));
+            a.setCamp5(plan.getMateriaUniv(i));
+            a.setCamp6(Integer.toString(plan.getCreditosUniv(i)));
+            sup.add(a);
+        }
+
+        for (int i = 0; i < idio.getListIdio().size(); i++) {
+            SuperArray a = new SuperArray();
+            a.setCamp1((String) idio.getListIdio().get(i));
+            a.setCamp2((String) idio.getListVerb().get(i));
+            a.setCamp3((String) idio.getListEscr().get(i));
+            a.setCamp4((String) idio.getListConversacional().get(i));
+            a.setCamp5((String) idio.getListAuditivo().get(i));
+            arra.add(a);
+        }
+        request.setAttribute("plan", sup);
+        request.setAttribute("lang", arra);
 
 
         if (huboError) {

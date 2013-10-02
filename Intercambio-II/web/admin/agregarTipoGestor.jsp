@@ -20,7 +20,7 @@
 
     <body onload ="clearForms()" onunload="clearForms()">
 
-        <h4>Creaci&oacute;n de Nuevo Gestor</h4>
+        <h4>Creaci&oacute;n de nuevo gestor</h4>
         <h5>Por favor introduzca los datos del nuevo usuario.</h5>
 
         <html:form action="/AccionAgregarGestor" method="POST" acceptCharset="ISO-8859-1" enctype="multipart/form-data" onsubmit="return(this)">
@@ -28,7 +28,7 @@
                 <tbody>
                     <tr>
 
-                        <td style="color: black">Nombre de Usuario</td>
+                        <td style="color: black">Nombre de usuario</td>
                         <td>
                             <html:text name="Usuario" property="nombreusuario" value="" maxlength="20" errorStyleClass="error"
                                        errorKey="org.apache.struts.action.ERROR"></html:text>
@@ -70,8 +70,8 @@
             </table>
 
             <p style="text-align: center">
-                <html:submit onclick="javascript: return confirm('¿Está seguro que los datos son correctos?')">
-                    Agregar Gestor
+                <html:submit onclick="javascript: return confirm('¿Está seguro de que los datos son correctos?')">
+                    Agregar gestor
                 </html:submit>
             </p>
         </html:form>

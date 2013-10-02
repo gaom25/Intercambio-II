@@ -43,6 +43,7 @@ public class ObtenerDatos extends org.apache.struts.action.Action {
         
         u = DBMS.getInstance().obtenerDatos(u);
         u.setConfirmar(u.getContrasena());
+        u.setConfirmar(Integer.toString(u.getPrivilegio()));
         request.setAttribute("usuario", u);
         return mapping.findForward(SUCCESS);
         
