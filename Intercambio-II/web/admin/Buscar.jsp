@@ -98,11 +98,11 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <html:text property="nombre" maxlength="30" errorStyleClass="error"
+                                    <html:text property="nombre" maxlength="30" errorStyleClass="error" value=""
                                                errorKey="org.apache.struts.action.ERROR"></html:text>
                                     </td>
                                     <td>
-                                    <html:text property="apellido" maxlength="30" errorStyleClass="error"
+                                    <html:text property="apellido" maxlength="30" errorStyleClass="error" value=""
                                                errorKey="org.apache.struts.action.ERROR"></html:text>
                                     </td>
                                 </tr>
@@ -112,11 +112,11 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                    <html:text property="carnet" maxlength="8" errorStyleClass="error"
+                                    <html:text property="carnet" maxlength="8" errorStyleClass="error" value=""
                                                errorKey="org.apache.struts.action.ERROR"></html:text>
                                     </td>
                                     <td>
-                                    <html:text property="indice" maxlength="7" errorStyleClass="error"
+                                    <html:text property="indice" maxlength="7" errorStyleClass="error" value=""
                                                title="Coloque Simbolo de Comparación >,< o ="
                                                errorKey="org.apache.struts.action.ERROR"></html:text>
                                     </td>
@@ -129,7 +129,7 @@
                                 <tr>
 
                                     <td>
-                                    <html:select  property="carrera">
+                                        <html:select  property="carrera" value="N/A">
                                         <html:option value="N/A"></html:option>
                                         <html:option value="Licenciatura en Quimica"></html:option>
                                         <html:option value="Licenciatura en Matematicas"></html:option>
@@ -175,7 +175,7 @@
 
                             <tr>
                                 <td>
-                                    <html:select  property="pais">
+                                    <html:select  property="pais" value="N/A">
                                         <html:option value="N/A"></html:option>
                                         <html:option value="Alemania"></html:option>
                                         <html:option value="Argentina"></html:option>
@@ -217,7 +217,7 @@
 
                         </tbody>
                     </table>
-                    <html:select  property="opcion1">
+                    <html:select  property="opcion1" value="N/A">
                         <html:option value="N/A"></html:option>
                         <html:option value="Universidad de Karlsruhe"></html:option>
                         <html:option value="Universidad de Siegen"></html:option>
@@ -331,7 +331,7 @@
                                     Gestor:
                                 </td>
                                 <td>
-                                <html:select property="gestor">
+                                <html:select property="gestor" value="N/A">
                                     <html:option value="Seleccione"></html:option>
                                     <html:option value="Decanato de Estudios Profesionales"></html:option>
                                     <html:option value="Decanato de Estudios Tecnologicos"></html:option>
@@ -351,5 +351,3 @@
         </div>
 
     </body>
-
-</html>

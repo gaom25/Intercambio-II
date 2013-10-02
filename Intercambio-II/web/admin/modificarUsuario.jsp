@@ -55,13 +55,13 @@
                 </tr>
                 <tr>
                     <td>Privilegios</td>
-                    <td><html:select  property="confirmar">
-                            <html:option value="1">Decanato</html:option>
+                    <td><html:select name="usuario" property="confirmar">
+                            <html:option value="2">Decanato</html:option>
                             <html:option value="1">DRIC</html:option>
-                            <html:option value="2">Coordinacion</html:option>
-                            <html:option value="2">Universidad Extranjera</html:option>
-                            <html:option value="3">Estudiante USB</html:option>
-                            <html:option value="3">Estudiante Extranjero</html:option>
+                            <html:option value="3">Coordinacion</html:option>
+                            <html:option value="3">Universidad Extranjera</html:option>
+                            <html:option value="5">Estudiante USB</html:option>
+                            <html:option value="6">Estudiante Extranjero</html:option>
                         </html:select>
                     </td>
                 </tr>

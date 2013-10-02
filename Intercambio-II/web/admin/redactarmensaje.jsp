@@ -139,25 +139,28 @@
                 <logic:iterate name="usuarios" id="usuarios">
                     <tr>
                         <td align="center" width="150px">
-                            <bean:write name="usuarios" property="nombre" />
-                        </td>
-                        <td align="center" width="220px">
-                            <bean:write name="usuarios" property="email" />
-                        </td>
-                        <td id="seleccion" align="center" width="150px">
-                            <html:multibox property="emails"><bean:write name="usuarios" property="email" /></html:multibox>
+                            <html:text property="backup" >
+                                
+                            </html:text>
+                                       <bean:write name="usuarios" property="nombre" />
+                            </td>
+                            <td align="center" width="220px">
+                                <bean:write name="usuarios" property="email" />
+                            </td>
+                            <td id="seleccion" align="center" width="150px">
+                                <html:multibox property="emails"><bean:write name="usuarios" property="email" /></html:multibox>
 
 
-                        </td>
-                    </tr>
+                                </td>
+                            </tr>
                 </logic:iterate>
             </table>
             <table style="position: relative">
                 <tr>
                     <td><html:submit>Enviar mensaje</html:submit></td>
-                </tr>
-            </table>
+                    </tr>
+                </table>
+            </div>
         </div>
-    </div>
 </html:form>
 

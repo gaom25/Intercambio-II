@@ -36,14 +36,15 @@
                     <td><html:text name="usuario" property="nombre" /></td>
                 </tr>
                 <tr>
-                    <td>Privilegios</td>
-                    <td><html:select  property="confirmar">
+                    <td>Privilegios
+                    </td>
+                    <td><html:select name="usuario" property="privilegio">
+                            <html:option value="2">DRIC</html:option>
                             <html:option value="1">Decanato</html:option>
-                            <html:option value="1">DRIC</html:option>
-                            <html:option value="2">Coordinación</html:option>
-                            <html:option value="2">Universidad Extranjera</html:option>
-                            <html:option value="3">Estudiante USB</html:option>
-                            <html:option value="3">Estudiante Extranjero</html:option>
+                            <html:option value="3">Coordinación</html:option>
+                            <html:option value="3">Universidad Extranjera</html:option>
+                            <html:option value="5">Estudiante USB</html:option>
+                            <html:option value="6">Estudiante Extranjero</html:option>
                         </html:select>
                     </td>
                 </tr>
