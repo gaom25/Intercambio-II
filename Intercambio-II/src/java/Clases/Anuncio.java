@@ -14,6 +14,7 @@ public class Anuncio extends org.apache.struts.validator.ValidatorForm {
     private String mensaje;
     private String fecha;
     private String[] emails;
+    private String[] backup;
 
     public Anuncio() {
 
@@ -54,4 +55,13 @@ public class Anuncio extends org.apache.struts.validator.ValidatorForm {
     public void setFecha(String fecha) {
         this.fecha = fecha;
     }
+
+    public String[] getBackup() {
+        return backup;
+    }
+
+    public void setBackup(String[] backup) {
+        this.backup = backup;
+    }
+    
 }
