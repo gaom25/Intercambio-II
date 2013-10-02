@@ -578,7 +578,7 @@ public class DBMS {
             }
 
             query = query.substring(0, query.length() - 2);
-            query += " WHERE nombreusuario ='"+u.getNombreusuario()+"'";
+            query += " WHERE nombreusuario ='" + u.getNombreusuario() + "'";
 
             Statement stmt = conexion.createStatement();
             Integer i = stmt.executeUpdate(query);
@@ -611,6 +611,31 @@ public class DBMS {
         return usrs;
     }
 
+    public ArrayList<Usuario> listarDestinatarios(String[] nombres) {
+
+        ArrayList<Usuario> usrs = new ArrayList<Usuario>(0);
+        PreparedStatement ps = null;
+        try {
+            for (int i = 0; i < nombres.length; i++) {
+                ps = conexion.prepareStatement("SELECT * FROM \"dycicle\".usuario WHERE "
+                        + "nombreusuario =?");
+                ps.setString(1, nombres[i]);
+                ResultSet rs = ps.executeQuery();
+                while (rs.next()) {
+                    Usuario u = new Usuario();
+                    u.setNombreusuario(rs.getString("nombreusuario"));
+                    u.setNombre(rs.getString("nombre"));
+                    u.setEmail(rs.getString("email"));
+                    usrs.add(u);
+                }
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
+        return usrs;
+    }
+
     public ArrayList<String> listarDocumentos(Usuario u) throws SQLException {
 
         ArrayList<String> archivos = new ArrayList<String>(0);
@@ -632,7 +657,7 @@ public class DBMS {
 
                 File dir = new File(p);
                 for (File child : dir.listFiles()) {
-                     String tmp;
+                    String tmp;
 
                     tmp = child.getAbsolutePath();
                     if (tmp.endsWith("PlanillaIntercambio_USB.pdf")) {
