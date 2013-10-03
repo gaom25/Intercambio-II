@@ -40,14 +40,12 @@ public class GeneradorPlanillas {
      *
      * @author katty
      */
-    //public Boolean generarPlanillaUSB(PlanillaUSB p, String path) throws BadElementException, DocumentException {
     public Boolean generarPlanillaUSB(PlanillaUSB p, String path, PlanDeEstudio plan, Idiomas idim,String filepath) throws BadElementException, DocumentException {
         Document document = new Document(PageSize.LETTER); // Pdf de tamano carta
         DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
         System.out.println("Empeze a generar");
 
         try {
-            int n = 1;
             DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
             Calendar cal = Calendar.getInstance();
             String creacion = dateFormat.format(cal.getTime());
@@ -288,11 +286,7 @@ public class GeneradorPlanillas {
             titulo = new Phrase("  IDENTIFICACIÓN DEL PROGRAMA Y LAPSO DE ESTUDIO EN INTERCAMBIO:  ", fontTitulos);
             ct.setSimpleColumn(titulo, 70, 400, 450, 420, 20, Element.ALIGN_LEFT);
             ct.go();
-            // Linea divisoria del area  ( margen izq, borde inferior, margen der, borde superior)
-            canvas.saveState();
-            canvas.rectangle(70, 395, 455, 0);
-            canvas.stroke();
-            canvas.restoreState();
+            
             
             //Subtitulo Area PRIMERA OPCION
             titulo = new Phrase(" Primera Opción  ", fontTitulos);
@@ -420,7 +414,7 @@ public class GeneradorPlanillas {
             document.newPage();
 
             //Estampado de numero de planilla, fecha y hora de creacion
-            campo = new Phrase("Solicitud Nro:"+ n + "      ||  Fecha Creación:  "  + creacion, fontCampo);
+            campo = new Phrase("Fecha Creación:  "  + creacion, fontCampo);
             ct.setSimpleColumn(campo, 200, 20, 580, 30, 10, Element.ALIGN_RIGHT);
             ct.go();
             
@@ -433,7 +427,7 @@ public class GeneradorPlanillas {
             canvas.restoreState();
 
             // Titulo del area.
-            titulo = new Phrase("INFORMACIÓN ACADÉMICA:  ", fontTitulos);
+            titulo = new Phrase("  INFORMACIÓN ACADÉMICA:  ", fontTitulos);
             ct.setSimpleColumn(titulo, 70, 720, 450, 745, 25, Element.ALIGN_LEFT);
             ct.go();
             
@@ -904,7 +898,7 @@ public class GeneradorPlanillas {
             document.newPage();
 
             //Estampado de numero de planilla, fecha y hora de creacion
-            campo = new Phrase("Solicitud Nro:"+ n + "      ||  Fecha Creacion:  "  + creacion, fontCampo);
+            campo = new Phrase("Fecha Creacion:  "  + creacion, fontCampo);
             ct.setSimpleColumn(campo, 200, 20, 580, 30, 10, Element.ALIGN_RIGHT);
             ct.go();
 			
@@ -963,6 +957,9 @@ public class GeneradorPlanillas {
              //Opinion 
             campo = new Phrase("Opinión de la Coordinación Docente sobre esta solicitud (explicación breve):  ", fontCampo2);
             ct.setSimpleColumn(campo, 90, 520, 500, 530, 10, Element.ALIGN_CENTER);
+            ct.go();
+            campo = new Phrase(p.getComentarioRecomendacion(), fontCampo);
+            ct.setSimpleColumn(campo, 90, 500, 500, 510, 10, Element.ALIGN_CENTER);
             ct.go();
             
             /* ##########################
@@ -1040,7 +1037,7 @@ public class GeneradorPlanillas {
              * ###########################################################*/
             ColumnText ct = new ColumnText(canvas);
             //Estampado de fecha y hora de creacion
-            Phrase campo = new Phrase("Solicitud Nro:"+ n + "      ||  Fecha Creacion:   "+ creacion, fontCampo);
+            Phrase campo = new Phrase("Fecha Creacion:   "+ creacion, fontCampo);
             ct.setSimpleColumn(campo, 200, 70, 580, 80, 10, Element.ALIGN_RIGHT);
             ct.go();
 
@@ -1265,11 +1262,11 @@ public class GeneradorPlanillas {
             canvas.restoreState();
             
             // Titulo del area.
-            titulo = new Phrase("INFORMACIÓN DE LA UNIVERSIDAD DE ORIGEN  ", fontTitulos);
+            titulo = new Phrase("  INFORMACIÓN DE LA UNIVERSIDAD DE ORIGEN  ", fontTitulos);
             ct.setSimpleColumn(titulo, 70, 390, 500, 400, 10, Element.ALIGN_LEFT);
             ct.go();
-            titulo = new Phrase("HOME INSTITUTION INFORMATION  ", fontPequena);
-            ct.setSimpleColumn(titulo, 70, 383, 500, 393, 10, Element.ALIGN_LEFT);
+            titulo = new Phrase("  HOME INSTITUTION INFORMATION  ", fontPequena);
+            ct.setSimpleColumn(titulo, 75, 383, 500, 393, 10, Element.ALIGN_LEFT);
             ct.go();
             
             //País de Origen
@@ -1396,7 +1393,7 @@ public class GeneradorPlanillas {
             document.newPage();
 
             //Estampado de numero de planilla, fecha y hora de creacion
-            campo = new Phrase("Solicitud Nro:"+ n + "      ||  Fecha Creación:  "  + creacion, fontCampo);
+            campo = new Phrase("Fecha Creación:  "  + creacion, fontCampo);
             ct.setSimpleColumn(campo, 200, 20, 580, 30, 10, Element.ALIGN_RIGHT);
             ct.go();
 
@@ -1740,7 +1737,7 @@ public class GeneradorPlanillas {
             //Nombre Contacto
             campo = new Phrase("  - Nombre Contacto:  " , fontCampo2);
             ct.setSimpleColumn(campo, 70, 180, 300, 190, 10, Element.ALIGN_LEFT);
-            campo = new Phrase(p.getNombresRep() + " "+ p.getApellidosRep(), fontCampo2);
+            campo = new Phrase(p.getNombresRep() + " "+ p.getApellidosRep(), fontCampo);
             ct.setSimpleColumn(campo, 70, 180, 300, 190, 10, Element.ALIGN_LEFT);
             ct.go();
             campo = new Phrase("Contact Name" , fontPequena);
@@ -1808,7 +1805,7 @@ public class GeneradorPlanillas {
             document.newPage();
 
             //Estampado de numero de planilla, fecha y hora de creacion
-            campo = new Phrase("Solicitud Nro:"+ n + "      ||  Fecha Creacion:  "  + creacion, fontCampo);
+            campo = new Phrase("Fecha Creacion:  "  + creacion, fontCampo);
             ct.setSimpleColumn(campo, 200, 20, 580, 30, 10, Element.ALIGN_RIGHT);
             ct.go();
 			

@@ -315,13 +315,11 @@ public class VerificarPlanillaUSB extends org.apache.struts.action.Action {
         } else {
 
             GeneradorPlanillas g = new GeneradorPlanillas();
-            //boolean ha = g.generarPlanillaUSB(p, filePath);
-            System.out.println("Antes de generar");
-            boolean ha = g.generarPlanillaUSB(p, filePath, materias, idiomas, path);
-            System.out.println("Despues de generar");
+            boolean ha = g.generarPlanillaUSB(p, filePath, materias, idiomas,path);
             if (p == null || !ha || !DBMS.getInstance().InsertarPath(filePath, u)) {
                 return mapping.findForward(ERROR);
             }
+            
             Usuario obj = (Usuario) session.getAttribute("Usuario");
             boolean boo = DBMS.getInstance().registrar(obj.getNombreusuario(), "Revision de planilla del estudiante nacional");
             response.setContentType("application/octet-stream");
