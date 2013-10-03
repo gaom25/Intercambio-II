@@ -159,12 +159,12 @@ public class FileUploadAction extends Action {
                 }
 
                 // si existe el archivo lo sobreescribe
-                if (newFile.exists()) {
-                    FileOutputStream fos = new FileOutputStream(newFile);
-                    fos.write(file.getFileData());
-                    fos.flush();
-                    fos.close();
-                }
+
+                FileOutputStream fos = new FileOutputStream(newFile);
+                fos.write(file.getFileData());
+                fos.flush();
+                fos.close();
+
 
                 String accion = "Adjuntó archivos a su solicitud";
                 boolean boo = DBMS.getInstance().registrar(u2.getNombreusuario(), accion);

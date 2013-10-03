@@ -16,25 +16,6 @@
     <script  src="/Intercambio/css/jquery.tablePagination.0.5.js"></script>
     <title>Redactar mensaje</title>
     <script language="JavaScript">
-        function Revizar(){
-            var table = document.getElementById('alternatecolor');
-            var checkboxes = table.getElementsByTagName('input');
-            var checks = 0;
-
-            for (i = 0; i < checkboxes.length; i++) {
-                if (checkboxes[i].checked == true)
-                {
-                    checks++
-                }
-            }
-            if(checks ==0 ){
-                alert("Debe Seleccionar almenos un destinatario");
-                document.forms[0].focus();
-                document.forms[0].select();
-                return false;
-            }
-            
-        }
         function Seleccionar() {
             var table = document.getElementById('alternatecolor');
             var checkboxes = table.getElementsByTagName('input');
@@ -82,7 +63,7 @@
     </html:form>
 
 <div>
-    <html:form action="/RedactarMensaje" method="POST" acceptCharset="ISO-8859-1" enctype="multipart/form-data" onsubmit="Revizar()">
+    <html:form action="/RedactarMensaje" method="POST" acceptCharset="ISO-8859-1" enctype="multipart/form-data">
         <table style=" margin-left: 4.8em;alignment-baseline: central; border:none; vertical-align: middle;width: 80%; background: #dcebe8; border: 2px solid; border-color: #96d1f8;border-radius: 5px;">
             <tr>
                 <td></td>
@@ -139,9 +120,7 @@
                 <logic:iterate name="usuarios" id="usuarios">
                     <tr>
                         <td align="center" width="150px">
-                            <html:text property="backup" >
-                                
-                            </html:text>
+                            <input type="hidden" type="text" name="backup" value="<bean:write name="usuarios" property="nombreusuario" />" />
                                        <bean:write name="usuarios" property="nombre" />
                             </td>
                             <td align="center" width="220px">

@@ -74,6 +74,7 @@ public class CargarLlenarPlanillaUSB extends org.apache.struts.action.Action {
                 sup.add(a);
 
             }
+            System.out.println(idio.getListIdio().size() +" "+idio.getListVerb().size()+" "+idio.getListEscr().size()+""+idio.getListConversacional().size()+"  "+idio.getListAuditivo().size());
             for(int i =0;i<idio.getListIdio().size();i++){
                 SuperArray a = new SuperArray();
                 a.setCamp1((String)idio.getListIdio().get(i));

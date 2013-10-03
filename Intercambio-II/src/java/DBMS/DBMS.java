@@ -2363,7 +2363,7 @@ public class DBMS {
         String sql = "SELECT * FROM \"dycicle\".LogAuditoria ORDER BY fecha DESC";
         ArrayList<Usuario> users = new ArrayList();
         try {
-            Statement stmt = conexion.createStatement();
+            Statement stmt = conexion.createStatement();    
             ResultSet set = stmt.executeQuery(sql);
 
             while (set.next()) {

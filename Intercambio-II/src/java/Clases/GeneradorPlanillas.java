@@ -44,6 +44,7 @@ public class GeneradorPlanillas {
     public Boolean generarPlanillaUSB(PlanillaUSB p, String path, PlanDeEstudio plan, Idiomas idim,String filepath) throws BadElementException, DocumentException {
         Document document = new Document(PageSize.LETTER); // Pdf de tamano carta
         DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+        System.out.println("Empeze a generar");
 
         try {
             int n = 1;
@@ -1920,6 +1921,8 @@ public class GeneradorPlanillas {
         document.close();
 
         } catch (Exception ex) {
+            System.out.println("LLego al error");
+            ex.printStackTrace();
             Logger.getLogger(GeneradorPlanillas.class.getName()).log(Level.SEVERE, null, ex);
             return false;
         }

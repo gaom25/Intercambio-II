@@ -65,13 +65,13 @@ public class VerificarPlanillaUSB extends org.apache.struts.action.Action {
                 getServlet().getServletContext().getRealPath("/") + "Documentos/" + nom;
         String path =
                 getServlet().getServletContext().getRealPath("/") + "images/";
-        
-        
-        folder = new File(getServlet().getServletContext().getRealPath("/")+"Documentos/");
+
+
+        folder = new File(getServlet().getServletContext().getRealPath("/") + "Documentos/");
         if (!folder.exists()) {
             folder.mkdir();
         }
-        
+
         folder = new File(filePath);
         if (!folder.exists()) {
             folder.mkdir();
@@ -316,36 +316,38 @@ public class VerificarPlanillaUSB extends org.apache.struts.action.Action {
 
             GeneradorPlanillas g = new GeneradorPlanillas();
             //boolean ha = g.generarPlanillaUSB(p, filePath);
-            boolean ha = g.generarPlanillaUSB(p, filePath, materias, idiomas,path);
+            System.out.println("Antes de generar");
+            boolean ha = g.generarPlanillaUSB(p, filePath, materias, idiomas, path);
+            System.out.println("Despues de generar");
             if (p == null || !ha || !DBMS.getInstance().InsertarPath(filePath, u)) {
                 return mapping.findForward(ERROR);
             }
             Usuario obj = (Usuario) session.getAttribute("Usuario");
             boolean boo = DBMS.getInstance().registrar(obj.getNombreusuario(), "Revision de planilla del estudiante nacional");
             response.setContentType("application/octet-stream");
-                response.setHeader("Content-Disposition", "attachment;filename=Planilla.pdf");
+            response.setHeader("Content-Disposition", "attachment;filename=Planilla.pdf");
             String OUTPUTFILE = filePath + "/PlanillaIntercambio_USB.pdf";
-                
-                try {
-                    //Get it from file system
-                    FileInputStream in =
-                            new FileInputStream(new File(OUTPUTFILE));
-                    
-                    ServletOutputStream out = response.getOutputStream();
-                    
-                    byte[] outputByte = new byte[4096];
-                    //copy binary content to output stream
-                    while (in.read(outputByte, 0, 4096) != -1) {
-                        out.write(outputByte, 0, 4096);
-                    }
-                    in.close();
-                    out.flush();
-                    out.close();
-                    
-                } catch (Exception e) {
-                    e.printStackTrace();
+
+            try {
+                //Get it from file system
+                FileInputStream in =
+                        new FileInputStream(new File(OUTPUTFILE));
+
+                ServletOutputStream out = response.getOutputStream();
+
+                byte[] outputByte = new byte[4096];
+                //copy binary content to output stream
+                while (in.read(outputByte, 0, 4096) != -1) {
+                    out.write(outputByte, 0, 4096);
                 }
-            
+                in.close();
+                out.flush();
+                out.close();
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
             return mapping.findForward(SUCCESS);
 
         }

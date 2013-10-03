@@ -74,7 +74,7 @@ public class RedactarMensaje extends org.apache.struts.action.Action {
         }
 
         if (huboerror) {
-            ArrayList<Usuario> users = DBMS.getInstance().listarUsuarios();
+            ArrayList<Usuario> users = DBMS.getInstance().listarDestinatarios(a.getBackup());
             request.setAttribute("usuarios", users);
             return mapping.findForward("error");
         }
