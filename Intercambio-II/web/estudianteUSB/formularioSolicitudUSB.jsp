@@ -54,9 +54,16 @@
             })
             var va=0;
             if(lo/1024 >= 1024){
-                va = (lo/1048576).toFixed(2)+" Mb"
+                va = (lo/1048576).toFixed(2);
+                if(va >= 3){
+                    $("#parra").css("color", "red");                    
+                }else{
+                    $("#parra").css("color", "#555");                    
+                }
+                va = va +" Mb";
             }else{
-                va = (lo/1024).toFixed(2) +" Kb"
+                va = (lo/1024).toFixed(2) +" Kb";
+                $("#parra").css("color", "#555");                    
             }
             
             $("#parra").text("El tamaño de la carga es de:"+va+"");

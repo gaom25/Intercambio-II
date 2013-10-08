@@ -81,7 +81,7 @@ public class FileUploadAction extends Action {
         }
         /*si la carga es mayor de 5000000 de bytes que es 5Mbytes no se cargan
          los archivos o los archivos no son pdf o png o jpg*/
-        if (cant > 50000000 || error) {
+        if (cant > 3145728 || error) {
             String noti = "";
             if (error) {
                 noti = noti + "Los archivos deben ser de extension PDF, JPG o PNG\n";

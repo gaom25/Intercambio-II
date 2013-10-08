@@ -24,7 +24,7 @@ ddmenu.init({
 	animatedefault: false, 
 	persiststate: true, 
 	toggleclass: ["", ""], 
-	togglehtml: ["suffix", "<img src='/Intercambio/images/plus.png' class='statusicon' />", "<img src='/Intercambio/images/minus.png' class='statusicon' />"],
+	togglehtml: ["suffix", "", ""],
 	animatespeed: "normal" 
 })
 

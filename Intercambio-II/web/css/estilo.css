@@ -90,7 +90,7 @@ a {
 }
 
 a:hover {
-    color: #198a15;
+    
     text-decoration: underline;
     font-family: sans-serif;
 }
@@ -296,22 +296,20 @@ table.altrowstable td {
     margin: 0 auto;
     padding: 0;
     width: 170px;
-    border: solid;
+/*    border: solid;*/
 }
 
 a.menuitem{
-    background-color: #369;
-    color: white;
+    color :#369;
     display: block;
     position: relative; 
     width: auto;
     padding: 4px 0;
-    padding-left: 10px;
+    padding-right: 10px;
     font-family: sans-serif;
     font-weight: bold;
     border-bottom-color: black;
     border-collapse:collapse;
-    border-bottom-style: solid;
     border-bottom-width: 1px;
 }
 
@@ -322,12 +320,9 @@ a.menuitem{
     border: none;
 }
 
-a.menuitem:hover{
-    background-color:midnightblue;
-}
-
 .glossymenu div.submenu{ 
     background: white;
+    padding-left: 10px;
 }
 
 .glossymenu div.submenu ul{
@@ -336,23 +331,16 @@ a.menuitem:hover{
     padding: 0;
 }
 
-.glossymenu div.submenu ul li{
-    border-bottom: 1px solid black;
-}
-
 .glossymenu submenu{
     display: block;
     color: #369;
     text-decoration: none;
-    padding: 2px 2px;
     padding-left: 10px;
     font-family: sans-serif;
     font-style: normal;
     font-weight: normal;
     font-variant: normal;
     width: auto;
-    padding: 4px 0;
-    padding-left: 10px
 }
 
 /*Botones siguientes y anterior en formulario*/
