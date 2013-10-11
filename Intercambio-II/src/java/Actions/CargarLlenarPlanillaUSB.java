@@ -47,23 +47,23 @@ public class CargarLlenarPlanillaUSB extends org.apache.struts.action.Action {
         HttpSession session = request.getSession(true);
 
         Usuario u = new Usuario();
-        if(p.getNombreUsuario() == null){
+        if (p.getNombreUsuario() == null) {
             u.setNombreusuario(session.getAttribute("nombreusuario").toString());
-        }else{
-        u.setNombreusuario(p.getNombreUsuario());
+        } else {
+            u.setNombreusuario(p.getNombreUsuario());
         }
         u.setConfirmar("2013-2014");
 
         Clases.PlanillaUSB hay = DBMS.getInstance().obtenerPlanillaUSB(u);
+        ArrayList<SuperArray> arra = new ArrayList();
+        ArrayList<SuperArray> sup = new ArrayList();
 
         if (hay.getNombreUsuario() != null) {
             //Para cargar los idiomas y el plan de estudio ya que ya esta en la db
             p = DBMS.getInstance().obtenerPlanillaUSB(u);
             PlanDeEstudio plan = DBMS.getInstance().obtenerPlanDeEstudio(u);
             Idiomas idio = DBMS.getInstance().obtenerIdiomas(u);
-            ArrayList <SuperArray> arra = new ArrayList();
-            ArrayList<SuperArray> sup = new ArrayList();
-            for(int i=0;i<plan.getListCodigoUSB().size();i++){
+            for (int i = 0; i < plan.getListCodigoUSB().size(); i++) {
                 SuperArray a = new SuperArray();
                 a.setCamp1(plan.getCodigoUSB(i));
                 a.setCamp2(plan.getMateriaUSB(i));
@@ -74,14 +74,13 @@ public class CargarLlenarPlanillaUSB extends org.apache.struts.action.Action {
                 sup.add(a);
 
             }
-            System.out.println(idio.getListIdio().size() +" "+idio.getListVerb().size()+" "+idio.getListEscr().size()+""+idio.getListConversacional().size()+"  "+idio.getListAuditivo().size());
-            for(int i =0;i<idio.getListIdio().size();i++){
+            for (int i = 0; i < idio.getListIdio().size(); i++) {
                 SuperArray a = new SuperArray();
-                a.setCamp1((String)idio.getListIdio().get(i));
-                a.setCamp2((String)idio.getListVerb().get(i));
-                a.setCamp3((String)idio.getListEscr().get(i));
-                a.setCamp4((String)idio.getListConversacional().get(i));
-                a.setCamp5((String)idio.getListAuditivo().get(i));
+                a.setCamp1((String) idio.getListIdio().get(i));
+                a.setCamp2((String) idio.getListVerb().get(i));
+                a.setCamp3((String) idio.getListEscr().get(i));
+                a.setCamp4((String) idio.getListConversacional().get(i));
+                a.setCamp5((String) idio.getListAuditivo().get(i));
                 arra.add(a);
             }
             u.setNombre("");
@@ -89,9 +88,12 @@ public class CargarLlenarPlanillaUSB extends org.apache.struts.action.Action {
             request.setAttribute("Usuario", u);
             request.setAttribute("plan", sup);
             request.setAttribute("lang", arra);
-           return mapping.findForward(MODIFICAR);
-       }
+            return mapping.findForward(MODIFICAR);
+        }
+
         u.setNombre("");
+        request.setAttribute("plan", sup);
+        request.setAttribute("lang", arra);
         request.setAttribute("Usuario", u);
         return mapping.findForward(SUCCESS);
     }
