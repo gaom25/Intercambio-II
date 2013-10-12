@@ -68,13 +68,13 @@ public class ModificarPerfil extends org.apache.struts.action.Action {
         boolean huboError = false;
         //campos para evitar el error
 
-        if (u.getConfirmar() == null) {
-            u.setConfirmar("");
+        if (u.getConfirmar2() == null) {
+            u.setConfirmar2("");
         }
         if (u.getNuevacontra() == null) {
             u.setNuevacontra("");
         }
-        String confPswd = u.getConfirmar();
+        String confPswd = u.getConfirmar2();
         String mail = u.getEmail();
         String nuev = u.getNuevacontra();
 
@@ -84,8 +84,7 @@ public class ModificarPerfil extends org.apache.struts.action.Action {
             saveErrors(request, error);
             huboError = true;
         }
-        if (!u.getConfirmar().equals("") || !u.getNuevacontra().equals("")
-                || !u.getContrasena().equals("")) {
+        if (!u.getConfirmar2().equals("") || !u.getNuevacontra().equals("")) {
             if (u.getContrasena().equals("")) {
                 error.add("contrasena", new ActionMessage("error.contrasena.required"));
                 saveErrors(request, error);
@@ -115,12 +114,12 @@ public class ModificarPerfil extends org.apache.struts.action.Action {
 
             //Verificar que el campo confirmar del usuario no sea vacio/.
 
-            if (u.getConfirmar().equals("")) {
-                error.add("confirmar", new ActionMessage("error.confirmar.required"));
+            if (u.getConfirmar2().equals("")) {
+                error.add("confirmar2", new ActionMessage("error.confirmar.required"));
                 saveErrors(request, error);
                 huboError = true;
             } else if (confPswd.length() < 6) {
-                error.add("confirmar", new ActionMessage("error.contrasena.corta"));
+                error.add("confirmar2", new ActionMessage("error.contrasena.corta"));
                 saveErrors(request, error);
                 huboError = true;
             }

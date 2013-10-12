@@ -15,6 +15,7 @@ public class Usuario extends org.apache.struts.validator.ValidatorForm {
     private String contrasena;
     private String nuevacontra;
     private String confirmar;
+    private String confirmar2;
     private String nombre;
     private String email;
     private Integer privilegio;
@@ -29,25 +30,7 @@ public class Usuario extends org.apache.struts.validator.ValidatorForm {
     public String toString() {
         return "Usuario{" + "nombreusuario=" + nombreusuario + ", contrasena=" + contrasena + ", confirmar=" + confirmar + ", nombre=" + nombre + ", email=" + email + ", privilegio=" + privilegio + '}';
     }
-    
-  /*  @Override
-     public ActionErrors validate(ActionMapping mapping, HttpServletRequest request) {
 
-        ActionErrors errors = new ActionErrors();
-
-        if (getNombreusuario() == null) {
-            errors.add("nombreusuario", new ActionMessage("error.nombreusuario.required"));
-        }
-        if(getContrasena() == null) {
-            errors.add("contrasena", new ActionMessage("error.contrasena.required"));
-        }
-        if (getEmail() == null) {
-            errors.add("email", new ActionMessage("error.email.required "));
-        }
-
-        return errors;
-     }*/
-    
     public String getNombreusuario() {
         return nombreusuario;
     }
@@ -114,4 +97,13 @@ public class Usuario extends org.apache.struts.validator.ValidatorForm {
         }
         return new String(text);
     }
+
+    public String getConfirmar2() {
+        return confirmar2;
+    }
+
+    public void setConfirmar2(String confirmar2) {
+        this.confirmar2 = confirmar2;
+    }
+    
 }

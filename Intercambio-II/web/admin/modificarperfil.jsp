@@ -63,7 +63,7 @@
             <tr>
                 <td>E-mail</td>
 
-                <td class="mail"><html:text value="" name="Usuario" property="email"  errorStyleClass="error"
+                <td class="mail"><html:text name="Usuario" property="email"  errorStyleClass="error"
                            errorKey="org.apache.struts.action.ERROR"></html:text></td>
                 </tr>
                 <tr>
@@ -79,7 +79,7 @@
             </tr>
             <tr>
                 <td>Nombre completo</td>
-                <td class="nom"><html:text name="Usuario" value="" property="nombre" maxlength="100"  errorStyleClass="error"
+                <td class="nom"><html:text name="Usuario" property="nombre" maxlength="100"  errorStyleClass="error"
                            errorKey="org.apache.struts.action.ERROR"></html:text></td>
                 </tr>
                 <tr>
@@ -94,7 +94,7 @@
             </tr>
             <tr>
                 <td>Contraseña actual</td>
-                <td class="contra"><html:password name="Usuario" value="" property="contrasena" maxlength="100"  errorStyleClass="error"
+                <td class="contra"><html:password name="Usuario" property="contrasena" maxlength="100"  errorStyleClass="error"
                                errorKey="org.apache.struts.action.ERROR"></html:password></td>
                 </tr>
                 <tr>
@@ -114,12 +114,12 @@
             </tr>
             <tr>
                 <td>Confirmar nueva contraseña</td>
-                <td class="contra"><html:password name="Usuario" value="" property="confirmar" maxlength="100"  errorStyleClass="error"
+                <td class="contra"><html:password name="Usuario" value="" property="confirmar2" maxlength="100"  errorStyleClass="error"
                                errorKey="org.apache.struts.action.ERROR"></html:password></td>
                 </tr>
                 <tr>
                     <td style="width: 100px;color:firebrick" colspan="2">
-                    <html:errors property="confirmar" />
+                    <html:errors property="confirmar2" />
                 </td>
             </tr>
         </tbody>
